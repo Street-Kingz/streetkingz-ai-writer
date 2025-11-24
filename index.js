@@ -22,43 +22,41 @@ app.get("/", (req, res) => {
 
 // Helper: build the prompt we send to OpenAI
 function buildPrompt({ topic, primary_keyword, target_word_count }) {
-  const safeWordCount = target_word_count || 1800;
+  const safeWordCount = target_word_count || 1900;
 
   return `
 You are an SEO content writer for a UK car care brand called Street Kingz.
 
-Write a long-form blog article about the topic: "${topic}"
+Brand + audience:
+- Street Kingz is a UK-based car care brand for people who genuinely enjoy cleaning their cars on a Sunday.
+- Audience: normal enthusiasts, not pros. They care about how their car looks, but they don't want jargon or hype.
+- Tone: direct, confident, conversational, no cringe sales talk, UK spelling (colour, tyre, litre etc.).
+- Avoid over-the-top phrases like "beloved car", "pristine finish", "transform your vehicle". Keep it grounded and real.
+
+Write a long-form blog article about:
+Topic: "${topic}"
 Primary keyword: "${primary_keyword}"
-Target word count: ~${safeWordCount} words.
+Target word count: around ${safeWordCount} words.
 
-Audience:
-- UK car owners who actually enjoy cleaning their cars on a Sunday.
-- They want clear, no-nonsense advice, not hype.
-- Tone: calm, confident, conversational, slightly informal, UK spelling.
+Article goals:
+- Answer the search intent behind the primary keyword clearly and completely.
+- Give simple, practical, real-world advice a normal UK car owner can follow.
+- Naturally weave Street Kingz products into the content without a hard sell (1–3 mentions max).
+- Use examples that sound like someone who actually washes and dries their own car.
 
-Requirements:
-- Only ONE H1 in the article (the main title).
-- Use clear H2 and H3 headings for structure.
-- No keyword stuffing. Use the primary keyword naturally in the title, intro and a few sections.
-- Never invent fake stats, data, or wild claims.
-- Include practical, real-world tips (as if you’ve actually washed and dried cars yourself).
-- Mention Street Kingz products naturally when relevant, not as a hard sell.
-
-Output format:
-Return a SINGLE JSON object ONLY (no extra text, no Markdown, no code fences).
-The JSON must have exactly these fields:
+Required JSON output (ONLY return this JSON, no extra text):
 
 {
-  "title": string,                // SEO-friendly title for the blog post
-  "slug": string,                 // URL slug based on the title, lowercase, hyphens, no special chars
-  "primary_keyword": string,      // the primary keyword
-  "meta_description": string,     // 140-160 chars, compelling, includes the keyword naturally
+  "title": string,                // SEO-friendly title (max ~70 chars), includes the primary keyword naturally if possible
+  "slug": string,                 // URL slug: lowercase, words separated by hyphens, no special characters
+  "primary_keyword": string,      // the primary keyword you used
+  "meta_description": string,     // 140-160 characters, compelling, includes the keyword naturally
   "target_word_count": number,    // the target word count you aimed for
-  "content_html": string,         // full HTML of the article, including <h1> and other headings
-  "image_placeholders": [         // exactly 3 image slots
+  "content_html": string,         // full HTML of the article
+  "image_placeholders": [
     {
       "id": "img1",
-      "position": "after_intro",  // where in the article it should roughly go
+      "position": "after_intro",
       "recommended_image_type": string,
       "recommended_alt": string,
       "recommended_caption": string
@@ -81,15 +79,49 @@ The JSON must have exactly these fields:
 }
 
 Rules for content_html:
-- Use proper HTML tags: <h1>, <h2>, <h3>, <p>, <ul>, <li>.
-- Insert image markers as HTML comments where images should go, exactly like:
+- Use proper HTML tags only: <h1>, <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>.
+- Exactly ONE <h1> and it must be the article title at the top.
+- Use clear <h2> sections to structure the article, for example (adapt names to fit the topic):
+  - <h2>Why [topic/keyword] Actually Matters</h2>
+  - <h2>What You Need Before You Start</h2>
+  - <h2>Step-by-Step: [main process]</h2>
+  - <h2>Common Mistakes to Avoid</h2>
+  - <h2>Extra Tips for Better Results</h2>
+  - <h2>Frequently Asked Questions</h2>
+  - <h2>Conclusion</h2>
+- Use <h3> only for sub-points inside a section, not randomly.
+- Paragraphs should be short and easy to scan (2–4 sentences).
+- Include at least one bullet list (<ul><li>...</li></ul>) where it helps (e.g. tools, mistakes, tips).
+- Somewhere in the article, mention Street Kingz products in a natural way, e.g. high GSM drying towels, pH safe shampoo, wheel brushes. No hype, just why they help.
+
+FAQ section:
+- Include a dedicated <h2>Frequently Asked Questions</h2> near the end.
+- Under it, add 3–5 Q&As using <h3> for the question and <p> for the answer.
+- Questions should sound like real searches, e.g. "Can I just let my car air dry?" rather than overly formal ones.
+
+Image markers:
+- In content_html, insert exactly three HTML comments to mark where images go:
   <!-- IMAGE: img1 -->
   <!-- IMAGE: img2 -->
   <!-- IMAGE: img3 -->
-- Place img1 after the intro, img2 somewhere in the middle, img3 near the conclusion.
-- Do NOT include actual <img> tags, only the comments and the text content.
+- Place:
+  - img1 after the intro section (after the first 1–2 paragraphs).
+  - img2 somewhere in the middle (e.g. in the step-by-step or tools section).
+  - img3 near the end (before or in the conclusion).
 
-Return ONLY the JSON. No explanations, no extra text before or after.
+Image placeholders array:
+- For img1, recommend a "hero" or strong visual relevant to the topic (e.g. drying towel in use on paintwork).
+- For img2, recommend a close-up process shot (e.g. safe wash technique, foam, wheel cleaning, etc. depending on topic).
+- For img3, recommend a product or kit style image (e.g. Street Kingz towel + shampoo together).
+- recommended_alt should be descriptive and include natural language, not keyword spam.
+- recommended_caption should be short and helpful, not salesy.
+
+Language + content rules:
+- Use UK spelling.
+- No fake statistics or made-up studies. If you need to refer to knowledge, keep it general ("many detailers find...").
+- Avoid generic fluff like "in today's fast-paced world". Get to the point quickly.
+- Aim for practical, step-by-step advice with concrete examples over vague statements.
+- Do NOT return Markdown or code fences. Return ONLY the JSON object.
   `.trim();
 }
 
