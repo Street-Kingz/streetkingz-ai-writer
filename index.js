@@ -234,33 +234,76 @@ app.get("/", (req, res) => {
 });
 
 // Helper: build the prompt we send to OpenAI
-function buildPrompt({ topic, primary_keyword, target_word_count }) {
-  const safeWordCount = target_word_count || 1900;
+function buildPrompt({ topic, primary_keyword }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
   return `
-You are an SEO content writer for Street Kingz.
+You are an expert UK SEO content writer for Street Kingz, a UK-based car care brand. 
+You write high-quality, helpful, practical long-form blog articles in clean HTML.
 
-These are the official Street Kingz products (use only these when referencing products):
+====================================================================
+SMART MODE RULES (MANDATORY)
+====================================================================
+
+You MUST determine the correct article length based on topic complexity:
+
+1. SHORT ARTICLE (600–1000 words)
+   Use this for simple or single-answer topics such as:
+   - "Do I need to dry my car?"
+   - "What is a drying towel?"
+   - "What do I need to wash my car?"
+
+   Short articles get:
+   - 1 inline image placeholder (img1)
+   - A brief FAQ (2–3 questions)
+
+2. MEDIUM ARTICLE (1100–1600 words)
+   Use this for moderately detailed topics such as:
+   - "How often should you wash your car?"
+   - "How to dry a car without scratching"
+
+   Medium articles get:
+   - 2 image placeholders (img1, img2)
+   - A fuller FAQ (3–4 questions)
+
+3. LONG ARTICLE (1700–2500 words)
+   Use this for broad, competitive, or multi-step guides such as:
+   - "How to wash a car safely"
+   - "How to wash a black car without scratching it"
+   - "Complete beginner’s guide to car washing"
+
+   Long articles get:
+   - 3 image placeholders (img1, img2, img3)
+   - A deep FAQ (4–6 questions)
+   - Detailed breakdowns, examples, reasons, mistakes, tips
+
+You MUST choose the correct mode yourself based ONLY on topic complexity.
+Ignore any user word count request. Smart Mode is always in control.
+
+====================================================================
+STREET KINGZ PRODUCT RULES (VERY IMPORTANT)
+====================================================================
+
+Use ONLY products from this list:
 ${productsJson}
 
-Brand + audience:
-- Street Kingz is a UK-based car care brand for people who genuinely enjoy cleaning their cars on a Sunday.
-- Audience: normal enthusiasts, not pros. They care about how their car looks, but they don't want jargon or hype.
-- Tone: direct, confident, conversational, UK spelling.
+When referencing a Street Kingz product:
+- Use the exact product name from the list.
+- On FIRST mention ONLY → wrap the name in an <a> tag using its URL.
+Example:
+<a href="https://streetkingz.co.uk/product/xl-drying-towel-800gsm/">XL DRYING TOWEL – 800GSM</a>
 
-WHEN referencing a Street Kingz product:
-- Use the EXACT name from the list.
-- ON FIRST MENTION, wrap it in <a href="URL">Name</a>.
-- Do NOT invent products.
-- Don't mention more than 3 products per article.
+After the first link, you may mention the product name without a link.
 
-Write a long-form blog article about:
-Topic: "${topic}"
-Primary keyword: "${primary_keyword}"
-Target word count: ${safeWordCount}
+Use at most 3 Street Kingz products per article.
+Choose products that genuinely fit the topic.
 
-Required JSON output:
+====================================================================
+ARTICLE OUTPUT FORMAT (RETURN JSON ONLY)
+====================================================================
+
+Return ONLY this JSON object:
+
 {
   "title": string,
   "slug": string,
@@ -268,99 +311,90 @@ Required JSON output:
   "meta_description": string,
   "target_word_count": number,
   "content_html": string,
-  "image_placeholders": [...]
-}
-
-Rules for content_html:
-- One <h1> only.
-- Use <h2> to structure sections.
-- Include <!-- IMAGE: img1 -->, <!-- IMAGE: img2 -->, <!-- IMAGE: img3 --> in correct places.
-- Use natural product mentions only when relevant.
-
-Return ONLY valid JSON.
-`.trim();
-}
-
-
-// Route: generate a real article using OpenAI
-app.post("/generate-article", async (req, res) => {
-  try {
-    const { topic, primary_keyword, target_word_count } = req.body || {};
-
-    if (!topic || !primary_keyword) {
-      return res.status(400).json({
-        error: "Missing required fields: 'topic' and 'primary_keyword'."
-      });
-    }
-
-    if (!OPENAI_API_KEY) {
-      return res.status(500).json({
-        error: "OPENAI_API_KEY is not set on the server."
-      });
-    }
-
-    const prompt = buildPrompt({ topic, primary_keyword, target_word_count });
-
-    const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENAI_API_KEY}`
+  "image_placeholders": [
+      {
+        "id": "img1",
+        "position": string,
+        "recommended_image_type": string,
+        "recommended_alt": string,
+        "recommended_caption": string
       },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        temperature: 0.7,
-        messages: [
-          {
-            role: "system",
-            content: "You are a highly skilled SEO content writer that always returns strictly valid JSON when asked."
-          },
-          {
-            role: "user",
-            content: prompt
-          }
-        ]
-      })
-    });
+      {
+        "id": "img2",
+        "position": string,
+        "recommended_image_type": string,
+        "recommended_alt": string,
+        "recommended_caption": string
+      },
+      {
+        "id": "img3",
+        "position": string,
+        "recommended_image_type": string,
+        "recommended_alt": string,
+        "recommended_caption": string
+      }
+  ]
+}
 
-    if (!openaiResponse.ok) {
-      const errorText = await openaiResponse.text();
-      console.error("OpenAI API error:", errorText);
-      return res.status(502).json({ error: "Error from OpenAI API", details: errorText });
-    }
+====================================================================
+CONTENT RULES FOR content_html
+====================================================================
 
-    const data = await openaiResponse.json();
+- ONE <h1>, must be article title.
+- Clear <h2> sections, e.g.:
+  <h2>Why This Matters</h2>
+  <h2>What You Need</h2>
+  <h2>Step-by-Step Guide</h2>
+  <h2>Common Mistakes</h2>
+  <h2>Extra Tips</h2>
+  <h2>Frequently Asked Questions</h2>
+  <h2>Conclusion</h2>
 
-    const content = data?.choices?.[0]?.message?.content;
-    if (!content) {
-      console.error("No content returned from OpenAI:", data);
-      return res.status(502).json({ error: "No content returned from OpenAI" });
-    }
+- Short paragraphs (2–4 sentences).
+- Use <h3> for FAQ questions or sub-points.
+- Expand each section deeply based on Smart Mode:
+  - Give real-world examples
+  - Give reasons "why"
+  - Add troubleshooting
+  - Add pro tips
+  - Add common mistakes
+  - Add variations when relevant
 
-    let article;
-    try {
-      article = JSON.parse(content);
-    } catch (err) {
-      console.error("Failed to parse OpenAI JSON:", err, "Raw content:", content);
-      return res.status(502).json({
-        error: "Failed to parse OpenAI JSON. Check server logs."
-      });
-    }
+====================================================================
+IMAGE PLACEHOLDER RULES
+====================================================================
 
-    if (!article.title || !article.content_html) {
-      return res.status(502).json({
-        error: "Article missing required fields from OpenAI."
-      });
-    }
+Depending on Smart Mode:
 
-    return res.json(article);
-  } catch (err) {
-    console.error("Unexpected error in /generate-article:", err);
-    return res.status(500).json({ error: "Internal server error" });
-  }
-});
+SHORT articles → include ONLY img1
+MEDIUM → include img1 + img2
+LONG → include img1 + img2 + img3
 
+Image positions:
+- img1 → after intro
+- img2 → mid-article (tools or step-by-step)
+- img3 → before conclusion
 
-app.listen(PORT, () => {
-  console.log(`Street Kingz AI writer service listening on port ${PORT}`);
-});
+In content_html, insert:
+<!-- IMAGE: imgX -->
+
+====================================================================
+SEO RULES
+====================================================================
+
+- Use UK spelling (colour, tyre, litre).
+- Answer search intent directly.
+- Avoid hype phrases (“transform your vehicle”, “revolutionary results”).
+- Do NOT use filler or fluff.
+- Do NOT fabricate stats.
+
+====================================================================
+BEGIN ARTICLE NOW
+====================================================================
+
+Topic: "${topic}"
+Primary keyword: "${primary_keyword}"
+
+Return ONLY the JSON.
+  `;
+}
