@@ -217,6 +217,61 @@ const STREET_KINGZ_PRODUCTS = [
   }
 ];
 
+// --- PRODUCT LINKING HELPER --------------------------------------
+
+// Escape for use in RegExp
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Given an article from OpenAI, enforce our product-linking rules
+function applyProductLinking(article) {
+  let html = article.content_html || "";
+  const chosen = Array.isArray(article.chosen_products)
+    ? article.chosen_products.slice(0, 3) // hard cap at 3 products
+    : [];
+
+  if (!html || !chosen.length) {
+    return article;
+  }
+
+  // Build lookup: product_name -> product object (for URL)
+  const productMap = {};
+  STREET_KINGZ_PRODUCTS.forEach(p => {
+    productMap[p.name] = p;
+  });
+
+  // 1) Strip any existing <a> tags around our product names so WE control linking
+  STREET_KINGZ_PRODUCTS.forEach(p => {
+    const safeName = escapeRegex(p.name);
+
+    // <a ...>Product Name</a> → Product Name
+    const anchorRegex = new RegExp(`<a[^>]*>${safeName}<\\/a>`, "g");
+    html = html.replace(anchorRegex, p.name);
+  });
+
+  // 2) Reinstate links for the chosen products – first occurrence only
+  chosen.forEach(slot => {
+    const name = slot.product_name;
+    const product = productMap[name];
+    if (!product || !product.url) return;
+
+    const safeName = escapeRegex(name);
+    const firstOccurrence = new RegExp(safeName); // no "g" → first only
+
+    html = html.replace(
+      firstOccurrence,
+      `<a href="${product.url}">${name}</a>`
+    );
+  });
+
+  return {
+    ...article,
+    content_html: html,
+    chosen_products: chosen
+  };
+}
+
 // Read the OpenAI API key from environment variables
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
@@ -232,52 +287,7 @@ app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Street Kingz AI writer service running" });
 });
 
-// --- Helper: escape regex special chars ---
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-// --- Helper: inject real products into placeholders ---
-function injectProductsIntoArticle(article) {
-  if (!article || !article.content_html) return article;
-
-  let html = article.content_html;
-  const chosen = Array.isArray(article.chosen_products)
-    ? article.chosen_products.slice(0, 3)
-    : [];
-
-  chosen.forEach((entry) => {
-    const slot = entry.slot;
-    const productName = entry.product_name;
-
-    if (!slot || !productName) return;
-    if (!["PRODUCT_1", "PRODUCT_2", "PRODUCT_3"].includes(slot)) return;
-
-    const product = STREET_KINGZ_PRODUCTS.find(
-      (p) => p.name === productName
-    );
-    if (!product || !product.url) return;
-
-    const placeholder = `[${slot}]`;
-    if (!html.includes(placeholder)) return;
-
-    let first = true;
-    const pattern = new RegExp(escapeRegExp(placeholder), "g");
-
-    html = html.replace(pattern, () => {
-      if (first) {
-        first = false;
-        return `<a href="${product.url}">${product.name}</a>`;
-      }
-      return product.name;
-    });
-  });
-
-  article.content_html = html;
-  return article;
-}
-
-// Helper: build the prompt we send to OpenAI (SMART MODE + PLACEHOLDERS)
+// Helper: build the prompt we send to OpenAI (SMART MODE)
 function buildPrompt({ topic, primary_keyword }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
@@ -343,47 +353,29 @@ To avoid AI-patterned writing and make articles feel authentically human:
 These realism elements MUST be integrated naturally.
 
 ====================================================================
-STREET KINGZ PRODUCT RULES (PLACEHOLDER MODE)
+STREET KINGZ PRODUCT RULES (VERY IMPORTANT)
 ====================================================================
 
-You are given the full product list:
+You have access to this product catalogue (JSON):
 
 ${productsJson}
 
-You MUST NOT output any product URLs or <a> tags in content_html.
-You MUST NOT output raw product names directly in content_html when referring to a specific Street Kingz product.
+You MUST:
 
-Instead, you MUST:
+1) Choose up to THREE products that genuinely fit the topic.
+2) Return them inside a "chosen_products" array in the JSON response, like:
 
-1. Choose up to 3 relevant Street Kingz products for this topic.
-2. List them in the "chosen_products" array in the JSON as:
+"chosen_products": [
+  { "slot": "PRODUCT_1", "product_name": "<EXACT NAME FROM CATALOGUE>" },
+  { "slot": "PRODUCT_2", "product_name": "<EXACT NAME FROM CATALOGUE>" }
+]
 
-   "chosen_products": [
-     { "slot": "PRODUCT_1", "product_name": "<EXACT NAME FROM LIST>" },
-     { "slot": "PRODUCT_2", "product_name": "<EXACT NAME FROM LIST>" },
-     { "slot": "PRODUCT_3", "product_name": "<EXACT NAME FROM LIST>" }
-   ]
+3) In content_html:
+   - You may mention these products by name, but you MUST NOT include <a> tags or URLs.
+   - The server will inject the links based on chosen_products.
+   - So: write "XL DRYING TOWEL – 800GSM", NOT <a href="...">XL DRYING TOWEL – 800GSM</a>.
 
-   Rules:
-   - Use only slots "PRODUCT_1", "PRODUCT_2", "PRODUCT_3".
-   - Use MAX 3 products. You may use fewer (0–3).
-   - product_name MUST exactly match one of the "name" values from the list above.
-
-3. In content_html, when you want to mention a chosen product, you MUST use the placeholder token instead of the real name:
-
-   - For slot "PRODUCT_1" use: [PRODUCT_1]
-   - For slot "PRODUCT_2" use: [PRODUCT_2]
-   - For slot "PRODUCT_3" use: [PRODUCT_3]
-
-   Example:
-   - Instead of writing "XL DRYING TOWEL – 800GSM", you would write something like:
-     "Use [PRODUCT_1] as your main drying towel."
-
-The server will later replace [PRODUCT_1], [PRODUCT_2], [PRODUCT_3] with the correct
-<a href="...">Product Name</a> on first mention, and plain Product Name on later mentions.
-
-You MAY still talk generally about "a drying towel", "a pH safe shampoo", "a wheel brush", etc.,
-but specific Street Kingz products MUST use the placeholders.
+If you mention any Street Kingz product, its name MUST exactly match one in the catalogue.
 
 ====================================================================
 ARTICLE OUTPUT FORMAT (RETURN JSON ONLY)
@@ -399,9 +391,9 @@ Return ONLY this JSON object:
   "target_word_count": number,
   "content_html": string,
   "image_placeholders": [
-      { "id": "img1", "position": string, "recommended_image_type": string, "recommended_alt": string, "recommended_caption": string },
-      { "id": "img2", "position": string, "recommended_image_type": string, "recommended_alt": string, "recommended_caption": string },
-      { "id": "img3", "position": string, "recommended_image_type": string, "recommended_alt": string, "recommended_caption": string }
+      { "id": "img1", ... },
+      { "id": "img2", ... },
+      { "id": "img3", ... }
   ],
   "chosen_products": [
       { "slot": "PRODUCT_1", "product_name": string },
@@ -409,8 +401,6 @@ Return ONLY this JSON object:
       { "slot": "PRODUCT_3", "product_name": string }
   ]
 }
-
-You may omit entries in chosen_products if you select fewer than 3 products.
 
 ====================================================================
 CONTENT RULES FOR content_html
@@ -431,7 +421,6 @@ CONTENT RULES FOR content_html
 - <h3> only for FAQs or small subpoints
 - Include opinionated lines + real-world examples
 - No hype, no fluff, UK spelling only
-- Do NOT include any <a> tags yourself. The server will add links later.
 
 ====================================================================
 FAQ RULES BY MODE
@@ -464,13 +453,6 @@ Rules:
 - 1–2 sentences max.
 - Should reference Ben or "founder of Street Kingz".
 - No links.
-
-Example tone (do NOT reuse exactly):
-- "Written by Ben — founder of Street Kingz and a proper Sunday driveway detailer."
-- "Article by Ben | Street Kingz — keeping detailing simple, real, and no-nonsense."
-- "Ben here from Street Kingz — sharing what actually works after years of trial and error."
-
-This sign-off MUST appear below the conclusion and be the final HTML in content_html.
 
 ====================================================================
 IMAGE PLACEHOLDER RULES
@@ -512,7 +494,7 @@ Return ONLY the JSON.
 // Route: generate a real article using OpenAI
 app.post("/generate-article", async (req, res) => {
   try {
-    const { topic, primary_keyword, target_word_count } = req.body || {};
+    const { topic, primary_keyword } = req.body || {};
 
     if (!topic || !primary_keyword) {
       return res.status(400).json({
@@ -526,7 +508,7 @@ app.post("/generate-article", async (req, res) => {
       });
     }
 
-    const prompt = buildPrompt({ topic, primary_keyword, target_word_count });
+    const prompt = buildPrompt({ topic, primary_keyword });
 
     const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -580,10 +562,10 @@ app.post("/generate-article", async (req, res) => {
       });
     }
 
-    // Hard-enforce product/link rules via post-processing
-    const finalArticle = injectProductsIntoArticle(article);
+    // Enforce linking rules server-side
+    article = applyProductLinking(article);
 
-    return res.json(finalArticle);
+    return res.json(article);
   } catch (err) {
     console.error("Unexpected error in /generate-article:", err);
     return res.status(500).json({ error: "Internal server error" });
