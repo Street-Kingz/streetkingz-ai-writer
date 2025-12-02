@@ -63,7 +63,7 @@ const STREET_KINGZ_PRODUCTS = [
     name: "Wheel Belt Flosser",
     type: "wheel cleaning tool",
     details: "Flexible microfibre tool designed to clean between wheel spokes and behind brake calipers.",
-    ideal_use: "Cleaning awkward areas of wheels where standard brushes don’t reach.",
+    ideal_use: "Cleaning awkward areas of wheels where standard brushes do not reach.",
     url: "https://streetkingz.co.uk/product/wheel-belt-flosser/"
   },
   {
@@ -255,7 +255,7 @@ You MUST choose a mode using these rules:
 - LONG MODE (1700–2500 words) if the topic is a broad or "pillar" style query, for example:
   - any topic starting with "how to wash a car"
   - any topic containing "complete guide", "beginner’s guide", or "step by step guide"
-  - any topic that clearly covers a full routine (for example wash + dry, full wash process, or complete interior deep clean)
+  - any topic that clearly covers a full routine (for example wash and dry, full wash process, or complete interior deep clean)
 
 - MEDIUM MODE (1100–1600 words) for focused "how to" topics that cover one main process,
   such as "how to dry a car safely", "how to clean car glass", or "how to deep clean seats".
@@ -271,7 +271,7 @@ For the mode you choose, you MUST:
 - If the topic clearly matches a pillar style query such as "how to wash a car" or includes
   phrases like "complete guide", "beginner’s guide", or "step by step guide", you MUST pick LONG MODE.
 
-Ignore any user word count request — Smart Mode ALWAYS decides.
+Ignore any user word count request. Smart Mode ALWAYS decides.
 
 ====================================================================
 REALISM + ANTI-AI-DETECTION RULES (MANDATORY)
@@ -337,7 +337,7 @@ CONTENT RULES FOR content_html
 
 - ONE <h1>
 - Use <h2> sections (names MUST vary from article to article)
-- Suggestive structure (you may rename these):
+- Suggested structure (you may rename these):
   - Why This Matters / Why It Is Important
   - What You Need / Tools And Products
   - Step-by-Step Guide / How To Do It Properly
@@ -383,11 +383,6 @@ Rules:
 - Should reference Ben or "founder of Street Kingz".
 - No links.
 
-Example tone (do NOT reuse exactly):
-- "Written by Ben, founder of Street Kingz and a proper Sunday driveway detailer."
-- "Article by Ben at Street Kingz, keeping detailing simple, real and no-nonsense."
-- "Ben here from Street Kingz, sharing what actually works after years of trial and error."
-
 This sign-off MUST appear below the conclusion and be the final HTML in content_html.
 
 ====================================================================
@@ -410,11 +405,11 @@ In content_html, insert:
 SEO RULES
 ====================================================================
 
-- Answer search intent fully
-- Be practical, helpful and experience-based
-- No fake facts or stats
-- No American spellings
-- No filler
+- Answer search intent fully.
+- Be practical, helpful and experience-based.
+- No fake facts or stats.
+- No American spellings.
+- No filler.
 
 ====================================================================
 PUNCTUATION AND STYLE SAFETY (MANDATORY)
@@ -444,29 +439,52 @@ Examples:
 PHRASE AND CLICHÉ BLACKLIST (MANDATORY)
 ====================================================================
 
-You MUST NOT use any of the following phrases or close variations of them:
+You MUST NOT use any of the following phrases or close variations of them
+ANYWHERE in the article (title or body):
 
 - "showroom shine"
 - "mirror-like finish"
 - "pristine finish"
-- "ultimate guide" in the body copy (it may appear in the title only if it sounds natural)
+- "spotless finish"
+- "ultimate guide"
+- "complete guide"
 - "in this guide we will"
 - "in this guide, we will"
 - "in this article we will"
+- "in this guide"
+- "in this article"
+- "we will cover" when referring to the contents of the article
 - "revolutionise your"
 - "take it to the next level"
 - "unleash the power"
 - "game changer" or "game-changing"
 - "effortless shine"
 
-If you accidentally produce something similar, rewrite it into plain, direct language.
+If you accidentally produce something similar, you MUST rewrite it in plain, direct language.
 
 Examples of acceptable rewrites:
 - "showroom shine" → "a clean, sharp looking car"
-- "mirror-like finish" → "paint that looks clean and clear"
-- "ultimate guide" → "detailed guide" or "full guide"
+- "spotless finish" → "a clean finish with no obvious marks"
+- "ultimate guide" or "complete guide" → "detailed guide" or "full guide"
+- "in this guide we will cover how to dry a car" → "Here is how to dry a car properly"
 
-Stick to simple, grounded wording that sounds like a normal UK car enthusiast speaking, not marketing copy.
+====================================================================
+FINAL SELF-CHECK (MANDATORY)
+====================================================================
+
+Before you return the JSON, you MUST:
+
+1. Read back through the full content_html you have written.
+2. If you find:
+   - any em dash character,
+   - any double hyphen,
+   - any of the blacklisted phrases above (or a very close variation),
+   you MUST rewrite that sentence or heading so the forbidden item is removed.
+3. Only when you are sure that:
+   - there are NO em dashes,
+   - NO double hyphens,
+   - and NONE of the blacklisted phrases remain,
+   can you return the JSON response.
 
 ====================================================================
 BEGIN ARTICLE NOW
