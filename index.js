@@ -217,61 +217,6 @@ const STREET_KINGZ_PRODUCTS = [
   }
 ];
 
-// --- PRODUCT LINKING HELPER --------------------------------------
-
-// Escape for use in RegExp
-function escapeRegex(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-// Given an article from OpenAI, enforce our product-linking rules
-function applyProductLinking(article) {
-  let html = article.content_html || "";
-  const chosen = Array.isArray(article.chosen_products)
-    ? article.chosen_products.slice(0, 3) // hard cap at 3 products
-    : [];
-
-  if (!html || !chosen.length) {
-    return article;
-  }
-
-  // Build lookup: product_name -> product object (for URL)
-  const productMap = {};
-  STREET_KINGZ_PRODUCTS.forEach(p => {
-    productMap[p.name] = p;
-  });
-
-  // 1) Strip any existing <a> tags around our product names so WE control linking
-  STREET_KINGZ_PRODUCTS.forEach(p => {
-    const safeName = escapeRegex(p.name);
-
-    // <a ...>Product Name</a> → Product Name
-    const anchorRegex = new RegExp(`<a[^>]*>${safeName}<\\/a>`, "g");
-    html = html.replace(anchorRegex, p.name);
-  });
-
-  // 2) Reinstate links for the chosen products – first occurrence only
-  chosen.forEach(slot => {
-    const name = slot.product_name;
-    const product = productMap[name];
-    if (!product || !product.url) return;
-
-    const safeName = escapeRegex(name);
-    const firstOccurrence = new RegExp(safeName); // no "g" → first only
-
-    html = html.replace(
-      firstOccurrence,
-      `<a href="${product.url}">${name}</a>`
-    );
-  });
-
-  return {
-    ...article,
-    content_html: html,
-    chosen_products: chosen
-  };
-}
-
 // Read the OpenAI API key from environment variables
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
@@ -336,19 +281,19 @@ To avoid AI-patterned writing and make articles feel authentically human:
 
 1. No two Street Kingz articles should ever use the exact same H2 labels.
    - You MUST vary section titles each time.
-   - Use the structure, but allow flexible naming (e.g. "Why This Matters" → "Why It Actually Matters").
+   - Use the structure, but allow flexible naming (for example "Why This Matters" changed to "Why It Actually Matters").
 
 2. Include at least ONE mild, grounded opinion.
    - Examples:
      - "Most people massively overdo the shampoo and underdo the rinse."
-     - "You don’t need a fancy setup to get this right."
-     - "If you skip this step, you’ll almost always get swirl marks."
+     - "You do not need a fancy setup to get this right."
+     - "If you skip this step, you will almost always get swirl marks."
 
-3. Include at least ONE real-world 'Sunday driveway' style example.
+3. Include at least ONE real-world "Sunday driveway" style example.
    - Example tone:
-     - "If you’re washing on your driveway with only a couple hours spare..."
-     - "Most weekend warriors deal with this…"
-     - "On a typical UK rainy week…"
+     - "If you are washing on your driveway with only a couple of hours spare..."
+     - "Most weekend warriors deal with this..."
+     - "On a typical UK rainy week..."
 
 These realism elements MUST be integrated naturally.
 
@@ -356,26 +301,15 @@ These realism elements MUST be integrated naturally.
 STREET KINGZ PRODUCT RULES (VERY IMPORTANT)
 ====================================================================
 
-You have access to this product catalogue (JSON):
-
+Use ONLY products from this list:
 ${productsJson}
 
-You MUST:
-
-1) Choose up to THREE products that genuinely fit the topic.
-2) Return them inside a "chosen_products" array in the JSON response, like:
-
-"chosen_products": [
-  { "slot": "PRODUCT_1", "product_name": "<EXACT NAME FROM CATALOGUE>" },
-  { "slot": "PRODUCT_2", "product_name": "<EXACT NAME FROM CATALOGUE>" }
-]
-
-3) In content_html:
-   - You may mention these products by name, but you MUST NOT include <a> tags or URLs.
-   - The server will inject the links based on chosen_products.
-   - So: write "XL DRYING TOWEL – 800GSM", NOT <a href="...">XL DRYING TOWEL – 800GSM</a>.
-
-If you mention any Street Kingz product, its name MUST exactly match one in the catalogue.
+Rules:
+- Use exact product names.
+- FIRST mention ONLY → wrap the product name in an <a> tag with its URL.
+- After first link, use plain text name.
+- Use max 3 products per article.
+- Only reference products genuinely relevant to the topic.
 
 ====================================================================
 ARTICLE OUTPUT FORMAT (RETURN JSON ONLY)
@@ -394,11 +328,6 @@ Return ONLY this JSON object:
       { "id": "img1", ... },
       { "id": "img2", ... },
       { "id": "img3", ... }
-  ],
-  "chosen_products": [
-      { "slot": "PRODUCT_1", "product_name": string },
-      { "slot": "PRODUCT_2", "product_name": string },
-      { "slot": "PRODUCT_3", "product_name": string }
   ]
 }
 
@@ -409,17 +338,17 @@ CONTENT RULES FOR content_html
 - ONE <h1>
 - Use <h2> sections (names MUST vary from article to article)
 - Suggestive structure (you may rename these):
-  - Why This Matters / Why It’s Important
-  - What You Need / Tools & Products
-  - Step-by-Step Guide / How to Do It Properly
+  - Why This Matters / Why It Is Important
+  - What You Need / Tools And Products
+  - Step-by-Step Guide / How To Do It Properly
   - Common Mistakes / Things To Avoid
-  - Tips for Better Results
+  - Tips For Better Results
   - Frequently Asked Questions
   - Conclusion / Final Thoughts
 
 - Short paragraphs (2–4 sentences)
 - <h3> only for FAQs or small subpoints
-- Include opinionated lines + real-world examples
+- Include opinionated lines and real-world examples
 - No hype, no fluff, UK spelling only
 
 ====================================================================
@@ -436,7 +365,7 @@ Based on the mode you chose:
   - Include 4–6 FAQ questions, with fuller answers.
 
 FAQs should:
-- Sound like real searches (e.g. "Can I just let my car air dry?" not overly formal).
+- Sound like real searches (for example "Can I just let my car air dry?" rather than very formal).
 - Use <h3> for the question and <p> for the answer.
 
 ====================================================================
@@ -454,13 +383,20 @@ Rules:
 - Should reference Ben or "founder of Street Kingz".
 - No links.
 
+Example tone (do NOT reuse exactly):
+- "Written by Ben, founder of Street Kingz and a proper Sunday driveway detailer."
+- "Article by Ben at Street Kingz, keeping detailing simple, real and no-nonsense."
+- "Ben here from Street Kingz, sharing what actually works after years of trial and error."
+
+This sign-off MUST appear below the conclusion and be the final HTML in content_html.
+
 ====================================================================
 IMAGE PLACEHOLDER RULES
 ====================================================================
 
 SHORT → include ONLY img1  
-MEDIUM → include img1 + img2  
-LONG → include img1 + img2 + img3  
+MEDIUM → include img1 and img2  
+LONG → include img1 and img2 and img3  
 
 Placement:
 - img1 after intro
@@ -475,10 +411,62 @@ SEO RULES
 ====================================================================
 
 - Answer search intent fully
-- Be practical, helpful, experience-based
+- Be practical, helpful and experience-based
 - No fake facts or stats
 - No American spellings
 - No filler
+
+====================================================================
+PUNCTUATION AND STYLE SAFETY (MANDATORY)
+====================================================================
+
+You MUST follow these punctuation rules:
+
+1. Do NOT use em dashes (—) anywhere in the article.
+2. Do NOT use double hyphens (--).
+3. Only use:
+   - normal hyphens (-) inside words where needed
+   - commas
+   - full stops
+   - question marks and exclamation marks where natural
+
+If you are tempted to join two clauses with an em dash, either:
+- split into two separate sentences, or
+- join them with "and", "but", or another normal conjunction.
+
+Examples:
+- Instead of "Dry your car properly — it makes a huge difference."
+  write "Dry your car properly. It makes a huge difference."
+- Instead of "Simple kit -- big results."
+  write "Simple kit. Big results."
+
+====================================================================
+PHRASE AND CLICHÉ BLACKLIST (MANDATORY)
+====================================================================
+
+You MUST NOT use any of the following phrases or close variations of them:
+
+- "showroom shine"
+- "mirror-like finish"
+- "pristine finish"
+- "ultimate guide" in the body copy (it may appear in the title only if it sounds natural)
+- "in this guide we will"
+- "in this guide, we will"
+- "in this article we will"
+- "revolutionise your"
+- "take it to the next level"
+- "unleash the power"
+- "game changer" or "game-changing"
+- "effortless shine"
+
+If you accidentally produce something similar, rewrite it into plain, direct language.
+
+Examples of acceptable rewrites:
+- "showroom shine" → "a clean, sharp looking car"
+- "mirror-like finish" → "paint that looks clean and clear"
+- "ultimate guide" → "detailed guide" or "full guide"
+
+Stick to simple, grounded wording that sounds like a normal UK car enthusiast speaking, not marketing copy.
 
 ====================================================================
 BEGIN ARTICLE NOW
@@ -494,7 +482,7 @@ Return ONLY the JSON.
 // Route: generate a real article using OpenAI
 app.post("/generate-article", async (req, res) => {
   try {
-    const { topic, primary_keyword } = req.body || {};
+    const { topic, primary_keyword, target_word_count } = req.body || {};
 
     if (!topic || !primary_keyword) {
       return res.status(400).json({
@@ -508,7 +496,7 @@ app.post("/generate-article", async (req, res) => {
       });
     }
 
-    const prompt = buildPrompt({ topic, primary_keyword });
+    const prompt = buildPrompt({ topic, primary_keyword, target_word_count });
 
     const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -561,9 +549,6 @@ app.post("/generate-article", async (req, res) => {
         error: "Article missing required fields from OpenAI."
       });
     }
-
-    // Enforce linking rules server-side
-    article = applyProductLinking(article);
 
     return res.json(article);
   } catch (err) {
