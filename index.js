@@ -63,7 +63,7 @@ const STREET_KINGZ_PRODUCTS = [
     name: "Wheel Belt Flosser",
     type: "wheel cleaning tool",
     details: "Flexible microfibre tool designed to clean between wheel spokes and behind brake calipers.",
-    ideal_use: "Cleaning awkward areas of wheels where standard brushes do not reach.",
+    ideal_use: "Cleaning awkward areas of wheels where standard brushes don’t reach.",
     url: "https://streetkingz.co.uk/product/wheel-belt-flosser/"
   },
   {
@@ -255,7 +255,7 @@ You MUST choose a mode using these rules:
 - LONG MODE (1700–2500 words) if the topic is a broad or "pillar" style query, for example:
   - any topic starting with "how to wash a car"
   - any topic containing "complete guide", "beginner’s guide", or "step by step guide"
-  - any topic that clearly covers a full routine (for example wash and dry, full wash process, or complete interior deep clean)
+  - any topic that clearly covers a full routine (for example wash + dry, full wash process, or complete interior deep clean)
 
 - MEDIUM MODE (1100–1600 words) for focused "how to" topics that cover one main process,
   such as "how to dry a car safely", "how to clean car glass", or "how to deep clean seats".
@@ -271,7 +271,7 @@ For the mode you choose, you MUST:
 - If the topic clearly matches a pillar style query such as "how to wash a car" or includes
   phrases like "complete guide", "beginner’s guide", or "step by step guide", you MUST pick LONG MODE.
 
-Ignore any user word count request. Smart Mode ALWAYS decides.
+Ignore any user word count request — Smart Mode ALWAYS decides.
 
 ====================================================================
 REALISM + ANTI-AI-DETECTION RULES (MANDATORY)
@@ -281,21 +281,32 @@ To avoid AI-patterned writing and make articles feel authentically human:
 
 1. No two Street Kingz articles should ever use the exact same H2 labels.
    - You MUST vary section titles each time.
-   - Use the structure, but allow flexible naming (for example "Why This Matters" changed to "Why It Actually Matters").
+   - Use the structure, but allow flexible naming (e.g. "Why This Matters" → "Why It Actually Matters").
 
 2. Include at least ONE mild, grounded opinion.
    - Examples:
      - "Most people massively overdo the shampoo and underdo the rinse."
-     - "You do not need a fancy setup to get this right."
-     - "If you skip this step, you will almost always get swirl marks."
+     - "You don’t need a fancy setup to get this right."
+     - "If you skip this step, you’ll almost always get swirl marks."
 
-3. Include at least ONE real-world "Sunday driveway" style example.
+3. Include at least ONE real-world 'Sunday driveway' style example.
    - Example tone:
-     - "If you are washing on your driveway with only a couple of hours spare..."
-     - "Most weekend warriors deal with this..."
-     - "On a typical UK rainy week..."
+     - "If you’re washing on your driveway with only a couple hours spare..."
+     - "Most weekend warriors deal with this…"
+     - "On a typical UK rainy week…"
 
 These realism elements MUST be integrated naturally.
+
+====================================================================
+BANNED / WEAK PHRASES (MANDATORY)
+====================================================================
+
+You MUST NOT use:
+- Phrases like "in this guide", "in this article", "we will explore", "we will cover", or similar meta-intros.
+- The phrase "showroom shine" or close variants ("showroom finish", "like it just left the showroom").
+- Long em dashes (—) or double hyphens (--). Use normal full stops or commas instead.
+
+If you need to introduce the article, do it in a natural, conversational way without those stock phrases.
 
 ====================================================================
 STREET KINGZ PRODUCT RULES (VERY IMPORTANT)
@@ -306,9 +317,11 @@ ${productsJson}
 
 Rules:
 - Use exact product names.
-- FIRST mention ONLY → wrap the product name in an <a> tag with its URL.
-- After first link, use plain text name.
-- Use max 3 products per article.
+- On FIRST mention ONLY → wrap the product name in an <a> tag with its URL.
+- After first link, use the plain text name.
+- Use BETWEEN 2 and 3 Street Kingz products per article wherever it feels natural.
+- At least 2 products should be referenced in each article unless forcing a second/third product would clearly look unnatural or off-topic.
+- Never use more than 3 products per article.
 - Only reference products genuinely relevant to the topic.
 
 ====================================================================
@@ -337,18 +350,18 @@ CONTENT RULES FOR content_html
 
 - ONE <h1>
 - Use <h2> sections (names MUST vary from article to article)
-- Suggested structure (you may rename these):
-  - Why This Matters / Why It Is Important
-  - What You Need / Tools And Products
-  - Step-by-Step Guide / How To Do It Properly
+- Suggestive structure (you may rename these):
+  - Why This Matters / Why It’s Important
+  - What You Need / Tools & Products
+  - Step-by-Step Guide / How to Do It Properly
   - Common Mistakes / Things To Avoid
-  - Tips For Better Results
+  - Tips for Better Results
   - Frequently Asked Questions
   - Conclusion / Final Thoughts
 
 - Short paragraphs (2–4 sentences)
 - <h3> only for FAQs or small subpoints
-- Include opinionated lines and real-world examples
+- Include opinionated lines + real-world examples
 - No hype, no fluff, UK spelling only
 
 ====================================================================
@@ -365,7 +378,7 @@ Based on the mode you chose:
   - Include 4–6 FAQ questions, with fuller answers.
 
 FAQs should:
-- Sound like real searches (for example "Can I just let my car air dry?" rather than very formal).
+- Sound like real searches (e.g. "Can I just let my car air dry?" not overly formal).
 - Use <h3> for the question and <p> for the answer.
 
 ====================================================================
@@ -383,6 +396,11 @@ Rules:
 - Should reference Ben or "founder of Street Kingz".
 - No links.
 
+Example tone (do NOT reuse exactly):
+- "Written by Ben — founder of Street Kingz and a proper Sunday driveway detailer."
+- "Article by Ben | Street Kingz — keeping detailing simple, real, and no-nonsense."
+- "Ben here from Street Kingz — sharing what actually works after years of trial and error."
+
 This sign-off MUST appear below the conclusion and be the final HTML in content_html.
 
 ====================================================================
@@ -390,8 +408,8 @@ IMAGE PLACEHOLDER RULES
 ====================================================================
 
 SHORT → include ONLY img1  
-MEDIUM → include img1 and img2  
-LONG → include img1 and img2 and img3  
+MEDIUM → include img1 + img2  
+LONG → include img1 + img2 + img3  
 
 Placement:
 - img1 after intro
@@ -405,86 +423,11 @@ In content_html, insert:
 SEO RULES
 ====================================================================
 
-- Answer search intent fully.
-- Be practical, helpful and experience-based.
-- No fake facts or stats.
-- No American spellings.
-- No filler.
-
-====================================================================
-PUNCTUATION AND STYLE SAFETY (MANDATORY)
-====================================================================
-
-You MUST follow these punctuation rules:
-
-1. Do NOT use em dashes (—) anywhere in the article.
-2. Do NOT use double hyphens (--).
-3. Only use:
-   - normal hyphens (-) inside words where needed
-   - commas
-   - full stops
-   - question marks and exclamation marks where natural
-
-If you are tempted to join two clauses with an em dash, either:
-- split into two separate sentences, or
-- join them with "and", "but", or another normal conjunction.
-
-Examples:
-- Instead of "Dry your car properly — it makes a huge difference."
-  write "Dry your car properly. It makes a huge difference."
-- Instead of "Simple kit -- big results."
-  write "Simple kit. Big results."
-
-====================================================================
-PHRASE AND CLICHÉ BLACKLIST (MANDATORY)
-====================================================================
-
-You MUST NOT use any of the following phrases or close variations of them
-ANYWHERE in the article (title or body):
-
-- "showroom shine"
-- "mirror-like finish"
-- "pristine finish"
-- "spotless finish"
-- "ultimate guide"
-- "complete guide"
-- "in this guide we will"
-- "in this guide, we will"
-- "in this article we will"
-- "in this guide"
-- "in this article"
-- "we will cover" when referring to the contents of the article
-- "revolutionise your"
-- "take it to the next level"
-- "unleash the power"
-- "game changer" or "game-changing"
-- "effortless shine"
-
-If you accidentally produce something similar, you MUST rewrite it in plain, direct language.
-
-Examples of acceptable rewrites:
-- "showroom shine" → "a clean, sharp looking car"
-- "spotless finish" → "a clean finish with no obvious marks"
-- "ultimate guide" or "complete guide" → "detailed guide" or "full guide"
-- "in this guide we will cover how to dry a car" → "Here is how to dry a car properly"
-
-====================================================================
-FINAL SELF-CHECK (MANDATORY)
-====================================================================
-
-Before you return the JSON, you MUST:
-
-1. Read back through the full content_html you have written.
-2. If you find:
-   - any em dash character,
-   - any double hyphen,
-   - any of the blacklisted phrases above (or a very close variation),
-   you MUST rewrite that sentence or heading so the forbidden item is removed.
-3. Only when you are sure that:
-   - there are NO em dashes,
-   - NO double hyphens,
-   - and NONE of the blacklisted phrases remain,
-   can you return the JSON response.
+- Answer search intent fully
+- Be practical, helpful, experience-based
+- No fake facts or stats
+- No American spellings
+- No filler
 
 ====================================================================
 BEGIN ARTICLE NOW
