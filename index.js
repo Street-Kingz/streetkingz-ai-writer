@@ -217,7 +217,6 @@ const STREET_KINGZ_PRODUCTS = [
   }
 ];
 
-
 // Read the OpenAI API key from environment variables
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
@@ -233,7 +232,7 @@ app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Street Kingz AI writer service running" });
 });
 
-// Helper: build the prompt we send to OpenAI
+// Helper: build the prompt we send to OpenAI (SMART MODE)
 function buildPrompt({ topic, primary_keyword }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
@@ -398,3 +397,85 @@ Primary keyword: "${primary_keyword}"
 Return ONLY the JSON.
   `;
 }
+
+// Route: generate a real article using OpenAI
+app.post("/generate-article", async (req, res) => {
+  try {
+    const { topic, primary_keyword, target_word_count } = req.body || {};
+
+    if (!topic || !primary_keyword) {
+      return res.status(400).json({
+        error: "Missing required fields: 'topic' and 'primary_keyword'."
+      });
+    }
+
+    if (!OPENAI_API_KEY) {
+      return res.status(500).json({
+        error: "OPENAI_API_KEY is not set on the server."
+      });
+    }
+
+    const prompt = buildPrompt({ topic, primary_keyword, target_word_count });
+
+    const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        temperature: 0.7,
+        messages: [
+          {
+            role: "system",
+            content: "You are a highly skilled SEO content writer that always returns strictly valid JSON when asked."
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ]
+      })
+    });
+
+    if (!openaiResponse.ok) {
+      const errorText = await openaiResponse.text();
+      console.error("OpenAI API error:", errorText);
+      return res.status(502).json({ error: "Error from OpenAI API", details: errorText });
+    }
+
+    const data = await openaiResponse.json();
+
+    const content = data?.choices?.[0]?.message?.content;
+    if (!content) {
+      console.error("No content returned from OpenAI:", data);
+      return res.status(502).json({ error: "No content returned from OpenAI" });
+    }
+
+    let article;
+    try {
+      article = JSON.parse(content);
+    } catch (err) {
+      console.error("Failed to parse OpenAI JSON:", err, "Raw content:", content);
+      return res.status(502).json({
+        error: "Failed to parse OpenAI JSON. Check server logs."
+      });
+    }
+
+    if (!article.title || !article.content_html) {
+      return res.status(502).json({
+        error: "Article missing required fields from OpenAI."
+      });
+    }
+
+    return res.json(article);
+  } catch (err) {
+    console.error("Unexpected error in /generate-article:", err);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Street Kingz AI writer service listening on port ${PORT}`);
+});
