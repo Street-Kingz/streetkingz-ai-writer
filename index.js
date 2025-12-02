@@ -5,6 +5,219 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// --- STREET KINGZ PRODUCT CATALOGUE ---
+
+const STREET_KINGZ_PRODUCTS = [
+  // --- CORE SINGLE PRODUCTS ---
+
+  {
+    name: "XL DRYING TOWEL – 800GSM",
+    type: "drying towel",
+    details: "Extra large 800gsm microfibre drying towel, 90×70cm with deep pile for safe drying.",
+    ideal_use: "Primary drying towel for paintwork, especially larger panels and SUVs.",
+    url: "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+  },
+  {
+    name: "Heavy Duty Drying Towel – 1200gsm",
+    type: "drying towel",
+    details: "1200gsm twisted loop heavy duty drying towel, 90×60cm, double sided.",
+    ideal_use: "Maximum water pick up on heavily soaked vehicles or for people who want overkill drying performance.",
+    url: "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+  },
+  {
+    name: "Paint Protection Cloth",
+    type: "microfibre cloth",
+    details: "Soft, short pile microfibre cloth designed for removing coatings, waxes and sealants.",
+    ideal_use: "Buffing away wax, sealant or protection products without marring the finish.",
+    url: "https://streetkingz.co.uk/product/paint-protection-cloth/"
+  },
+  {
+    name: "CORAL FLEECE CLOTHS – 2 PACK",
+    type: "microfibre cloth",
+    details: "Pack of two plush coral fleece cloths for interior and light exterior work.",
+    ideal_use: "Dusting interiors, light wipe downs and jobs where you want something soft and forgiving.",
+    url: "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/"
+  },
+  {
+    name: "Waffle Glass Cloth",
+    type: "glass cloth",
+    details: "Tight waffle weave cloth designed for streak-free glass cleaning.",
+    ideal_use: "Cleaning interior and exterior glass, reducing smears and lint.",
+    url: "https://streetkingz.co.uk/product/waffle-glass-cloth/"
+  },
+  {
+    name: "Microfibre Wash Mitt",
+    type: "wash mitt",
+    details: "Deep pile microfibre wash mitt with cuffed wrist for safe contact washing.",
+    ideal_use: "Main wash stage after pre-wash and rinse, especially on well-maintained paint.",
+    url: "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+  },
+  {
+    name: "Microfibre Scrub Pads",
+    type: "scrub pads",
+    details: "Microfibre-faced scrub pads available in multiple pack sizes.",
+    ideal_use: "Agitating cleaners on interiors and exteriors where you need more bite than a cloth, but still safe.",
+    url: "https://streetkingz.co.uk/product/microfibre-scrub-pads/"
+  },
+  {
+    name: "Wheel Belt Flosser",
+    type: "wheel cleaning tool",
+    details: "Flexible microfibre tool designed to clean between wheel spokes and behind brake calipers.",
+    ideal_use: "Cleaning awkward areas of wheels where standard brushes don’t reach.",
+    url: "https://streetkingz.co.uk/product/wheel-belt-flosser/"
+  },
+  {
+    name: "The XL Barrel Brush",
+    type: "wheel brush",
+    details: "Long reach, soft-fibre barrel brush for cleaning deep into wheel barrels.",
+    ideal_use: "Cleaning the inside of wheels and behind spokes without removing the wheel.",
+    url: "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+  },
+  {
+    name: "Small Barrel Brush",
+    type: "wheel brush",
+    details: "Compact barrel brush designed for tighter spoke patterns and smaller wheels.",
+    ideal_use: "Smaller wheel designs, tight gaps, behind spokes and brake components.",
+    url: "https://streetkingz.co.uk/product/small-barrel-brush/"
+  },
+  {
+    name: "Wheel Hose Guides",
+    type: "accessory",
+    details: "Wheel arch hose guides to stop your hose or cable snagging on tyres.",
+    ideal_use: "Preventing hose snagging and dragging while washing around the car.",
+    url: "https://streetkingz.co.uk/product/wheel-hose-guides/"
+  },
+
+  // --- TOOLS: FOAM LANCE, STUBBY GUN ---
+
+  {
+    name: "Stubby Gun",
+    type: "pressure washer tool",
+    details: "Compact pressure washer gun offering better control and ergonomics during washing.",
+    ideal_use: "Pairing with a foam lance or standard nozzles for controlled washing in tight spaces.",
+    url: "https://streetkingz.co.uk/product/stubby-gun/"
+  },
+  {
+    name: "Snow Foam Lance",
+    type: "foam lance",
+    details: "Premium snow foam lance with adjustable fan and flow pattern.",
+    ideal_use: "Applying thick, even foam during the pre-wash stage to reduce swirl marks.",
+    url: "https://streetkingz.co.uk/product/snow-foam-lance/"
+  },
+  {
+    name: "Stubby Gun + Foam Lance Bundle",
+    type: "bundle",
+    details: "Set including the Stubby Gun and Snow Foam Lance for the ideal pre-wash setup.",
+    ideal_use: "Users wanting a full, efficient pre-wash system with maximum control.",
+    url: "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+  },
+
+  // --- ORIGIN CHEMICALS ---
+
+  {
+    name: "The Origin Shampoo – Ultra Concentrated & pH Safe",
+    type: "shampoo",
+    details: "Ultra concentrated, pH safe shampoo designed to lubricate and clean without stripping protection.",
+    ideal_use: "Main contact wash stage as part of a safe wash routine.",
+    url: "https://streetkingz.co.uk/product/origin-shampoo/"
+  },
+  {
+    name: "Origin MultiClean – Interior & Exterior Cleaner",
+    type: "multi-purpose cleaner",
+    details: "Versatile cleaner suitable for plastics, fabrics, door shuts, engines and more.",
+    ideal_use: "General purpose cleaning for interiors and exteriors.",
+    url: "https://streetkingz.co.uk/product/origin-multiclean/"
+  },
+  {
+    name: "Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner",
+    type: "glass cleaner",
+    details: "Fast flashing, streak-free glass cleaner for crystal clear visibility.",
+    ideal_use: "Interior and exterior glass cleaning without streaks.",
+    url: "https://streetkingz.co.uk/product/origin-glass-cleaner/"
+  },
+
+  // --- BUNDLES & KITS ---
+
+  {
+    name: "The Origin Ultra Wash & Dry Kit",
+    type: "bundle",
+    details: "Origin Shampoo paired with premium drying gear for a complete wash and dry solution.",
+    ideal_use: "A simple, effective all-in-one wash and dry setup.",
+    url: "https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/"
+  },
+  {
+    name: "Origin Interior Deep Clean Kit",
+    type: "bundle",
+    details: "Interior kit containing Multiclean, Scrub Pads and Coral Cloth.",
+    ideal_use: "Deep cleaning interiors including fabrics, plastics and trim.",
+    url: "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/"
+  },
+  {
+    name: "Origin XL Wash Kit",
+    type: "bundle",
+    details: "Shampoo paired with XL Drying Towel and Coral Fleece.",
+    ideal_use: "Starter wash kit for a safe wash routine.",
+    url: "https://streetkingz.co.uk/product/origin-xl-wash-kit/"
+  },
+  {
+    name: "The Origin Wash Kit",
+    type: "bundle",
+    details: "Full Origin system: Shampoo, Wash Mitt, Glass Cleaner, Waffle Cloth, Multiclean and Scrub Pads.",
+    ideal_use: "Complete wash setup for new and returning customers.",
+    url: "https://streetkingz.co.uk/product/origin-wash-kit/"
+  },
+  {
+    name: "Ultimate Wash and Dry Set",
+    type: "bundle",
+    details: "Wash Mitt, XL Drying Towel and Heavy Duty Drying Towel.",
+    ideal_use: "Near-complete wash and dry system.",
+    url: "https://streetkingz.co.uk/product/ultimate-wash-and-dry-set/"
+  },
+  {
+    name: "XL Wash & Dry Set",
+    type: "bundle",
+    details: "XL Towel + Wash Mitt.",
+    ideal_use: "Basic wash and dry combo.",
+    url: "https://streetkingz.co.uk/product/xl-wash-dry-set/"
+  },
+  {
+    name: "Twisted Loop Power Pack",
+    type: "bundle",
+    details: "XL Drying Towel + Heavy Duty Drying Towel.",
+    ideal_use: "Maximum drying absorption.",
+    url: "https://streetkingz.co.uk/product/twisted-loop-power-pack/"
+  },
+  {
+    name: "Ultra Wash and Dry Set",
+    type: "bundle",
+    details: "Heavy Duty Drying Towel + Wash Mitt.",
+    ideal_use: "All-round wash and dry starter setup.",
+    url: "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
+  },
+  {
+    name: "Wash, Dry And Polish Kit",
+    type: "bundle",
+    details: "1200gsm Towel, Wash Mitt, Coral Fleece Cloth.",
+    ideal_use: "Complete wash, dry and finishing system.",
+    url: "https://streetkingz.co.uk/product/wash-dry-and-polish-kit/"
+  },
+  {
+    name: "Mega Drying Bundle",
+    type: "bundle",
+    details: "XL towel, Heavy Duty towel and Coral Fleece.",
+    ideal_use: "Heavy users or detailers.",
+    url: "https://streetkingz.co.uk/product/mega-drying-bundle/"
+  },
+  {
+    name: "Drying Bundle",
+    type: "bundle",
+    details: "1200gsm towel, 800gsm towel and 380gsm cloth.",
+    ideal_use: "Customers wanting multiple drying options.",
+    url: "https://streetkingz.co.uk/product/drying-bundle/"
+  }
+];
+
+
 // Read the OpenAI API key from environment variables
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
@@ -23,107 +236,51 @@ app.get("/", (req, res) => {
 // Helper: build the prompt we send to OpenAI
 function buildPrompt({ topic, primary_keyword, target_word_count }) {
   const safeWordCount = target_word_count || 1900;
+  const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
   return `
-You are an SEO content writer for a UK car care brand called Street Kingz.
+You are an SEO content writer for Street Kingz.
+
+These are the official Street Kingz products (use only these when referencing products):
+${productsJson}
 
 Brand + audience:
 - Street Kingz is a UK-based car care brand for people who genuinely enjoy cleaning their cars on a Sunday.
 - Audience: normal enthusiasts, not pros. They care about how their car looks, but they don't want jargon or hype.
-- Tone: direct, confident, conversational, no cringe sales talk, UK spelling (colour, tyre, litre etc.).
-- Avoid over-the-top phrases like "beloved car", "pristine finish", "transform your vehicle". Keep it grounded and real.
+- Tone: direct, confident, conversational, UK spelling.
+
+WHEN referencing a Street Kingz product:
+- Use the EXACT name from the list.
+- ON FIRST MENTION, wrap it in <a href="URL">Name</a>.
+- Do NOT invent products.
+- Don't mention more than 3 products per article.
 
 Write a long-form blog article about:
 Topic: "${topic}"
 Primary keyword: "${primary_keyword}"
-Target word count: around ${safeWordCount} words.
+Target word count: ${safeWordCount}
 
-Article goals:
-- Answer the search intent behind the primary keyword clearly and completely.
-- Give simple, practical, real-world advice a normal UK car owner can follow.
-- Naturally weave Street Kingz products into the content without a hard sell (1–3 mentions max).
-- Use examples that sound like someone who actually washes and dries their own car.
-
-Required JSON output (ONLY return this JSON, no extra text):
-
+Required JSON output:
 {
-  "title": string,                // SEO-friendly title (max ~70 chars), includes the primary keyword naturally if possible
-  "slug": string,                 // URL slug: lowercase, words separated by hyphens, no special characters
-  "primary_keyword": string,      // the primary keyword you used
-  "meta_description": string,     // 140-160 characters, compelling, includes the keyword naturally
-  "target_word_count": number,    // the target word count you aimed for
-  "content_html": string,         // full HTML of the article
-  "image_placeholders": [
-    {
-      "id": "img1",
-      "position": "after_intro",
-      "recommended_image_type": string,
-      "recommended_alt": string,
-      "recommended_caption": string
-    },
-    {
-      "id": "img2",
-      "position": "mid_article",
-      "recommended_image_type": string,
-      "recommended_alt": string,
-      "recommended_caption": string
-    },
-    {
-      "id": "img3",
-      "position": "before_conclusion",
-      "recommended_image_type": string,
-      "recommended_alt": string,
-      "recommended_caption": string
-    }
-  ]
+  "title": string,
+  "slug": string,
+  "primary_keyword": string,
+  "meta_description": string,
+  "target_word_count": number,
+  "content_html": string,
+  "image_placeholders": [...]
 }
 
 Rules for content_html:
-- Use proper HTML tags only: <h1>, <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>.
-- Exactly ONE <h1> and it must be the article title at the top.
-- Use clear <h2> sections to structure the article, for example (adapt names to fit the topic):
-  - <h2>Why [topic/keyword] Actually Matters</h2>
-  - <h2>What You Need Before You Start</h2>
-  - <h2>Step-by-Step: [main process]</h2>
-  - <h2>Common Mistakes to Avoid</h2>
-  - <h2>Extra Tips for Better Results</h2>
-  - <h2>Frequently Asked Questions</h2>
-  - <h2>Conclusion</h2>
-- Use <h3> only for sub-points inside a section, not randomly.
-- Paragraphs should be short and easy to scan (2–4 sentences).
-- Include at least one bullet list (<ul><li>...</li></ul>) where it helps (e.g. tools, mistakes, tips).
-- Somewhere in the article, mention Street Kingz products in a natural way, e.g. high GSM drying towels, pH safe shampoo, wheel brushes. No hype, just why they help.
+- One <h1> only.
+- Use <h2> to structure sections.
+- Include <!-- IMAGE: img1 -->, <!-- IMAGE: img2 -->, <!-- IMAGE: img3 --> in correct places.
+- Use natural product mentions only when relevant.
 
-FAQ section:
-- Include a dedicated <h2>Frequently Asked Questions</h2> near the end.
-- Under it, add 3–5 Q&As using <h3> for the question and <p> for the answer.
-- Questions should sound like real searches, e.g. "Can I just let my car air dry?" rather than overly formal ones.
-
-Image markers:
-- In content_html, insert exactly three HTML comments to mark where images go:
-  <!-- IMAGE: img1 -->
-  <!-- IMAGE: img2 -->
-  <!-- IMAGE: img3 -->
-- Place:
-  - img1 after the intro section (after the first 1–2 paragraphs).
-  - img2 somewhere in the middle (e.g. in the step-by-step or tools section).
-  - img3 near the end (before or in the conclusion).
-
-Image placeholders array:
-- For img1, recommend a "hero" or strong visual relevant to the topic (e.g. drying towel in use on paintwork).
-- For img2, recommend a close-up process shot (e.g. safe wash technique, foam, wheel cleaning, etc. depending on topic).
-- For img3, recommend a product or kit style image (e.g. Street Kingz towel + shampoo together).
-- recommended_alt should be descriptive and include natural language, not keyword spam.
-- recommended_caption should be short and helpful, not salesy.
-
-Language + content rules:
-- Use UK spelling.
-- No fake statistics or made-up studies. If you need to refer to knowledge, keep it general ("many detailers find...").
-- Avoid generic fluff like "in today's fast-paced world". Get to the point quickly.
-- Aim for practical, step-by-step advice with concrete examples over vague statements.
-- Do NOT return Markdown or code fences. Return ONLY the JSON object.
-  `.trim();
+Return ONLY valid JSON.
+`.trim();
 }
+
 
 // Route: generate a real article using OpenAI
 app.post("/generate-article", async (req, res) => {
@@ -180,18 +337,16 @@ app.post("/generate-article", async (req, res) => {
       return res.status(502).json({ error: "No content returned from OpenAI" });
     }
 
-    // content should be JSON as a string – parse it
     let article;
     try {
       article = JSON.parse(content);
     } catch (err) {
       console.error("Failed to parse OpenAI JSON:", err, "Raw content:", content);
       return res.status(502).json({
-        error: "Failed to parse OpenAI JSON. Check server logs for details."
+        error: "Failed to parse OpenAI JSON. Check server logs."
       });
     }
 
-    // Basic sanity checks
     if (!article.title || !article.content_html) {
       return res.status(502).json({
         error: "Article missing required fields from OpenAI."
@@ -204,6 +359,7 @@ app.post("/generate-article", async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 });
+
 
 app.listen(PORT, () => {
   console.log(`Street Kingz AI writer service listening on port ${PORT}`);
