@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3000;
 
 const STREET_KINGZ_PRODUCTS = [
   // --- CORE SINGLE PRODUCTS ---
-
   {
     name: "XL DRYING TOWEL – 800GSM",
     type: "drying towel",
@@ -89,7 +88,6 @@ const STREET_KINGZ_PRODUCTS = [
   },
 
   // --- TOOLS: FOAM LANCE, STUBBY GUN ---
-
   {
     name: "Stubby Gun",
     type: "pressure washer tool",
@@ -113,7 +111,6 @@ const STREET_KINGZ_PRODUCTS = [
   },
 
   // --- ORIGIN CHEMICALS ---
-
   {
     name: "The Origin Shampoo – Ultra Concentrated & pH Safe",
     type: "shampoo",
@@ -137,7 +134,6 @@ const STREET_KINGZ_PRODUCTS = [
   },
 
   // --- BUNDLES & KITS ---
-
   {
     name: "The Origin Ultra Wash & Dry Kit",
     type: "bundle",
@@ -233,12 +229,16 @@ app.get("/", (req, res) => {
 });
 
 // Helper: build the prompt we send to OpenAI (SMART MODE)
-function buildPrompt({ topic, primary_keyword }) {
+function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
   return `
 You are an expert UK SEO content writer for Street Kingz, a UK-based car care brand.
 You produce high-quality, helpful, practical long-form blog articles in clean HTML.
+
+Featured product (must be the main recommendation):
+- Name: "${featured_product_name}"
+- URL: "${featured_product_url}"
 
 ====================================================================
 SMART MODE RULES (MANDATORY)
@@ -279,7 +279,7 @@ For the mode you choose, you MUST:
 - Write enough detail to realistically reach that length (do not heavily summarise).
 - If the topic clearly matches a pillar style query or the drying-hard-rule list above, you MUST pick LONG MODE.
 
-Ignore any user word count request — Smart Mode ALWAYS decides.
+Ignore any user word count request, Smart Mode ALWAYS decides.
 
 ====================================================================
 REALISM + ANTI-AI-DETECTION RULES (MANDATORY)
@@ -292,37 +292,18 @@ To avoid AI-patterned writing and make articles feel authentically human:
    - Use the structure, but allow flexible naming (for example "Why This Matters" can become "Why It Actually Matters").
 
 2. Include at least ONE mild, grounded opinion.
-   - Examples:
-     - "Most people massively overdo the shampoo and underdo the rinse."
-     - "You don’t need a fancy setup to get this right."
-     - "If you skip this step, you’ll almost always get swirl marks."
 
 3. Include at least ONE real-world 'Sunday driveway' style example.
-   - Example tone:
-     - "If you’re washing on your driveway with only a couple hours spare..."
-     - "Most weekend warriors deal with this…"
-     - "On a typical UK rainy week…"
-
-These realism elements MUST be integrated naturally.
 
 ====================================================================
 BANNED / WEAK PHRASES (MANDATORY)
 ====================================================================
 
-You MUST NOT use any of these phrases or close variants in content_html or meta_description:
-
-- "in this guide", "in this article", "throughout this guide", "this comprehensive guide"
+You MUST NOT use these phrases or close variants in content_html or meta_description:
+- "in this guide", "in this article", "this comprehensive guide"
 - "showroom shine", "showroom finish"
 - "gleaming ride", "ultimate shine", "mirror-like finish"
-- Any marketing clichés that sound like generic AI-generated copy
-
-If you need to refer to the piece, either:
-- Avoid referencing the article at all, OR
-- Use plain, grounded language like "in this post" or "below" very sparingly.
-
-You MUST also:
-- Avoid over-the-top hype language.
-- Keep tone: direct, conversational, no cringe.
+- marketing clichés and hype
 
 ====================================================================
 EM DASH AND DOUBLE HYPHEN BAN (MANDATORY)
@@ -331,14 +312,6 @@ EM DASH AND DOUBLE HYPHEN BAN (MANDATORY)
 You MUST NOT use:
 - the em dash character (—)
 - double hyphens (--)
-
-This applies to ALL of content_html, including:
-- headings
-- paragraphs
-- lists
-- the author sign-off
-
-Use commas, full stops, or single hyphens instead.
 
 ====================================================================
 STREET KINGZ PRODUCT RULES (VERY IMPORTANT)
@@ -380,88 +353,89 @@ CONTENT RULES FOR content_html
 ====================================================================
 
 - ONE <h1>
-- Use <h2> sections (names MUST vary from article to article)
-- Suggestive structure (you may rename these):
-  - Why This Matters / Why It’s Important
-  - What You Need / Tools & Products
-  - Step-by-Step Guide / How to Do It Properly
-  - Common Mistakes / Things To Avoid
-  - Tips for Better Results
-  - Frequently Asked Questions
-  - Conclusion / Final Thoughts
-
+- Use <h2> sections (names MUST vary)
 - Short paragraphs (2–4 sentences)
 - <h3> only for FAQs or small subpoints
-- Include opinionated lines and real-world examples
-- No hype, no fluff, UK spelling only
+- No hype, UK spelling only
+
+====================================================================
+BUYER-INTENT RULES (MANDATORY, TO MAKE THIS SELL)
+====================================================================
+
+This is a BUYER GUIDE, not a general blog.
+
+You MUST include these sections inside content_html:
+
+1) EARLY RECOMMENDATION BOX (within the first 20% of the article)
+Add this exact HTML block AFTER the intro and img1, and you MUST replace the placeholders:
+
+<section class="sk-featured-box">
+  <h2>Best car wash kit for most people in the UK</h2>
+  <p><strong>Quick pick:</strong> ${featured_product_name}</p>
+  <p>Short reason in 1 to 2 sentences, practical, no hype.</p>
+  <p><a href="${featured_product_url}">View the kit</a></p>
+</section>
+
+2) DECISION SECTION (mid-article, before FAQs)
+- Must compare EXACTLY 3 options as bullet points:
+  - Best for most people (winner, the featured product)
+  - Best if you want maximum drying (pick a relevant drying bundle)
+  - Best if you want a full set (pick The Origin Wash Kit)
+- For each option: who it’s for + one practical reason.
+- If it’s the first mention of a product, link it.
+
+3) NOT FOR YOU SECTION
+- 3 bullets max, blunt and practical.
+
+4) CTA RULES
+- Must include 2 CTAs total:
+  - The featured box CTA
+  - A final CTA in the conclusion, 1 sentence + link to the featured product URL
+
+====================================================================
+PRIMARY KEYWORD PLACEMENT (MANDATORY)
+====================================================================
+
+You MUST use the primary keyword EXACTLY as written:
+- In the <h1> title
+- In the first 120 words once
+- In one <h2> heading
+- In meta_description
+- slug must be based on the primary keyword
 
 ====================================================================
 FAQ RULES BY MODE
 ====================================================================
 
-Based on the mode you chose:
+SHORT: 2–3 FAQs
+MEDIUM: 3–4 FAQs
+LONG: 4–6 FAQs
 
-- SHORT MODE (600–1000 words):
-  - Include 2–3 FAQ questions.
-
-- MEDIUM MODE (1100–1600 words):
-  - Include 3–4 FAQ questions.
-
-- LONG MODE (1700–2500 words):
-  - Include 4–6 FAQ questions, with fuller answers.
-
-FAQs should:
-- Sound like real searches (for example "Can I just let my car air dry?" rather than overly formal wording).
-- Use <h3> for the question and <p> for the answer.
+FAQs:
+- Real search wording
+- Use <h3> + <p>
 
 ====================================================================
 AUTHOR SIGN-OFF RULE (MANDATORY)
 ====================================================================
 
-At the very end of content_html, AFTER the conclusion section, you MUST include
-a short human-style sign-off from Ben (founder of Street Kingz).
-
-Rules:
-- Must be inside a single <p> tag (you may optionally add a class like class="author-note").
-- Must vary wording on every article.
-- Must sound human and personal, not generic or corporate.
-- 1–2 sentences max.
-- Should reference Ben or "founder of Street Kingz".
-- No links.
-- MUST NOT contain any em dash or double hyphen. Use commas and full stops only.
-
-Example tone (do NOT reuse exactly):
-- "Written by Ben, founder of Street Kingz and a proper Sunday driveway detailer."
-- "Article by Ben, founder of Street Kingz, keeping detailing simple, real and no-nonsense."
-- "Ben here from Street Kingz, sharing what actually works after years of trial and error."
-
-This sign-off MUST appear below the conclusion and be the final HTML in content_html.
+At the very end of content_html, after the conclusion, include a short sign-off from Ben, founder of Street Kingz, inside one <p> tag. 1–2 sentences.
 
 ====================================================================
 IMAGE PLACEHOLDER RULES
 ====================================================================
 
-SHORT → include ONLY img1  
-MEDIUM → include img1 + img2  
-LONG → include img1 + img2 + img3  
+SHORT → img1 only
+MEDIUM → img1 + img2
+LONG → img1 + img2 + img3
 
 Placement:
 - img1 after intro
 - img2 mid-article
 - img3 before conclusion
 
-In content_html, insert:
+Insert:
 <!-- IMAGE: imgX -->
-
-====================================================================
-SEO RULES
-====================================================================
-
-- Answer search intent fully.
-- Be practical, helpful, experience-based.
-- No fake facts or stats.
-- No American spellings.
-- No filler.
 
 ====================================================================
 BEGIN ARTICLE NOW
@@ -471,17 +445,23 @@ Topic: "${topic}"
 Primary keyword: "${primary_keyword}"
 
 Return ONLY the JSON.
-  `;
+`;
 }
 
 // Route: generate a real article using OpenAI
 app.post("/generate-article", async (req, res) => {
   try {
-    const { topic, primary_keyword, target_word_count } = req.body || {};
+    const { topic, primary_keyword, featured_product_name, featured_product_url } = req.body || {};
 
     if (!topic || !primary_keyword) {
       return res.status(400).json({
         error: "Missing required fields: 'topic' and 'primary_keyword'."
+      });
+    }
+
+    if (!featured_product_name || !featured_product_url) {
+      return res.status(400).json({
+        error: "Missing required fields: 'featured_product_name' and 'featured_product_url'."
       });
     }
 
@@ -491,7 +471,7 @@ app.post("/generate-article", async (req, res) => {
       });
     }
 
-    const prompt = buildPrompt({ topic, primary_keyword, target_word_count });
+    const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
 
     const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -501,7 +481,7 @@ app.post("/generate-article", async (req, res) => {
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        temperature: 0.7,
+        temperature: 0.4,
         messages: [
           {
             role: "system",
