@@ -213,19 +213,164 @@ app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Street Kingz AI writer service running" });
 });
 
-// Helper: build the prompt we send to OpenAI
-function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
+// ---------------------------
+// Helpers
+// ---------------------------
+
+function stripCodeFences(text) {
+  if (!text) return text;
+  const trimmed = String(text).trim();
+  // Remove ```json ... ``` or ``` ... ```
+  if (trimmed.startsWith("```")) {
+    return trimmed.replace(/^```[a-zA-Z]*\s*/m, "").replace(/```$/m, "").trim();
+  }
+  return trimmed;
+}
+
+function safeJsonParse(text) {
+  const cleaned = stripCodeFences(text);
+  return JSON.parse(cleaned);
+}
+
+async function callOpenAIJson({ prompt, temperature = 0.3 }) {
+  const resp = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${OPENAI_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      temperature,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content: "Return strictly valid JSON only. No prose, no markdown, no code fences."
+        },
+        { role: "user", content: prompt }
+      ]
+    })
+  });
+
+  if (!resp.ok) {
+    const errorText = await resp.text();
+    console.error("OpenAI API error:", errorText);
+    throw new Error(`OpenAI API error: ${resp.status}`);
+  }
+
+  const data = await resp.json();
+  const content = data?.choices?.[0]?.message?.content;
+
+  if (!content) {
+    console.error("No content returned from OpenAI:", data);
+    throw new Error("No content returned from OpenAI");
+  }
+
+  return safeJsonParse(content);
+}
+
+// ---------------------------
+// 2-PASS PROMPTS
+// ---------------------------
+
+function buildPass1Prompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
-  // IMPORTANT: keep this as a single template string, no stray backticks anywhere.
   return `
-You are an expert UK SEO writer for Street Kingz. Output MUST be strictly valid JSON only.
+You are planning an SEO buyer-intent article for Street Kingz (UK car care).
+Return JSON ONLY.
 
 INPUTS
 - Topic: "${topic}"
 - Primary keyword: "${primary_keyword}"
 - Featured product (winner): "${featured_product_name}"
 - Featured product URL: "${featured_product_url}"
+
+PRODUCT CATALOGUE (you may only choose from this list):
+${productsJson}
+
+GOAL
+Create a plan that makes Pass 2 succeed:
+- correct word count mode
+- correct image placeholders
+- correct sections
+- correct product picks
+- no conflicts with strict HTML rules
+
+HARD RULES
+- No em dash character and no double hyphen anywhere in any strings.
+- No banned phrases: "in this guide", "in this article", "this comprehensive guide", "showroom shine", "showroom finish", "gleaming ride", "ultimate shine", "mirror-like finish".
+- Featured product must be the main recommendation and included in plan.
+- Total products in article: 2 or 3.
+- Must include "Origin Wash Kit" as the "full set" option in the 3-way decision section.
+- Must include a "maximum drying" option that is a drying towel or drying bundle from the catalogue.
+
+SMART LENGTH MODE
+Pick one:
+- SHORT 800–1000
+- MEDIUM 1200–1600
+- LONG 1800–2300
+Use LONG if topic is broad/full routine; MEDIUM for one process; SHORT only for simple single question.
+
+PRIMARY KEYWORD PLACEMENT PLAN
+You must ensure in Pass 2:
+- H1 contains the primary keyword exactly once (as a substring).
+- First 120 words contains primary keyword exactly once.
+- One H2 contains primary keyword exactly once.
+- Meta description 140–160 chars contains primary keyword exactly once.
+- Slug is based on primary keyword.
+
+DECISION SECTION
+Plan the 3 bullets exactly:
+1) Best for most people: featured product
+2) Best if you want maximum drying: pick from catalogue
+3) Best if you want a full set: Origin Wash Kit
+
+OUTPUT JSON SHAPE (EXACT)
+{
+  "mode": "SHORT" | "MEDIUM" | "LONG",
+  "target_word_count": number,
+  "slug_suggestion": string,
+  "meta_description_suggestion": string,
+  "h1_suggestion": string,
+  "h2_primary_keyword_suggestion": string,
+  "section_h2s": [string, string, string, string, string],
+  "products": {
+    "featured": { "name": string, "url": string },
+    "max_drying": { "name": string, "url": string },
+    "full_set": { "name": "Origin Wash Kit", "url": string },
+    "optional_third": { "name": string, "url": string } | null
+  },
+  "image_plan": {
+    "include_img1": true,
+    "include_img2": boolean,
+    "include_img3": boolean
+  },
+  "realism": {
+    "mild_opinion_sentence": string,
+    "sunday_driveway_example_sentence": string
+  }
+}
+
+Return JSON ONLY.
+`.trim();
+}
+
+function buildPass2Prompt({ topic, primary_keyword, plan }) {
+  const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
+
+  return `
+You are an expert UK SEO writer for Street Kingz. Output MUST be strictly valid JSON only.
+
+INPUTS
+- Topic: "${topic}"
+- Primary keyword: "${primary_keyword}"
+- Plan JSON (authoritative, follow it):
+${JSON.stringify(plan)}
+
+PRODUCT CATALOGUE (you may only mention products from this list):
+${productsJson}
 
 ====================================================================
 HARD OUTPUT RULES (NO EXCEPTIONS)
@@ -252,7 +397,8 @@ No extra text before or after JSON.
 - content_html must be valid HTML.
 - Use exactly ONE <h1>.
 - All paragraph text must be inside <p>.
-- Lists must be <ul><li>... and any non-list text must be wrapped in <p>.
+- No loose text nodes anywhere.
+- Lists must be <ul><li> and any non-list text must be in <p>.
 - Do NOT output Markdown.
 
 3) NO EM DASH OR DOUBLE HYPHEN
@@ -268,28 +414,21 @@ Do NOT use:
 "gleaming ride", "ultimate shine", "mirror-like finish"
 
 ====================================================================
-SMART LENGTH MODE (SET target_word_count)
+SMART LENGTH (FOLLOW PLAN)
 ====================================================================
-Pick ONE:
-- SHORT: 800–1000 words
-- MEDIUM: 1200–1600 words
-- LONG: 1800–2300 words
-
-Use LONG if the topic is a full routine or broad how-to.
-Use MEDIUM for one main process.
-Use SHORT only for simple single-question topics.
+- Set target_word_count to plan.target_word_count.
+- Write enough detail to realistically reach it.
 
 ====================================================================
 STREET KINGZ PRODUCT RULES
 ====================================================================
-You may ONLY mention products from this list:
-${productsJson}
-
+You may ONLY mention products from the catalogue.
 Linking rules:
-- You MUST include 2 or 3 different Street Kingz products total.
+- Total products mentioned in the article must be 2 or 3.
 - The featured product MUST be one of them and MUST be the main recommendation.
 - FIRST time you mention ANY product, you MUST link it like:
-<a href="URL">Exact Product Name</a>
+<p><a href="URL">Exact Product Name</a></p> is NOT allowed. Links must be inside normal sentence paragraphs.
+Example: <p>Most people should start with <a href="URL">Exact Product Name</a> because ...</p>
 - After first mention, product names can be plain text.
 
 ====================================================================
@@ -299,8 +438,6 @@ A "CTA" is ONLY either:
 - a link with anchor text exactly "View the kit"
 - OR a final conclusion link to the featured product with anchor text exactly "Get the featured kit"
 
-All other product links are NOT CTAs.
-
 You MUST include exactly 2 CTAs total:
 - CTA #1 inside the featured box: "View the kit"
 - CTA #2 in the conclusion: "Get the featured kit"
@@ -308,79 +445,77 @@ You MUST include exactly 2 CTAs total:
 Do NOT include any other links with those anchor texts.
 
 ====================================================================
-PRIMARY KEYWORD PLACEMENT (STRICT)
+PRIMARY KEYWORD PLACEMENT (FOLLOW PLAN EXACTLY)
 ====================================================================
-Use the primary keyword EXACTLY as written:
-- In the <h1> (exact match appears once within the h1 text)
-- Once in the first 120 words
-- In one <h2> heading (exact match appears once within the h2 text)
-- Once in meta_description (140–160 characters)
-- slug: lowercase, hyphen-separated, based on the primary keyword
+- <h1> must contain the primary keyword exactly once (as a substring).
+- First 120 words must contain the primary keyword exactly once.
+- One <h2> must contain the primary keyword exactly once.
+- meta_description 140–160 chars contains the primary keyword exactly once.
+- slug should use plan.slug_suggestion (you may lightly refine but keep based on keyword).
 
 ====================================================================
 MANDATORY FEATURED BOX (EXACT HTML)
 ====================================================================
 After the intro paragraph(s), insert:
 <!-- IMAGE: img1 -->
-Then immediately output this section EXACTLY (keep tags + <p> structure):
+Then immediately output this section EXACTLY (keep tags + <p> structure exactly):
 
 <section class="sk-featured-box">
   <h2>Best option for most people in the UK</h2>
-  <p><strong>Quick pick:</strong> <a href="${featured_product_url}">${featured_product_name}</a></p>
+  <p><strong>Quick pick:</strong> <a href="${plan.products.featured.url}">${plan.products.featured.name}</a></p>
   <p>Short reason in 1 to 2 sentences, practical, no hype.</p>
-  <p><a href="${featured_product_url}">View the kit</a></p>
+  <p><a href="${plan.products.featured.url}">View the kit</a></p>
 </section>
 
-After </section>, the next content MUST start with a new <p>.
+Immediately after </section>, start a new paragraph:
+<p>...</p>
 
 ====================================================================
-CONTENT STRUCTURE (BUYER INTENT)
+CONTENT STRUCTURE (FOLLOW PLAN)
 ====================================================================
-Your article must include these sections (H2 titles can vary, except where noted):
+- Use plan.section_h2s for your H2s (you can add more if needed, but keep them varied).
+- Include the H2 that contains the primary keyword exactly once, using plan.h2_primary_keyword_suggestion.
+- If plan.image_plan.include_img2 is true, include <!-- IMAGE: img2 --> mid-article.
+- If plan.image_plan.include_img3 is true, include <!-- IMAGE: img3 --> before the conclusion.
 
-- Intro (1–2 short <p>)
-- Featured box (as above)
-- <h2> that contains the primary keyword exactly once (this is mandatory)
-- A practical step-by-step or decision logic relevant to the topic
-- <!-- IMAGE: img2 --> somewhere mid-article IF target_word_count >= 1200
-- A decision section BEFORE FAQs with EXACTLY 3 options in a <ul>:
+Decision section BEFORE FAQs:
+- Must be a <h2> (wording can vary, but keep buyer intent).
+- Must contain EXACTLY 3 options in a <ul>:
   1) Best for most people: featured product (winner)
-  2) Best if you want maximum drying: choose a relevant drying product/bundle from the list
-  3) Best if you want a full set: choose Origin Wash Kit (must be exactly "Origin Wash Kit" if present in the list)
-Each bullet must say who it’s for + one practical reason.
+  2) Best if you want maximum drying: plan.products.max_drying
+  3) Best if you want a full set: plan.products.full_set (Origin Wash Kit)
+Each <li> must include who it’s for + one practical reason.
+First mention linking rules still apply.
 
-- A "Who this is not for" section with EXACTLY 3 bullets in <ul><li>, blunt and practical.
+"Who this is not for" section:
+- <h2> then <ul> with EXACTLY 3 <li>, blunt and practical.
 
-- FAQs:
-  SHORT: 2–3
-  MEDIUM: 3–4
-  LONG: 4–6
-Use <h3> for each question and <p> for each answer.
+FAQs:
+- SHORT: 2–3, MEDIUM: 3–4, LONG: 4–6
+- Use <h3> for each question and <p> for each answer.
 
-- Conclusion:
-  Include exactly one final CTA sentence inside a <p>:
-  <p><a href="${featured_product_url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>
+Conclusion:
+- Include exactly one final CTA sentence inside a <p>:
+<p><a href="${plan.products.featured.url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>
 
-- Author sign-off (final line in content_html):
-  One <p>, 1–2 sentences, from Ben, founder of Street Kingz. No links.
+Author sign-off:
+- Final line in content_html must be a single <p>, 1–2 sentences, from Ben, founder of Street Kingz. No links.
 
-- <!-- IMAGE: img3 --> only if LONG mode, placed before the conclusion.
-
-====================================================================
-REALISM (REQUIRED)
-====================================================================
-Include:
-- One mild opinion (grounded, not cringe).
-- One Sunday-driveway UK example (weather, time pressure, driveway, etc).
+REALISM:
+- Include plan.realism.mild_opinion_sentence verbatim somewhere in a <p>.
+- Include plan.realism.sunday_driveway_example_sentence verbatim somewhere in a <p>.
 
 ====================================================================
 NOW WRITE THE ARTICLE
 ====================================================================
 Return ONLY the JSON object.
-`;
+`.trim();
 }
 
-// Route: generate an article using OpenAI
+// ---------------------------
+// Route: generate (2-pass)
+// ---------------------------
+
 app.post("/generate-article", async (req, res) => {
   try {
     const { topic, primary_keyword, featured_product_name, featured_product_url } = req.body || {};
@@ -397,47 +532,29 @@ app.post("/generate-article", async (req, res) => {
       return res.status(500).json({ error: "OPENAI_API_KEY is not set on the server." });
     }
 
-    const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
+    // PASS 1: plan
+    const pass1Prompt = buildPass1Prompt({ topic, primary_keyword, featured_product_name, featured_product_url });
+    const plan = await callOpenAIJson({ prompt: pass1Prompt, temperature: 0.2 });
 
-    const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        temperature: 0.4,
-        messages: [
-          { role: "system", content: "You are a highly skilled SEO content writer that always returns strictly valid JSON when asked." },
-          { role: "user", content: prompt }
-        ]
-      })
-    });
-
-    if (!openaiResponse.ok) {
-      const errorText = await openaiResponse.text();
-      console.error("OpenAI API error:", errorText);
-      return res.status(502).json({ error: "Error from OpenAI API", details: errorText });
+    // Basic guardrails so Pass 2 doesn't go off the rails
+    if (!plan?.products?.featured?.name || !plan?.products?.featured?.url) {
+      return res.status(502).json({ error: "Pass 1 plan missing featured product." });
+    }
+    if (!plan?.products?.full_set?.name || plan.products.full_set.name !== "Origin Wash Kit") {
+      // Force it if the model drifted
+      const originWashKit = STREET_KINGZ_PRODUCTS.find(p => p.name === "Origin Wash Kit");
+      if (originWashKit) {
+        plan.products.full_set = { name: "Origin Wash Kit", url: originWashKit.url };
+      } else {
+        return res.status(502).json({ error: "Catalogue missing Origin Wash Kit; update product list." });
+      }
     }
 
-    const data = await openaiResponse.json();
-    const content = data?.choices?.[0]?.message?.content;
+    // PASS 2: final article
+    const pass2Prompt = buildPass2Prompt({ topic, primary_keyword, plan });
+    const article = await callOpenAIJson({ prompt: pass2Prompt, temperature: 0.35 });
 
-    if (!content) {
-      console.error("No content returned from OpenAI:", data);
-      return res.status(502).json({ error: "No content returned from OpenAI" });
-    }
-
-    let article;
-    try {
-      article = JSON.parse(content);
-    } catch (err) {
-      console.error("Failed to parse OpenAI JSON:", err, "Raw content:", content);
-      return res.status(502).json({ error: "Failed to parse OpenAI JSON. Check server logs." });
-    }
-
-    if (!article.title || !article.content_html) {
+    if (!article?.title || !article?.content_html) {
       return res.status(502).json({ error: "Article missing required fields from OpenAI." });
     }
 
