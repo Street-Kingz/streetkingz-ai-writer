@@ -73,11 +73,11 @@ const STREET_KINGZ_PRODUCTS = [
     url: "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
   },
   {
-    name: "Small Barrel Brush",
+    name: "Slim Barrel Brush",
     type: "wheel brush",
     details: "Compact barrel brush designed for tighter spoke patterns and smaller wheels.",
     ideal_use: "Smaller wheel designs, tight gaps, behind spokes and brake components.",
-    url: "https://streetkingz.co.uk/product/small-barrel-brush/"
+    url: "https://streetkingz.co.uk/product/slim-barrel-brush/"
   },
   {
     name: "Wheel Hose Guides",
@@ -89,11 +89,11 @@ const STREET_KINGZ_PRODUCTS = [
 
   // --- TOOLS: FOAM LANCE, STUBBY GUN ---
   {
-    name: "Stubby Gun",
+    name: "Stubby Gun & Nozzle Set",
     type: "pressure washer tool",
     details: "Compact pressure washer gun offering better control and ergonomics during washing.",
     ideal_use: "Pairing with a foam lance or standard nozzles for controlled washing in tight spaces.",
-    url: "https://streetkingz.co.uk/product/stubby-gun/"
+    url: "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/"
   },
   {
     name: "Snow Foam Lance",
@@ -142,11 +142,32 @@ const STREET_KINGZ_PRODUCTS = [
     url: "https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/"
   },
   {
+    name: "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)",
+    type: "bundle",
+    details: "Complete wheel cleaning with the xl barrel brush, slim barrel brush and the microfibre wheel flosser",
+    ideal_use: "For those who want to clean their entire alloys safely",
+    url: "https://streetkingz.co.uk/product/wheel-cleaning-power-pack/"
+  },
+  {
+    name: "Origin Wash Kit",
+    type: "bundle",
+    details: "Origin Ultra Concentrated pH safe shampoo paired with microfibre wash mitt",
+    ideal_use: "costed efective shampoo that protects your paint and a microfibre mitt that prevents scratches and swirls",
+    url: "https://streetkingz.co.uk/product/origin-wash-kit/"
+  },
+  {
     name: "Origin Interior Deep Clean Kit",
     type: "bundle",
     details: "Interior kit containing Multiclean, Scrub Pads and Coral Cloth.",
     ideal_use: "Deep cleaning interiors including fabrics, plastics and trim.",
     url: "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/"
+  },
+  {
+    name: "Origin Glass Clarity Kit",
+    type: "bundle",
+    details: "Streak free glass cleaner paired with a purpose made glass waffle cloth",
+    ideal_use: "for those who want effortlessly clean and streak free windows and mirrors",
+    url: "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/"
   },
   {
     name: "Origin XL Wash Kit",
@@ -156,25 +177,18 @@ const STREET_KINGZ_PRODUCTS = [
     url: "https://streetkingz.co.uk/product/origin-xl-wash-kit/"
   },
   {
-    name: "The Origin Wash Kit",
-    type: "bundle",
-    details: "Full Origin system: Shampoo, Wash Mitt, Glass Cleaner, Waffle Cloth, Multiclean and Scrub Pads.",
-    ideal_use: "Complete wash setup for new and returning customers.",
-    url: "https://streetkingz.co.uk/product/origin-wash-kit/"
-  },
-  {
-    name: "Ultimate Wash and Dry Set",
-    type: "bundle",
-    details: "Wash Mitt, XL Drying Towel and Heavy Duty Drying Towel.",
-    ideal_use: "Near-complete wash and dry system.",
-    url: "https://streetkingz.co.uk/product/ultimate-wash-and-dry-set/"
-  },
-  {
     name: "XL Wash & Dry Set",
     type: "bundle",
     details: "XL Towel + Wash Mitt.",
     ideal_use: "Basic wash and dry combo.",
     url: "https://streetkingz.co.uk/product/xl-wash-dry-set/"
+  },
+  {
+    name: "The Origin Trilogy",
+    type: "bundle",
+    details: "containing the Origin shampoo, Glass cleaner & Interior cleaner",
+    ideal_use: "effective cleaning both inside and outside of the car",
+    url: "https://streetkingz.co.uk/product/the-origin-trilogy/"
   },
   {
     name: "Twisted Loop Power Pack",
@@ -189,27 +203,6 @@ const STREET_KINGZ_PRODUCTS = [
     details: "Heavy Duty Drying Towel + Wash Mitt.",
     ideal_use: "All-round wash and dry starter setup.",
     url: "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
-  },
-  {
-    name: "Wash, Dry And Polish Kit",
-    type: "bundle",
-    details: "1200gsm Towel, Wash Mitt, Coral Fleece Cloth.",
-    ideal_use: "Complete wash, dry and finishing system.",
-    url: "https://streetkingz.co.uk/product/wash-dry-and-polish-kit/"
-  },
-  {
-    name: "Mega Drying Bundle",
-    type: "bundle",
-    details: "XL towel, Heavy Duty towel and Coral Fleece.",
-    ideal_use: "Heavy users or detailers.",
-    url: "https://streetkingz.co.uk/product/mega-drying-bundle/"
-  },
-  {
-    name: "Drying Bundle",
-    type: "bundle",
-    details: "1200gsm towel, 800gsm towel and 380gsm cloth.",
-    ideal_use: "Customers wanting multiple drying options.",
-    url: "https://streetkingz.co.uk/product/drying-bundle/"
   }
 ];
 
