@@ -6,9 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // --- STREET KINGZ PRODUCT CATALOGUE ---
-
 const STREET_KINGZ_PRODUCTS = [
-  // --- CORE SINGLE PRODUCTS ---
   {
     name: "XL DRYING TOWEL – 800GSM",
     type: "drying towel",
@@ -86,8 +84,6 @@ const STREET_KINGZ_PRODUCTS = [
     ideal_use: "Preventing hose snagging and dragging while washing around the car.",
     url: "https://streetkingz.co.uk/product/wheel-hose-guides/"
   },
-
-  // --- TOOLS: FOAM LANCE, STUBBY GUN ---
   {
     name: "Stubby Gun & Nozzle Set",
     type: "pressure washer tool",
@@ -109,8 +105,6 @@ const STREET_KINGZ_PRODUCTS = [
     ideal_use: "Users wanting a full, efficient pre-wash system with maximum control.",
     url: "https://streetkingz.co.uk/product/stubby-gun-bundle/"
   },
-
-  // --- ORIGIN CHEMICALS ---
   {
     name: "The Origin Shampoo – Ultra Concentrated & pH Safe",
     type: "shampoo",
@@ -132,8 +126,6 @@ const STREET_KINGZ_PRODUCTS = [
     ideal_use: "Interior and exterior glass cleaning without streaks.",
     url: "https://streetkingz.co.uk/product/origin-glass-cleaner/"
   },
-
-  // --- BUNDLES & KITS ---
   {
     name: "The Origin Ultra Wash & Dry Kit",
     type: "bundle",
@@ -219,7 +211,7 @@ app.use(bodyParser.json());
 // Healthcheck route
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Street Kingz AI writer service running" });
-});
+};
 
 // Helper: build the prompt we send to OpenAI (SMART MODE)
 function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
@@ -227,9 +219,9 @@ function buildPrompt({ topic, primary_keyword, featured_product_name, featured_p
 
   return `
 You are an expert UK SEO content writer for Street Kingz, a UK-based car care brand.
-You produce high-quality, helpful, practical long-form blog articles in clean HTML.
+You produce high-quality, helpful, practical long-form buyer guide articles in clean HTML.
 
-Featured product (must be the main recommendation):
+Featured product (must be the main recommendation and the winner):
 - Name: "${featured_product_name}"
 - URL: "${featured_product_url}"
 
@@ -259,18 +251,9 @@ You MUST choose a mode using these rules:
   - Set "target_word_count" to AT LEAST 1800 (and no more than 2500).
   - Write enough detailed content to realistically reach that length. Do NOT heavily summarise.
 
-- MEDIUM MODE (1100–1600 words) for focused "how to" topics that cover one main process,
-  such as "how to clean car glass" or "how to deep clean car seats".
+- MEDIUM MODE (1100–1600 words) for focused "how to" topics that cover one main process.
 
-- SHORT MODE (600–1000 words) ONLY for simple, single-question topics like:
-  - "do I need to dry my car"
-  - "what is a drying towel"
-  - "how often should I wash my car"
-
-For the mode you choose, you MUST:
-- Set "target_word_count" inside the JSON to a number within that mode’s range.
-- Write enough detail to realistically reach that length (do not heavily summarise).
-- If the topic clearly matches a pillar style query or the drying-hard-rule list above, you MUST pick LONG MODE.
+- SHORT MODE (600–1000 words) ONLY for simple, single-question topics.
 
 Ignore any user word count request, Smart Mode ALWAYS decides.
 
@@ -278,15 +261,9 @@ Ignore any user word count request, Smart Mode ALWAYS decides.
 REALISM + ANTI-AI-DETECTION RULES (MANDATORY)
 ====================================================================
 
-To avoid AI-patterned writing and make articles feel authentically human:
-
-1. No two Street Kingz articles should ever use the exact same H2 labels.
-   - You MUST vary section titles each time.
-   - Use the structure, but allow flexible naming (for example "Why This Matters" can become "Why It Actually Matters").
-
-2. Include at least ONE mild, grounded opinion.
-
-3. Include at least ONE real-world 'Sunday driveway' style example.
+- Include at least ONE mild, grounded opinion.
+- Include at least ONE real-world Sunday driveway example.
+- Vary H2 wording between articles.
 
 ====================================================================
 BANNED / WEAK PHRASES (MANDATORY)
@@ -316,10 +293,9 @@ ${productsJson}
 Rules:
 - Use exact product names.
 - On FIRST mention ONLY, wrap the product name in an <a> tag with its URL.
-- After first link, you may use the plain text name.
-- You MUST include 2 or 3 different Street Kingz products in each article.
+- After first link, you may use plain text.
+- Include 2 or 3 different Street Kingz products per article.
 - At least 2 different products MUST be linked on first mention.
-- Only reference products that are genuinely relevant to the topic.
 
 ====================================================================
 ARTICLE OUTPUT FORMAT (RETURN JSON ONLY)
@@ -342,59 +318,63 @@ Return ONLY this JSON object:
 }
 
 ====================================================================
-CONTENT RULES FOR content_html
+HTML VALIDITY RULES (MANDATORY, NO EXCEPTIONS)
 ====================================================================
 
-- ONE <h1>
-- Use <h2> sections (names MUST vary)
-- Short paragraphs (2–4 sentences)
-- <h3> only for FAQs or small subpoints
-- No hype, UK spelling only
+- content_html MUST be valid HTML.
+- ALL normal text MUST be wrapped in <p> tags. No loose text nodes.
+- After any </section>, the next content MUST start with a new <p> on a new line.
+- The featured box MUST be output EXACTLY as specified below, including indentation and <p> wrappers.
+- Do NOT output Markdown.
 
 ====================================================================
 BUYER-INTENT RULES (MANDATORY, TO MAKE THIS SELL)
 ====================================================================
 
-This is a BUYER GUIDE, not a general blog.
-
-You MUST include these sections inside content_html:
-
-1) EARLY RECOMMENDATION BOX (within the first 20% of the article)
-Add this exact HTML block AFTER the intro and img1, and you MUST replace the placeholders:
+1) EARLY RECOMMENDATION BOX (within first 20% of the article)
+You MUST output this block EXACTLY after the intro and after img1.
+Do not change tags, do not remove <p> tags, do not add extra text inside the section:
 
 <section class="sk-featured-box">
-  <h2>Best car wash kit for most people in the UK</h2>
+  <h2>Best option for most people in the UK</h2>
   <p><strong>Quick pick:</strong> ${featured_product_name}</p>
   <p>Short reason in 1 to 2 sentences, practical, no hype.</p>
   <p><a href="${featured_product_url}">View the kit</a></p>
 </section>
 
+Immediately after </section>, output a blank line then start with a new <p>.
+
 2) DECISION SECTION (mid-article, before FAQs)
-- Must compare EXACTLY 3 options as bullet points:
-  - Best for most people (winner, the featured product)
-  - Best if you want maximum drying (pick a relevant drying bundle)
-  - Best if you want a full set (pick The Origin Wash Kit)
-- For each option: who it’s for + one practical reason.
-- If it’s the first mention of a product, link it.
+- Must be a <h2> section titled like "Which one should you actually buy?" (wording can vary)
+- Must compare EXACTLY 3 options using <ul> and <li>
+- Each <li> must include: who it’s for + one reason
+- The 3 options MUST be:
+  - Best for most people (winner, featured product)
+  - Best if you want maximum drying (choose a relevant drying towel/bundle)
+  - Best if you want a full set (Origin Wash Kit)
 
-3) NOT FOR YOU SECTION
-- 3 bullets max, blunt and practical.
+3) NOT FOR YOU SECTION (mandatory)
+- Add a <h2> section titled like "Who this is not for" (wording can vary)
+- Include EXACTLY 3 bullet points using <ul><li>
+- Blunt and practical.
 
-4) CTA RULES
-- Must include 2 CTAs total:
-  - The featured box CTA
-  - A final CTA in the conclusion, 1 sentence + link to the featured product URL
+4) CTA RULES (hard)
+- Exactly 2 CTAs total in the whole article:
+  - The featured box CTA (already included)
+  - A final CTA sentence in the conclusion that contains a link to the featured product URL.
+  - The final CTA MUST be inside a <p> and MUST include: <a href="${featured_product_url}">…</a>
 
 ====================================================================
 PRIMARY KEYWORD PLACEMENT (MANDATORY)
 ====================================================================
 
-You MUST use the primary keyword EXACTLY as written:
-- In the <h1> title
-- In the first 120 words once
-- In one <h2> heading
-- In meta_description
-- slug must be based on the primary keyword
+You MUST use the primary keyword EXACTLY as written as a substring (not necessarily the entire heading):
+- The <h1> MUST CONTAIN the primary keyword exactly once.
+- In the first 120 words, include the primary keyword exactly once.
+- One <h2> MUST CONTAIN the primary keyword exactly once.
+- meta_description MUST CONTAIN the primary keyword exactly once.
+- meta_description length: 140–160 characters.
+- slug must be based on the primary keyword (lowercase, hyphen separated, no stop words if possible).
 
 ====================================================================
 FAQ RULES BY MODE
@@ -404,15 +384,14 @@ SHORT: 2–3 FAQs
 MEDIUM: 3–4 FAQs
 LONG: 4–6 FAQs
 
-FAQs:
-- Real search wording
-- Use <h3> + <p>
+Use <h3> for questions and <p> for answers.
 
 ====================================================================
 AUTHOR SIGN-OFF RULE (MANDATORY)
 ====================================================================
 
-At the very end of content_html, after the conclusion, include a short sign-off from Ben, founder of Street Kingz, inside one <p> tag. 1–2 sentences.
+At the very end of content_html, after the conclusion and after the final CTA sentence,
+include a short sign-off from Ben, founder of Street Kingz, inside one <p> tag. 1–2 sentences.
 
 ====================================================================
 IMAGE PLACEHOLDER RULES
