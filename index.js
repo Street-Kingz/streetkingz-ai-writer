@@ -219,17 +219,20 @@ function buildPrompt({ topic, primary_keyword, featured_product_name, featured_p
 
   // IMPORTANT: keep this as a single template string, no stray backticks anywhere.
   return `
-You are an expert UK SEO content writer for Street Kingz, a UK-based car care brand.
-You produce high-quality, helpful, practical long-form buyer guide articles in clean HTML.
+You are an expert UK SEO writer for Street Kingz. Output MUST be strictly valid JSON only.
 
-Featured product (must be the main recommendation and the winner):
-- Name: "${featured_product_name}"
-- URL: "${featured_product_url}"
+INPUTS
+- Topic: "${topic}"
+- Primary keyword: "${primary_keyword}"
+- Featured product (winner): "${featured_product_name}"
+- Featured product URL: "${featured_product_url}"
 
-Use ONLY products from this list (exact names only):
-${productsJson}
+====================================================================
+HARD OUTPUT RULES (NO EXCEPTIONS)
+====================================================================
 
-RETURN JSON ONLY in this exact shape:
+1) RETURN JSON ONLY
+Return exactly one JSON object with these keys:
 {
   "title": string,
   "slug": string,
@@ -237,55 +240,144 @@ RETURN JSON ONLY in this exact shape:
   "meta_description": string,
   "target_word_count": number,
   "content_html": string,
-  "image_placeholders": [{"id":"img1"},{"id":"img2"},{"id":"img3"}]
+  "image_placeholders": [
+    { "id": "img1", "type": "string", "alt": "string" },
+    { "id": "img2", "type": "string", "alt": "string" },
+    { "id": "img3", "type": "string", "alt": "string" }
+  ]
 }
+No extra text before or after JSON.
 
-HTML VALIDITY (hard rules):
-- content_html MUST be valid HTML.
-- All normal text MUST be wrapped in <p> tags, no loose text.
+2) HTML VALIDITY
+- content_html must be valid HTML.
+- Use exactly ONE <h1>.
+- All paragraph text must be inside <p>.
+- Lists must be <ul><li>... and any non-list text must be wrapped in <p>.
 - Do NOT output Markdown.
 
-BUYER INTENT (hard rules):
-- Include this exact featured box after the intro and after <!-- IMAGE: img1 -->. Do not change tags:
+3) NO EM DASH OR DOUBLE HYPHEN
+Do not use — or -- anywhere.
+
+4) UK SPELLING, NO FAKE STATS, NO HYPE.
+
+====================================================================
+BANNED PHRASES (STRICT)
+====================================================================
+Do NOT use:
+"in this guide", "in this article", "this comprehensive guide", "showroom shine", "showroom finish",
+"gleaming ride", "ultimate shine", "mirror-like finish"
+
+====================================================================
+SMART LENGTH MODE (SET target_word_count)
+====================================================================
+Pick ONE:
+- SHORT: 800–1000 words
+- MEDIUM: 1200–1600 words
+- LONG: 1800–2300 words
+
+Use LONG if the topic is a full routine or broad how-to.
+Use MEDIUM for one main process.
+Use SHORT only for simple single-question topics.
+
+====================================================================
+STREET KINGZ PRODUCT RULES
+====================================================================
+You may ONLY mention products from this list:
+${productsJson}
+
+Linking rules:
+- You MUST include 2 or 3 different Street Kingz products total.
+- The featured product MUST be one of them and MUST be the main recommendation.
+- FIRST time you mention ANY product, you MUST link it like:
+<a href="URL">Exact Product Name</a>
+- After first mention, product names can be plain text.
+
+====================================================================
+CTA DEFINITION (TO AVOID CONFLICT)
+====================================================================
+A "CTA" is ONLY either:
+- a link with anchor text exactly "View the kit"
+- OR a final conclusion link to the featured product with anchor text exactly "Get the featured kit"
+
+All other product links are NOT CTAs.
+
+You MUST include exactly 2 CTAs total:
+- CTA #1 inside the featured box: "View the kit"
+- CTA #2 in the conclusion: "Get the featured kit"
+
+Do NOT include any other links with those anchor texts.
+
+====================================================================
+PRIMARY KEYWORD PLACEMENT (STRICT)
+====================================================================
+Use the primary keyword EXACTLY as written:
+- In the <h1> (exact match appears once within the h1 text)
+- Once in the first 120 words
+- In one <h2> heading (exact match appears once within the h2 text)
+- Once in meta_description (140–160 characters)
+- slug: lowercase, hyphen-separated, based on the primary keyword
+
+====================================================================
+MANDATORY FEATURED BOX (EXACT HTML)
+====================================================================
+After the intro paragraph(s), insert:
+<!-- IMAGE: img1 -->
+Then immediately output this section EXACTLY (keep tags + <p> structure):
+
 <section class="sk-featured-box">
   <h2>Best option for most people in the UK</h2>
-  <p><strong>Quick pick:</strong> ${featured_product_name}</p>
+  <p><strong>Quick pick:</strong> <a href="${featured_product_url}">${featured_product_name}</a></p>
   <p>Short reason in 1 to 2 sentences, practical, no hype.</p>
   <p><a href="${featured_product_url}">View the kit</a></p>
 </section>
 
-- Immediately after </section>, start with a new <p>.
-- Include a decision <h2> section before FAQs comparing EXACTLY 3 options in <ul><li>:
-  1) Best for most people (featured product)
-  2) Best if you want maximum drying (choose a relevant drying towel or drying bundle from the product list)
-  3) Best if you want a full set (Origin Wash Kit)
-- Include a "Who this is not for" <h2> with EXACTLY 3 bullets.
-- Exactly 2 CTAs total in the whole article:
-  1) Featured box CTA (already included)
-  2) One final CTA sentence in the conclusion containing a link to ${featured_product_url}
+After </section>, the next content MUST start with a new <p>.
 
-PRIMARY KEYWORD PLACEMENT (hard rules):
-- <h1> must CONTAIN the primary keyword exactly once.
-- In first 120 words, include the primary keyword exactly once.
-- One <h2> must CONTAIN the primary keyword exactly once.
-- meta_description must CONTAIN the primary keyword exactly once (140 to 160 chars).
-- slug based on the primary keyword (lowercase, hyphen-separated).
+====================================================================
+CONTENT STRUCTURE (BUYER INTENT)
+====================================================================
+Your article must include these sections (H2 titles can vary, except where noted):
 
-IMAGE PLACEHOLDERS:
-- Insert <!-- IMAGE: img1 --> after intro.
-- Insert <!-- IMAGE: img2 --> mid-article if medium/long.
-- Insert <!-- IMAGE: img3 --> before conclusion if long.
+- Intro (1–2 short <p>)
+- Featured box (as above)
+- <h2> that contains the primary keyword exactly once (this is mandatory)
+- A practical step-by-step or decision logic relevant to the topic
+- <!-- IMAGE: img2 --> somewhere mid-article IF target_word_count >= 1200
+- A decision section BEFORE FAQs with EXACTLY 3 options in a <ul>:
+  1) Best for most people: featured product (winner)
+  2) Best if you want maximum drying: choose a relevant drying product/bundle from the list
+  3) Best if you want a full set: choose Origin Wash Kit (must be exactly "Origin Wash Kit" if present in the list)
+Each bullet must say who it’s for + one practical reason.
 
-STYLE:
-- UK spelling.
-- No hype.
-- No em dashes and no double hyphens.
+- A "Who this is not for" section with EXACTLY 3 bullets in <ul><li>, blunt and practical.
 
-Topic: "${topic}"
-Primary keyword: "${primary_keyword}"
+- FAQs:
+  SHORT: 2–3
+  MEDIUM: 3–4
+  LONG: 4–6
+Use <h3> for each question and <p> for each answer.
 
-Return ONLY the JSON object, nothing else.
-`.trim();
+- Conclusion:
+  Include exactly one final CTA sentence inside a <p>:
+  <p><a href="${featured_product_url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>
+
+- Author sign-off (final line in content_html):
+  One <p>, 1–2 sentences, from Ben, founder of Street Kingz. No links.
+
+- <!-- IMAGE: img3 --> only if LONG mode, placed before the conclusion.
+
+====================================================================
+REALISM (REQUIRED)
+====================================================================
+Include:
+- One mild opinion (grounded, not cringe).
+- One Sunday-driveway UK example (weather, time pressure, driveway, etc).
+
+====================================================================
+NOW WRITE THE ARTICLE
+====================================================================
+Return ONLY the JSON object.
+`;
 }
 
 // Route: generate an article using OpenAI
