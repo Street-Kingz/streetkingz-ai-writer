@@ -211,12 +211,13 @@ app.use(bodyParser.json());
 // Healthcheck route
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Street Kingz AI writer service running" });
-};
+});
 
-// Helper: build the prompt we send to OpenAI (SMART MODE)
+// Helper: build the prompt we send to OpenAI
 function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
+  // IMPORTANT: keep this as a single template string, no stray backticks anywhere.
   return `
 You are an expert UK SEO content writer for Street Kingz, a UK-based car care brand.
 You produce high-quality, helpful, practical long-form buyer guide articles in clean HTML.
@@ -225,84 +226,10 @@ Featured product (must be the main recommendation and the winner):
 - Name: "${featured_product_name}"
 - URL: "${featured_product_url}"
 
-====================================================================
-SMART MODE RULES (MANDATORY)
-====================================================================
-
-You MUST determine the correct article length based on topic complexity:
-
-1. SHORT ARTICLE (600–1000 words)
-2. MEDIUM ARTICLE (1100–1600 words)
-3. LONG ARTICLE (1700–2500 words)
-
-You MUST choose a mode using these rules:
-
-- LONG MODE (1700–2500 words) if the topic is a broad or "pillar" style query, for example:
-  - any topic starting with "how to wash a car"
-  - any topic containing "complete guide", "beginner’s guide", or "step by step guide"
-  - any topic that clearly covers a full routine (for example wash + dry, full wash process, or complete interior deep clean)
-
-- LONG MODE (hard rule) for any topic about drying a car as a full process, including:
-  - "how to dry a car"
-  - "how to dry your car"
-  - "how to dry my car"
-  - "best way to dry a car"
-  For these topics you MUST:
-  - Set "target_word_count" to AT LEAST 1800 (and no more than 2500).
-  - Write enough detailed content to realistically reach that length. Do NOT heavily summarise.
-
-- MEDIUM MODE (1100–1600 words) for focused "how to" topics that cover one main process.
-
-- SHORT MODE (600–1000 words) ONLY for simple, single-question topics.
-
-Ignore any user word count request, Smart Mode ALWAYS decides.
-
-====================================================================
-REALISM + ANTI-AI-DETECTION RULES (MANDATORY)
-====================================================================
-
-- Include at least ONE mild, grounded opinion.
-- Include at least ONE real-world Sunday driveway example.
-- Vary H2 wording between articles.
-
-====================================================================
-BANNED / WEAK PHRASES (MANDATORY)
-====================================================================
-
-You MUST NOT use these phrases or close variants in content_html or meta_description:
-- "in this guide", "in this article", "this comprehensive guide"
-- "showroom shine", "showroom finish"
-- "gleaming ride", "ultimate shine", "mirror-like finish"
-- marketing clichés and hype
-
-====================================================================
-EM DASH AND DOUBLE HYPHEN BAN (MANDATORY)
-====================================================================
-
-You MUST NOT use:
-- the em dash character (—)
-- double hyphens (--)
-
-====================================================================
-STREET KINGZ PRODUCT RULES (VERY IMPORTANT)
-====================================================================
-
-Use ONLY products from this list:
+Use ONLY products from this list (exact names only):
 ${productsJson}
 
-Rules:
-- Use exact product names.
-- On FIRST mention ONLY, wrap the product name in an <a> tag with its URL.
-- After first link, you may use plain text.
-- Include 2 or 3 different Street Kingz products per article.
-- At least 2 different products MUST be linked on first mention.
-
-====================================================================
-ARTICLE OUTPUT FORMAT (RETURN JSON ONLY)
-====================================================================
-
-Return ONLY this JSON object:
-
+RETURN JSON ONLY in this exact shape:
 {
   "title": string,
   "slug": string,
@@ -310,31 +237,16 @@ Return ONLY this JSON object:
   "meta_description": string,
   "target_word_count": number,
   "content_html": string,
-  "image_placeholders": [
-      { "id": "img1", ... },
-      { "id": "img2", ... },
-      { "id": "img3", ... }
-  ]
+  "image_placeholders": [{"id":"img1"},{"id":"img2"},{"id":"img3"}]
 }
 
-====================================================================
-HTML VALIDITY RULES (MANDATORY, NO EXCEPTIONS)
-====================================================================
-
+HTML VALIDITY (hard rules):
 - content_html MUST be valid HTML.
-- ALL normal text MUST be wrapped in <p> tags. No loose text nodes.
-- After any </section>, the next content MUST start with a new <p> on a new line.
-- The featured box MUST be output EXACTLY as specified below, including indentation and <p> wrappers.
+- All normal text MUST be wrapped in <p> tags, no loose text.
 - Do NOT output Markdown.
 
-====================================================================
-BUYER-INTENT RULES (MANDATORY, TO MAKE THIS SELL)
-====================================================================
-
-1) EARLY RECOMMENDATION BOX (within first 20% of the article)
-You MUST output this block EXACTLY after the intro and after img1.
-Do not change tags, do not remove <p> tags, do not add extra text inside the section:
-
+BUYER INTENT (hard rules):
+- Include this exact featured box after the intro and after <!-- IMAGE: img1 -->. Do not change tags:
 <section class="sk-featured-box">
   <h2>Best option for most people in the UK</h2>
   <p><strong>Quick pick:</strong> ${featured_product_name}</p>
@@ -342,105 +254,55 @@ Do not change tags, do not remove <p> tags, do not add extra text inside the sec
   <p><a href="${featured_product_url}">View the kit</a></p>
 </section>
 
-Immediately after </section>, output a blank line then start with a new <p>.
-
-2) DECISION SECTION (mid-article, before FAQs)
-- Must be a <h2> section titled like "Which one should you actually buy?" (wording can vary)
-- Must compare EXACTLY 3 options using <ul> and <li>
-- Each <li> must include: who it’s for + one reason
-- The 3 options MUST be:
-  - Best for most people (winner, featured product)
-  - Best if you want maximum drying (choose a relevant drying towel/bundle)
-  - Best if you want a full set (Origin Wash Kit)
-
-3) NOT FOR YOU SECTION (mandatory)
-- Add a <h2> section titled like "Who this is not for" (wording can vary)
-- Include EXACTLY 3 bullet points using <ul><li>
-- Blunt and practical.
-
-4) CTA RULES (hard)
+- Immediately after </section>, start with a new <p>.
+- Include a decision <h2> section before FAQs comparing EXACTLY 3 options in <ul><li>:
+  1) Best for most people (featured product)
+  2) Best if you want maximum drying (choose a relevant drying towel or drying bundle from the product list)
+  3) Best if you want a full set (Origin Wash Kit)
+- Include a "Who this is not for" <h2> with EXACTLY 3 bullets.
 - Exactly 2 CTAs total in the whole article:
-  - The featured box CTA (already included)
-  - A final CTA sentence in the conclusion that contains a link to the featured product URL.
-  - The final CTA MUST be inside a <p> and MUST include: <a href="${featured_product_url}">…</a>
+  1) Featured box CTA (already included)
+  2) One final CTA sentence in the conclusion containing a link to ${featured_product_url}
 
-====================================================================
-PRIMARY KEYWORD PLACEMENT (MANDATORY)
-====================================================================
+PRIMARY KEYWORD PLACEMENT (hard rules):
+- <h1> must CONTAIN the primary keyword exactly once.
+- In first 120 words, include the primary keyword exactly once.
+- One <h2> must CONTAIN the primary keyword exactly once.
+- meta_description must CONTAIN the primary keyword exactly once (140 to 160 chars).
+- slug based on the primary keyword (lowercase, hyphen-separated).
 
-You MUST use the primary keyword EXACTLY as written as a substring (not necessarily the entire heading):
-- The <h1> MUST CONTAIN the primary keyword exactly once.
-- In the first 120 words, include the primary keyword exactly once.
-- One <h2> MUST CONTAIN the primary keyword exactly once.
-- meta_description MUST CONTAIN the primary keyword exactly once.
-- meta_description length: 140–160 characters.
-- slug must be based on the primary keyword (lowercase, hyphen separated, no stop words if possible).
+IMAGE PLACEHOLDERS:
+- Insert <!-- IMAGE: img1 --> after intro.
+- Insert <!-- IMAGE: img2 --> mid-article if medium/long.
+- Insert <!-- IMAGE: img3 --> before conclusion if long.
 
-====================================================================
-FAQ RULES BY MODE
-====================================================================
-
-SHORT: 2–3 FAQs
-MEDIUM: 3–4 FAQs
-LONG: 4–6 FAQs
-
-Use <h3> for questions and <p> for answers.
-
-====================================================================
-AUTHOR SIGN-OFF RULE (MANDATORY)
-====================================================================
-
-At the very end of content_html, after the conclusion and after the final CTA sentence,
-include a short sign-off from Ben, founder of Street Kingz, inside one <p> tag. 1–2 sentences.
-
-====================================================================
-IMAGE PLACEHOLDER RULES
-====================================================================
-
-SHORT → img1 only
-MEDIUM → img1 + img2
-LONG → img1 + img2 + img3
-
-Placement:
-- img1 after intro
-- img2 mid-article
-- img3 before conclusion
-
-Insert:
-<!-- IMAGE: imgX -->
-
-====================================================================
-BEGIN ARTICLE NOW
-====================================================================
+STYLE:
+- UK spelling.
+- No hype.
+- No em dashes and no double hyphens.
 
 Topic: "${topic}"
 Primary keyword: "${primary_keyword}"
 
-Return ONLY the JSON.
-`;
+Return ONLY the JSON object, nothing else.
+`.trim();
 }
 
-// Route: generate a real article using OpenAI
+// Route: generate an article using OpenAI
 app.post("/generate-article", async (req, res) => {
   try {
     const { topic, primary_keyword, featured_product_name, featured_product_url } = req.body || {};
 
     if (!topic || !primary_keyword) {
-      return res.status(400).json({
-        error: "Missing required fields: 'topic' and 'primary_keyword'."
-      });
+      return res.status(400).json({ error: "Missing required fields: 'topic' and 'primary_keyword'." });
     }
 
     if (!featured_product_name || !featured_product_url) {
-      return res.status(400).json({
-        error: "Missing required fields: 'featured_product_name' and 'featured_product_url'."
-      });
+      return res.status(400).json({ error: "Missing required fields: 'featured_product_name' and 'featured_product_url'." });
     }
 
     if (!OPENAI_API_KEY) {
-      return res.status(500).json({
-        error: "OPENAI_API_KEY is not set on the server."
-      });
+      return res.status(500).json({ error: "OPENAI_API_KEY is not set on the server." });
     }
 
     const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
@@ -449,20 +311,14 @@ app.post("/generate-article", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENAI_API_KEY}`
+        Authorization: `Bearer ${OPENAI_API_KEY}`
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
         temperature: 0.4,
         messages: [
-          {
-            role: "system",
-            content: "You are a highly skilled SEO content writer that always returns strictly valid JSON when asked."
-          },
-          {
-            role: "user",
-            content: prompt
-          }
+          { role: "system", content: "You are a highly skilled SEO content writer that always returns strictly valid JSON when asked." },
+          { role: "user", content: prompt }
         ]
       })
     });
@@ -474,8 +330,8 @@ app.post("/generate-article", async (req, res) => {
     }
 
     const data = await openaiResponse.json();
-
     const content = data?.choices?.[0]?.message?.content;
+
     if (!content) {
       console.error("No content returned from OpenAI:", data);
       return res.status(502).json({ error: "No content returned from OpenAI" });
@@ -486,15 +342,11 @@ app.post("/generate-article", async (req, res) => {
       article = JSON.parse(content);
     } catch (err) {
       console.error("Failed to parse OpenAI JSON:", err, "Raw content:", content);
-      return res.status(502).json({
-        error: "Failed to parse OpenAI JSON. Check server logs."
-      });
+      return res.status(502).json({ error: "Failed to parse OpenAI JSON. Check server logs." });
     }
 
     if (!article.title || !article.content_html) {
-      return res.status(502).json({
-        error: "Article missing required fields from OpenAI."
-      });
+      return res.status(502).json({ error: "Article missing required fields from OpenAI." });
     }
 
     return res.json(article);
