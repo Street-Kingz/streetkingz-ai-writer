@@ -278,7 +278,7 @@ function removeEllipsisPlaceholders(html) {
 
 function enforceMetaLength(meta, primaryKeyword) {
   let m = stripBannedPhrases(meta || "");
-  m = dedupeSentenceEnd(m); // PATCH
+  m = dedupeSentenceEnd(m);
 
   // Must include keyword once
   if (primaryKeyword && !m.toLowerCase().includes(primaryKeyword.toLowerCase())) {
@@ -299,7 +299,7 @@ function enforceMetaLength(meta, primaryKeyword) {
   }
   if (m.length > 160) m = m.slice(0, 160).trim();
 
-  // PATCH: clean any accidental double sentence again after padding/trimming
+  // Patch again after padding/trimming
   m = dedupeSentenceEnd(m);
 
   return m;
@@ -320,20 +320,21 @@ function buildFinalCta({ featured_product_url }) {
   return `<p><a href="${featured_product_url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>`;
 }
 
-function enforceCoreStructure({
-  html,
-  featured_product_name,
-  featured_product_url
-}) {
+function enforceCoreStructure({ html, featured_product_name, featured_product_url }) {
   let out = String(html || "");
 
   out = stripBannedPhrases(out);
   out = removeEllipsisPlaceholders(out);
   out = removeExistingFeaturedBox(out);
 
-  // PATCH: force list style + remove empty <p>
+  // Force list style + remove empty <p>
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
+
+  // ✅ IMPORTANT: strip any model-added CTAs BEFORE we inject ours
+  out = out
+    .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
+    .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
 
   // Ensure we have img1 placeholder; if missing, insert after first </h1> or at start.
   if (!out.includes("<!-- IMAGE: img1 -->")) {
@@ -341,26 +342,23 @@ function enforceCoreStructure({
     else out = "<!-- IMAGE: img1 -->\n" + out;
   }
 
-  // Inject featured box immediately after img1
+  // Inject featured box immediately after img1 (contains View the kit)
   const featuredBox = buildFeaturedBox({ featured_product_name, featured_product_url });
   out = out.replace("<!-- IMAGE: img1 -->", `<!-- IMAGE: img1 -->\n\n${featuredBox}\n`);
-
-  // Remove any accidental extra “View the kit” / “Get the featured kit” links the model added
-  // (we re-add exactly one of each).
-  out = out
-    .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
-    .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
 
   // Ensure final CTA exists once near the end (before Ben sign-off if present)
   const finalCta = buildFinalCta({ featured_product_url });
 
   if (/Ben,\s*founder\s*of\s*Street\s*Kingz/i.test(out)) {
-    out = out.replace(/(<p>\s*Ben,\s*founder\s*of\s*Street\s*Kingz[\s\S]*?<\/p>)/i, `${finalCta}\n$1`);
+    out = out.replace(
+      /(<p>\s*Ben,\s*founder\s*of\s*Street\s*Kingz[\s\S]*?<\/p>)/i,
+      `${finalCta}\n$1`
+    );
   } else {
     out = out + "\n" + finalCta + `\n<p>Ben, founder of Street Kingz.</p>`;
   }
 
-  // PATCH: clean again after injections
+  // Clean again after injections
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
