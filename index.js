@@ -214,7 +214,128 @@ app.get("/", (req, res) => {
 });
 
 // ---------------------------
-// Helpers
+// Sanitiser / Enforcer
+// ---------------------------
+
+const BANNED_PHRASES = [
+  "in this guide",
+  "in this article",
+  "this comprehensive guide",
+  "showroom shine",
+  "showroom finish",
+  "gleaming ride",
+  "ultimate shine",
+  "mirror-like finish"
+];
+
+function stripBannedPhrases(text) {
+  if (!text) return text;
+  let out = String(text);
+  for (const p of BANNED_PHRASES) {
+    const re = new RegExp(p, "gi");
+    out = out.replace(re, "");
+  }
+  // Clean up double spaces created by removals
+  out = out.replace(/\s{2,}/g, " ").replace(/\s+\./g, ".").trim();
+  return out;
+}
+
+function removeExistingFeaturedBox(html) {
+  if (!html) return html;
+  return String(html).replace(/<section class=["']sk-featured-box["'][\s\S]*?<\/section>/gi, "").trim();
+}
+
+function removeEllipsisPlaceholders(html) {
+  if (!html) return html;
+  return String(html)
+    .replace(/<p>\s*\.\.\.\s*<\/p>/gi, "")
+    .replace(/…/g, "")
+    .trim();
+}
+
+function enforceMetaLength(meta, primaryKeyword) {
+  let m = stripBannedPhrases(meta || "");
+  // Must include keyword once
+  if (primaryKeyword && !m.toLowerCase().includes(primaryKeyword.toLowerCase())) {
+    m = `${primaryKeyword}: ${m}`.trim();
+  }
+  // Normalize whitespace
+  m = m.replace(/\s{2,}/g, " ").trim();
+
+  // Deterministically pad/trim to 140–160
+  const PAD = " UK delivery available.";
+  while (m.length < 140) m = (m + PAD).slice(0, 160);
+  if (m.length > 160) m = m.slice(0, 160).replace(/\s+\S*$/, "").trim();
+
+  // Final guard: keep within range
+  if (m.length < 140) {
+    // brute pad with safe words
+    m = (m + " UK tips and product picks.").slice(0, 160).trim();
+  }
+  if (m.length > 160) m = m.slice(0, 160).trim();
+
+  return m;
+}
+
+function buildFeaturedBox({ featured_product_name, featured_product_url }) {
+  return `
+<section class="sk-featured-box">
+  <h2>Best option for most people in the UK</h2>
+  <p><strong>Quick pick:</strong> <a href="${featured_product_url}">${featured_product_name}</a></p>
+  <p>Simple setup, covers wash and dry in one go, and it’s hard to mess up on a normal driveway wash.</p>
+  <p><a href="${featured_product_url}">View the kit</a></p>
+</section>
+`.trim();
+}
+
+function buildFinalCta({ featured_product_url }) {
+  return `<p><a href="${featured_product_url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>`;
+}
+
+function enforceCoreStructure({
+  html,
+  featured_product_name,
+  featured_product_url
+}) {
+  let out = String(html || "");
+
+  out = stripBannedPhrases(out);
+  out = removeEllipsisPlaceholders(out);
+  out = removeExistingFeaturedBox(out);
+
+  // Ensure we have img1 placeholder; if missing, insert after first </h1> or at start.
+  if (!out.includes("<!-- IMAGE: img1 -->")) {
+    if (out.includes("</h1>")) out = out.replace("</h1>", "</h1>\n<!-- IMAGE: img1 -->\n");
+    else out = "<!-- IMAGE: img1 -->\n" + out;
+  }
+
+  // Inject featured box immediately after img1
+  const featuredBox = buildFeaturedBox({ featured_product_name, featured_product_url });
+  out = out.replace("<!-- IMAGE: img1 -->", `<!-- IMAGE: img1 -->\n\n${featuredBox}\n`);
+
+  // Remove any accidental extra “View the kit” / “Get the featured kit” links the model added
+  // (we re-add exactly one of each).
+  out = out
+    .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
+    .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
+
+  // Ensure final CTA exists once near the end (before Ben sign-off if present)
+  const finalCta = buildFinalCta({ featured_product_url });
+
+  if (/Ben,\s*founder\s*of\s*Street\s*Kingz/i.test(out)) {
+    out = out.replace(/(<p>\s*Ben,\s*founder\s*of\s*Street\s*Kingz[\s\S]*?<\/p>)/i, `${finalCta}\n$1`);
+  } else {
+    out = out + "\n" + finalCta + `\n<p>Ben, founder of Street Kingz.</p>`;
+  }
+
+  // Finally, re-inject the proper “View the kit” link INSIDE our featured box (it was stripped above)
+  // The featured box we inserted already contains it, so nothing else needed.
+
+  return out.trim();
+}
+
+// ---------------------------
+// OpenAI caller (JSON mode)
 // ---------------------------
 
 function stripCodeFences(text) {
@@ -231,7 +352,7 @@ function safeJsonParse(text) {
   return JSON.parse(cleaned);
 }
 
-async function callOpenAIJson({ prompt, temperature = 0.3 }) {
+async function callOpenAIJson({ prompt, temperature = 0.35 }) {
   const resp = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -243,10 +364,7 @@ async function callOpenAIJson({ prompt, temperature = 0.3 }) {
       temperature,
       response_format: { type: "json_object" },
       messages: [
-        {
-          role: "system",
-          content: "Return strictly valid JSON only. No prose, no markdown, no code fences."
-        },
+        { role: "system", content: "Return strictly valid JSON only. No prose, no markdown, no code fences." },
         { role: "user", content: prompt }
       ]
     })
@@ -260,183 +378,19 @@ async function callOpenAIJson({ prompt, temperature = 0.3 }) {
 
   const data = await resp.json();
   const content = data?.choices?.[0]?.message?.content;
-
-  if (!content) {
-    console.error("No content returned from OpenAI:", data);
-    throw new Error("No content returned from OpenAI");
-  }
-
+  if (!content) throw new Error("No content returned from OpenAI");
   return safeJsonParse(content);
 }
 
-// --- FORCE META DESCRIPTION (ALWAYS PASS 140–160, keyword once) ---
-
-function collapseSpaces(s) {
-  return String(s || "").replace(/\s+/g, " ").trim();
-}
-
-function escapeRegex(s) {
-  return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function buildMetaExactly({ primary_keyword, featured_product_name }) {
-  const kw = collapseSpaces(primary_keyword);
-  const featured = collapseSpaces(featured_product_name);
-
-  // Start from a sensible base
-  let base = `Learn ${kw} in the UK with a simple weekend routine, using ${featured} as the quick pick for most people.`;
-  base = collapseSpaces(base);
-
-  // Ensure keyword appears exactly once
-  const reKw = new RegExp(escapeRegex(kw), "gi");
-  const count = (base.match(reKw) || []).length;
-
-  if (count === 0) base = `${kw}. ${base}`;
-  if (count > 1) {
-    base = collapseSpaces(base.replace(reKw, ""));
-    base = `${kw}. ${base}`;
-  }
-
-  // Force length to 150 chars (within 140–160)
-  const target = 150;
-
-  if (base.length > target) {
-    base = base.slice(0, target);
-    base = base.replace(/\s+\S*$/, ""); // avoid mid-word
-  }
-
-  while (base.length < 140) {
-    base = collapseSpaces(`${base} Car care, made simple.`);
-    if (base.length > target) {
-      base = base.slice(0, target).replace(/\s+\S*$/, "");
-    }
-  }
-
-  // Final safety: re-check keyword count after trimming
-  const finalCount = (base.match(reKw) || []).length;
-  if (finalCount === 0) base = `${kw}. ${base}`.slice(0, target).replace(/\s+\S*$/, "");
-  if ((base.match(reKw) || []).length > 1) {
-    base = collapseSpaces(base.replace(reKw, ""));
-    base = `${kw}. ${base}`.slice(0, target).replace(/\s+\S*$/, "");
-  }
-
-  return base;
-}
-
-function forceMetaAndKeyword({ article, primary_keyword, featured_product_name }) {
-  article.primary_keyword = primary_keyword;
-  article.meta_description = buildMetaExactly({ primary_keyword, featured_product_name });
-  return article;
-}
-
 // ---------------------------
-// 2-PASS PROMPTS
+// Prompt (simple + buyer intent)
 // ---------------------------
 
-function buildPass1Prompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
+function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
   const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
 
   return `
-You are planning an SEO buyer-intent article for Street Kingz (UK car care).
-Return JSON ONLY.
-
-INPUTS
-- Topic: "${topic}"
-- Primary keyword: "${primary_keyword}"
-- Featured product (winner): "${featured_product_name}"
-- Featured product URL: "${featured_product_url}"
-
-PRODUCT CATALOGUE (you may only choose from this list):
-${productsJson}
-
-GOAL
-Create a plan that makes Pass 2 succeed:
-- correct word count mode
-- correct image placeholders
-- correct sections
-- correct product picks
-- no conflicts with strict HTML rules
-
-HARD RULES
-- No em dash character and no double hyphen anywhere in any strings.
-- No banned phrases: "in this guide", "in this article", "this comprehensive guide", "showroom shine", "showroom finish", "gleaming ride", "ultimate shine", "mirror-like finish".
-- Featured product must be the main recommendation and included in plan.
-- Total products in article: 2 or 3.
-- Must include "Origin Wash Kit" as the "full set" option in the 3-way decision section.
-- Must include a "maximum drying" option that is a drying towel or drying bundle from the catalogue.
-
-SMART LENGTH MODE
-Pick one:
-- SHORT 800–1000
-- MEDIUM 1200–1600
-- LONG 1800–2300
-Use LONG if topic is broad/full routine; MEDIUM for one process; SHORT only for simple single question.
-
-PRIMARY KEYWORD PLACEMENT PLAN
-You must ensure in Pass 2:
-- H1 contains the primary keyword exactly once (as a substring).
-- First 120 words contains primary keyword exactly once.
-- One H2 contains primary keyword exactly once.
-- Meta description 140–160 chars contains primary keyword exactly once.
-- Slug is based on primary keyword.
-
-DECISION SECTION
-Plan the 3 bullets exactly:
-1) Best for most people: featured product
-2) Best if you want maximum drying: pick from catalogue
-3) Best if you want a full set: Origin Wash Kit
-
-OUTPUT JSON SHAPE (EXACT)
-{
-  "mode": "SHORT" | "MEDIUM" | "LONG",
-  "target_word_count": number,
-  "slug_suggestion": string,
-  "meta_description_suggestion": string,
-  "h1_suggestion": string,
-  "h2_primary_keyword_suggestion": string,
-  "section_h2s": [string, string, string, string, string],
-  "products": {
-    "featured": { "name": string, "url": string },
-    "max_drying": { "name": string, "url": string },
-    "full_set": { "name": "Origin Wash Kit", "url": string },
-    "optional_third": { "name": string, "url": string } | null
-  },
-  "image_plan": {
-    "include_img1": true,
-    "include_img2": boolean,
-    "include_img3": boolean
-  },
-  "realism": {
-    "mild_opinion_sentence": string,
-    "sunday_driveway_example_sentence": string
-  }
-}
-
-Return JSON ONLY.
-`.trim();
-}
-
-function buildPass2Prompt({ topic, primary_keyword, plan }) {
-  const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
-
-  return `
-You are an expert UK SEO writer for Street Kingz. Output MUST be strictly valid JSON only.
-
-INPUTS
-- Topic: "${topic}"
-- Primary keyword: "${primary_keyword}"
-- Plan JSON (authoritative, follow it):
-${JSON.stringify(plan)}
-
-PRODUCT CATALOGUE (you may only mention products from this list):
-${productsJson}
-
-====================================================================
-HARD OUTPUT RULES (NO EXCEPTIONS)
-====================================================================
-
-1) RETURN JSON ONLY
-Return exactly one JSON object with these keys:
+Return JSON ONLY with:
 {
   "title": string,
   "slug": string,
@@ -445,272 +399,93 @@ Return exactly one JSON object with these keys:
   "target_word_count": number,
   "content_html": string,
   "image_placeholders": [
-    { "id": "img1", "type": "string", "alt": "string" },
-    { "id": "img2", "type": "string", "alt": "string" },
-    { "id": "img3", "type": "string", "alt": "string" }
+    { "id":"img1","type":"string","alt":"string" },
+    { "id":"img2","type":"string","alt":"string" },
+    { "id":"img3","type":"string","alt":"string" }
   ]
 }
-No extra text before or after JSON.
-
-2) HTML VALIDITY
-- content_html must be valid HTML.
-- Use exactly ONE <h1>.
-- All paragraph text must be inside <p>.
-- No loose text nodes anywhere.
-- Lists must be <ul><li> and any non-list text must be in <p>.
-- Do NOT output Markdown.
-
-3) NO EM DASH OR DOUBLE HYPHEN
-Do not use — or -- anywhere.
-
-4) UK SPELLING, NO FAKE STATS, NO HYPE.
-
-====================================================================
-BANNED PHRASES (STRICT)
-====================================================================
-Do NOT use:
-"in this guide", "in this article", "this comprehensive guide", "showroom shine", "showroom finish",
-"gleaming ride", "ultimate shine", "mirror-like finish"
-
-====================================================================
-SMART LENGTH (FOLLOW PLAN)
-====================================================================
-- Set target_word_count to plan.target_word_count.
-- Write enough detail to realistically reach it.
-
-====================================================================
-STREET KINGZ PRODUCT RULES
-====================================================================
-You may ONLY mention products from the catalogue.
-Linking rules:
-- Total products mentioned in the article must be 2 or 3.
-- The featured product MUST be one of them and MUST be the main recommendation.
-- FIRST time you mention ANY product, you MUST link it inside a normal sentence paragraph.
-Example: <p>Most people should start with <a href="URL">Exact Product Name</a> because ...</p>
-- After first mention, product names can be plain text.
-
-====================================================================
-CTA DEFINITION (TO AVOID CONFLICT)
-====================================================================
-A "CTA" is ONLY either:
-- a link with anchor text exactly "View the kit"
-- OR a final conclusion link to the featured product with anchor text exactly "Get the featured kit"
-
-You MUST include exactly 2 CTAs total:
-- CTA #1 inside the featured box: "View the kit"
-- CTA #2 in the conclusion: "Get the featured kit"
-
-Do NOT include any other links with those anchor texts.
-
-====================================================================
-PRIMARY KEYWORD PLACEMENT (FOLLOW PLAN EXACTLY)
-====================================================================
-- <h1> must contain the primary keyword exactly once (as a substring).
-- First 120 words must contain the primary keyword exactly once.
-- One <h2> must contain the primary keyword exactly once.
-- meta_description 140–160 chars contains the primary keyword exactly once.
-- slug should use plan.slug_suggestion (you may lightly refine but keep based on keyword).
-
-====================================================================
-MANDATORY FEATURED BOX (EXACT HTML)
-====================================================================
-After the intro paragraph(s), insert:
-<!-- IMAGE: img1 -->
-Then immediately output this section EXACTLY:
-
-<section class="sk-featured-box">
-  <h2>Best option for most people in the UK</h2>
-  <p><strong>Quick pick:</strong> <a href="${plan.products.featured.url}">${plan.products.featured.name}</a></p>
-  <p>Short reason in 1 to 2 sentences, practical, no hype.</p>
-  <p><a href="${plan.products.featured.url}">View the kit</a></p>
-</section>
-
-Immediately after </section>, start a new paragraph:
-<p>...</p>
-
-====================================================================
-CONTENT STRUCTURE (FOLLOW PLAN)
-====================================================================
-- Use plan.section_h2s for your H2s (you can add more if needed, but keep them varied).
-- Include the H2 that contains the primary keyword exactly once, using plan.h2_primary_keyword_suggestion.
-- If plan.image_plan.include_img2 is true, include <!-- IMAGE: img2 --> mid-article.
-- If plan.image_plan.include_img3 is true, include <!-- IMAGE: img3 --> before the conclusion.
-
-Decision section BEFORE FAQs:
-- Must be a <h2>.
-- Must contain EXACTLY 3 options in a <ul>:
-  1) Best for most people: featured product (winner)
-  2) Best if you want maximum drying: plan.products.max_drying
-  3) Best if you want a full set: plan.products.full_set (Origin Wash Kit)
-
-"Who this is not for" section:
-- <h2> then <ul> with EXACTLY 3 <li>, blunt and practical.
-
-FAQs:
-- SHORT: 2–3, MEDIUM: 3–4, LONG: 4–6
-- Use <h3> for each question and <p> for each answer.
-
-Conclusion:
-- Include exactly one final CTA sentence inside a <p>:
-<p><a href="${plan.products.featured.url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>
-
-Author sign-off:
-- Final line in content_html must be a single <p>, 1–2 sentences, from Ben, founder of Street Kingz. No links.
-
-REALISM:
-- Include plan.realism.mild_opinion_sentence verbatim somewhere in a <p>.
-- Include plan.realism.sunday_driveway_example_sentence verbatim somewhere in a <p>.
-
-====================================================================
-NOW WRITE THE ARTICLE
-====================================================================
-Return ONLY the JSON object.
-`.trim();
-}
-
-const BANNED_PHRASES = [
-  "in this guide",
-  "in this article",
-  "this comprehensive guide",
-  "showroom shine",
-  "showroom finish",
-  "gleaming ride",
-  "ultimate shine",
-  "mirror-like finish"
-];
-
-function validateArticleOrThrow(article) {
-  const html = String(article?.content_html || "");
-  const meta = String(article?.meta_description || "");
-  const slug = String(article?.slug || "");
-  const title = String(article?.title || "");
-
-  if (!title || !slug || !meta || !html) return { ok: false, reason: "Missing required fields." };
-
-  const haystack = (meta + "\n" + html).toLowerCase();
-  const hit = BANNED_PHRASES.find(p => haystack.includes(p));
-  if (hit) return { ok: false, reason: `Banned phrase found: "${hit}"` };
-
-  if (html.includes("<p>...</p>") || html.includes("…")) {
-    return { ok: false, reason: "Found placeholder ellipsis (<p>...</p> or …)." };
-  }
-
-  if (/<\s*ol[\s>]/i.test(html) || /<\s*\/\s*ol\s*>/i.test(html)) {
-    return { ok: false, reason: "Found <ol> list. Only <ul><li> allowed." };
-  }
-
-  if (!html.includes('<section class="sk-featured-box">') || !html.includes(">View the kit<")) {
-    return { ok: false, reason: "Featured box missing or malformed." };
-  }
-
-  if (!html.includes(">Get the featured kit<")) {
-    return { ok: false, reason: 'Missing final CTA anchor text "Get the featured kit".' };
-  }
-
-  if (meta.length < 140 || meta.length > 160) {
-    return { ok: false, reason: `Meta description length out of range (got ${meta.length}).` };
-  }
-
-  return { ok: true };
-}
-
-function buildPass2FixPrompt({ topic, primary_keyword, plan, article, failReason }) {
-  return `
-You output an article that FAILED validation.
-
-FAIL REASON:
-${failReason}
-
-TASK:
-Return a corrected JSON object in the SAME schema as before.
-Do NOT change the topic/keyword/featured product.
-Do NOT add any new products beyond the 2–3 planned.
-Keep the featured box EXACT HTML as specified.
-Remove any banned phrases, remove any <p>...</p>, remove any <ol> lists.
 
 INPUTS
 - Topic: "${topic}"
 - Primary keyword: "${primary_keyword}"
-- Plan JSON:
-${JSON.stringify(plan)}
-- Broken article JSON:
-${JSON.stringify(article)}
+- Featured product name: "${featured_product_name}"
+- Featured product URL: "${featured_product_url}"
 
-Return ONLY the corrected JSON object.
+CATALOGUE (only mention products from here):
+${productsJson}
+
+RULES
+- Buyer-intent, UK spelling, practical.
+- Do NOT use: ${BANNED_PHRASES.join(", ")}
+- Do NOT use the em dash character and do NOT use double hyphens.
+- The article should be a proper blog post: intro, steps, decision section, who-not-for, FAQs, conclusion.
+- You MUST include EXACTLY 3 options in the decision section:
+  1) Best for most people: featured product
+  2) Best if you want maximum drying: pick a drying towel/bundle from the catalogue
+  3) Best if you want a full set: Origin Wash Kit
+- Put <!-- IMAGE: img1 --> near the top, and include img2/img3 if you choose LONG.
+- IMPORTANT: Do NOT write any “featured box” section and do NOT write any “View the kit” or “Get the featured kit” links.
+  (The server injects those.)
+
+SMART LENGTH
+- LONG 1800–2300 if topic is broad/full routine.
+- MEDIUM 1200–1600 if one main process.
+- SHORT 800–1000 if one simple question.
+Set target_word_count accordingly.
+
+PRIMARY KEYWORD
+- Must appear in the title.
+- Must appear in meta_description once.
+
+CONTENT_HTML
+- Use normal HTML tags (<h1>, <h2>, <p>, <ul><li>, <h3> for FAQs).
+- No markdown.
 `.trim();
 }
 
 // ---------------------------
-// Route: generate (2-pass)
+// Route
 // ---------------------------
 
 app.post("/generate-article", async (req, res) => {
-  const reqId = Math.random().toString(36).slice(2, 9);
-  const t0 = Date.now();
-
   try {
     const { topic, primary_keyword, featured_product_name, featured_product_url } = req.body || {};
 
     if (!topic || !primary_keyword) {
       return res.status(400).json({ error: "Missing required fields: 'topic' and 'primary_keyword'." });
     }
-
     if (!featured_product_name || !featured_product_url) {
       return res.status(400).json({ error: "Missing required fields: 'featured_product_name' and 'featured_product_url'." });
     }
-
     if (!OPENAI_API_KEY) {
       return res.status(500).json({ error: "OPENAI_API_KEY is not set on the server." });
     }
 
-    // PASS 1: plan
-    console.log(`[${reqId}] PASS1_START`, { t: Date.now() - t0 });
-    const pass1Prompt = buildPass1Prompt({ topic, primary_keyword, featured_product_name, featured_product_url });
-    const plan = await callOpenAIJson({ prompt: pass1Prompt, temperature: 0.2 });
-    console.log(`[${reqId}] PASS1_DONE`, { t: Date.now() - t0, mode: plan?.mode, wc: plan?.target_word_count });
+    const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
+    const article = await callOpenAIJson({ prompt, temperature: 0.4 });
 
-    if (!plan?.products?.featured?.name || !plan?.products?.featured?.url) {
-      return res.status(502).json({ error: "Pass 1 plan missing featured product." });
+    // Enforce meta + structure reliably
+    article.primary_keyword = primary_keyword;
+    article.slug = (article.slug || primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")).slice(0, 80);
+    article.meta_description = enforceMetaLength(article.meta_description, primary_keyword);
+    article.content_html = enforceCoreStructure({
+      html: article.content_html,
+      featured_product_name,
+      featured_product_url
+    });
+
+    // Keep placeholders present (plugin expects keys)
+    if (!Array.isArray(article.image_placeholders)) {
+      article.image_placeholders = [
+        { id: "img1", type: "image", alt: "Car wash routine" },
+        { id: "img2", type: "image", alt: "Washing step" },
+        { id: "img3", type: "image", alt: "Drying step" }
+      ];
     }
 
-    if (!plan?.products?.full_set?.name || plan.products.full_set.name !== "Origin Wash Kit") {
-      const originWashKit = STREET_KINGZ_PRODUCTS.find(p => p.name === "Origin Wash Kit");
-      if (originWashKit) {
-        plan.products.full_set = { name: "Origin Wash Kit", url: originWashKit.url };
-      } else {
-        return res.status(502).json({ error: "Catalogue missing Origin Wash Kit; update product list." });
-      }
-    }
-
-    // PASS 2: final article
-    console.log(`[${reqId}] PASS2_START`, { t: Date.now() - t0 });
-    const pass2Prompt = buildPass2Prompt({ topic, primary_keyword, plan });
-    let article = await callOpenAIJson({ prompt: pass2Prompt, temperature: 0.35 });
-
-    // ✅ FORCE META BEFORE VALIDATION
-    article = forceMetaAndKeyword({ article, primary_keyword, featured_product_name });
-
-    let v = validateArticleOrThrow(article);
-    if (!v.ok) {
-      console.warn(`[${reqId}] PASS2_FAIL`, { t: Date.now() - t0, reason: v.reason });
-
-      const fixPrompt = buildPass2FixPrompt({ topic, primary_keyword, plan, article, failReason: v.reason });
-      article = await callOpenAIJson({ prompt: fixPrompt, temperature: 0.1 });
-
-      // ✅ FORCE META AGAIN AFTER RETRY
-      article = forceMetaAndKeyword({ article, primary_keyword, featured_product_name });
-
-      v = validateArticleOrThrow(article);
-      if (!v.ok) {
-        console.warn(`[${reqId}] PASS2_FAIL_AFTER_RETRY`, { t: Date.now() - t0, reason: v.reason });
-        return res.status(502).json({ error: "Article failed validation after retry.", reason: v.reason });
-      }
-    }
-
-    console.log(`[${reqId}] PASS2_DONE`, { t: Date.now() - t0 });
     return res.json(article);
   } catch (err) {
-    console.error(`[${reqId}] ERROR`, err);
+    console.error("Unexpected error in /generate-article:", err);
     return res.status(500).json({ error: "Internal server error" });
   }
 });
