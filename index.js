@@ -240,6 +240,29 @@ function stripBannedPhrases(text) {
   return out;
 }
 
+// PATCH: de-dupe repeated tail sentence in meta (e.g. "UK delivery available. UK delivery available.")
+function dedupeSentenceEnd(meta) {
+  const s = String(meta || "").trim();
+  const parts = s.split(/(?<=[.!?])\s+/).filter(Boolean);
+  if (parts.length < 2) return s;
+  const last = parts[parts.length - 1];
+  const prev = parts[parts.length - 2];
+  if (last.toLowerCase() === prev.toLowerCase()) parts.pop();
+  return parts.join(" ").trim();
+}
+
+// PATCH: remove empty <p></p> tags
+function removeEmptyPTags(html) {
+  return String(html || "").replace(/<p>\s*<\/p>\s*/gi, "");
+}
+
+// PATCH: convert <ol>..</ol> to <ul>..</ul> (keeps <li>)
+function convertOlToUl(html) {
+  return String(html || "")
+    .replace(/<\s*ol(\s[^>]*)?>/gi, "<ul>")
+    .replace(/<\s*\/\s*ol\s*>/gi, "</ul>");
+}
+
 function removeExistingFeaturedBox(html) {
   if (!html) return html;
   return String(html).replace(/<section class=["']sk-featured-box["'][\s\S]*?<\/section>/gi, "").trim();
@@ -255,10 +278,13 @@ function removeEllipsisPlaceholders(html) {
 
 function enforceMetaLength(meta, primaryKeyword) {
   let m = stripBannedPhrases(meta || "");
+  m = dedupeSentenceEnd(m); // PATCH
+
   // Must include keyword once
   if (primaryKeyword && !m.toLowerCase().includes(primaryKeyword.toLowerCase())) {
     m = `${primaryKeyword}: ${m}`.trim();
   }
+
   // Normalize whitespace
   m = m.replace(/\s{2,}/g, " ").trim();
 
@@ -269,10 +295,12 @@ function enforceMetaLength(meta, primaryKeyword) {
 
   // Final guard: keep within range
   if (m.length < 140) {
-    // brute pad with safe words
     m = (m + " UK tips and product picks.").slice(0, 160).trim();
   }
   if (m.length > 160) m = m.slice(0, 160).trim();
+
+  // PATCH: clean any accidental double sentence again after padding/trimming
+  m = dedupeSentenceEnd(m);
 
   return m;
 }
@@ -303,6 +331,10 @@ function enforceCoreStructure({
   out = removeEllipsisPlaceholders(out);
   out = removeExistingFeaturedBox(out);
 
+  // PATCH: force list style + remove empty <p>
+  out = convertOlToUl(out);
+  out = removeEmptyPTags(out);
+
   // Ensure we have img1 placeholder; if missing, insert after first </h1> or at start.
   if (!out.includes("<!-- IMAGE: img1 -->")) {
     if (out.includes("</h1>")) out = out.replace("</h1>", "</h1>\n<!-- IMAGE: img1 -->\n");
@@ -328,8 +360,9 @@ function enforceCoreStructure({
     out = out + "\n" + finalCta + `\n<p>Ben, founder of Street Kingz.</p>`;
   }
 
-  // Finally, re-inject the proper “View the kit” link INSIDE our featured box (it was stripped above)
-  // The featured box we inserted already contains it, so nothing else needed.
+  // PATCH: clean again after injections
+  out = convertOlToUl(out);
+  out = removeEmptyPTags(out);
 
   return out.trim();
 }
