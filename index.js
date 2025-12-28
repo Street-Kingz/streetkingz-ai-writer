@@ -516,7 +516,89 @@ Return ONLY the JSON object.
 // Route: generate (2-pass)
 // ---------------------------
 
+const BANNED_PHRASES = [
+  "in this guide",
+  "in this article",
+  "this comprehensive guide",
+  "showroom shine",
+  "showroom finish",
+  "gleaming ride",
+  "ultimate shine",
+  "mirror-like finish"
+];
+
+function validateArticleOrThrow(article) {
+  const html = String(article?.content_html || "");
+  const meta = String(article?.meta_description || "");
+  const slug = String(article?.slug || "");
+  const title = String(article?.title || "");
+
+  // Basic required fields
+  if (!title || !slug || !meta || !html) return { ok: false, reason: "Missing required fields." };
+
+  // Banned phrases (case-insensitive) across HTML + meta
+  const haystack = (meta + "\n" + html).toLowerCase();
+  const hit = BANNED_PHRASES.find(p => haystack.includes(p));
+  if (hit) return { ok: false, reason: `Banned phrase found: "${hit}"` };
+
+  // No placeholder ellipsis paragraph
+  if (html.includes("<p>...</p>") || html.includes("…")) {
+    return { ok: false, reason: "Found placeholder ellipsis (<p>...</p> or …)." };
+  }
+
+  // Enforce: no <ol> (your prompt says lists must be <ul><li>)
+  if (/<\s*ol[\s>]/i.test(html) || /<\s*\/\s*ol\s*>/i.test(html)) {
+    return { ok: false, reason: "Found <ol> list. Only <ul><li> allowed." };
+  }
+
+  // Enforce: featured box exact structure (quick sanity check)
+  if (!html.includes('<section class="sk-featured-box">') || !html.includes(">View the kit<")) {
+    return { ok: false, reason: "Featured box missing or malformed." };
+  }
+
+  // Enforce: final CTA exists
+  if (!html.includes(">Get the featured kit<")) {
+    return { ok: false, reason: 'Missing final CTA anchor text "Get the featured kit".' };
+  }
+
+  // Optional: meta length guardrail (your rule)
+  if (meta.length < 140 || meta.length > 160) {
+    return { ok: false, reason: `Meta description length out of range (got ${meta.length}).` };
+  }
+
+  return { ok: true };
+}
+
+function buildPass2FixPrompt({ topic, primary_keyword, plan, article, failReason }) {
+  return `
+You output an article that FAILED validation.
+
+FAIL REASON:
+${failReason}
+
+TASK:
+Return a corrected JSON object in the SAME schema as before.
+Do NOT change the topic/keyword/featured product.
+Do NOT add any new products beyond the 2–3 planned.
+Keep the featured box EXACT HTML as specified.
+Remove any banned phrases, remove any <p>...</p>, remove any <ol> lists.
+
+INPUTS
+- Topic: "${topic}"
+- Primary keyword: "${primary_keyword}"
+- Plan JSON:
+${JSON.stringify(plan)}
+- Broken article JSON:
+${JSON.stringify(article)}
+
+Return ONLY the corrected JSON object.
+`.trim();
+}
+
 app.post("/generate-article", async (req, res) => {
+  const reqId = Math.random().toString(36).slice(2, 9);
+  const t0 = Date.now();
+
   try {
     const { topic, primary_keyword, featured_product_name, featured_product_url } = req.body || {};
 
@@ -533,15 +615,16 @@ app.post("/generate-article", async (req, res) => {
     }
 
     // PASS 1: plan
+    console.log(`[${reqId}] PASS1_START`, { t: Date.now() - t0 });
     const pass1Prompt = buildPass1Prompt({ topic, primary_keyword, featured_product_name, featured_product_url });
     const plan = await callOpenAIJson({ prompt: pass1Prompt, temperature: 0.2 });
+    console.log(`[${reqId}] PASS1_DONE`, { t: Date.now() - t0, mode: plan?.mode, wc: plan?.target_word_count });
 
-    // Basic guardrails so Pass 2 doesn't go off the rails
+    // Guardrails so Pass 2 doesn't go off the rails
     if (!plan?.products?.featured?.name || !plan?.products?.featured?.url) {
       return res.status(502).json({ error: "Pass 1 plan missing featured product." });
     }
     if (!plan?.products?.full_set?.name || plan.products.full_set.name !== "Origin Wash Kit") {
-      // Force it if the model drifted
       const originWashKit = STREET_KINGZ_PRODUCTS.find(p => p.name === "Origin Wash Kit");
       if (originWashKit) {
         plan.products.full_set = { name: "Origin Wash Kit", url: originWashKit.url };
@@ -551,16 +634,29 @@ app.post("/generate-article", async (req, res) => {
     }
 
     // PASS 2: final article
+    console.log(`[${reqId}] PASS2_START`, { t: Date.now() - t0 });
     const pass2Prompt = buildPass2Prompt({ topic, primary_keyword, plan });
-    const article = await callOpenAIJson({ prompt: pass2Prompt, temperature: 0.35 });
+    let article = await callOpenAIJson({ prompt: pass2Prompt, temperature: 0.35 });
 
-    if (!article?.title || !article?.content_html) {
-      return res.status(502).json({ error: "Article missing required fields from OpenAI." });
+    let v = validateArticleOrThrow(article);
+    if (!v.ok) {
+      console.warn(`[${reqId}] PASS2_FAIL`, { t: Date.now() - t0, reason: v.reason });
+
+      // One automatic retry fix pass
+      const fixPrompt = buildPass2FixPrompt({ topic, primary_keyword, plan, article, failReason: v.reason });
+      article = await callOpenAIJson({ prompt: fixPrompt, temperature: 0.1 });
+
+      v = validateArticleOrThrow(article);
+      if (!v.ok) {
+        console.warn(`[${reqId}] PASS2_FAIL_AFTER_RETRY`, { t: Date.now() - t0, reason: v.reason });
+        return res.status(502).json({ error: "Article failed validation after retry.", reason: v.reason });
+      }
     }
 
+    console.log(`[${reqId}] PASS2_DONE`, { t: Date.now() - t0 });
     return res.json(article);
   } catch (err) {
-    console.error("Unexpected error in /generate-article:", err);
+    console.error(`[${reqId}] ERROR`, err);
     return res.status(500).json({ error: "Internal server error" });
   }
 });
