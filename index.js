@@ -220,7 +220,6 @@ app.get("/", (req, res) => {
 function stripCodeFences(text) {
   if (!text) return text;
   const trimmed = String(text).trim();
-  // Remove ```json ... ``` or ``` ... ```
   if (trimmed.startsWith("```")) {
     return trimmed.replace(/^```[a-zA-Z]*\s*/m, "").replace(/```$/m, "").trim();
   }
@@ -268,6 +267,66 @@ async function callOpenAIJson({ prompt, temperature = 0.3 }) {
   }
 
   return safeJsonParse(content);
+}
+
+// --- FORCE META DESCRIPTION (ALWAYS PASS 140–160, keyword once) ---
+
+function collapseSpaces(s) {
+  return String(s || "").replace(/\s+/g, " ").trim();
+}
+
+function escapeRegex(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function buildMetaExactly({ primary_keyword, featured_product_name }) {
+  const kw = collapseSpaces(primary_keyword);
+  const featured = collapseSpaces(featured_product_name);
+
+  // Start from a sensible base
+  let base = `Learn ${kw} in the UK with a simple weekend routine, using ${featured} as the quick pick for most people.`;
+  base = collapseSpaces(base);
+
+  // Ensure keyword appears exactly once
+  const reKw = new RegExp(escapeRegex(kw), "gi");
+  const count = (base.match(reKw) || []).length;
+
+  if (count === 0) base = `${kw}. ${base}`;
+  if (count > 1) {
+    base = collapseSpaces(base.replace(reKw, ""));
+    base = `${kw}. ${base}`;
+  }
+
+  // Force length to 150 chars (within 140–160)
+  const target = 150;
+
+  if (base.length > target) {
+    base = base.slice(0, target);
+    base = base.replace(/\s+\S*$/, ""); // avoid mid-word
+  }
+
+  while (base.length < 140) {
+    base = collapseSpaces(`${base} Car care, made simple.`);
+    if (base.length > target) {
+      base = base.slice(0, target).replace(/\s+\S*$/, "");
+    }
+  }
+
+  // Final safety: re-check keyword count after trimming
+  const finalCount = (base.match(reKw) || []).length;
+  if (finalCount === 0) base = `${kw}. ${base}`.slice(0, target).replace(/\s+\S*$/, "");
+  if ((base.match(reKw) || []).length > 1) {
+    base = collapseSpaces(base.replace(reKw, ""));
+    base = `${kw}. ${base}`.slice(0, target).replace(/\s+\S*$/, "");
+  }
+
+  return base;
+}
+
+function forceMetaAndKeyword({ article, primary_keyword, featured_product_name }) {
+  article.primary_keyword = primary_keyword;
+  article.meta_description = buildMetaExactly({ primary_keyword, featured_product_name });
+  return article;
 }
 
 // ---------------------------
@@ -426,8 +485,7 @@ You may ONLY mention products from the catalogue.
 Linking rules:
 - Total products mentioned in the article must be 2 or 3.
 - The featured product MUST be one of them and MUST be the main recommendation.
-- FIRST time you mention ANY product, you MUST link it like:
-<p><a href="URL">Exact Product Name</a></p> is NOT allowed. Links must be inside normal sentence paragraphs.
+- FIRST time you mention ANY product, you MUST link it inside a normal sentence paragraph.
 Example: <p>Most people should start with <a href="URL">Exact Product Name</a> because ...</p>
 - After first mention, product names can be plain text.
 
@@ -458,7 +516,7 @@ MANDATORY FEATURED BOX (EXACT HTML)
 ====================================================================
 After the intro paragraph(s), insert:
 <!-- IMAGE: img1 -->
-Then immediately output this section EXACTLY (keep tags + <p> structure exactly):
+Then immediately output this section EXACTLY:
 
 <section class="sk-featured-box">
   <h2>Best option for most people in the UK</h2>
@@ -479,13 +537,11 @@ CONTENT STRUCTURE (FOLLOW PLAN)
 - If plan.image_plan.include_img3 is true, include <!-- IMAGE: img3 --> before the conclusion.
 
 Decision section BEFORE FAQs:
-- Must be a <h2> (wording can vary, but keep buyer intent).
+- Must be a <h2>.
 - Must contain EXACTLY 3 options in a <ul>:
   1) Best for most people: featured product (winner)
   2) Best if you want maximum drying: plan.products.max_drying
   3) Best if you want a full set: plan.products.full_set (Origin Wash Kit)
-Each <li> must include who it’s for + one practical reason.
-First mention linking rules still apply.
 
 "Who this is not for" section:
 - <h2> then <ul> with EXACTLY 3 <li>, blunt and practical.
@@ -512,10 +568,6 @@ Return ONLY the JSON object.
 `.trim();
 }
 
-// ---------------------------
-// Route: generate (2-pass)
-// ---------------------------
-
 const BANNED_PHRASES = [
   "in this guide",
   "in this article",
@@ -533,35 +585,28 @@ function validateArticleOrThrow(article) {
   const slug = String(article?.slug || "");
   const title = String(article?.title || "");
 
-  // Basic required fields
   if (!title || !slug || !meta || !html) return { ok: false, reason: "Missing required fields." };
 
-  // Banned phrases (case-insensitive) across HTML + meta
   const haystack = (meta + "\n" + html).toLowerCase();
   const hit = BANNED_PHRASES.find(p => haystack.includes(p));
   if (hit) return { ok: false, reason: `Banned phrase found: "${hit}"` };
 
-  // No placeholder ellipsis paragraph
   if (html.includes("<p>...</p>") || html.includes("…")) {
     return { ok: false, reason: "Found placeholder ellipsis (<p>...</p> or …)." };
   }
 
-  // Enforce: no <ol> (your prompt says lists must be <ul><li>)
   if (/<\s*ol[\s>]/i.test(html) || /<\s*\/\s*ol\s*>/i.test(html)) {
     return { ok: false, reason: "Found <ol> list. Only <ul><li> allowed." };
   }
 
-  // Enforce: featured box exact structure (quick sanity check)
   if (!html.includes('<section class="sk-featured-box">') || !html.includes(">View the kit<")) {
     return { ok: false, reason: "Featured box missing or malformed." };
   }
 
-  // Enforce: final CTA exists
   if (!html.includes(">Get the featured kit<")) {
     return { ok: false, reason: 'Missing final CTA anchor text "Get the featured kit".' };
   }
 
-  // Optional: meta length guardrail (your rule)
   if (meta.length < 140 || meta.length > 160) {
     return { ok: false, reason: `Meta description length out of range (got ${meta.length}).` };
   }
@@ -595,6 +640,10 @@ Return ONLY the corrected JSON object.
 `.trim();
 }
 
+// ---------------------------
+// Route: generate (2-pass)
+// ---------------------------
+
 app.post("/generate-article", async (req, res) => {
   const reqId = Math.random().toString(36).slice(2, 9);
   const t0 = Date.now();
@@ -620,10 +669,10 @@ app.post("/generate-article", async (req, res) => {
     const plan = await callOpenAIJson({ prompt: pass1Prompt, temperature: 0.2 });
     console.log(`[${reqId}] PASS1_DONE`, { t: Date.now() - t0, mode: plan?.mode, wc: plan?.target_word_count });
 
-    // Guardrails so Pass 2 doesn't go off the rails
     if (!plan?.products?.featured?.name || !plan?.products?.featured?.url) {
       return res.status(502).json({ error: "Pass 1 plan missing featured product." });
     }
+
     if (!plan?.products?.full_set?.name || plan.products.full_set.name !== "Origin Wash Kit") {
       const originWashKit = STREET_KINGZ_PRODUCTS.find(p => p.name === "Origin Wash Kit");
       if (originWashKit) {
@@ -638,13 +687,18 @@ app.post("/generate-article", async (req, res) => {
     const pass2Prompt = buildPass2Prompt({ topic, primary_keyword, plan });
     let article = await callOpenAIJson({ prompt: pass2Prompt, temperature: 0.35 });
 
+    // ✅ FORCE META BEFORE VALIDATION
+    article = forceMetaAndKeyword({ article, primary_keyword, featured_product_name });
+
     let v = validateArticleOrThrow(article);
     if (!v.ok) {
       console.warn(`[${reqId}] PASS2_FAIL`, { t: Date.now() - t0, reason: v.reason });
 
-      // One automatic retry fix pass
       const fixPrompt = buildPass2FixPrompt({ topic, primary_keyword, plan, article, failReason: v.reason });
       article = await callOpenAIJson({ prompt: fixPrompt, temperature: 0.1 });
+
+      // ✅ FORCE META AGAIN AFTER RETRY
+      article = forceMetaAndKeyword({ article, primary_keyword, featured_product_name });
 
       v = validateArticleOrThrow(article);
       if (!v.ok) {
