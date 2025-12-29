@@ -198,11 +198,17 @@ const STREET_KINGZ_PRODUCTS = [
   }
 ];
 
-// Read the OpenAI API key from environment variables
+// Keys
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-if (!OPENAI_API_KEY) {
-  console.warn("⚠️ OPENAI_API_KEY is not set. The /generate-article endpoint will not work until you add it in Render.");
+// Optional: force a provider: "openai" | "gemini" | "auto" (default)
+const AI_PROVIDER = (process.env.AI_PROVIDER || "auto").toLowerCase();
+
+if (!OPENAI_API_KEY) console.warn("⚠️ OPENAI_API_KEY not set (OpenAI calls disabled).");
+if (!GEMINI_API_KEY) console.warn("⚠️ GEMINI_API_KEY not set (Gemini calls disabled).");
+if (!OPENAI_API_KEY && !GEMINI_API_KEY) {
+  console.warn("⚠️ No AI keys set. /generate-article will not work until you add OPENAI_API_KEY and/or GEMINI_API_KEY.");
 }
 
 app.use(cors());
@@ -239,12 +245,10 @@ function stripBannedPhrases(text) {
     out = out.replace(re, "");
   }
   out = out.replace(/\s{2,}/g, " ").replace(/\s+\./g, ".").trim();
-  // Fix common punctuation glitches after stripping
   out = out.replace(/(\.|!|\?)\s*,/g, "$1 ").replace(/\s+,/g, ", ").replace(/,\s+\./g, ".").trim();
   return out;
 }
 
-// PATCH: de-dupe repeated tail sentence in meta
 function dedupeSentenceEnd(meta) {
   const s = String(meta || "").trim();
   const parts = s.split(/(?<=[.!?])\s+/).filter(Boolean);
@@ -255,12 +259,10 @@ function dedupeSentenceEnd(meta) {
   return parts.join(" ").trim();
 }
 
-// PATCH: remove empty <p></p> tags
 function removeEmptyPTags(html) {
   return String(html || "").replace(/<p>\s*<\/p>\s*/gi, "");
 }
 
-// PATCH: convert <ol>..</ol> to <ul>..</ul> (keeps <li>)
 function convertOlToUl(html) {
   return String(html || "")
     .replace(/<\s*ol(\s[^>]*)?>/gi, "<ul>")
@@ -282,17 +284,14 @@ function removeEllipsisPlaceholders(html) {
 
 function stripAllAnchorsExceptWhitelist(html, whitelistUrls) {
   const wl = new Set((whitelistUrls || []).filter(Boolean));
-  return String(html || "").replace(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi, (m, href, inner) => {
-    // keep exact whitelist links, otherwise remove the anchor and keep text
-    if (wl.has(href)) return m;
-    return inner;
-  });
+  return String(html || "").replace(
+    /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+    (m, href, inner) => (wl.has(href) ? m : inner)
+  );
 }
 
 function wrapLooseTextLinesInParagraphs(html) {
   const s = String(html || "");
-
-  // Split into tokens: tags vs text
   const parts = s.split(/(<[^>]+>)/g).filter(Boolean);
 
   let out = "";
@@ -306,17 +305,14 @@ function wrapLooseTextLinesInParagraphs(html) {
 
   for (const part of parts) {
     if (part.startsWith("<")) {
-      // Before writing a tag, flush any accumulated text as <p>
       flush();
       out += part;
     } else {
-      // Accumulate text until the next tag
       buffer += " " + part;
     }
   }
   flush();
 
-  // Cleanup: remove <p> around block tags if any slipped through (rare)
   out = out
     .replace(/<p>\s*(<(h1|h2|h3|ul|li|section|\/section|\/ul|\/li)[\s>])/gi, "$1")
     .replace(/(<\/(h1|h2|h3|ul|section)>)\s*<\/p>/gi, "$1");
@@ -328,14 +324,12 @@ function enforceMetaLength(meta, primaryKeyword) {
   let m = stripBannedPhrases(meta || "");
   m = dedupeSentenceEnd(m);
 
-  // Must include keyword once
   const kw = String(primaryKeyword || "").trim();
   if (kw) {
     const lower = m.toLowerCase();
     const kwLower = kw.toLowerCase();
     if (!lower.includes(kwLower)) m = `${kw}: ${m}`.trim();
 
-    // If keyword appears more than once, keep first and remove later occurrences
     const re = new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
     let seen = 0;
     m = m.replace(re, (match) => {
@@ -350,9 +344,7 @@ function enforceMetaLength(meta, primaryKeyword) {
   while (m.length < 140) m = (m + PAD).slice(0, 160);
   if (m.length > 160) m = m.slice(0, 160).replace(/\s+\S*$/, "").trim();
 
-  if (m.length < 140) {
-    m = (m + " UK tips and product picks.").slice(0, 160).trim();
-  }
+  if (m.length < 140) m = (m + " UK tips and product picks.").slice(0, 160).trim();
   if (m.length > 160) m = m.slice(0, 160).trim();
 
   m = dedupeSentenceEnd(m);
@@ -400,7 +392,6 @@ function buildFinalCta({ featured_product_url }) {
 }
 
 function removeDecisionVariants(html) {
-  // remove common decision/choosing sections the model writes
   return String(html || "")
     .replace(/<h2>\s*(Decision Section|Choosing the Right Kit|Choosing the right products|Choosing the Right Products|Choosing the right kit|Choosing the Right Products.*?)\s*<\/h2>[\s\S]*?(?=<h2>|$)/gi, "")
     .replace(/<h3>\s*Best for Most People\s*<\/h3>[\s\S]*?(?=<h3>|<h2>|$)/gi, "")
@@ -419,38 +410,32 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   out = stripBannedPhrases(out);
   out = removeEllipsisPlaceholders(out);
 
-  // remove AI-created featured/decision/who-not-for sections so we can inject canonical ones
   out = removeExistingFeaturedBox(out);
   out = removeDecisionVariants(out);
   out = removeWhoNotForVariants(out);
 
-  // Force list style + remove empty <p>
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
-  // Strip any model-added CTAs BEFORE we inject ours
+  // Strip model CTAs before we inject ours
   out = out
     .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
     .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
 
-  // Ensure img1 placeholder exists
   if (!out.includes("<!-- IMAGE: img1 -->")) {
     if (out.includes("</h1>")) out = out.replace("</h1>", "</h1>\n<!-- IMAGE: img1 -->\n");
     else out = "<!-- IMAGE: img1 -->\n" + out;
   }
 
-  // Inject featured box immediately after img1
   const featuredBox = buildFeaturedBox({ featured_product_name, featured_product_url });
   out = out.replace("<!-- IMAGE: img1 -->", `<!-- IMAGE: img1 -->\n\n${featuredBox}\n`);
 
-  // Whitelist only the product links we allow (plus injected CTAs)
   const maxDry = (DEFAULT_MAX_DRYING && DEFAULT_MAX_DRYING.url) ? DEFAULT_MAX_DRYING.url : "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/";
   const fullSet = (ORIGIN_WASH_KIT && ORIGIN_WASH_KIT.url) ? ORIGIN_WASH_KIT.url : "https://streetkingz.co.uk/product/origin-wash-kit/";
   const whitelist = [featured_product_url, maxDry, fullSet];
-  // Temporarily allow all while we inject; later we will add CTAs to whitelist too
+
   out = stripAllAnchorsExceptWhitelist(out, whitelist);
 
-  // Inject canonical decision + who-not-for before FAQs if present, else near the end
   const decision = buildDecisionSection({ featured_product_name, featured_product_url });
   const whoNotFor = buildWhoNotFor();
 
@@ -460,27 +445,19 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
     out = out + "\n" + decision + "\n" + whoNotFor;
   }
 
-  // Ensure final CTA exists once near the end, and ensure Ben sign-off is LAST
-const finalCta = buildFinalCta({ featured_product_url });
+  const finalCta = buildFinalCta({ featured_product_url });
 
-// Remove any loose/duplicate Ben sign-offs the model wrote (eg "Cheers, Ben")
-out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
-out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
+  // Remove loose/duplicate Ben signoffs
+  out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
+  out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
+  out = out.replace(/Get the featured kit<\/a>\s*if you want the simplest option that covers most people\.\s*/gi, "");
 
-// Also remove any existing final CTA sentence not wrapped in <p>
-out = out.replace(/Get the featured kit<\/a>\s*if you want the simplest option that covers most people\.\s*/gi, "");
+  // Add CTA + final Ben paragraph at end
+  out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
-// Add CTA + final Ben paragraph at the very end
-out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
-
-  // Now whitelist includes CTAs too
-  const whitelistWithCtas = [featured_product_url, maxDry, fullSet, featured_product_url];
-  out = stripAllAnchorsExceptWhitelist(out, whitelistWithCtas);
-
-  // Wrap any loose text lines into <p>...</p> so WP doesn't show raw text nodes
+  // Wrap loose text into <p> to stop WP raw text nodes
   out = wrapLooseTextLinesInParagraphs(out);
 
-  // Clean again after injections
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
@@ -488,7 +465,7 @@ out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p
 }
 
 // ---------------------------
-// OpenAI caller (JSON mode)
+// JSON parsing helpers
 // ---------------------------
 
 function stripCodeFences(text) {
@@ -505,7 +482,13 @@ function safeJsonParse(text) {
   return JSON.parse(cleaned);
 }
 
+// ---------------------------
+// OpenAI caller (JSON mode)
+// ---------------------------
+
 async function callOpenAIJson({ prompt, temperature = 0.35 }) {
+  if (!OPENAI_API_KEY) throw new Error("OPENAI_API_KEY not set");
+
   const resp = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -526,13 +509,81 @@ async function callOpenAIJson({ prompt, temperature = 0.35 }) {
   if (!resp.ok) {
     const errorText = await resp.text();
     console.error("OpenAI API error:", errorText);
-    throw new Error(`OpenAI API error: ${resp.status}`);
+    const err = new Error(`OpenAI API error: ${resp.status}`);
+    err.status = resp.status;
+    err.provider = "openai";
+    throw err;
   }
 
   const data = await resp.json();
   const content = data?.choices?.[0]?.message?.content;
   if (!content) throw new Error("No content returned from OpenAI");
   return safeJsonParse(content);
+}
+
+// ---------------------------
+// Gemini caller (JSON mode-ish via responseMimeType)
+// ---------------------------
+
+async function callGeminiJson({ prompt, temperature = 0.35 }) {
+  if (!GEMINI_API_KEY) throw new Error("GEMINI_API_KEY not set");
+
+  // Model choice: fast + cheap + good enough for drafts
+  const model = process.env.GEMINI_MODEL || "gemini-1.5-flash";
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
+
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature,
+        responseMimeType: "application/json"
+      }
+    })
+  });
+
+  if (!resp.ok) {
+    const errorText = await resp.text();
+    console.error("Gemini API error:", errorText);
+    const err = new Error(`Gemini API error: ${resp.status}`);
+    err.status = resp.status;
+    err.provider = "gemini";
+    throw err;
+  }
+
+  const data = await resp.json();
+  const text = data?.candidates?.[0]?.content?.parts?.map(p => p?.text || "").join("").trim();
+
+  if (!text) throw new Error("No content returned from Gemini");
+  return safeJsonParse(text);
+}
+
+// ---------------------------
+// Provider router (auto fallback)
+// ---------------------------
+
+async function callLLMJson({ prompt, temperature = 0.35 }) {
+  if (AI_PROVIDER === "gemini") return callGeminiJson({ prompt, temperature });
+  if (AI_PROVIDER === "openai") return callOpenAIJson({ prompt, temperature });
+
+  // auto: try OpenAI first, fallback to Gemini on 429/5xx or missing key
+  if (OPENAI_API_KEY) {
+    try {
+      return await callOpenAIJson({ prompt, temperature });
+    } catch (e) {
+      const status = e?.status;
+      const isRateLimit = status === 429;
+      const isServery = status >= 500 && status <= 599;
+      if (!isRateLimit && !isServery) throw e;
+      if (GEMINI_API_KEY) return callGeminiJson({ prompt, temperature });
+      throw e;
+    }
+  }
+  if (GEMINI_API_KEY) return callGeminiJson({ prompt, temperature });
+
+  throw new Error("No AI provider keys available");
 }
 
 // ---------------------------
@@ -611,16 +662,14 @@ app.post("/generate-article", async (req, res) => {
     if (!featured_product_name || !featured_product_url) {
       return res.status(400).json({ error: "Missing required fields: 'featured_product_name' and 'featured_product_url'." });
     }
-    if (!OPENAI_API_KEY) {
-      return res.status(500).json({ error: "OPENAI_API_KEY is not set on the server." });
+    if (!OPENAI_API_KEY && !GEMINI_API_KEY) {
+      return res.status(500).json({ error: "No AI keys set. Add OPENAI_API_KEY and/or GEMINI_API_KEY in Render." });
     }
 
     const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
-    const article = await callOpenAIJson({ prompt, temperature: 0.4 });
+    const article = await callLLMJson({ prompt, temperature: 0.4 });
 
-    // Enforce meta + structure reliably
     article.primary_keyword = primary_keyword;
-
     article.slug = (article.slug || primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""))
       .slice(0, 80);
 
@@ -632,7 +681,6 @@ app.post("/generate-article", async (req, res) => {
       featured_product_url
     });
 
-    // Keep placeholders present (plugin expects keys)
     if (!Array.isArray(article.image_placeholders)) {
       article.image_placeholders = [
         { id: "img1", type: "image", alt: "Car wash routine" },
