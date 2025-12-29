@@ -290,16 +290,38 @@ function stripAllAnchorsExceptWhitelist(html, whitelistUrls) {
 }
 
 function wrapLooseTextLinesInParagraphs(html) {
-  // Super simple "good enough" wrapper: any non-empty line that doesn't start with "<" becomes <p>...</p>
-  const lines = String(html || "").split("\n");
-  const out = [];
-  for (const raw of lines) {
-    const line = raw.trim();
-    if (!line) continue;
-    if (line.startsWith("<")) out.push(raw);
-    else out.push(`<p>${line}</p>`);
+  const s = String(html || "");
+
+  // Split into tokens: tags vs text
+  const parts = s.split(/(<[^>]+>)/g).filter(Boolean);
+
+  let out = "";
+  let buffer = "";
+
+  const flush = () => {
+    const t = buffer.replace(/\s+/g, " ").trim();
+    if (t) out += `<p>${t}</p>\n`;
+    buffer = "";
+  };
+
+  for (const part of parts) {
+    if (part.startsWith("<")) {
+      // Before writing a tag, flush any accumulated text as <p>
+      flush();
+      out += part;
+    } else {
+      // Accumulate text until the next tag
+      buffer += " " + part;
+    }
   }
-  return out.join("\n");
+  flush();
+
+  // Cleanup: remove <p> around block tags if any slipped through (rare)
+  out = out
+    .replace(/<p>\s*(<(h1|h2|h3|ul|li|section|\/section|\/ul|\/li)[\s>])/gi, "$1")
+    .replace(/(<\/(h1|h2|h3|ul|section)>)\s*<\/p>/gi, "$1");
+
+  return out.trim();
 }
 
 function enforceMetaLength(meta, primaryKeyword) {
@@ -438,14 +460,18 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
     out = out + "\n" + decision + "\n" + whoNotFor;
   }
 
-  // Ensure final CTA exists once near the end (before Ben sign-off if present)
-  const finalCta = buildFinalCta({ featured_product_url });
+  // Ensure final CTA exists once near the end, and ensure Ben sign-off is LAST
+const finalCta = buildFinalCta({ featured_product_url });
 
-  if (/Ben,\s*founder\s*of\s*Street\s*Kingz/i.test(out)) {
-    out = out.replace(/(<p>\s*Ben,\s*founder\s*of\s*Street\s*Kingz[\s\S]*?<\/p>)/i, `${finalCta}\n$1`);
-  } else {
-    out = out + "\n" + finalCta + `\n<p>Ben, founder of Street Kingz.</p>`;
-  }
+// Remove any loose/duplicate Ben sign-offs the model wrote (eg "Cheers, Ben")
+out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
+out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
+
+// Also remove any existing final CTA sentence not wrapped in <p>
+out = out.replace(/Get the featured kit<\/a>\s*if you want the simplest option that covers most people\.\s*/gi, "");
+
+// Add CTA + final Ben paragraph at the very end
+out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
   // Now whitelist includes CTAs too
   const whitelistWithCtas = [featured_product_url, maxDry, fullSet, featured_product_url];
