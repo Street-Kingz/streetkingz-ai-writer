@@ -198,6 +198,13 @@ const STREET_KINGZ_PRODUCTS = [
   }
 ];
 
+// ✅ SLIM CATALOGUE FOR PROMPTS (reduces tokens massively)
+const PRODUCTS_SLIM = STREET_KINGZ_PRODUCTS.map(p => ({
+  name: p.name,
+  type: p.type,
+  url: p.url
+}));
+
 // Keys
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -596,7 +603,8 @@ async function callLLMJson({ prompt, temperature = 0.35 }) {
 // ---------------------------
 
 function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
-  const productsJson = JSON.stringify(STREET_KINGZ_PRODUCTS);
+  // ✅ use slim catalogue for prompt
+  const productsJson = JSON.stringify(PRODUCTS_SLIM);
 
   return `
 Return JSON ONLY with:
