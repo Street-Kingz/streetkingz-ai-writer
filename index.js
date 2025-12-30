@@ -26,7 +26,8 @@ const STREET_KINGZ_PRODUCTS = [
   {
     name: "Paint Protection Cloth",
     type: "microfibre cloth",
-    details: "Soft, short pile microfibre cloth designed for removing coatings, waxes and sealants.",
+    details:
+      "Soft, short pile microfibre cloth designed for removing coatings, waxes and sealants.",
     ideal_use: "Buffing away wax, sealant or protection products without marring the finish.",
     url: "https://streetkingz.co.uk/product/paint-protection-cloth/"
   },
@@ -34,7 +35,8 @@ const STREET_KINGZ_PRODUCTS = [
     name: "CORAL FLEECE CLOTHS – 2 PACK",
     type: "microfibre cloth",
     details: "Pack of two plush coral fleece cloths for interior and light exterior work.",
-    ideal_use: "Dusting interiors, light wipe downs and jobs where you want something soft and forgiving.",
+    ideal_use:
+      "Dusting interiors, light wipe downs and jobs where you want something soft and forgiving.",
     url: "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/"
   },
   {
@@ -48,20 +50,23 @@ const STREET_KINGZ_PRODUCTS = [
     name: "Microfibre Wash Mitt",
     type: "wash mitt",
     details: "Deep pile microfibre wash mitt with cuffed wrist for safe contact washing.",
-    ideal_use: "Main wash stage after pre-wash and rinse, especially on well-maintained paint.",
+    ideal_use:
+      "Main wash stage after pre-wash and rinse, especially on well-maintained paint.",
     url: "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
   },
   {
     name: "Microfibre Scrub Pads",
     type: "scrub pads",
     details: "Microfibre-faced scrub pads available in multiple pack sizes.",
-    ideal_use: "Agitating cleaners on interiors and exteriors where you need more bite than a cloth, but still safe.",
+    ideal_use:
+      "Agitating cleaners on interiors and exteriors where you need more bite than a cloth, but still safe.",
     url: "https://streetkingz.co.uk/product/microfibre-scrub-pads/"
   },
   {
     name: "Wheel Belt Flosser",
     type: "wheel cleaning tool",
-    details: "Flexible microfibre tool designed to clean between wheel spokes and behind brake calipers.",
+    details:
+      "Flexible microfibre tool designed to clean between wheel spokes and behind brake calipers.",
     ideal_use: "Cleaning awkward areas of wheels where standard brushes don’t reach.",
     url: "https://streetkingz.co.uk/product/wheel-belt-flosser/"
   },
@@ -90,14 +95,16 @@ const STREET_KINGZ_PRODUCTS = [
     name: "Stubby Gun & Nozzle Set",
     type: "pressure washer tool",
     details: "Compact pressure washer gun offering better control and ergonomics during washing.",
-    ideal_use: "Pairing with a foam lance or standard nozzles for controlled washing in tight spaces.",
+    ideal_use:
+      "Pairing with a foam lance or standard nozzles for controlled washing in tight spaces.",
     url: "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/"
   },
   {
     name: "Snow Foam Lance",
     type: "foam lance",
     details: "Premium snow foam lance with adjustable fan and flow pattern.",
-    ideal_use: "Applying thick, even foam during the pre-wash stage to reduce swirl marks.",
+    ideal_use:
+      "Applying thick, even foam during the pre-wash stage to reduce swirl marks.",
     url: "https://streetkingz.co.uk/product/snow-foam-lance/"
   },
   {
@@ -110,7 +117,8 @@ const STREET_KINGZ_PRODUCTS = [
   {
     name: "The Origin Shampoo – Ultra Concentrated & pH Safe",
     type: "shampoo",
-    details: "Ultra concentrated, pH safe shampoo designed to lubricate and clean without stripping protection.",
+    details:
+      "Ultra concentrated, pH safe shampoo designed to lubricate and clean without stripping protection.",
     ideal_use: "Main contact wash stage as part of a safe wash routine.",
     url: "https://streetkingz.co.uk/product/origin-shampoo/"
   },
@@ -131,7 +139,8 @@ const STREET_KINGZ_PRODUCTS = [
   {
     name: "The Origin Ultra Wash & Dry Kit",
     type: "bundle",
-    details: "Origin Shampoo paired with premium drying gear for a complete wash and dry solution.",
+    details:
+      "Origin Shampoo paired with premium drying gear for a complete wash and dry solution.",
     ideal_use: "A simple, effective all-in-one wash and dry setup.",
     url: "https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/"
   },
@@ -233,6 +242,22 @@ app.get("/", (req, res) => {
 });
 
 // ---------------------------
+// OpenAI cooldown (AUTO failover, no env flipping)
+// ---------------------------
+let OPENAI_COOLDOWN_UNTIL_MS = 0;
+
+function setOpenAICooldownFromResponse(resp, fallbackSeconds = 6 * 60 * 60) {
+  const ra = resp?.headers?.get?.("retry-after");
+  const secs = ra ? Number(ra) : NaN;
+  const wait = Number.isFinite(secs) && secs > 0 ? secs : fallbackSeconds;
+  OPENAI_COOLDOWN_UNTIL_MS = Date.now() + wait * 1000;
+}
+
+function openaiInCooldown() {
+  return Date.now() < OPENAI_COOLDOWN_UNTIL_MS;
+}
+
+// ---------------------------
 // Sanitiser / Enforcer
 // ---------------------------
 
@@ -260,7 +285,11 @@ function stripBannedPhrases(text) {
     out = out.replace(re, "");
   }
   out = out.replace(/\s{2,}/g, " ").replace(/\s+\./g, ".").trim();
-  out = out.replace(/(\.|!|\?)\s*,/g, "$1 ").replace(/\s+,/g, ", ").replace(/,\s+\./g, ".").trim();
+  out = out
+    .replace(/(\.|!|\?)\s*,/g, "$1 ")
+    .replace(/\s+,/g, ", ")
+    .replace(/,\s+\./g, ".")
+    .trim();
   return out;
 }
 
@@ -312,7 +341,8 @@ function wrapLooseTextLinesInParagraphs(html) {
   let buffer = [];
   const stack = [];
 
-  const isSelfClosing = (tag) => /\/>$/.test(tag) || /^<(br|hr|img|input|meta|link)\b/i.test(tag);
+  const isSelfClosing = (tag) =>
+    /\/>$/.test(tag) || /^<(br|hr|img|input|meta|link)\b/i.test(tag);
   const getOpenTagName = (tag) => {
     const m = tag.match(/^<\s*([a-zA-Z0-9]+)\b/);
     return m ? m[1].toLowerCase() : null;
@@ -387,7 +417,6 @@ function wrapLooseTextLinesInParagraphs(html) {
 function convertNumberedParagraphsToList(html) {
   let out = String(html || "");
 
-  // Find runs of numbered <p>1. ...</p><p>2. ...</p> and convert to <ul><li>...</li></ul>
   out = out.replace(/(?:<p>\s*\d+\.\s*[\s\S]*?<\/p>\s*){2,}/gi, (block) => {
     const items = [];
     const re = /<p>\s*\d+\.\s*([\s\S]*?)<\/p>/gi;
@@ -403,28 +432,23 @@ function convertNumberedParagraphsToList(html) {
   return out.trim();
 }
 
-// ✅ Fix invalid HTML nesting (<h1><p>..</p></h1>, <a><p>..</p></a>, <li><p>..</p></li>, etc)
+// ✅ Fix invalid HTML nesting
 function fixInvalidHtmlNesting(html) {
   let out = String(html || "");
 
-  // Collapse nested <p>
   out = out.replace(/<p>\s*<p>/gi, "<p>").replace(/<\/p>\s*<\/p>/gi, "</p>");
 
-  // Remove <p> directly inside wrappers that must not contain <p>
   out = out
     .replace(/<(h1|h2|h3|li|a|strong|em)(\b[^>]*)?>\s*<p>/gi, "<$1$2>")
     .replace(/<\/p>\s*<\/(h1|h2|h3|li|a|strong|em)>/gi, "</$1>");
 
-  // If a list item still contains a <p>, flatten it to plain text.
   out = out.replace(/<li([^>]*)>\s*<p>/gi, "<li$1>").replace(/<\/p>\s*<\/li>/gi, "</li>");
 
-  // Clean up empties created by removals
   out = out.replace(/<p>\s*<\/p>\s*/gi, "");
 
   return out.trim();
 }
 
-// ✅ Flatten nasty "<li>...<p>- blah</p></li>" into a valid single-line <li>
 function flattenParagraphsInsideLi(html) {
   let out = String(html || "");
 
@@ -442,7 +466,7 @@ function flattenParagraphsInsideLi(html) {
   return out.trim();
 }
 
-// ✅ NEW: Strip ALL <p> tags that appear anywhere inside <li>...</li>
+// ✅ Strip ALL <p> tags that appear anywhere inside <li>...</li>
 function stripPTagsInsideLi(html) {
   return String(html || "").replace(/<li([^>]*)>([\s\S]*?)<\/li>/gi, (_m, attrs, inner) => {
     const cleaned = String(inner)
@@ -453,12 +477,10 @@ function stripPTagsInsideLi(html) {
   });
 }
 
-// ✅ Hard validation gate: if it fails, we retry once; if still fails, return 422
 function findHtmlIssues(html) {
   const issues = [];
   const s = String(html || "");
 
-  // NEW: you don't want model H1 at all
   if (/<h1\b/i.test(s)) issues.push("h1_found");
 
   if (/<h1[^>]*>\s*<p>/i.test(s)) issues.push("h1_contains_p");
@@ -581,15 +603,13 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
-  // ✅ NEW: Strip any H1 returned by the model (your blog template already has the H1)
+  // Strip any H1 returned by the model (your blog template already has the H1)
   out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
 
-  // Strip model CTAs before we inject ours
   out = out
     .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
     .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
 
-  // Ensure image placeholder exists near top (insert at start if missing)
   if (!out.includes("<!-- IMAGE: img1 -->")) {
     out = "<!-- IMAGE: img1 -->\n" + out;
   }
@@ -609,22 +629,14 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
 
   out = stripAllAnchorsExceptWhitelist(out, whitelist);
 
-  // Wrap loose text into <p> to stop WP raw text nodes
   out = wrapLooseTextLinesInParagraphs(out);
-
-  // ✅ Convert numbered steps into a real list BEFORE final sanitise
   out = convertNumberedParagraphsToList(out);
-
-  // ✅ Flatten <li> with <p> junk
   out = flattenParagraphsInsideLi(out);
-
-  // ✅ Fix invalid <p> nesting created by model output + wrapper
   out = fixInvalidHtmlNesting(out);
 
-  // ✅ NEW: absolutely guarantee no <p> survives inside <li> (nested or direct)
+  // Guarantee no <p> survives inside <li>
   out = stripPTagsInsideLi(out);
 
-  // Inject decision + who-not-for consistently (server-owned)
   const decision = buildDecisionSection({ featured_product_name, featured_product_url });
   const whoNotFor = buildWhoNotFor();
 
@@ -636,7 +648,6 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
 
   const finalCta = buildFinalCta({ featured_product_url });
 
-  // Remove loose/duplicate Ben signoffs
   out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
   out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
   out = out.replace(
@@ -644,22 +655,17 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
     ""
   );
 
-  // Add CTA + final Ben paragraph at end
   out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
-  // Final tidy pass
   out = flattenParagraphsInsideLi(out);
   out = fixInvalidHtmlNesting(out);
-
-  // ✅ NEW: run again at the end (belt + braces)
   out = stripPTagsInsideLi(out);
-
   out = removeEmptyPTags(out);
 
-  // ✅ Final guarantee: no H1 survives
+  // Final guarantee: no H1 survives
   out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
 
   return out.trim();
@@ -710,9 +716,16 @@ async function callOpenAIJson({ prompt, temperature = 0.35 }) {
   if (!resp.ok) {
     const errorText = await resp.text();
     console.error("OpenAI API error:", errorText);
+
+    // ✅ NEW: put OpenAI into cooldown on rate limit so AUTO uses Gemini next
+    if (resp.status === 429) {
+      setOpenAICooldownFromResponse(resp, 6 * 60 * 60);
+    }
+
     const err = new Error(`OpenAI API error: ${resp.status}`);
     err.status = resp.status;
     err.provider = "openai";
+    err.raw = errorText;
     throw err;
   }
 
@@ -729,9 +742,7 @@ async function callOpenAIJson({ prompt, temperature = 0.35 }) {
 async function callGeminiJson({ prompt, temperature = 0.35 }) {
   if (!GEMINI_API_KEY) throw new Error("GEMINI_API_KEY not set");
 
-  // Use a current, supported model name (can override with GEMINI_MODEL env var)
   const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
-
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
   const resp = await fetch(url, {
@@ -755,6 +766,7 @@ async function callGeminiJson({ prompt, temperature = 0.35 }) {
     const err = new Error(`Gemini API error: ${resp.status}`);
     err.status = resp.status;
     err.provider = "gemini";
+    err.raw = errorText;
     throw err;
   }
 
@@ -765,28 +777,36 @@ async function callGeminiJson({ prompt, temperature = 0.35 }) {
 }
 
 // ---------------------------
-// Provider router (auto fallback)
+// Provider router (auto fallback + cooldown)
 // ---------------------------
 
 async function callLLMJson({ prompt, temperature = 0.35 }) {
   if (AI_PROVIDER === "gemini") return callGeminiJson({ prompt, temperature });
   if (AI_PROVIDER === "openai") return callOpenAIJson({ prompt, temperature });
 
-  // auto: try OpenAI first, fallback to Gemini on 429/5xx or missing key
+  // ✅ AUTO: if OpenAI is in cooldown, go straight to Gemini (no wasting calls)
+  if (openaiInCooldown() && GEMINI_API_KEY) {
+    return callGeminiJson({ prompt, temperature });
+  }
+
+  // AUTO: try OpenAI first, fallback to Gemini on 429/5xx (or rate-limit text)
   if (OPENAI_API_KEY) {
     try {
       return await callOpenAIJson({ prompt, temperature });
     } catch (e) {
       const status = e?.status;
-      const isRateLimit = status === 429;
+      const raw = String(e?.raw || e?.message || "");
+      const isRateLimit = status === 429 || /rate_limit/i.test(raw);
       const isServery = status >= 500 && status <= 599;
-      if (!isRateLimit && !isServery) throw e;
-      if (GEMINI_API_KEY) return callGeminiJson({ prompt, temperature });
+
+      if ((isRateLimit || isServery) && GEMINI_API_KEY) {
+        return callGeminiJson({ prompt, temperature });
+      }
       throw e;
     }
   }
-  if (GEMINI_API_KEY) return callGeminiJson({ prompt, temperature });
 
+  if (GEMINI_API_KEY) return callGeminiJson({ prompt, temperature });
   throw new Error("No AI provider keys available");
 }
 
@@ -795,7 +815,6 @@ async function callLLMJson({ prompt, temperature = 0.35 }) {
 // ---------------------------
 
 function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
-  // ✅ use slim catalogue for prompt
   const productsJson = JSON.stringify(PRODUCTS_SLIM);
 
   return `
@@ -877,13 +896,14 @@ app.post("/generate-article", async (req, res) => {
 
     const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
 
-    // ✅ Try once, enforce+validate, retry once if still broken, otherwise 422
     const runOnce = async (temp) => {
       const article = await callLLMJson({ prompt, temperature: temp });
 
       article.primary_keyword = primary_keyword;
-      article.slug = (article.slug || primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""))
-        .slice(0, 80);
+      article.slug = (
+        article.slug ||
+        primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
+      ).slice(0, 80);
 
       article.meta_description = enforceMetaLength(article.meta_description, primary_keyword);
 
@@ -908,7 +928,6 @@ app.post("/generate-article", async (req, res) => {
     let { article, issues } = await runOnce(0.4);
 
     if (issues.length) {
-      // retry once, slightly lower temp for compliance
       const retry = await runOnce(0.25);
       article = retry.article;
       issues = retry.issues;
