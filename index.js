@@ -138,7 +138,8 @@ const STREET_KINGZ_PRODUCTS = [
   {
     name: "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)",
     type: "bundle",
-    details: "Complete wheel cleaning with the xl barrel brush, slim barrel brush and the microfibre wheel flosser",
+    details:
+      "Complete wheel cleaning with the xl barrel brush, slim barrel brush and the microfibre wheel flosser",
     ideal_use: "For those who want to clean their entire alloys safely",
     url: "https://streetkingz.co.uk/product/wheel-cleaning-power-pack/"
   },
@@ -146,7 +147,8 @@ const STREET_KINGZ_PRODUCTS = [
     name: "Origin Wash Kit",
     type: "bundle",
     details: "Origin Ultra Concentrated pH safe shampoo paired with microfibre wash mitt",
-    ideal_use: "costed efective shampoo that protects your paint and a microfibre mitt that prevents scratches and swirls",
+    ideal_use:
+      "costed efective shampoo that protects your paint and a microfibre mitt that prevents scratches and swirls",
     url: "https://streetkingz.co.uk/product/origin-wash-kit/"
   },
   {
@@ -332,22 +334,80 @@ function wrapLooseTextLinesInParagraphs(html) {
   return out.trim();
 }
 
-// ✅ FIX INVALID HTML NESTING (<h1><p>..</p></h1>, <a><p>..</p></a>, <li><p>..</p></li>, etc)
+// ✅ Convert numbered <p> steps into a proper <ul><li> list
+function convertNumberedParagraphsToList(html) {
+  let out = String(html || "");
+
+  // Find runs of numbered <p>1. ...</p><p>2. ...</p> and convert to <ul><li>...</li></ul>
+  out = out.replace(/(?:<p>\s*\d+\.\s*[\s\S]*?<\/p>\s*){2,}/gi, (block) => {
+    const items = [];
+    const re = /<p>\s*\d+\.\s*([\s\S]*?)<\/p>/gi;
+    let m;
+    while ((m = re.exec(block)) !== null) {
+      const text = (m[1] || "").replace(/\s+/g, " ").trim();
+      if (text) items.push(`<li>${text}</li>`);
+    }
+    if (!items.length) return block;
+    return `<ul>\n${items.join("\n")}\n</ul>`;
+  });
+
+  return out.trim();
+}
+
+// ✅ Fix invalid HTML nesting (<h1><p>..</p></h1>, <a><p>..</p></a>, <li><p>..</p></li>, etc)
 function fixInvalidHtmlNesting(html) {
   let out = String(html || "");
 
   // Collapse nested <p>
   out = out.replace(/<p>\s*<p>/gi, "<p>").replace(/<\/p>\s*<\/p>/gi, "</p>");
 
-  // Remove <p> directly inside block/inline wrappers that must not contain <p>
+  // Remove <p> directly inside wrappers that must not contain <p>
   out = out
     .replace(/<(h1|h2|h3|li|a|strong|em)(\b[^>]*)?>\s*<p>/gi, "<$1$2>")
     .replace(/<\/p>\s*<\/(h1|h2|h3|li|a|strong|em)>/gi, "</$1>");
+
+  // If a list item still contains a <p>, flatten it to plain text.
+  out = out.replace(/<li([^>]*)>\s*<p>/gi, "<li$1>").replace(/<\/p>\s*<\/li>/gi, "</li>");
 
   // Clean up empties created by removals
   out = out.replace(/<p>\s*<\/p>\s*/gi, "");
 
   return out.trim();
+}
+
+// ✅ Flatten nasty "<li>...<p>- blah</p></li>" into a valid single-line <li>
+function flattenParagraphsInsideLi(html) {
+  let out = String(html || "");
+
+  out = out.replace(
+    /<li([^>]*)>([\s\S]*?)<p>\s*[-–—]?\s*([\s\S]*?)<\/p>([\s\S]*?)<\/li>/gi,
+    (_m, attrs, before, middle, after) => {
+      const a = (before || "").replace(/\s+/g, " ").trim();
+      const b = (middle || "").replace(/\s+/g, " ").trim();
+      const c = (after || "").replace(/\s+/g, " ").trim();
+      const joined = [a, b, c].filter(Boolean).join(" ");
+      return `<li${attrs}>${joined}</li>`;
+    }
+  );
+
+  return out.trim();
+}
+
+// ✅ Hard validation gate: if it fails, we retry once; if still fails, return 422
+function findHtmlIssues(html) {
+  const issues = [];
+  const s = String(html || "");
+
+  // NEW: you don't want model H1 at all
+  if (/<h1\b/i.test(s)) issues.push("h1_found");
+
+  if (/<h1[^>]*>\s*<p>/i.test(s)) issues.push("h1_contains_p");
+  if (/<a\b[^>]*>\s*<p>/i.test(s)) issues.push("a_contains_p");
+  if (/<li\b[^>]*>[\s\S]*<p>/i.test(s)) issues.push("li_contains_p");
+  if (/<p>\s*\d+\.\s*/i.test(s)) issues.push("numbered_paragraph_steps");
+  if (/<ol\b/i.test(s)) issues.push("ordered_list_found");
+
+  return issues;
 }
 
 function enforceMetaLength(meta, primaryKeyword) {
@@ -461,14 +521,17 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
+  // ✅ NEW: Strip any H1 returned by the model (your blog template already has the H1)
+  out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
+
   // Strip model CTAs before we inject ours
   out = out
     .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
     .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
 
+  // Ensure image placeholder exists near top (insert at start if missing)
   if (!out.includes("<!-- IMAGE: img1 -->")) {
-    if (out.includes("</h1>")) out = out.replace("</h1>", "</h1>\n<!-- IMAGE: img1 -->\n");
-    else out = "<!-- IMAGE: img1 -->\n" + out;
+    out = "<!-- IMAGE: img1 -->\n" + out;
   }
 
   const featuredBox = buildFeaturedBox({ featured_product_name, featured_product_url });
@@ -486,6 +549,19 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
 
   out = stripAllAnchorsExceptWhitelist(out, whitelist);
 
+  // Wrap loose text into <p> to stop WP raw text nodes
+  out = wrapLooseTextLinesInParagraphs(out);
+
+  // ✅ Convert numbered steps into a real list BEFORE final sanitise
+  out = convertNumberedParagraphsToList(out);
+
+  // ✅ Flatten <li> with <p> junk
+  out = flattenParagraphsInsideLi(out);
+
+  // ✅ Fix invalid <p> nesting created by model output + wrapper
+  out = fixInvalidHtmlNesting(out);
+
+  // Inject decision + who-not-for consistently (server-owned)
   const decision = buildDecisionSection({ featured_product_name, featured_product_url });
   const whoNotFor = buildWhoNotFor();
 
@@ -508,14 +584,16 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   // Add CTA + final Ben paragraph at end
   out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
-  // Wrap loose text into <p> to stop WP raw text nodes
-  out = wrapLooseTextLinesInParagraphs(out);
-
-  // ✅ NEW: Fix invalid <p> nesting created by model output + wrapper
-  out = fixInvalidHtmlNesting(out);
-
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
+
+  // Final tidy pass
+  out = flattenParagraphsInsideLi(out);
+  out = fixInvalidHtmlNesting(out);
+  out = removeEmptyPTags(out);
+
+  // ✅ Final guarantee: no H1 survives
+  out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
 
   return out.trim();
 }
@@ -685,11 +763,12 @@ RULES
 - Do NOT use the em dash character and do NOT use double hyphens.
 - Use real HTML only: all normal text MUST be inside <p>. No loose text.
 - Use <ul><li> for lists (no <ol>).
-- Include: intro, steps, FAQs (3 to 5), conclusion, and a 1 line Ben sign-off.
+- Steps must be a <ul><li> list (do NOT use numbered paragraphs like "1.").
 - IMPORTANT: Do NOT write any “featured box” section and do NOT write any “View the kit” or “Get the featured kit” links.
   (The server injects those.)
 - IMPORTANT: Do NOT include a decision section or who-not-for section.
   (The server injects those to keep it consistent.)
+- Include: intro, steps, FAQs (3 to 5), conclusion, and a 1 line Ben sign-off.
 
 SMART LENGTH
 - LONG 1800–2300 if topic is broad/full routine.
@@ -702,7 +781,8 @@ PRIMARY KEYWORD
 - Must appear in meta_description once.
 
 CONTENT_HTML
-- Start with exactly one <h1>.
+- Do NOT include <h1>. Your blog template already renders the H1.
+- You MAY use <h2> and <h3>.
 - Put <!-- IMAGE: img1 --> near the top.
 - No markdown.
 `.trim();
@@ -720,33 +800,58 @@ app.post("/generate-article", async (req, res) => {
       return res.status(400).json({ error: "Missing required fields: 'topic' and 'primary_keyword'." });
     }
     if (!featured_product_name || !featured_product_url) {
-      return res.status(400).json({ error: "Missing required fields: 'featured_product_name' and 'featured_product_url'." });
+      return res
+        .status(400)
+        .json({ error: "Missing required fields: 'featured_product_name' and 'featured_product_url'." });
     }
     if (!OPENAI_API_KEY && !GEMINI_API_KEY) {
       return res.status(500).json({ error: "No AI keys set. Add OPENAI_API_KEY and/or GEMINI_API_KEY in Render." });
     }
 
     const prompt = buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url });
-    const article = await callLLMJson({ prompt, temperature: 0.4 });
 
-    article.primary_keyword = primary_keyword;
-    article.slug = (article.slug || primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""))
-      .slice(0, 80);
+    // ✅ Try once, enforce+validate, retry once if still broken, otherwise 422
+    const runOnce = async (temp) => {
+      const article = await callLLMJson({ prompt, temperature: temp });
 
-    article.meta_description = enforceMetaLength(article.meta_description, primary_keyword);
+      article.primary_keyword = primary_keyword;
+      article.slug = (article.slug || primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""))
+        .slice(0, 80);
 
-    article.content_html = enforceCoreStructure({
-      html: article.content_html,
-      featured_product_name,
-      featured_product_url
-    });
+      article.meta_description = enforceMetaLength(article.meta_description, primary_keyword);
 
-    if (!Array.isArray(article.image_placeholders)) {
-      article.image_placeholders = [
-        { id: "img1", type: "image", alt: "Car wash routine" },
-        { id: "img2", type: "image", alt: "Washing step" },
-        { id: "img3", type: "image", alt: "Drying step" }
-      ];
+      article.content_html = enforceCoreStructure({
+        html: article.content_html,
+        featured_product_name,
+        featured_product_url
+      });
+
+      if (!Array.isArray(article.image_placeholders)) {
+        article.image_placeholders = [
+          { id: "img1", type: "image", alt: "Car wash routine" },
+          { id: "img2", type: "image", alt: "Washing step" },
+          { id: "img3", type: "image", alt: "Drying step" }
+        ];
+      }
+
+      const issues = findHtmlIssues(article.content_html);
+      return { article, issues };
+    };
+
+    let { article, issues } = await runOnce(0.4);
+
+    if (issues.length) {
+      // retry once, slightly lower temp for compliance
+      const retry = await runOnce(0.25);
+      article = retry.article;
+      issues = retry.issues;
+    }
+
+    if (issues.length) {
+      return res.status(422).json({
+        error: "Generated HTML failed validation",
+        issues
+      });
     }
 
     return res.json(article);
