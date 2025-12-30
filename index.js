@@ -10,7 +10,8 @@ const STREET_KINGZ_PRODUCTS = [
   {
     name: "XL DRYING TOWEL – 800GSM",
     type: "drying towel",
-    details: "Extra large 800gsm microfibre drying towel, 90×70cm with deep pile for safe drying.",
+    details:
+      "Extra large 800gsm microfibre drying towel, 90×70cm with deep pile for safe drying.",
     ideal_use: "Primary drying towel for paintwork, especially larger panels and SUVs.",
     url: "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
   },
@@ -18,7 +19,8 @@ const STREET_KINGZ_PRODUCTS = [
     name: "Heavy Duty Drying Towel – 1200gsm",
     type: "drying towel",
     details: "1200gsm twisted loop heavy duty drying towel, 90×60cm, double sided.",
-    ideal_use: "Maximum water pick up on heavily soaked vehicles or for people who want overkill drying performance.",
+    ideal_use:
+      "Maximum water pick up on heavily soaked vehicles or for people who want overkill drying performance.",
     url: "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
   },
   {
@@ -199,7 +201,7 @@ const STREET_KINGZ_PRODUCTS = [
 ];
 
 // ✅ SLIM CATALOGUE FOR PROMPTS (reduces tokens massively)
-const PRODUCTS_SLIM = STREET_KINGZ_PRODUCTS.map(p => ({
+const PRODUCTS_SLIM = STREET_KINGZ_PRODUCTS.map((p) => ({
   name: p.name,
   type: p.type,
   url: p.url
@@ -215,7 +217,9 @@ const AI_PROVIDER = (process.env.AI_PROVIDER || "auto").toLowerCase();
 if (!OPENAI_API_KEY) console.warn("⚠️ OPENAI_API_KEY not set (OpenAI calls disabled).");
 if (!GEMINI_API_KEY) console.warn("⚠️ GEMINI_API_KEY not set (Gemini calls disabled).");
 if (!OPENAI_API_KEY && !GEMINI_API_KEY) {
-  console.warn("⚠️ No AI keys set. /generate-article will not work until you add OPENAI_API_KEY and/or GEMINI_API_KEY.");
+  console.warn(
+    "⚠️ No AI keys set. /generate-article will not work until you add OPENAI_API_KEY and/or GEMINI_API_KEY."
+  );
 }
 
 app.use(cors());
@@ -241,8 +245,10 @@ const BANNED_PHRASES = [
   "mirror-like finish"
 ];
 
-const ORIGIN_WASH_KIT = STREET_KINGZ_PRODUCTS.find(p => p.name === "Origin Wash Kit");
-const DEFAULT_MAX_DRYING = STREET_KINGZ_PRODUCTS.find(p => p.name === "Heavy Duty Drying Towel – 1200gsm");
+const ORIGIN_WASH_KIT = STREET_KINGZ_PRODUCTS.find((p) => p.name === "Origin Wash Kit");
+const DEFAULT_MAX_DRYING = STREET_KINGZ_PRODUCTS.find(
+  (p) => p.name === "Heavy Duty Drying Towel – 1200gsm"
+);
 
 function stripBannedPhrases(text) {
   if (!text) return text;
@@ -278,15 +284,14 @@ function convertOlToUl(html) {
 
 function removeExistingFeaturedBox(html) {
   if (!html) return html;
-  return String(html).replace(/<section class=["']sk-featured-box["'][\s\S]*?<\/section>\s*/gi, "").trim();
+  return String(html)
+    .replace(/<section class=["']sk-featured-box["'][\s\S]*?<\/section>\s*/gi, "")
+    .trim();
 }
 
 function removeEllipsisPlaceholders(html) {
   if (!html) return html;
-  return String(html)
-    .replace(/<p>\s*\.\.\.\s*<\/p>/gi, "")
-    .replace(/…/g, "")
-    .trim();
+  return String(html).replace(/<p>\s*\.\.\.\s*<\/p>/gi, "").replace(/…/g, "").trim();
 }
 
 function stripAllAnchorsExceptWhitelist(html, whitelistUrls) {
@@ -327,6 +332,24 @@ function wrapLooseTextLinesInParagraphs(html) {
   return out.trim();
 }
 
+// ✅ FIX INVALID HTML NESTING (<h1><p>..</p></h1>, <a><p>..</p></a>, <li><p>..</p></li>, etc)
+function fixInvalidHtmlNesting(html) {
+  let out = String(html || "");
+
+  // Collapse nested <p>
+  out = out.replace(/<p>\s*<p>/gi, "<p>").replace(/<\/p>\s*<\/p>/gi, "</p>");
+
+  // Remove <p> directly inside block/inline wrappers that must not contain <p>
+  out = out
+    .replace(/<(h1|h2|h3|li|a|strong|em)(\b[^>]*)?>\s*<p>/gi, "<$1$2>")
+    .replace(/<\/p>\s*<\/(h1|h2|h3|li|a|strong|em)>/gi, "</$1>");
+
+  // Clean up empties created by removals
+  out = out.replace(/<p>\s*<\/p>\s*/gi, "");
+
+  return out.trim();
+}
+
 function enforceMetaLength(meta, primaryKeyword) {
   let m = stripBannedPhrases(meta || "");
   m = dedupeSentenceEnd(m);
@@ -339,10 +362,13 @@ function enforceMetaLength(meta, primaryKeyword) {
 
     const re = new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
     let seen = 0;
-    m = m.replace(re, (match) => {
-      seen += 1;
-      return seen === 1 ? match : "";
-    }).replace(/\s{2,}/g, " ").trim();
+    m = m
+      .replace(re, (match) => {
+        seen += 1;
+        return seen === 1 ? match : "";
+      })
+      .replace(/\s{2,}/g, " ")
+      .trim();
   }
 
   m = m.replace(/\s{2,}/g, " ").trim();
@@ -370,8 +396,14 @@ function buildFeaturedBox({ featured_product_name, featured_product_url }) {
 }
 
 function buildDecisionSection({ featured_product_name, featured_product_url }) {
-  const maxDry = DEFAULT_MAX_DRYING || { name: "Heavy Duty Drying Towel – 1200gsm", url: "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/" };
-  const fullSet = ORIGIN_WASH_KIT || { name: "Origin Wash Kit", url: "https://streetkingz.co.uk/product/origin-wash-kit/" };
+  const maxDry = DEFAULT_MAX_DRYING || {
+    name: "Heavy Duty Drying Towel – 1200gsm",
+    url: "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+  };
+  const fullSet = ORIGIN_WASH_KIT || {
+    name: "Origin Wash Kit",
+    url: "https://streetkingz.co.uk/product/origin-wash-kit/"
+  };
 
   return `
 <h2>Choosing the right products</h2>
@@ -400,15 +432,20 @@ function buildFinalCta({ featured_product_url }) {
 
 function removeDecisionVariants(html) {
   return String(html || "")
-    .replace(/<h2>\s*(Decision Section|Choosing the Right Kit|Choosing the right products|Choosing the Right Products|Choosing the right kit|Choosing the Right Products.*?)\s*<\/h2>[\s\S]*?(?=<h2>|$)/gi, "")
+    .replace(
+      /<h2>\s*(Decision Section|Choosing the Right Kit|Choosing the right products|Choosing the Right Products|Choosing the right kit|Choosing the Right Products.*?)\s*<\/h2>[\s\S]*?(?=<h2>|$)/gi,
+      ""
+    )
     .replace(/<h3>\s*Best for Most People\s*<\/h3>[\s\S]*?(?=<h3>|<h2>|$)/gi, "")
     .replace(/<h3>\s*Best if You Want Maximum Drying\s*<\/h3>[\s\S]*?(?=<h3>|<h2>|$)/gi, "")
     .replace(/<h3>\s*Best if You Want a Full Set\s*<\/h3>[\s\S]*?(?=<h3>|<h2>|$)/gi, "");
 }
 
 function removeWhoNotForVariants(html) {
-  return String(html || "")
-    .replace(/<h2>\s*(Who This is Not For|Who this is not for|Who Is This Kit Not For\??|Who is this not for)\s*<\/h2>[\s\S]*?(?=<h2>|$)/gi, "");
+  return String(html || "").replace(
+    /<h2>\s*(Who This is Not For|Who this is not for|Who Is This Kit Not For\??|Who is this not for)\s*<\/h2>[\s\S]*?(?=<h2>|$)/gi,
+    ""
+  );
 }
 
 function enforceCoreStructure({ html, featured_product_name, featured_product_url }) {
@@ -437,8 +474,14 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   const featuredBox = buildFeaturedBox({ featured_product_name, featured_product_url });
   out = out.replace("<!-- IMAGE: img1 -->", `<!-- IMAGE: img1 -->\n\n${featuredBox}\n`);
 
-  const maxDry = (DEFAULT_MAX_DRYING && DEFAULT_MAX_DRYING.url) ? DEFAULT_MAX_DRYING.url : "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/";
-  const fullSet = (ORIGIN_WASH_KIT && ORIGIN_WASH_KIT.url) ? ORIGIN_WASH_KIT.url : "https://streetkingz.co.uk/product/origin-wash-kit/";
+  const maxDry =
+    DEFAULT_MAX_DRYING && DEFAULT_MAX_DRYING.url
+      ? DEFAULT_MAX_DRYING.url
+      : "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/";
+  const fullSet =
+    ORIGIN_WASH_KIT && ORIGIN_WASH_KIT.url
+      ? ORIGIN_WASH_KIT.url
+      : "https://streetkingz.co.uk/product/origin-wash-kit/";
   const whitelist = [featured_product_url, maxDry, fullSet];
 
   out = stripAllAnchorsExceptWhitelist(out, whitelist);
@@ -457,13 +500,19 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   // Remove loose/duplicate Ben signoffs
   out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
   out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
-  out = out.replace(/Get the featured kit<\/a>\s*if you want the simplest option that covers most people\.\s*/gi, "");
+  out = out.replace(
+    /Get the featured kit<\/a>\s*if you want the simplest option that covers most people\.\s*/gi,
+    ""
+  );
 
   // Add CTA + final Ben paragraph at end
   out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
   // Wrap loose text into <p> to stop WP raw text nodes
   out = wrapLooseTextLinesInParagraphs(out);
+
+  // ✅ NEW: Fix invalid <p> nesting created by model output + wrapper
+  out = fixInvalidHtmlNesting(out);
 
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
@@ -547,9 +596,7 @@ async function callGeminiJson({ prompt, temperature = 0.35 }) {
       "x-goog-api-key": GEMINI_API_KEY
     },
     body: JSON.stringify({
-      contents: [
-        { parts: [{ text: prompt }] }
-      ],
+      contents: [{ parts: [{ text: prompt }] }],
       generationConfig: {
         temperature,
         responseMimeType: "application/json"
@@ -567,7 +614,7 @@ async function callGeminiJson({ prompt, temperature = 0.35 }) {
   }
 
   const data = await resp.json();
-  const text = data?.candidates?.[0]?.content?.parts?.map(p => p?.text || "").join("").trim();
+  const text = data?.candidates?.[0]?.content?.parts?.map((p) => p?.text || "").join("").trim();
   if (!text) throw new Error("No content returned from Gemini");
   return safeJsonParse(text);
 }
