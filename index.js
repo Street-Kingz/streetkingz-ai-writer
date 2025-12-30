@@ -309,29 +309,79 @@ function wrapLooseTextLinesInParagraphs(html) {
   const parts = s.split(/(<[^>]+>)/g).filter(Boolean);
 
   let out = "";
-  let buffer = "";
+  let buffer = [];
+  const stack = [];
+
+  const isSelfClosing = (tag) => /\/>$/.test(tag) || /^<(br|hr|img|input|meta|link)\b/i.test(tag);
+  const getOpenTagName = (tag) => {
+    const m = tag.match(/^<\s*([a-zA-Z0-9]+)\b/);
+    return m ? m[1].toLowerCase() : null;
+  };
+  const getCloseTagName = (tag) => {
+    const m = tag.match(/^<\s*\/\s*([a-zA-Z0-9]+)\s*>/);
+    return m ? m[1].toLowerCase() : null;
+  };
+
+  const inListContext = () => stack.includes("li") || stack.includes("ul") || stack.includes("ol");
 
   const flush = () => {
-    const t = buffer.replace(/\s+/g, " ").trim();
-    if (t) out += `<p>${t}</p>\n`;
-    buffer = "";
+    const t = buffer.join(" ").replace(/\s+/g, " ").trim();
+    buffer = [];
+    if (!t) return;
+
+    // If we're inside a list, do NOT create <p> (it breaks HTML)
+    if (inListContext()) {
+      out += t;
+      return;
+    }
+
+    out += `<p>${t}</p>\n`;
   };
 
   for (const part of parts) {
     if (part.startsWith("<")) {
+      // comments: just flush + output
+      if (/^<!--[\s\S]*-->$/.test(part)) {
+        flush();
+        out += part;
+        continue;
+      }
+
       flush();
+
+      // update stack
+      const closeName = getCloseTagName(part);
+      if (closeName) {
+        for (let i = stack.length - 1; i >= 0; i--) {
+          if (stack[i] === closeName) {
+            stack.splice(i, 1);
+            break;
+          }
+        }
+        out += part;
+        continue;
+      }
+
+      const openName = getOpenTagName(part);
+      if (openName && !isSelfClosing(part) && !/^<!/.test(part)) {
+        stack.push(openName);
+      }
+
       out += part;
     } else {
-      buffer += " " + part;
+      buffer.push(part);
     }
   }
+
   flush();
 
+  // keep your existing cleanup
   out = out
     .replace(/<p>\s*(<(h1|h2|h3|ul|li|section|\/section|\/ul|\/li)[\s>])/gi, "$1")
     .replace(/(<\/(h1|h2|h3|ul|section)>)\s*<\/p>/gi, "$1");
 
   return out.trim();
+}
 }
 
 // ✅ Convert numbered <p> steps into a proper <ul><li> list
