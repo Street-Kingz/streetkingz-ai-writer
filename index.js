@@ -382,7 +382,6 @@ function wrapLooseTextLinesInParagraphs(html) {
 
   return out.trim();
 }
-}
 
 // ✅ Convert numbered <p> steps into a proper <ul><li> list
 function convertNumberedParagraphsToList(html) {
