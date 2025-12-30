@@ -393,6 +393,17 @@ function flattenParagraphsInsideLi(html) {
   return out.trim();
 }
 
+// ✅ NEW: Strip ALL <p> tags that appear anywhere inside <li>...</li>
+function stripPTagsInsideLi(html) {
+  return String(html || "").replace(/<li([^>]*)>([\s\S]*?)<\/li>/gi, (_m, attrs, inner) => {
+    const cleaned = String(inner)
+      .replace(/<\/?p\b[^>]*>/gi, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+    return `<li${attrs}>${cleaned}</li>`;
+  });
+}
+
 // ✅ Hard validation gate: if it fails, we retry once; if still fails, return 422
 function findHtmlIssues(html) {
   const issues = [];
@@ -561,6 +572,9 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   // ✅ Fix invalid <p> nesting created by model output + wrapper
   out = fixInvalidHtmlNesting(out);
 
+  // ✅ NEW: absolutely guarantee no <p> survives inside <li> (nested or direct)
+  out = stripPTagsInsideLi(out);
+
   // Inject decision + who-not-for consistently (server-owned)
   const decision = buildDecisionSection({ featured_product_name, featured_product_url });
   const whoNotFor = buildWhoNotFor();
@@ -590,6 +604,10 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   // Final tidy pass
   out = flattenParagraphsInsideLi(out);
   out = fixInvalidHtmlNesting(out);
+
+  // ✅ NEW: run again at the end (belt + braces)
+  out = stripPTagsInsideLi(out);
+
   out = removeEmptyPTags(out);
 
   // ✅ Final guarantee: no H1 survives
