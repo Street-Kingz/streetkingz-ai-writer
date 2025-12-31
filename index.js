@@ -784,8 +784,9 @@ async function callLLMJson({ prompt, temperature = 0.35 }) {
   if (AI_PROVIDER === "gemini") return callGeminiJson({ prompt, temperature });
   if (AI_PROVIDER === "openai") return callOpenAIJson({ prompt, temperature });
 
-  // ✅ AUTO: if OpenAI is in cooldown, go straight to Gemini (no wasting calls)
+  // AUTO: if OpenAI is in cooldown, go straight to Gemini (no wasting calls)
   if (openaiInCooldown() && GEMINI_API_KEY) {
+    console.warn("OpenAI in cooldown, using Gemini");
     return callGeminiJson({ prompt, temperature });
   }
 
@@ -796,10 +797,11 @@ async function callLLMJson({ prompt, temperature = 0.35 }) {
     } catch (e) {
       const status = e?.status;
       const raw = String(e?.raw || e?.message || "");
-      const isRateLimit = status === 429 || /rate_limit/i.test(raw);
+      const isRateLimit = status === 429 || /rate[_\s-]?limit/i.test(raw);
       const isServery = status >= 500 && status <= 599;
 
       if ((isRateLimit || isServery) && GEMINI_API_KEY) {
+        console.warn("OpenAI rate-limited/server error, falling back to Gemini");
         return callGeminiJson({ prompt, temperature });
       }
       throw e;
