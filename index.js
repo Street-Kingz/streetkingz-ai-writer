@@ -269,19 +269,27 @@ const BANNED_PHRASES = [
   "showroom finish",
   "gleaming ride",
   "ultimate shine",
-  "mirror-like finish",
-
-  // kill generic SEO opener patterns
-  "keeping your car clean is essential",
-  "one standout option",
-  "we’ll walk you through",
-  "follow these steps to achieve"
+  "mirror-like finish"
 ];
 
 const ORIGIN_WASH_KIT = STREET_KINGZ_PRODUCTS.find((p) => p.name === "Origin Wash Kit");
 const DEFAULT_MAX_DRYING = STREET_KINGZ_PRODUCTS.find(
   (p) => p.name === "Heavy Duty Drying Towel – 1200gsm"
 );
+
+function escapeHtml(s) {
+  return String(s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function clampStr(s, max = 220) {
+  const out = String(s || "").trim();
+  return out.length > max ? out.slice(0, max).trim() : out;
+}
 
 function stripBannedPhrases(text) {
   if (!text) return text;
@@ -339,14 +347,6 @@ function stripAllAnchorsExceptWhitelist(html, whitelistUrls) {
   );
 }
 
-// ✅ NEW: force img1 placeholder to the top (prevents intro appearing before your featured box)
-function forceImg1PlaceholderTop(html) {
-  let out = String(html || "");
-  out = out.replace(/<!--\s*IMAGE:\s*img1\s*-->\s*/gi, "");
-  out = `<!-- IMAGE: img1 -->\n${out}`;
-  return out.trim();
-}
-
 function wrapLooseTextLinesInParagraphs(html) {
   const s = String(html || "");
   const parts = s.split(/(<[^>]+>)/g).filter(Boolean);
@@ -373,6 +373,7 @@ function wrapLooseTextLinesInParagraphs(html) {
     buffer = [];
     if (!t) return;
 
+    // If we're inside a list, do NOT create <p> (it breaks HTML)
     if (inListContext()) {
       out += t;
       return;
@@ -423,7 +424,6 @@ function wrapLooseTextLinesInParagraphs(html) {
   return out.trim();
 }
 
-// ✅ Convert numbered <p> steps into a proper <ul><li> list (still useful for sloppy outputs)
 function convertNumberedParagraphsToList(html) {
   let out = String(html || "");
 
@@ -442,7 +442,6 @@ function convertNumberedParagraphsToList(html) {
   return out.trim();
 }
 
-// ✅ Fix invalid HTML nesting
 function fixInvalidHtmlNesting(html) {
   let out = String(html || "");
 
@@ -476,7 +475,6 @@ function flattenParagraphsInsideLi(html) {
   return out.trim();
 }
 
-// ✅ Strip ALL <p> tags that appear anywhere inside <li>...</li>
 function stripPTagsInsideLi(html) {
   return String(html || "").replace(/<li([^>]*)>([\s\S]*?)<\/li>/gi, (_m, attrs, inner) => {
     const cleaned = String(inner)
@@ -536,13 +534,32 @@ function enforceMetaLength(meta, primaryKeyword) {
   return m;
 }
 
-function buildFeaturedBox({ featured_product_name, featured_product_url }) {
+// ---------------------------
+// ✅ Dynamic featured box + CTA copy (per request)
+// ---------------------------
+function buildFeaturedBox({
+  featured_product_name,
+  featured_product_url,
+  featured_box_heading,
+  featured_box_blurb,
+  featured_box_cta
+}) {
+  const heading = escapeHtml(clampStr(featured_box_heading || "Best option for most people in the UK", 120));
+  const blurb = escapeHtml(
+    clampStr(
+      featured_box_blurb ||
+        "Simple setup, covers wash and dry in one go, and it’s hard to mess up on a normal driveway wash.",
+      220
+    )
+  );
+  const cta = escapeHtml(clampStr(featured_box_cta || "View the kit", 60));
+
   return `
 <section class="sk-featured-box">
-  <h2>Best option for most people in the UK</h2>
-  <p><strong>Quick pick:</strong> <a href="${featured_product_url}">${featured_product_name}</a></p>
-  <p>Simple setup, covers wash and dry in one go, and it’s hard to mess up on a normal driveway wash.</p>
-  <p><a href="${featured_product_url}">View the kit</a></p>
+  <h2>${heading}</h2>
+  <p><strong>Quick pick:</strong> <a href="${featured_product_url}">${escapeHtml(featured_product_name)}</a></p>
+  <p>${blurb}</p>
+  <p><a href="${featured_product_url}">${cta}</a></p>
 </section>
 `.trim();
 }
@@ -578,8 +595,9 @@ function buildWhoNotFor() {
 `.trim();
 }
 
-function buildFinalCta({ featured_product_url }) {
-  return `<p><a href="${featured_product_url}">Get the featured kit</a> if you want the simplest option that covers most people.</p>`;
+function buildFinalCta({ featured_product_url, final_cta_text }) {
+  const cta = escapeHtml(clampStr(final_cta_text || "Get the featured kit", 80));
+  return `<p><a href="${featured_product_url}">${cta}</a> if you want the simplest option that covers most people.</p>`;
 }
 
 function removeDecisionVariants(html) {
@@ -600,7 +618,15 @@ function removeWhoNotForVariants(html) {
   );
 }
 
-function enforceCoreStructure({ html, featured_product_name, featured_product_url }) {
+function enforceCoreStructure({
+  html,
+  featured_product_name,
+  featured_product_url,
+  featured_box_heading,
+  featured_box_blurb,
+  featured_box_cta,
+  final_cta_text
+}) {
   let out = String(html || "");
 
   out = stripBannedPhrases(out);
@@ -616,15 +642,21 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   // Strip any H1 returned by the model (your blog template already has the H1)
   out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
 
-  // Strip model CTAs before we inject ours
   out = out
     .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
     .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
 
-  // ✅ Force img1 placeholder to top so featured box always sits above intro
-  out = forceImg1PlaceholderTop(out);
+  if (!out.includes("<!-- IMAGE: img1 -->")) {
+    out = "<!-- IMAGE: img1 -->\n" + out;
+  }
 
-  const featuredBox = buildFeaturedBox({ featured_product_name, featured_product_url });
+  const featuredBox = buildFeaturedBox({
+    featured_product_name,
+    featured_product_url,
+    featured_box_heading,
+    featured_box_blurb,
+    featured_box_cta
+  });
   out = out.replace("<!-- IMAGE: img1 -->", `<!-- IMAGE: img1 -->\n\n${featuredBox}\n`);
 
   const maxDry =
@@ -647,7 +679,6 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
   // Guarantee no <p> survives inside <li>
   out = stripPTagsInsideLi(out);
 
-  // Inject decision + who-not-for consistently (server-owned)
   const decision = buildDecisionSection({ featured_product_name, featured_product_url });
   const whoNotFor = buildWhoNotFor();
 
@@ -657,9 +688,8 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
     out = out + "\n" + decision + "\n" + whoNotFor;
   }
 
-  const finalCta = buildFinalCta({ featured_product_url });
+  const finalCta = buildFinalCta({ featured_product_url, final_cta_text });
 
-  // Remove loose/duplicate signoffs
   out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
   out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
   out = out.replace(
@@ -667,7 +697,6 @@ function enforceCoreStructure({ html, featured_product_name, featured_product_ur
     ""
   );
 
-  // Add CTA + final Ben paragraph at end
   out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
   out = convertOlToUl(out);
@@ -730,6 +759,7 @@ async function callOpenAIJson({ prompt, temperature = 0.35 }) {
     const errorText = await resp.text();
     console.error("OpenAI API error:", errorText);
 
+    // ✅ NEW: put OpenAI into cooldown on rate limit so AUTO uses Gemini next
     if (resp.status === 429) {
       setOpenAICooldownFromResponse(resp, 6 * 60 * 60);
     }
@@ -796,11 +826,13 @@ async function callLLMJson({ prompt, temperature = 0.35 }) {
   if (AI_PROVIDER === "gemini") return callGeminiJson({ prompt, temperature });
   if (AI_PROVIDER === "openai") return callOpenAIJson({ prompt, temperature });
 
+  // AUTO: if OpenAI is in cooldown, go straight to Gemini (no wasting calls)
   if (openaiInCooldown() && GEMINI_API_KEY) {
     console.warn("OpenAI in cooldown, using Gemini");
     return callGeminiJson({ prompt, temperature });
   }
 
+  // AUTO: try OpenAI first, fallback to Gemini on 429/5xx (or rate-limit text)
   if (OPENAI_API_KEY) {
     try {
       return await callOpenAIJson({ prompt, temperature });
@@ -823,7 +855,7 @@ async function callLLMJson({ prompt, temperature = 0.35 }) {
 }
 
 // ---------------------------
-// Prompt (structured, opinionated, like your example)
+// Prompt (simple + buyer intent)
 // ---------------------------
 
 function buildPrompt({ topic, primary_keyword, featured_product_name, featured_product_url }) {
@@ -854,61 +886,35 @@ INPUTS
 CATALOGUE (only mention products from here):
 ${productsJson}
 
-VOICE + QUALITY BAR (non-negotiable)
-- UK voice. Plain-English. Slightly opinionated. Reads like a real bloke who washes cars.
-- NO generic SEO opener lines. No “Keeping your car clean is essential…”.
-- Explain WHY each step matters (swirls, water spots, grit, brake dust), but keep it tight.
-- Include 3–6 “contrarian takes” (things people do that are popular but wrong / overkill / pointless).
-
-HARD HTML RULES
-- Real HTML only. No markdown. No code fences.
-- Do NOT include <h1>.
-- Use <h2> and <h3> for structure.
-- All normal text must be wrapped in <p>. No loose text nodes.
-- Lists must be <ul><li>. No <ol>.
-- Steps section MUST be: <h2> then multiple <h3> sub-steps + <p> + optional <ul>.
-- Put <!-- IMAGE: img1 --> right at the top of content_html. (Very first line.)
-
-LINK RULES (very strict)
-- Only link to:
-  1) Featured product URL
-  2) Heavy Duty Drying Towel – 1200gsm URL
-  3) Origin Wash Kit URL
-- Do not create any “View the kit” or “Get the featured kit” CTA links (server injects them).
-- Mention products naturally in text; only the above links are allowed.
-
-REQUIRED SECTION ORDER (match this exact flow)
-1) <!-- IMAGE: img1 -->
-2) Intro: 2–4 <p> that read like your example (value + paint protection + UK roads + no fluff)
-3) <h2>What makes a great car wash kit?</h2> + 2–4 <p>
-4) <h2>Your step-by-step guide to a proper car wash</h2>
-   - <h3>1. Pre-wash: loosen the grit</h3> + 1–3 <p> + optional <ul>
-   - <h3>2. Contact wash: safe technique</h3> + 1–3 <p> + optional <ul>
-   - <h3>3. Wheels: keep brake dust off the paint</h3> + 1–3 <p> + optional <ul>
-   - <h3>4. Final rinse: don’t leave shampoo behind</h3> + 1–2 <p>
-   - <h3>5. Drying: prevent water spots</h3> + 1–3 <p> + optional <ul>
-   - <h3>6. Finishing touches: optional, not mandatory</h3> + 1–2 <p> + optional <ul>
-5) <h2>Contrarian takes</h2> + <ul><li>…</li></ul> (3–6 bullets)
-6) <h2>FAQs</h2> with 3–5 Q&As:
-   - Each question as <h3>Question?</h3>
-   - Each answer as 1–2 <p> (use product mentions naturally where relevant)
-7) <h2>Conclusion</h2> + 1–2 <p>
-8) Sign-off line: <p>Cheers, Ben.</p>
+RULES
+- Buyer-intent, UK spelling, practical.
+- Write like a human who actually washes cars, not marketing fluff.
+- Do NOT use: ${BANNED_PHRASES.join(", ")}
+- Do NOT use the em dash character and do NOT use double hyphens.
+- Use real HTML only: all normal text MUST be inside <p>. No loose text.
+- Use <ul><li> for lists (no <ol>).
+- Steps must be a <ul><li> list (do NOT use numbered paragraphs like "1.").
+- IMPORTANT: Do NOT write any “featured box” section and do NOT write any “View the kit” or “Get the featured kit” links.
+  (The server injects those.)
+- IMPORTANT: Do NOT include a decision section or who-not-for section.
+  (The server injects those to keep it consistent.)
+- Include: intro, steps, FAQs (3 to 5), conclusion, and a 1 line Ben sign-off.
 
 SMART LENGTH
-- LONG 1800–2300 if broad/full routine.
+- LONG 1800–2300 if topic is broad/full routine.
 - MEDIUM 1200–1600 if one main process.
 - SHORT 800–1000 if one simple question.
 Set target_word_count accordingly.
 
 PRIMARY KEYWORD
-- Must be in the title.
-- Must appear exactly once in meta_description.
+- Must appear in the title.
+- Must appear in meta_description once.
 
-META DESCRIPTION
-- 140–160 chars. Human. Not spammy. UK spelling.
-
-Do NOT use: ${BANNED_PHRASES.join(", ")}
+CONTENT_HTML
+- Do NOT include <h1>. Your blog template already renders the H1.
+- You MAY use <h2> and <h3>.
+- Put <!-- IMAGE: img1 --> near the top.
+- No markdown.
 `.trim();
 }
 
@@ -918,7 +924,18 @@ Do NOT use: ${BANNED_PHRASES.join(", ")}
 
 app.post("/generate-article", async (req, res) => {
   try {
-    const { topic, primary_keyword, featured_product_name, featured_product_url } = req.body || {};
+    const {
+      topic,
+      primary_keyword,
+      featured_product_name,
+      featured_product_url,
+
+      // ✅ NEW (optional): per-post featured box + CTA copy
+      featured_box_heading,
+      featured_box_blurb,
+      featured_box_cta,
+      final_cta_text
+    } = req.body || {};
 
     if (!topic || !primary_keyword) {
       return res.status(400).json({ error: "Missing required fields: 'topic' and 'primary_keyword'." });
@@ -948,14 +965,20 @@ app.post("/generate-article", async (req, res) => {
       article.content_html = enforceCoreStructure({
         html: article.content_html,
         featured_product_name,
-        featured_product_url
+        featured_product_url,
+
+        // ✅ feed through dynamic copy
+        featured_box_heading,
+        featured_box_blurb,
+        featured_box_cta,
+        final_cta_text
       });
 
       if (!Array.isArray(article.image_placeholders)) {
         article.image_placeholders = [
-          { id: "img1", type: "image", alt: "Car wash kit and routine" },
-          { id: "img2", type: "image", alt: "Safe contact wash" },
-          { id: "img3", type: "image", alt: "Drying towel on paintwork" }
+          { id: "img1", type: "image", alt: "Car wash routine" },
+          { id: "img2", type: "image", alt: "Washing step" },
+          { id: "img3", type: "image", alt: "Drying step" }
         ];
       }
 
@@ -963,10 +986,10 @@ app.post("/generate-article", async (req, res) => {
       return { article, issues };
     };
 
-    let { article, issues } = await runOnce(0.35);
+    let { article, issues } = await runOnce(0.4);
 
     if (issues.length) {
-      const retry = await runOnce(0.2);
+      const retry = await runOnce(0.25);
       article = retry.article;
       issues = retry.issues;
     }
@@ -988,4 +1011,3 @@ app.post("/generate-article", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Street Kingz AI writer service listening on port ${PORT}`);
 });
- 
