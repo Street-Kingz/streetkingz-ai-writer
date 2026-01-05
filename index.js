@@ -421,6 +421,9 @@ function wrapLooseTextLinesInParagraphs(html) {
     .replace(/<p>\s*(<(h1|h2|h3|ul|li|section|\/section|\/ul|\/li)[\s>])/gi, "$1")
     .replace(/(<\/(h1|h2|h3|ul|section)>)\s*<\/p>/gi, "$1");
 
+  // DEBUG MARKER
+out += "\n<!-- ENFORCED_OK -->";
+  
   return out.trim();
 }
 
