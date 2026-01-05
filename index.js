@@ -632,6 +632,7 @@ function enforceCoreStructure({
   out = stripBannedPhrases(out);
   out = removeEllipsisPlaceholders(out);
 
+  // Kill any model-made featured box / injected sections
   out = removeExistingFeaturedBox(out);
   out = removeDecisionVariants(out);
   out = removeWhoNotForVariants(out);
@@ -642,14 +643,28 @@ function enforceCoreStructure({
   // Strip any H1 returned by the model (your blog template already has the H1)
   out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
 
+  // ✅ HARD SCRUB: remove any model CTA anchors by visible text (even if href is whitelisted)
+  out = out.replace(
+    /<a\b[^>]*>\s*(View the kit|Get the featured kit)\s*<\/a>/gi,
+    ""
+  );
+
+  // ✅ HARD SCRUB: remove any model CTA sentences that often follow
+  out = out.replace(
+    /<p>\s*(?:<a\b[^>]*>\s*)?(View the kit|Get the featured kit)(?:\s*<\/a>)?[\s\S]*?<\/p>/gi,
+    ""
+  );
+
+  // ✅ HARD SCRUB: remove any model sign-off variants anywhere
   out = out
-    .replace(/<a[^>]*>\s*View the kit\s*<\/a>/gi, "")
-    .replace(/<a[^>]*>\s*Get the featured kit\s*<\/a>/gi, "");
+    .replace(/\bCheers,\s*Ben\.?\b/gi, "")
+    .replace(/\bBen,\s*founder\s*of\s*Street\s*Kingz\.?\b/gi, "");
 
   if (!out.includes("<!-- IMAGE: img1 -->")) {
     out = "<!-- IMAGE: img1 -->\n" + out;
   }
 
+  // Inject featured box server-side
   const featuredBox = buildFeaturedBox({
     featured_product_name,
     featured_product_url,
@@ -659,6 +674,7 @@ function enforceCoreStructure({
   });
   out = out.replace("<!-- IMAGE: img1 -->", `<!-- IMAGE: img1 -->\n\n${featuredBox}\n`);
 
+  // Whitelist only these URLs
   const maxDry =
     DEFAULT_MAX_DRYING && DEFAULT_MAX_DRYING.url
       ? DEFAULT_MAX_DRYING.url
@@ -669,8 +685,10 @@ function enforceCoreStructure({
       : "https://streetkingz.co.uk/product/origin-wash-kit/";
   const whitelist = [featured_product_url, maxDry, fullSet];
 
+  // Strip non-whitelisted links
   out = stripAllAnchorsExceptWhitelist(out, whitelist);
 
+  // Structure + list hygiene
   out = wrapLooseTextLinesInParagraphs(out);
   out = convertNumberedParagraphsToList(out);
   out = flattenParagraphsInsideLi(out);
@@ -679,6 +697,7 @@ function enforceCoreStructure({
   // Guarantee no <p> survives inside <li>
   out = stripPTagsInsideLi(out);
 
+  // Inject decision + who-not-for server-side only
   const decision = buildDecisionSection({ featured_product_name, featured_product_url });
   const whoNotFor = buildWhoNotFor();
 
@@ -688,17 +707,12 @@ function enforceCoreStructure({
     out = out + "\n" + decision + "\n" + whoNotFor;
   }
 
+  // Final CTA + final sign-off (server-owned)
   const finalCta = buildFinalCta({ featured_product_url, final_cta_text });
-
-  out = out.replace(/(?:^|\n)\s*Cheers,\s*Ben\s*(?:\n|$)/gi, "\n");
-  out = out.replace(/(?:^|\n)\s*Ben,\s*founder\s*of\s*Street\s*Kingz\.\s*(?:\n|$)/gi, "\n");
-  out = out.replace(
-    /Get the featured kit<\/a>\s*if you want the simplest option that covers most people\.\s*/gi,
-    ""
-  );
 
   out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
 
+  // Final hardening pass
   out = convertOlToUl(out);
   out = removeEmptyPTags(out);
 
@@ -894,11 +908,16 @@ RULES
 - Use real HTML only: all normal text MUST be inside <p>. No loose text.
 - Use <ul><li> for lists (no <ol>).
 - Steps must be a <ul><li> list (do NOT use numbered paragraphs like "1.").
-- IMPORTANT: Do NOT write any “featured box” section and do NOT write any “View the kit” or “Get the featured kit” links.
+- IMPORTANT: Do NOT write any “featured box” section and do NOT write any “View the kit” or “Get the featured kit” links or text.
   (The server injects those.)
 - IMPORTANT: Do NOT include a decision section or who-not-for section.
   (The server injects those to keep it consistent.)
-- Include: intro, steps, FAQs (3 to 5), conclusion, and a 1 line Ben sign-off.
+- IMPORTANT: Do NOT include any sign-off or author line (no “Cheers, Ben”, no “Ben, founder of Street Kingz”).
+  (The server injects the sign-off.)
+
+INCLUDE
+- Intro, why this matters, steps, product-pick section (without CTAs), FAQs (3 to 5), conclusion.
+- Keep it helpful and specific to the UK (rain, road film, winter salt etc).
 
 SMART LENGTH
 - LONG 1800–2300 if topic is broad/full routine.
