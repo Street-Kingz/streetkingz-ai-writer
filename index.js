@@ -330,7 +330,11 @@ function convertOlToUl(html) {
 function removeExistingFeaturedBox(html) {
   if (!html) return html;
   return String(html)
-    .replace(/<section class=["']sk-featured-box["'][\s\S]*?<\/section>\s*/gi, "")
+    // Matches: class="sk-featured-box" OR class='sk-featured-box' OR class=sk-featured-box
+    .replace(
+      /<section\b[^>]*class\s*=\s*(?:"sk-featured-box"|'sk-featured-box'|sk-featured-box)[^>]*>[\s\S]*?<\/section>\s*/gi,
+      ""
+    )
     .trim();
 }
 
@@ -620,6 +624,8 @@ function removeWhoNotForVariants(html) {
     ""
   );
 }
+
+out += "\n<!-- ENFORCE_CORE_RAN -->";
 
 function enforceCoreStructure({
   html,
