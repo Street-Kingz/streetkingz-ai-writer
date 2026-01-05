@@ -625,8 +625,6 @@ function removeWhoNotForVariants(html) {
   );
 }
 
-out += "\n<!-- ENFORCE_CORE_RAN -->";
-
 function enforceCoreStructure({
   html,
   featured_product_name,
@@ -653,12 +651,9 @@ function enforceCoreStructure({
   out = out.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>\s*/gi, "");
 
   // ✅ HARD SCRUB: remove any model CTA anchors by visible text (even if href is whitelisted)
-  out = out.replace(
-    /<a\b[^>]*>\s*(View the kit|Get the featured kit)\s*<\/a>/gi,
-    ""
-  );
+  out = out.replace(/<a\b[^>]*>\s*(View the kit|Get the featured kit)\s*<\/a>/gi, "");
 
-  // ✅ HARD SCRUB: remove any model CTA sentences that often follow
+  // ✅ HARD SCRUB: remove any model CTA paragraphs/sentences that often follow
   out = out.replace(
     /<p>\s*(?:<a\b[^>]*>\s*)?(View the kit|Get the featured kit)(?:\s*<\/a>)?[\s\S]*?<\/p>/gi,
     ""
@@ -720,6 +715,9 @@ function enforceCoreStructure({
   const finalCta = buildFinalCta({ featured_product_url, final_cta_text });
 
   out = out.trim() + "\n" + finalCta + "\n" + `<p>Ben, founder of Street Kingz.</p>`;
+
+  // ✅ DEBUG MARKER (correct place)
+  out += "\n<!-- ENFORCE_CORE_RAN -->";
 
   // Final hardening pass
   out = convertOlToUl(out);
