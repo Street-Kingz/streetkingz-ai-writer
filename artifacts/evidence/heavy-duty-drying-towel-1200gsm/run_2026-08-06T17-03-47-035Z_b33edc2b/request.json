@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_request",
+  "product_facts_ref": {
+    "path": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+    "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3",
+    "artifact_type": "product_facts",
+    "schema_version": "1.0.0"
+  },
+  "scope": {
+    "market": "GB",
+    "language": "en-GB"
+  },
+  "approval": {
+    "status": "approved",
+    "asserted_by": "local_user"
+  },
+  "provider_requests": [
+    {
+      "schema_version": "1.0.0",
+      "artifact_type": "provider_request",
+      "provider_id": "product_facts",
+      "subject_id": "product_20fcada95c00204601928709",
+      "product_facts_ref": {
+        "path": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3",
+        "artifact_type": "product_facts",
+        "schema_version": "1.0.0"
+      },
+      "scope": {
+        "market": "GB",
+        "language": "en-GB"
+      },
+      "approval": {
+        "status": "approved",
+        "asserted_by": "local_user"
+      }
+    }
+  ]
+}

@@ -1,0 +1,709 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "product_facts",
+  "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "extracted_at": "2026-08-06T16:37:16.159Z",
+  "source": {
+    "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "artifact": "raw/page.html",
+    "kind": "rendered_product_page"
+  },
+  "product": {
+    "name": {
+      "value": "Heavy Duty Drying Towel – 1200gsm",
+      "provenance": {
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_artifact": "raw/page.html",
+        "extraction_method": "deterministic_html",
+        "selector": "h1.product_title",
+        "evidence": "Heavy Duty Drying Towel – 1200gsm"
+      }
+    },
+    "category_type": {
+      "value": "Microfibre car drying towel",
+      "provenance": {
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_artifact": "raw/page.html",
+        "extraction_method": "deterministic_derivation",
+        "selector": "derived:h1.product_title + Tech Specs Material + Suitable for",
+        "evidence": "Heavy Duty Drying Towel – 1200gsm • Material: Premium dual-sided microfibre • Suitable for: Cars, SUVs, vans, paintwork, glass and exterior plastics"
+      }
+    },
+    "commerce_category": {
+      "value": "Exterior",
+      "provenance": {
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_artifact": "raw/page.html",
+        "extraction_method": "deterministic_html",
+        "selector": "input[name=gtm4wp_product_data].item_category",
+        "evidence": "Exterior"
+      }
+    },
+    "price": {
+      "value": "£18.99",
+      "provenance": {
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_artifact": "raw/page.html",
+        "extraction_method": "deterministic_html",
+        "selector": "p.price",
+        "evidence": "£ 18.99"
+      }
+    },
+    "specifications": [
+      {
+        "name": {
+          "value": "GSM",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs strong",
+            "evidence": "• GSM: 1200GSM (dual-sided plush microfibre)"
+          }
+        },
+        "value": {
+          "value": "1200GSM (dual-sided plush microfibre)",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• GSM: 1200GSM (dual-sided plush microfibre)"
+          }
+        }
+      },
+      {
+        "name": {
+          "value": "Size",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs strong",
+            "evidence": "• Size: 90 × 60 cm"
+          }
+        },
+        "value": {
+          "value": "90 × 60 cm",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• Size: 90 × 60 cm"
+          }
+        }
+      },
+      {
+        "name": {
+          "value": "Material",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs strong",
+            "evidence": "• Material: Premium dual-sided microfibre"
+          }
+        },
+        "value": {
+          "value": "Premium dual-sided microfibre",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• Material: Premium dual-sided microfibre"
+          }
+        }
+      },
+      {
+        "name": {
+          "value": "Edge",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs strong",
+            "evidence": "• Edge: Soft microfibre edging"
+          }
+        },
+        "value": {
+          "value": "Soft microfibre edging",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• Edge: Soft microfibre edging"
+          }
+        }
+      }
+    ],
+    "features": [
+      {
+        "value": "1200GSM dual-layer construction",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:short description + Tech Specs GSM",
+          "evidence": "1200GSM dual layer thickness Extreme absorbency Soft premium feel Safe on all paint Ideal for larger vehicles This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas"
+        }
+      },
+      {
+        "value": "Double-sided plush microfibre construction",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      {
+        "value": "Soft microfibre edging",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Edge: Soft microfibre edging"
+        }
+      }
+    ],
+    "benefits": [
+      {
+        "value": "Designed to pull water off paint with almost no effort",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      {
+        "value": "Fewer passes and faster drying",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      {
+        "value": "Less contact with paint helps prevent streaks, smears and unwanted marks",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      {
+        "value": "Holds a serious amount of water while remaining soft and manageable",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      }
+    ],
+    "intended_use": [
+      {
+        "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Suitable for: Cars, SUVs, vans, paintwork, glass and exterior plastics"
+        }
+      },
+      {
+        "value": "Post-wash drying, especially on larger or heavily rinsed vehicles",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Best use: Post-wash drying, especially on larger or heavily rinsed vehicles"
+        }
+      }
+    ],
+    "how_to_use": [
+      {
+        "step": 1,
+        "instruction": {
+          "value": "Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo .",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:How to use it step:1",
+            "evidence": "1) Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo ."
+          }
+        }
+      },
+      {
+        "step": 2,
+        "instruction": {
+          "value": "Rinse thoroughly and remove standing water with a light sheet of water.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:How to use it step:2",
+            "evidence": "2) Rinse thoroughly and remove standing water with a light sheet of water."
+          }
+        }
+      },
+      {
+        "step": 3,
+        "instruction": {
+          "value": "Lay the towel flat on the panel.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:How to use it step:3",
+            "evidence": "3) Lay the towel flat on the panel."
+          }
+        }
+      },
+      {
+        "step": 4,
+        "instruction": {
+          "value": "Gently drag or pat dry, no pressure needed.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:How to use it step:4",
+            "evidence": "4) Gently drag or pat dry, no pressure needed."
+          }
+        }
+      },
+      {
+        "step": 5,
+        "instruction": {
+          "value": "Wring out only when completely saturated.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:How to use it step:5",
+            "evidence": "5) Wring out only when completely saturated."
+          }
+        }
+      },
+      {
+        "step": 6,
+        "instruction": {
+          "value": "After use, wash on a gentle cycle with microfibre detergent or non-bio detergent.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:How to use it step:6",
+            "evidence": "6) After use, wash on a gentle cycle with microfibre detergent or non-bio detergent."
+          }
+        }
+      }
+    ],
+    "care_instructions": [
+      {
+        "name": {
+          "value": "Wash",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs label",
+            "evidence": "Wash"
+          }
+        },
+        "instruction": {
+          "value": "Machine washable on a cold, gentle cycle with microfibre or non-bio detergent",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• Wash: Machine washable on a cold, gentle cycle with microfibre or non-bio detergent"
+          }
+        }
+      },
+      {
+        "name": {
+          "value": "Care",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs label",
+            "evidence": "Care"
+          }
+        },
+        "instruction": {
+          "value": "Do not use fabric softener or bleach",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• Care: Do not use fabric softener or bleach"
+          }
+        }
+      },
+      {
+        "name": {
+          "value": "Dry",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs label",
+            "evidence": "Dry"
+          }
+        },
+        "instruction": {
+          "value": "Air dry only, do not tumble dry",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Tech Specs value",
+            "evidence": "• Dry: Air dry only, do not tumble dry"
+          }
+        }
+      }
+    ],
+    "faqs": [
+      {
+        "question": {
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details summary",
+            "evidence": "What’s the difference between this and the XL 800GSM Drying Towel?"
+          }
+        },
+        "answer": {
+          "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details answer",
+            "evidence": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+          }
+        }
+      },
+      {
+        "question": {
+          "value": "Will this towel scratch my paint?",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details summary",
+            "evidence": "Will this towel scratch my paint?"
+          }
+        },
+        "answer": {
+          "value": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details answer",
+            "evidence": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+          }
+        }
+      },
+      {
+        "question": {
+          "value": "Is it too heavy when it’s wet?",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details summary",
+            "evidence": "Is it too heavy when it’s wet?"
+          }
+        },
+        "answer": {
+          "value": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details answer",
+            "evidence": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it."
+          }
+        }
+      },
+      {
+        "question": {
+          "value": "Can I use it on ceramic-coated or waxed cars?",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details summary",
+            "evidence": "Can I use it on ceramic-coated or waxed cars?"
+          }
+        },
+        "answer": {
+          "value": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details answer",
+            "evidence": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings."
+          }
+        }
+      },
+      {
+        "question": {
+          "value": "How many towels do I need to dry a whole car?",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details summary",
+            "evidence": "How many towels do I need to dry a whole car?"
+          }
+        },
+        "answer": {
+          "value": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details answer",
+            "evidence": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier."
+          }
+        }
+      },
+      {
+        "question": {
+          "value": "How should I wash and store it?",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details summary",
+            "evidence": "How should I wash and store it?"
+          }
+        },
+        "answer": {
+          "value": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "details answer",
+            "evidence": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in."
+          }
+        }
+      }
+    ],
+    "objections_or_buying_questions": [
+      {
+        "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "details summary",
+          "evidence": "What’s the difference between this and the XL 800GSM Drying Towel?"
+        }
+      },
+      {
+        "value": "Will this towel scratch my paint?",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "details summary",
+          "evidence": "Will this towel scratch my paint?"
+        }
+      },
+      {
+        "value": "Is it too heavy when it’s wet?",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "details summary",
+          "evidence": "Is it too heavy when it’s wet?"
+        }
+      },
+      {
+        "value": "Can I use it on ceramic-coated or waxed cars?",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "details summary",
+          "evidence": "Can I use it on ceramic-coated or waxed cars?"
+        }
+      },
+      {
+        "value": "How many towels do I need to dry a whole car?",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "details summary",
+          "evidence": "How many towels do I need to dry a whole car?"
+        }
+      },
+      {
+        "value": "How should I wash and store it?",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "details summary",
+          "evidence": "How should I wash and store it?"
+        }
+      }
+    ],
+    "related_products": [
+      {
+        "name": {
+          "value": "The Origin Shampoo",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Complete the Kit h4",
+            "evidence": "The Origin Shampoo"
+          }
+        },
+        "url": {
+          "value": "https://streetkingz.co.uk/product/the-origin-shampoo/",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "matching meaningful product link",
+            "evidence": "Origin Shampoo"
+          }
+        }
+      },
+      {
+        "name": {
+          "value": "Microfibre Wash Mitt",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "section:Complete the Kit h4",
+            "evidence": "Microfibre Wash Mitt"
+          }
+        },
+        "url": null
+      }
+    ],
+    "internal_links": [
+      {
+        "label": {
+          "value": "Origin Shampoo",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "a[href] label",
+            "evidence": "Origin Shampoo"
+          }
+        },
+        "url": {
+          "value": "https://streetkingz.co.uk/product/the-origin-shampoo/",
+          "provenance": {
+            "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_artifact": "raw/page.html",
+            "extraction_method": "deterministic_html",
+            "selector": "a[href]",
+            "evidence": "Origin Shampoo"
+          }
+        }
+      }
+    ],
+    "claims": [
+      {
+        "value": "Extreme absorbency",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "short description li",
+          "evidence": "Extreme absorbency"
+        }
+      },
+      {
+        "value": "Soft premium feel",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "short description li",
+          "evidence": "Soft premium feel"
+        }
+      },
+      {
+        "value": "Safe on all paint",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_html",
+          "selector": "short description li",
+          "evidence": "Safe on all paint"
+        }
+      }
+    ],
+    "limitations": [
+      {
+        "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:FAQ comparison",
+          "evidence": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+        }
+      },
+      {
+        "value": "Use only on clean, shampooed paint",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:FAQ paint-safety caution",
+          "evidence": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+        }
+      },
+      {
+        "value": "Feels heavier when fully saturated with water",
+        "provenance": {
+          "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "source_artifact": "raw/page.html",
+          "extraction_method": "deterministic_derivation",
+          "selector": "derived:FAQ wet-weight trade-off",
+          "evidence": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it."
+        }
+      }
+    ]
+  },
+  "warnings": []
+}
