@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "node --test --test-concurrency=1 test/*.test.js"
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "extract:product": "node scripts/extractProduct.js"
   },
   "dependencies": {
     "express": "^4.19.0",

@@ -126,22 +126,22 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 
 ### Deliverables
 
-- A captured source snapshot of the rendered Heavy Duty Drying Towel page, including retrieval metadata and source URL.
-- A canonical product-facts JSON artifact containing identity, category, specifications, features, usage guidance, factual benefits, FAQs, related products and internal links where present.
-- A field-level provenance model linking every extracted fact to its source and distinguishing missing, ambiguous and conflicting information.
+- [x] A captured source snapshot of the rendered Heavy Duty Drying Towel page, including retrieval metadata and source URL.
+- [x] A canonical product-facts JSON artifact containing identity, category, specifications, features, usage guidance, factual benefits, FAQs, related products and internal links where present.
+- [x] A field-level provenance model linking every extracted fact to its source and distinguishing missing, ambiguous and conflicting information.
 - A separate AI-interpretation artifact containing inferred audience, exclusions, problems solved, objections, alternative names, customer language, likely intent and related questions.
 - A reusable research-seeds artifact derived from product facts and clearly labelled interpretation.
 - A separate brand-knowledge artifact containing approved voice, commercial rules, prohibited language and other reusable editorial constraints.
-- Extraction and normalization commands that can rerun from a saved page snapshot without fetching the live page again.
+- [x] Extraction and normalization commands that can rerun from a saved page snapshot without fetching the live page again.
 - A documented manual correction mechanism that preserves the original extraction and records overrides separately.
 
 ### Acceptance criteria
 
-- The complete extraction can be inspected as JSON and Markdown without reading application logs.
-- Every asserted product fact has a source reference or is explicitly marked as an interpretation.
-- Rerunning normalization from the same snapshot produces materially identical canonical facts.
-- Changing an AI interpretation does not change the stored product facts or source snapshot.
-- Brand rules are not embedded inside the product-facts artifact.
+- [x] The complete extraction can be inspected as JSON and Markdown without reading application logs.
+- [x] Every asserted product fact has a source reference or is explicitly marked as an interpretation.
+- [x] Rerunning normalization from the same snapshot produces materially identical canonical facts.
+- [x] Changing an AI interpretation does not change the stored product facts or source snapshot.
+- [x] Brand rules are not embedded inside the product-facts artifact.
 - The resulting product and seed artifacts are content-type-neutral and can later support product pages, comparisons, FAQs, buying guides and articles.
 - A human reviewer confirms that the Heavy Duty Drying Towel facts are accurate enough to support research.
 
