@@ -1,8 +1,8 @@
-# Street Kingz AI Ecommerce Assistant Roadmap
+# Content Intelligence and Evidence Engine Roadmap
 
 ## V1 objective and constraints
 
-V1 will prove one complete product-led content pipeline using the Heavy Duty Drying Towel page:
+V1 will prove one complete product-led content pipeline using Street Kingz and its Heavy Duty Drying Towel page as the initial real-world customer and validation case:
 
 `https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/`
 
@@ -30,31 +30,92 @@ Research artifacts must be reusable by future product pages, buying guides, comp
 
 The existing `GET /` and `POST /generate-article` behaviour is a compatibility boundary. It must continue to accept the same fields and return the same response shape while V1 is developed.
 
+The underlying product extraction, evidence collection, interpretation and decision architecture must remain generic. Street Kingz-specific URLs, catalogue data and brand rules are customer inputs, not engine assumptions. No final commercial product name is selected in V1.
+
+## Product and engineering principles
+
+- AI does not perform research. Providers collect evidence; AI interprets the collected evidence only after the engine determines that sufficient evidence exists for the requested objective.
+- Provider contracts remain independent. DataForSEO is the preferred V1 implementation, not a permanent hard dependency.
+- Recurring manual evidence collection is not part of the intended normal workflow. Manual imports are fallback and debugging tools only.
+- Paid APIs and subscriptions are acceptable when they materially improve evidence quality or eliminate meaningful manual work. The project must not optimise for zero cost at the expense of automation or output quality.
+- New providers, datasets or processing stages are added only when they materially improve the final decision or content, or remove meaningful manual work.
+- Targeted competitor-page extraction remains available when actual headings, claims, structure, product information or other page-level content must be inspected.
+- Reddit is not a mandatory V1 dependency. It may be evaluated later as a qualitative provider only if evidence shows material benefit.
+
+## Intended normal workflow
+
+```text
+Select product/source
+    ↓
+Select objective
+    ↓
+Run
+    ↓
+Review recommendation/content
+    ↓
+Approve
+    ↓
+Publish
+```
+
+Provider selection, cache resolution, evidence collection and sufficiency checks happen inside `Run`; recurring manual research is not a user step.
+
 ## Artifact flow
 
 ```text
-Product URL
+Product facts
     ↓
-Product source snapshot
+DataForSEO Keyword Ideas
     ↓
-Canonical product facts
+DataForSEO Google Organic SERP Advanced
     ↓
-Research seeds
+Google Search Console
     ↓
-Keyword and SERP evidence
+Evidence aggregation and sufficiency assessment
     ↓
-Opportunity decision
+Opportunity decision / strategy
     ↓
-Content brief
+Content generation
     ↓
-Structured draft
-    ↓
-Rendered and validated WordPress draft package
+Validation, human approval and publication
 ```
 
 Each arrow is a stage boundary, not an instruction to combine stages into one prompt. Later phases may consume earlier artifacts, but they must not rewrite facts or evidence to fit a preferred recommendation.
 
+## Delivery status and upcoming milestones
+
+### Completed
+
+- [x] Legacy service characterisation and mechanical modularisation with compatibility tests.
+- [x] Phase 2 rendered product-page extraction and deterministic snapshot reuse.
+- [x] Canonical, provenance-backed product facts for the Heavy Duty Drying Towel.
+- [x] Evidence Engine foundation: contracts, provider isolation, coverage, provenance validation, deterministic IDs, aggregation artifacts and human-readable summaries.
+- [x] Product Facts provider with deterministic caching.
+- [x] DataForSEO Keyword Ideas provider with raw/normalised separation, deterministic caching, configuration validation and cost controls.
+- [x] One controlled live Keyword Ideas validation and a zero-request cache-only rerun producing evidence, coverage and summary artifacts at the recorded $0.024 cost.
+
+### Current
+
+- [ ] Productionise Keyword Ideas: finalise operational documentation, artifact retention conventions and the reviewed command path while preserving the proven request and cache behaviour.
+- [ ] Define preliminary objective-specific evidence-sufficiency states without inventing SEO thresholds before SERP Advanced and Search Console evidence exists.
+
+### Next
+
+- [ ] Implement and validate the DataForSEO Google Organic SERP Advanced provider.
+- [ ] Integrate Google Search Console as first-party site-performance evidence.
+- [ ] Complete cross-provider evidence aggregation and explicit minimum-evidence/sufficiency rules.
+- [ ] Implement opportunity scoring and produce the first complete content decision.
+
+### Later
+
+- [ ] Generate the first content asset from an approved decision and brief.
+- [ ] Complete human review and approval.
+- [ ] Publish the first approved asset.
+- [ ] Measure performance and feed observed outcomes back into future decisions.
+
 ## 1. Phase 0: Baseline and safety
+
+**Status: Complete.** Legacy behaviour is protected by offline characterisation tests and fixture-backed provider tests.
 
 ### Goal
 
@@ -88,6 +149,8 @@ Define the current service as a protected compatibility contract and establish e
 
 ## 2. Phase 1: Mechanical modularisation
 
+**Status: Complete.** Startup, routes, services, providers, prompts, post-processing and validation are separated while the legacy HTTP contract remains protected.
+
 ### Goal
 
 Separate the existing monolithic implementation into clear modules without intentionally changing runtime behaviour.
@@ -120,6 +183,8 @@ Separate the existing monolithic implementation into clear modules without inten
 
 ## 3. Phase 2: Product-page extraction
 
+**Status: Core extraction complete.** Source capture, canonical product facts, field-level provenance, local artifacts and deterministic cache reuse are implemented. Brand knowledge and correction workflow remain later supporting work and do not block external evidence collection.
+
 ### Goal
 
 Create a trustworthy, reusable product-understanding foundation for the Heavy Duty Drying Towel without asking the AI to invent product facts.
@@ -129,8 +194,7 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 - [x] A captured source snapshot of the rendered Heavy Duty Drying Towel page, including retrieval metadata and source URL.
 - [x] A canonical product-facts JSON artifact containing identity, category, specifications, features, usage guidance, factual benefits, FAQs, related products and internal links where present.
 - [x] A field-level provenance model linking every extracted fact to its source and distinguishing missing, ambiguous and conflicting information.
-- A separate AI-interpretation artifact containing inferred audience, exclusions, problems solved, objections, alternative names, customer language, likely intent and related questions.
-- A reusable research-seeds artifact derived from product facts and clearly labelled interpretation.
+- Deterministic, content-type-neutral provider seeds derived from provenance-backed product facts; any inferred seed expansion belongs to the later interpretation/decision stage and must cite evidence.
 - A separate brand-knowledge artifact containing approved voice, commercial rules, prohibited language and other reusable editorial constraints.
 - [x] Extraction and normalization commands that can rerun from a saved page snapshot without fetching the live page again.
 - A documented manual correction mechanism that preserves the original extraction and records overrides separately.
@@ -140,7 +204,7 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 - [x] The complete extraction can be inspected as JSON and Markdown without reading application logs.
 - [x] Every asserted product fact has a source reference or is explicitly marked as an interpretation.
 - [x] Rerunning normalization from the same snapshot produces materially identical canonical facts.
-- [x] Changing an AI interpretation does not change the stored product facts or source snapshot.
+- [x] Later AI interpretation cannot change the stored product facts or source snapshot.
 - [x] Brand rules are not embedded inside the product-facts artifact.
 - The resulting product and seed artifacts are content-type-neutral and can later support product pages, comparisons, FAQs, buying guides and articles.
 - A human reviewer confirms that the Heavy Duty Drying Towel facts are accurate enough to support research.
@@ -156,6 +220,8 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 
 ## 4. Phase 3: External keyword/SERP research
 
+**Status: In progress.** The Evidence Engine, Product Facts provider and DataForSEO Keyword Ideas provider are implemented and tested. Keyword Ideas has passed controlled live and cache-only validation. SERP Advanced and Search Console are next.
+
 ### Goal
 
 Collect reusable external evidence that can establish whether and how the Heavy Duty Drying Towel deserves content.
@@ -166,7 +232,7 @@ Primary automated external evidence providers are:
 
 - **DataForSEO Keyword Ideas** for keyword discovery, volume, difficulty and available commercial metrics.
 - **DataForSEO Google Organic SERP Advanced** for ranking pages, result types, SERP features, People Also Ask and related searches where returned.
-- **Google Search Console** for first-party Street Kingz queries, pages, impressions, clicks and positions.
+- **Google Search Console** for first-party customer-site queries, pages, impressions, clicks and positions (Street Kingz in V1).
 
 Manual Google Autocomplete and People Also Ask imports remain available only as fallback or debugging mechanisms. Separate competitor-page extraction remains appropriate when page-level headings, claims, product information or content structure must be inspected directly.
 
@@ -176,9 +242,9 @@ Manual Google Autocomplete and People Also Ask imports remain available only as 
 - Raw, immutable response artifacts from DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console.
 - Normalized keyword evidence covering query, market, intent indicators, volume, difficulty and available commercial metrics.
 - Normalized SERP evidence covering ranking pages, result types, SERP features, People Also Ask and related searches where available.
-- A lightweight existing-site evidence artifact identifying potentially overlapping Street Kingz pages and relevant internal-link targets.
+- A lightweight existing-site evidence artifact identifying potentially overlapping customer-site pages and relevant internal-link targets.
 - Retrieval metadata including provider, market, requested parameters, timestamps and errors or unavailable fields.
-- A separate AI research-synthesis artifact that interprets the evidence without altering it.
+- An evidence aggregation artifact and sufficiency result that remain deterministic and separate from the single downstream AI interpretation/decision stage.
 - Cache and rerun rules that allow later content types to reuse research for the same product, topic and market.
 - Separate explicit-URL competitor-page extraction for page-level evidence that structured SERP results do not contain.
 
@@ -190,6 +256,7 @@ Manual Google Autocomplete and People Also Ask imports remain available only as 
 - Research is keyed by subject, query, market and retrieval context rather than by content type.
 - Missing metrics remain explicitly missing and are not estimated by the AI as facts.
 - AI observations can be regenerated without refetching external evidence.
+- Before AI recommendation or generation, the engine can state whether evidence is sufficient for the requested objective. Detailed scoring and thresholds will be designed only after SERP Advanced and Search Console data are available.
 - A reviewer can trace every material research conclusion back to normalized evidence and, where necessary, the raw response.
 - The Heavy Duty Drying Towel research contains enough evidence to compare at least the plausible outcomes of a new guide, supporting article, product-page improvement or no action.
 
@@ -203,6 +270,8 @@ Manual Google Autocomplete and People Also Ask imports remain available only as 
 - Optimizing provider costs beyond basic local reuse of saved artifacts.
 
 ## 5. Phase 4: Opportunity decision and content brief
+
+**Status: Upcoming after Phase 3 sufficiency.** This is the single AI interpretation and strategy stage; no earlier collection stage asks AI to perform research or rewrite evidence.
 
 ### Goal
 
@@ -218,6 +287,7 @@ Use product facts, site context and research evidence to decide the highest-valu
   - Add or improve FAQs.
   - Take no action.
 - A simple, documented decision rubric covering product relevance, search opportunity, commercial intent, existing-content overlap, evidence quality and implementation effort.
+- An objective-specific sufficiency gate that declines or defers a recommendation when required evidence is missing.
 - A decision artifact containing the selected action, alternatives, rationale, supporting evidence references, uncertainty and human approval or override.
 - A content-type-neutral brief containing objective, audience, intent, questions, claims, evidence, internal links, products, CTA strategy, required sections, images, schema needs and target length.
 - Optional type-specific brief fields selected through a content profile rather than a separate workflow.
@@ -227,6 +297,7 @@ Use product facts, site context and research evidence to decide the highest-valu
 
 - The decision stage can validly return “take no action.”
 - No draft-generation call occurs before the decision and brief artifacts exist.
+- No AI decision call occurs until the Evidence Engine reports sufficient evidence for the requested objective.
 - The selected action cites the product and research evidence that supports it.
 - Human approval or override is recorded without overwriting the original recommendation.
 - The brief distinguishes required facts from editorial interpretation.
@@ -243,6 +314,8 @@ Use product facts, site context and research evidence to decide the highest-valu
 - Allowing the model to choose a content type without recorded evidence.
 
 ## 6. Phase 5: Structured draft generation
+
+**Status: Later.** Begins only after the first evidence-backed decision and human-approved brief.
 
 ### Goal
 
@@ -280,6 +353,8 @@ Generate an inspectable semantic draft from the approved brief while keeping res
 
 ## 7. Phase 6: Rendering, validation and WordPress draft output
 
+**Status: Later.** Covers validation, human approval and publication handoff for the first generated asset.
+
 ### Goal
 
 Turn the reviewed structured draft into safe, consistent, WordPress-ready output while retaining a mandatory human approval boundary.
@@ -315,6 +390,8 @@ Turn the reviewed structured draft into safe, consistent, WordPress-ready output
 - Replacing WordPress revision history or approval controls.
 
 ## 8. Phase 7: Evaluate whether the pipeline is worth expanding
+
+**Status: Later.** Measures the first published asset and feeds real outcomes back into future evidence and decisions.
 
 ### Goal
 

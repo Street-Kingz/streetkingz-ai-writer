@@ -1,17 +1,19 @@
-# Phase 3: Evidence Collection Architecture
+# Content Intelligence Evidence Architecture
 
-## Purpose
+## Purpose and scope
 
-Phase 3 transforms a reviewed product-understanding artifact into reusable evidence that can later be interpreted by AI. It collects and normalises observations; it does not decide what content to create and does not generate content.
+This architecture turns an approved product or source artifact into reusable evidence for content decisions. It collects and normalises observations; it does not decide what content to create and does not generate content.
 
-The same evidence must support product pages, buying guides, FAQs, comparison pages, collection pages, cornerstone articles and supporting articles. Evidence is therefore keyed to products, questions, queries, competitors and markets—not to an output content type.
+Street Kingz is the initial real-world customer and the Heavy Duty Drying Towel is the V1 validation subject. Product URLs, catalogue data, market settings and brand rules are inputs. The engine architecture is not Street Kingz-specific, the repository is not being renamed, and no final commercial product name has been chosen.
+
+The same evidence must be reusable for product pages, buying guides, FAQs, comparisons, collection pages and articles. Evidence is keyed to subjects, queries, sources, markets and retrieval parameters—not to an output content type.
 
 The governing boundary is:
 
 ```text
-Product-understanding artifact
+Approved product/source artifact
         ↓
-Research seed plan
+Deterministic provider seeds and requests
         ↓
 Independent evidence providers
         ↓
@@ -19,439 +21,250 @@ Immutable raw provider artifacts
         ↓
 Provider-specific normalisation
         ↓
-Merged evidence index
+Evidence aggregation, coverage and sufficiency
         ↓
-Separate AI interpretation (later stage)
+AI interpretation and opportunity decision
+        ↓
+Content generation and validation
 ```
 
-The AI must never browse, search, fetch pages or call research providers. It receives only the collected normalised evidence and returns an interpretation whose statements reference evidence IDs.
+AI does not perform research. It must not browse, fetch pages or call research providers. Providers collect evidence. AI receives validated evidence and coverage only after the engine determines that sufficient evidence exists for the requested objective, and its findings must cite evidence IDs.
 
-## Provider availability and responsible access
+## Architectural principles
 
-The architecture must not assume a paid subscription.
+- **Provider independence:** adapters do not call one another and the Evidence Engine does not depend on a specific vendor. DataForSEO is the current preferred V1 implementation, not a permanent hard dependency.
+- **Automation by default:** recurring manual evidence collection is not part of the normal workflow. Manual imports exist only for fallback, debugging or exceptional recovery.
+- **Commercial pragmatism:** paid APIs and subscriptions are acceptable when they materially improve evidence quality or eliminate meaningful manual work. Zero cost is not a goal when it harms automation or output quality.
+- **Evidence before interpretation:** raw observations, normalised evidence, AI interpretation and generated content remain separate artifacts.
+- **Proportionate scope:** add a provider, dataset or processing stage only when it materially improves the final decision/content or removes meaningful manual work.
+- **Targeted page inspection:** retain explicit-URL competitor-page extraction when headings, claims, structure, product information or other page-level content must be inspected. A SERP provider is not a substitute for page content.
+- **Optional qualitative sources:** Reddit is not a V1 dependency. It may be evaluated later only if evidence shows that it adds material qualitative value.
 
-| Provider | V1 access | Responsible approach |
+## Current implementation state
+
+### Completed and validated
+
+- Phase 2 rendered product-page capture, deterministic cache reuse and canonical product facts.
+- Field-level product-fact provenance back to source artifacts and page evidence.
+- Evidence contracts, validation, stable IDs, provider isolation, coverage reports and human-readable summaries.
+- Product Facts provider and deterministic provider-specific caching.
+- DataForSEO Keyword Ideas client and provider, including deterministic seeds, raw/normalised separation, request fingerprinting, failure preservation and rate-limit metadata.
+- Preflight maximum-cost enforcement and recorded actual provider cost.
+- Fixture-backed tests that make no live provider calls.
+- One controlled live Keyword Ideas request followed by a cache-only rerun with zero additional requests. The saved run returned 100 keyword ideas at a recorded cost of $0.024 and produced complete evidence, coverage and summary artifacts after the renderer compatibility fix.
+
+### Current and next work
+
+1. Productionise the proven Keyword Ideas command, documentation and retention conventions without changing its validated provider contract.
+2. Implement DataForSEO Google Organic SERP Advanced as an independent provider.
+3. Integrate Google Search Console as independent first-party site evidence.
+4. Complete cross-provider aggregation and objective-specific evidence-sufficiency rules.
+5. Implement opportunity scoring and the single AI interpretation/decision stage.
+
+## V1 provider path
+
+```text
+Product Facts
+    ↓
+DataForSEO Keyword Ideas
+    ↓
+DataForSEO Google Organic SERP Advanced
+    ↓
+Google Search Console
+    ↓
+Evidence aggregation and sufficiency
+```
+
+These are the preferred V1 implementations:
+
+| Provider | Role | V1 state |
 |---|---|---|
-| Product facts | Local Phase 2 artifacts | Read the approved `facts.json`; never scrape the product again during research. |
-| Google Autocomplete | Manual/import provider | Google does not document a supported public Autocomplete research API. V1 accepts suggestions copied or exported from a user-initiated Google session. An undocumented endpoint must not become a required dependency. |
-| Google People Also Ask | Manual/import provider | Google does not provide a supported public PAA API. V1 accepts questions and visible source links captured from a user-initiated SERP. It must not expand PAA recursively or scrape Google at scale. |
-| Reddit | Official API when approved; manual import fallback | Use registered OAuth access only after Reddit approval, a descriptive user agent and rate-header compliance. If approval is unavailable, mark the provider unavailable or accept user-selected thread exports; do not bypass access controls. |
-| Competitor pages | Direct fetch of user-supplied URLs | Fetch only explicit public URLs, respect `robots.txt`, site terms, `Retry-After`, conditional requests and per-host limits. Do not use competitor fetching as a search engine. |
+| Product Facts | Approved first-party facts and deterministic research seeds | Implemented |
+| DataForSEO Keyword Ideas | Keyword discovery, volume, difficulty and commercial metrics | Implemented and live-validated |
+| DataForSEO Google Organic SERP Advanced | Ranking pages, result types, SERP features, People Also Ask and related searches when returned | Next |
+| Google Search Console | First-party queries, pages, impressions, clicks and positions | Upcoming |
+| Competitor page | Targeted inspection of explicit public pages | Optional, targeted |
+| Manual Autocomplete/PAA imports | Recovery and debugging only | Optional fallback |
+| Reddit | Potential qualitative language/concern evidence | Future evaluation, not required |
 
-Reddit’s current official guidance requires approval and OAuth, specifies rate headers and a free-access limit for eligible clients, and requires stored deleted content to be removed; it strongly recommends routinely deleting stored user content within 48 hours ([Reddit Data API Wiki](https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki), [Responsible Builder Policy](https://support.reddithelp.com/hc/en-us/articles/42728983564564-Responsible-Builder-Policy)). These rules must be treated as provider configuration, not assumptions embedded in the core pipeline.
+If DataForSEO is replaced, an alternative adapter may satisfy the same provider and evidence contracts. Provider choice must not change downstream aggregation, sufficiency, interpretation or content-generation contracts.
 
-Google’s Custom Search JSON API is not a suitable fallback for new installations: it is closed to new customers and existing customers must transition by January 1, 2027 ([official overview](https://developers.google.com/custom-search/v1/overview)).
+## Overall architecture
 
-## 1. Overall architecture
+V1 remains a modular, single-user local tool. It needs no database, queue, worker, microservice split or provider marketplace.
 
-V1 remains a modular, single-user local tool. It needs no database, queue, worker or service split.
-
-### Modules
+The implemented and planned module boundaries are:
 
 ```text
 research/
 ├── contracts/             # Provider request/result and evidence schemas
-├── planner/               # Converts product facts into provider-neutral seeds
-├── providers/             # One adapter per independent source
-├── normalisers/           # Raw-source-specific to canonical-evidence conversion
-├── cache/                 # Provider-independent cache utilities and policies
-├── confidence/            # Deterministic confidence components
-├── aggregation/           # Deduplication and merged evidence index
-├── validation/            # Schema, provenance and artifact-boundary checks
-└── renderers/             # Human-readable evidence report
+├── core/                  # Canonical hashing and stable identities
+├── providers/             # Independent source adapters
+├── clients/               # Provider transports and configuration
+├── validation/            # Schema, provenance and artifact checks
+├── renderers/             # Human-readable evidence reports
+├── aggregation/           # Planned cross-provider grouping/corroboration
+└── sufficiency/           # Planned objective-specific sufficiency decisions
 ```
 
-### Initial provider adapters
+Do not create placeholder modules merely to match this diagram. Add them when their milestone is implemented.
 
-- `product_facts`
-- `google_autocomplete_import`
-- `google_paa_import`
-- `reddit_oauth`
-- `reddit_import`
-- `competitor_page`
+## Data flow
 
-Import providers are first-class providers, not temporary exceptions. They emit the same raw manifest, normalised records, confidence components and failure status as network providers.
+1. Validate and load an approved product/source artifact.
+2. Build deterministic, content-type-neutral seeds with origin evidence IDs.
+3. Produce explicit provider requests with market, language, bounds and cost/request ceilings.
+4. Resolve each provider cache independently before transport.
+5. Collect raw evidence only for cache misses.
+6. Save raw responses before normalisation so failures remain inspectable.
+7. Normalise each provider independently into canonical evidence records.
+8. Validate provenance, confidence and provider results.
+9. Aggregate stable evidence IDs without erasing provider-specific observations.
+10. Produce coverage, failures and an objective-specific sufficiency state.
+11. If evidence is sufficient, pass only validated evidence and coverage to the AI interpretation/decision stage.
+12. If evidence is insufficient, stop or request a scoped additional provider; absence must not be treated as negative evidence.
 
-### Future adapters
+## Provider contract
 
-- `google_search_console`
-- `google_trends`
-- `google_analytics_4`
-- `google_merchant_center`
-- Any additional provider implementing the provider contract
+Every provider has a stable ID and version, declares supported evidence types and cache policy, and implements the same conceptual boundary:
 
-Search Console has an official API ([official getting-started documentation](https://developers.google.com/webmaster-tools/v1/getting-started)). GA4 reporting is available through the official Google Analytics Data API ([official dimensions and metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema)). Merchant Center data and reports are available through the official Merchant API with OAuth or service accounts ([official overview](https://developers.google.com/merchant/api/overview)). Google Trends has an official API alpha, but access remains limited and must be treated as optional ([official Trends API alpha](https://developers.google.com/search/apis/trends)).
+1. Validate configuration and approved inputs.
+2. Create and fingerprint a deterministic request.
+3. Resolve its own cache namespace.
+4. Collect raw data on a cache miss, subject to request and cost controls.
+5. Normalise provider-native data into canonical evidence without AI.
+6. Return a structured result, including cache, provenance, rate-limit, cost, warning and error metadata where applicable.
 
-Adding any of these providers must not change the planner, merged evidence schema, AI interpretation contract or downstream content architecture.
+Provider adapters may not call one another. One provider failure must not prevent another provider from preserving successful artifacts. Provider-specific authentication, pricing, retention and response formats remain inside the adapter/client boundary.
 
-### Local artifact layout
+### Provider request
 
-```text
-artifacts/evidence/<product-slug>/<evidence-run-id>/
-├── request.json
-├── seeds.json
-├── providers/
-│   ├── product_facts/<provider-run-id>/
-│   │   ├── raw.json
-│   │   ├── normalised.json
-│   │   └── run.json
-│   ├── google_autocomplete_import/<provider-run-id>/...
-│   ├── google_paa_import/<provider-run-id>/...
-│   ├── reddit_oauth/<provider-run-id>/...
-│   └── competitor_page/<provider-run-id>/...
-├── evidence.json
-├── coverage.json
-├── interpretation.json
-└── summary.md
-```
+A request records:
 
-`interpretation.json` initially contains `status: "not_generated"`. When interpretation is implemented later, it is written as a new artifact and never modifies raw or normalised evidence.
+- Provider and adapter version
+- Subject and approved product/source artifact reference and hash
+- Stable seeds plus origin evidence IDs
+- Market and language
+- Provider-specific parameters and bounds
+- Approval context
+- Maximum requests and maximum cost where applicable
 
-### Data flow
+### Provider result
 
-1. Validate and load an approved Phase 2 facts artifact.
-2. Build content-type-neutral seeds from product names, product type, intended use, FAQs, claims, limitations and related products.
-3. Produce explicit provider requests containing seeds, UK market, English language and collection bounds.
-4. Resolve each provider’s cache independently.
-5. Collect or import raw evidence only for cache misses.
-6. Save immutable raw responses before normalisation.
-7. Normalise each provider independently into the common evidence schema.
-8. Validate provenance and confidence components.
-9. Merge records by stable evidence ID without erasing provider-specific observations.
-10. Produce coverage and failure reports.
-11. Optionally pass only `evidence.json` and `coverage.json` to a later AI interpreter.
+A result records:
 
-## 2. Provider interface
-
-Every provider implements the same conceptual contract.
-
-### Provider metadata
-
-- Stable provider ID and adapter version
-- Source owner
-- Supported evidence types
-- Supported markets and languages
-- Access mode: local, import, official API or direct public page
-- Authentication requirements
-- Cache policy
-- Rate-limit policy
-- Retention and deletion policy
-- Whether the provider is configured and available
-
-### Input: `ProviderRequest`
-
-- `request_id`
-- `product_subject_id`
-- `product_facts_ref`
-- `seeds`: stable IDs plus seed text and origin fact IDs
-- `market`: `GB`
-- `language`: `en-GB`
-- Optional provider-specific bounds, such as subreddits or competitor URLs
-- Maximum records and maximum requests
-- Collection reason
-- Requested-at timestamp
-
-### Output: `ProviderResult`
-
-- Provider identity and adapter version
-- Request fingerprint
+- Provider identity, version and stable request fingerprint
 - Status: `complete`, `partial`, `failed`, `unavailable` or `skipped`
-- Cache status and cache reference
-- Raw artifact references
-- Normalised artifact reference
-- Normalised evidence record IDs
-- Started/completed timestamps
+- Cache hit and cache reference
+- Raw and normalised artifact references
+- Evidence record IDs
+- Start/completion timestamps
 - Rate-limit observations
-- Warnings
-- Structured errors
-- Retry recommendation, if any
+- Actual/configured cost where applicable
+- Structured warnings and errors
 
-### Operations
+## Evidence and provenance
 
-The interface needs five operations, regardless of provider implementation:
+Canonical evidence records contain stable identity, provider/run identity, evidence type, subject and seed references, a typed value, retrieval context, timestamps, provenance, confidence, raw reference, normaliser version and lifecycle status.
 
-1. **Validate configuration** — report availability without collecting.
-2. **Fingerprint request** — create the independent cache key.
-3. **Collect or import** — return raw bytes or structured raw input.
-4. **Normalise** — convert raw data into evidence records without AI.
-5. **Apply retention** — expire, tombstone or remove provider data when required.
-
-Provider adapters may not call one another. The orchestrator may run all configured providers and combine their results, but one provider’s failure cannot prevent another provider from saving its artifacts.
-
-## 3. Evidence artifact schema
-
-### Top-level `EvidenceArtifact`
-
-- `schema_version`
-- `artifact_type: "research_evidence"`
-- `evidence_run_id`
-- `subject`
-  - Stable product ID
-  - Product URL
-  - Product-facts artifact reference and hash
-- `scope`
-  - Market
-  - Language
-  - Collection start and end
-- `provider_runs`: references and statuses
-- `records`: canonical evidence records
-- `coverage`: requested, completed, unavailable and failed evidence types
-- `created_at`
-- `warnings`
-
-### Canonical `EvidenceRecord`
-
-- `evidence_id`: stable hash of provider, evidence type, canonical subject/query and source observation identity
-- `provider_id`
-- `provider_run_id`
-- `evidence_type`
-- `subject_id`
-- `seed_ids`
-- `query_or_question`
-- `value`: typed value, never an unlabelled free-form blob
-- `context`
-  - Market
-  - Language
-  - Device, subreddit, competitor or page section where applicable
-- `observed_at`
-- `retrieved_at`
-- `provenance`
-- `confidence`
-- `raw_ref`
-- `normaliser_version`
-- `status`: active, expired, deleted or disputed
-
-### Initial evidence types
+Initial V1 evidence types are:
 
 - `product_fact`
-- `search_suggestion`
-- `people_also_ask_question`
-- `people_also_ask_source`
-- `reddit_post`
-- `reddit_comment`
-- `reddit_language_pattern`
-- `competitor_page_metadata`
-- `competitor_heading`
-- `competitor_claim`
-- `competitor_question`
-- `competitor_internal_link`
+- `keyword_idea`
+- SERP ranking/result/feature/question observations to be defined with the SERP Advanced provider
+- Search Console query/page performance observations to be defined with the Search Console provider
+- Targeted competitor metadata, heading, claim, question and internal-link observations when that provider is justified
 
-The schema describes observations, not recommendations. For example, a PAA record means “this question was visibly shown for this query, market and time”; it does not mean the question has high volume or that its displayed answer is true.
+The schema describes observations, not recommendations. A PAA item means that the provider observed a displayed question for a particular request; it does not establish that the answer is true or that the query deserves content.
 
-### Raw and interpretation artifacts
+Every record must answer who supplied it, where and when it was observed, how it was extracted, which request/seed caused collection and which immutable raw bytes support it. AI interpretation provenance is separate: every finding cites evidence IDs, the evidence artifact hash, model, prompt version and interpretation time.
 
-Raw artifacts retain provider-native fields and response bodies subject to the provider’s retention rules. Normalised evidence contains only fields required for later interpretation. AI interpretation uses a separate schema:
+Manual imports, when used for fallback/debugging, must retain the original file, capture instructions and capture time. “Manually supplied” never means “source unknown.”
 
-- `interpretation_id`
-- Input evidence artifact hash
-- Interpreter model and prompt version
-- Findings
-- Evidence IDs supporting each finding
-- Uncertainties and conflicts
-- No raw URLs or claims invented outside the evidence artifact
+## Caching and cost control
 
-## 4. Caching strategy
-
-Each provider owns its cache namespace and policy.
-
-### Cache key
-
-The request fingerprint includes:
-
-- Provider ID and adapter version
-- Normaliser version where it affects usable output
-- Canonical seeds or source URLs
-- Market and language
-- Provider-specific parameters
-- Authentication/account scope when results are account-specific
-
-Content-type intent must not be part of the cache key. The same autocomplete, Reddit or competitor evidence must be reusable for an article, FAQ, product page or comparison.
-
-### Storage
+Each provider owns an independent namespace under:
 
 ```text
 artifacts/evidence/cache/<provider-id>/<request-fingerprint>/
-├── raw/<retrieval-id>.*
-├── retrieval.json
-└── latest.json
 ```
 
-Raw retrievals are immutable. `latest.json` is a pointer, not a mutable replacement for history. A provider run copies or references the exact cached retrieval it used.
+The fingerprint includes provider/adapter and normaliser versions, canonical seeds or source identifiers, market/language, result-affecting parameters and account scope when results are account-specific. Output content type is excluded so evidence can be reused across workflows.
 
-### Initial freshness defaults
+Cache resolution occurs before any network or paid transport. Cached runs return the recorded original cost as provenance but incur no new cost. Raw responses are preserved and never silently overwritten by normalisation or interpretation.
 
-| Provider | Default freshness | Notes |
-|---|---:|---|
-| Product facts | Until source artifact hash changes | Facts are immutable inputs. |
-| Google Autocomplete import | 7 days | Suggestions are volatile; retain capture date and market. |
-| Google PAA import | 7 days | Questions and source links are SERP observations. |
-| Reddit | At most 48 hours for stored user content unless current terms permit otherwise | Refresh deletion state and enforce tombstones/removal. Derived non-user aggregates require a documented policy. |
-| Competitor page | 7 days | Use `ETag`/`Last-Modified` and conditional requests when available. |
+Paid providers must enforce a configured preflight maximum where deterministically possible and record the configured ceiling, conservative request estimate, actual charge and response total. Do not optimise away a valuable provider merely to reach zero cost; optimise unnecessary repeat requests through deterministic reuse.
 
-Users can force a new retrieval, but a forced run creates a new immutable cache entry. It never overwrites evidence previously used by an interpretation.
+## Rate limits and responsible access
 
-## 5. Rate limiting
-
-Rate limiting is provider-specific and persists locally so restarting the command does not forget recent requests.
-
-### General rules
-
+- Default to sequential collection for the single-user V1 tool.
 - Resolve cache before acquiring a rate-limit slot.
-- Default to sequential collection for a single-user tool.
-- Honour `Retry-After` and provider rate headers.
-- Use capped exponential backoff with jitter only for retryable responses.
-- Do not retry authentication, permission, robots or validation failures automatically.
-- Set a per-run request budget and record when it is exhausted.
-- Never rotate credentials, IP addresses or user agents to evade a limit.
+- Honour provider rate headers and `Retry-After`.
+- Retry only explicitly retryable failures with bounded backoff; do not retry authentication, permission or validation failures automatically.
+- Record and enforce per-run request/cost budgets.
+- Never rotate credentials, IP addresses or user agents to evade limits.
+- Targeted competitor fetching uses explicit public URLs and must respect applicable access rules, `robots.txt`, conditional requests and conservative per-host limits.
+- Manual Google imports must never turn into automated use of undocumented endpoints.
+- Any future Reddit adapter requires approved access and then-current retention/deletion compliance; it remains outside mandatory V1 scope.
 
-### Initial provider policies
+## Confidence, aggregation and sufficiency
 
-- **Autocomplete and PAA imports:** no automated Google requests in V1; collection rate is governed by explicit human captures.
-- **Reddit:** stay below the limit reported by `X-Ratelimit-*` headers. The current eligible free-access documentation states 100 QPM per OAuth client averaged over a ten-minute window; use a conservative soft ceiling such as 80 QPM and always defer to returned headers.
-- **Competitor pages:** one concurrent request per host, a default minimum interval of five seconds, conditional requests and a small per-run page cap.
-- **Product facts:** local reads only.
+Confidence measures how suitable an observation is for later interpretation. It is not a probability that a statement is true and never hides the source. Scores remain deterministic, versioned and decomposed into source reliability, directness, corroboration, freshness and extraction integrity.
 
-## 6. Confidence scoring
+Aggregation groups related observations and computes cross-provider corroboration without erasing source-specific records. Repeated observations from the same source do not count as independent corroboration.
 
-Confidence measures how suitable an observation is for later interpretation. It is not a probability that a statement is true and must never hide the underlying source.
+Before AI recommends or generates content, the engine must decide whether evidence is sufficient for the requested objective. Preliminary sufficiency evaluates:
 
-### Components
+- Whether required provider/evidence categories for that objective completed or were explicitly unavailable
+- Whether usable evidence retains valid provenance
+- Whether material conflicts, staleness or missing fields make a decision unsafe
+- Whether the available evidence can support the candidate actions under consideration, including “take no action”
 
-Each record stores scores from 0 to 1 plus a written rationale:
+V1 does not yet define numeric SEO thresholds or a mathematically sophisticated score. Detailed rules will be designed after real SERP Advanced and Search Console data are available. Until then, sufficiency is an explicit state and rationale, not an invented volume, difficulty or ranking cutoff.
 
-- **Source reliability (35%)** — first-party fact, official API, user-generated content or competitor marketing.
-- **Directness (25%)** — direct observation versus deterministic derivation.
-- **Corroboration (20%)** — independent sources supporting the same observation.
-- **Freshness (10%)** — age relative to provider policy.
-- **Extraction integrity (10%)** — structured API field, stable selector, manual transcription or uncertain parse.
+## AI interpretation and opportunity decision
 
-The combined score is deterministic and versioned. Component weights may change only with a scoring-version change.
+There is one downstream interpretation/strategy stage. It consumes validated `evidence.json`, `coverage.json` and the sufficiency result; it has no network or provider access. It returns findings and candidate actions with evidence citations, uncertainty and a recommendation or a justified decision not to act.
 
-### Evidence-type interpretation
+Interpretation never changes raw or normalised evidence. Content generation begins only after sufficient evidence, a recorded decision/brief and human approval exist.
 
-- Product facts can have high factual confidence when directly sourced and reviewed.
-- Autocomplete and PAA can have high confidence as observations of Google’s interface, but they provide no search-volume confidence.
-- Reddit can have high confidence as evidence of one person’s language or concern, but low confidence as a general product fact.
-- A competitor claim can have high confidence that the competitor published it and low confidence that the claim is objectively true.
-- Corroboration must require independent providers; repeated copies from one page do not increase confidence.
+## Failure handling
 
-Records below a configured threshold remain visible with warnings. They are not silently discarded.
+The Evidence Engine treats providers as a set, not a transaction:
 
-## 7. Provenance model
+- Successful provider artifacts remain usable when another provider fails.
+- Raw data survives a normalisation failure.
+- Exceptions become structured provider errors.
+- Coverage distinguishes complete, partial and failed collection.
+- Sufficiency is separate from collection status: a technically complete run may still be insufficient for a particular objective.
+- No AI interpretation runs when artifacts fail validation or sufficiency is not met.
 
-Every record must answer: who supplied it, where it appeared, when it was observed, how it was extracted and which raw bytes support it.
+## V1 acceptance criteria
 
-### Required provenance fields
+The evidence architecture is ready for the first complete decision when:
 
-- Provider ID and adapter version
-- Source owner
-- Canonical source URL or local artifact URI
-- Source record ID, post ID, comment ID or page-section locator where available
-- Query/seed that caused collection
-- Market, language and relevant account scope
-- Retrieved and observed timestamps
-- Raw artifact path and SHA-256 hash
-- Raw byte range, JSON pointer, CSS/semantic locator or imported row ID
-- Extraction method: API, deterministic HTML, manual import or deterministic derivation
-- Normaliser version
-- Terms/retention classification
-- Parent evidence IDs for derived normalised observations
+- Product Facts, Keyword Ideas, SERP Advanced and Search Console use independent provider contracts and caches.
+- Every normalised record resolves to immutable raw evidence and passes provenance validation.
+- Automated tests use fixtures and never make live provider calls.
+- Paid request ceilings, actual costs and cache-only reuse are tested and recorded.
+- Missing providers or metrics remain explicit and are not estimated by AI.
+- Aggregation preserves provider-specific observations and deterministic identities.
+- Objective-specific sufficiency can allow, decline or defer AI interpretation with a rationale.
+- The interpreter has no network/provider access and cites only supplied evidence IDs.
+- Manual imports are not required by the normal workflow.
+- The legacy and Phase 2 compatibility suites continue to pass.
 
-Manual imports also require capture instructions, capture time and the original imported file. “Manually supplied” must never mean “source unknown.”
+## Delivery sequence
 
-AI interpretation provenance is separate: every finding cites normalised evidence IDs, the evidence artifact hash, model, prompt version and interpretation time.
+1. **Completed — baseline and modularisation:** protect the legacy HTTP contract with offline characterisation tests.
+2. **Completed — Phase 2 product extraction:** capture rendered source, canonical product facts and field-level provenance with deterministic cache reuse.
+3. **Completed — Evidence Engine foundation:** establish contracts, stable IDs, provider isolation, validation, coverage, caching and summaries.
+4. **Completed — Keyword Ideas proof:** implement the DataForSEO adapter, cost controls and deterministic cache; complete controlled live and cache-only validation.
+5. **Current — productionise Keyword Ideas:** finish operational documentation and retention conventions without expanding provider scope.
+6. **Next — SERP Advanced:** add fixture-first tests, provider adapter, normalisation, cache/cost controls and one separately approved live validation.
+7. **Next — Search Console:** add first-party query/page performance evidence with independent authentication and cache scope.
+8. **Next — aggregation and sufficiency:** group evidence, expose conflicts/gaps and define objective-specific sufficiency using real provider shapes.
+9. **Next — opportunity decision:** implement evidence-cited scoring, recommendation/“take no action,” human override and the first approved brief.
+10. **Later — content and learning loop:** generate the first asset, validate it, complete human review, publish with approval, measure performance and feed outcomes into later decisions.
 
-## 8. Failure handling
-
-The orchestrator treats provider results as a set, not a transaction.
-
-### Provider isolation
-
-- Every provider writes its own `run.json` even when it fails.
-- Successful provider artifacts remain valid if another provider fails.
-- Normalisation failure does not delete a successfully captured raw artifact.
-- One failed seed can produce a `partial` provider result while preserving successful seeds.
-- Provider exceptions are converted into structured errors at the adapter boundary.
-
-### Error classification
-
-- `configuration`: missing approval, token or import file
-- `permission`: access denied or robots disallowed
-- `rate_limited`: includes retry time where supplied
-- `transient`: timeout or 5xx
-- `invalid_source`: malformed or unsupported raw data
-- `normalisation`: raw data captured but unusable
-- `retention`: data expired or removed due to source policy
-
-### Completion policy
-
-The evidence run can finish as:
-
-- `complete`: all requested providers completed
-- `partial`: at least one provider completed and at least one failed/unavailable
-- `insufficient`: collection completed but minimum evidence requirements were not met
-- `failed`: no provider produced usable evidence
-
-Product facts are the minimum required source for a product-led run. Other initial providers are optional and independently degradable. `coverage.json` must make missing sources explicit so a later decision stage can decline to recommend content rather than treating absence as negative evidence.
-
-No AI interpretation should run when the evidence artifact fails schema/provenance validation or is marked `insufficient` under the selected interpretation policy.
-
-## 9. Acceptance criteria
-
-Phase 3 collection is acceptable when:
-
-- A reviewed Phase 2 product artifact can create a provider-neutral seed plan.
-- Product facts, Autocomplete import, PAA import, Reddit and competitor pages all use the same provider result contract.
-- Each provider can be enabled, disabled, unavailable or failed without preventing other providers from completing.
-- Each provider proves independent cache reuse in automated tests.
-- No automated test accesses Google, Reddit, competitor sites or an AI provider.
-- Raw, normalised and interpretation artifacts are stored separately.
-- Every normalised evidence record resolves to a raw artifact and passes provenance validation.
-- Manual imports retain original files and capture metadata.
-- Autocomplete and PAA are represented as interface observations, not volume or truth claims.
-- Reddit collection uses approved OAuth access or an explicit manual import; no access control is bypassed.
-- Reddit retention and deletion handling is tested before OAuth collection is enabled.
-- Competitor fetching respects explicit URLs, robots decisions, conditional HTTP and per-host limits.
-- Cache keys omit output content type, proving evidence reuse across all target content forms.
-- Confidence component calculations are deterministic, versioned and explainable.
-- A mixed-success run produces usable evidence plus an accurate coverage/failure report.
-- The AI interpreter has no network or provider access and can cite only supplied evidence IDs.
-- The complete existing legacy and Phase 2 test suites continue to pass.
-
-## 10. Recommended implementation order
-
-### Step 1: Contracts and local artifacts
-
-Define and test provider request/result, raw manifest, evidence record, coverage and interpretation-placeholder schemas. Build provenance validation and stable request/evidence hashing first.
-
-### Step 2: Product-facts provider
-
-Implement the local Phase 2 adapter. It establishes the contract without network, authentication, rate limits or ambiguous external data.
-
-### Step 3: Orchestrator and independent cache
-
-Implement sequential provider execution, per-provider cache namespaces, partial completion, structured errors and coverage reporting using fake providers.
-
-### Step 4: Competitor-page provider
-
-Add explicit-URL fetching, robots checks, conditional requests, HTML snapshots and deterministic normalisation. This proves the network-provider boundary without a subscription.
-
-### Step 5: Google manual-import providers
-
-Add separate Autocomplete and PAA import formats, validators and normalisers. Keep them separate because they represent different observations and freshness policies.
-
-### Step 6: Reddit provider
-
-Implement manual import first. Add official OAuth collection only after access is approved and retention/deletion tests pass. Treat lack of approval as `unavailable`, not as a reason to scrape unofficial endpoints.
-
-### Step 7: Aggregation and confidence
-
-Build stable evidence IDs, duplicate grouping, cross-provider corroboration, deterministic confidence components and the final `evidence.json`/`summary.md` renderers.
-
-### Step 8: AI interpretation boundary
-
-Only after evidence artifacts pass acceptance tests, define an interpreter that receives normalised evidence and coverage artifacts, has no network tools, and returns findings with evidence citations. Interpretation remains outside evidence collection.
-
-### Step 9: Future official providers
-
-Add Search Console, then GA4 and Merchant Center using official APIs because they provide first-party business evidence. Add Google Trends only when official API access is available. Each is an adapter addition, not an architectural change.
+Targeted competitor-page extraction may be scheduled when a decision needs page-level evidence unavailable from structured SERP results. Manual imports and Reddit are not milestones on the critical V1 path.
