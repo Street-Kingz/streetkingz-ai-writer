@@ -1,0 +1,4705 @@
+{
+  "rows": [
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 21,
+      "impressions": 624,
+      "ctr": 0.033653846153846152,
+      "position": 7.1586538461538458
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 13,
+      "impressions": 155,
+      "ctr": 0.08387096774193549,
+      "position": 5.032258064516129
+    },
+    {
+      "keys": [
+        "stubby pressure washer gun with foam cannon",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 5,
+      "impressions": 84,
+      "ctr": 0.059523809523809521,
+      "position": 10.095238095238095
+    },
+    {
+      "keys": [
+        "kingz detailing",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 2,
+      "impressions": 4,
+      "ctr": 0.5,
+      "position": 7
+    },
+    {
+      "keys": [
+        "heavy duty towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.083333333333333329,
+      "position": 6.833333333333333
+    },
+    {
+      "keys": [
+        "sahara xl microfibre drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 1,
+      "impressions": 10,
+      "ctr": 0.1,
+      "position": 10.9
+    },
+    {
+      "keys": [
+        "street kings auto",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 1,
+      "impressions": 52,
+      "ctr": 0.019230769230769232,
+      "position": 9.98076923076923
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 1,
+      "impressions": 25,
+      "ctr": 0.04,
+      "position": 1.6400000000000001
+    },
+    {
+      "keys": [
+        "stubby gun",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 1,
+      "impressions": 30,
+      "ctr": 0.033333333333333333,
+      "position": 14.9
+    },
+    {
+      "keys": [
+        "wheel barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 1,
+      "impressions": 29,
+      "ctr": 0.034482758620689655,
+      "position": 11.793103448275861
+    },
+    {
+      "keys": [
+        "1200 gsm",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "1200 gsm car drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5
+    },
+    {
+      "keys": [
+        "1200 gsm drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 11.8
+    },
+    {
+      "keys": [
+        "1200 gsm towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "1200gsm",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "1200gsm meaning",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "adams barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "air kingz",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "all sudz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 46.5
+    },
+    {
+      "keys": [
+        "alloy wheel barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "alloy wheel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "armor all extra large drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 44
+    },
+    {
+      "keys": [
+        "auto drying cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48
+    },
+    {
+      "keys": [
+        "auto drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 39.964285714285715
+    },
+    {
+      "keys": [
+        "automotive drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 97,
+      "ctr": 0,
+      "position": 28.329896907216494
+    },
+    {
+      "keys": [
+        "automotive drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "automotive towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 31.25
+    },
+    {
+      "keys": [
+        "barrel brush set",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "barrel brushes",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "keys": [
+        "basic car wash equipment",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 45.75
+    },
+    {
+      "keys": [
+        "bathroom drying cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "best barrel brush for wheels",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5
+    },
+    {
+      "keys": [
+        "best car cleaning kit uk",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "keys": [
+        "best car drying towel uk",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 41.5
+    },
+    {
+      "keys": [
+        "best car pre wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "best car wash cleaning kit",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "best car wash equipment",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 39.75
+    },
+    {
+      "keys": [
+        "best car wash items",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "best car wash kit",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 276,
+      "ctr": 0,
+      "position": 31.945652173913043
+    },
+    {
+      "keys": [
+        "best car wash kits",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 21
+    },
+    {
+      "keys": [
+        "best car wash mitt uk",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 24.333333333333332
+    },
+    {
+      "keys": [
+        "best car wash products",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 34.833333333333336
+    },
+    {
+      "keys": [
+        "best car wash stuff",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "best car wash supplies",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 43.5
+    },
+    {
+      "keys": [
+        "best car wash system",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "keys": [
+        "best car washing",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "best car washing equipment",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "best car washing kit",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 23.714285714285715
+    },
+    {
+      "keys": [
+        "best car washing supplies",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 39.428571428571431
+    },
+    {
+      "keys": [
+        "best drying towel for car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "best drying towel for cars uk",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "best for washing car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 38.5
+    },
+    {
+      "keys": [
+        "best home car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "best home car wash kit",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "best home car wash system",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "best products for car washing",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "best products for washing car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "keys": [
+        "best products to wash car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 39.666666666666664
+    },
+    {
+      "keys": [
+        "best quality car washing trolley in the world",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 195
+    },
+    {
+      "keys": [
+        "best stuff to wash your car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 38.666666666666664
+    },
+    {
+      "keys": [
+        "best thing to use to wash your car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "best thing to wash a car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 44.5
+    },
+    {
+      "keys": [
+        "best thing to wash car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 42.5
+    },
+    {
+      "keys": [
+        "best thing to wash your car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "best to wash car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 35.333333333333336
+    },
+    {
+      "keys": [
+        "best touchless car wash products",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "best wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "best wash mitt for car",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "best wheel barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "keys": [
+        "big barrel hair brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "keys": [
+        "big blue drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "big car drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "big drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "big drying towel for car",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "keys": [
+        "brushed wheel",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "can you recommend any",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "car cleaning drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "car cleaning mitt",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 56.333333333333336
+    },
+    {
+      "keys": [
+        "car cleaning pad",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "car detailing drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 97,
+      "ctr": 0,
+      "position": 35.319587628865982
+    },
+    {
+      "keys": [
+        "car detailing towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 44.25
+    },
+    {
+      "keys": [
+        "car dry cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "car dry towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "car dryer towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "car drying cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 124,
+      "ctr": 0,
+      "position": 35.411290322580648
+    },
+    {
+      "keys": [
+        "car drying cloths",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 37.333333333333336
+    },
+    {
+      "keys": [
+        "car drying microfiber towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "car drying microfibre towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "car drying products",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "car drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 719,
+      "ctr": 0,
+      "position": 28.966620305980527
+    },
+    {
+      "keys": [
+        "car drying towel 1200gsm",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "keys": [
+        "car drying towel large",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "car drying towel large",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 17.5
+    },
+    {
+      "keys": [
+        "car drying towel near me",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 22.4
+    },
+    {
+      "keys": [
+        "car drying towel uk",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 25.333333333333332
+    },
+    {
+      "keys": [
+        "car drying towel xl",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 12.310344827586206
+    },
+    {
+      "keys": [
+        "car drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 30.153846153846153
+    },
+    {
+      "keys": [
+        "car drying towl",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "keys": [
+        "car kings car wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 20.333333333333332
+    },
+    {
+      "keys": [
+        "car microfiber drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "car microfibre drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 32.5
+    },
+    {
+      "keys": [
+        "car paint and fabric protection",
+        "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1181"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "car towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 52,
+      "ctr": 0,
+      "position": 28.75
+    },
+    {
+      "keys": [
+        "car towel drying",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 28.5
+    },
+    {
+      "keys": [
+        "car towel wash",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "keys": [
+        "car towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 32.5
+    },
+    {
+      "keys": [
+        "car towels dry",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 31.333333333333332
+    },
+    {
+      "keys": [
+        "car wash best products",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "car wash dry towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 35.5
+    },
+    {
+      "keys": [
+        "car wash drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 27.4
+    },
+    {
+      "keys": [
+        "car wash drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 34.4
+    },
+    {
+      "keys": [
+        "car wash essentials",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39.333333333333336
+    },
+    {
+      "keys": [
+        "car wash kingston",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "car wash microfiber mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "car wash mitt",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "car wash mitts",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 50.666666666666664
+    },
+    {
+      "keys": [
+        "car wash pad",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 50.666666666666664
+    },
+    {
+      "keys": [
+        "car wash pads",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 44.4
+    },
+    {
+      "keys": [
+        "car wash street",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "car wash supplies list",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "keys": [
+        "car wash towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 33.875
+    },
+    {
+      "keys": [
+        "car wash towel cart blue",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 33.5
+    },
+    {
+      "keys": [
+        "car wash towel cart chrome",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "car wash towel cart chrome",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 25.25
+    },
+    {
+      "keys": [
+        "car wash towel cart green",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 37.2
+    },
+    {
+      "keys": [
+        "car wash towel cart red",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 49.5
+    },
+    {
+      "keys": [
+        "car wash towel cart white",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 19.5
+    },
+    {
+      "keys": [
+        "car wash towel cart white",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "keys": [
+        "car wash towel cart yellow",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 19.2
+    },
+    {
+      "keys": [
+        "car wash towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 31.333333333333332
+    },
+    {
+      "keys": [
+        "car washing drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "car washing essentials",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 23.833333333333332
+    },
+    {
+      "keys": [
+        "car washing kit",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "car washing mitt",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 59.625
+    },
+    {
+      "keys": [
+        "car washing set up",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "cars towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 38.5
+    },
+    {
+      "keys": [
+        "carwash towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "clean wheel brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48
+    },
+    {
+      "keys": [
+        "cleaning mitt",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 44.9
+    },
+    {
+      "keys": [
+        "cleaning mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "cleaning mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "clearz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "cloth for drying car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 30.333333333333332
+    },
+    {
+      "keys": [
+        "complete",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "coral cloths",
+        "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "coral fleece drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "daytona speed master wheel brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "keys": [
+        "deep dirt",
+        "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "detail king",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 54.384615384615387
+    },
+    {
+      "keys": [
+        "detail kings",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 52.4
+    },
+    {
+      "keys": [
+        "detail kings high wycombe",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "detail kingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "detailing drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "detailing drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "detailing king",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 37.666666666666664
+    },
+    {
+      "keys": [
+        "detailing kings",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "detailing towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "detailking",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 67.5
+    },
+    {
+      "keys": [
+        "detailz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 69.272727272727266
+    },
+    {
+      "keys": [
+        "detailz car wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 76.25
+    },
+    {
+      "keys": [
+        "detailz london",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 67.75
+    },
+    {
+      "keys": [
+        "detailz ltd",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 44.5
+    },
+    {
+      "keys": [
+        "drizzle mobile detailing",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "dry car cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 28.666666666666668
+    },
+    {
+      "keys": [
+        "dry cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "dry cloth for cars",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "dry kit",
+        "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "dry loop",
+        "https://streetkingz.co.uk/product/twisted-loop-power-pack/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "dry towel car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "dry wash kit",
+        "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "dry xl",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "dryer towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "drying car cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "drying car towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "drying cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 36.25
+    },
+    {
+      "keys": [
+        "drying cloth for car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 34.75
+    },
+    {
+      "keys": [
+        "drying cloths",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 44
+    },
+    {
+      "keys": [
+        "drying rags",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 34.416666666666664
+    },
+    {
+      "keys": [
+        "drying towel auto",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 27.5
+    },
+    {
+      "keys": [
+        "drying towel car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 56,
+      "ctr": 0,
+      "position": 29.410714285714285
+    },
+    {
+      "keys": [
+        "drying towel for car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 30.8
+    },
+    {
+      "keys": [
+        "drying towel for cars",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "drying towel gsm",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 40.230769230769234
+    },
+    {
+      "keys": [
+        "drying towels car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 28.666666666666668
+    },
+    {
+      "keys": [
+        "drying towels for cars",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "extra large car drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "ez snow foam lance",
+        "https://streetkingz.co.uk/product-tag/cannon/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "fiber king",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "fiber kings",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 23.5
+    },
+    {
+      "keys": [
+        "fibre king",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "fibre king cloths",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "fibre king drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 27.5
+    },
+    {
+      "keys": [
+        "fibreking",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "fibreking cloths",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "fibreking drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 36
+    },
+    {
+      "keys": [
+        "fleece microfiber",
+        "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "foam gun cleaner",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "give me a link",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "glass cleaning shampoo",
+        "https://streetkingz.co.uk/product-category/origin-range/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "good car wash kit",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "graffiti stubby gun",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "grizzly detail",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "keys": [
+        "halfords advanced drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "halfords stubby gun",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "hand car wash equipment list",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "heavy weight drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0,
+      "position": 11.893617021276595
+    },
+    {
+      "keys": [
+        "high gsm car drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "how to wash a car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 16.791666666666664
+    },
+    {
+      "keys": [
+        "i want same",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "in range",
+        "https://streetkingz.co.uk/product-category/origin-range/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "items needed for car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "kent car care microfibre drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 49.5
+    },
+    {
+      "keys": [
+        "kent drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "kent drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "kent extra large microfibre drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "kent microfibre drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 50.5
+    },
+    {
+      "keys": [
+        "kent microfibre drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "keystone towel review",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "king detailing",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "king street car wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "keys": [
+        "king studios detailing",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "king towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "kings car wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 13.32
+    },
+    {
+      "keys": [
+        "kingz car wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "kingz carwash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "kingz detail",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "kingz return policy",
+        "https://streetkingz.co.uk/refund-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "kingz returns",
+        "https://streetkingz.co.uk/returns-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "large barrel hair brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "large car drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 24.333333333333332
+    },
+    {
+      "keys": [
+        "large car drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 29.2
+    },
+    {
+      "keys": [
+        "large car drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "large car drying towels",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "large car towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "large drying towel for car",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 21
+    },
+    {
+      "keys": [
+        "large microfiber drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "large microfiber drying towels",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 39.5
+    },
+    {
+      "keys": [
+        "leather towel to dry car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "legit street cars drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "long wheel barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "magic drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "meguiar's supreme drying towel xl",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "metal barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "microfiber car drying cloth",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 45.5
+    },
+    {
+      "keys": [
+        "microfiber car drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 47.2
+    },
+    {
+      "keys": [
+        "microfiber car drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "microfiber car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0,
+      "position": 34.454545454545453
+    },
+    {
+      "keys": [
+        "microfiber car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 67.333333333333329
+    },
+    {
+      "keys": [
+        "microfiber car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "microfiber cleaning mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "microfiber hand mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48
+    },
+    {
+      "keys": [
+        "microfiber mit",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "microfiber mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 28.5
+    },
+    {
+      "keys": [
+        "microfiber mitt for car",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "microfiber mitt for car",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 65.5
+    },
+    {
+      "keys": [
+        "microfiber mitt for car",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 66.5
+    },
+    {
+      "keys": [
+        "microfiber mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "microfiber towel for drying car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "microfiber towel to dry car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "microfiber towels car drying",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "microfiber towels for car drying",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "microfiber towels to dry car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "microfiber wash glove",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "microfiber wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 25.465116279069768
+    },
+    {
+      "keys": [
+        "microfiber wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 67.666666666666671
+    },
+    {
+      "keys": [
+        "microfiber wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 69.333333333333329
+    },
+    {
+      "keys": [
+        "microfiber wash mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "microfiber wash mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=68"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "microfiber washing mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "microfibre car drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 62,
+      "ctr": 0,
+      "position": 33.564516129032256
+    },
+    {
+      "keys": [
+        "microfibre car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 62,
+      "ctr": 0,
+      "position": 24.806451612903224
+    },
+    {
+      "keys": [
+        "microfibre car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 64.857142857142861
+    },
+    {
+      "keys": [
+        "microfibre car wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "keys": [
+        "microfibre car wash mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 50,
+      "ctr": 0,
+      "position": 29.3
+    },
+    {
+      "keys": [
+        "microfibre car wash mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 71.25
+    },
+    {
+      "keys": [
+        "microfibre cleaning mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "microfibre drying cloth for car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "microfibre drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 51.8
+    },
+    {
+      "keys": [
+        "microfibre drying towel car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 32.2
+    },
+    {
+      "keys": [
+        "microfibre drying towel for cars",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 42.46153846153846
+    },
+    {
+      "keys": [
+        "microfibre drying towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "microfibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0,
+      "position": 25.88095238095238
+    },
+    {
+      "keys": [
+        "microfibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 62.75
+    },
+    {
+      "keys": [
+        "microfibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 72.5
+    },
+    {
+      "keys": [
+        "microfibre mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "microfibre mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "keys": [
+        "microfibre wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 23.285714285714285
+    },
+    {
+      "keys": [
+        "microfibre wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 66.7
+    },
+    {
+      "keys": [
+        "microfibre wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "microfibre wash mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "more images",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "keys": [
+        "motorcycle drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "new york foam kings",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "origin cleaner",
+        "https://streetkingz.co.uk/product-category/origin-range/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14.5
+    },
+    {
+      "keys": [
+        "origin detailing",
+        "https://streetkingz.co.uk/product-category/origin-range/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "origin kit",
+        "https://streetkingz.co.uk/product-tag/origin-xl-wash-kit/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "paint & fabric protection",
+        "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 95.5
+    },
+    {
+      "keys": [
+        "rapid dry towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 30.25
+    },
+    {
+      "keys": [
+        "rapid dry towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "rapid drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 34.666666666666664
+    },
+    {
+      "keys": [
+        "rim barrel brush",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "rinse towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "road skinz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "roadkingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "rockcar performer large soft drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "rolson premium drying towel xl",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "salt and pepper premium m/fibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "salt and pepper premium m/fibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 68.333333333333329
+    },
+    {
+      "keys": [
+        "salt and pepper premium m/fibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=68"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 46.363636363636367
+    },
+    {
+      "keys": [
+        "salt and pepper premium m/fibre mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "simoniz wash mitt",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 32.5
+    },
+    {
+      "keys": [
+        "simoniz wheel brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "snow foam",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "speedmaster brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "speedmaster wheel brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 61.5
+    },
+    {
+      "keys": [
+        "steering kingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "keys": [
+        "stipt king dry towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "streakz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 65.666666666666671
+    },
+    {
+      "keys": [
+        "street brush",
+        "https://streetkingz.co.uk/product-category/brushes-tools/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "street brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "keys": [
+        "street cleaning car",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "keys": [
+        "street king auto",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.75
+    },
+    {
+      "keys": [
+        "street kings car",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 131,
+      "ctr": 0,
+      "position": 6.3969465648854964
+    },
+    {
+      "keys": [
+        "street kings car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kings car",
+        "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kings car",
+        "https://streetkingz.co.uk/shop/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kings car wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 196,
+      "ctr": 0,
+      "position": 11.520408163265307
+    },
+    {
+      "keys": [
+        "street kings car wash",
+        "https://streetkingz.co.uk/shop/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "street kings car wash reviews",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 11.461538461538462
+    },
+    {
+      "keys": [
+        "street kings cars",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "street kings movie car",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kings official website",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/#reviews"
+      ],
+      "clicks": 0,
+      "impressions": 131,
+      "ctr": 0,
+      "position": 12.32824427480916
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/about-us/"
+      ],
+      "clicks": 0,
+      "impressions": 131,
+      "ctr": 0,
+      "position": 12.32824427480916
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/contact-us/"
+      ],
+      "clicks": 0,
+      "impressions": 131,
+      "ctr": 0,
+      "position": 12.32824427480916
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/privacy-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/accessories/"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/brushes-tools/"
+      ],
+      "clicks": 0,
+      "impressions": 62,
+      "ctr": 0,
+      "position": 1.2419354838709677
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/bundles/"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/drying-towels/page/2/"
+      ],
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/exterior/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/interior/"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/origin-range/"
+      ],
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 51,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 65,
+      "ctr": 0,
+      "position": 1.9230769230769231
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.666666666666667
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1.5
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 7.666666666666667
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/product/xl-wash-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/refund-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/shipping-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/shop/"
+      ],
+      "clicks": 0,
+      "impressions": 82,
+      "ctr": 0,
+      "position": 3.7804878048780486
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/start"
+      ],
+      "clicks": 0,
+      "impressions": 118,
+      "ctr": 0,
+      "position": 12.296610169491526
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/start/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "street kingz",
+        "https://streetkingz.co.uk/terms-and-conditions/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 32.666666666666671
+    },
+    {
+      "keys": [
+        "street shine",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "street toolz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "street wash",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 47.5
+    },
+    {
+      "keys": [
+        "street wash",
+        "https://streetkingz.co.uk/product-category/bundles/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "street washers",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "keys": [
+        "streetking",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/#reviews"
+      ],
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 9.58974358974359
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/about-us/"
+      ],
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 9.58974358974359
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/contact-us/"
+      ],
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 9.58974358974359
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/privacy-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/accessories/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/brushes-tools/"
+      ],
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/bundles/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/drying-towels/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/drying-towels/page/2/"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/exterior/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/foam-lances/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/interior/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/origin-range/"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-tag/origin-xl-wash-kit/"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-tag/weekend-wash/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product-tag/xl-wash-dry/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.333333333333333
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/shop/"
+      ],
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 3.1428571428571428
+    },
+    {
+      "keys": [
+        "streetkingz",
+        "https://streetkingz.co.uk/start"
+      ],
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0,
+      "position": 9.5555555555555554
+    },
+    {
+      "keys": [
+        "streetwize blaster brush",
+        "https://streetkingz.co.uk/product-category/brushes-tools/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "stubby gun and foam cannon",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 9.1428571428571423
+    },
+    {
+      "keys": [
+        "stubby gun and snow foam lance",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 8.5135135135135123
+    },
+    {
+      "keys": [
+        "stubby gun for pressure washer",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "stubby gun pressure washer",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 42.5
+    },
+    {
+      "keys": [
+        "stubby guns",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 21.333333333333332
+    },
+    {
+      "keys": [
+        "stubby jet wash gun",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 29.333333333333332
+    },
+    {
+      "keys": [
+        "stubby jet wash lance",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "stubby lance",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "stubby pressure washer gun",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 34.277777777777779
+    },
+    {
+      "keys": [
+        "stubby trigger gun & nozzle kit",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 39.5
+    },
+    {
+      "keys": [
+        "stubbz detailing",
+        "https://streetkingz.co.uk/shop/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "super absorbent car drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 40.833333333333336
+    },
+    {
+      "keys": [
+        "super dry towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "super towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "keys": [
+        "supplies for a car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 52.25
+    },
+    {
+      "keys": [
+        "the absorber xl",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "the detail king",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 66.5
+    },
+    {
+      "keys": [
+        "the goat drying towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "thick microfiber towel",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "keys": [
+        "thick quick-dry towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "towel 1000gsm",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 34.5
+    },
+    {
+      "keys": [
+        "towel car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 30.428571428571427
+    },
+    {
+      "keys": [
+        "towel car wash",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "towel for car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 27.6
+    },
+    {
+      "keys": [
+        "towel for drying",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "towel for drying car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "towel to dry car",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 24.5
+    },
+    {
+      "keys": [
+        "towel xl",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "keys": [
+        "toweldry",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "keys": [
+        "towels for cars",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 33.666666666666664
+    },
+    {
+      "keys": [
+        "tuning kingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "tuning kingz",
+        "https://streetkingz.co.uk/shop/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "twisted loop",
+        "https://streetkingz.co.uk/product/twisted-loop-power-pack/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "keys": [
+        "urban king detailing",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 68
+    },
+    {
+      "keys": [
+        "vans towels",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 25.5
+    },
+    {
+      "keys": [
+        "viking drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "wash mit",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "wash mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 30.222222222222221
+    },
+    {
+      "keys": [
+        "wash mitt car",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "keys": [
+        "wash mitt halfords",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "wash mitt microfiber",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "wash mitts",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "wash pad",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 64.333333333333343
+    },
+    {
+      "keys": [
+        "wash pads",
+        "https://streetkingz.co.uk/product-category/wash-prep/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 46.25
+    },
+    {
+      "keys": [
+        "wash xl",
+        "https://streetkingz.co.uk/product-tag/xl-wash-dry/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "washing mitt",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "washmit",
+        "https://streetkingz.co.uk/product/microfibre-wash-mitt/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "what do i need for a car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "what do you need for a car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 17.25
+    },
+    {
+      "keys": [
+        "what do you need for car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "what is the best thing to wash your car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 36
+    },
+    {
+      "keys": [
+        "what to use for car wash",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "what to use to wash a car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "what to use to wash car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 45.166666666666664
+    },
+    {
+      "keys": [
+        "what to use to wash your car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "what to use when washing a car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 39.714285714285715
+    },
+    {
+      "keys": [
+        "what to use when washing car",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "what to wash a car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "keys": [
+        "what to wash car with",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 51.363636363636367
+    },
+    {
+      "keys": [
+        "wheel barrel cleaner",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.4
+    },
+    {
+      "keys": [
+        "wheel brish",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "wheel cleaning brush",
+        "https://streetkingz.co.uk/product-category/wheels/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "wheel kingz",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "wheelclean",
+        "https://streetkingz.co.uk/product/wheel-belt-flosser/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 65
+    },
+    {
+      "keys": [
+        "which tool kit includes essentials for safe car washing?",
+        "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "which wheel brush safely cleans barrel areas?",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6.666666666666667
+    },
+    {
+      "keys": [
+        "wholesale microfiber towels for cars",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "wrap kingz",
+        "https://streetkingz.co.uk/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "keys": [
+        "xl bath drying towel reviews",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "xl car drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 9.0833333333333339
+    },
+    {
+      "keys": [
+        "xl drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 10.666666666666666
+    },
+    {
+      "keys": [
+        "xl drying towel car",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "xl microfiber drying towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 14.666666666666666
+    },
+    {
+      "keys": [
+        "xl microfiber towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 21.75
+    },
+    {
+      "keys": [
+        "xl towel",
+        "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 16.75
+    },
+    {
+      "keys": [
+        "xl wash",
+        "https://streetkingz.co.uk/product-tag/xl-wash-dry/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "xl wash",
+        "https://streetkingz.co.uk/product/xl-wash-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 10.2
+    },
+    {
+      "keys": [
+        "xlwash",
+        "https://streetkingz.co.uk/product-tag/origin-xl-wash-kit/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "xlwash",
+        "https://streetkingz.co.uk/product-tag/xl-wash-dry/"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 8.8571428571428577
+    },
+    {
+      "keys": [
+        "xlwash",
+        "https://streetkingz.co.uk/product/xl-wash-dry-set/"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 8.4
+    },
+    {
+      "keys": [
+        "yes",
+        "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "yes",
+        "https://streetkingz.co.uk/product/the-xl-barrel-brush/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    }
+  ],
+  "responseAggregationType": "byPage"
+}

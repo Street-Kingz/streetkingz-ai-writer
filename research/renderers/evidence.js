@@ -24,6 +24,7 @@ function sectionLabel(record) {
 function recordSortKey(record) {
   return displayValue(
     record.value?.field_path ??
+    record.value?.display_label ??
     record.value?.question ??
     record.value?.related_query ??
     record.value?.title ??
@@ -36,6 +37,7 @@ function recordSortKey(record) {
 
 function recordDisplayValue(record) {
   if (Object.hasOwn(record.value || {}, "value")) return displayValue(record.value.value);
+  if (record.value?.display_label) return displayValue(record.value.display_label);
   if (record.evidence_type === "keyword_idea") return displayValue(record.value?.keyword);
   if (record.value?.question) return displayValue(record.value.question);
   if (record.value?.related_query) return displayValue(record.value.related_query);

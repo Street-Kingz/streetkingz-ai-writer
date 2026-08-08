@@ -1,0 +1,25 @@
+{
+  "query": {
+    "rows": [
+      { "keys": ["best car drying towel"], "clicks": 0, "impressions": 1200, "ctr": 0, "position": 11.4 },
+      { "keys": ["microfibre towel car drying"], "clicks": 12, "impressions": 600, "ctr": 0.02, "position": 8.2 },
+      { "keys": ["street kingz"], "clicks": 30, "impressions": 50, "ctr": 0.6, "position": 1.2 }
+    ],
+    "responseAggregationType": "byProperty"
+  },
+  "page": {
+    "rows": [
+      { "keys": ["https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"], "clicks": 25, "impressions": 1800, "ctr": 0.0138889, "position": 9.5 },
+      { "keys": ["https://streetkingz.co.uk/blog/car-drying-guide/"], "clicks": 4, "impressions": 900, "ctr": 0.0044444, "position": 14.1 }
+    ],
+    "responseAggregationType": "byPage"
+  },
+  "query_page": {
+    "rows": [
+      { "keys": ["best car drying towel", "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"], "clicks": 0, "impressions": 700, "ctr": 0, "position": 10.8 },
+      { "keys": ["best car drying towel", "https://streetkingz.co.uk/blog/car-drying-guide/"], "clicks": 0, "impressions": 300, "ctr": 0, "position": 18.2 },
+      { "keys": ["unmatched detailing query", "https://streetkingz.co.uk/blog/unmatched/"], "clicks": 1, "impressions": 20, "ctr": 0.05, "position": 7.5 }
+    ],
+    "responseAggregationType": "byPage"
+  }
+}

@@ -59,6 +59,17 @@ export function generateCoverage({ providerResults, records }) {
   const requestedEvidenceTypes = [...new Set(
     providerResults.flatMap((result) => result.requested_evidence_types || []).concat("product_fact")
   )].sort();
+  const categoryTypes = {
+    product_truth: (type) => type === "product_fact",
+    market_demand: (type) => type === "keyword_idea",
+    serp_competitive_evidence: (type) => type.startsWith("serp_"),
+    first_party_search_console_evidence: (type) => type.startsWith("search_console_")
+  };
+  const evidenceCategories = Object.fromEntries(Object.entries(categoryTypes).map(([category, matches]) => {
+    const matchingTypes = Object.keys(evidenceTypeCounts).filter(matches).sort();
+    const recordCount = matchingTypes.reduce((sum, type) => sum + evidenceTypeCounts[type], 0);
+    return [category, { available: recordCount > 0, record_count: recordCount, evidence_types: matchingTypes }];
+  }));
   const coverage = {
     schema_version: SCHEMA_VERSION,
     artifact_type: "evidence_coverage",
@@ -72,6 +83,7 @@ export function generateCoverage({ providerResults, records }) {
     })),
     requested_evidence_types: requestedEvidenceTypes,
     evidence_type_counts: evidenceTypeCounts,
+    evidence_categories: evidenceCategories,
     usable_record_count: usableRecordCount,
     missing_evidence_types: requestedEvidenceTypes.filter((type) => !evidenceTypeCounts[type])
   };

@@ -2,3 +2,6 @@ node_modules
 .env
 .env.*
 !.env.example
+.credentials/
+client_secret*.json
+google-oauth*.json

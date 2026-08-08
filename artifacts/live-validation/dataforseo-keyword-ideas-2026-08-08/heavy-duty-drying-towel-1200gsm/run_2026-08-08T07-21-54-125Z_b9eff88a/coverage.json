@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_coverage",
+  "status": "complete",
+  "requested_providers": [
+    "product_facts",
+    "dataforseo_keyword_ideas",
+    "dataforseo_google_organic_serp_advanced",
+    "google_search_console"
+  ],
+  "provider_statuses": [
+    {
+      "provider_id": "product_facts",
+      "status": "complete",
+      "evidence_record_count": 62,
+      "errors": []
+    },
+    {
+      "provider_id": "dataforseo_keyword_ideas",
+      "status": "complete",
+      "evidence_record_count": 100,
+      "errors": []
+    },
+    {
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "status": "complete",
+      "evidence_record_count": 123,
+      "errors": []
+    },
+    {
+      "provider_id": "google_search_console",
+      "status": "complete",
+      "evidence_record_count": 929,
+      "errors": []
+    }
+  ],
+  "requested_evidence_types": [
+    "keyword_idea",
+    "product_fact",
+    "search_console_page_performance",
+    "search_console_query_page_performance",
+    "search_console_query_performance",
+    "serp_feature",
+    "serp_organic_result",
+    "serp_people_also_ask",
+    "serp_related_search"
+  ],
+  "evidence_type_counts": {
+    "serp_people_also_ask": 20,
+    "product_fact": 62,
+    "search_console_query_page_performance": 470,
+    "search_console_page_performance": 74,
+    "serp_organic_result": 38,
+    "keyword_idea": 100,
+    "search_console_query_performance": 385,
+    "serp_related_search": 40,
+    "serp_product_element": 12,
+    "serp_feature": 2,
+    "serp_discussion": 2,
+    "serp_video": 5,
+    "serp_ai_overview": 4
+  },
+  "evidence_categories": {
+    "product_truth": {
+      "available": true,
+      "record_count": 62,
+      "evidence_types": [
+        "product_fact"
+      ]
+    },
+    "market_demand": {
+      "available": true,
+      "record_count": 100,
+      "evidence_types": [
+        "keyword_idea"
+      ]
+    },
+    "serp_competitive_evidence": {
+      "available": true,
+      "record_count": 123,
+      "evidence_types": [
+        "serp_ai_overview",
+        "serp_discussion",
+        "serp_feature",
+        "serp_organic_result",
+        "serp_people_also_ask",
+        "serp_product_element",
+        "serp_related_search",
+        "serp_video"
+      ]
+    },
+    "first_party_search_console_evidence": {
+      "available": true,
+      "record_count": 929,
+      "evidence_types": [
+        "search_console_page_performance",
+        "search_console_query_page_performance",
+        "search_console_query_performance"
+      ]
+    }
+  },
+  "usable_record_count": 1214,
+  "missing_evidence_types": []
+}

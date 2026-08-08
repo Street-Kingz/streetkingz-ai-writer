@@ -93,17 +93,18 @@ Each arrow is a stage boundary, not an instruction to combine stages into one pr
 - [x] Product Facts provider with deterministic caching.
 - [x] DataForSEO Keyword Ideas provider with raw/normalised separation, deterministic caching, configuration validation and cost controls.
 - [x] One controlled live Keyword Ideas validation and a zero-request cache-only rerun producing evidence, coverage and summary artifacts at the recorded $0.024 cost.
+- [x] DataForSEO Google Organic SERP Advanced provider with deterministic keyword shortlisting, independent per-keyword caching, provenance and cost controls.
+- [x] One controlled five-keyword SERP validation and a zero-request cache-only rerun. The live run proved organic results, People Also Ask, related searches, popular products, videos, perspectives, discussions/forums and AI Overviews.
+- [x] Google Search Console provider and controlled live validation with a zero-request cache-only rerun. The live run proved first-party query, page and query/page performance evidence covering clicks, impressions, CTR and average position, plus deterministic keyword and site-page relationships.
+- [x] Primary V1 evidence-source layer: Product Facts, DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console.
 
 ### Current
 
 - [ ] Productionise Keyword Ideas: finalise operational documentation, artifact retention conventions and the reviewed command path while preserving the proven request and cache behaviour.
-- [ ] Define preliminary objective-specific evidence-sufficiency states without inventing SEO thresholds before SERP Advanced and Search Console evidence exists.
+- [ ] Complete cross-provider evidence aggregation and define preliminary objective-specific evidence-sufficiency states without inventing arbitrary SEO thresholds.
 
 ### Next
 
-- [ ] Implement and validate the DataForSEO Google Organic SERP Advanced provider.
-- [ ] Integrate Google Search Console as first-party site-performance evidence.
-- [ ] Complete cross-provider evidence aggregation and explicit minimum-evidence/sufficiency rules.
 - [ ] Implement opportunity scoring and produce the first complete content decision.
 
 ### Later
@@ -220,7 +221,7 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 
 ## 4. Phase 3: External keyword/SERP research
 
-**Status: In progress.** The Evidence Engine, Product Facts provider and DataForSEO Keyword Ideas provider are implemented and tested. Keyword Ideas has passed controlled live and cache-only validation. SERP Advanced and Search Console are next.
+**Status: Complete.** Product Facts, DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console are implemented, tested and controlled-live validated as the primary V1 evidence-source layer. Aggregation and evidence sufficiency are the next phase.
 
 ### Goal
 
@@ -235,6 +236,8 @@ Primary automated external evidence providers are:
 - **Google Search Console** for first-party customer-site queries, pages, impressions, clicks and positions (Street Kingz in V1).
 
 Manual Google Autocomplete and People Also Ask imports remain available only as fallback or debugging mechanisms. Separate competitor-page extraction remains appropriate when page-level headings, claims, product information or content structure must be inspected directly.
+
+The controlled SERP Advanced run proved that the provider can collect organic results, People Also Ask, related searches, popular products, videos, perspectives, discussions/forums and AI Overviews. Manual PAA/Autocomplete and Reddit remain off the V1 critical path. Targeted competitor-page extraction remains separate only for evidence requiring inspection of actual page content.
 
 ### Deliverables
 

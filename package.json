@@ -9,7 +9,9 @@
     "extract:product": "node scripts/extractProduct.js",
     "evidence:product": "node scripts/buildEvidence.js",
     "evidence:dataforseo": "node scripts/buildKeywordIdeasEvidence.js",
-    "evidence:serp": "node scripts/buildSerpEvidence.js"
+    "evidence:serp": "node scripts/buildSerpEvidence.js",
+    "evidence:search-console": "node scripts/buildSearchConsoleEvidence.js",
+    "auth:search-console": "node --env-file=.env scripts/authoriseSearchConsole.js"
   },
   "dependencies": {
     "express": "^4.19.0",
