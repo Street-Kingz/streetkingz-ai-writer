@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cms_field_mapping_validation",
+  "replay_of": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1",
+  "source_network_retrievals": 1,
+  "replay_network_retrievals": 0,
+  "state": "valid",
+  "errors": [],
+  "write_operations_performed": 0,
+  "approved_candidate_copy_unchanged": true,
+  "upstream_artifacts_immutable": true,
+  "publication_allowed": false
+}

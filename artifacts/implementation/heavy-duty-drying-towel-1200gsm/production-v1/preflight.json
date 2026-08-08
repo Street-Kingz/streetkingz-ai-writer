@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cms_mapping_preflight",
+  "state": "pass",
+  "method": "public_wordpress_rest_read_only",
+  "endpoint": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+  "product_post_id": 70,
+  "write_capability": false,
+  "verified_live_hash": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+  "source_hashes": {
+    "page": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+    "verification": "a05c78cce57867a55804ccf1b46e4cd47692b9b99e18e33989eb8ec344ff0070",
+    "final_review": "ae3068557451a6be6ceb25899b4583f091d17fe31e85751966045e55de74a880"
+  }
+}

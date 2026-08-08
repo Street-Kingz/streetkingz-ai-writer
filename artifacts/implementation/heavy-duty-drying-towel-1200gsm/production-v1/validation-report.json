@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cms_field_mapping_validation",
+  "state": "invalid",
+  "errors": [
+    {
+      "code": "DESTRUCTIVE_DESCRIPTION_REPLACEMENT",
+      "path": "field_mappings.product_description_benefits"
+    }
+  ],
+  "write_operations_performed": 0,
+  "approved_candidate_copy_unchanged": true,
+  "upstream_artifacts_immutable": true,
+  "publication_allowed": false
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "wordpress_product_cms_field_map",
+  "product_post_id": 70,
+  "target_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "cms_resource": {
+    "product_post_id": 70,
+    "endpoint": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+    "signals": {
+      "rest_resource": 70,
+      "body_class": 70,
+      "gtm_internal_id": 70
+    }
+  },
+  "cms_retrieval": {
+    "requested_url": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+    "final_url": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+    "http_status": 200,
+    "retrieved_at": "2026-08-08T15:05:38.659Z",
+    "content_type": "application/json; charset=UTF-8",
+    "content_hash": "93e410737144c3ada077df914a174c2e0d71085710c05d2358a7706bc7acecd9",
+    "response_size_bytes": 13834,
+    "retrieval_count": 1,
+    "method": "GET",
+    "authentication": "none_public_view",
+    "write_capability": false
+  },
+  "verified_live_content_hash": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+  "source_verification_sha256": "784a1b55575251fb91b2ab7953359622735e4751b7d06f02b74cb9a65ed683bf",
+  "source_final_review_sha256": "ae3068557451a6be6ceb25899b4583f091d17fe31e85751966045e55de74a880",
+  "cms_record": {
+    "id": 70,
+    "type": "product",
+    "status": "publish",
+    "slug": "heavy-duty-drying-towel-1200gsm",
+    "link": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "modified": "2026-05-18T20:50:22",
+    "template": ""
+  },
+  "field_mappings": {
+    "title_headings": {
+      "cms_storage_type": "wp_posts",
+      "field_identifier": "post_title",
+      "current_stored_value": "Heavy Duty Drying Towel – 1200gsm",
+      "current_rendered_value": "Heavy Duty Drying Towel – 1200gsm",
+      "current_value_representation": "rest_rendered_view",
+      "raw_stored_value_available": false,
+      "cms_hash_guard_eligible": false,
+      "rollback_source_complete": false,
+      "cms_current_value_sha256": "cab90254eb8700633239c7e848924783eb643a1136b42d75c8ee9653415ccbdb",
+      "target_content": "Heavy Duty Car Drying Towel – 1200GSM",
+      "mapping_status": "SAFE_TO_WRITE_AFTER_HUMAN_APPROVAL",
+      "mapping_reason": "The public product REST title matches the unique verified H1.",
+      "side_effect_boundaries": {
+        "slug_field": "post_name",
+        "slug_current_value": "heavy-duty-drying-towel-1200gsm",
+        "slug_change_authorised": false,
+        "navigation_or_schema_may_consume_title": true
+      }
+    },
+    "product_description_benefits": {
+      "cms_storage_type": "elementor_rendered_widget",
+      "field_identifier": "widget:c80e718:text-editor",
+      "current_stored_value": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible.\n\nThe 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, and unwanted marks.\n\nIts double-sided plush construction holds a serious amount of water while staying soft, gentle, and manageable. Whether you prefer to lay it flat, pat dry, or glide it across the surface, this towel makes light work of even the wettest panels.",
+      "current_rendered_value": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible.\n\nThe 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, and unwanted marks.\n\nIts double-sided plush construction holds a serious amount of water while staying soft, gentle, and manageable. Whether you prefer to lay it flat, pat dry, or glide it across the surface, this towel makes light work of even the wettest panels.",
+      "current_value_representation": "rendered_elementor_widget",
+      "raw_stored_value_available": false,
+      "cms_hash_guard_eligible": false,
+      "rollback_source_complete": false,
+      "cms_current_value_sha256": "92d491526ff3102eeec7c734264ac925bf909ed86b6406f00b5fdc5b458b0401",
+      "target_content": "Built for faster, easier vehicle drying, this heavy-duty microfibre towel uses a 1200GSM dual-layer, double-sided plush construction to pull water from paint with fewer passes and less contact. That helps reduce streaks, smears and unwanted marks. Suitable for cars, SUVs and vans, it can be used on clean, shampooed paintwork, glass and exterior plastics.",
+      "mapping_status": "BLOCKED",
+      "mapping_reason": "All three live paragraphs render from one Elementor text widget, but its raw _elementor_data value is unavailable and the approved copy requires a human merge.",
+      "current_concepts": [
+        "ultra-dense 1200GSM dual-sided microfibre construction",
+        "heavy-rinse positioning",
+        "90 × 60 cm sizing and control",
+        "fewer passes, faster drying and reduced paint contact",
+        "double-sided plush water holding",
+        "lay / pat / glide usage",
+        "wettest panels wording"
+      ],
+      "content_that_survives_unchanged": [
+        "How to use it section",
+        "Tech Specs section",
+        "FAQ section",
+        "all unrelated post_content sections"
+      ],
+      "content_that_would_be_removed_by_verbatim_section_replacement": [
+        "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible.",
+        "The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, and unwanted marks.",
+        "Its double-sided plush construction holds a serious amount of water while staying soft, gentle, and manageable. Whether you prefer to lay it flat, pat dry, or glide it across the surface, this towel makes light work of even the wettest panels."
+      ],
+      "proposed_operation": "requires_human_copy_merge"
+    },
+    "comparisons": {
+      "cms_storage_type": "elementor_rendered_widget",
+      "field_identifier": "nested-accordion:4691e088/answer-widget:40869c27",
+      "current_stored_value": "What’s the difference between this and the XL 800GSM Drying Towel?\nThe Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+      "current_rendered_value": "What’s the difference between this and the XL 800GSM Drying Towel?\nThe Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+      "current_value_representation": "rendered_elementor_widget",
+      "raw_stored_value_available": false,
+      "cms_hash_guard_eligible": false,
+      "rollback_source_complete": false,
+      "cms_current_value_sha256": "92794eebd4cea5df6fbb577943794509a413d4fb2ad1ac2885c223ed8e1afcc5",
+      "target_content": "Choose the Heavy Duty 1200GSM if you prefer a thicker, double-sided towel that is smaller, heavier and more substantial in the hand. Choose the XL 800GSM if you prefer a larger, lighter towel that glides more easily.",
+      "mapping_status": "BLOCKED",
+      "mapping_reason": "The unique comparison answer renders from an Elementor nested-accordion text widget, but raw _elementor_data is unavailable for a bounded replacement.",
+      "proposed_operation": "requires_raw_elementor_data",
+      "content_that_survives_unchanged": [
+        "FAQ question",
+        "all other FAQs",
+        "all non-comparison post_content"
+      ],
+      "content_that_would_be_removed": [
+        "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+      ]
+    },
+    "clarity_trust": {
+      "cms_storage_type": "wp_posts",
+      "field_identifier": "post_excerpt",
+      "current_stored_value": "<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n<li>1200GSM dual layer thickness</li>\n<li>Extreme absorbency</li>\n<li>Soft premium feel</li>\n<li>Safe on all paint</li>\n<li>Ideal for larger vehicles</li>\n</ul>\n",
+      "current_rendered_value": "Extreme absorbency\nSafe on all paint",
+      "current_value_representation": "rest_rendered_view",
+      "raw_stored_value_available": false,
+      "cms_hash_guard_eligible": false,
+      "rollback_source_complete": false,
+      "cms_current_value_sha256": "2b7a205a2f4e4eb4f29d0f4ac84b4e0e00b71d5d7def5e9327dd8c3d3c477f70",
+      "target_content": "Strong water-holding capacity, with a heavier feel once fully saturated. Suitable for paintwork when used correctly on a clean, shampooed surface.",
+      "mapping_status": "BLOCKED",
+      "mapping_reason": "The short claims or detailed safety guidance could not be mapped to separate CMS fields.",
+      "proposed_operation": "requires_raw_post_excerpt",
+      "content_that_survives_unchanged": [
+        "1200GSM dual layer thickness",
+        "Soft premium feel",
+        "Ideal for larger vehicles",
+        "Will this towel scratch my paint?\nNo, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+      ],
+      "content_that_would_be_removed": [
+        "Extreme absorbency",
+        "Safe on all paint"
+      ],
+      "detailed_safety_guidance_source": "elementor_rendered_widget:nested-accordion:4691e088/answer-widget:43d7d6f0"
+    }
+  },
+  "unknown_cms_ownership": [
+    "raw Elementor _elementor_data for widgets c80e718, 40869c27 and 43d7d6f0",
+    "raw post_excerpt representation",
+    "theme/template rendering internals beyond the public REST field relationship"
+  ],
+  "blocked_fields": [
+    "post_name",
+    "metadata",
+    "schema",
+    "images",
+    "pricing",
+    "inventory",
+    "product_attributes",
+    "layout",
+    "specifications",
+    "care_usage",
+    "internal_links",
+    "additional_faqs",
+    "differentiation"
+  ],
+  "write_operations_performed": 0,
+  "approval_state": "awaiting_human_implementation_approval",
+  "publication_allowed": false,
+  "guards": {
+    "live_hash_required": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+    "cms_value_hashes_required": true,
+    "on_mismatch": "STOP_AND_REVERIFY"
+  },
+  "cms_field_map_id": "cms_field_map_7e8078a53d0cb82c72f1164e",
+  "cms_field_map_sha256": "7e8078a53d0cb82c72f1164e10cc2fb91d4f9c88e0edfc26ec2a320bba1cc8d8"
+}

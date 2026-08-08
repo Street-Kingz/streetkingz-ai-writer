@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cms_field_mapping_offline_replay",
+  "product_post_id": 70,
+  "network_retrievals": 0,
+  "writes": 0,
+  "approval_state": "awaiting_human_implementation_approval",
+  "publication_allowed": false
+}

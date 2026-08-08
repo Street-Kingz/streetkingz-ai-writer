@@ -1,0 +1,13 @@
+{
+  "requested_url": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+  "final_url": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+  "http_status": 200,
+  "retrieved_at": "2026-08-08T15:05:38.659Z",
+  "content_type": "application/json; charset=UTF-8",
+  "content_hash": "93e410737144c3ada077df914a174c2e0d71085710c05d2358a7706bc7acecd9",
+  "response_size_bytes": 13834,
+  "retrieval_count": 1,
+  "method": "GET",
+  "authentication": "none_public_view",
+  "write_capability": false
+}

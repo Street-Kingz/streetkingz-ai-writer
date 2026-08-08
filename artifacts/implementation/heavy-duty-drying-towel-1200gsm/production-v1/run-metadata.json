@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cms_field_mapping_run",
+  "product_post_id": 70,
+  "method": "public_wordpress_rest_read_only",
+  "reads": 1,
+  "writes": 0,
+  "endpoint": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=view",
+  "field_map_id": "cms_field_map_e060fdf9c22ee97c3881ad23",
+  "approval_state": "awaiting_human_implementation_approval",
+  "publication_allowed": false
+}
