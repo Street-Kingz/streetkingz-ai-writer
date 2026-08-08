@@ -1,6 +1,8 @@
 import {
   PROVIDER_STATUSES,
   RUN_STATUSES,
+  OBJECTIVE_TYPES,
+  SUFFICIENCY_STATES,
   SCHEMA_VERSION
 } from "../contracts/schemas.js";
 import { sha256 } from "../core/canonical.js";
@@ -177,6 +179,37 @@ export function validateEvidenceArtifact(value) {
   requiredString(value?.coverage_ref, "coverage_ref", errors);
   requiredString(value?.created_at, "created_at", errors);
   requiredArray(value?.warnings, "warnings", errors);
+  return errors;
+}
+
+export function validateResearchState(value) {
+  const errors = [];
+  validateBaseArtifact(value, "research_state", errors);
+  requiredString(value?.research_state_id, "research_state_id", errors);
+  requiredString(value?.research_run_id, "research_run_id", errors);
+  if (!isObject(value?.objective)) errors.push("objective must be an object.");
+  if (!OBJECTIVE_TYPES.includes(value?.objective?.type)) errors.push("objective.type is not supported.");
+  requiredString(value?.objective?.contract_version, "objective.contract_version", errors);
+  if (!isObject(value?.source_evidence)) errors.push("source_evidence must be an object.");
+  requiredString(value?.source_evidence?.evidence_artifact_id, "source_evidence.evidence_artifact_id", errors);
+  requiredString(value?.source_evidence?.sha256, "source_evidence.sha256", errors);
+  requiredArray(value?.source_evidence?.evidence_ids, "source_evidence.evidence_ids", errors);
+  if (!isObject(value?.subject)) errors.push("subject must be an object.");
+  requiredString(value?.subject?.subject_id, "subject.subject_id", errors);
+  for (const field of ["providers", "keyword_topic_groups", "site_pages", "external_pages", "external_domains", "serp_feature_observations", "conflicts", "missing_evidence_categories"]) {
+    requiredArray(value?.[field], field, errors);
+  }
+  if (!isObject(value?.evidence_counts)) errors.push("evidence_counts must be an object.");
+  if (!isObject(value?.search_console_relationships)) errors.push("search_console_relationships must be an object.");
+  if (!isObject(value?.sufficiency)) errors.push("sufficiency must be an object.");
+  if (!SUFFICIENCY_STATES.includes(value?.sufficiency?.state)) errors.push("sufficiency.state is not supported.");
+  for (const field of ["requirements_checked", "requirements_satisfied", "requirements_missing"]) {
+    requiredArray(value?.sufficiency?.[field], `sufficiency.${field}`, errors);
+  }
+  if (typeof value?.sufficiency?.interpretation_may_proceed !== "boolean") errors.push("sufficiency.interpretation_may_proceed must be boolean.");
+  requiredString(value?.sufficiency?.reason, "sufficiency.reason", errors);
+  const sourceIds = value?.source_evidence?.evidence_ids || [];
+  if (new Set(sourceIds).size !== sourceIds.length) errors.push("source_evidence.evidence_ids must be unique.");
   return errors;
 }
 

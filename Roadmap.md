@@ -97,15 +97,17 @@ Each arrow is a stage boundary, not an instruction to combine stages into one pr
 - [x] One controlled five-keyword SERP validation and a zero-request cache-only rerun. The live run proved organic results, People Also Ask, related searches, popular products, videos, perspectives, discussions/forums and AI Overviews.
 - [x] Google Search Console provider and controlled live validation with a zero-request cache-only rerun. The live run proved first-party query, page and query/page performance evidence covering clicks, impressions, CTR and average position, plus deterministic keyword and site-page relationships.
 - [x] Primary V1 evidence-source layer: Product Facts, DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console.
+- [x] Deterministic cross-provider research-state aggregation with inspectable keyword/topic, site-page, external-page/domain, SERP-feature and Search Console relationship groups.
+- [x] Objective-specific evidence-sufficiency contracts for product-page improvement, supporting content and content-opportunity identification, with explainable `sufficient`, `partial`, `insufficient` and `unavailable` states.
 
 ### Current
 
 - [ ] Productionise Keyword Ideas: finalise operational documentation, artifact retention conventions and the reviewed command path while preserving the proven request and cache behaviour.
-- [ ] Complete cross-provider evidence aggregation and define preliminary objective-specific evidence-sufficiency states without inventing arbitrary SEO thresholds.
+- [ ] Implement the evidence-cited opportunity/interpretation decision layer and produce the first complete content decision.
 
 ### Next
 
-- [ ] Implement opportunity scoring and produce the first complete content decision.
+- [ ] Produce and human-review the first approved content brief from the recorded decision.
 
 ### Later
 
@@ -221,7 +223,7 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 
 ## 4. Phase 3: External keyword/SERP research
 
-**Status: Complete.** Product Facts, DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console are implemented, tested and controlled-live validated as the primary V1 evidence-source layer. Aggregation and evidence sufficiency are the next phase.
+**Status: Complete.** Product Facts, DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console are implemented, tested and controlled-live validated as the primary V1 evidence-source layer. Deterministic cross-provider aggregation and objective-specific evidence sufficiency are also implemented and validated; the opportunity/interpretation decision layer is next.
 
 ### Goal
 
@@ -274,7 +276,7 @@ The controlled SERP Advanced run proved that the provider can collect organic re
 
 ## 5. Phase 4: Opportunity decision and content brief
 
-**Status: Upcoming after Phase 3 sufficiency.** This is the single AI interpretation and strategy stage; no earlier collection stage asks AI to perform research or rewrite evidence.
+**Status: Next.** This is the single AI interpretation and strategy stage; no earlier collection or sufficiency stage asks AI to perform research or rewrite evidence.
 
 ### Goal
 

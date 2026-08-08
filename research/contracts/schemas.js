@@ -9,6 +9,13 @@ export const PROVIDER_STATUSES = Object.freeze([
 ]);
 
 export const RUN_STATUSES = Object.freeze(["complete", "partial", "insufficient", "failed"]);
+export const SUFFICIENCY_STATES = Object.freeze(["sufficient", "partial", "insufficient", "unavailable"]);
+
+export const OBJECTIVE_TYPES = Object.freeze([
+  "improve_existing_product_page",
+  "create_supporting_content",
+  "identify_content_opportunities"
+]);
 
 export const providerRequestSchema = Object.freeze({
   $id: "streetkingz.provider-request.v1",
@@ -119,5 +126,30 @@ export const evidenceArtifactSchema = Object.freeze({
     "coverage_ref",
     "created_at",
     "warnings"
+  ]
+});
+
+export const researchStateSchema = Object.freeze({
+  $id: "content-intelligence.research-state.v1",
+  type: "object",
+  required: [
+    "schema_version",
+    "artifact_type",
+    "research_state_id",
+    "research_run_id",
+    "objective",
+    "source_evidence",
+    "subject",
+    "providers",
+    "evidence_counts",
+    "keyword_topic_groups",
+    "site_pages",
+    "external_pages",
+    "external_domains",
+    "serp_feature_observations",
+    "search_console_relationships",
+    "conflicts",
+    "missing_evidence_categories",
+    "sufficiency"
   ]
 });
