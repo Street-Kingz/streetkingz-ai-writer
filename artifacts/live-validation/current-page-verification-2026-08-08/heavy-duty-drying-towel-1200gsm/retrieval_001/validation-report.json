@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_verification_report",
+  "state": "valid",
+  "errors": [],
+  "raw_page_preserved": true,
+  "approved_candidate_copy_unchanged": true,
+  "upstream_artifacts_immutable": true,
+  "comparison_duplication_prevented": true,
+  "safety_guidance_preserved": true,
+  "publication_allowed": false
+}

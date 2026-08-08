@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_verification_report",
+  "state": "invalid",
+  "errors": [
+    {
+      "code": "RAW_PAGE_NOT_PRESERVED",
+      "path": "raw/page.html",
+      "message": "The single retrieved response was lost when artifact persistence failed before the raw page was written."
+    },
+    {
+      "code": "CONTENT_HASH_NOT_PRESERVED",
+      "path": "verified_content_hash",
+      "message": "The in-memory content hash was not recoverable after process exit."
+    },
+    {
+      "code": "IMPLEMENTATION_DIFF_NOT_CREATED",
+      "path": "implementation-diff.md",
+      "message": "No implementation mapping may be accepted without the preserved raw page and verification artifact."
+    }
+  ],
+  "retrievals": 1,
+  "retry_performed": false,
+  "publication_allowed": false,
+  "upstream_artifacts_modified": false
+}

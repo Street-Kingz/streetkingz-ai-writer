@@ -1,0 +1,803 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_verification",
+  "target_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "retrieval": {
+    "requested_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "final_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "http_status": 200,
+    "retrieved_at": "2026-08-08T14:53:28.047Z",
+    "content_type": "text/html; charset=UTF-8",
+    "content_hash": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+    "response_size_bytes": 276490,
+    "retrieval_count": 1,
+    "redirect_handling": "fetch_follow"
+  },
+  "verified_content_hash": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+  "source_final_review_sha256": "ae3068557451a6be6ceb25899b4583f091d17fe31e85751966045e55de74a880",
+  "source_generation_sha256": "9b2edc8dfa2c8b9ab5c94bd4f4968b2df6a89186059036821f0f19ba3c34ccdc",
+  "source_generation_brief_sha256": "1e6383c74f2dfaf98cbcf5d08489e6d5e235dfea992baa57b858424d0c349154",
+  "extracted_current_state": {
+    "identity": {
+      "visible_title": {
+        "state": "structural",
+        "matches": [
+          {
+            "text": "Heavy Duty Drying Towel – 1200gsm",
+            "locator": "h1[0]",
+            "match_method": "structural",
+            "confidence": "structural"
+          }
+        ]
+      },
+      "headings": [
+        {
+          "level": 1,
+          "text": "Heavy Duty Drying Towel – 1200gsm",
+          "locator": "h1[0]"
+        },
+        {
+          "level": 2,
+          "text": "Why this product works so well",
+          "locator": "h2[0]"
+        },
+        {
+          "level": 2,
+          "text": "About this product",
+          "locator": "h2[1]"
+        },
+        {
+          "level": 2,
+          "text": "How to use it",
+          "locator": "h2[2]"
+        },
+        {
+          "level": 2,
+          "text": "Tech Specs",
+          "locator": "h2[3]"
+        },
+        {
+          "level": 2,
+          "text": "Complete the Kit",
+          "locator": "h2[4]"
+        },
+        {
+          "level": 2,
+          "text": "Customer Reviews",
+          "locator": "h2[5]"
+        },
+        {
+          "level": 2,
+          "text": "You May Also Like",
+          "locator": "h2[6]"
+        },
+        {
+          "level": 2,
+          "text": "FAQ’s",
+          "locator": "h2[7]"
+        },
+        {
+          "level": 2,
+          "text": "30-DAY SATISFACTION GUARANTEE",
+          "locator": "h2[8]"
+        },
+        {
+          "level": 2,
+          "text": "FAST UK SHIPPING",
+          "locator": "h2[9]"
+        },
+        {
+          "level": 2,
+          "text": "Premium Materials, No Gimmicks",
+          "locator": "h2[10]"
+        },
+        {
+          "level": 2,
+          "text": "SK Detailing Ltd",
+          "locator": "h2[11]"
+        },
+        {
+          "level": 2,
+          "text": "Navigate",
+          "locator": "h2[12]"
+        },
+        {
+          "level": 2,
+          "text": "Important Links",
+          "locator": "h2[13]"
+        },
+        {
+          "level": 2,
+          "text": "SK Detailing Ltd",
+          "locator": "h2[14]"
+        },
+        {
+          "level": 2,
+          "text": "Navigate",
+          "locator": "h2[15]"
+        },
+        {
+          "level": 2,
+          "text": "Important Links",
+          "locator": "h2[16]"
+        },
+        {
+          "level": 2,
+          "text": "Navigate",
+          "locator": "h2[17]"
+        },
+        {
+          "level": 2,
+          "text": "Important Links",
+          "locator": "h2[18]"
+        },
+        {
+          "level": 2,
+          "text": "Review Cart",
+          "locator": "h2[19]"
+        },
+        {
+          "level": 4,
+          "text": "The Origin Shampoo",
+          "locator": "h4[0]"
+        },
+        {
+          "level": 4,
+          "text": "Microfibre Wash Mitt",
+          "locator": "h4[1]"
+        },
+        {
+          "level": 4,
+          "text": "XL Barrel Brush",
+          "locator": "h4[2]"
+        },
+        {
+          "level": 4,
+          "text": "Origin Ultra Bundle",
+          "locator": "h4[3]"
+        },
+        {
+          "level": 4,
+          "text": "Coral Fleece Cloths",
+          "locator": "h4[4]"
+        },
+        {
+          "level": 4,
+          "text": "Interior Scrub Pads",
+          "locator": "h4[5]"
+        }
+      ]
+    },
+    "description": {
+      "blocks": [
+        {
+          "text": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible.",
+          "locator": "section[h2=\"About this product\"] p[0]",
+          "match_method": "structural"
+        },
+        {
+          "text": "The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, and unwanted marks.",
+          "locator": "section[h2=\"About this product\"] p[1]",
+          "match_method": "structural"
+        },
+        {
+          "text": "Its double-sided plush construction holds a serious amount of water while staying soft, gentle, and manageable. Whether you prefer to lay it flat, pat dry, or glide it across the surface, this towel makes light work of even the wettest panels.",
+          "locator": "section[h2=\"About this product\"] p[2]",
+          "match_method": "structural"
+        }
+      ],
+      "distribution": "distributed_across_observable_blocks",
+      "cms_field_ownership": "unknown"
+    },
+    "comparison": {
+      "state": "structural",
+      "matches": [
+        {
+          "question": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "answer": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "text": "What’s the difference between this and the XL 800GSM Drying Towel?\nThe Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "locator": "details[0]",
+          "match_method": "structural"
+        }
+      ]
+    },
+    "clarity_trust": {
+      "exact_absorbency_claims": [
+        {
+          "text": "Extreme absorbency",
+          "locator": "li[9]",
+          "match_method": "exact",
+          "confidence": "exact"
+        }
+      ],
+      "exact_safety_claims": [
+        {
+          "text": "Safe on all paint",
+          "locator": "li[11]",
+          "match_method": "exact",
+          "confidence": "exact"
+        }
+      ],
+      "bounded_equivalent_absorbency_claims": [],
+      "bounded_equivalent_safety_claims": [],
+      "associated_qualification": {
+        "state": "structural",
+        "matches": [
+          {
+            "question": "Will this towel scratch my paint?",
+            "answer": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+            "text": "Will this towel scratch my paint?\nNo, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+            "locator": "details[1]",
+            "match_method": "structural"
+          }
+        ]
+      }
+    },
+    "observed_blocked_areas": {
+      "metadata": {
+        "title": "Heavy Duty Drying Towel | Premium Car Care Tools UK | Street Kingz1",
+        "description": "Ultra-absorbent 1200GSM drying towel designed for everyday UK drivers. Built for real-world use with fast UK delivery from Street Kingz.",
+        "authorised_for_change": false
+      },
+      "specifications": [
+        {
+          "text": "• GSM: 1200GSM (dual-sided plush microfibre) • Size: 90 × 60 cm • Material: Premium dual-sided microfibre • Edge: Soft microfibre edging • Suitable for: Cars, SUVs, vans, paintwork, glass and exterior plastics • Best use: Post-wash drying, especially on larger or heavily rinsed vehicles • Wash: Machine washable on a cold, gentle cycle with microfibre or non-bio detergent • Care: Do not use fabric softener or bleach • Dry: Air dry only, do not tumble dry",
+          "locator": "section[h2=\"Tech Specs\"]"
+        }
+      ],
+      "care_usage": [
+        {
+          "text": "1) Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo . 2) Rinse thoroughly and remove standing water with a light sheet of water. 3) Lay the towel flat on the panel. 4) Gently drag or pat dry, no pressure needed. 5) Wring out only when completely saturated. 6) After use, wash on a gentle cycle with microfibre detergent or non-bio detergent.",
+          "locator": "section[h2=\"How to use it\"]"
+        }
+      ],
+      "internal_links": [
+        {
+          "url": "#main",
+          "text": "Skip to content",
+          "locator": "a[0]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/",
+          "text": "",
+          "locator": "a[1]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/start",
+          "text": "Start Here Expand",
+          "locator": "a[2]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/exterior/",
+          "text": "Exterior",
+          "locator": "a[3]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/wheels/",
+          "text": "Wheels",
+          "locator": "a[4]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/interior/",
+          "text": "Interior",
+          "locator": "a[5]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/accessories/",
+          "text": "Accessories",
+          "locator": "a[6]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/bundles/",
+          "text": "Bundles",
+          "locator": "a[7]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/about-us/",
+          "text": "About",
+          "locator": "a[8]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/#reviews",
+          "text": "Reviews",
+          "locator": "a[9]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/contact-us/",
+          "text": "Contact Us",
+          "locator": "a[10]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/",
+          "text": "",
+          "locator": "a[11]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product/the-origin-shampoo/",
+          "text": "Origin Shampoo",
+          "locator": "a[12]"
+        },
+        {
+          "url": "/product/heavy-duty-drying-towel-1200gsm/?add-to-cart=1905",
+          "text": "Add to Cart",
+          "locator": "a[13]"
+        },
+        {
+          "url": "/product/heavy-duty-drying-towel-1200gsm/?add-to-cart=69",
+          "text": "Add to Cart",
+          "locator": "a[14]"
+        },
+        {
+          "url": "/product/heavy-duty-drying-towel-1200gsm/?add-to-cart=1486",
+          "text": "Add to Cart",
+          "locator": "a[15]"
+        },
+        {
+          "url": "/product/heavy-duty-drying-towel-1200gsm/?add-to-cart=2008",
+          "text": "Add to Cart",
+          "locator": "a[16]"
+        },
+        {
+          "url": "/product/heavy-duty-drying-towel-1200gsm/?add-to-cart=68",
+          "text": "Add to Cart",
+          "locator": "a[17]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+          "text": "Add to Cart",
+          "locator": "a[18]"
+        },
+        {
+          "url": "https://streetkingz.co.uk",
+          "text": "",
+          "locator": "a[19]"
+        },
+        {
+          "url": "https://www.facebook.com/profile.php?id=61565609982344",
+          "text": "Facebook-f",
+          "locator": "a[20]"
+        },
+        {
+          "url": "https://www.instagram.com/street_kingz.official/",
+          "text": "Instagram",
+          "locator": "a[21]"
+        },
+        {
+          "url": "https://www.youtube.com/@Street_Kingz_Official",
+          "text": "Youtube",
+          "locator": "a[22]"
+        },
+        {
+          "url": "https://www.tiktok.com/@street_kingz_official",
+          "text": "Icon-tiktok",
+          "locator": "a[23]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/shop/",
+          "text": "Shop Now",
+          "locator": "a[24]"
+        },
+        {
+          "url": "https:/contact-us/",
+          "text": "Contact Us",
+          "locator": "a[25]"
+        },
+        {
+          "url": "https:/about-us/",
+          "text": "About Us",
+          "locator": "a[26]"
+        },
+        {
+          "url": "https:/refund-policy/",
+          "text": "Refunds",
+          "locator": "a[27]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/my-account/",
+          "text": "My Account",
+          "locator": "a[28]"
+        },
+        {
+          "url": "https:/terms-and-conditions/",
+          "text": "Terms & Conditions",
+          "locator": "a[29]"
+        },
+        {
+          "url": "https:/shipping-policy/",
+          "text": "Shipping Policy",
+          "locator": "a[30]"
+        },
+        {
+          "url": "https:/privacy-policy/",
+          "text": "Privacy Policy",
+          "locator": "a[31]"
+        },
+        {
+          "url": "https:/cookie-policy/",
+          "text": "Cookie Policy",
+          "locator": "a[32]"
+        },
+        {
+          "url": "https:/returns-policy/",
+          "text": "Returns Policy",
+          "locator": "a[33]"
+        },
+        {
+          "url": "https://www.facebook.com/profile.php?id=61565609982344",
+          "text": "Facebook-f",
+          "locator": "a[34]"
+        },
+        {
+          "url": "https://www.instagram.com/street_kingz.official/",
+          "text": "Instagram",
+          "locator": "a[35]"
+        },
+        {
+          "url": "https://www.youtube.com/@Street_Kingz_Official",
+          "text": "Youtube",
+          "locator": "a[36]"
+        },
+        {
+          "url": "https://www.tiktok.com/@street_kingz_official",
+          "text": "Icon-tiktok",
+          "locator": "a[37]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/shop/",
+          "text": "Shop Now",
+          "locator": "a[38]"
+        },
+        {
+          "url": "https:/contact-us/",
+          "text": "Contact Us",
+          "locator": "a[39]"
+        },
+        {
+          "url": "https:/about-us/",
+          "text": "About Us",
+          "locator": "a[40]"
+        },
+        {
+          "url": "https:/refund-policy/",
+          "text": "Refunds",
+          "locator": "a[41]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/my-account/",
+          "text": "My Account",
+          "locator": "a[42]"
+        },
+        {
+          "url": "https:/terms-and-conditions/",
+          "text": "Terms & Conditions",
+          "locator": "a[43]"
+        },
+        {
+          "url": "https:/shipping-policy/",
+          "text": "Shipping Policy",
+          "locator": "a[44]"
+        },
+        {
+          "url": "https:/privacy-policy/",
+          "text": "Privacy Policy",
+          "locator": "a[45]"
+        },
+        {
+          "url": "https:/cookie-policy/",
+          "text": "Cookie Policy",
+          "locator": "a[46]"
+        },
+        {
+          "url": "https:/returns-policy/",
+          "text": "Returns Policy",
+          "locator": "a[47]"
+        },
+        {
+          "url": "https://streetkingz.co.uk",
+          "text": "",
+          "locator": "a[48]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/shop/",
+          "text": "Shop Now",
+          "locator": "a[49]"
+        },
+        {
+          "url": "https:/contact-us/",
+          "text": "Contact Us",
+          "locator": "a[50]"
+        },
+        {
+          "url": "https:/about-us/",
+          "text": "About Us",
+          "locator": "a[51]"
+        },
+        {
+          "url": "https:/refund-policy/",
+          "text": "Refunds",
+          "locator": "a[52]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/my-account/",
+          "text": "My Account",
+          "locator": "a[53]"
+        },
+        {
+          "url": "https:/terms-and-conditions/",
+          "text": "Terms & Conditions",
+          "locator": "a[54]"
+        },
+        {
+          "url": "https:/shipping-policy/",
+          "text": "Shipping Policy",
+          "locator": "a[55]"
+        },
+        {
+          "url": "https:/privacy-policy/",
+          "text": "Privacy Policy",
+          "locator": "a[56]"
+        },
+        {
+          "url": "https:/cookie-policy/",
+          "text": "Cookie Policy",
+          "locator": "a[57]"
+        },
+        {
+          "url": "https:/returns-policy/",
+          "text": "Returns Policy",
+          "locator": "a[58]"
+        },
+        {
+          "url": "https://streetkingz.co.uk",
+          "text": "",
+          "locator": "a[59]"
+        },
+        {
+          "url": "https://www.facebook.com/profile.php?id=61565609982344",
+          "text": "Facebook-f",
+          "locator": "a[60]"
+        },
+        {
+          "url": "https://www.instagram.com/street_kingz.official/",
+          "text": "Instagram",
+          "locator": "a[61]"
+        },
+        {
+          "url": "https://www.youtube.com/@Street_Kingz_Official",
+          "text": "Youtube",
+          "locator": "a[62]"
+        },
+        {
+          "url": "https://www.tiktok.com/@street_kingz_official",
+          "text": "Icon-tiktok",
+          "locator": "a[63]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/start",
+          "text": "Start Here",
+          "locator": "a[64]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/exterior/",
+          "text": "Exterior",
+          "locator": "a[65]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/interior/",
+          "text": "Interior",
+          "locator": "a[66]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/wheels/",
+          "text": "Wheels",
+          "locator": "a[67]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/accessories/",
+          "text": "Accessories",
+          "locator": "a[68]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/product-category/bundles/",
+          "text": "Bundles",
+          "locator": "a[69]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/about-us/",
+          "text": "About",
+          "locator": "a[70]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/#reviews",
+          "text": "Reviews",
+          "locator": "a[71]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/contact-us/",
+          "text": "Contact Us",
+          "locator": "a[72]"
+        },
+        {
+          "url": "https://streetkingz.co.uk/my-account/",
+          "text": "My Account",
+          "locator": "a[73]"
+        }
+      ],
+      "additional_faqs": [
+        {
+          "question": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "answer": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "text": "What’s the difference between this and the XL 800GSM Drying Towel?\nThe Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "locator": "details[0]",
+          "match_method": "structural"
+        },
+        {
+          "question": "Will this towel scratch my paint?",
+          "answer": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+          "text": "Will this towel scratch my paint?\nNo, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+          "locator": "details[1]",
+          "match_method": "structural"
+        },
+        {
+          "question": "Is it too heavy when it’s wet?",
+          "answer": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+          "text": "Is it too heavy when it’s wet?\nIt will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+          "locator": "details[2]",
+          "match_method": "structural"
+        },
+        {
+          "question": "Can I use it on ceramic-coated or waxed cars?",
+          "answer": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings.",
+          "text": "Can I use it on ceramic-coated or waxed cars?\nYes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings.",
+          "locator": "details[3]",
+          "match_method": "structural"
+        },
+        {
+          "question": "How many towels do I need to dry a whole car?",
+          "answer": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+          "text": "How many towels do I need to dry a whole car?\nOne Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+          "locator": "details[4]",
+          "match_method": "structural"
+        },
+        {
+          "question": "How should I wash and store it?",
+          "answer": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+          "text": "How should I wash and store it?\nWash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+          "locator": "details[5]",
+          "match_method": "structural"
+        }
+      ],
+      "authorised_for_change": false
+    },
+    "limitations": [
+      "Rendered HTML does not establish WordPress or CMS field ownership.",
+      "Missing rendered content does not prove missing CMS content.",
+      "Bounded equivalent-phrase matching is lexical and does not establish unrestricted semantic equivalence."
+    ]
+  },
+  "frozen_baseline_comparison": {
+    "title_headings": "UNCHANGED",
+    "product_description_benefits": "NOT_FOUND",
+    "comparisons": "UNCHANGED",
+    "clarity_trust": "UNCHANGED"
+  },
+  "implementation_mappings": [
+    {
+      "decision_area": "title_headings",
+      "human_decision": "APPROVE",
+      "operation": "replace",
+      "current_live_content": [
+        "Heavy Duty Drying Towel – 1200gsm"
+      ],
+      "approved_candidate": "Heavy Duty Car Drying Towel – 1200GSM",
+      "source_locators": [
+        "h1[0]"
+      ],
+      "cms_field_ownership": "unknown",
+      "reason": "A unique rendered product H1 is identifiable.",
+      "implementation_notes": [
+        "Verify the WordPress field before writing.",
+        "Do not alter metadata or heading hierarchy."
+      ]
+    },
+    {
+      "decision_area": "product_description_benefits",
+      "human_decision": "MODIFY",
+      "operation": "requires_cms_field_mapping",
+      "current_live_content": [
+        "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible.",
+        "The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, and unwanted marks.",
+        "Its double-sided plush construction holds a serious amount of water while staying soft, gentle, and manageable. Whether you prefer to lay it flat, pat dry, or glide it across the surface, this towel makes light work of even the wettest panels."
+      ],
+      "approved_candidate": "Built for faster, easier vehicle drying, this heavy-duty microfibre towel uses a 1200GSM dual-layer, double-sided plush construction to pull water from paint with fewer passes and less contact. That helps reduce streaks, smears and unwanted marks. Suitable for cars, SUVs and vans, it can be used on clean, shampooed paintwork, glass and exterior plastics.",
+      "source_locators": [
+        "section[h2=\"About this product\"] p[0]",
+        "section[h2=\"About this product\"] p[1]",
+        "section[h2=\"About this product\"] p[2]"
+      ],
+      "cms_field_ownership": "unknown",
+      "reason": "Relevant rendered content is observable, but rendered HTML does not establish its CMS field boundaries.",
+      "implementation_notes": [
+        "Map the exact CMS fields before replacing or consolidating content.",
+        "Do not infer rendered section ordering or remove unrelated content."
+      ]
+    },
+    {
+      "decision_area": "comparisons",
+      "human_decision": "APPROVE",
+      "operation": "replace",
+      "current_live_content": [
+        "What’s the difference between this and the XL 800GSM Drying Towel?\nThe Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+      ],
+      "approved_candidate": "Choose the Heavy Duty 1200GSM if you prefer a thicker, double-sided towel that is smaller, heavier and more substantial in the hand. Choose the XL 800GSM if you prefer a larger, lighter towel that glides more easily.",
+      "source_locators": [
+        "details[0]"
+      ],
+      "cms_field_ownership": "unknown",
+      "reason": "One existing Heavy Duty / XL 800GSM FAQ comparison is identifiable for replacement or consolidation.",
+      "implementation_notes": [
+        "Replace or consolidate the existing answer; never add a second comparison.",
+        "Verify the FAQ CMS field before writing."
+      ]
+    },
+    {
+      "decision_area": "clarity_trust",
+      "human_decision": "MODIFY",
+      "operation": "requires_cms_field_mapping",
+      "current_live_content": [
+        "Extreme absorbency",
+        "Safe on all paint"
+      ],
+      "approved_candidate": "Strong water-holding capacity, with a heavier feel once fully saturated. Suitable for paintwork when used correctly on a clean, shampooed surface.",
+      "source_locators": [
+        "li[9]",
+        "li[11]"
+      ],
+      "cms_field_ownership": "unknown",
+      "preserve_current_content": [
+        "Will this towel scratch my paint?\nNo, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+      ],
+      "reason": "Current claim text is observable, but CMS field boundaries and nearby qualification placement are not established by rendered HTML.",
+      "implementation_notes": [
+        "Preserve useful existing safety FAQ guidance.",
+        "Do not weaken correct-use or clean-paint qualifications."
+      ]
+    }
+  ],
+  "rejected_or_blocked_decisions": [
+    {
+      "decision_area": "differentiation",
+      "human_decision": "REJECT",
+      "implementation_action": false
+    },
+    {
+      "decision_area": "faqs_questions",
+      "implementation_action": false
+    },
+    {
+      "decision_area": "metadata",
+      "implementation_action": false
+    },
+    {
+      "decision_area": "specifications",
+      "implementation_action": false
+    },
+    {
+      "decision_area": "care_usage_guidance",
+      "implementation_action": false
+    },
+    {
+      "decision_area": "internal_linking",
+      "implementation_action": false
+    }
+  ],
+  "write_guard": {
+    "required": true,
+    "verified_content_hash": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f",
+    "on_mismatch": "STOP_AND_REVERIFY"
+  },
+  "publication_allowed": false,
+  "human_review_state": "awaiting_implementation_approval",
+  "verification_id": "current_page_verification_784a1b55575251fb91b2ab79",
+  "verification_sha256": "784a1b55575251fb91b2ab7953359622735e4751b7d06f02b74cb9a65ed683bf"
+}

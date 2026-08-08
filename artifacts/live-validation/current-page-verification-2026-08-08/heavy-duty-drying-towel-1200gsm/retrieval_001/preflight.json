@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_verification_preflight",
+  "state": "pass",
+  "target_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "authorised_retrievals": 1,
+  "retry_capability": false,
+  "run_directory_created_before_retrieval": true,
+  "response_persistence_before_extraction": true,
+  "source_hashes": {
+    "final_review": "ae3068557451a6be6ceb25899b4583f091d17fe31e85751966045e55de74a880",
+    "generation": "d1d5044fc72694e8bcf26c56056d230cd839e72c4d1d2e958b0d9d938f31e226",
+    "generation_brief": "7108259ef8332e3cb98cacedec2e9062172c4b245fdd29f08c7961469a8a75db"
+  }
+}

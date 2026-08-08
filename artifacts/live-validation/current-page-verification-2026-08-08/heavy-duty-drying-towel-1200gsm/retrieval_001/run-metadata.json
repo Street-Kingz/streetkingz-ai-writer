@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_verification_run",
+  "verification_id": "current_page_verification_784a1b55575251fb91b2ab79",
+  "target_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "retrievals": 1,
+  "source_hashes": {
+    "final_review": "ae3068557451a6be6ceb25899b4583f091d17fe31e85751966045e55de74a880",
+    "generation": "d1d5044fc72694e8bcf26c56056d230cd839e72c4d1d2e958b0d9d938f31e226",
+    "generation_brief": "7108259ef8332e3cb98cacedec2e9062172c4b245fdd29f08c7961469a8a75db"
+  },
+  "output_directory": "/Users/ben/Documents/GitHub/streetkingz-ai-writer/artifacts/live-validation/current-page-verification-2026-08-08/heavy-duty-drying-towel-1200gsm/retrieval_001",
+  "files": {
+    "raw_page": "raw/page.html",
+    "verification": "current-page-verification.json",
+    "implementation_diff": "implementation-diff.md",
+    "validation_report": "validation-report.json"
+  },
+  "external_calls": {
+    "page_retrievals": 1,
+    "ai": 0,
+    "dataforseo": 0,
+    "search_console": 0
+  },
+  "publication_allowed": false
+}

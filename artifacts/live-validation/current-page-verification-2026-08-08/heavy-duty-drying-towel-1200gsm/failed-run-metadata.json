@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_verification_failed_run",
+  "target_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "retrievals": 1,
+  "retrieval_result": "A successful 2xx response was processed in memory, but exact HTTP metadata and content were not persisted before the artifact-write failure.",
+  "failure_stage": "artifact_persistence",
+  "failure_code": "ENOENT",
+  "failure_message": "The runner attempted to create the raw child directory before creating its verification run directory.",
+  "failed_path": "artifacts/live-validation/current-page-verification-2026-08-08/heavy-duty-drying-towel-1200gsm/verification_5c2a0bbcb61a13ee56e318ef/raw",
+  "raw_page_preserved": false,
+  "content_hash_preserved": false,
+  "retry_performed": false,
+  "external_calls": {
+    "page_retrievals": 1,
+    "ai": 0,
+    "dataforseo": 0,
+    "search_console": 0
+  },
+  "resolution": "The run-directory creation order was corrected and covered by an offline regression test. A new live retrieval requires explicit authorisation because this task permitted only one retrieval."
+}
