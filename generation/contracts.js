@@ -1,10 +1,13 @@
 import { DECISION_AREAS } from "../interpretation/contracts.js";
 
-export const APPROVAL_SCHEMA_VERSION = "1.0.0";
-export const GENERATION_BRIEF_SCHEMA_VERSION = "1.0.0";
-export const GENERATION_OUTPUT_SCHEMA_VERSION = "1.0.0";
+export const APPROVAL_SCHEMA_VERSION = "2.0.0";
+export const EXECUTION_RESOLUTION_SCHEMA_VERSION = "1.0.0";
+export const GENERATION_BRIEF_SCHEMA_VERSION = "2.0.0";
+export const GENERATION_OUTPUT_SCHEMA_VERSION = "2.0.0";
 
 export const APPROVAL_STATES = Object.freeze(["approved", "rejected", "modified", "pending"]);
+export const EXECUTION_STATES = Object.freeze(["authorised", "no_output", "insufficient_evidence", "requires_page_state"]);
+export const EXECUTION_ROLES = Object.freeze(["generation_action", "shared_constraint", "none"]);
 export const ACTIONABLE_DECISION_OUTCOMES = Object.freeze(["improve", "add", "reposition", "clarify", "reduce"]);
 export const GENERATION_OBJECTIVES = Object.freeze([
   "rewrite_existing_section",
@@ -52,7 +55,7 @@ export function generationOutputJsonSchema() {
         items: {
           type: "object",
           additionalProperties: false,
-          required: ["action_id", "decision_area", "operation", "existing_content", "proposed_content", "factual_evidence_ids", "search_evidence_ids", "implementation_notes", "limitations"],
+          required: ["action_id", "decision_area", "operation", "existing_content", "proposed_content", "factual_evidence_ids", "search_evidence_ids", "comparison_claims", "implementation_notes", "limitations"],
           properties: {
             action_id: { type: "string" },
             decision_area: { type: "string", enum: [...DECISION_AREAS] },
@@ -61,6 +64,19 @@ export function generationOutputJsonSchema() {
             proposed_content: { anyOf: [{ type: "string" }, { type: "null" }] },
             factual_evidence_ids: stringArray,
             search_evidence_ids: stringArray,
+            comparison_claims: {
+              type: "array",
+              items: {
+                type: "object",
+                additionalProperties: false,
+                required: ["entity_id", "attribute", "evidence_ids"],
+                properties: {
+                  entity_id: { type: "string" },
+                  attribute: { type: "string" },
+                  evidence_ids: stringArray
+                }
+              }
+            },
             implementation_notes: stringArray,
             limitations: stringArray
           }

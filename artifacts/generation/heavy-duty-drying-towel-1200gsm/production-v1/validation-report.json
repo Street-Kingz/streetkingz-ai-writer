@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "generation_foundation_validation_report",
+  "state": "valid",
+  "approval_errors": [],
+  "execution_resolution_errors": [],
+  "generation_brief_errors": [],
+  "source_interpretation_immutable": true,
+  "human_review_immutable": true,
+  "publication_allowed": false,
+  "counts": {
+    "human_statuses": {
+      "approved": 5,
+      "modified": 6,
+      "rejected": 0,
+      "pending": 0
+    },
+    "execution_statuses": {
+      "authorised": 6,
+      "no_output": 4,
+      "insufficient_evidence": 1,
+      "requires_page_state": 0
+    },
+    "model_facing_actions": 5,
+    "shared_constraints": 1,
+    "evidence_ids": 20
+  },
+  "size": {
+    "serialized_characters": 35396,
+    "estimated_tokens": 8849,
+    "estimator": "characters/4"
+  }
+}

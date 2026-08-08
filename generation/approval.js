@@ -8,7 +8,7 @@ export function interpretationIdentity(interpretation) {
   return interpretation.interpretation_id || stableId("interpretation", interpretation);
 }
 
-export function createApprovalArtifact({ interpretation, decisions = {}, fixtureOnly = false, createdAt = null, reviewer = null }) {
+export function createApprovalArtifact({ interpretation, decisions = {}, fixtureOnly = false, createdAt = null, reviewer = null, humanReviewArtifact = null }) {
   if (!interpretation || !Array.isArray(interpretation.decision_areas)) throw new Error("A structured interpretation is required.");
   const sourceId = interpretationIdentity(interpretation);
   const approvals = interpretation.decision_areas.map((decision) => {
@@ -23,6 +23,8 @@ export function createApprovalArtifact({ interpretation, decisions = {}, fixture
       original_interpretation: clone(decision),
       human_modification: selection.state === "modified" ? selection.human_modification.trim() : null,
       reason: nonEmpty(selection.reason) ? selection.reason.trim() : null,
+      implementation_conditions: Array.isArray(selection.implementation_conditions) ? [...selection.implementation_conditions] : [],
+      execution_directive: selection.execution_directive ? clone(selection.execution_directive) : null,
       original_evidence_ids: [...decision.evidence_ids],
       approved_at: ["approved", "modified", "rejected"].includes(selection.state) ? (selection.approved_at || createdAt) : null
     };
@@ -33,6 +35,9 @@ export function createApprovalArtifact({ interpretation, decisions = {}, fixture
     fixture_only: fixtureOnly === true,
     source_interpretation_id: sourceId,
     source_interpretation_sha256: sha256(interpretation),
+    objective: interpretation.objective,
+    product: clone(interpretation.source_product),
+    human_review_artifact: humanReviewArtifact ? { ref: humanReviewArtifact.ref, sha256: humanReviewArtifact.sha256 } : null,
     reviewer,
     created_at: createdAt,
     decisions: approvals
@@ -44,6 +49,7 @@ export function validateApprovalArtifact(approval, interpretation) {
   const errors = [];
   const source = new Map((interpretation?.decision_areas || []).map((decision) => [decision.area, decision]));
   if (approval?.source_interpretation_sha256 !== sha256(interpretation)) errors.push({ code: "INTERPRETATION_HASH_MISMATCH", path: "source_interpretation_sha256" });
+  if (approval?.objective !== interpretation?.objective || sha256(approval?.product) !== sha256(interpretation?.source_product)) errors.push({ code: "APPROVAL_SCOPE_MISMATCH", path: "$" });
   const seen = new Set();
   for (const [index, item] of (approval?.decisions || []).entries()) {
     const path = `decisions[${index}]`;
@@ -53,6 +59,7 @@ export function validateApprovalArtifact(approval, interpretation) {
     seen.add(item.decision_area);
     if (!APPROVAL_STATES.includes(item.approval_state)) errors.push({ code: "INVALID_APPROVAL_STATE", path });
     if (item.approval_state === "modified" && !nonEmpty(item.human_modification)) errors.push({ code: "MISSING_HUMAN_MODIFICATION", path });
+    if (!Array.isArray(item.implementation_conditions)) errors.push({ code: "INVALID_IMPLEMENTATION_CONDITIONS", path });
     if (original && (item.original_decision_sha256 !== sha256(original) || sha256(item.original_interpretation) !== sha256(original))) errors.push({ code: "ORIGINAL_DECISION_MUTATED", path });
     if (original && JSON.stringify(item.original_evidence_ids) !== JSON.stringify(original.evidence_ids)) errors.push({ code: "ORIGINAL_CITATIONS_MUTATED", path });
   }
