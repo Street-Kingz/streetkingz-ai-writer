@@ -14,8 +14,16 @@ test("writer is separately permissioned, POST-only and assigns no capability", (
 
 test("writer scope is compile-time fixed and request accepts no copy or arbitrary targets", () => {
   for (const literal of ["WRITE_PRODUCT_ID = 70", "WRITE_TEMPLATE_ID = 2003", "c80e718", "4691e088", "40869c27", "43d7d6f0"]) assert.match(plugin, new RegExp(literal));
-  assert.match(plugin, /array_keys\(\$body\) !== \['approval_artifact_sha256'\]/);
+  assert.match(plugin, /\$request\['mode'\] === 'execute' \? \['approval_artifact_sha256', 'execution_authorisation_sha256'\] : \['approval_artifact_sha256'\]/);
   assert.doesNotMatch(plugin, /\$request\[['"](?:product|product_id|template|template_id|widget|field|value|copy|meta|slug)/i);
+});
+
+test("execute remains locked without a separate exact user authorisation contract", () => {
+  assert.match(plugin, /execution-authorisation\.json/);
+  assert.match(plugin, /streetkingz_ai_execution_locked/);
+  assert.match(plugin, /explicit_user_live_write_authorisation/);
+  for (const binding of ["approval_artifact_sha256", "current_state_guards", "approved_target_hashes", "product_id", "template_id", "one_time_execution_id", "publication_authorised"]) assert.match(plugin, new RegExp(binding));
+  assert.match(plugin, /hash\('sha256', \$raw\)/);
 });
 
 test("packaged approval, exact target hashes and all current-state guards are enforced", () => {

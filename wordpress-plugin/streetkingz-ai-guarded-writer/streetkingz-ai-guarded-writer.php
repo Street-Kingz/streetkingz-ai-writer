@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Guarded Writer
  * Description: Approval-bound writer for one reviewed product-copy change set. Inactive unless a separate write capability is deliberately assigned.
- * Version: 0.1.2
+ * Version: 0.1.3
  */
 
 defined('ABSPATH') || exit;
@@ -41,7 +41,8 @@ function streetkingz_ai_writer_manifest() {
 
 function streetkingz_ai_writer_validate_request(WP_REST_Request $request, array $packaged) {
     $body = $request->get_json_params();
-    if (!is_array($body) || array_keys($body) !== ['approval_artifact_sha256']) return new WP_Error('streetkingz_ai_write_payload_invalid', 'Only the packaged approval fingerprint is accepted.', ['status' => 400]);
+    $expected_keys = $request['mode'] === 'execute' ? ['approval_artifact_sha256', 'execution_authorisation_sha256'] : ['approval_artifact_sha256'];
+    if (!is_array($body) || array_keys($body) !== $expected_keys) return new WP_Error('streetkingz_ai_write_payload_invalid', 'The request does not match the bounded mode contract.', ['status' => 400]);
     if (!is_string($body['approval_artifact_sha256']) || !hash_equals($packaged['sha256'], $body['approval_artifact_sha256'])) return new WP_Error('streetkingz_ai_approval_fingerprint_mismatch', 'Approval fingerprint does not match.', ['status' => 409]);
     $approval = $packaged['manifest'];
     $required = ['post_title', 'description', 'comparison', 'post_excerpt'];
@@ -51,6 +52,19 @@ function streetkingz_ai_writer_validate_request(WP_REST_Request $request, array 
     if (count($fields) !== 4 || array_values(array_column($fields, 'field_id')) !== $required) return new WP_Error('streetkingz_ai_approval_targets_invalid', 'Approval targets are not the exact allowlist.', ['status' => 409]);
     foreach ($fields as $field) if (!hash_equals($field['approved_target_sha256'] ?? '', hash('sha256', $field['exact_cms_value'] ?? ''))) return new WP_Error('streetkingz_ai_target_hash_mismatch', 'An approved target value has changed.', ['status' => 409]);
     return $approval;
+}
+
+function streetkingz_ai_writer_execution_authorisation(WP_REST_Request $request, array $packaged, array $approval) {
+    $path = __DIR__ . '/execution-authorisation.json';
+    if (!is_readable($path)) return new WP_Error('streetkingz_ai_execution_locked', 'No explicit live-write authorisation is installed.', ['status' => 423]);
+    $raw = file_get_contents($path);
+    $contract = json_decode($raw, true);
+    $expected_keys = ['schema_version', 'status', 'authorisation_source', 'mode', 'product_id', 'template_id', 'approval_artifact_sha256', 'current_state_guards', 'approved_target_hashes', 'publication_authorised', 'one_time_execution_id'];
+    if (!is_array($contract) || array_keys($contract) !== $expected_keys) return new WP_Error('streetkingz_ai_execution_authorisation_invalid', 'Execution authorisation shape is invalid.', ['status' => 409]);
+    if (!hash_equals(hash('sha256', $raw), $request->get_json_params()['execution_authorisation_sha256'] ?? '')) return new WP_Error('streetkingz_ai_execution_authorisation_hash_mismatch', 'Execution authorisation fingerprint does not match.', ['status' => 409]);
+    if (($contract['status'] ?? null) !== 'authorised' || ($contract['authorisation_source'] ?? null) !== 'explicit_user_live_write_authorisation' || ($contract['mode'] ?? null) !== 'execute' || ($contract['product_id'] ?? null) !== STREETKINGZ_AI_WRITE_PRODUCT_ID || ($contract['template_id'] ?? null) !== STREETKINGZ_AI_WRITE_TEMPLATE_ID || ($contract['publication_authorised'] ?? null) !== false || !is_string($contract['one_time_execution_id'] ?? null) || $contract['one_time_execution_id'] === '') return new WP_Error('streetkingz_ai_execution_authorisation_scope_invalid', 'Execution authorisation scope is invalid.', ['status' => 409]);
+    if (!hash_equals($contract['approval_artifact_sha256'] ?? '', $packaged['sha256']) || ($contract['current_state_guards'] ?? null) !== ($approval['current_state_guards'] ?? null) || ($contract['approved_target_hashes'] ?? null) !== ($approval['approved_target_hashes'] ?? null)) return new WP_Error('streetkingz_ai_execution_authorisation_binding_invalid', 'Execution authorisation is not bound to the approved state and targets.', ['status' => 409]);
+    return $contract;
 }
 
 function streetkingz_ai_writer_source(array $approval) {
@@ -186,6 +200,10 @@ function streetkingz_ai_guarded_writer_request(WP_REST_Request $request) {
     if (is_wp_error($packaged)) return $packaged;
     $approval = streetkingz_ai_writer_validate_request($request, $packaged);
     if (is_wp_error($approval)) return $approval;
+    if ($request['mode'] === 'execute') {
+        $execution_authorisation = streetkingz_ai_writer_execution_authorisation($request, $packaged, $approval);
+        if (is_wp_error($execution_authorisation)) return $execution_authorisation;
+    }
     $source = streetkingz_ai_writer_source($approval);
     if (is_wp_error($source)) return $source;
     $prepared = streetkingz_ai_writer_prepare($source);
