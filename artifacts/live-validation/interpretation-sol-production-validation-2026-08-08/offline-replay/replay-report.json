@@ -1,0 +1,58 @@
+{
+  "replay_type": "offline_preserved_response_validation",
+  "external_provider_calls": 0,
+  "preserved_raw_response": "../gpt-5.6-sol/call_001/raw-response.json",
+  "preserved_raw_response_sha256": "108fbd7fd0cbfdeafb2bb56b8cb8b3b15621d4b4149f75cf87e68c9a467cc5b4",
+  "response_modified": false,
+  "original_validation": {
+    "state": "invalid",
+    "error_count": 1,
+    "errors": [
+      {
+        "code": "UNKNOWN_STATE_CERTAINTY",
+        "path": "decision_areas[9]"
+      }
+    ]
+  },
+  "corrected_validation": {
+    "state": "valid",
+    "error_count": 0,
+    "errors": []
+  },
+  "original_call_integrity": {
+    "state": "failed",
+    "reason": "The summary incorrectly expected a GPT-4.1 call in an explicitly Sol-only run."
+  },
+  "corrected_call_integrity": {
+    "state": "pass",
+    "authorised_call_plan": {
+      "gpt-5.6-sol": 1
+    },
+    "started_calls": 1,
+    "completed_calls": 1,
+    "failed_calls": 0,
+    "aborted_calls": 0,
+    "duplicate_calls": 0
+  },
+  "evidence_use": {
+    "categories_available": [
+      "keyword_ideas",
+      "product_facts",
+      "search_console",
+      "serp_advanced"
+    ],
+    "categories_assessed": [
+      "keyword_ideas",
+      "product_facts",
+      "search_console",
+      "serp_advanced"
+    ],
+    "categories_materially_cited": [
+      "keyword_ideas",
+      "product_facts",
+      "search_console",
+      "serp_advanced"
+    ],
+    "categories_unused": []
+  }
+}

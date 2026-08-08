@@ -103,6 +103,7 @@ const solPayload = {
 let sol = null;
 if (!onlyModel || onlyModel === "gpt-5.6-sol") sol = await execute({ label: "gpt-5.6-sol", model: solPayload.model, endpoint: "https://api.openai.com/v1/responses", payload: solPayload, reasoning: { effort: "high" } });
 const completedRuns = [gpt41, sol].filter(Boolean);
-const callSummary = await benchmarkCallSummary({ benchmarkDirectory: outputDirectory, modelLimits: { "gpt-4.1": 1, "gpt-5.6-sol": 1 } });
+const authorisedCallPlan = onlyModel ? { [onlyModel]: 1 } : { "gpt-4.1": 1, "gpt-5.6-sol": 1 };
+const callSummary = await benchmarkCallSummary({ benchmarkDirectory: outputDirectory, modelLimits: authorisedCallPlan });
 await writeFile(path.join(outputDirectory, "machine-comparison.json"), `${JSON.stringify({ decision_brief_sha256: briefHash, model_input_sha256: inputHash, call_control: callSummary, runs: completedRuns.map((run) => ({ label: run.label, valid: run.valid, errors: run.errors, metadata: run.metadata })) }, null, 2)}\n`);
 console.log(JSON.stringify({ output_directory: outputDirectory, decision_brief_sha256: briefHash, model_input_sha256: inputHash, runs: completedRuns.map((run) => ({ label: run.label, valid: run.valid, status: run.metadata.http_status, errors: run.errors.length })) }, null, 2));

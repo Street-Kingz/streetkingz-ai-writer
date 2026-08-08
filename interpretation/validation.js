@@ -14,6 +14,18 @@ function normalized(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
 
+function unknownStateDecisionIsBounded(item, statement) {
+  const subject = "(?:metadata|title tag|meta description)";
+  const inventedState = new RegExp(`(?:${subject}[^.]{0,30}(?:is|are|appears?|seems?)?\\s*(?:missing|absent|weak|poor|good|strong|optimised|optimized|unoptimised|unoptimized)|(?:missing|absent|weak|poor|good|strong|optimised|optimized|unoptimised|unoptimized)\\s+${subject})`, "i");
+  const directChange = new RegExp(`(?:rewrite|improve|optimise|optimize|change)\\s+(?:the\\s+)?${subject}|${subject}[^.]{0,30}(?:must|should|needs? to)\\s+(?:be\\s+)?(?:rewritten|changed|improved|optimised|optimized)`, "i");
+  if (inventedState.test(statement) || directChange.test(statement)) return false;
+
+  const explicitUncertainty = /(?:unknown|uncertain|unavailable|cannot (?:be )?(?:assessed|determined)|could not (?:be )?(?:assessed|determined)|insufficient evidence)/i.test(statement);
+  const requestsEvidence = new RegExp(`(?:audit|inspect|check|obtain|review|capture|retrieve|verify)\\s+(?:the\\s+)?(?:live|actual|current)?[^.]{0,50}${subject}`, "i").test(statement);
+  const defersDecision = /(?:before|prior to)\s+(?:making\s+)?(?:a\s+)?(?:decid(?:e|ing)|determin(?:e|ing)|recommend(?:ation|ing)?|chang(?:e|ing)|optimis(?:e|ing|ation)|optimiz(?:e|ing|ation))|until\s+(?:it|they|the evidence|metadata)[^.]{0,50}(?:available|retrieved|captured|verified|inspected|reviewed)/i.test(statement);
+  return explicitUncertainty || (item?.outcome === "insufficient_evidence" && requestsEvidence && defersDecision);
+}
+
 function hasCitedPhrase(text, records) {
   const haystack = normalized(text);
   return records.filter((record) => ["keyword_ideas", "search_console"].includes(record.evidence_category)).some((record) => {
@@ -144,9 +156,7 @@ export function validateInterpretationOutput(output, context) {
     const statement = item?.recommendation || "";
     if (gap?.current_state === "present" && /(?:missing|absent|does not (?:have|include|contain)|lacks?)/i.test(statement)) errors.push({ code: "CURRENT_STATE_CONTRADICTION", path, message: "A present page element cannot be described as missing." });
     if (gap?.current_state === "absent" && /(?:(?:section|element|area)\s+(?:is\s+)?(?:already|currently)\s+(?:present|existing|included)|existing\s+(?:dedicated\s+)?(?:section|element|area))/i.test(statement)) errors.push({ code: "CURRENT_STATE_CONTRADICTION", path, message: "An absent page element cannot be described as already present." });
-    const requestsMissingEvidence = /(?:audit|inspect|check|obtain|review)\s+(?:the\s+)?(?:live|actual|current)?[^.]{0,50}(?:metadata|title tag|meta description)[^.]{0,80}(?:before|prior to)\s+(?:deciding|determining|recommending|changing)/i.test(statement);
-    const speculativeUnknownChange = /(?:is|are)\s+(?:missing|poor|optimised|optimized|unoptimised|unoptimized)|(?:must|should)\s+(?:be\s+)?(?:changed|improved|optimised|optimized)/i.test(statement);
-    if (gap?.current_state === "unknown" && !/(?:unknown|uncertain|unavailable|cannot determine|could not determine)/i.test(statement) && !(item?.outcome === "insufficient_evidence" && requestsMissingEvidence && !speculativeUnknownChange)) errors.push({ code: "UNKNOWN_STATE_CERTAINTY", path, message: "Unknown current state must be stated as uncertainty or as a bounded request to inspect the missing evidence before deciding." });
+    if (gap?.current_state === "unknown" && !unknownStateDecisionIsBounded(item, statement)) errors.push({ code: "UNKNOWN_STATE_CERTAINTY", path, message: "Unknown current state must be stated as uncertainty or as a bounded request to inspect the missing evidence before deciding." });
     if (item?.outcome === "add" && gap?.current_state === "present" && !/(?:distinct|new subsection|additional element|separate new)/i.test(statement)) errors.push({ code: "DUPLICATE_PRESENT_ELEMENT", path, message: "Adding to a present area must clearly identify a distinct new element rather than duplicate existing content." });
     if (item?.outcome === "add" && !(item.external_evidence_ids || []).length) errors.push({ code: "ADD_WITHOUT_EXTERNAL_SUPPORT", path, message: "An add outcome requires external evidence." });
     if (item?.area === "comparisons" && context.current_page_inventory?.decision_areas.find((area) => area.decision_area === "comparisons")?.component_states?.comparison_content_elsewhere === "present") {

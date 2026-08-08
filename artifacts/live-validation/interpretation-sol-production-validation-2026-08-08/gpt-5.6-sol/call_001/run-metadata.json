@@ -1,0 +1,48 @@
+{
+  "label": "gpt-5.6-sol",
+  "model": "gpt-5.6-sol",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "api_mode": "responses",
+  "structured_output": true,
+  "temperature": null,
+  "reasoning": {
+    "effort": "high"
+  },
+  "decision_brief_sha256": "2d96a3b3020de7bacea96bc54a85e72c42cd10c6867d612acdae884a161d75b5",
+  "model_input_sha256": "f31a39a5fdd6ad0c3a8ab57ccb37a17f7f9c777f60b9261f5ad43c0481ab797a",
+  "latency_ms": 140783,
+  "call_id": "dd2d48f9-26dd-4054-8229-8b5e2633705a",
+  "call_directory": "call_001",
+  "http_status": 200,
+  "response_headers": {
+    "openai-organization": "street-kingz",
+    "openai-processing-ms": "139604",
+    "openai-project": "proj_SE4XMStm2A5o0yDvQXVeAEgk",
+    "openai-version": "2020-10-01",
+    "x-ratelimit-limit-requests": "500",
+    "x-ratelimit-limit-tokens": "500000",
+    "x-ratelimit-remaining-requests": "499",
+    "x-ratelimit-remaining-tokens": "490508",
+    "x-ratelimit-reset-requests": "120ms",
+    "x-ratelimit-reset-tokens": "1.139s",
+    "x-request-id": "req_219c30ab9e39466c81e53cde62c3302a"
+  },
+  "usage": {
+    "input_tokens": 18146,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 18143
+    },
+    "output_tokens": 9635,
+    "output_tokens_details": {
+      "reasoning_tokens": 3717
+    },
+    "total_tokens": 27781
+  },
+  "input_tokens": 18146,
+  "output_tokens": 9635,
+  "total_tokens": 27781,
+  "cost_usd": null,
+  "cost_status": "unknown",
+  "cost_note": "Unknown: no explicit trusted pricing configuration exists for this model."
+}

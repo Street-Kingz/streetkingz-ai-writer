@@ -104,11 +104,69 @@ test("negated missing-specification and distinct-FAQ wording do not trigger cont
 
 test("specific Search Console-backed search action passes while generic action remains blocked", async () => { const { evidence, researchState } = await inputs(); const context = buildInterpretationContext({ evidence, researchState, maxRecords: 96 }); const output = validOutput(context); const decision = output.decision_areas.find((item) => item.area === "search_positioning"); const query = context.citation_registry.records.find((item) => item.evidence_category === "search_console" && /car drying towel/i.test(item.observation?.query || "")); const keyword = context.citation_registry.records.find((item) => item.evidence_category === "keyword_ideas"); Object.assign(decision, { outcome: "reposition", recommendation: "In the top-of-page positioning summary, make the 'car drying towel' phrase family the primary category signal. The strategic purpose is alignment with queries producing visibility while preserving Heavy Duty / 1200GSM differentiation and avoiding keyword stuffing.", evidence_ids: [query.evidence_id, keyword.evidence_id], evidence_categories: ["keyword_ideas", "search_console"], external_evidence_ids: [query.evidence_id, keyword.evidence_id] }); assert.equal(validateInterpretationOutput(output, context).some((error) => error.code === "VAGUE_ACTION"), false); decision.recommendation = "Use relevant keywords in the heading."; assert.ok(validateInterpretationOutput(output, context).some((error) => error.code === "VAGUE_ACTION")); });
 
-test("metadata evidence request is allowed but invented unknown state remains blocked", async () => { const { evidence, researchState } = await inputs(); const context = buildInterpretationContext({ evidence, researchState, maxRecords: 24 }); const output = validOutput(context); const metadata = output.decision_areas.find((item) => item.area === "metadata"); metadata.recommendation = "Audit the live title tag and meta description before deciding whether they should change. No metadata change should be approved from the visible heading alone."; assert.equal(validateInterpretationOutput(output, context).some((error) => error.code === "UNKNOWN_STATE_CERTAINTY"), false); metadata.recommendation = "The metadata is poor and should be optimized for car drying towel."; assert.ok(validateInterpretationOutput(output, context).some((error) => error.code === "UNKNOWN_STATE_CERTAINTY")); });
+test("bounded metadata evidence requests pass while invented state and speculative changes remain blocked", async () => {
+  const { evidence, researchState } = await inputs();
+  const context = buildInterpretationContext({ evidence, researchState, maxRecords: 24 });
+  const accepted = [
+    "Capture the actual title tag and meta description before deciding whether either should change.",
+    "Inspect the current metadata before determining whether optimisation is warranted.",
+    "Retrieve the current title tag before making a recommendation."
+  ];
+  const rejected = [
+    "The metadata should be improved.",
+    "The title tag is weak.",
+    "The meta description is missing.",
+    "Rewrite the metadata to target car drying towel.",
+    "Metadata is not optimised.",
+    "Inspect the weak title tag and improve it.",
+    "Capture the missing meta description."
+  ];
+  for (const recommendation of accepted) {
+    const output = validOutput(context);
+    output.decision_areas.find((item) => item.area === "metadata").recommendation = recommendation;
+    assert.equal(validateInterpretationOutput(output, context).some((error) => error.code === "UNKNOWN_STATE_CERTAINTY"), false, recommendation);
+  }
+  for (const recommendation of rejected) {
+    const output = validOutput(context);
+    output.decision_areas.find((item) => item.area === "metadata").recommendation = recommendation;
+    assert.ok(validateInterpretationOutput(output, context).some((error) => error.code === "UNKNOWN_STATE_CERTAINTY"), recommendation);
+  }
+});
 
 test("controlled calls enforce one start, zero retries and immutable artifacts", async (t) => { const directory = await temporaryDirectory(t); let release; const pending = new Promise((resolve) => { release = resolve; }); let calls = 0; const first = invokeControlledCall({ benchmarkDirectory: directory, modelLabel: "sol", maxCalls: 1, invoke: async () => { calls += 1; await pending; return "ok"; } }); await new Promise((resolve) => setImmediate(resolve)); await assert.rejects(invokeControlledCall({ benchmarkDirectory: directory, modelLabel: "sol", maxCalls: 1, invoke: async () => { calls += 1; } }), (error) => error.code === "CONTROLLED_CALL_LIMIT_REACHED"); release(); const result = await first; assert.equal(result.result, "ok"); assert.equal(calls, 1); assert.equal(result.lifecycle.completed_calls, 1); assert.equal(result.lifecycle.failed_calls, 0); assert.equal(result.lifecycle.aborted_calls, 0); await writeImmutableArtifact(result.callDirectory, "raw.json", { value: 1 }); await assert.rejects(writeImmutableArtifact(result.callDirectory, "raw.json", { value: 2 }), (error) => error.code === "EEXIST"); const summary = await benchmarkCallSummary({ benchmarkDirectory: directory, modelLimits: { sol: 1 } }); assert.equal(summary.integrity, "pass"); assert.equal(summary.models.sol.started_calls, 1); });
 
 test("controlled timeout aborts without retry and unexpected call count fails integrity", async (t) => { const directory = await temporaryDirectory(t); let calls = 0; await assert.rejects(invokeControlledCall({ benchmarkDirectory: directory, modelLabel: "slow", maxCalls: 2, timeoutMs: 5, invoke: ({ signal }) => new Promise((_, reject) => { calls += 1; signal.addEventListener("abort", () => reject(Object.assign(new Error("aborted"), { code: "ABORT_ERR" }))); }) }), (error) => error.code === "CONTROLLED_CALL_ABORTED"); assert.equal(calls, 1); const summary = await benchmarkCallSummary({ benchmarkDirectory: directory, modelLimits: { slow: 1 } }); assert.equal(summary.integrity, "pass"); assert.equal(summary.models.slow.aborted_calls, 1); await invokeControlledCall({ benchmarkDirectory: directory, modelLabel: "extra", maxCalls: 2, invoke: async () => "one" }); await invokeControlledCall({ benchmarkDirectory: directory, modelLabel: "extra", maxCalls: 2, invoke: async () => "two" }); const failed = await benchmarkCallSummary({ benchmarkDirectory: directory, modelLimits: { extra: 1 } }); assert.equal(failed.integrity, "failed"); });
+
+test("call integrity follows the explicit authorised model plan", async (t) => {
+  const solOnly = await temporaryDirectory(t);
+  await invokeControlledCall({ benchmarkDirectory: solOnly, modelLabel: "gpt-5.6-sol", invoke: async () => "ok" });
+  assert.equal((await benchmarkCallSummary({ benchmarkDirectory: solOnly, modelLimits: { "gpt-5.6-sol": 1 } })).integrity, "pass");
+
+  const gptOnly = await temporaryDirectory(t);
+  await invokeControlledCall({ benchmarkDirectory: gptOnly, modelLabel: "gpt-4.1", invoke: async () => "ok" });
+  assert.equal((await benchmarkCallSummary({ benchmarkDirectory: gptOnly, modelLimits: { "gpt-4.1": 1 } })).integrity, "pass");
+
+  const both = await temporaryDirectory(t);
+  await invokeControlledCall({ benchmarkDirectory: both, modelLabel: "gpt-4.1", invoke: async () => "ok" });
+  await invokeControlledCall({ benchmarkDirectory: both, modelLabel: "gpt-5.6-sol", invoke: async () => "ok" });
+  assert.equal((await benchmarkCallSummary({ benchmarkDirectory: both, modelLimits: { "gpt-4.1": 1, "gpt-5.6-sol": 1 } })).integrity, "pass");
+  assert.equal((await benchmarkCallSummary({ benchmarkDirectory: both, modelLimits: { "gpt-4.1": 1, "gpt-5.6-sol": 0 } })).integrity, "failed");
+
+  const missing = await temporaryDirectory(t);
+  assert.equal((await benchmarkCallSummary({ benchmarkDirectory: missing, modelLimits: { "gpt-5.6-sol": 1 } })).integrity, "failed");
+
+  const duplicate = await temporaryDirectory(t);
+  await invokeControlledCall({ benchmarkDirectory: duplicate, modelLabel: "gpt-5.6-sol", maxCalls: 2, invoke: async () => "one" });
+  await invokeControlledCall({ benchmarkDirectory: duplicate, modelLabel: "gpt-5.6-sol", maxCalls: 2, invoke: async () => "two" });
+  assert.equal((await benchmarkCallSummary({ benchmarkDirectory: duplicate, modelLimits: { "gpt-5.6-sol": 1 } })).integrity, "failed");
+
+  const providerFailure = await temporaryDirectory(t);
+  await assert.rejects(invokeControlledCall({ benchmarkDirectory: providerFailure, modelLabel: "gpt-5.6-sol", invoke: async () => { throw new Error("provider failed"); } }), /provider failed/);
+  const failedLifecycle = await benchmarkCallSummary({ benchmarkDirectory: providerFailure, modelLimits: { "gpt-5.6-sol": 1 } });
+  assert.equal(failedLifecycle.integrity, "pass");
+  assert.equal(failedLifecycle.models["gpt-5.6-sol"].failed_calls, 1);
+  assert.equal(failedLifecycle.models["gpt-5.6-sol"].started_calls, 1);
+});
 
 test("cost remains unknown without trusted pricing and calculates only from explicit configuration", () => { assert.deepEqual(calculateConfiguredCost({ inputTokens: 1000, outputTokens: 500, pricing: null }), { cost_usd: null, cost_status: "unknown" }); const pricing = configuredModelPricing({ OPENAI_INTERPRETATION_PRICING_JSON: JSON.stringify({ model_a: { input_per_million_tokens_usd: 2, output_per_million_tokens_usd: 8 } }) }, "model_a"); assert.deepEqual(calculateConfiguredCost({ inputTokens: 1000, outputTokens: 500, pricing }), { cost_usd: 0.006, cost_status: "calculated_from_explicit_configuration", pricing }); assert.equal(configuredModelPricing({}, "model_a"), null); });
 

@@ -1,0 +1,10 @@
+{
+  "state": "invalid",
+  "errors": [
+    {
+      "code": "UNKNOWN_STATE_CERTAINTY",
+      "path": "decision_areas[9]",
+      "message": "Unknown current state must be stated as uncertainty or as a bounded request to inspect the missing evidence before deciding."
+    }
+  ]
+}

@@ -63,7 +63,13 @@ export async function invokeControlledCall({ benchmarkDirectory, modelLabel, max
 export async function benchmarkCallSummary({ benchmarkDirectory, modelLimits }) {
   const models = {};
   let integrity = true;
-  for (const [modelLabel, requested] of Object.entries(modelLimits)) {
+  const root = path.resolve(benchmarkDirectory);
+  let actualModelLabels = [];
+  try { actualModelLabels = (await readdir(root, { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name); }
+  catch (error) { if (error.code !== "ENOENT") throw error; }
+  const modelLabels = [...new Set([...Object.keys(modelLimits), ...actualModelLabels])].sort((a, b) => a.localeCompare(b, "en"));
+  for (const modelLabel of modelLabels) {
+    const requested = modelLimits[modelLabel] ?? 0;
     const modelDirectory = path.join(path.resolve(benchmarkDirectory), modelLabel);
     const ordinals = await existingCalls(modelDirectory);
     const lifecycles = [];
