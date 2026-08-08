@@ -1,0 +1,57 @@
+{
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "api_mode": "responses",
+  "reasoning": {
+    "effort": "high"
+  },
+  "structured_output": true,
+  "generation_brief_sha256": "1e6383c74f2dfaf98cbcf5d08489e6d5e235dfea992baa57b858424d0c349154",
+  "request_sha256": "66181543ff785c2ee7be1439f8b831d6636000a5dd6bba2b2ba62c598607de7a",
+  "latency_ms": 77035,
+  "http_status": 200,
+  "usage": {
+    "input_tokens": 8778,
+    "input_tokens_details": {
+      "cache_write_tokens": 8775,
+      "cached_tokens": 0
+    },
+    "output_tokens": 4916,
+    "output_tokens_details": {
+      "reasoning_tokens": 3298
+    },
+    "total_tokens": 13694
+  },
+  "cost_usd": null,
+  "cost_note": "Unknown: no trusted local pricing configuration was supplied.",
+  "call_integrity": {
+    "integrity": "pass",
+    "models": {
+      "gpt-5.6-sol": {
+        "requested_calls": 1,
+        "started_calls": 1,
+        "completed_calls": 1,
+        "failed_calls": 0,
+        "aborted_calls": 0,
+        "calls": [
+          {
+            "call_id": "5387f8d2-27f7-428d-8f1e-4bb49e7312d5",
+            "model_label": "gpt-5.6-sol",
+            "ordinal": 1,
+            "configured_max_calls": 1,
+            "retries": 0,
+            "requested_calls": 1,
+            "started_calls": 1,
+            "completed_calls": 1,
+            "failed_calls": 0,
+            "aborted_calls": 0,
+            "state": "completed",
+            "started_at": "2026-08-08T11:00:29.304Z",
+            "completed_at": "2026-08-08T11:01:46.335Z"
+          }
+        ]
+      }
+    }
+  }
+}

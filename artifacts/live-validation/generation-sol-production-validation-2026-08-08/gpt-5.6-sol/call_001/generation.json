@@ -1,0 +1,174 @@
+{
+  "schema_version": "2.0.0",
+  "generation_brief_id": "generation_brief_1e6383c74f2dfaf98cbcf5d0",
+  "changes": [
+    {
+      "action_id": "approved_action_6d2ca864a35c9478030c6793",
+      "decision_area": "title_headings",
+      "operation": "replace",
+      "existing_content": "Heavy Duty Drying Towel – 1200gsm",
+      "proposed_content": "Heavy Duty Car Drying Towel – 1200GSM",
+      "factual_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ],
+      "search_evidence_ids": [
+        "ev_22f176f73ebb5516944bfdc3"
+      ],
+      "comparison_claims": [],
+      "implementation_notes": [],
+      "limitations": [
+        "The visible product name establishes presence but not the complete heading structure.",
+        "This recommendation does not assess title-tag metadata."
+      ]
+    },
+    {
+      "action_id": "approved_action_907119722c3b5882339cf9ad",
+      "decision_area": "differentiation",
+      "operation": "replace",
+      "existing_content": "1200GSM dual-layer construction\nDouble-sided plush microfibre construction\nSoft microfibre edging\nHolds a serious amount of water while remaining soft and manageable\nFeels heavier when fully saturated with water",
+      "proposed_content": "The 1200GSM dual-layer construction combines double-sided plush microfibre with soft microfibre edging. It holds a serious amount of water while remaining soft and manageable, but feels heavier when fully saturated with water.",
+      "factual_evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_dd6ef7fbfda651a55c9feead",
+        "ev_f6eaa22dc231a51d58332d7d"
+      ],
+      "search_evidence_ids": [],
+      "comparison_claims": [],
+      "implementation_notes": [],
+      "limitations": [
+        "The extraction does not show where these facts currently appear.",
+        "SERP snippets do not establish competitor product parity or superiority."
+      ]
+    },
+    {
+      "action_id": "approved_action_4cbc89aa3d06b1b104641ead",
+      "decision_area": "product_description_benefits",
+      "operation": "replace",
+      "existing_content": "Double-sided plush microfibre construction\nDesigned to pull water off paint with almost no effort\nFewer passes and faster drying\n1200GSM dual-layer construction\nCars, SUVs, vans, paintwork, glass and exterior plastics\nLess contact with paint helps prevent streaks, smears and unwanted marks\nSoft microfibre edging\nHolds a serious amount of water while remaining soft and manageable",
+      "proposed_content": "This microfibre car drying towel has a 1200GSM dual-layer, double-sided plush construction designed to pull water off paint with almost no effort. It delivers fewer passes and faster drying, while less contact with paint helps prevent streaks, smears and unwanted marks. Intended for cars, SUVs and vans, it can be used on paintwork, glass and exterior plastics. Use only on clean, shampooed paint.",
+      "factual_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_33f10080286279cf93006b05",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_5c06c311f77674f9e23f5909",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_db33c004bd2fbbabb5a29158"
+      ],
+      "search_evidence_ids": [
+        "ev_386c0d66a38af9541621e08c"
+      ],
+      "comparison_claims": [],
+      "implementation_notes": [],
+      "limitations": [
+        "No conversion evidence identifies which benefit order performs best.",
+        "The recommendation does not authorize new performance claims."
+      ]
+    },
+    {
+      "action_id": "approved_action_314db9c63eda7cf5bdb51d76",
+      "decision_area": "comparisons",
+      "operation": "replace",
+      "existing_content": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+      "proposed_content": "Choose the Heavy Duty 1200GSM if you prefer a thicker, double-sided towel that is smaller, heavier and more substantial in the hand. Choose the XL 800GSM if you prefer a larger, lighter towel that glides more easily.",
+      "factual_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_97b719bee372c6f804006026"
+      ],
+      "search_evidence_ids": [],
+      "comparison_claims": [
+        {
+          "entity_id": "source_product",
+          "attribute": "thicker",
+          "evidence_ids": [
+            "ev_2bc48197465b65346af179ed"
+          ]
+        },
+        {
+          "entity_id": "source_product",
+          "attribute": "double-sided",
+          "evidence_ids": [
+            "ev_2bc48197465b65346af179ed"
+          ]
+        },
+        {
+          "entity_id": "source_product",
+          "attribute": "smaller",
+          "evidence_ids": [
+            "ev_97b719bee372c6f804006026"
+          ]
+        },
+        {
+          "entity_id": "source_product",
+          "attribute": "heavier",
+          "evidence_ids": [
+            "ev_97b719bee372c6f804006026"
+          ]
+        },
+        {
+          "entity_id": "source_product",
+          "attribute": "more substantial",
+          "evidence_ids": [
+            "ev_97b719bee372c6f804006026"
+          ]
+        },
+        {
+          "entity_id": "xl_800gsm",
+          "attribute": "larger",
+          "evidence_ids": [
+            "ev_2bc48197465b65346af179ed"
+          ]
+        },
+        {
+          "entity_id": "xl_800gsm",
+          "attribute": "lighter",
+          "evidence_ids": [
+            "ev_2bc48197465b65346af179ed"
+          ]
+        },
+        {
+          "entity_id": "xl_800gsm",
+          "attribute": "easier-gliding",
+          "evidence_ids": [
+            "ev_2bc48197465b65346af179ed"
+          ]
+        }
+      ],
+      "implementation_notes": [],
+      "limitations": [
+        "No user-behavior evidence confirms that a dedicated table is needed.",
+        "External results show construction choices but not the proposed XL comparison format."
+      ]
+    },
+    {
+      "action_id": "approved_action_f45bd65873d2017816ce2fb8",
+      "decision_area": "clarity_trust",
+      "operation": "replace",
+      "existing_content": "Extreme absorbency\nSafe on all paint",
+      "proposed_content": "Absorbent, with a heavier feel when fully saturated with water. Safe on all paint when used correctly; use only on clean, shampooed paint.",
+      "factual_evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_40936f5cfc99132392553647",
+        "ev_549b5d29c9922c68d39651fd",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_d67a5e6277ac9a3ccbe79b2c"
+      ],
+      "search_evidence_ids": [],
+      "comparison_claims": [],
+      "implementation_notes": [],
+      "limitations": [
+        "The extraction does not establish whether these qualifications are already adjacent to the claims.",
+        "No evidence measures the effect on customer trust or conversion."
+      ]
+    }
+  ],
+  "limitations": [],
+  "human_review_state": "awaiting_human_review",
+  "validation_state": "valid",
+  "publication_allowed": false
+}

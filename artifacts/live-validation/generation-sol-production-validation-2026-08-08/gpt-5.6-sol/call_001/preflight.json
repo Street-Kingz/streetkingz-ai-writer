@@ -1,0 +1,22 @@
+{
+  "state": "pass",
+  "preconditions": {
+    "generation_brief_hash_matches": true,
+    "exact_authorised_actions": true,
+    "exact_shared_constraints": true,
+    "blocked_areas_excluded": true,
+    "citable_evidence_count": true,
+    "all_evidence_resolves": true,
+    "layout_operations_absent": true,
+    "publication_absent": true
+  },
+  "generation_brief_sha256": "1e6383c74f2dfaf98cbcf5d08489e6d5e235dfea992baa57b858424d0c349154",
+  "request_sha256": "66181543ff785c2ee7be1439f8b831d6636000a5dd6bba2b2ba62c598607de7a",
+  "characters": 33389,
+  "estimated_input_tokens": 8348,
+  "citable_evidence_ids": 20,
+  "authorised_calls": {
+    "gpt-5.6-sol": 1
+  },
+  "retries": 0
+}

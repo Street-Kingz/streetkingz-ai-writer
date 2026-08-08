@@ -1,0 +1,34 @@
+{
+  "artifact_type": "generation_product_copy_review",
+  "human_review_state": "awaiting_human_review",
+  "scores": {
+    "factual_accuracy": 5,
+    "naturalness": 4,
+    "commercial_persuasiveness": 4,
+    "clarity": 5,
+    "search_integration": 5,
+    "brand_fit": 4,
+    "differentiation": 4,
+    "comparison_usefulness": 5,
+    "trust_claim_discipline": 5,
+    "absence_of_ai_generic_filler": 4,
+    "total": 45,
+    "maximum": 50
+  },
+  "strongest_generated_change": "Product description and the compact Heavy Duty 1200GSM versus XL 800GSM customer-choice comparison.",
+  "weakest_generated_change": "Differentiation is accurate but overlaps materially with construction and absorbency points in the product description.",
+  "duplicative_content": "The differentiation and description both use 1200GSM, dual-layer and double-sided plush construction; human implementation should coordinate them.",
+  "generic_ai_sounding_content": "No material generic SEO filler; the differentiation sentence remains slightly catalogue-like.",
+  "important_manual_edits": [
+    "Coordinate differentiation and description to avoid adjacent repetition.",
+    "Confirm exact replacement fields without introducing layout decisions.",
+    "Preserve safety and clean-paint qualifications in substance.",
+    "Consolidate rather than duplicate the existing XL comparison."
+  ],
+  "production_assessment": {
+    "generation_architecture": "GO",
+    "generated_copy_quality": "GO",
+    "ready_for_human_implementation_review": "GO",
+    "ready_for_automatic_publication": "NO-GO"
+  }
+}
