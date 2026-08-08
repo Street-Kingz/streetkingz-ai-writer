@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "http_status": 403,
+  "rejected": true,
+  "response_body": "{\"code\":\"streetkingz_ai_forbidden\",\"message\":\"This account cannot read authoritative product source.\",\"data\":{\"status\":403}}"
+}

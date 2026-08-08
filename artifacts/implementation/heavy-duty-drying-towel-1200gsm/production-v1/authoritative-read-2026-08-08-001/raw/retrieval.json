@@ -1,0 +1,12 @@
+{
+  "requested_url": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=edit&_fields=id%2Ctype%2Cstatus%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccontent%2Cmeta",
+  "final_url": "https://streetkingz.co.uk/wp-json/wp/v2/product/70?context=edit&_fields=id%2Ctype%2Cstatus%2Cslug%2Clink%2Ctitle%2Cexcerpt%2Ccontent%2Cmeta",
+  "http_status": 403,
+  "retrieved_at": "2026-08-08T15:39:44.419Z",
+  "response_size_bytes": 113,
+  "response_sha256": "deb0a4a5aace659714f6fc4b2313a34f2c8fd3f32f48b9f105b994b9504a6d04",
+  "request_count": 1,
+  "credentials_persisted": false,
+  "request_headers_persisted": false,
+  "write_capability": false
+}

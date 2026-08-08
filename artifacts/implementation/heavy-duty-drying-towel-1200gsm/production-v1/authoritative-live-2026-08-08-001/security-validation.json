@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "wordpress_authoritative_endpoint_security_validation",
+  "route": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+  "anonymous_rejected": true,
+  "unsupported_methods": {
+    "POST": {
+      "http_status": 404,
+      "rejected": true
+    },
+    "PUT": {
+      "http_status": 404,
+      "rejected": true
+    },
+    "PATCH": {
+      "http_status": 404,
+      "rejected": true
+    },
+    "DELETE": {
+      "http_status": 404,
+      "rejected": true
+    }
+  },
+  "authenticated_unauthorised_user": "NOT_RUN_NO_SECOND_CREDENTIAL",
+  "non_product_restriction": "NOT_RUN_TO_MINIMISE_AUTHENTICATED_READS",
+  "product_content_modifications": 0,
+  "capability_or_role_modifications": 0,
+  "credentials_persisted": false
+}

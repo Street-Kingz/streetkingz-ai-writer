@@ -15,7 +15,9 @@
     "research:aggregate": "node scripts/buildResearchState.js",
     "research:page-inventory": "node scripts/buildPageInventory.js",
     "interpret:product-page": "node --env-file=.env scripts/runProductPageInterpretation.js",
-    "generation:fixture": "node scripts/buildGenerationFixture.js"
+    "generation:fixture": "node scripts/buildGenerationFixture.js",
+    "cms:read-product": "node --env-file=.env scripts/readWordPressAuthoritativeProduct.js",
+    "cms:validate-authoritative-endpoint": "node --env-file=.env scripts/validateWordPressAuthoritativeEndpoint.js"
   },
   "dependencies": {
     "express": "^4.19.0",

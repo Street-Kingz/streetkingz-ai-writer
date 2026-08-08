@@ -1,0 +1,13 @@
+{
+  "requested_url": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/products/70/authoritative",
+  "final_url": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/products/70/authoritative",
+  "http_status": 200,
+  "retrieved_at": "2026-08-08T15:57:59.694Z",
+  "response_size_bytes": 2476,
+  "response_sha256": "9315f343caa1bf59d0717dad7b807e7323f57df28b355c84c2acac624df5ca7a",
+  "request_count": 1,
+  "credentials_persisted": false,
+  "request_headers_persisted": false,
+  "retries": 0,
+  "write_capability": false
+}
