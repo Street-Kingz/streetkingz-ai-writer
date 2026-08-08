@@ -12,7 +12,9 @@
     "evidence:serp": "node scripts/buildSerpEvidence.js",
     "evidence:search-console": "node scripts/buildSearchConsoleEvidence.js",
     "auth:search-console": "node --env-file=.env scripts/authoriseSearchConsole.js",
-    "research:aggregate": "node scripts/buildResearchState.js"
+    "research:aggregate": "node scripts/buildResearchState.js",
+    "research:page-inventory": "node scripts/buildPageInventory.js",
+    "interpret:product-page": "node --env-file=.env scripts/runProductPageInterpretation.js"
   },
   "dependencies": {
     "express": "^4.19.0",

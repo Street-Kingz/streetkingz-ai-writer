@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "interpretation_validation_report",
+  "run_id": "interpretation_run_2026-08-08T08-18-56-410Z_bc1e54cf",
+  "interpretation_context_id": "interpretation_context_7f5b6d7f8392d642bc1e54cf",
+  "state": "invalid",
+  "downstream_eligible": false,
+  "cited_evidence_ids": [
+    "ev_0070937601532c2a501db22b",
+    "ev_08af81940d29cd3b696eafab",
+    "ev_0ecff79f83c96838259bb05e",
+    "ev_22f176f73ebb5516944bfdc3",
+    "ev_26bfe55c1dfaf57a44348d94",
+    "ev_386c0d66a38af9541621e08c",
+    "ev_4b61254fe69e8afce103f878",
+    "ev_4cf0bed2c8389d97ec6b3cc2",
+    "ev_4f19130a26005a5c3d3e5381",
+    "ev_d88079cc1b40e60d9e8baf9d",
+    "ev_ecc2c1bd4e72d712f2eda7d7",
+    "ev_ed08924f3394b29222b9b9b0"
+  ],
+  "supplied_evidence_count": 96,
+  "errors": [
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "candidate_actions[1]",
+      "message": "Action confidence reason or limitations are invalid."
+    },
+    {
+      "code": "VAGUE_ACTION",
+      "path": "candidate_actions[1]",
+      "message": "Search-oriented actions must name a cited term, identify a page location, and state a constraint."
+    },
+    {
+      "code": "VAGUE_ACTION",
+      "path": "candidate_actions[3]",
+      "message": "Search-oriented actions must name a cited term, identify a page location, and state a constraint."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[2]",
+      "message": "SERP claims require serp_advanced evidence."
+    },
+    {
+      "code": "CLEAR_EVIDENCE_CONTRADICTION",
+      "path": "decision_areas[4]",
+      "message": "The statement claims product specifications are missing, but cited Product Facts show they exist."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[5]",
+      "message": "SERP claims require serp_advanced evidence."
+    },
+    {
+      "code": "CLEAR_EVIDENCE_CONTRADICTION",
+      "path": "decision_areas[5]",
+      "message": "The statement claims FAQs are missing, but cited Product Facts show they exist."
+    },
+    {
+      "code": "MISSING_EVIDENCE",
+      "path": "decision_areas[7].evidence_ids",
+      "message": "Evidence citations are required."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[7]",
+      "message": "First-party performance claims require search_console evidence."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[7]",
+      "message": "SERP claims require serp_advanced evidence."
+    },
+    {
+      "code": "CLEAR_EVIDENCE_CONTRADICTION",
+      "path": "decision_areas[9]",
+      "message": "The statement claims care guidance are missing, but cited Product Facts show they exist."
+    }
+  ]
+}

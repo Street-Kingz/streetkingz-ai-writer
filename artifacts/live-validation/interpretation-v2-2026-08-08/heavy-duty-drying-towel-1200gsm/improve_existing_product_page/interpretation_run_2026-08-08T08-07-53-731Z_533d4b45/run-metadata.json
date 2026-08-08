@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "interpretation_run_metadata",
+  "run_id": "interpretation_run_2026-08-08T08-07-53-731Z_533d4b45",
+  "status": "invalid",
+  "provider": "openai",
+  "model": "gpt-4o-mini-2024-07-18",
+  "model_settings": {
+    "temperature": 0.1,
+    "response_format": "json_object"
+  },
+  "prompt_version": "2.0.0",
+  "system_prompt_sha256": "89f2c6d35bf59e5a5b61234cbd062c1c66eb3780600cafb55d3d7fab7d5eeb2d",
+  "user_prompt_sha256": "00ee13610b8580e9efd4bbfce3dc2e91d4fd9fa3ed790ffcbbf233a906c70cd0",
+  "input_artifact_id": "research_state_f85fd396bb023e960a17b3f2",
+  "interpretation_context_id": "interpretation_context_4461291828d06526533d4b45",
+  "validation_state": "invalid",
+  "downstream_eligible": false,
+  "human_review_state": "blocked_invalid",
+  "started_at": "2026-08-08T08:07:53.731Z",
+  "completed_at": "2026-08-08T08:08:43.380Z",
+  "usage": {
+    "prompt_tokens": 10532,
+    "completion_tokens": 1553,
+    "total_tokens": 12085,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "files": {
+    "context": "interpretation-context.json",
+    "raw": "raw-response.json",
+    "interpretation": "interpretation.json",
+    "markdown": "interpretation.md",
+    "validation": "validation-report.json",
+    "metadata": "run-metadata.json"
+  }
+}

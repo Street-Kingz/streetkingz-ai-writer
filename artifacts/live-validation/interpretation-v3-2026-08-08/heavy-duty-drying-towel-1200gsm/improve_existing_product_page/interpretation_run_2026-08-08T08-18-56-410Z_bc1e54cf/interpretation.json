@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "invalid_ai_interpretation",
+  "interpretation_id": "interpretation_80d745eb11419f0624324e7c",
+  "interpretation_context_id": "interpretation_context_7f5b6d7f8392d642bc1e54cf",
+  "objective": "improve_existing_product_page",
+  "validation_state": "invalid",
+  "downstream_eligible": false,
+  "human_review_state": "blocked_invalid",
+  "raw_response_ref": "raw-response.json",
+  "validation_report_ref": "validation-report.json"
+}

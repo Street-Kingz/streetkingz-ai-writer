@@ -1,0 +1,55 @@
+{
+  "state": "invalid",
+  "errors": [
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "category_assessments[0].evidence_ids",
+      "message": "Assessment citations must match its canonical category."
+    },
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "findings[1]",
+      "message": "Finding fields are invalid."
+    },
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "findings[3]",
+      "message": "Finding fields are invalid."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "findings[3].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence using: product_facts, keyword_ideas, serp_advanced, search_console."
+    },
+    {
+      "code": "VAGUE_ACTION",
+      "path": "decision_areas[0]",
+      "message": "Search-oriented action is underspecified; missing a strategic purpose."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[1]",
+      "message": "SERP claims require serp_advanced evidence."
+    },
+    {
+      "code": "VAGUE_ACTION",
+      "path": "decision_areas[1]",
+      "message": "Search-oriented action is underspecified; missing a strategic purpose."
+    },
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "decision_areas[6]",
+      "message": "Decision fields are invalid."
+    },
+    {
+      "code": "CURRENT_STATE_CONTRADICTION",
+      "path": "decision_areas[6]",
+      "message": "An absent page element cannot be described as already present."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[9].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence using: product_facts, keyword_ideas, serp_advanced, search_console."
+    }
+  ]
+}

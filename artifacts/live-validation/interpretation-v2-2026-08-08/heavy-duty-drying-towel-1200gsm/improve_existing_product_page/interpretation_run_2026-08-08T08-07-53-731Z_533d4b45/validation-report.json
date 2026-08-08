@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "interpretation_validation_report",
+  "run_id": "interpretation_run_2026-08-08T08-07-53-731Z_533d4b45",
+  "interpretation_context_id": "interpretation_context_4461291828d06526533d4b45",
+  "state": "invalid",
+  "downstream_eligible": false,
+  "cited_evidence_ids": [
+    "ev_14586f382c4b5507ee374766",
+    "ev_22f176f73ebb5516944bfdc3"
+  ],
+  "supplied_evidence_count": 96,
+  "errors": [
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "findings[0].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "candidate_actions[0].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[0].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[1].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[2].evidence_categories",
+      "message": "evidence_categories must exactly match cited evidence."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area title_headings was not assessed."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area differentiation was not assessed."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area product_description_benefits was not assessed."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area specifications was not assessed."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area faqs_questions was not assessed."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area comparisons was not assessed."
+    },
+    {
+      "code": "MISSING_DECISION_AREA",
+      "path": "decision_areas",
+      "message": "Decision area internal_linking was not assessed."
+    }
+  ]
+}

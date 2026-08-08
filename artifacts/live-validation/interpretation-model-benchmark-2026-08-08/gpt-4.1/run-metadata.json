@@ -1,0 +1,46 @@
+{
+  "label": "gpt-4.1",
+  "model": "gpt-4.1-2025-04-14",
+  "endpoint": "https://api.openai.com/v1/chat/completions",
+  "api_mode": "chat.completions",
+  "structured_output": true,
+  "temperature": 0.1,
+  "reasoning": null,
+  "decision_brief_sha256": "2d96a3b3020de7bacea96bc54a85e72c42cd10c6867d612acdae884a161d75b5",
+  "model_input_sha256": "f31a39a5fdd6ad0c3a8ab57ccb37a17f7f9c777f60b9261f5ad43c0481ab797a",
+  "latency_ms": 35343,
+  "http_status": 200,
+  "response_headers": {
+    "openai-organization": "street-kingz",
+    "openai-processing-ms": "34463",
+    "openai-project": "proj_SE4XMStm2A5o0yDvQXVeAEgk",
+    "openai-version": "2020-10-01",
+    "x-ratelimit-limit-requests": "500",
+    "x-ratelimit-limit-tokens": "30000",
+    "x-ratelimit-remaining-requests": "499",
+    "x-ratelimit-remaining-tokens": "16736",
+    "x-ratelimit-reset-requests": "120ms",
+    "x-ratelimit-reset-tokens": "26.528s",
+    "x-request-id": "req_b2131c5ceb5d46279b20a25af701f71e"
+  },
+  "usage": {
+    "prompt_tokens": 18154,
+    "completion_tokens": 7826,
+    "total_tokens": 25980,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "input_tokens": 18154,
+  "output_tokens": 7826,
+  "total_tokens": 25980,
+  "cost_usd": null,
+  "cost_note": "Not returned by the API; no local authoritative price table is configured."
+}

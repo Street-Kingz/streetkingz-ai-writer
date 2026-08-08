@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "interpretation_validation_report",
+  "run_id": "interpretation_run_2026-08-08T07-58-57-675Z_fe6e1081",
+  "interpretation_context_id": "interpretation_context_ff4e05438b2b62ebfe6e1081",
+  "state": "valid",
+  "downstream_eligible": false,
+  "cited_evidence_ids": [
+    "ev_156e61dd68f7233c191afb30",
+    "ev_1f19b6123547f898e270cfd7",
+    "ev_35800b8db2b3b4d929fc7b4b"
+  ],
+  "supplied_evidence_count": 96,
+  "errors": []
+}

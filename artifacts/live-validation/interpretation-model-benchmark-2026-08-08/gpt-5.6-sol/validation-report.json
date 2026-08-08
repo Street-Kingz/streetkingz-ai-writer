@@ -1,0 +1,60 @@
+{
+  "state": "invalid",
+  "errors": [
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "findings[1]",
+      "message": "Finding fields are invalid."
+    },
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "findings[3]",
+      "message": "Finding fields are invalid."
+    },
+    {
+      "code": "MISSING_EVIDENCE",
+      "path": "findings[3].evidence_ids",
+      "message": "Evidence citations are required."
+    },
+    {
+      "code": "VAGUE_ACTION",
+      "path": "decision_areas[0]",
+      "message": "Search-oriented action is underspecified; missing an exact cited keyword/topic or phrase family."
+    },
+    {
+      "code": "VAGUE_ACTION",
+      "path": "decision_areas[1]",
+      "message": "Search-oriented action is underspecified; missing an exact cited keyword/topic or phrase family, a strategic purpose."
+    },
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "decision_areas[2]",
+      "message": "Decision fields are invalid."
+    },
+    {
+      "code": "EVIDENCE_CATEGORY_MISMATCH",
+      "path": "decision_areas[4]",
+      "message": "SERP claims require serp_advanced evidence."
+    },
+    {
+      "code": "CLEAR_EVIDENCE_CONTRADICTION",
+      "path": "decision_areas[4]",
+      "message": "The statement claims product specifications are missing, but cited Product Facts show they exist."
+    },
+    {
+      "code": "CLEAR_EVIDENCE_CONTRADICTION",
+      "path": "decision_areas[5]",
+      "message": "The statement claims FAQs are missing, but cited Product Facts show they exist."
+    },
+    {
+      "code": "UNKNOWN_STATE_CERTAINTY",
+      "path": "decision_areas[9]",
+      "message": "Unknown current state must be stated as uncertainty."
+    },
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "decision_areas[10]",
+      "message": "Decision fields are invalid."
+    }
+  ]
+}

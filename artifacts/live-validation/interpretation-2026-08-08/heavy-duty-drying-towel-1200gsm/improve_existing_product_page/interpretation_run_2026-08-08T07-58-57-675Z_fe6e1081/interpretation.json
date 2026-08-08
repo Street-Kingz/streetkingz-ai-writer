@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "objective": "improve_existing_product_page",
+  "source_product": {
+    "subject_id": "product_20fcada95c00204601928709",
+    "product_name": "Heavy Duty Drying Towel – 1200gsm",
+    "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+  },
+  "findings": [
+    {
+      "id": "finding_1",
+      "finding": "The product page lacks detailed information on the towel's absorbency and care instructions, which are critical for potential buyers.",
+      "evidence_ids": [
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_35800b8db2b3b4d929fc7b4b"
+      ],
+      "evidence_categories": [
+        "product_truth"
+      ],
+      "confidence": "high",
+      "confidence_reason": "The evidence is directly related to product features and care instructions, with multiple supporting facts confirming the importance of absorbency and care for user satisfaction.",
+      "limitations": [
+        "The evidence does not quantify the impact of these details on conversion rates."
+      ]
+    }
+  ],
+  "candidate_actions": [
+    {
+      "id": "action_1",
+      "action": "Enhance the product description to include detailed information about the towel's absorbency and specific care instructions.",
+      "rationale": "Providing clear information about absorbency and care will address potential buyer concerns and improve user experience.",
+      "evidence_ids": [
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_35800b8db2b3b4d929fc7b4b"
+      ],
+      "evidence_categories": [
+        "product_truth"
+      ],
+      "related_finding_ids": [
+        "finding_1"
+      ],
+      "action_type": "product_description",
+      "priority": "high",
+      "confidence": "high",
+      "confidence_reason": "The evidence strongly supports the need for detailed product information, which is crucial for informed purchasing decisions.",
+      "limitations": [
+        "The effectiveness of this change in increasing conversions is not guaranteed."
+      ]
+    }
+  ],
+  "limitations": [
+    "The recommendations are based on available evidence and do not account for external factors that may influence product performance."
+  ],
+  "overall_assessment": "The product page is ready for enhancements to improve user experience and potentially increase conversions.",
+  "artifact_type": "validated_ai_interpretation",
+  "interpretation_id": "interpretation_6dedbccdb92b5b6af968237f",
+  "interpretation_context_id": "interpretation_context_ff4e05438b2b62ebfe6e1081",
+  "validation_state": "valid",
+  "downstream_eligible": false,
+  "human_review_state": "awaiting_human_review"
+}

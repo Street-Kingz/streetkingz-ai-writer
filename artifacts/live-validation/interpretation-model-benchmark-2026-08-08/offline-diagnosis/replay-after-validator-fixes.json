@@ -1,0 +1,42 @@
+{
+  "artifact_type": "offline_interpretation_replay",
+  "model_calls": 0,
+  "runs": [
+    {
+      "model": "gpt-4.1",
+      "state": "invalid",
+      "errors": [
+        {
+          "code": "EVIDENCE_CATEGORY_MISMATCH",
+          "path": "category_assessments[0].evidence_ids",
+          "message": "Assessment citations must match its canonical category."
+        },
+        {
+          "code": "EVIDENCE_CATEGORY_MISMATCH",
+          "path": "findings[3].evidence_categories",
+          "message": "evidence_categories must exactly match cited evidence using: product_facts, keyword_ideas, serp_advanced, search_console."
+        },
+        {
+          "code": "EVIDENCE_CATEGORY_MISMATCH",
+          "path": "decision_areas[1]",
+          "message": "SERP claims require serp_advanced evidence."
+        },
+        {
+          "code": "VAGUE_ACTION",
+          "path": "decision_areas[1]",
+          "message": "Search-oriented action is underspecified; missing a strategic purpose."
+        },
+        {
+          "code": "EVIDENCE_CATEGORY_MISMATCH",
+          "path": "decision_areas[9].evidence_categories",
+          "message": "evidence_categories must exactly match cited evidence using: product_facts, keyword_ideas, serp_advanced, search_console."
+        }
+      ]
+    },
+    {
+      "model": "gpt-5.6-sol",
+      "state": "valid",
+      "errors": []
+    }
+  ]
+}

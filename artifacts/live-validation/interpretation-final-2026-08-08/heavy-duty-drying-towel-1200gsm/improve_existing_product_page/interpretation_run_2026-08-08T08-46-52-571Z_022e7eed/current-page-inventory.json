@@ -1,0 +1,1295 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "current_page_inventory",
+  "inventory_version": "1.0.0",
+  "inventory_id": "page_inventory_fa6da90f766640922787c63d",
+  "objective": "improve_existing_product_page",
+  "source_product": {
+    "subject_id": "product_20fcada95c00204601928709",
+    "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "product_name": "Heavy Duty Drying Towel – 1200gsm",
+    "product_type": "Microfibre car drying towel",
+    "product_facts_ref": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+    "product_facts_sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+  },
+  "source_evidence": {
+    "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+    "research_state_id": "research_state_f85fd396bb023e960a17b3f2"
+  },
+  "decision_areas": [
+    {
+      "decision_area": "search_positioning",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_5c06c311f77674f9e23f5909",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_d071b25d86399af8a71dfce7",
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_dd6ef7fbfda651a55c9feead"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_0070937601532c2a501db22b",
+          "field_path": "product.name",
+          "label": "name",
+          "value": "Heavy Duty Drying Towel – 1200gsm",
+          "source_record_id": "product.name"
+        },
+        {
+          "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+          "field_path": "product.features[1]",
+          "label": "features",
+          "value": "Double-sided plush microfibre construction",
+          "source_record_id": "product.features[1]"
+        },
+        {
+          "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+          "field_path": "product.features[0]",
+          "label": "features",
+          "value": "1200GSM dual-layer construction",
+          "source_record_id": "product.features[0]"
+        },
+        {
+          "evidence_id": "ev_5c06c311f77674f9e23f5909",
+          "field_path": "product.intended_use[0]",
+          "label": "intended use",
+          "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics",
+          "source_record_id": "product.intended_use[0]"
+        },
+        {
+          "evidence_id": "ev_690390ecc0dbcae27b89d40f",
+          "field_path": "product.claims[1]",
+          "label": "claims",
+          "value": "Soft premium feel",
+          "source_record_id": "product.claims[1]"
+        },
+        {
+          "evidence_id": "ev_a5bc8d87c07e1324c582b725",
+          "field_path": "product.claims[0]",
+          "label": "claims",
+          "value": "Extreme absorbency",
+          "source_record_id": "product.claims[0]"
+        },
+        {
+          "evidence_id": "ev_b77f17bcbbd291179ba662ee",
+          "field_path": "product.category_type",
+          "label": "category type",
+          "value": "Microfibre car drying towel",
+          "source_record_id": "product.category_type"
+        },
+        {
+          "evidence_id": "ev_d071b25d86399af8a71dfce7",
+          "field_path": "product.intended_use[1]",
+          "label": "intended use",
+          "value": "Post-wash drying, especially on larger or heavily rinsed vehicles",
+          "source_record_id": "product.intended_use[1]"
+        },
+        {
+          "evidence_id": "ev_d67a5e6277ac9a3ccbe79b2c",
+          "field_path": "product.claims[2]",
+          "label": "claims",
+          "value": "Safe on all paint",
+          "source_record_id": "product.claims[2]"
+        },
+        {
+          "evidence_id": "ev_dd6ef7fbfda651a55c9feead",
+          "field_path": "product.features[2]",
+          "label": "features",
+          "value": "Soft microfibre edging",
+          "source_record_id": "product.features[2]"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_5c06c311f77674f9e23f5909",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_d071b25d86399af8a71dfce7",
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_dd6ef7fbfda651a55c9feead"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "Presence shows product positioning signals exist; it does not determine whether they are prominent or effective."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_0070937601532c2a501db22b",
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_3bb78e5c67db6cd015977f6b",
+          "ev_5c06c311f77674f9e23f5909",
+          "ev_690390ecc0dbcae27b89d40f",
+          "ev_a5bc8d87c07e1324c582b725",
+          "ev_b77f17bcbbd291179ba662ee",
+          "ev_d071b25d86399af8a71dfce7",
+          "ev_d67a5e6277ac9a3ccbe79b2c",
+          "ev_dd6ef7fbfda651a55c9feead"
+        ]
+      }
+    },
+    {
+      "decision_area": "title_headings",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_0070937601532c2a501db22b"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_0070937601532c2a501db22b",
+          "field_path": "product.name",
+          "label": "name",
+          "value": "Heavy Duty Drying Towel – 1200gsm",
+          "source_record_id": "product.name"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_0070937601532c2a501db22b"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "The extracted product name establishes title presence; heading hierarchy and visual prominence are not determined."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_0070937601532c2a501db22b"
+        ]
+      }
+    },
+    {
+      "decision_area": "differentiation",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_2bc48197465b65346af179ed",
+        "ev_33f10080286279cf93006b05",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_97b719bee372c6f804006026",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_cd0fe752a33fa1418bac218f",
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_db33c004bd2fbbabb5a29158",
+        "ev_dd6ef7fbfda651a55c9feead",
+        "ev_f6eaa22dc231a51d58332d7d"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_03eaf1f2b6bd5f09a0c4da51",
+          "field_path": "product.limitations[2]",
+          "label": "limitations",
+          "value": "Feels heavier when fully saturated with water",
+          "source_record_id": "product.limitations[2]"
+        },
+        {
+          "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+          "field_path": "product.features[1]",
+          "label": "features",
+          "value": "Double-sided plush microfibre construction",
+          "source_record_id": "product.features[1]"
+        },
+        {
+          "evidence_id": "ev_1f19b6123547f898e270cfd7",
+          "field_path": "product.benefits[0]",
+          "label": "benefits",
+          "value": "Designed to pull water off paint with almost no effort",
+          "source_record_id": "product.benefits[0]"
+        },
+        {
+          "evidence_id": "ev_2bc48197465b65346af179ed",
+          "field_path": "product.faqs[0].answer",
+          "label": "answer",
+          "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "source_record_id": "product.faqs[0].answer"
+        },
+        {
+          "evidence_id": "ev_33f10080286279cf93006b05",
+          "field_path": "product.benefits[1]",
+          "label": "benefits",
+          "value": "Fewer passes and faster drying",
+          "source_record_id": "product.benefits[1]"
+        },
+        {
+          "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+          "field_path": "product.features[0]",
+          "label": "features",
+          "value": "1200GSM dual-layer construction",
+          "source_record_id": "product.features[0]"
+        },
+        {
+          "evidence_id": "ev_690390ecc0dbcae27b89d40f",
+          "field_path": "product.claims[1]",
+          "label": "claims",
+          "value": "Soft premium feel",
+          "source_record_id": "product.claims[1]"
+        },
+        {
+          "evidence_id": "ev_6c5743cebf9b844617d8e794",
+          "field_path": "product.limitations[1]",
+          "label": "limitations",
+          "value": "Use only on clean, shampooed paint",
+          "source_record_id": "product.limitations[1]"
+        },
+        {
+          "evidence_id": "ev_7f02bfb4738fecbb2e8549bb",
+          "field_path": "product.objections_or_buying_questions[0]",
+          "label": "objections or buying questions",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.objections_or_buying_questions[0]"
+        },
+        {
+          "evidence_id": "ev_97b719bee372c6f804006026",
+          "field_path": "product.limitations[0]",
+          "label": "limitations",
+          "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand",
+          "source_record_id": "product.limitations[0]"
+        },
+        {
+          "evidence_id": "ev_a5bc8d87c07e1324c582b725",
+          "field_path": "product.claims[0]",
+          "label": "claims",
+          "value": "Extreme absorbency",
+          "source_record_id": "product.claims[0]"
+        },
+        {
+          "evidence_id": "ev_cd0fe752a33fa1418bac218f",
+          "field_path": "product.faqs[0].question",
+          "label": "question",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.faqs[0].question"
+        },
+        {
+          "evidence_id": "ev_d67a5e6277ac9a3ccbe79b2c",
+          "field_path": "product.claims[2]",
+          "label": "claims",
+          "value": "Safe on all paint",
+          "source_record_id": "product.claims[2]"
+        },
+        {
+          "evidence_id": "ev_db33c004bd2fbbabb5a29158",
+          "field_path": "product.benefits[2]",
+          "label": "benefits",
+          "value": "Less contact with paint helps prevent streaks, smears and unwanted marks",
+          "source_record_id": "product.benefits[2]"
+        },
+        {
+          "evidence_id": "ev_dd6ef7fbfda651a55c9feead",
+          "field_path": "product.features[2]",
+          "label": "features",
+          "value": "Soft microfibre edging",
+          "source_record_id": "product.features[2]"
+        },
+        {
+          "evidence_id": "ev_f6eaa22dc231a51d58332d7d",
+          "field_path": "product.benefits[3]",
+          "label": "benefits",
+          "value": "Holds a serious amount of water while remaining soft and manageable",
+          "source_record_id": "product.benefits[3]"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_33f10080286279cf93006b05",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_97b719bee372c6f804006026",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_db33c004bd2fbbabb5a29158",
+        "ev_dd6ef7fbfda651a55c9feead",
+        "ev_f6eaa22dc231a51d58332d7d"
+      ],
+      "related_existing_content_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "component_states": null,
+      "limitations": [
+        "Distinctive claims, features and an XL 800GSM comparison are present, but relative differentiation versus external competitors is not established by page facts alone."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_03eaf1f2b6bd5f09a0c4da51",
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_1f19b6123547f898e270cfd7",
+          "ev_2bc48197465b65346af179ed",
+          "ev_33f10080286279cf93006b05",
+          "ev_3bb78e5c67db6cd015977f6b",
+          "ev_690390ecc0dbcae27b89d40f",
+          "ev_6c5743cebf9b844617d8e794",
+          "ev_7f02bfb4738fecbb2e8549bb",
+          "ev_97b719bee372c6f804006026",
+          "ev_a5bc8d87c07e1324c582b725",
+          "ev_cd0fe752a33fa1418bac218f",
+          "ev_d67a5e6277ac9a3ccbe79b2c",
+          "ev_db33c004bd2fbbabb5a29158",
+          "ev_dd6ef7fbfda651a55c9feead",
+          "ev_f6eaa22dc231a51d58332d7d"
+        ]
+      }
+    },
+    {
+      "decision_area": "product_description_benefits",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_33f10080286279cf93006b05",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_5c06c311f77674f9e23f5909",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_d071b25d86399af8a71dfce7",
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_db33c004bd2fbbabb5a29158",
+        "ev_dd6ef7fbfda651a55c9feead",
+        "ev_f6eaa22dc231a51d58332d7d"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+          "field_path": "product.features[1]",
+          "label": "features",
+          "value": "Double-sided plush microfibre construction",
+          "source_record_id": "product.features[1]"
+        },
+        {
+          "evidence_id": "ev_1f19b6123547f898e270cfd7",
+          "field_path": "product.benefits[0]",
+          "label": "benefits",
+          "value": "Designed to pull water off paint with almost no effort",
+          "source_record_id": "product.benefits[0]"
+        },
+        {
+          "evidence_id": "ev_33f10080286279cf93006b05",
+          "field_path": "product.benefits[1]",
+          "label": "benefits",
+          "value": "Fewer passes and faster drying",
+          "source_record_id": "product.benefits[1]"
+        },
+        {
+          "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+          "field_path": "product.features[0]",
+          "label": "features",
+          "value": "1200GSM dual-layer construction",
+          "source_record_id": "product.features[0]"
+        },
+        {
+          "evidence_id": "ev_5c06c311f77674f9e23f5909",
+          "field_path": "product.intended_use[0]",
+          "label": "intended use",
+          "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics",
+          "source_record_id": "product.intended_use[0]"
+        },
+        {
+          "evidence_id": "ev_690390ecc0dbcae27b89d40f",
+          "field_path": "product.claims[1]",
+          "label": "claims",
+          "value": "Soft premium feel",
+          "source_record_id": "product.claims[1]"
+        },
+        {
+          "evidence_id": "ev_a5bc8d87c07e1324c582b725",
+          "field_path": "product.claims[0]",
+          "label": "claims",
+          "value": "Extreme absorbency",
+          "source_record_id": "product.claims[0]"
+        },
+        {
+          "evidence_id": "ev_d071b25d86399af8a71dfce7",
+          "field_path": "product.intended_use[1]",
+          "label": "intended use",
+          "value": "Post-wash drying, especially on larger or heavily rinsed vehicles",
+          "source_record_id": "product.intended_use[1]"
+        },
+        {
+          "evidence_id": "ev_d67a5e6277ac9a3ccbe79b2c",
+          "field_path": "product.claims[2]",
+          "label": "claims",
+          "value": "Safe on all paint",
+          "source_record_id": "product.claims[2]"
+        },
+        {
+          "evidence_id": "ev_db33c004bd2fbbabb5a29158",
+          "field_path": "product.benefits[2]",
+          "label": "benefits",
+          "value": "Less contact with paint helps prevent streaks, smears and unwanted marks",
+          "source_record_id": "product.benefits[2]"
+        },
+        {
+          "evidence_id": "ev_dd6ef7fbfda651a55c9feead",
+          "field_path": "product.features[2]",
+          "label": "features",
+          "value": "Soft microfibre edging",
+          "source_record_id": "product.features[2]"
+        },
+        {
+          "evidence_id": "ev_f6eaa22dc231a51d58332d7d",
+          "field_path": "product.benefits[3]",
+          "label": "benefits",
+          "value": "Holds a serious amount of water while remaining soft and manageable",
+          "source_record_id": "product.benefits[3]"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_33f10080286279cf93006b05",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_5c06c311f77674f9e23f5909",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_d071b25d86399af8a71dfce7",
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_db33c004bd2fbbabb5a29158",
+        "ev_dd6ef7fbfda651a55c9feead",
+        "ev_f6eaa22dc231a51d58332d7d"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "Benefits or descriptive facts are present; completeness, ordering and persuasive quality require review."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_1f19b6123547f898e270cfd7",
+          "ev_33f10080286279cf93006b05",
+          "ev_3bb78e5c67db6cd015977f6b",
+          "ev_5c06c311f77674f9e23f5909",
+          "ev_690390ecc0dbcae27b89d40f",
+          "ev_a5bc8d87c07e1324c582b725",
+          "ev_d071b25d86399af8a71dfce7",
+          "ev_d67a5e6277ac9a3ccbe79b2c",
+          "ev_db33c004bd2fbbabb5a29158",
+          "ev_dd6ef7fbfda651a55c9feead",
+          "ev_f6eaa22dc231a51d58332d7d"
+        ]
+      }
+    },
+    {
+      "decision_area": "specifications",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_46f4fdd27000093c56fda5bb",
+        "ev_6480ef536c6606f8e8a06cf2",
+        "ev_76b3fc2ba72f0b68b8a0edb6",
+        "ev_a013ffa90fecfff2602da15d",
+        "ev_df13b638f6677b96bbf56a48",
+        "ev_df6a0d1603bb10feb5ea36c0",
+        "ev_e0b1334202c00b30a34009ae",
+        "ev_e7403c77f3be5be7f6ce97e3"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_46f4fdd27000093c56fda5bb",
+          "field_path": "product.specifications[2].name",
+          "label": "name",
+          "value": "Material",
+          "source_record_id": "product.specifications[2].name"
+        },
+        {
+          "evidence_id": "ev_6480ef536c6606f8e8a06cf2",
+          "field_path": "product.specifications[1].value",
+          "label": "value",
+          "value": "90 × 60 cm",
+          "source_record_id": "product.specifications[1].value"
+        },
+        {
+          "evidence_id": "ev_76b3fc2ba72f0b68b8a0edb6",
+          "field_path": "product.specifications[0].value",
+          "label": "value",
+          "value": "1200GSM (dual-sided plush microfibre)",
+          "source_record_id": "product.specifications[0].value"
+        },
+        {
+          "evidence_id": "ev_a013ffa90fecfff2602da15d",
+          "field_path": "product.specifications[3].name",
+          "label": "name",
+          "value": "Edge",
+          "source_record_id": "product.specifications[3].name"
+        },
+        {
+          "evidence_id": "ev_df13b638f6677b96bbf56a48",
+          "field_path": "product.specifications[1].name",
+          "label": "name",
+          "value": "Size",
+          "source_record_id": "product.specifications[1].name"
+        },
+        {
+          "evidence_id": "ev_df6a0d1603bb10feb5ea36c0",
+          "field_path": "product.specifications[3].value",
+          "label": "value",
+          "value": "Soft microfibre edging",
+          "source_record_id": "product.specifications[3].value"
+        },
+        {
+          "evidence_id": "ev_e0b1334202c00b30a34009ae",
+          "field_path": "product.specifications[2].value",
+          "label": "value",
+          "value": "Premium dual-sided microfibre",
+          "source_record_id": "product.specifications[2].value"
+        },
+        {
+          "evidence_id": "ev_e7403c77f3be5be7f6ce97e3",
+          "field_path": "product.specifications[0].name",
+          "label": "name",
+          "value": "GSM",
+          "source_record_id": "product.specifications[0].name"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_46f4fdd27000093c56fda5bb",
+        "ev_6480ef536c6606f8e8a06cf2",
+        "ev_76b3fc2ba72f0b68b8a0edb6",
+        "ev_a013ffa90fecfff2602da15d",
+        "ev_df13b638f6677b96bbf56a48",
+        "ev_df6a0d1603bb10feb5ea36c0",
+        "ev_e0b1334202c00b30a34009ae",
+        "ev_e7403c77f3be5be7f6ce97e3"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "Structured specification facts are present; extraction does not judge their display quality."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_46f4fdd27000093c56fda5bb",
+          "ev_6480ef536c6606f8e8a06cf2",
+          "ev_76b3fc2ba72f0b68b8a0edb6",
+          "ev_a013ffa90fecfff2602da15d",
+          "ev_df13b638f6677b96bbf56a48",
+          "ev_df6a0d1603bb10feb5ea36c0",
+          "ev_e0b1334202c00b30a34009ae",
+          "ev_e7403c77f3be5be7f6ce97e3"
+        ]
+      }
+    },
+    {
+      "decision_area": "faqs_questions",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_2bc48197465b65346af179ed",
+        "ev_40936f5cfc99132392553647",
+        "ev_549b5d29c9922c68d39651fd",
+        "ev_7eaaa8da51e88bf042ccb631",
+        "ev_8d4a7ecb9cc4eab551bcfcb1",
+        "ev_948134da96ac25cbc58fc7e8",
+        "ev_9a7d7a48cf73e1566e1db961",
+        "ev_c6205f46e6756582c89167f9",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_118c38dfbf7820614c40a985",
+          "field_path": "product.faqs[4].answer",
+          "label": "answer",
+          "value": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+          "source_record_id": "product.faqs[4].answer"
+        },
+        {
+          "evidence_id": "ev_11b63816ad955ca330a8ece7",
+          "field_path": "product.faqs[2].question",
+          "label": "question",
+          "value": "Is it too heavy when it’s wet?",
+          "source_record_id": "product.faqs[2].question"
+        },
+        {
+          "evidence_id": "ev_156e61dd68f7233c191afb30",
+          "field_path": "product.faqs[5].answer",
+          "label": "answer",
+          "value": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+          "source_record_id": "product.faqs[5].answer"
+        },
+        {
+          "evidence_id": "ev_2bc48197465b65346af179ed",
+          "field_path": "product.faqs[0].answer",
+          "label": "answer",
+          "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "source_record_id": "product.faqs[0].answer"
+        },
+        {
+          "evidence_id": "ev_40936f5cfc99132392553647",
+          "field_path": "product.faqs[1].answer",
+          "label": "answer",
+          "value": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+          "source_record_id": "product.faqs[1].answer"
+        },
+        {
+          "evidence_id": "ev_549b5d29c9922c68d39651fd",
+          "field_path": "product.faqs[2].answer",
+          "label": "answer",
+          "value": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+          "source_record_id": "product.faqs[2].answer"
+        },
+        {
+          "evidence_id": "ev_7eaaa8da51e88bf042ccb631",
+          "field_path": "product.faqs[5].question",
+          "label": "question",
+          "value": "How should I wash and store it?",
+          "source_record_id": "product.faqs[5].question"
+        },
+        {
+          "evidence_id": "ev_8d4a7ecb9cc4eab551bcfcb1",
+          "field_path": "product.faqs[3].answer",
+          "label": "answer",
+          "value": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings.",
+          "source_record_id": "product.faqs[3].answer"
+        },
+        {
+          "evidence_id": "ev_948134da96ac25cbc58fc7e8",
+          "field_path": "product.faqs[1].question",
+          "label": "question",
+          "value": "Will this towel scratch my paint?",
+          "source_record_id": "product.faqs[1].question"
+        },
+        {
+          "evidence_id": "ev_9a7d7a48cf73e1566e1db961",
+          "field_path": "product.faqs[3].question",
+          "label": "question",
+          "value": "Can I use it on ceramic-coated or waxed cars?",
+          "source_record_id": "product.faqs[3].question"
+        },
+        {
+          "evidence_id": "ev_c6205f46e6756582c89167f9",
+          "field_path": "product.faqs[4].question",
+          "label": "question",
+          "value": "How many towels do I need to dry a whole car?",
+          "source_record_id": "product.faqs[4].question"
+        },
+        {
+          "evidence_id": "ev_cd0fe752a33fa1418bac218f",
+          "field_path": "product.faqs[0].question",
+          "label": "question",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.faqs[0].question"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_2bc48197465b65346af179ed",
+        "ev_40936f5cfc99132392553647",
+        "ev_549b5d29c9922c68d39651fd",
+        "ev_7eaaa8da51e88bf042ccb631",
+        "ev_8d4a7ecb9cc4eab551bcfcb1",
+        "ev_948134da96ac25cbc58fc7e8",
+        "ev_9a7d7a48cf73e1566e1db961",
+        "ev_c6205f46e6756582c89167f9",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "FAQ content is present; visibility, schema markup and usefulness are not determined."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_118c38dfbf7820614c40a985",
+          "ev_11b63816ad955ca330a8ece7",
+          "ev_156e61dd68f7233c191afb30",
+          "ev_2bc48197465b65346af179ed",
+          "ev_40936f5cfc99132392553647",
+          "ev_549b5d29c9922c68d39651fd",
+          "ev_7eaaa8da51e88bf042ccb631",
+          "ev_8d4a7ecb9cc4eab551bcfcb1",
+          "ev_948134da96ac25cbc58fc7e8",
+          "ev_9a7d7a48cf73e1566e1db961",
+          "ev_c6205f46e6756582c89167f9",
+          "ev_cd0fe752a33fa1418bac218f"
+        ]
+      }
+    },
+    {
+      "decision_area": "comparisons",
+      "presence": "absent",
+      "current_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_97b719bee372c6f804006026",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_2bc48197465b65346af179ed",
+          "field_path": "product.faqs[0].answer",
+          "label": "answer",
+          "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "source_record_id": "product.faqs[0].answer"
+        },
+        {
+          "evidence_id": "ev_7f02bfb4738fecbb2e8549bb",
+          "field_path": "product.objections_or_buying_questions[0]",
+          "label": "objections or buying questions",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.objections_or_buying_questions[0]"
+        },
+        {
+          "evidence_id": "ev_97b719bee372c6f804006026",
+          "field_path": "product.limitations[0]",
+          "label": "limitations",
+          "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand",
+          "source_record_id": "product.limitations[0]"
+        },
+        {
+          "evidence_id": "ev_cd0fe752a33fa1418bac218f",
+          "field_path": "product.faqs[0].question",
+          "label": "question",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.faqs[0].question"
+        }
+      ],
+      "direct_presence_evidence_ids": [],
+      "related_existing_content_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_97b719bee372c6f804006026",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "component_states": {
+        "dedicated_comparison_section": "absent",
+        "comparison_content_elsewhere": "present",
+        "comparison_content_location": "FAQ and extracted comparison/limitation facts"
+      },
+      "limitations": [
+        "No dedicated comparison section was extracted. Existing XL 800GSM comparison content is present inside the FAQ and limitation facts and must not be treated as absent comparison content."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_2bc48197465b65346af179ed",
+          "ev_7f02bfb4738fecbb2e8549bb",
+          "ev_97b719bee372c6f804006026",
+          "ev_cd0fe752a33fa1418bac218f"
+        ]
+      }
+    },
+    {
+      "decision_area": "care_usage_guidance",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_2a11cf44ec88f39019337bab",
+        "ev_35800b8db2b3b4d929fc7b4b",
+        "ev_4d9b21d63307c78e3bf26b2b",
+        "ev_81434c3631efe91982a8e66a",
+        "ev_89297bf2636fa9cdc1e3f846",
+        "ev_950c176f1a1bf3c4c8419d08",
+        "ev_9acd7113c1bd5b490cc6d29e",
+        "ev_a5080ac67b897f0c59c9e9ef",
+        "ev_abb90b93bc199371ffcde5d8",
+        "ev_c100d4e041f1bfd05cdfb231",
+        "ev_c17d1a75e52d8fdc1a7312a2",
+        "ev_e19a2573305d26337d2bf4ae"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_2a11cf44ec88f39019337bab",
+          "field_path": "product.how_to_use[2].instruction",
+          "label": "instruction",
+          "value": "Lay the towel flat on the panel.",
+          "source_record_id": "product.how_to_use[2].instruction"
+        },
+        {
+          "evidence_id": "ev_35800b8db2b3b4d929fc7b4b",
+          "field_path": "product.care_instructions[1].instruction",
+          "label": "instruction",
+          "value": "Do not use fabric softener or bleach",
+          "source_record_id": "product.care_instructions[1].instruction"
+        },
+        {
+          "evidence_id": "ev_4d9b21d63307c78e3bf26b2b",
+          "field_path": "product.how_to_use[0].instruction",
+          "label": "instruction",
+          "value": "Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo .",
+          "source_record_id": "product.how_to_use[0].instruction"
+        },
+        {
+          "evidence_id": "ev_81434c3631efe91982a8e66a",
+          "field_path": "product.care_instructions[0].instruction",
+          "label": "instruction",
+          "value": "Machine washable on a cold, gentle cycle with microfibre or non-bio detergent",
+          "source_record_id": "product.care_instructions[0].instruction"
+        },
+        {
+          "evidence_id": "ev_89297bf2636fa9cdc1e3f846",
+          "field_path": "product.how_to_use[4].instruction",
+          "label": "instruction",
+          "value": "Wring out only when completely saturated.",
+          "source_record_id": "product.how_to_use[4].instruction"
+        },
+        {
+          "evidence_id": "ev_950c176f1a1bf3c4c8419d08",
+          "field_path": "product.care_instructions[2].instruction",
+          "label": "instruction",
+          "value": "Air dry only, do not tumble dry",
+          "source_record_id": "product.care_instructions[2].instruction"
+        },
+        {
+          "evidence_id": "ev_9acd7113c1bd5b490cc6d29e",
+          "field_path": "product.care_instructions[1].name",
+          "label": "name",
+          "value": "Care",
+          "source_record_id": "product.care_instructions[1].name"
+        },
+        {
+          "evidence_id": "ev_a5080ac67b897f0c59c9e9ef",
+          "field_path": "product.how_to_use[1].instruction",
+          "label": "instruction",
+          "value": "Rinse thoroughly and remove standing water with a light sheet of water.",
+          "source_record_id": "product.how_to_use[1].instruction"
+        },
+        {
+          "evidence_id": "ev_abb90b93bc199371ffcde5d8",
+          "field_path": "product.care_instructions[2].name",
+          "label": "name",
+          "value": "Dry",
+          "source_record_id": "product.care_instructions[2].name"
+        },
+        {
+          "evidence_id": "ev_c100d4e041f1bfd05cdfb231",
+          "field_path": "product.how_to_use[3].instruction",
+          "label": "instruction",
+          "value": "Gently drag or pat dry, no pressure needed.",
+          "source_record_id": "product.how_to_use[3].instruction"
+        },
+        {
+          "evidence_id": "ev_c17d1a75e52d8fdc1a7312a2",
+          "field_path": "product.care_instructions[0].name",
+          "label": "name",
+          "value": "Wash",
+          "source_record_id": "product.care_instructions[0].name"
+        },
+        {
+          "evidence_id": "ev_e19a2573305d26337d2bf4ae",
+          "field_path": "product.how_to_use[5].instruction",
+          "label": "instruction",
+          "value": "After use, wash on a gentle cycle with microfibre detergent or non-bio detergent.",
+          "source_record_id": "product.how_to_use[5].instruction"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_2a11cf44ec88f39019337bab",
+        "ev_35800b8db2b3b4d929fc7b4b",
+        "ev_4d9b21d63307c78e3bf26b2b",
+        "ev_81434c3631efe91982a8e66a",
+        "ev_89297bf2636fa9cdc1e3f846",
+        "ev_950c176f1a1bf3c4c8419d08",
+        "ev_9acd7113c1bd5b490cc6d29e",
+        "ev_a5080ac67b897f0c59c9e9ef",
+        "ev_abb90b93bc199371ffcde5d8",
+        "ev_c100d4e041f1bfd05cdfb231",
+        "ev_c17d1a75e52d8fdc1a7312a2",
+        "ev_e19a2573305d26337d2bf4ae"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "Care or usage guidance is present; placement and prominence are not determined."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_2a11cf44ec88f39019337bab",
+          "ev_35800b8db2b3b4d929fc7b4b",
+          "ev_4d9b21d63307c78e3bf26b2b",
+          "ev_81434c3631efe91982a8e66a",
+          "ev_89297bf2636fa9cdc1e3f846",
+          "ev_950c176f1a1bf3c4c8419d08",
+          "ev_9acd7113c1bd5b490cc6d29e",
+          "ev_a5080ac67b897f0c59c9e9ef",
+          "ev_abb90b93bc199371ffcde5d8",
+          "ev_c100d4e041f1bfd05cdfb231",
+          "ev_c17d1a75e52d8fdc1a7312a2",
+          "ev_e19a2573305d26337d2bf4ae"
+        ]
+      }
+    },
+    {
+      "decision_area": "internal_linking",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_5ac381162714adb7db3c0ecc",
+        "ev_91755da93a8bf53061ed0524",
+        "ev_d110ad46783cfaadea7d0865",
+        "ev_db25754bda22a651bc0324dc"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_5ac381162714adb7db3c0ecc",
+          "field_path": "product.internal_links[0].label",
+          "label": "label",
+          "value": "Origin Shampoo",
+          "source_record_id": "product.internal_links[0].label"
+        },
+        {
+          "evidence_id": "ev_91755da93a8bf53061ed0524",
+          "field_path": "product.related_products[0].url",
+          "label": "url",
+          "value": "https://streetkingz.co.uk/product/the-origin-shampoo/",
+          "source_record_id": "product.related_products[0].url"
+        },
+        {
+          "evidence_id": "ev_d110ad46783cfaadea7d0865",
+          "field_path": "product.related_products[0].name",
+          "label": "name",
+          "value": "The Origin Shampoo",
+          "source_record_id": "product.related_products[0].name"
+        },
+        {
+          "evidence_id": "ev_db25754bda22a651bc0324dc",
+          "field_path": "product.internal_links[0].url",
+          "label": "url",
+          "value": "https://streetkingz.co.uk/product/the-origin-shampoo/",
+          "source_record_id": "product.internal_links[0].url"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_91755da93a8bf53061ed0524",
+        "ev_db25754bda22a651bc0324dc"
+      ],
+      "related_existing_content_evidence_ids": [
+        "ev_5ac381162714adb7db3c0ecc",
+        "ev_d110ad46783cfaadea7d0865"
+      ],
+      "component_states": null,
+      "limitations": [
+        "The Origin Shampoo is confirmed by extracted internal and related-product URLs. Microfibre Wash Mitt has an extracted related-product name but no extracted URL, so it is not counted as a confirmed link. Placement and crawl treatment are not determined."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_5ac381162714adb7db3c0ecc",
+          "ev_91755da93a8bf53061ed0524",
+          "ev_d110ad46783cfaadea7d0865",
+          "ev_db25754bda22a651bc0324dc"
+        ]
+      }
+    },
+    {
+      "decision_area": "metadata",
+      "presence": "unknown",
+      "current_evidence_ids": [],
+      "current_page_fact_refs": [],
+      "direct_presence_evidence_ids": [],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "The current extraction artifact does not reliably capture page metadata, so absence cannot be concluded."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": []
+      }
+    },
+    {
+      "decision_area": "clarity_trust",
+      "presence": "present",
+      "current_evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c92d49374a7d66714028fbc",
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_2bc48197465b65346af179ed",
+        "ev_32a92e55f005a53ac7bdf55f",
+        "ev_367c867c2f1568b2e9f79903",
+        "ev_3a54e781a2603ee4bb883414",
+        "ev_40936f5cfc99132392553647",
+        "ev_549b5d29c9922c68d39651fd",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_7a63f8f747b8e1cbca2759a4",
+        "ev_7eaaa8da51e88bf042ccb631",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_8d4a7ecb9cc4eab551bcfcb1",
+        "ev_948134da96ac25cbc58fc7e8",
+        "ev_97b719bee372c6f804006026",
+        "ev_9a7d7a48cf73e1566e1db961",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_c6205f46e6756582c89167f9",
+        "ev_cd0fe752a33fa1418bac218f",
+        "ev_d67a5e6277ac9a3ccbe79b2c"
+      ],
+      "current_page_fact_refs": [
+        {
+          "evidence_id": "ev_03eaf1f2b6bd5f09a0c4da51",
+          "field_path": "product.limitations[2]",
+          "label": "limitations",
+          "value": "Feels heavier when fully saturated with water",
+          "source_record_id": "product.limitations[2]"
+        },
+        {
+          "evidence_id": "ev_0c92d49374a7d66714028fbc",
+          "field_path": "product.objections_or_buying_questions[4]",
+          "label": "objections or buying questions",
+          "value": "How many towels do I need to dry a whole car?",
+          "source_record_id": "product.objections_or_buying_questions[4]"
+        },
+        {
+          "evidence_id": "ev_118c38dfbf7820614c40a985",
+          "field_path": "product.faqs[4].answer",
+          "label": "answer",
+          "value": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+          "source_record_id": "product.faqs[4].answer"
+        },
+        {
+          "evidence_id": "ev_11b63816ad955ca330a8ece7",
+          "field_path": "product.faqs[2].question",
+          "label": "question",
+          "value": "Is it too heavy when it’s wet?",
+          "source_record_id": "product.faqs[2].question"
+        },
+        {
+          "evidence_id": "ev_156e61dd68f7233c191afb30",
+          "field_path": "product.faqs[5].answer",
+          "label": "answer",
+          "value": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+          "source_record_id": "product.faqs[5].answer"
+        },
+        {
+          "evidence_id": "ev_2bc48197465b65346af179ed",
+          "field_path": "product.faqs[0].answer",
+          "label": "answer",
+          "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+          "source_record_id": "product.faqs[0].answer"
+        },
+        {
+          "evidence_id": "ev_32a92e55f005a53ac7bdf55f",
+          "field_path": "product.objections_or_buying_questions[3]",
+          "label": "objections or buying questions",
+          "value": "Can I use it on ceramic-coated or waxed cars?",
+          "source_record_id": "product.objections_or_buying_questions[3]"
+        },
+        {
+          "evidence_id": "ev_367c867c2f1568b2e9f79903",
+          "field_path": "product.objections_or_buying_questions[1]",
+          "label": "objections or buying questions",
+          "value": "Will this towel scratch my paint?",
+          "source_record_id": "product.objections_or_buying_questions[1]"
+        },
+        {
+          "evidence_id": "ev_3a54e781a2603ee4bb883414",
+          "field_path": "product.objections_or_buying_questions[5]",
+          "label": "objections or buying questions",
+          "value": "How should I wash and store it?",
+          "source_record_id": "product.objections_or_buying_questions[5]"
+        },
+        {
+          "evidence_id": "ev_40936f5cfc99132392553647",
+          "field_path": "product.faqs[1].answer",
+          "label": "answer",
+          "value": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+          "source_record_id": "product.faqs[1].answer"
+        },
+        {
+          "evidence_id": "ev_549b5d29c9922c68d39651fd",
+          "field_path": "product.faqs[2].answer",
+          "label": "answer",
+          "value": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+          "source_record_id": "product.faqs[2].answer"
+        },
+        {
+          "evidence_id": "ev_690390ecc0dbcae27b89d40f",
+          "field_path": "product.claims[1]",
+          "label": "claims",
+          "value": "Soft premium feel",
+          "source_record_id": "product.claims[1]"
+        },
+        {
+          "evidence_id": "ev_6c5743cebf9b844617d8e794",
+          "field_path": "product.limitations[1]",
+          "label": "limitations",
+          "value": "Use only on clean, shampooed paint",
+          "source_record_id": "product.limitations[1]"
+        },
+        {
+          "evidence_id": "ev_7a63f8f747b8e1cbca2759a4",
+          "field_path": "product.objections_or_buying_questions[2]",
+          "label": "objections or buying questions",
+          "value": "Is it too heavy when it’s wet?",
+          "source_record_id": "product.objections_or_buying_questions[2]"
+        },
+        {
+          "evidence_id": "ev_7eaaa8da51e88bf042ccb631",
+          "field_path": "product.faqs[5].question",
+          "label": "question",
+          "value": "How should I wash and store it?",
+          "source_record_id": "product.faqs[5].question"
+        },
+        {
+          "evidence_id": "ev_7f02bfb4738fecbb2e8549bb",
+          "field_path": "product.objections_or_buying_questions[0]",
+          "label": "objections or buying questions",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.objections_or_buying_questions[0]"
+        },
+        {
+          "evidence_id": "ev_8d4a7ecb9cc4eab551bcfcb1",
+          "field_path": "product.faqs[3].answer",
+          "label": "answer",
+          "value": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings.",
+          "source_record_id": "product.faqs[3].answer"
+        },
+        {
+          "evidence_id": "ev_948134da96ac25cbc58fc7e8",
+          "field_path": "product.faqs[1].question",
+          "label": "question",
+          "value": "Will this towel scratch my paint?",
+          "source_record_id": "product.faqs[1].question"
+        },
+        {
+          "evidence_id": "ev_97b719bee372c6f804006026",
+          "field_path": "product.limitations[0]",
+          "label": "limitations",
+          "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand",
+          "source_record_id": "product.limitations[0]"
+        },
+        {
+          "evidence_id": "ev_9a7d7a48cf73e1566e1db961",
+          "field_path": "product.faqs[3].question",
+          "label": "question",
+          "value": "Can I use it on ceramic-coated or waxed cars?",
+          "source_record_id": "product.faqs[3].question"
+        },
+        {
+          "evidence_id": "ev_a5bc8d87c07e1324c582b725",
+          "field_path": "product.claims[0]",
+          "label": "claims",
+          "value": "Extreme absorbency",
+          "source_record_id": "product.claims[0]"
+        },
+        {
+          "evidence_id": "ev_c6205f46e6756582c89167f9",
+          "field_path": "product.faqs[4].question",
+          "label": "question",
+          "value": "How many towels do I need to dry a whole car?",
+          "source_record_id": "product.faqs[4].question"
+        },
+        {
+          "evidence_id": "ev_cd0fe752a33fa1418bac218f",
+          "field_path": "product.faqs[0].question",
+          "label": "question",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?",
+          "source_record_id": "product.faqs[0].question"
+        },
+        {
+          "evidence_id": "ev_d67a5e6277ac9a3ccbe79b2c",
+          "field_path": "product.claims[2]",
+          "label": "claims",
+          "value": "Safe on all paint",
+          "source_record_id": "product.claims[2]"
+        }
+      ],
+      "direct_presence_evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c92d49374a7d66714028fbc",
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_2bc48197465b65346af179ed",
+        "ev_32a92e55f005a53ac7bdf55f",
+        "ev_367c867c2f1568b2e9f79903",
+        "ev_3a54e781a2603ee4bb883414",
+        "ev_40936f5cfc99132392553647",
+        "ev_549b5d29c9922c68d39651fd",
+        "ev_690390ecc0dbcae27b89d40f",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_7a63f8f747b8e1cbca2759a4",
+        "ev_7eaaa8da51e88bf042ccb631",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_8d4a7ecb9cc4eab551bcfcb1",
+        "ev_948134da96ac25cbc58fc7e8",
+        "ev_97b719bee372c6f804006026",
+        "ev_9a7d7a48cf73e1566e1db961",
+        "ev_a5bc8d87c07e1324c582b725",
+        "ev_c6205f46e6756582c89167f9",
+        "ev_cd0fe752a33fa1418bac218f",
+        "ev_d67a5e6277ac9a3ccbe79b2c"
+      ],
+      "related_existing_content_evidence_ids": [],
+      "component_states": null,
+      "limitations": [
+        "Deterministically observable claims, limitations or objection-handling elements exist; trust impact is not measured."
+      ],
+      "source_provenance": {
+        "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+        "research_state_id": "research_state_f85fd396bb023e960a17b3f2",
+        "provider_id": "product_facts",
+        "source_evidence_ids": [
+          "ev_03eaf1f2b6bd5f09a0c4da51",
+          "ev_0c92d49374a7d66714028fbc",
+          "ev_118c38dfbf7820614c40a985",
+          "ev_11b63816ad955ca330a8ece7",
+          "ev_156e61dd68f7233c191afb30",
+          "ev_2bc48197465b65346af179ed",
+          "ev_32a92e55f005a53ac7bdf55f",
+          "ev_367c867c2f1568b2e9f79903",
+          "ev_3a54e781a2603ee4bb883414",
+          "ev_40936f5cfc99132392553647",
+          "ev_549b5d29c9922c68d39651fd",
+          "ev_690390ecc0dbcae27b89d40f",
+          "ev_6c5743cebf9b844617d8e794",
+          "ev_7a63f8f747b8e1cbca2759a4",
+          "ev_7eaaa8da51e88bf042ccb631",
+          "ev_7f02bfb4738fecbb2e8549bb",
+          "ev_8d4a7ecb9cc4eab551bcfcb1",
+          "ev_948134da96ac25cbc58fc7e8",
+          "ev_97b719bee372c6f804006026",
+          "ev_9a7d7a48cf73e1566e1db961",
+          "ev_a5bc8d87c07e1324c582b725",
+          "ev_c6205f46e6756582c89167f9",
+          "ev_cd0fe752a33fa1418bac218f",
+          "ev_d67a5e6277ac9a3ccbe79b2c"
+        ]
+      }
+    }
+  ]
+}
