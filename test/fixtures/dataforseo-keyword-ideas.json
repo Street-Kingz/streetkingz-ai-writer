@@ -1,0 +1,73 @@
+{
+  "version": "0.1.20260801",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.1000 sec.",
+  "cost": 0.0103,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08061700-0000-0000-0000-testkeywordideas",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0900 sec.",
+      "cost": 0.0103,
+      "result_count": 1,
+      "path": ["v3", "dataforseo_labs", "google", "keyword_ideas", "live"],
+      "data": {
+        "keywords": ["heavy duty drying towel 1200gsm", "microfibre car drying towel"],
+        "location_code": 2840,
+        "language_code": "en",
+        "limit": 100
+      },
+      "result": [
+        {
+          "seed_keywords": ["heavy duty drying towel 1200gsm", "microfibre car drying towel"],
+          "location_code": 2840,
+          "language_code": "en",
+          "total_count": 2,
+          "items_count": 2,
+          "offset": 0,
+          "items": [
+            {
+              "se_type": "google",
+              "keyword": "car drying towel",
+              "location_code": 2840,
+              "language_code": "en",
+              "keyword_info": {
+                "last_updated_time": "2026-07-15 12:00:00 +00:00",
+                "competition": 0.82,
+                "competition_level": "HIGH",
+                "cpc": 0.74,
+                "search_volume": 1900,
+                "monthly_searches": [
+                  {"year": 2026, "month": 6, "search_volume": 1900},
+                  {"year": 2026, "month": 5, "search_volume": 1600}
+                ],
+                "search_volume_trend": {"monthly": 19, "quarterly": 8, "yearly": 12}
+              },
+              "keyword_properties": {"keyword_difficulty": 31}
+            },
+            {
+              "se_type": "google",
+              "keyword": "microfibre drying towel",
+              "location_code": 2840,
+              "language_code": "en",
+              "keyword_info": {
+                "last_updated_time": "2026-07-15 12:00:00 +00:00",
+                "competition": 0.61,
+                "competition_level": "MEDIUM",
+                "cpc": 0.49,
+                "search_volume": 720,
+                "monthly_searches": [],
+                "search_volume_trend": {"monthly": 0, "quarterly": -10, "yearly": 5}
+              },
+              "keyword_properties": {"keyword_difficulty": 24}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

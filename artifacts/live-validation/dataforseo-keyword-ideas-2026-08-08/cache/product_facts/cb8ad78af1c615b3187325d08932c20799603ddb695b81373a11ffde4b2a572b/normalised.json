@@ -1,0 +1,4288 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "normalised_provider_evidence",
+  "provider_id": "product_facts",
+  "provider_version": "1.0.0",
+  "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+  "request_fingerprint": "cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b",
+  "records": [
+    {
+      "evidence_id": "ev_0070937601532c2a501db22b",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.name",
+        "label": "name",
+        "value": "Heavy Duty Drying Towel – 1200gsm"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "h1.product_title",
+          "evidence": "Heavy Duty Drying Towel – 1200gsm"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_03eaf1f2b6bd5f09a0c4da51",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.limitations[2]",
+        "label": "limitations",
+        "value": "Feels heavier when fully saturated with water"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.limitations[2]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.limitations[2]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:FAQ wet-weight trade-off",
+          "evidence": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.features[1]",
+        "label": "features",
+        "value": "Double-sided plush microfibre construction"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.features[1]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.features[1]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_0c92d49374a7d66714028fbc",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.objections_or_buying_questions[4]",
+        "label": "objections or buying questions",
+        "value": "How many towels do I need to dry a whole car?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.objections_or_buying_questions[4]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.objections_or_buying_questions[4]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "How many towels do I need to dry a whole car?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_118c38dfbf7820614c40a985",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[4].answer",
+        "label": "answer",
+        "value": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[4].answer",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[4].answer"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details answer",
+          "evidence": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_11b63816ad955ca330a8ece7",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[2].question",
+        "label": "question",
+        "value": "Is it too heavy when it’s wet?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[2].question",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[2].question"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "Is it too heavy when it’s wet?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_14fe44650b1384b36bebb4e2",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.price",
+        "label": "price",
+        "value": "£18.99"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.price",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.price"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "p.price",
+          "evidence": "£ 18.99"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_156e61dd68f7233c191afb30",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[5].answer",
+        "label": "answer",
+        "value": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[5].answer",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[5].answer"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details answer",
+          "evidence": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_1f19b6123547f898e270cfd7",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.benefits[0]",
+        "label": "benefits",
+        "value": "Designed to pull water off paint with almost no effort"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.benefits[0]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.benefits[0]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_2a11cf44ec88f39019337bab",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.how_to_use[2].instruction",
+        "label": "instruction",
+        "value": "Lay the towel flat on the panel."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.how_to_use[2].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.how_to_use[2].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:How to use it step:3",
+          "evidence": "3) Lay the towel flat on the panel."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_2bc48197465b65346af179ed",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[0].answer",
+        "label": "answer",
+        "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[0].answer",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[0].answer"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details answer",
+          "evidence": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_32a92e55f005a53ac7bdf55f",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.objections_or_buying_questions[3]",
+        "label": "objections or buying questions",
+        "value": "Can I use it on ceramic-coated or waxed cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.objections_or_buying_questions[3]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.objections_or_buying_questions[3]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "Can I use it on ceramic-coated or waxed cars?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_33f10080286279cf93006b05",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.benefits[1]",
+        "label": "benefits",
+        "value": "Fewer passes and faster drying"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.benefits[1]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.benefits[1]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_35800b8db2b3b4d929fc7b4b",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.care_instructions[1].instruction",
+        "label": "instruction",
+        "value": "Do not use fabric softener or bleach"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.care_instructions[1].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.care_instructions[1].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Care: Do not use fabric softener or bleach"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_367c867c2f1568b2e9f79903",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.objections_or_buying_questions[1]",
+        "label": "objections or buying questions",
+        "value": "Will this towel scratch my paint?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.objections_or_buying_questions[1]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.objections_or_buying_questions[1]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "Will this towel scratch my paint?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_3a54e781a2603ee4bb883414",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.objections_or_buying_questions[5]",
+        "label": "objections or buying questions",
+        "value": "How should I wash and store it?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.objections_or_buying_questions[5]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.objections_or_buying_questions[5]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "How should I wash and store it?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.features[0]",
+        "label": "features",
+        "value": "1200GSM dual-layer construction"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.features[0]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.features[0]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:short description + Tech Specs GSM",
+          "evidence": "1200GSM dual layer thickness Extreme absorbency Soft premium feel Safe on all paint Ideal for larger vehicles This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_40936f5cfc99132392553647",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[1].answer",
+        "label": "answer",
+        "value": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[1].answer",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[1].answer"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details answer",
+          "evidence": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_46f4fdd27000093c56fda5bb",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[2].name",
+        "label": "name",
+        "value": "Material"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[2].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[2].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs strong",
+          "evidence": "• Material: Premium dual-sided microfibre"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_4d9b21d63307c78e3bf26b2b",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.how_to_use[0].instruction",
+        "label": "instruction",
+        "value": "Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo ."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.how_to_use[0].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.how_to_use[0].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:How to use it step:1",
+          "evidence": "1) Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo ."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_549b5d29c9922c68d39651fd",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[2].answer",
+        "label": "answer",
+        "value": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[2].answer",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[2].answer"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details answer",
+          "evidence": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_5ac381162714adb7db3c0ecc",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.internal_links[0].label",
+        "label": "label",
+        "value": "Origin Shampoo"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.internal_links[0].label",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.internal_links[0].label"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "a[href] label",
+          "evidence": "Origin Shampoo"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_5c06c311f77674f9e23f5909",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.intended_use[0]",
+        "label": "intended use",
+        "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.intended_use[0]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.intended_use[0]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Suitable for: Cars, SUVs, vans, paintwork, glass and exterior plastics"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6480ef536c6606f8e8a06cf2",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[1].value",
+        "label": "value",
+        "value": "90 × 60 cm"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[1].value",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[1].value"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Size: 90 × 60 cm"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_690390ecc0dbcae27b89d40f",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.claims[1]",
+        "label": "claims",
+        "value": "Soft premium feel"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.claims[1]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.claims[1]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "short description li",
+          "evidence": "Soft premium feel"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6c5743cebf9b844617d8e794",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.limitations[1]",
+        "label": "limitations",
+        "value": "Use only on clean, shampooed paint"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.limitations[1]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.limitations[1]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:FAQ paint-safety caution",
+          "evidence": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_76b3fc2ba72f0b68b8a0edb6",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[0].value",
+        "label": "value",
+        "value": "1200GSM (dual-sided plush microfibre)"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[0].value",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[0].value"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• GSM: 1200GSM (dual-sided plush microfibre)"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_7a63f8f747b8e1cbca2759a4",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.objections_or_buying_questions[2]",
+        "label": "objections or buying questions",
+        "value": "Is it too heavy when it’s wet?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.objections_or_buying_questions[2]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.objections_or_buying_questions[2]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "Is it too heavy when it’s wet?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_7eaaa8da51e88bf042ccb631",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[5].question",
+        "label": "question",
+        "value": "How should I wash and store it?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[5].question",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[5].question"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "How should I wash and store it?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_7f02bfb4738fecbb2e8549bb",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.objections_or_buying_questions[0]",
+        "label": "objections or buying questions",
+        "value": "What’s the difference between this and the XL 800GSM Drying Towel?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.objections_or_buying_questions[0]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.objections_or_buying_questions[0]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "What’s the difference between this and the XL 800GSM Drying Towel?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_81434c3631efe91982a8e66a",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.care_instructions[0].instruction",
+        "label": "instruction",
+        "value": "Machine washable on a cold, gentle cycle with microfibre or non-bio detergent"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.care_instructions[0].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.care_instructions[0].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Wash: Machine washable on a cold, gentle cycle with microfibre or non-bio detergent"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_89297bf2636fa9cdc1e3f846",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.how_to_use[4].instruction",
+        "label": "instruction",
+        "value": "Wring out only when completely saturated."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.how_to_use[4].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.how_to_use[4].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:How to use it step:5",
+          "evidence": "5) Wring out only when completely saturated."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_8d4a7ecb9cc4eab551bcfcb1",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[3].answer",
+        "label": "answer",
+        "value": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[3].answer",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[3].answer"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details answer",
+          "evidence": "Yes. It’s safe on coated, waxed and sealed paint. It won’t strip protection and works well with modern coatings."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_91755da93a8bf53061ed0524",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.related_products[0].url",
+        "label": "url",
+        "value": "https://streetkingz.co.uk/product/the-origin-shampoo/"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.related_products[0].url",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.related_products[0].url"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "matching meaningful product link",
+          "evidence": "Origin Shampoo"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_948134da96ac25cbc58fc7e8",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[1].question",
+        "label": "question",
+        "value": "Will this towel scratch my paint?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[1].question",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[1].question"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "Will this towel scratch my paint?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_950c176f1a1bf3c4c8419d08",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.care_instructions[2].instruction",
+        "label": "instruction",
+        "value": "Air dry only, do not tumble dry"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.care_instructions[2].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.care_instructions[2].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Dry: Air dry only, do not tumble dry"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_97b719bee372c6f804006026",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.limitations[0]",
+        "label": "limitations",
+        "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.limitations[0]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.limitations[0]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:FAQ comparison",
+          "evidence": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_9a7d7a48cf73e1566e1db961",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[3].question",
+        "label": "question",
+        "value": "Can I use it on ceramic-coated or waxed cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[3].question",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[3].question"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "Can I use it on ceramic-coated or waxed cars?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_9acd7113c1bd5b490cc6d29e",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.care_instructions[1].name",
+        "label": "name",
+        "value": "Care"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.care_instructions[1].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.care_instructions[1].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs label",
+          "evidence": "Care"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_a013ffa90fecfff2602da15d",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[3].name",
+        "label": "name",
+        "value": "Edge"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[3].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[3].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs strong",
+          "evidence": "• Edge: Soft microfibre edging"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_a5080ac67b897f0c59c9e9ef",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.how_to_use[1].instruction",
+        "label": "instruction",
+        "value": "Rinse thoroughly and remove standing water with a light sheet of water."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.how_to_use[1].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.how_to_use[1].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:How to use it step:2",
+          "evidence": "2) Rinse thoroughly and remove standing water with a light sheet of water."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_a5bc8d87c07e1324c582b725",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.claims[0]",
+        "label": "claims",
+        "value": "Extreme absorbency"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.claims[0]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.claims[0]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "short description li",
+          "evidence": "Extreme absorbency"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_abb90b93bc199371ffcde5d8",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.care_instructions[2].name",
+        "label": "name",
+        "value": "Dry"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.care_instructions[2].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.care_instructions[2].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs label",
+          "evidence": "Dry"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b77f17bcbbd291179ba662ee",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.category_type",
+        "label": "category type",
+        "value": "Microfibre car drying towel"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.category_type",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.category_type"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:h1.product_title + Tech Specs Material + Suitable for",
+          "evidence": "Heavy Duty Drying Towel – 1200gsm • Material: Premium dual-sided microfibre • Suitable for: Cars, SUVs, vans, paintwork, glass and exterior plastics"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c100d4e041f1bfd05cdfb231",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.how_to_use[3].instruction",
+        "label": "instruction",
+        "value": "Gently drag or pat dry, no pressure needed."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.how_to_use[3].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.how_to_use[3].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:How to use it step:4",
+          "evidence": "4) Gently drag or pat dry, no pressure needed."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c17d1a75e52d8fdc1a7312a2",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.care_instructions[0].name",
+        "label": "name",
+        "value": "Wash"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.care_instructions[0].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.care_instructions[0].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs label",
+          "evidence": "Wash"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c6205f46e6756582c89167f9",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[4].question",
+        "label": "question",
+        "value": "How many towels do I need to dry a whole car?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[4].question",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[4].question"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "How many towels do I need to dry a whole car?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_cd0fe752a33fa1418bac218f",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.faqs[0].question",
+        "label": "question",
+        "value": "What’s the difference between this and the XL 800GSM Drying Towel?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.faqs[0].question",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.faqs[0].question"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "details summary",
+          "evidence": "What’s the difference between this and the XL 800GSM Drying Towel?"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d071b25d86399af8a71dfce7",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.intended_use[1]",
+        "label": "intended use",
+        "value": "Post-wash drying, especially on larger or heavily rinsed vehicles"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.intended_use[1]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.intended_use[1]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Best use: Post-wash drying, especially on larger or heavily rinsed vehicles"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d110ad46783cfaadea7d0865",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.related_products[0].name",
+        "label": "name",
+        "value": "The Origin Shampoo"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.related_products[0].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.related_products[0].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Complete the Kit h4",
+          "evidence": "The Origin Shampoo"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d67a5e6277ac9a3ccbe79b2c",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.claims[2]",
+        "label": "claims",
+        "value": "Safe on all paint"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.claims[2]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.claims[2]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "short description li",
+          "evidence": "Safe on all paint"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_db25754bda22a651bc0324dc",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.internal_links[0].url",
+        "label": "url",
+        "value": "https://streetkingz.co.uk/product/the-origin-shampoo/"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.internal_links[0].url",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.internal_links[0].url"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "a[href]",
+          "evidence": "Origin Shampoo"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_db33c004bd2fbbabb5a29158",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.benefits[2]",
+        "label": "benefits",
+        "value": "Less contact with paint helps prevent streaks, smears and unwanted marks"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.benefits[2]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.benefits[2]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_dd6ef7fbfda651a55c9feead",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.features[2]",
+        "label": "features",
+        "value": "Soft microfibre edging"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.features[2]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.features[2]"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Edge: Soft microfibre edging"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_de5ebcb58691bb6eba3b9235",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.related_products[1].name",
+        "label": "name",
+        "value": "Microfibre Wash Mitt"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.related_products[1].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.related_products[1].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Complete the Kit h4",
+          "evidence": "Microfibre Wash Mitt"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_df13b638f6677b96bbf56a48",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[1].name",
+        "label": "name",
+        "value": "Size"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[1].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[1].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs strong",
+          "evidence": "• Size: 90 × 60 cm"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_df6a0d1603bb10feb5ea36c0",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[3].value",
+        "label": "value",
+        "value": "Soft microfibre edging"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[3].value",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[3].value"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Edge: Soft microfibre edging"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e0b1334202c00b30a34009ae",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[2].value",
+        "label": "value",
+        "value": "Premium dual-sided microfibre"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[2].value",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[2].value"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs value",
+          "evidence": "• Material: Premium dual-sided microfibre"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e19a2573305d26337d2bf4ae",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.how_to_use[5].instruction",
+        "label": "instruction",
+        "value": "After use, wash on a gentle cycle with microfibre detergent or non-bio detergent."
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.how_to_use[5].instruction",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.how_to_use[5].instruction"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:How to use it step:6",
+          "evidence": "6) After use, wash on a gentle cycle with microfibre detergent or non-bio detergent."
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e7403c77f3be5be7f6ce97e3",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.specifications[0].name",
+        "label": "name",
+        "value": "GSM"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.specifications[0].name",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.specifications[0].name"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "section:Tech Specs strong",
+          "evidence": "• GSM: 1200GSM (dual-sided plush microfibre)"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e9e25854d6f71066b5274a82",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.commerce_category",
+        "label": "commerce category",
+        "value": "Exterior"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.commerce_category",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.commerce_category"
+        },
+        "extraction_method": "deterministic_html",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "input[name=gtm4wp_product_data].item_category",
+          "evidence": "Exterior"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7825,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Reviewed first-party product fact extracted directly from the rendered product page."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_f6eaa22dc231a51d58332d7d",
+      "provider_id": "product_facts",
+      "provider_run_id": "provider_run_d05aac65ed9a9a5288ba9a7c",
+      "evidence_type": "product_fact",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [],
+      "query_or_question": null,
+      "value": {
+        "field_path": "product.benefits[3]",
+        "label": "benefits",
+        "value": "Holds a serious amount of water while remaining soft and manageable"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      },
+      "observed_at": "2026-08-06T16:37:16.159Z",
+      "retrieved_at": "2026-08-08T06:14:45.417Z",
+      "provenance": {
+        "provider_id": "product_facts",
+        "provider_version": "1.0.0",
+        "source_owner": "Street Kingz",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "source_record_id": "product.benefits[3]",
+        "query_seed": null,
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "raw_artifact": {
+          "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+          "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+        },
+        "locator": {
+          "type": "phase_2_field_path",
+          "value": "product.benefits[3]"
+        },
+        "extraction_method": "deterministic_derivation",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [],
+        "source_page": {
+          "artifact": "raw/page.html",
+          "selector": "derived:About this product",
+          "evidence": "This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible. The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, a"
+        }
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.7225,
+        "components": {
+          "source_reliability": 0.95,
+          "directness": 0.8,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 0.9
+        },
+        "rationale": "Reviewed first-party product fact produced by deterministic derivation."
+      },
+      "raw_ref": {
+        "path": "provider-cache://product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/raw.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    }
+  ]
+}

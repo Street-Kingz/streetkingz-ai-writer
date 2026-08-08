@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "ai_interpretation",
+  "evidence_artifact_id": "evidence_c39c6f64870fffc440569ada",
+  "evidence_artifact_hash": "f3b6aadbbe19c464e3751f897594a004ab56248a0354d00dcf97312dd840c962",
+  "status": "not_generated",
+  "reason": "Evidence collection does not perform AI interpretation.",
+  "findings": []
+}

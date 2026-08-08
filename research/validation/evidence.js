@@ -94,8 +94,14 @@ export function validateEvidenceRecord(value) {
   ]) requiredString(value[field], field, errors);
   requiredArray(value.seed_ids, "seed_ids", errors);
   if (!isObject(value.value)) errors.push("value must be an object.");
-  requiredString(value.value?.field_path, "value.field_path", errors);
-  if (value.value?.value === undefined || value.value?.value === null) errors.push("value.value is required.");
+  if (value.evidence_type === "product_fact") {
+    requiredString(value.value?.field_path, "value.field_path", errors);
+    if (value.value?.value === undefined || value.value?.value === null) errors.push("value.value is required.");
+  } else if (value.evidence_type === "keyword_idea") {
+    requiredString(value.value?.keyword, "value.keyword", errors);
+  } else if (isObject(value.value) && Object.keys(value.value).length === 0) {
+    errors.push("value must contain a typed evidence value.");
+  }
   if (!isObject(value.context)) errors.push("context must be an object.");
   errors.push(...validateProvenance(value.provenance));
   if (!isObject(value.confidence)) errors.push("confidence must be an object.");

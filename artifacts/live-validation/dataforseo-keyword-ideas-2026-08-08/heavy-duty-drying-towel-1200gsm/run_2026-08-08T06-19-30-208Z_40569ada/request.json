@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_request",
+  "product_facts_ref": {
+    "path": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+    "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3",
+    "artifact_type": "product_facts",
+    "schema_version": "1.0.0"
+  },
+  "scope": {
+    "market": "GB",
+    "language": "en-GB"
+  },
+  "approval": {
+    "status": "approved",
+    "asserted_by": "local_user"
+  },
+  "provider_requests": [
+    {
+      "schema_version": "1.0.0",
+      "artifact_type": "provider_request",
+      "provider_id": "product_facts",
+      "subject_id": "product_20fcada95c00204601928709",
+      "product_facts_ref": {
+        "path": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3",
+        "artifact_type": "product_facts",
+        "schema_version": "1.0.0"
+      },
+      "scope": {
+        "market": "GB",
+        "language": "en-GB"
+      },
+      "approval": {
+        "status": "approved",
+        "asserted_by": "local_user"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "artifact_type": "provider_request",
+      "provider_id": "dataforseo_keyword_ideas",
+      "subject_id": "product_20fcada95c00204601928709",
+      "product_facts_ref": {
+        "path": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+        "sha256": "a2f7f72d12e9e1c7aa362bfe943f162005ea7fd8c11d7555cef83286b95e45c3",
+        "artifact_type": "product_facts",
+        "schema_version": "1.0.0"
+      },
+      "evidence_ref": {
+        "path": "artifacts/evidence/heavy-duty-drying-towel-1200gsm/run_2026-08-06T17-03-47-035Z_b33edc2b/evidence.json",
+        "sha256": "6199cb5acdd0e5b80cc781d9164f4f938f1c181cd11f29d95a3b16d59e456331"
+      },
+      "scope": {
+        "market": "GB",
+        "language": "en-GB"
+      },
+      "approval": {
+        "status": "approved",
+        "asserted_by": "local_user"
+      },
+      "endpoint": "/v3/dataforseo_labs/google/keyword_ideas/live",
+      "seeds": [
+        {
+          "seed_id": "seed_f34f74f51ce5ed8836bb75db",
+          "text": "heavy duty drying towel 1200gsm",
+          "origin_evidence_ids": [
+            "ev_0070937601532c2a501db22b"
+          ],
+          "origin_field_paths": [
+            "product.name"
+          ]
+        },
+        {
+          "seed_id": "seed_ee339c133a1ff08d2153129f",
+          "text": "microfibre car drying towel",
+          "origin_evidence_ids": [
+            "ev_b77f17bcbbd291179ba662ee"
+          ],
+          "origin_field_paths": [
+            "product.category_type"
+          ]
+        }
+      ],
+      "parameters": {
+        "location_code": 2840,
+        "language_code": "en",
+        "closely_variants": false,
+        "ignore_synonyms": false,
+        "include_serp_info": false,
+        "include_clickstream_data": false,
+        "limit": 100,
+        "order_by": [
+          "relevance,desc",
+          "keyword_info.search_volume,desc"
+        ]
+      }
+    }
+  ]
+}

@@ -29,7 +29,8 @@ function providerFailure(provider, error, now) {
     evidence_record_ids: [],
     started_at: timestamp,
     completed_at: timestamp,
-    rate_limit: null,
+    rate_limit: error.providerMetadata?.rateLimit || null,
+    cost: error.providerMetadata?.cost || null,
     errors: [{
       type: error.name || "Error",
       code: error.code || "PROVIDER_FAILURE",
@@ -37,6 +38,8 @@ function providerFailure(provider, error, now) {
     }],
     warnings: []
   };
+  result.raw_artifacts = error.providerMetadata?.rawArtifacts || [];
+  result.requested_evidence_types = provider.evidenceTypes || [];
   assertValid(`Failed provider result for ${provider.id}`, result, validateProviderResult);
   return result;
 }
@@ -53,6 +56,9 @@ export function generateCoverage({ providerResults, records }) {
   for (const record of records) {
     evidenceTypeCounts[record.evidence_type] = (evidenceTypeCounts[record.evidence_type] || 0) + 1;
   }
+  const requestedEvidenceTypes = [...new Set(
+    providerResults.flatMap((result) => result.requested_evidence_types || []).concat("product_fact")
+  )].sort();
   const coverage = {
     schema_version: SCHEMA_VERSION,
     artifact_type: "evidence_coverage",
@@ -64,16 +70,17 @@ export function generateCoverage({ providerResults, records }) {
       evidence_record_count: result.evidence_record_ids.length,
       errors: result.errors
     })),
-    requested_evidence_types: [...new Set(records.map((record) => record.evidence_type).concat("product_fact"))].sort(),
+    requested_evidence_types: requestedEvidenceTypes,
     evidence_type_counts: evidenceTypeCounts,
     usable_record_count: usableRecordCount,
-    missing_evidence_types: evidenceTypeCounts.product_fact ? [] : ["product_fact"]
+    missing_evidence_types: requestedEvidenceTypes.filter((type) => !evidenceTypeCounts[type])
   };
   return assertValid("Evidence coverage", coverage, validateCoverage);
 }
 
 export async function runEvidenceEngine({
   productFactsPath,
+  evidenceArtifactPath,
   approvedBy = "local_user",
   providers,
   outputRoot = "artifacts/evidence",
@@ -91,12 +98,15 @@ export async function runEvidenceEngine({
     try {
       const preparedRequest = await provider.createRequest({
         productFactsPath,
+        evidenceArtifactPath,
         scope,
         approval: { status: "approved", asserted_by: approvedBy }
       });
       subjectFacts ||= preparedRequest.facts;
       subjectRequest ||= preparedRequest.request;
-      executions.push(await provider.run({ preparedRequest, cacheRoot, now }));
+      const execution = await provider.run({ preparedRequest, cacheRoot, now });
+      execution.result.requested_evidence_types ||= provider.evidenceTypes || [];
+      executions.push(execution);
     } catch (error) {
       executions.push({ result: providerFailure(provider, error, now), records: [], request: null });
     }
@@ -143,6 +153,8 @@ export async function runEvidenceEngine({
         path: result.normalised_artifact.path,
         sha256: result.normalised_artifact.sha256
       },
+      rate_limit: result.rate_limit,
+      cost: result.cost || null,
       evidence_record_count: result.evidence_record_ids.length,
       errors: result.errors,
       warnings: result.warnings

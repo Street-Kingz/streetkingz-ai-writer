@@ -160,21 +160,33 @@ Create a trustworthy, reusable product-understanding foundation for the Heavy Du
 
 Collect reusable external evidence that can establish whether and how the Heavy Duty Drying Towel deserves content.
 
+Recurring manual evidence collection is not part of the intended normal workflow. Paid providers are acceptable where they materially improve evidence quality or eliminate manual work.
+
+Primary automated external evidence providers are:
+
+- **DataForSEO Keyword Ideas** for keyword discovery, volume, difficulty and available commercial metrics.
+- **DataForSEO Google Organic SERP Advanced** for ranking pages, result types, SERP features, People Also Ask and related searches where returned.
+- **Google Search Console** for first-party Street Kingz queries, pages, impressions, clicks and positions.
+
+Manual Google Autocomplete and People Also Ask imports remain available only as fallback or debugging mechanisms. Separate competitor-page extraction remains appropriate when page-level headings, claims, product information or content structure must be inspected directly.
+
 ### Deliverables
 
 - A provider-neutral research request generated from the reusable research-seeds artifact.
-- Raw, immutable response artifacts from the selected keyword and SERP data sources.
+- Raw, immutable response artifacts from DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console.
 - Normalized keyword evidence covering query, market, intent indicators, volume, difficulty and available commercial metrics.
 - Normalized SERP evidence covering ranking pages, result types, SERP features, People Also Ask and related searches where available.
 - A lightweight existing-site evidence artifact identifying potentially overlapping Street Kingz pages and relevant internal-link targets.
 - Retrieval metadata including provider, market, requested parameters, timestamps and errors or unavailable fields.
 - A separate AI research-synthesis artifact that interprets the evidence without altering it.
 - Cache and rerun rules that allow later content types to reuse research for the same product, topic and market.
+- Separate explicit-URL competitor-page extraction for page-level evidence that structured SERP results do not contain.
 
 ### Acceptance criteria
 
 - Raw provider responses and normalized evidence remain separately inspectable.
 - The same saved raw response can be normalized again without another paid API request.
+- Paid-request ceilings and request counts are enforced and recorded for every DataForSEO run.
 - Research is keyed by subject, query, market and retrieval context rather than by content type.
 - Missing metrics remain explicitly missing and are not estimated by the AI as facts.
 - AI observations can be regenerated without refetching external evidence.

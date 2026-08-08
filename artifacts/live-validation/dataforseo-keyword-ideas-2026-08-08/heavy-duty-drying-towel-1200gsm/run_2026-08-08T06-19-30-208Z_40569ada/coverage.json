@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_coverage",
+  "status": "complete",
+  "requested_providers": [
+    "product_facts",
+    "dataforseo_keyword_ideas"
+  ],
+  "provider_statuses": [
+    {
+      "provider_id": "product_facts",
+      "status": "complete",
+      "evidence_record_count": 62,
+      "errors": []
+    },
+    {
+      "provider_id": "dataforseo_keyword_ideas",
+      "status": "complete",
+      "evidence_record_count": 100,
+      "errors": []
+    }
+  ],
+  "requested_evidence_types": [
+    "keyword_idea",
+    "product_fact"
+  ],
+  "evidence_type_counts": {
+    "product_fact": 62,
+    "keyword_idea": 100
+  },
+  "usable_record_count": 162,
+  "missing_evidence_types": []
+}
