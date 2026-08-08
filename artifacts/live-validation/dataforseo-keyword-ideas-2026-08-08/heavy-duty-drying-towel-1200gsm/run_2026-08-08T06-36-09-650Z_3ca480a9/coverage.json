@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_coverage",
+  "status": "complete",
+  "requested_providers": [
+    "product_facts",
+    "dataforseo_keyword_ideas",
+    "dataforseo_google_organic_serp_advanced"
+  ],
+  "provider_statuses": [
+    {
+      "provider_id": "product_facts",
+      "status": "complete",
+      "evidence_record_count": 62,
+      "errors": []
+    },
+    {
+      "provider_id": "dataforseo_keyword_ideas",
+      "status": "complete",
+      "evidence_record_count": 100,
+      "errors": []
+    },
+    {
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "status": "complete",
+      "evidence_record_count": 123,
+      "errors": []
+    }
+  ],
+  "requested_evidence_types": [
+    "keyword_idea",
+    "product_fact",
+    "serp_feature",
+    "serp_organic_result",
+    "serp_people_also_ask",
+    "serp_related_search"
+  ],
+  "evidence_type_counts": {
+    "serp_people_also_ask": 20,
+    "product_fact": 62,
+    "serp_organic_result": 38,
+    "keyword_idea": 100,
+    "serp_related_search": 40,
+    "serp_product_element": 12,
+    "serp_feature": 2,
+    "serp_discussion": 2,
+    "serp_video": 5,
+    "serp_ai_overview": 4
+  },
+  "usable_record_count": 285,
+  "missing_evidence_types": []
+}

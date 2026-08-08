@@ -1,0 +1,15 @@
+{
+  "keyword": "waffle weave car drying towel",
+  "task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+  "cost_usd": 0.002,
+  "rate_limit": {
+    "limit_per_minute": 2000,
+    "remaining": 1999
+  },
+  "raw_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+    "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+  },
+  "retrieved_at": "2026-08-08T06:35:57.147Z"
+}

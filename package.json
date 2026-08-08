@@ -8,7 +8,8 @@
     "test": "node --test --test-concurrency=1 test/*.test.js",
     "extract:product": "node scripts/extractProduct.js",
     "evidence:product": "node scripts/buildEvidence.js",
-    "evidence:dataforseo": "node scripts/buildKeywordIdeasEvidence.js"
+    "evidence:dataforseo": "node scripts/buildKeywordIdeasEvidence.js",
+    "evidence:serp": "node scripts/buildSerpEvidence.js"
   },
   "dependencies": {
     "express": "^4.19.0",

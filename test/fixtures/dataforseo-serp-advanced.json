@@ -1,0 +1,74 @@
+{
+  "version": "0.1.20260801",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "cost": 0.002,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "serp-task-fixture",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "cost": 0.002,
+      "result_count": 1,
+      "result": [
+        {
+          "keyword": "best car drying towel",
+          "type": "organic",
+          "se_domain": "google.co.uk",
+          "location_code": 2840,
+          "language_code": "en",
+          "check_url": "https://www.google.co.uk/search?q=best+car+drying+towel",
+          "datetime": "2026-08-08 07:00:00 +00:00",
+          "item_types": ["featured_snippet", "organic", "people_also_ask", "related_searches", "video", "images", "discussions_and_forums", "shopping", "ai_overview", "experimental_widget"],
+          "items_count": 10,
+          "items": [
+            {
+              "type": "featured_snippet",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "title": "Best car drying towels",
+              "description": "A concise featured answer.",
+              "domain": "example.com",
+              "url": "https://example.com/best-towels"
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "title": "Car Drying Towels Tested",
+              "description": "Independent towel comparison.",
+              "domain": "reviews.example",
+              "url": "https://reviews.example/car-drying-towels"
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "items": [
+                { "type": "people_also_ask_element", "title": "What towel is best for drying a car?" },
+                { "type": "people_also_ask_element", "title": "Is microfibre safe for car paint?" }
+              ]
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 4,
+              "items": [
+                { "type": "related_searches_element", "title": "large car drying towel" },
+                { "type": "related_searches_element", "title": "twisted loop drying towel" }
+              ]
+            },
+            { "type": "video", "rank_group": 1, "rank_absolute": 5, "title": "How to dry a car", "url": "https://video.example/dry-car", "domain": "video.example" },
+            { "type": "images", "rank_group": 1, "rank_absolute": 6, "title": "Car drying towel images" },
+            { "type": "discussions_and_forums", "rank_group": 1, "rank_absolute": 7, "title": "Detailing forum recommendations", "url": "https://forum.example/towels", "domain": "forum.example" },
+            { "type": "shopping", "rank_group": 1, "rank_absolute": 8, "title": "1200 GSM drying towel", "url": "https://shop.example/towel", "domain": "shop.example" },
+            { "type": "ai_overview", "rank_group": 1, "rank_absolute": 9, "title": "AI overview", "text": "Microfibre towels are commonly used for drying." },
+            { "type": "experimental_widget", "rank_group": 1, "rank_absolute": 10, "payload": { "kept": true } }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2553 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "serp_keyword_shortlist",
+  "selection_version": "1.0.0",
+  "maximum": 5,
+  "candidates_available": 100,
+  "selection_method": "Distinctive product-term eligibility; exact seed relationship; product-term coverage; search volume descending; keyword difficulty ascending as a tie-breaker; lexical stability; near-duplicate collapse.",
+  "selected": [
+    {
+      "keyword": "microfiber towel for drying car",
+      "source_evidence_id": "ev_ecc2c1bd4e72d712f2eda7d7",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 5400,
+        "keyword_difficulty": 8,
+        "search_intent": null,
+        "cpc_usd": 1.17,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, microfiber, towel) with available demand 5400 and difficulty 8."
+    },
+    {
+      "keyword": "best car drying towel",
+      "source_evidence_id": "ev_ed08924f3394b29222b9b9b0",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best car drying towel",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 2900,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.48,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, towel) with available demand 2900 and difficulty 0."
+    },
+    {
+      "keyword": "waffle weave car drying towel",
+      "source_evidence_id": "ev_23a73f980b3182e3935f21e9",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying towel waffle weave",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "towel",
+        "waffle",
+        "weave"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 210,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.74,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, towel) with available demand 210 and difficulty 0."
+    },
+    {
+      "keyword": "microfiber cloth drying car",
+      "source_evidence_id": "ev_b81a26dfe69d5328990f7a9c",
+      "product_term_matches": [
+        "drying",
+        "microfiber"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car cloth drying microfiber",
+      "canonical_tokens": [
+        "car",
+        "cloth",
+        "drying",
+        "microfiber"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.61,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, microfiber) with available demand 140 and difficulty 0."
+    },
+    {
+      "keyword": "best automotive drying towel",
+      "source_evidence_id": "ev_0e9ab51ff78e7a40531e77be",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "automotive best drying towel",
+      "canonical_tokens": [
+        "automotive",
+        "best",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 110,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.92,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, towel) with available demand 110 and difficulty 0."
+    }
+  ],
+  "decisions": [
+    {
+      "keyword": "microfiber towel for drying car",
+      "source_evidence_id": "ev_ecc2c1bd4e72d712f2eda7d7",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 5400,
+        "keyword_difficulty": 8,
+        "search_intent": null,
+        "cpc_usd": 1.17,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, microfiber, towel) with available demand 5400 and difficulty 8."
+    },
+    {
+      "keyword": "microfiber towel for car drying",
+      "source_evidence_id": "ev_6da945a33cb44149b7d8ddb9",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1600,
+        "keyword_difficulty": 3,
+        "search_intent": null,
+        "cpc_usd": 1.2,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “microfiber towel for drying car”."
+    },
+    {
+      "keyword": "microfiber towels for car drying",
+      "source_evidence_id": "ev_14586f382c4b5507ee374766",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1600,
+        "keyword_difficulty": 4,
+        "search_intent": null,
+        "cpc_usd": 1.2,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “microfiber towel for drying car”."
+    },
+    {
+      "keyword": "microfiber drying towels for cars",
+      "source_evidence_id": "ev_e8632f3e030a416fa9a31f69",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 720,
+        "keyword_difficulty": 1,
+        "search_intent": null,
+        "cpc_usd": 1.34,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “microfiber towel for drying car”."
+    },
+    {
+      "keyword": "best microfiber car drying towel",
+      "source_evidence_id": "ev_cba0ce84881afaeaca79cb93",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best car drying microfiber towel",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “microfiber towel for drying car”."
+    },
+    {
+      "keyword": "best microfiber car drying towel australia",
+      "source_evidence_id": "ev_d454e99969098eb6c4f0c269",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "australia best car drying microfiber towel",
+      "canonical_tokens": [
+        "australia",
+        "best",
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [
+        "australia"
+      ],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded because it contains an out-of-market modifier (australia) for the United Kingdom request."
+    },
+    {
+      "keyword": "microfiber towel car drying",
+      "source_evidence_id": "ev_174031aa18df54db5a3e97dc",
+      "product_term_matches": [
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “microfiber towel for drying car”."
+    },
+    {
+      "keyword": "best car drying towel",
+      "source_evidence_id": "ev_ed08924f3394b29222b9b9b0",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best car drying towel",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 2900,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.48,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, towel) with available demand 2900 and difficulty 0."
+    },
+    {
+      "keyword": "waffle weave car drying towel",
+      "source_evidence_id": "ev_23a73f980b3182e3935f21e9",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying towel waffle weave",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "towel",
+        "waffle",
+        "weave"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 210,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.74,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, towel) with available demand 210 and difficulty 0."
+    },
+    {
+      "keyword": "microfiber cloth drying car",
+      "source_evidence_id": "ev_b81a26dfe69d5328990f7a9c",
+      "product_term_matches": [
+        "drying",
+        "microfiber"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car cloth drying microfiber",
+      "canonical_tokens": [
+        "car",
+        "cloth",
+        "drying",
+        "microfiber"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.61,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, microfiber) with available demand 140 and difficulty 0."
+    },
+    {
+      "keyword": "microfiber cloth for drying car",
+      "source_evidence_id": "ev_12ce6cd8c23125327e7e4430",
+      "product_term_matches": [
+        "drying",
+        "microfiber"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car cloth drying microfiber",
+      "canonical_tokens": [
+        "car",
+        "cloth",
+        "drying",
+        "microfiber"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.61,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “microfiber cloth drying car”."
+    },
+    {
+      "keyword": "best automotive drying towel",
+      "source_evidence_id": "ev_0e9ab51ff78e7a40531e77be",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "automotive best drying towel",
+      "canonical_tokens": [
+        "automotive",
+        "best",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 110,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.92,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "retained",
+      "reason": "Retained for its product-term relationship (drying, towel) with available demand 110 and difficulty 0."
+    },
+    {
+      "keyword": "large drying towel for car",
+      "source_evidence_id": "ev_f9a601dc1f920ec8da2df28d",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying large towel",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "large",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 70,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 3.8,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "microfiber for drying car",
+      "source_evidence_id": "ev_bfa9d09ff2b9896bf9f5ab07",
+      "product_term_matches": [
+        "drying",
+        "microfiber"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying microfiber",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "microfiber"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 50,
+        "keyword_difficulty": 16,
+        "search_intent": null,
+        "cpc_usd": 1.24,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best car towel drying",
+      "source_evidence_id": "ev_cc557efe9ccdae309b441bba",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best car drying towel",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 20,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.91,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “best car drying towel”."
+    },
+    {
+      "keyword": "best car drying towel 2016",
+      "source_evidence_id": "ev_17d785499de1982598293438",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "2016 best car drying towel",
+      "canonical_tokens": [
+        "2016",
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “best car drying towel”."
+    },
+    {
+      "keyword": "best car drying towel 2017",
+      "source_evidence_id": "ev_69f308706fffd7919ef41938",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "2017 best car drying towel",
+      "canonical_tokens": [
+        "2017",
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “best car drying towel”."
+    },
+    {
+      "keyword": "best car drying towel 2018",
+      "source_evidence_id": "ev_b3fe7e9f5e9a8cfd6a672823",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "2018 best car drying towel",
+      "canonical_tokens": [
+        "2018",
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “best car drying towel”."
+    },
+    {
+      "keyword": "best drying towel autogeek",
+      "source_evidence_id": "ev_480475e0e49937fcb23e38a8",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "autogeek best drying towel",
+      "canonical_tokens": [
+        "autogeek",
+        "best",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best car drying towel 2022",
+      "source_evidence_id": "ev_076de111e0f19a4434ae30c1",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "2022 best car drying towel",
+      "canonical_tokens": [
+        "2022",
+        "best",
+        "car",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": 34,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded as a near-duplicate of “best car drying towel”."
+    },
+    {
+      "keyword": "best auto detailing drying towel",
+      "source_evidence_id": "ev_8baf0a7f9bee2d286442c273",
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "auto best detailing drying towel",
+      "canonical_tokens": [
+        "auto",
+        "best",
+        "detailing",
+        "drying",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": null,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "carcovers com platinum quick dry towel",
+      "source_evidence_id": "ev_a64fffcabf82388387c40c8d",
+      "product_term_matches": [
+        "towel"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "carcovers com dry platinum quick towel",
+      "canonical_tokens": [
+        "carcovers",
+        "com",
+        "dry",
+        "platinum",
+        "quick",
+        "towel"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.16,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "drying car with leaf blower",
+      "source_evidence_id": "ev_023cbad0aa46c5e8831c5025",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "blower car drying leaf with",
+      "canonical_tokens": [
+        "blower",
+        "car",
+        "drying",
+        "leaf",
+        "with"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 210,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 4.53,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best leaf blower for car drying",
+      "source_evidence_id": "ev_883cfd7c0ff49c3bc63b86db",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best blower car drying leaf",
+      "canonical_tokens": [
+        "best",
+        "blower",
+        "car",
+        "drying",
+        "leaf"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 170,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.43,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best leaf blower for drying car",
+      "source_evidence_id": "ev_bb0a342214a0eaab10525cb2",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best blower car drying leaf",
+      "canonical_tokens": [
+        "best",
+        "blower",
+        "car",
+        "drying",
+        "leaf"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 170,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.43,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best car drying blower",
+      "source_evidence_id": "ev_b1c2674223e5867abe74521b",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best blower car drying",
+      "canonical_tokens": [
+        "best",
+        "blower",
+        "car",
+        "drying"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 3.19,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "chamois for car drying",
+      "source_evidence_id": "ev_1d80de1c8d32419e438b602b",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car chamois drying",
+      "canonical_tokens": [
+        "car",
+        "chamois",
+        "drying"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.94,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "chamois for drying car",
+      "source_evidence_id": "ev_5a1936efbccd5526bc83dfd9",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car chamois drying",
+      "canonical_tokens": [
+        "car",
+        "chamois",
+        "drying"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.94,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best chamois for drying car",
+      "source_evidence_id": "ev_2ca3df90b64bd7936753f7ea",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best car chamois drying",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "chamois",
+        "drying"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 70,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.49,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best shammy for drying car",
+      "source_evidence_id": "ev_bd41d01e444d3e54bd48def8",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "best car drying shammy",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "drying",
+        "shammy"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 50,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.22,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "best car drying aid",
+      "source_evidence_id": "ev_5cb463198a409ca1661f0ca8",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "aid best car drying",
+      "canonical_tokens": [
+        "aid",
+        "best",
+        "car",
+        "drying"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 40,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.5,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "car drying blade",
+      "source_evidence_id": "ev_75377b45b8e97f5f32d7452d",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "blade car drying",
+      "canonical_tokens": [
+        "blade",
+        "car",
+        "drying"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 40,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.64,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "car squeegee for drying",
+      "source_evidence_id": "ev_0d24f792d3e6d8a455e11e61",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "car drying squeegee",
+      "canonical_tokens": [
+        "car",
+        "drying",
+        "squeegee"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.01,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "milwaukee leaf blower for drying car",
+      "source_evidence_id": "ev_52882f8ca5a6c164dd5319ec",
+      "product_term_matches": [
+        "drying"
+      ],
+      "exact_seed": false,
+      "duplicate_signature": "blower car drying leaf milwaukee",
+      "canonical_tokens": [
+        "blower",
+        "car",
+        "drying",
+        "leaf",
+        "milwaukee"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": null,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded because the deterministic shortlist maximum of 5 was reached by higher-ranked relevant candidates."
+    },
+    {
+      "keyword": "car wash soap",
+      "source_evidence_id": "ev_bde833fd0b50d28e06d91787",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car soap wash",
+      "canonical_tokens": [
+        "car",
+        "soap",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 49500,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.51,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "magic wand car wash",
+      "source_evidence_id": "ev_bd14ce21f71ed7383acd75c7",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car magic wand wash",
+      "canonical_tokens": [
+        "car",
+        "magic",
+        "wand",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 5400,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.98,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "buggy bath car wash",
+      "source_evidence_id": "ev_b280fd286e20c220cec3a8eb",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "bath buggy car wash",
+      "canonical_tokens": [
+        "bath",
+        "buggy",
+        "car",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 5400,
+        "keyword_difficulty": 14,
+        "search_intent": null,
+        "cpc_usd": 2.18,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car steam cleaner",
+      "source_evidence_id": "ev_ecb2e43144ad55a5d2b96b4f",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaner steam",
+      "canonical_tokens": [
+        "car",
+        "cleaner",
+        "steam"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 4400,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.72,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "touch free automatic car wash",
+      "source_evidence_id": "ev_051d203b9eee241712b14308",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "automatic car free touch wash",
+      "canonical_tokens": [
+        "automatic",
+        "car",
+        "free",
+        "touch",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 2900,
+        "keyword_difficulty": 5,
+        "search_intent": null,
+        "cpc_usd": 0.99,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "shell touchless car wash",
+      "source_evidence_id": "ev_9741f5646b1ffac4b91c7a45",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car shell touchless wash",
+      "canonical_tokens": [
+        "car",
+        "shell",
+        "touchless",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 2900,
+        "keyword_difficulty": 8,
+        "search_intent": null,
+        "cpc_usd": 0.24,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car washing kit",
+      "source_evidence_id": "ev_e8e4d26b42c66dfd9dc025e7",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car kit washing",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "kit",
+        "washing"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1900,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.8,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best pressure washer for car detailing",
+      "source_evidence_id": "ev_db7dfb44b0dcd0596ac13547",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car detailing pressure washer",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "detailing",
+        "pressure",
+        "washer"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1900,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 3.41,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "foam gun car wash",
+      "source_evidence_id": "ev_7b5b5aaa15627a6f6ec1e2c1",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car foam gun wash",
+      "canonical_tokens": [
+        "car",
+        "foam",
+        "gun",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1600,
+        "keyword_difficulty": 4,
+        "search_intent": null,
+        "cpc_usd": 1.13,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "sheetz touchless car wash",
+      "source_evidence_id": "ev_2cd710ea738b291306459a04",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car sheetz touchless wash",
+      "canonical_tokens": [
+        "car",
+        "sheetz",
+        "touchless",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1000,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.32,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car inside window cleaner",
+      "source_evidence_id": "ev_8163f04da32f262674fc1749",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaner inside window",
+      "canonical_tokens": [
+        "car",
+        "cleaner",
+        "inside",
+        "window"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 1000,
+        "keyword_difficulty": 4,
+        "search_intent": null,
+        "cpc_usd": 0.72,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car duster brush",
+      "source_evidence_id": "ev_7e710f9239c76b4fbb2d5d3e",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "brush car duster",
+      "canonical_tokens": [
+        "brush",
+        "car",
+        "duster"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 880,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.46,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car wash extension brush",
+      "source_evidence_id": "ev_ee24533fcb7389d6a8b32c50",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "brush car extension wash",
+      "canonical_tokens": [
+        "brush",
+        "car",
+        "extension",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 720,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.37,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "portable steam cleaner for car",
+      "source_evidence_id": "ev_79fbbd635b7691ea7785dda8",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaner portable steam",
+      "canonical_tokens": [
+        "car",
+        "cleaner",
+        "portable",
+        "steam"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 720,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.96,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "superior car wash tomball",
+      "source_evidence_id": "ev_6fa00c73bc56f459e6d9dbec",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car superior tomball wash",
+      "canonical_tokens": [
+        "car",
+        "superior",
+        "tomball",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 720,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.87,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best touchless car wash",
+      "source_evidence_id": "ev_eba981068d840a3d8a777375",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car touchless wash",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "touchless",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 590,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.52,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car wash waipio",
+      "source_evidence_id": "ev_06ca2b8e5fc0a7fcb687750a",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car waipio wash",
+      "canonical_tokens": [
+        "car",
+        "waipio",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 590,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.35,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "walmart car wash brush",
+      "source_evidence_id": "ev_2afb50fe43d35c147276d8a5",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "brush car walmart wash",
+      "canonical_tokens": [
+        "brush",
+        "car",
+        "walmart",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 590,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.14,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car buffer polisher",
+      "source_evidence_id": "ev_a5cdbe0b9e8bc1eaf7a55c67",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best buffer car polisher",
+      "canonical_tokens": [
+        "best",
+        "buffer",
+        "car",
+        "polisher"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.17,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car throttle body cleaner",
+      "source_evidence_id": "ev_89e040b277ca955ba2f479db",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "body car cleaner throttle",
+      "canonical_tokens": [
+        "body",
+        "car",
+        "cleaner",
+        "throttle"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.25,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "cup plunger for car dents",
+      "source_evidence_id": "ev_4237b83cd9159754da0ce4a4",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cup dents plunger",
+      "canonical_tokens": [
+        "car",
+        "cup",
+        "dents",
+        "plunger"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.39,
+        "paid_competition_level": "MEDIUM"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "pro clean car wash moline",
+      "source_evidence_id": "ev_0dfc4c4370ffa7521756c2b4",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car clean moline pro wash",
+      "canonical_tokens": [
+        "car",
+        "clean",
+        "moline",
+        "pro",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "pro clean car wash moline",
+      "source_evidence_id": "ev_5f16b0a07a4ba5b4433e6296",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car clean moline pro wash",
+      "canonical_tokens": [
+        "car",
+        "clean",
+        "moline",
+        "pro",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "under car cleaner",
+      "source_evidence_id": "ev_25dd6aeca6a38c34b6b30899",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaner under",
+      "canonical_tokens": [
+        "car",
+        "cleaner",
+        "under"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 480,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.42,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "home car wash kit",
+      "source_evidence_id": "ev_8a589b38761038a01495fb58",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car home kit wash",
+      "canonical_tokens": [
+        "car",
+        "home",
+        "kit",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 390,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.61,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "amazon car wash brush",
+      "source_evidence_id": "ev_be96d78a3e4199fa3b4bddfd",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "amazon brush car wash",
+      "canonical_tokens": [
+        "amazon",
+        "brush",
+        "car",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.18,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "autozone car wash kit",
+      "source_evidence_id": "ev_9bb818ecf7d006775bcd81fb",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "autozone car kit wash",
+      "canonical_tokens": [
+        "autozone",
+        "car",
+        "kit",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.27,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car polisher machine",
+      "source_evidence_id": "ev_65022f5c1bb091e7214816ec",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car machine polisher",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "machine",
+        "polisher"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.08,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car wash foam gun",
+      "source_evidence_id": "ev_a1f79f5363609d07d1f8db86",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car foam gun wash",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "foam",
+        "gun",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.1,
+        "paid_competition_level": "MEDIUM"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best extractor for car detailing",
+      "source_evidence_id": "ev_23eb2582081c48bb7e242786",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car detailing extractor",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "detailing",
+        "extractor"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.43,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best psi for car washing",
+      "source_evidence_id": "ev_389b753dccdab84323eda632",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car psi washing",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "psi",
+        "washing"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.32,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car wax applicator",
+      "source_evidence_id": "ev_25bffec7b027e1c77d9344e2",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "applicator car wax",
+      "canonical_tokens": [
+        "applicator",
+        "car",
+        "wax"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.31,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "cd player cleaner for car",
+      "source_evidence_id": "ev_fa752087f15eba7529f66de9",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cd cleaner player",
+      "canonical_tokens": [
+        "car",
+        "cd",
+        "cleaner",
+        "player"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.33,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "roach fogger for car",
+      "source_evidence_id": "ev_1d0714551998813f4a42f8ea",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car fogger roach",
+      "canonical_tokens": [
+        "car",
+        "fogger",
+        "roach"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 320,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.29,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car wash pressure washer",
+      "source_evidence_id": "ev_f03b8d73d899b9f5b41923d9",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car pressure wash washer",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "pressure",
+        "wash",
+        "washer"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 260,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 3.82,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best hose for car wash",
+      "source_evidence_id": "ev_17cb8dd5b7b7eaeba797ed86",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car hose wash",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "hose",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 260,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.42,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car dust cleaner",
+      "source_evidence_id": "ev_685c93b2eab4916ecce61683",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaner dust",
+      "canonical_tokens": [
+        "car",
+        "cleaner",
+        "dust"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 260,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.42,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car wash brush autozone",
+      "source_evidence_id": "ev_8ac4e922945663577308082a",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "autozone brush car wash",
+      "canonical_tokens": [
+        "autozone",
+        "brush",
+        "car",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 260,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.18,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "spongebob car freshener",
+      "source_evidence_id": "ev_fe396da3e9900d28c6f6ead9",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car freshener spongebob",
+      "canonical_tokens": [
+        "car",
+        "freshener",
+        "spongebob"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 260,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.15,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car ac foam cleaner",
+      "source_evidence_id": "ev_120de3e9f591f8d0dbeb472c",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "ac car cleaner foam",
+      "canonical_tokens": [
+        "ac",
+        "car",
+        "cleaner",
+        "foam"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 210,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.25,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "scuba duck car wash",
+      "source_evidence_id": "ev_1fa65e3db606ad0ddf963592",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car duck scuba wash",
+      "canonical_tokens": [
+        "car",
+        "duck",
+        "scuba",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 210,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best bucket for car wash",
+      "source_evidence_id": "ev_dbccc526a08904f1264b7a2d",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best bucket car wash",
+      "canonical_tokens": [
+        "best",
+        "bucket",
+        "car",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 170,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.62,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best power washer for car washing",
+      "source_evidence_id": "ev_4ea067086d0738e01881dfb7",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car power washer washing",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "power",
+        "washer",
+        "washing"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 170,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 3.13,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "carrand car wash brush",
+      "source_evidence_id": "ev_ba4354288601788187acc37d",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "brush car carrand wash",
+      "canonical_tokens": [
+        "brush",
+        "car",
+        "carrand",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 170,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.35,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "suction for car dents",
+      "source_evidence_id": "ev_3fa8ce9221d2089efe65c326",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car dents suction",
+      "canonical_tokens": [
+        "car",
+        "dents",
+        "suction"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 170,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.49,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "bath and body works car vent clips",
+      "source_evidence_id": "ev_b7ae27c86a4da366697e17b2",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "and bath body car clips vent works",
+      "canonical_tokens": [
+        "and",
+        "bath",
+        "body",
+        "car",
+        "clips",
+        "vent",
+        "works"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.53,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car dryer",
+      "source_evidence_id": "ev_1efb11a51a0410e2d4891a60",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car dryer",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "dryer"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 2.34,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car engine cleaner",
+      "source_evidence_id": "ev_9d5cabbaefbaedd97584e421",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car cleaner engine",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "cleaner",
+        "engine"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.65,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car washing mitt",
+      "source_evidence_id": "ev_3fcd4578a86311c6602b0f94",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car mitt washing",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "mitt",
+        "washing"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.99,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "pet hair brush for car",
+      "source_evidence_id": "ev_28530e48a0d88782cdb154d1",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "brush car hair pet",
+      "canonical_tokens": [
+        "brush",
+        "car",
+        "hair",
+        "pet"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 140,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.36,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "little joe car freshener",
+      "source_evidence_id": "ev_3d6b56d1e8baec5b0af33135",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car freshener joe little",
+      "canonical_tokens": [
+        "car",
+        "freshener",
+        "joe",
+        "little"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 110,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.22,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "ac evaporator cleaner for car",
+      "source_evidence_id": "ev_a32eca15b589cfb42bd7f2d1",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "ac car cleaner evaporator",
+      "canonical_tokens": [
+        "ac",
+        "car",
+        "cleaner",
+        "evaporator"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 90,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.28,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car coil cleaner",
+      "source_evidence_id": "ev_6474f9bd33200460be65dff7",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaner coil",
+      "canonical_tokens": [
+        "car",
+        "cleaner",
+        "coil"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 90,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.39,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car wash wand brush",
+      "source_evidence_id": "ev_8545fef2077b3510f9637698",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "brush car wand wash",
+      "canonical_tokens": [
+        "brush",
+        "car",
+        "wand",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 90,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.38,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "ultrasonic hand car wash",
+      "source_evidence_id": "ev_f08a07b3c6ac4d2824d3eee7",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car hand ultrasonic wash",
+      "canonical_tokens": [
+        "car",
+        "hand",
+        "ultrasonic",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 90,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best budget car polisher",
+      "source_evidence_id": "ev_72c715dae1ff94ea06098e5d",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best budget car polisher",
+      "canonical_tokens": [
+        "best",
+        "budget",
+        "car",
+        "polisher"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 70,
+        "keyword_difficulty": 4,
+        "search_intent": null,
+        "cpc_usd": 1.19,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "car window cleaning wand",
+      "source_evidence_id": "ev_32b2d27858d6c4cbea0388ba",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cleaning wand window",
+      "canonical_tokens": [
+        "car",
+        "cleaning",
+        "wand",
+        "window"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 50,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.3,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car ac sealer",
+      "source_evidence_id": "ev_32de7a93c33715f66575da98",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "ac best car sealer",
+      "canonical_tokens": [
+        "ac",
+        "best",
+        "car",
+        "sealer"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 40,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.63,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car wax applicator",
+      "source_evidence_id": "ev_dacab75abd57dfe621f90575",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "applicator best car wax",
+      "canonical_tokens": [
+        "applicator",
+        "best",
+        "car",
+        "wax"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 40,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.46,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best nozzle for washing car",
+      "source_evidence_id": "ev_d652ac5cbbc906ff9d473a83",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car nozzle washing",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "nozzle",
+        "washing"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 40,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.83,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best waterless car wash products",
+      "source_evidence_id": "ev_6a03dcced00b6069a4e2e047",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car products wash waterless",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "products",
+        "wash",
+        "waterless"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 40,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.6,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car wash gun",
+      "source_evidence_id": "ev_01394f8b4bc6647bf2d55e62",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car gun wash",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "gun",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 30,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.6,
+        "paid_competition_level": "LOW"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car washing wand",
+      "source_evidence_id": "ev_cfd01f6c43ae5d7c03712640",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "best car wand washing",
+      "canonical_tokens": [
+        "best",
+        "car",
+        "wand",
+        "washing"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 30,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 1.48,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "ryobi cordless car polisher",
+      "source_evidence_id": "ev_d9ee4fc092c063844be0332c",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "car cordless polisher ryobi",
+      "canonical_tokens": [
+        "car",
+        "cordless",
+        "polisher",
+        "ryobi"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 20,
+        "keyword_difficulty": 0,
+        "search_intent": null,
+        "cpc_usd": 0.11,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "best car ac evaporator cleaner",
+      "source_evidence_id": "ev_4d194dd3fc5f2e7c98b0dcac",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "ac best car cleaner evaporator",
+      "canonical_tokens": [
+        "ac",
+        "best",
+        "car",
+        "cleaner",
+        "evaporator"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": 20,
+        "keyword_difficulty": 43,
+        "search_intent": null,
+        "cpc_usd": 0.14,
+        "paid_competition_level": "HIGH"
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    },
+    {
+      "keyword": "bubble down car wash application",
+      "source_evidence_id": "ev_f7bd644e0708cf68be6ff296",
+      "product_term_matches": [],
+      "exact_seed": false,
+      "duplicate_signature": "application bubble car down wash",
+      "canonical_tokens": [
+        "application",
+        "bubble",
+        "car",
+        "down",
+        "wash"
+      ],
+      "out_of_market_modifiers": [],
+      "metrics": {
+        "monthly_search_volume": null,
+        "keyword_difficulty": null,
+        "search_intent": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "status": "excluded",
+      "reason": "Excluded because it has no distinctive product-term relationship to the source product."
+    }
+  ]
+}

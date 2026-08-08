@@ -1,0 +1,2014 @@
+{
+  "keyword": "microfiber cloth drying car",
+  "task_id": "08080636-2245-0139-0000-846211421cd4",
+  "raw_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+    "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+  },
+  "records": [
+    {
+      "evidence_id": "ev_00d3a240d2e591d1514713fd",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Microfiber Towels | Car Drying Towels",
+        "description": "We offer a large selection of Microfiber Towels that attract and lift dirt, grime and bacteria from your car&#39;s … 75 Pack From $26.37 USD $43.95 USD. High- ...",
+        "url": "https://parkscarcare.net/collections/microfiber?srsltid=AfmBOorUO841vVqKmtoB8C7kYvqaFIuVacX2MJg39tqdfpzBQ9wRVTRh",
+        "domain": "parkscarcare.net",
+        "rank_group": 7,
+        "rank_absolute": 11
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/10:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/10"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_0a7063e3e39ae980ff41bf59",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Help Choosing Microfiber Cloths for Basic Car Cleaning ...",
+        "description": "Costco microfiber is a cost effective alternative. For drying though they recommend the rag company drying towel. For drying id suggest a heavy ...",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/1gw5lv4/help_choosing_microfiber_cloths_for_basic_car/",
+        "domain": "www.reddit.com",
+        "rank_group": 1,
+        "rank_absolute": 4
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/3:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_0dab7ed9ef6cbd03ffc9354c",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/1:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_16217359f215673368a8c63d",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "What side of microfiber towel to use to dry a car?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What side of microfiber towel to use to dry a car?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/2/items/3:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_1fbe09c433997defc253fcbc",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_feature",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "perspectives",
+        "title": "What people are saying",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 14
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/13:perspectives",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_21ca2ff0218d6623c8b6b235",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/2:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_2a0edf331a10922e91499faf",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 2,
+        "rank_absolute": 12
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/11:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/11"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_2bebbf03a2adb6f80fdcd258",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "What do professional detailers use to dry cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What do professional detailers use to dry cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/2/items/1:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_3b681b7ea91b6bfaadd9bcda",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 2
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/1:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_3b734a03b3464f0cec176d84",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/5:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_57b52573877a8fab5a1cce2f",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Microfiber Car Drying Towels",
+        "description": "Find the best microfiber drying towel for cars — absorbent, lint-free, scratch-free options for unprotected, ceramic-coated and waxed vehicles.",
+        "url": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoorKQnDh5Yi6DR4wpd9S5a1GRK3e172x3KdL0jWJ6qv1Wy7c0TZ",
+        "domain": "theragcompany.com",
+        "rank_group": 2,
+        "rank_absolute": 5
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/4:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_635c955ba6fb228935ca3488",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "Is it okay to dry a car with microfiber cloth?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "Is it okay to dry a car with microfiber cloth?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/2/items/0:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6415eb9634a674aec840890d",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Microfiber Towels For Cars",
+        "description": "Microfiber Car Drying Towels, Highly Absorbent, Lint Free, Scratch Free, Ultra-Soft, Car Detailing, Buffing and Polishing, 16\" x 16\", Yellow, 12-Pack 5K+",
+        "url": "https://www.amazon.com/microfiber-towels-cars/s?k=microfiber+towels+for+cars",
+        "domain": "www.amazon.com",
+        "rank_group": 5,
+        "rank_absolute": 9
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/8:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6cd5eb0daeebb30e7e147eef",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/6:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_89169783304d369eca53107d",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 3,
+        "rank_absolute": 13
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/12:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/12"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_8cc90d2bbac169d54e346d97",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/0:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_97cd90e1c266ab717c74ed80",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "What is the best microfiber cloth to dry a car?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What is the best microfiber cloth to dry a car?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/2/items/2:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b4645ee7cb188f49474df9d9",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Microfibre Towel Drying Techniques",
+        "description": null,
+        "url": "https://www.youtube.com/watch?v=2wuDE8OUNtw",
+        "domain": "www.youtube.com",
+        "rank_group": 6,
+        "rank_absolute": 10
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/9:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/9"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b74b26f23f6584145f13bf2b",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/4:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_badc1f3a6363b99817e4fa6d",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/3:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_cca531f8abdf904adadcdbd5",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_video",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "video",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 8
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/7:video",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d3e604f1bbf60d5802337d27",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Automotive Drying Towels: Waffle Weave, Plush & Twist",
+        "description": "Shop automotive drying towels here at Autofiber. Our towel designs including waffle weave, plush and twist towels, all with high quality drying properties.",
+        "url": "https://www.autofiber.com/collections/drying?srsltid=AfmBOoqz45vDHXuTU_WSc7ZfiCq4Qjn-b7ndcMB_OiZcEu7tQYAtaxZK",
+        "domain": "www.autofiber.com",
+        "rank_group": 3,
+        "rank_absolute": 6
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/5:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_dfd2e43c5563e6dcb02ca5da",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/14/items/7:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e2f145c84b47d667860ce458",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_ai_overview",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "ai_overview",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 1
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/0:ai_overview",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_ef3d8a106580d080d512ec10",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_c97fce2efc24a47aeb30948f"
+      ],
+      "query_or_question": "microfiber cloth drying car",
+      "value": {
+        "keyword": "microfiber cloth drying car",
+        "serp_item_type": "organic",
+        "title": "Car Drying Towels",
+        "description": "The ultra-absorbent microfiber material quickly soaks up water without leaving behind streaks or water spots, ensuring a flawless finish before applying a wax ... Read more",
+        "url": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopUgq50T7us3UZk91A8l3qpo5Yl2h00SlQ8VeCwEL3ZuI79ZA_B",
+        "domain": "www.chemicalguys.com",
+        "rank_group": 4,
+        "rank_absolute": 7
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20cloth%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:09 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber cloth drying car:/tasks/0/result/0/items/6:organic",
+        "source_task_id": "08080636-2245-0139-0000-846211421cd4",
+        "query_seed": "microfiber cloth drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:09 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+          "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_b81a26dfe69d5328990f7a9c"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+        "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    }
+  ],
+  "unknown_item_types": [],
+  "evidence_categories": {
+    "demand_metrics": true,
+    "difficulty": true,
+    "organic_competitors": true,
+    "people_also_ask": true,
+    "related_searches": true,
+    "serp_features": [
+      "ai_overview",
+      "people_also_ask",
+      "perspectives",
+      "popular_products",
+      "related_searches",
+      "video"
+    ]
+  }
+}

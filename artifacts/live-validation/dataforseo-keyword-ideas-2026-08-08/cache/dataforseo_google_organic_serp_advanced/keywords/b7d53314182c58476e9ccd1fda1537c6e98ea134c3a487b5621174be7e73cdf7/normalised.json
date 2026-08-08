@@ -1,0 +1,1935 @@
+{
+  "keyword": "best car drying towel",
+  "task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+  "raw_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+    "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+  },
+  "records": [
+    {
+      "evidence_id": "ev_04714acf2358fc4c7a246de8",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/3:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_0ecff79f83c96838259bb05e",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "What towels do you use to dry cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What towels do you use to dry cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/4/items/3:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_1376b33fe222bd42d6c7f4b1",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/5:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_181c9962532c11f0396ee33b",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/2:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_26bfe55c1dfaf57a44348d94",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Microfiber Car Drying Towels",
+        "description": "3 days ago — Find the best microfiber drying towel for cars — absorbent, lint-free, scratch-free options for unprotected, ceramic-coated and waxed vehicles. Read more",
+        "url": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoo9fksf4kfyIi6sFtqUG1Ri3E_aWi2LlJ7u7NydrCD7PK4Gzxh5",
+        "domain": "theragcompany.com",
+        "rank_group": 1,
+        "rank_absolute": 2
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/1:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_44fb7875cd1e5f269ca58321",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_discussion",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "discussions_and_forums",
+        "title": "Discussions and forums",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 9
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/8:discussions_and_forums",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_454919bf91a89c2cb83a7640",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Best Microfiber Towel For Your Car In 2026",
+        "description": "Discover the best microfiber towels for drying your car. If you want to dry in style, get the Liquid8r. If you want to dry your car, get the Miracle Dryer.",
+        "url": "https://carwashwiz.com/car-wash/best-microfiber-towel/",
+        "domain": "carwashwiz.com",
+        "rank_group": 4,
+        "rank_absolute": 7
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/6:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_5ea246017fc2691e9da7789d",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 10
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/9:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/9"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6cbefe8bfb2333a7521015b3",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Drying Towels & Blowers",
+        "description": "Shop the best microfiber Drying Towels & Blowers for a quick dry and spotless finish. Upgrade your car wash game with our top-rated collection.",
+        "url": "https://www.autogeek.net/drying.html?srsltid=AfmBOoo5a7n6IbDQVkTEeiblEOrTgFyiBYzAe5MWzZmCRnJdgHR2UB6h",
+        "domain": "www.autogeek.net",
+        "rank_group": 7,
+        "rank_absolute": 12
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/11:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/11"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_8335593fc8780e3ec0125ba7",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/1:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_8ee7c6172f08a1260f6548ed",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "What is the best cloth for drying cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What is the best cloth for drying cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/4/items/2:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_9011b332294a36321b5dc453",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "Do car drying towels really work?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "Do car drying towels really work?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/4/items/0:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_92d35d004d3da59946df24b9",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Car Drying Towel",
+        "description": "Discover ultra-absorbent microfiber car drying towels that dry vehicles quickly without streaks or scratches. Holds Up to 9 lbs, No Streaks, Scratches, or ...",
+        "url": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+        "domain": "www.amazon.com",
+        "rank_group": 5,
+        "rank_absolute": 8
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/7:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_94042d16a210f9cdc8cbcc15",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "The best towels for drying and detailing your car (2025)",
+        "description": "Jul 5, 2025 — The best towels for drying and detailing your car (2025) · 1. Best car drying towel: AutoManiacs Drying Towel · 2. Runner-up car drying towel: ... Read more",
+        "url": "https://flatsixes.com/porsche-products/the-best-car-towels-drying-detailing/",
+        "domain": "flatsixes.com",
+        "rank_group": 6,
+        "rank_absolute": 11
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/10:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/10"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_9cba6e8fe1c0263e020ce5ea",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 2,
+        "rank_absolute": 13
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/12:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/12"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_a55b952eb10f41862378c6fe",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_ai_overview",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "ai_overview",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 1
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/0:ai_overview",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_a574994468921d042560c8fc",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/6:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b3e003e186feb53ca0cbbd94",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/7:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b647e2d73618df545a60e54e",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Best drying towel? : r/AutoDetailing",
+        "description": "What is the best drying towel currently?",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "domain": "www.reddit.com",
+        "rank_group": 2,
+        "rank_absolute": 3
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/2:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e1b336ff3425dba2b31556e3",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_video",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "video",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 4
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/3:video",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e7f7d6fe16e7606c7fc2d65a",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/4:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_f286838d0df9ad613d11c33a",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Car Drying Towels",
+        "description": "At 36\" x 25\" x 1\" thick and rated to hold close to a gallon of water, our Woolly Mammoth is the best towel to dry a car for anyone who wants serious absorbency ... Read more",
+        "url": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopJkAMwtV-RhFKC5LWW23Rz07gv325lqVGpEAQxF5mVFARDf5IP",
+        "domain": "www.chemicalguys.com",
+        "rank_group": 3,
+        "rank_absolute": 6
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/5:organic",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_f40fafbdfa1eac939a767523",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/13/items/0:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_fd01b717f5a2715ff8dba619",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_72de12758641de52e3bf6ff4"
+      ],
+      "query_or_question": "best car drying towel",
+      "value": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "What do professional detailers use to dry cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What do professional detailers use to dry cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=best%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:05 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "best car drying towel:/tasks/0/result/0/items/4/items/1:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+        "query_seed": "best car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+          "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+        "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    }
+  ],
+  "unknown_item_types": [],
+  "evidence_categories": {
+    "demand_metrics": true,
+    "difficulty": true,
+    "organic_competitors": true,
+    "people_also_ask": true,
+    "related_searches": true,
+    "serp_features": [
+      "ai_overview",
+      "discussions_and_forums",
+      "people_also_ask",
+      "popular_products",
+      "related_searches",
+      "video"
+    ]
+  }
+}

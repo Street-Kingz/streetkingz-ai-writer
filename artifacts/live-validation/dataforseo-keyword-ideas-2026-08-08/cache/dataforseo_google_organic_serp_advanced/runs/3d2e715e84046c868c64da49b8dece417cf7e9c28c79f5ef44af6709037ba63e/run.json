@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "provider_result",
+  "provider_id": "dataforseo_google_organic_serp_advanced",
+  "provider_version": "1.0.0",
+  "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+  "request_fingerprint": "3d2e715e84046c868c64da49b8dece417cf7e9c28c79f5ef44af6709037ba63e",
+  "status": "complete",
+  "cache": {
+    "owner": "dataforseo_google_organic_serp_advanced",
+    "hit": true,
+    "directory": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced",
+    "policy": "7_days",
+    "hits": 5,
+    "misses": 0
+  },
+  "raw_artifacts": [
+    {
+      "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/cf6c4ae197cce95d71b9e79db470eecc3cc5271fcc6b62dfc8749bf243bf9c87/raw/response.json",
+      "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/cf6c4ae197cce95d71b9e79db470eecc3cc5271fcc6b62dfc8749bf243bf9c87/raw/response.json",
+      "sha256": "a34967ec18c33db3177c428224cb4c2d9a026150bf6d22515d12bd290b1523b4"
+    },
+    {
+      "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+      "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+      "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+    },
+    {
+      "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+      "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/a6a81e470ec5349570126b8811c480f958062ded62f3b8faf8cea73462212408/raw/response.json",
+      "sha256": "812c6f623dcbde2f96809cb5d369d71e4dc93033578dc1264354dde31bb9900b"
+    },
+    {
+      "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+      "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+      "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+    },
+    {
+      "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+      "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+      "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+    }
+  ],
+  "normalised_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/runs/3d2e715e84046c868c64da49b8dece417cf7e9c28c79f5ef44af6709037ba63e/normalised.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/runs/3d2e715e84046c868c64da49b8dece417cf7e9c28c79f5ef44af6709037ba63e/normalised.json",
+    "sha256": "1599056b68288f9d4b50a17a31887d1ee93cf87f661e389b32171c45e8e7b6b9"
+  },
+  "shortlist_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/runs/3d2e715e84046c868c64da49b8dece417cf7e9c28c79f5ef44af6709037ba63e/shortlist.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/runs/3d2e715e84046c868c64da49b8dece417cf7e9c28c79f5ef44af6709037ba63e/shortlist.json",
+    "sha256": "e681f07dbb1862c4585b2b57c497c80af785cf77404668904d1b5be6da412e18"
+  },
+  "evidence_record_ids": [
+    "ev_00074e51369b2db9ccd7185c",
+    "ev_00d3a240d2e591d1514713fd",
+    "ev_04714acf2358fc4c7a246de8",
+    "ev_08af81940d29cd3b696eafab",
+    "ev_097b23c54f3e2377ab861b00",
+    "ev_0a666660e95688156a3043c1",
+    "ev_0a7063e3e39ae980ff41bf59",
+    "ev_0dab7ed9ef6cbd03ffc9354c",
+    "ev_0ecff79f83c96838259bb05e",
+    "ev_1376b33fe222bd42d6c7f4b1",
+    "ev_16217359f215673368a8c63d",
+    "ev_181c9962532c11f0396ee33b",
+    "ev_1d4c8f88263e70b7fe308496",
+    "ev_1fbe09c433997defc253fcbc",
+    "ev_211daba071aadd72b583c0c1",
+    "ev_21ca2ff0218d6623c8b6b235",
+    "ev_21e78c22054daf608c7fb5dd",
+    "ev_2402e4bb0c1bf2a17431c9f5",
+    "ev_2447b7dbee5947adf5772322",
+    "ev_25ade3392231ee8548adc54e",
+    "ev_268a5e6d930e2f3fd8ae0648",
+    "ev_26bfe55c1dfaf57a44348d94",
+    "ev_289a55908f25cb87221b79dd",
+    "ev_2a0edf331a10922e91499faf",
+    "ev_2b1eff657b2778a63773fa6c",
+    "ev_2bebbf03a2adb6f80fdcd258",
+    "ev_2c914bb5258803a7ee8cddaa",
+    "ev_34cccbe34dcbd02c306f1e99",
+    "ev_355b4220d56bc5781283cc9a",
+    "ev_35fc4936af8e40572505f795",
+    "ev_3b681b7ea91b6bfaadd9bcda",
+    "ev_3b734a03b3464f0cec176d84",
+    "ev_3e9ab67bcfce3e2d05d95ad0",
+    "ev_43be349e183d593fc2f57fbf",
+    "ev_44fb7875cd1e5f269ca58321",
+    "ev_454919bf91a89c2cb83a7640",
+    "ev_48bbe77ec1a3ab1b23b15fb0",
+    "ev_4b5ea1794819e80ae0a305f7",
+    "ev_4b61254fe69e8afce103f878",
+    "ev_4c0ac29a274db854d59cc9c8",
+    "ev_4cf0bed2c8389d97ec6b3cc2",
+    "ev_4d6487fdd8439102dd17f92f",
+    "ev_515a17bbcf1596847f98702f",
+    "ev_57b52573877a8fab5a1cce2f",
+    "ev_5ea246017fc2691e9da7789d",
+    "ev_635c955ba6fb228935ca3488",
+    "ev_63e9847e4f5d4ec36ee46364",
+    "ev_6415eb9634a674aec840890d",
+    "ev_6c54dd3f6805aeb1508681cd",
+    "ev_6cbefe8bfb2333a7521015b3",
+    "ev_6cd5eb0daeebb30e7e147eef",
+    "ev_6f2a8ede5dbea488f42fd518",
+    "ev_73e885cc45785a1f6676c6c9",
+    "ev_7d0db3f2355af401192dcf66",
+    "ev_7eda71ccb9ee9698937a82ac",
+    "ev_8335593fc8780e3ec0125ba7",
+    "ev_89169783304d369eca53107d",
+    "ev_8aea6e85199629f6bd7e5458",
+    "ev_8cc90d2bbac169d54e346d97",
+    "ev_8ee7c6172f08a1260f6548ed",
+    "ev_9011b332294a36321b5dc453",
+    "ev_92d35d004d3da59946df24b9",
+    "ev_94042d16a210f9cdc8cbcc15",
+    "ev_97cd90e1c266ab717c74ed80",
+    "ev_990abd99717f4fc6f8121cd0",
+    "ev_9b97bd8c92bad808aa61b854",
+    "ev_9cba6e8fe1c0263e020ce5ea",
+    "ev_a55b952eb10f41862378c6fe",
+    "ev_a574994468921d042560c8fc",
+    "ev_a579a185979e7bddb23a5973",
+    "ev_aacd656c1552e0bf71ebd7c4",
+    "ev_ac6a726711be444d1302cf43",
+    "ev_acb651e5ab3753ee5bbd5149",
+    "ev_ae06552907b2b10f4f82cd14",
+    "ev_b3e003e186feb53ca0cbbd94",
+    "ev_b4645ee7cb188f49474df9d9",
+    "ev_b4e82d69d1392bb4a7ecbb2d",
+    "ev_b647e2d73618df545a60e54e",
+    "ev_b74b26f23f6584145f13bf2b",
+    "ev_b8e4c363cfbf1ce8832f4cef",
+    "ev_badc1f3a6363b99817e4fa6d",
+    "ev_bc2e6588860f8c1b5b22593c",
+    "ev_bd4cd1e3fbb3ff6fceff8df0",
+    "ev_bd6c0b36a0d57ab94aa4fd95",
+    "ev_bfc17c2a768137474c39d02e",
+    "ev_c2301a46de6af97ea24a44f1",
+    "ev_c23aaa76f8e443b118875b5e",
+    "ev_c4fa96c5b2ed251dde4e5215",
+    "ev_c5295da08e5f38c6f9285bfa",
+    "ev_c6853ec9cbb46d171707ed08",
+    "ev_c6907b8bb5a85f446b74c0a8",
+    "ev_c6e77cd59d6c179b22ceae82",
+    "ev_ca2a1c5e4079490dffb53b94",
+    "ev_ca9bc342dd0bf11edb85551d",
+    "ev_cca531f8abdf904adadcdbd5",
+    "ev_ceb245dd6013ad58fc508a9b",
+    "ev_d23d0c22bcd2aedcb863a23a",
+    "ev_d26876dafd4405f5805291c1",
+    "ev_d38c09edc1bac57d8d212458",
+    "ev_d3e604f1bbf60d5802337d27",
+    "ev_d6d3c8867efb7ae194462997",
+    "ev_d857da42979e79e286625355",
+    "ev_db93f93425c062baf2c1dc98",
+    "ev_df0c1fdaee926254bd4a5117",
+    "ev_df29d0ba389b50070824b720",
+    "ev_dfd2e43c5563e6dcb02ca5da",
+    "ev_e1b336ff3425dba2b31556e3",
+    "ev_e2f145c84b47d667860ce458",
+    "ev_e612e72dd7fb06dcd3f12d80",
+    "ev_e7f7d6fe16e7606c7fc2d65a",
+    "ev_ee0b3e8c23ff9d8ec47a9953",
+    "ev_eef479b8e108a412ec741a0b",
+    "ev_ef3d8a106580d080d512ec10",
+    "ev_f0187835d2572ae990823fb0",
+    "ev_f286838d0df9ad613d11c33a",
+    "ev_f2e1abccd060f8d9aed0c66b",
+    "ev_f40fafbdfa1eac939a767523",
+    "ev_fd01b717f5a2715ff8dba619",
+    "ev_fd9d1f8eb0803e26a6f935ce",
+    "ev_fdc0ec3e296ae87f675c25d2",
+    "ev_fe73918a649b0a424f0edeae",
+    "ev_ff3486d7e265b886bf2c605f",
+    "ev_ff38f975fa78e4969701022a"
+  ],
+  "started_at": "2026-08-08T06:38:01.917Z",
+  "completed_at": "2026-08-08T06:38:01.917Z",
+  "rate_limit": {
+    "limit_per_minute": 2000,
+    "remaining": 1999
+  },
+  "cost": {
+    "currency": "USD",
+    "actual": 0.01,
+    "additional": 0,
+    "configured_maximum": 0.01,
+    "deterministic_request_maximum": 0,
+    "estimated_per_task": 0.002
+  },
+  "paid_requests": 0,
+  "source_tasks": [
+    {
+      "keyword": "best automotive drying towel",
+      "id": "08080636-2245-0139-0000-fc02929aef8e",
+      "cost_usd": 0.002
+    },
+    {
+      "keyword": "best car drying towel",
+      "id": "08080636-2245-0139-0000-b14b1eeebb20",
+      "cost_usd": 0.002
+    },
+    {
+      "keyword": "microfiber cloth drying car",
+      "id": "08080636-2245-0139-0000-846211421cd4",
+      "cost_usd": 0.002
+    },
+    {
+      "keyword": "microfiber towel for drying car",
+      "id": "08080635-2245-0139-0000-a97f3aabf3bd",
+      "cost_usd": 0.002
+    },
+    {
+      "keyword": "waffle weave car drying towel",
+      "id": "08080636-2245-0139-0000-04ca2dd837a2",
+      "cost_usd": 0.002
+    }
+  ],
+  "evidence_categories": {
+    "best automotive drying towel": {
+      "demand_metrics": true,
+      "difficulty": true,
+      "organic_competitors": true,
+      "people_also_ask": true,
+      "related_searches": true,
+      "serp_features": [
+        "ai_overview",
+        "discussions_and_forums",
+        "people_also_ask",
+        "popular_products",
+        "related_searches",
+        "video"
+      ]
+    },
+    "best car drying towel": {
+      "demand_metrics": true,
+      "difficulty": true,
+      "organic_competitors": true,
+      "people_also_ask": true,
+      "related_searches": true,
+      "serp_features": [
+        "ai_overview",
+        "discussions_and_forums",
+        "people_also_ask",
+        "popular_products",
+        "related_searches",
+        "video"
+      ]
+    },
+    "microfiber cloth drying car": {
+      "demand_metrics": true,
+      "difficulty": true,
+      "organic_competitors": true,
+      "people_also_ask": true,
+      "related_searches": true,
+      "serp_features": [
+        "ai_overview",
+        "people_also_ask",
+        "perspectives",
+        "popular_products",
+        "related_searches",
+        "video"
+      ]
+    },
+    "microfiber towel for drying car": {
+      "demand_metrics": true,
+      "difficulty": true,
+      "organic_competitors": true,
+      "people_also_ask": true,
+      "related_searches": true,
+      "serp_features": [
+        "ai_overview",
+        "people_also_ask",
+        "popular_products",
+        "related_searches",
+        "video"
+      ]
+    },
+    "waffle weave car drying towel": {
+      "demand_metrics": true,
+      "difficulty": true,
+      "organic_competitors": true,
+      "people_also_ask": true,
+      "related_searches": true,
+      "serp_features": [
+        "people_also_ask",
+        "perspectives",
+        "popular_products",
+        "related_searches",
+        "video"
+      ]
+    }
+  },
+  "unknown_item_types": [],
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,2013 @@
+{
+  "keyword": "microfiber towel for drying car",
+  "task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+  "raw_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+    "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+  },
+  "records": [
+    {
+      "evidence_id": "ev_2402e4bb0c1bf2a17431c9f5",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "What Is The Best Drying Towel For Your Car?",
+        "description": "In this video, Anthony from The Rag Company breaks down exactly how microfiber drying towels work, why blend and weave matter more than GSM, ...",
+        "url": "https://www.youtube.com/watch?v=NwHel1yIMYI",
+        "domain": "www.youtube.com",
+        "rank_group": 6,
+        "rank_absolute": 11
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/10:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/10"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_268a5e6d930e2f3fd8ae0648",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/4:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_35fc4936af8e40572505f795",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Car Drying Towels",
+        "description": "Our Cloud 9 Extra Large Microfiber Drying Towel is our largest drying towel for cars, measuring 52\" x 36\" and designed specifically for professional detailers, ... Read more",
+        "url": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOor6RPYyQ0UjygnyakzyWYPu5QXpV5dO270Y1a5qB87EJHNuFWVr",
+        "domain": "www.chemicalguys.com",
+        "rank_group": 3,
+        "rank_absolute": 7
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/6:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_4cf0bed2c8389d97ec6b3cc2",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Automotive Drying Towels: Waffle Weave, Plush & Twist",
+        "description": "Shop automotive drying towels here at Autofiber. Our towel designs including waffle weave, plush and twist towels, all with high quality drying properties.",
+        "url": "https://www.autofiber.com/collections/drying?srsltid=AfmBOorXbMmIukY5USRU1-49NxuogjPlinx4hScPcU1HEfBNQJyCsbbJ",
+        "domain": "www.autofiber.com",
+        "rank_group": 2,
+        "rank_absolute": 4
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/3:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_63e9847e4f5d4ec36ee46364",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/2:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6c54dd3f6805aeb1508681cd",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Microfiber Car Drying Towels",
+        "description": "Find the best microfiber drying towel for cars — absorbent, lint-free, scratch-free options for unprotected, ceramic-coated and waxed vehicles.",
+        "url": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOopHiIPozyi_6J-VAr4TVCUgRPc-NHUwNd489oq47EGDKrQ-GyH6",
+        "domain": "theragcompany.com",
+        "rank_group": 1,
+        "rank_absolute": 3
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/2:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_7eda71ccb9ee9698937a82ac",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_ai_overview",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "ai_overview",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 1
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/0:ai_overview",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_990abd99717f4fc6f8121cd0",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "What is the best towel for drying a car?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What is the best towel for drying a car?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/8/items/2:people_also_ask",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_ac6a726711be444d1302cf43",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/7:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_acb651e5ab3753ee5bbd5149",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Best drying towel? : r/AutoDetailing",
+        "description": "What is the best drying towel currently?",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "domain": "www.reddit.com",
+        "rank_group": 5,
+        "rank_absolute": 10
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/9:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/9"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b8e4c363cfbf1ce8832f4cef",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/6:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_bc2e6588860f8c1b5b22593c",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "What do professional detailers use to dry cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What do professional detailers use to dry cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/8/items/3:people_also_ask",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_bd4cd1e3fbb3ff6fceff8df0",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/3:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_bd6c0b36a0d57ab94aa4fd95",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "SNIPER Microfiber Drying Towel, Car Detailing ...",
+        "description": "The microfiber quickly absorbs water on the vehicle's surface with each strand of thread. Quick & Easy Drying: It's so absorbent, you can experience fast drying ... Read more",
+        "url": "https://www.homedepot.com/p/SNIPER-Microfiber-Drying-Towel-Car-Detailing-Towel-Quick-Easy-Drying-Towel-Made-in-Korea-APP-SDT-L01/323210419",
+        "domain": "www.homedepot.com",
+        "rank_group": 7,
+        "rank_absolute": 12
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/11:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/11"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_bfc17c2a768137474c39d02e",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/0:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c5295da08e5f38c6f9285bfa",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 2
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/1:popular_products",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c6907b8bb5a85f446b74c0a8",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/1:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_ceb245dd6013ad58fc508a9b",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 2,
+        "rank_absolute": 5
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/4:popular_products",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d38c09edc1bac57d8d212458",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_video",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "video",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 6
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/5:video",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d857da42979e79e286625355",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/14/items/5:related_searches",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_e612e72dd7fb06dcd3f12d80",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 3,
+        "rank_absolute": 14
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/13:popular_products",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_ee0b3e8c23ff9d8ec47a9953",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "Are microfiber towels good for drying off cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "Are microfiber towels good for drying off cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/8/items/0:people_also_ask",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_fd9d1f8eb0803e26a6f935ce",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Microfiber Car Towels & Cloths for Detailing & Drying",
+        "description": "Shop the best Microfiber Car Cloths & Towels for drying & detailing. Choose from top towel brands like Dry Me A River!, Eagle, ...",
+        "url": "https://www.carsupplieswarehouse.com/collections/microfiber-car-cloths-towels?srsltid=AfmBOoqDe3j6gwmuWjcKS9OZYIEd2VETwUL2n-IsGwGgdUI52gOK6gcg",
+        "domain": "www.carsupplieswarehouse.com",
+        "rank_group": 8,
+        "rank_absolute": 13
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/12:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/12"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_fdc0ec3e296ae87f675c25d2",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "people_also_ask",
+        "title": "What are the disadvantages of using microfiber towels?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What are the disadvantages of using microfiber towels?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/8/items/1:people_also_ask",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_ff3486d7e265b886bf2c605f",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_325eec22de629c4557a2aa40"
+      ],
+      "query_or_question": "microfiber towel for drying car",
+      "value": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Car Drying Towel",
+        "description": "Discover ultra-absorbent microfiber car drying towels that dry vehicles quickly without streaks or scratches. Enjoy large sizes for efficient coverage.",
+        "url": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+        "domain": "www.amazon.com",
+        "rank_group": 4,
+        "rank_absolute": 8
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=microfiber%20towel%20for%20drying%20car&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:01 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "microfiber towel for drying car:/tasks/0/result/0/items/7:organic",
+        "source_task_id": "08080635-2245-0139-0000-a97f3aabf3bd",
+        "query_seed": "microfiber towel for drying car",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:01 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+          "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/485ddf93408675a3b265f58178e840b83407300750c065bd76b16c8a425bae27/raw/response.json",
+        "sha256": "9ec05bb5deaff0d7e84cd72ab4a7c80ee3bd119d17ea25df6c41d143ea0d54d7"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    }
+  ],
+  "unknown_item_types": [],
+  "evidence_categories": {
+    "demand_metrics": true,
+    "difficulty": true,
+    "organic_competitors": true,
+    "people_also_ask": true,
+    "related_searches": true,
+    "serp_features": [
+      "ai_overview",
+      "people_also_ask",
+      "popular_products",
+      "related_searches",
+      "video"
+    ]
+  }
+}

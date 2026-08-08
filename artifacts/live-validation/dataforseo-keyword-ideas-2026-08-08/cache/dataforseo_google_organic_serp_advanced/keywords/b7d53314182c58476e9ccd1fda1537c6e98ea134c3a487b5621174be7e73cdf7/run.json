@@ -1,0 +1,15 @@
+{
+  "keyword": "best car drying towel",
+  "task_id": "08080636-2245-0139-0000-b14b1eeebb20",
+  "cost_usd": 0.002,
+  "rate_limit": {
+    "limit_per_minute": 2000,
+    "remaining": 2000
+  },
+  "raw_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/b7d53314182c58476e9ccd1fda1537c6e98ea134c3a487b5621174be7e73cdf7/raw/response.json",
+    "sha256": "f7faa0f2504c3ae60a9dc3aa8d333d0ecb403af8016235d95d36ea1e45700ff1"
+  },
+  "retrieved_at": "2026-08-08T06:35:57.147Z"
+}

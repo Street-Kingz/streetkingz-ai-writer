@@ -1,0 +1,2013 @@
+{
+  "keyword": "waffle weave car drying towel",
+  "task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+  "raw_artifact": {
+    "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+    "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+    "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+  },
+  "records": [
+    {
+      "evidence_id": "ev_00074e51369b2db9ccd7185c",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "Does waffle weave dry faster?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "Does waffle weave dry faster?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/8/items/3:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_0a666660e95688156a3043c1",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/4:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_1d4c8f88263e70b7fe308496",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "popular_products",
+        "title": "Popular products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 4
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/3:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_289a55908f25cb87221b79dd",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 2,
+        "rank_absolute": 6
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/5:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_2b1eff657b2778a63773fa6c",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/1:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_2c914bb5258803a7ee8cddaa",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/3:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/3"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_34cccbe34dcbd02c306f1e99",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "Do car drying towels really work?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "Do car drying towels really work?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/8/items/2:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_355b4220d56bc5781283cc9a",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "Automotive Drying Towels: Waffle Weave, Plush & Twist",
+        "description": "Shop automotive drying towels here at Autofiber. Our towel designs including waffle weave, plush and twist towels, all with high quality drying properties.",
+        "url": "https://www.autofiber.com/collections/drying?srsltid=AfmBOoq_9bwY9CfAmiS1myBTBemFGSLptWAsE9plfQsGPrJDN_yFXvJH",
+        "domain": "www.autofiber.com",
+        "rank_group": 3,
+        "rank_absolute": 3
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/2:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_48bbe77ec1a3ab1b23b15fb0",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "DI Microfiber Waffle Weave Drying and All Purpose Towel",
+        "description": "May 15, 2025 — The waffle weave texture pulls standing water from the surface, making drying your car after a wash significantly faster and more efficient. Read more",
+        "url": "https://www.detailedimage.com/DI-Microfiber-M13/Waffle-Weave-All-Purpose-Towel-P3774/16-x-24-S1/?srsltid=AfmBOooV02dhVEZNQ7rKmIO91ZNZr6Q1sQ52MqSkj0jM0Lu0_COwxcV2",
+        "domain": "www.detailedimage.com",
+        "rank_group": 8,
+        "rank_absolute": 12
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/11:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/11"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_4b61254fe69e8afce103f878",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "The Rag Company - Standard Waffle Weave Towels ...",
+        "description": "80/20 Blend (370gsm) Professional Lint-Free, Streak-Free Microfiber Waffle-Weave Towels With Overlock Stitched Edge and Over 300,000 Fibers per Square Inch. Read more",
+        "url": "https://www.amazon.com/Rag-Company-Waffle-Weave-Microfiber-Detailing/dp/B071ZLC2WM",
+        "domain": "www.amazon.com",
+        "rank_group": 1,
+        "rank_absolute": 1
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/0:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_4c0ac29a274db854d59cc9c8",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/6:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_4d6487fdd8439102dd17f92f",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_feature",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "perspectives",
+        "title": "What people are saying",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 14
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/13:perspectives",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/13"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_6f2a8ede5dbea488f42fd518",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "Auto Professional Waffle Drying Towel (2-Pack) 879-2",
+        "description": "Zwipes Auto Professional Waffle Drying Towel provides a super soft texture that massages the paint and buffs while you dry.",
+        "url": "https://www.homedepot.com/p/Auto-Professional-Waffle-Drying-Towel-2-Pack-879-2/300443785",
+        "domain": "www.homedepot.com",
+        "rank_group": 6,
+        "rank_absolute": 8
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/7:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_73e885cc45785a1f6676c6c9",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_product_element",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "popular_products",
+        "title": "More products",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 3,
+        "rank_absolute": 13
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/12:popular_products",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/12"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_a579a185979e7bddb23a5973",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/5:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/5"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_aacd656c1552e0bf71ebd7c4",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "Waffle Weave Gray Matter Microfiber Drying Towel",
+        "description": "The Gray Matter Waffle Weave Towel is an ultra-soft, silk-edged towel made of 70/30 microfiber and features unique waffle grooves that trap liquids and dirt ...",
+        "url": "https://www.chemicalguys.com/products/waffle-weave-gray-matter-microfiber-drying-towel?srsltid=AfmBOooGkzj8nP9vU2t25L4Op_XpqNMrmCgxUYDx54oBI99nS8lcKu77",
+        "domain": "www.chemicalguys.com",
+        "rank_group": 5,
+        "rank_absolute": 7
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/6:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/6"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_b4e82d69d1392bb4a7ecbb2d",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_video",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "video",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": 1,
+        "rank_absolute": 11
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/10:video",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/10"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c23aaa76f8e443b118875b5e",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/2:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/2"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_c6e77cd59d6c179b22ceae82",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "The Big One Waffle-Weave Microfiber Drying Towel",
+        "description": "It's big enough to handle SUVs, trucks, boats, and RVs, and wrings out easily when things get soaked. Super absorbent, safe for all surfaces, and built to last, ... Read more",
+        "url": "https://theragcompany.com/products/the-big-one?srsltid=AfmBOoqsAx9HD6NrQMFWGzOv_8NRJvtPUypxrQGJXvl_9kRXcqLZCyGN",
+        "domain": "theragcompany.com",
+        "rank_group": 4,
+        "rank_absolute": 5
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/4:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/4"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d23d0c22bcd2aedcb863a23a",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "Waffle weave towels work better than most towers, by not ...",
+        "description": "Very simple post. If you have trouble drying your car off with a towel because it smears the water, try a waffle weave pattern designed. Read more",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/nk2clo/waffle_weave_towels_work_better_than_most_towers/",
+        "domain": "www.reddit.com",
+        "rank_group": 2,
+        "rank_absolute": 2
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/1:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_d6d3c8867efb7ae194462997",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/0:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_db93f93425c062baf2c1dc98",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "What is the best drying towel for cars?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What is the best drying towel for cars?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/8/items/1:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/1"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_df0c1fdaee926254bd4a5117",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_organic_result",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "Waffle Weave - Car Drying Towel",
+        "description": "Made from an innovative compacted waffle weave fabric designed to absorb up to 10X its weight in water. Its 25x40\" size is ample to dry almost any vehicle in ...",
+        "url": "https://ethoscarcare.com/products/waffle-weave-car-drying-towel?srsltid=AfmBOop2D3IdXQoApvPQc2G0svNYaKLy-Zb3bhfUCFchWRS2YPcHkxg0",
+        "domain": "ethoscarcare.com",
+        "rank_group": 7,
+        "rank_absolute": 10
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/9:organic",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/9"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_df29d0ba389b50070824b720",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_people_also_ask",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "people_also_ask",
+        "title": "What are waffle weave towels good for?",
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "question": "What are waffle weave towels good for?"
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/8/items/0:people_also_ask",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/8/items/0"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    },
+    {
+      "evidence_id": "ev_fe73918a649b0a424f0edeae",
+      "provider_id": "dataforseo_google_organic_serp_advanced",
+      "provider_run_id": "provider_run_c9631a03c98b2de4cebc2e90",
+      "evidence_type": "serp_related_search",
+      "subject_id": "product_20fcada95c00204601928709",
+      "seed_ids": [
+        "seed_247696644efb843e95375030"
+      ],
+      "query_or_question": "waffle weave car drying towel",
+      "value": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "related_searches",
+        "title": null,
+        "description": null,
+        "url": null,
+        "domain": null,
+        "rank_group": null,
+        "rank_absolute": null,
+        "related_query": null
+      },
+      "context": {
+        "market": "GB",
+        "language": "en-GB",
+        "location_code": 2840,
+        "language_code": "en",
+        "device": "desktop",
+        "search_engine": "google",
+        "check_url": "https://www.google.com/search?q=waffle%20weave%20car%20drying%20towel&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc"
+      },
+      "observed_at": "2026-08-08 06:36:06 +00:00",
+      "retrieved_at": "2026-08-08T06:35:57.147Z",
+      "provenance": {
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "provider_version": "1.0.0",
+        "source_owner": "DataForSEO",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "source_record_id": "waffle weave car drying towel:/tasks/0/result/0/items/14/items/7:related_searches",
+        "source_task_id": "08080636-2245-0139-0000-04ca2dd837a2",
+        "query_seed": "waffle weave car drying towel",
+        "market": "GB",
+        "language": "en-GB",
+        "observed_at": "2026-08-08 06:36:06 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "raw_artifact": {
+          "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+          "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+        },
+        "locator": {
+          "type": "json_pointer",
+          "value": "/tasks/0/result/0/items/14/items/7"
+        },
+        "extraction_method": "official_api",
+        "normaliser_version": "1.0.0",
+        "parent_evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ],
+        "terms_classification": "paid_api_response"
+      },
+      "confidence": {
+        "scoring_version": "1.0.0",
+        "score": 0.765,
+        "components": {
+          "source_reliability": 0.9,
+          "directness": 1,
+          "corroboration": 0,
+          "freshness": 1,
+          "extraction_integrity": 1
+        },
+        "rationale": "Structured SERP observation returned by the DataForSEO official API."
+      },
+      "raw_ref": {
+        "path": "provider-cache://dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "local_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/cache/dataforseo_google_organic_serp_advanced/keywords/314ba3e14e7e9d9d18be1d8e1ae7bbd0eb30c1da1e89f67e76ef011f2196fb88/raw/response.json",
+        "sha256": "7051318573e025b9f5149c5e57debf018ed40bb6f9e756ffbd10dedbf1d91b9f"
+      },
+      "normaliser_version": "1.0.0",
+      "status": "active"
+    }
+  ],
+  "unknown_item_types": [],
+  "evidence_categories": {
+    "demand_metrics": true,
+    "difficulty": true,
+    "organic_competitors": true,
+    "people_also_ask": true,
+    "related_searches": true,
+    "serp_features": [
+      "people_also_ask",
+      "perspectives",
+      "popular_products",
+      "related_searches",
+      "video"
+    ]
+  }
+}
