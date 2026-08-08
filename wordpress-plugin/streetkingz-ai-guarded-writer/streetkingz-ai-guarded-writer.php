@@ -2,12 +2,15 @@
 /**
  * Plugin Name: Street Kingz AI Guarded Writer
  * Description: Approval-bound writer for one reviewed product-copy change set. Inactive unless a separate write capability is deliberately assigned.
- * Version: 0.1.3
+ * Version: 0.1.4
  */
 
 defined('ABSPATH') || exit;
 
 const STREETKINGZ_AI_WRITE_CAPABILITY = 'streetkingz_ai_write_approved_product_copy';
+const STREETKINGZ_AI_WRITER_ROLE = 'streetkingz_ai_writer';
+const STREETKINGZ_AI_WRITER_ROLE_VERSION = '1';
+const STREETKINGZ_AI_WRITER_ROLE_VERSION_OPTION = 'streetkingz_ai_writer_role_version';
 const STREETKINGZ_AI_WRITE_PRODUCT_ID = 70;
 const STREETKINGZ_AI_WRITE_TEMPLATE_ID = 2003;
 const STREETKINGZ_AI_WRITE_DESCRIPTION_ID = 'c80e718';
@@ -15,7 +18,28 @@ const STREETKINGZ_AI_WRITE_ACCORDION_ID = '4691e088';
 const STREETKINGZ_AI_WRITE_COMPARISON_ID = '40869c27';
 const STREETKINGZ_AI_WRITE_SAFETY_ID = '43d7d6f0';
 
-/* Intentionally no activation hook, role creation, user lookup, or capability assignment. */
+function streetkingz_ai_writer_ensure_role(): void {
+    $allowed = ['read' => true, STREETKINGZ_AI_WRITE_CAPABILITY => true];
+    $role = get_role(STREETKINGZ_AI_WRITER_ROLE);
+    if (!$role) {
+        add_role(STREETKINGZ_AI_WRITER_ROLE, 'Street Kingz AI Writer', $allowed);
+    } else {
+        foreach (array_keys($role->capabilities) as $capability) {
+            if (!array_key_exists($capability, $allowed)) $role->remove_cap($capability);
+        }
+        foreach ($allowed as $capability => $grant) $role->add_cap($capability, $grant);
+    }
+    update_option(STREETKINGZ_AI_WRITER_ROLE_VERSION_OPTION, STREETKINGZ_AI_WRITER_ROLE_VERSION, false);
+}
+
+register_activation_hook(__FILE__, 'streetkingz_ai_writer_ensure_role');
+
+/* Activation hooks do not run when an active plugin is replaced. This bounded migration creates/reconciles only the named writer role. */
+add_action('init', static function (): void {
+    if (get_option(STREETKINGZ_AI_WRITER_ROLE_VERSION_OPTION) !== STREETKINGZ_AI_WRITER_ROLE_VERSION) streetkingz_ai_writer_ensure_role();
+}, 1);
+
+/* Deliberately no deactivation/uninstall role removal: users and their role assignments are never changed implicitly. */
 add_action('rest_api_init', static function (): void {
     register_rest_route('streetkingz-ai/v1', '/approved-product-70-copy/(?P<mode>dry-run|execute)', [
         'methods' => WP_REST_Server::CREATABLE,

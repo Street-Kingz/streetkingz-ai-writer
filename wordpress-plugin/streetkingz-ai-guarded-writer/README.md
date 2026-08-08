@@ -1,8 +1,10 @@
 # Street Kingz AI Guarded Writer
 
-This local-only plugin is deliberately bound to the explicit product 70/template 2003 approval packaged with it. It accepts no copy, product IDs, template IDs, widget IDs, fields, metadata or publication state from callers.
+This plugin is deliberately bound to the explicit product 70/template 2003 approval packaged with it. It accepts no copy, product IDs, template IDs, widget IDs, fields, metadata or publication state from callers.
 
-It introduces the separate `streetkingz_ai_write_approved_product_copy` capability but does not create a role or assign that capability. The existing authoritative GET reader remains independent.
+It creates the dedicated `streetkingz_ai_writer` role with exactly WordPress `read` plus `streetkingz_ai_write_approved_product_copy`. The role is never assigned to a user automatically, and the existing authoritative GET reader remains independent. `read` permits ordinary authenticated identity/Application Password use; it does not grant post, product, page, media, WooCommerce, plugin, theme, publication or administration rights.
+
+Fresh activation creates the role. A versioned `init` migration also creates or reconciles it when an already-active v0.1.3 plugin is replaced, because WordPress does not rerun activation hooks in that case. The migration touches only this named role and stores its migration version; it never finds or modifies users. Deactivation and uninstall deliberately leave the role and user assignments intact to avoid surprise lockouts or account changes.
 
 The dry-run and execute routes share all approval/current-state checks. Execute is locked unless a separate, explicitly user-authorised `execution-authorisation.json` is installed beside the plugin and its exact hash is supplied. That file is intentionally absent from the plugin ZIP, so deployment plus capability assignment cannot enable writes. A valid execution contract must be bound to the packaged approval hash, current-state hashes, approved-target hashes, product/template identity, execute mode, and a one-time execution ID.
 

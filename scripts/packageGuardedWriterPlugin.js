@@ -16,7 +16,7 @@ const packaged = path.join(temporary, "streetkingz-ai-guarded-writer");
 fs.cpSync(source, packaged, { recursive: true });
 fs.writeFileSync(path.join(packaged, "human-implementation-approval.json"), approvalRaw, { flag: "wx" });
 if (fs.existsSync(path.join(source, "execution-authorisation.json"))) throw new Error("Refusing to package live execution authorisation.");
-const output = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.3.zip");
+const output = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.4.zip");
 if (fs.existsSync(output)) throw new Error(`Refusing to overwrite ${output}`);
 execFileSync("zip", ["-X", "-r", output, "streetkingz-ai-guarded-writer"], { cwd: temporary, stdio: "ignore" });
 console.log(output);

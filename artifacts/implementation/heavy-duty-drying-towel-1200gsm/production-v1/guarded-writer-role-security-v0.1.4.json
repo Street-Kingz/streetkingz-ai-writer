@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "artifact_type": "guarded_writer_role_security_review",
+  "plugin_version": "0.1.4",
+  "reader": {
+    "role_id": "streetkingz_ai_reader",
+    "display_name": "Street Kingz AI Reader",
+    "capabilities": [
+      "read",
+      "streetkingz_ai_read_product_source"
+    ],
+    "writer_capability": false,
+    "modified_by_this_change": false
+  },
+  "writer": {
+    "role_id": "streetkingz_ai_writer",
+    "display_name": "Street Kingz AI Writer",
+    "capabilities": [
+      "read",
+      "streetkingz_ai_write_approved_product_copy"
+    ],
+    "reader_capability": false,
+    "generic_cms_editing": false,
+    "automatic_user_assignment": false,
+    "automatic_user_creation": false,
+    "automatic_application_password_creation": false
+  },
+  "lifecycle": {
+    "fresh_activation": "create_or_reconcile_named_writer_role",
+    "active_plugin_upgrade": "versioned_init_migration_create_or_reconcile_named_writer_role",
+    "migration_version": "1",
+    "deactivation": "leave_role_and_users_unchanged",
+    "uninstall": "leave_role_and_users_unchanged",
+    "site_content_mutation": false
+  },
+  "execution_boundary": {
+    "writer_capability_is_execution_authorisation": false,
+    "separate_execution_authorisation_required": true,
+    "execution_authorisation_bundled": false,
+    "live_execute_without_contract": "locked"
+  },
+  "package": {
+    "path": "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.4.zip",
+    "sha256": "b18802e76d04c09e1e4beed096fa86b5c15e11da7a22bf028bdee29b19a36f94",
+    "source_php_sha256": "070fc0fc51d7e23708bbdd2de055492f259677854463376c5abd54c1bdebc283",
+    "packaged_php_sha256": "070fc0fc51d7e23708bbdd2de055492f259677854463376c5abd54c1bdebc283",
+    "source_parity": "PASS",
+    "credentials_bundled": false,
+    "env_bundled": false,
+    "execution_authorisation_bundled": false
+  },
+  "tests": {
+    "complete_suite": "PASS_193_OF_193",
+    "new_role_security_tests": "PASS_8_OF_8",
+    "live_requests": 0,
+    "live_writes": 0
+  }
+}

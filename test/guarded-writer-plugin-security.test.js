@@ -4,11 +4,10 @@ import { readFile } from "node:fs/promises";
 
 const plugin = await readFile("wordpress-plugin/streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php", "utf8");
 
-test("writer is separately permissioned, POST-only and assigns no capability", () => {
+test("writer is separately permissioned and POST-only", () => {
   assert.match(plugin, /streetkingz_ai_write_approved_product_copy/);
   assert.match(plugin, /WP_REST_Server::CREATABLE/);
   assert.match(plugin, /current_user_can\(STREETKINGZ_AI_WRITE_CAPABILITY\)/);
-  assert.doesNotMatch(plugin, /register_activation_hook|add_role\s*\(|add_cap\s*\(|set_role\s*\(/);
   assert.doesNotMatch(plugin, /WP_REST_Server::READABLE|WP_REST_Server::EDITABLE|WP_REST_Server::DELETABLE/);
 });
 

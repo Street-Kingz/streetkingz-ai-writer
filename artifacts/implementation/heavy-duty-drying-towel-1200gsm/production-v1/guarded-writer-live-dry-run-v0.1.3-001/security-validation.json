@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-writer-live-dry-run-v0.1.3-001",
+  "status": "PRECHECK_BLOCKED",
+  "blocked_at": "credential_separation",
+  "reason": "No separately configured writer credentials are present. Only WORDPRESS_READ_USERNAME and WORDPRESS_READ_APPLICATION_PASSWORD are configured, so reader-only rejection and writer-capable dry-run acceptance cannot both be proven without conflating identities.",
+  "tests": {
+    "repository_suite": "PASS_185_OF_185",
+    "approval_artifact_validation": "PASS",
+    "approval_product_id": 70,
+    "approval_template_id": 2003,
+    "approved_target_count": 4,
+    "publication_authorised": false,
+    "local_execution_authorisation_present": false,
+    "packaged_execution_authorisation_present": false,
+    "read_credentials_present": true,
+    "separate_writer_credentials_present": false
+  },
+  "live_requests_performed": 0,
+  "live_wordpress_writes": 0,
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false,
+  "required_user_action": "Configure a distinct narrow writer identity locally without replacing the existing reader-only identity. Provide WORDPRESS_WRITE_USERNAME and WORDPRESS_WRITE_APPLICATION_PASSWORD (or the repository's agreed equivalent) for the account holding only streetkingz_ai_write_approved_product_copy plus any independently required login/read baseline capability. Do not install execution-authorisation.json."
+}

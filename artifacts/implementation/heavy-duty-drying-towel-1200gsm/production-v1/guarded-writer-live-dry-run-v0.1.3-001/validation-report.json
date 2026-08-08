@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "failure_class": "PRECONDITION_NOT_MET",
+  "errors": [
+    {
+      "code": "WORDPRESS_WRITER_CREDENTIALS_NOT_CONFIGURED_SEPARATELY",
+      "message": "A dedicated writer-capable identity is required in addition to the existing reader-only identity."
+    }
+  ],
+  "approval_validation": "PASS",
+  "approved_target_hash_validation": "PASS",
+  "plugin_package_sha256": "2954e44bade07818c8ee10e194f773761667bb5760a7fde974f05ad1a89c921c",
+  "approval_artifact_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+  "live_security_validation": "NOT_RUN",
+  "fresh_authoritative_read": "NOT_RUN",
+  "fresh_state_guard_validation": "NOT_RUN",
+  "fresh_rollback_snapshot": "NOT_CREATED",
+  "live_state_dry_run": "NOT_RUN",
+  "wordpress_content_writes": 0
+}
