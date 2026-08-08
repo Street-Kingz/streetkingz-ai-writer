@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "approval_validation": "PASS",
+  "current_state_guards": "PASS",
+  "rollback_persistence": "PASS",
+  "approved_target_hashes": "PASS",
+  "structural_diff": "PASS",
+  "blocked_areas": "PASS",
+  "rollback_simulation": "PASS",
+  "rendered_page_hash_role": "audit_and_post_write_verification_not_sole_authorisation_guard",
+  "live_writes": 0
+}

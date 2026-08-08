@@ -1,0 +1,21 @@
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { execFileSync } from "node:child_process";
+import { validateHumanImplementationApproval } from "../cms/humanImplementationApproval.js";
+
+const root = process.cwd();
+const source = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer");
+const approvalPath = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/human-implementation-approval.json");
+const approvalRaw = fs.readFileSync(approvalPath, "utf8");
+const approval = JSON.parse(approvalRaw);
+const validation = validateHumanImplementationApproval(approval);
+if (!validation.valid) throw new Error(`Approval artifact invalid: ${validation.errors.join(", ")}`);
+const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "streetkingz-guarded-writer-"));
+const packaged = path.join(temporary, "streetkingz-ai-guarded-writer");
+fs.cpSync(source, packaged, { recursive: true });
+fs.writeFileSync(path.join(packaged, "human-implementation-approval.json"), approvalRaw, { flag: "wx" });
+const output = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.2.zip");
+if (fs.existsSync(output)) throw new Error(`Refusing to overwrite ${output}`);
+execFileSync("zip", ["-X", "-r", output, "streetkingz-ai-guarded-writer"], { cwd: temporary, stdio: "ignore" });
+console.log(output);

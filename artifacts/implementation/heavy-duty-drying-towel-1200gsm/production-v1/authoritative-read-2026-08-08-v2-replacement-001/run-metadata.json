@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "wordpress_authoritative_read_run",
+  "post_id": 70,
+  "authenticated_read_requests": 1,
+  "retries": 0,
+  "http_status": 409,
+  "response_size_bytes": 432,
+  "response_sha256": "0d43c70454fc9c1fe13d15483a37cc1bc1c08b76e7844e511dab4628e267777d",
+  "credentials_persisted": false,
+  "write_operations": 0,
+  "publication_allowed": false,
+  "validation": "failed_before_mapping",
+  "error": {
+    "code": "WORDPRESS_READ_FAILED",
+    "message": "Authenticated WordPress read failed with HTTP 409."
+  }
+}

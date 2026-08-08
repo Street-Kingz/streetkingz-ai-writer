@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "wordpress_authoritative_read_run",
+  "post_id": 70,
+  "authenticated_read_requests": 1,
+  "retries": 0,
+  "write_operations": 0,
+  "credentials_persisted": false,
+  "publication_allowed": false,
+  "validation": "valid",
+  "errors": []
+}

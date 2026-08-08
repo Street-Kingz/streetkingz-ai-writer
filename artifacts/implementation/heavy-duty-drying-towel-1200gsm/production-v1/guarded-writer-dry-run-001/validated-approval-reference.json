@@ -1,0 +1,13 @@
+{
+  "artifact": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/human-implementation-approval.json",
+  "artifact_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+  "validation": "PASS",
+  "product_id": 70,
+  "template_id": 2003,
+  "approved_target_hashes": {
+    "post_title": "5956266310c5f3b84917b9fb237c6738f44e8866e2bdfc31df54a291f4ae60d2",
+    "description": "b4475adadfe786262b86192630ccdda4d5d303bcc7bba212c407839c7f0f2ee9",
+    "comparison": "329fc5f12fb502e6b931fa14a2f3a74faacb8f31362b3d67641afbb66c5010fa",
+    "post_excerpt": "abe84c91ddfda7e1efab48cf5f9982bfe5189e59f048e59f632b29c77f999aef"
+  }
+}

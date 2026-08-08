@@ -1,0 +1,16 @@
+[
+  { "name": "php_serialized_all_products", "product_id": 70, "value": "a:1:{i:0;s:29:\"include/woocommerce/product\";}", "applicable": true },
+  { "name": "json_all_products_trailing_slash", "product_id": 70, "value": "[\"include/woocommerce/product/\"]", "applicable": true },
+  { "name": "nested_exact_product", "product_id": 70, "value": [["include/woocommerce/product/70"]], "applicable": true },
+  { "name": "unrelated_exact_product", "product_id": 70, "value": ["include/woocommerce/product/71"], "applicable": false },
+  { "name": "explicit_product_exclusion", "product_id": 70, "value": ["include/woocommerce/product", "exclude/woocommerce/product/70"], "applicable": false },
+  { "name": "malformed", "product_id": 70, "value": "{not-json", "applicable": false },
+  { "name": "tagged_product", "product_id": 70, "value": [["include/product/in_product_tag/50"]], "terms": { "product_tag": { "50": [70] } }, "applicable": true },
+  { "name": "non_member_product", "product_id": 70, "value": [["include/product/in_product_tag/50"]], "terms": { "product_tag": { "50": [71] } }, "applicable": false },
+  { "name": "wrong_taxonomy", "product_id": 70, "value": [["include/product/in_product_tag/50"]], "terms": { "category": { "50": [70] } }, "applicable": false },
+  { "name": "missing_term", "product_id": 70, "value": [["include/product/in_product_tag/50"]], "terms": {}, "applicable": false },
+  { "name": "matching_tag_exclusion", "product_id": 70, "value": ["include/product/in_product_tag/50", "exclude/product/in_product_tag/50"], "terms": { "product_tag": { "50": [70] } }, "applicable": false },
+  { "name": "unrelated_tag_exclusion", "product_id": 70, "value": ["include/product/in_product_tag/50", "exclude/product/in_product_tag/51"], "terms": { "product_tag": { "50": [70], "51": [71] } }, "applicable": true },
+  { "name": "unknown_taxonomy_exclusion", "product_id": 70, "value": ["include/product/in_product_tag/50", "exclude/product/in_product_cat/8"], "terms": { "product_tag": { "50": [70] } }, "applicable": false },
+  { "name": "malformed_tag_id", "product_id": 70, "value": ["include/product/in_product_tag/not-a-number"], "terms": { "product_tag": { "50": [70] } }, "applicable": false }
+]

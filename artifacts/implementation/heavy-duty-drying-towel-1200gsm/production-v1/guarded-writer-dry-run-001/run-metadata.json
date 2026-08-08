@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-writer-dry-run-001",
+  "mode": "offline_dry_run",
+  "created_at": "2026-08-08T18:00:00Z",
+  "source_authoritative_run": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/authoritative-read-2026-08-08-v1.1.2-001",
+  "approval_artifact": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/human-implementation-approval.json",
+  "credentials_persisted": false,
+  "external_requests": 0,
+  "wordpress_writes": 0,
+  "publication_possible": false
+}

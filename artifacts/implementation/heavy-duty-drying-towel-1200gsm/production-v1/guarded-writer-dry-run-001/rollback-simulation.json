@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "mutation_applied": true,
+  "product_restored_exactly": true,
+  "template_restored_semantically": true,
+  "blocked_areas_restored_or_unchanged": true
+}

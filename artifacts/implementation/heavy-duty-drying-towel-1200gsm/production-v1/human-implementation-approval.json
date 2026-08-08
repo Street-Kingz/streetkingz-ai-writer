@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "product_id": 70,
+  "template_id": 2003,
+  "status": "approved",
+  "approval_timestamp": "2026-08-08T17:42:18Z",
+  "approval_source": "explicit_user_approval",
+  "source_review": {
+    "artifact": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/final-human-implementation-review-v2.md",
+    "sha256": "5bc6fad69acdc5db506eb418dcae7e7f993f85a4d9365b409050b9960c3d478a"
+  },
+  "approved_fields": [
+    {
+      "field_id": "post_title",
+      "status": "approved",
+      "cms_target": { "post_id": 70, "field": "post_title" },
+      "exact_cms_value": "Heavy Duty Car Drying Towel – 1200GSM",
+      "normalized_approved_representation": "Heavy Duty Car Drying Towel – 1200GSM",
+      "current_state_guard_sha256": "70d2740df079f126b15fac1a79dbb579accf5cc9b3b8c0f69f2ab8d89496326a",
+      "approved_target_sha256": "5956266310c5f3b84917b9fb237c6738f44e8866e2bdfc31df54a291f4ae60d2"
+    },
+    {
+      "field_id": "description",
+      "status": "approved",
+      "cms_target": { "template_id": 2003, "meta_key": "_elementor_data", "element_id": "c80e718", "property": "settings.editor" },
+      "exact_cms_value": "<p>Built for faster, easier vehicle drying, this Heavy Duty microfibre car drying towel uses a 1200GSM dual-layer, double-sided plush construction to pull water from paint with fewer passes and less contact. That helps reduce streaks, smears and unwanted marks, while the 90 × 60 cm size balances coverage with control.</p>\n<p>Suitable for cars, SUVs and vans—especially larger vehicles and heavy rinse-downs—it can be used on clean, shampooed paintwork, glass and exterior plastics.</p>\n<p>Lay it flat, pat dry or glide it across even the wettest panels.</p>",
+      "normalized_approved_representation": "Built for faster, easier vehicle drying, this Heavy Duty microfibre car drying towel uses a 1200GSM dual-layer, double-sided plush construction to pull water from paint with fewer passes and less contact. That helps reduce streaks, smears and unwanted marks, while the 90 × 60 cm size balances coverage with control.\n\nSuitable for cars, SUVs and vans—especially larger vehicles and heavy rinse-downs—it can be used on clean, shampooed paintwork, glass and exterior plastics.\n\nLay it flat, pat dry or glide it across even the wettest panels.",
+      "current_state_guard_sha256": "72f9f609c59de983f61e8305d6cea67d8ae07d5743ca77e0d0efcd5fea2169b7",
+      "approved_target_sha256": "b4475adadfe786262b86192630ccdda4d5d303bcc7bba212c407839c7f0f2ee9"
+    },
+    {
+      "field_id": "comparison",
+      "status": "approved",
+      "cms_target": { "template_id": 2003, "meta_key": "_elementor_data", "element_id": "40869c27", "property": "settings.editor", "parent_element_id": "4691e088" },
+      "exact_cms_value": "<p>Choose the Heavy Duty 1200GSM if you prefer a thicker, double-sided towel that is smaller, heavier and more substantial in the hand. Choose the XL 800GSM if you prefer a larger, lighter towel that glides more easily.</p>",
+      "normalized_approved_representation": "Choose the Heavy Duty 1200GSM if you prefer a thicker, double-sided towel that is smaller, heavier and more substantial in the hand. Choose the XL 800GSM if you prefer a larger, lighter towel that glides more easily.",
+      "current_state_guard_sha256": "019780f33556ba09df132a4a92e473f2523fe41615c7f058916b96ebec31ba07",
+      "approved_target_sha256": "329fc5f12fb502e6b931fa14a2f3a74faacb8f31362b3d67641afbb66c5010fa"
+    },
+    {
+      "field_id": "post_excerpt",
+      "status": "approved",
+      "cms_target": { "post_id": 70, "field": "post_excerpt" },
+      "exact_cms_value": "<ul class=\"a-unordered-list a-vertical a-spacing-mini\">\n \t<li>1200GSM dual-layer thickness</li>\n \t<li>Strong water-holding capacity, with a heavier feel once fully saturated</li>\n \t<li>Soft premium feel</li>\n \t<li>Suitable for paintwork when used correctly on a clean, shampooed surface</li>\n \t<li>Ideal for larger vehicles</li>\n</ul>",
+      "normalized_approved_representation": "1200GSM dual-layer thickness\nStrong water-holding capacity, with a heavier feel once fully saturated\nSoft premium feel\nSuitable for paintwork when used correctly on a clean, shampooed surface\nIdeal for larger vehicles",
+      "current_state_guard_sha256": "42403585f01631a26e0ab3139ad11ad40874882d46dc70a94e756fc24e653675",
+      "approved_target_sha256": "abe84c91ddfda7e1efab48cf5f9982bfe5189e59f048e59f632b29c77f999aef"
+    }
+  ],
+  "current_state_guards": {
+    "post_title": "70d2740df079f126b15fac1a79dbb579accf5cc9b3b8c0f69f2ab8d89496326a",
+    "post_excerpt": "42403585f01631a26e0ab3139ad11ad40874882d46dc70a94e756fc24e653675",
+    "template_elementor_data": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+    "description_widget": "72f9f609c59de983f61e8305d6cea67d8ae07d5743ca77e0d0efcd5fea2169b7",
+    "comparison_widget": "019780f33556ba09df132a4a92e473f2523fe41615c7f058916b96ebec31ba07",
+    "safety_widget": "bcf0b42d978be2f9caf218bfd55bab0bd902f05532e00868eae40fa06dc74bb6",
+    "rendered_page": "a5db743344a3c3bd732fa0acddb20df1bbe9a4097d9ba1f9070264e1f93b8c5f"
+  },
+  "approved_target_hashes": {
+    "post_title": "5956266310c5f3b84917b9fb237c6738f44e8866e2bdfc31df54a291f4ae60d2",
+    "description": "b4475adadfe786262b86192630ccdda4d5d303bcc7bba212c407839c7f0f2ee9",
+    "comparison": "329fc5f12fb502e6b931fa14a2f3a74faacb8f31362b3d67641afbb66c5010fa",
+    "post_excerpt": "abe84c91ddfda7e1efab48cf5f9982bfe5189e59f048e59f632b29c77f999aef"
+  },
+  "authorisation": {
+    "slug_change_authorised": false,
+    "metadata_change_authorised": false,
+    "unrelated_elementor_changes_authorised": false,
+    "detailed_safety_widget_change_authorised": false,
+    "publication_authorised": false
+  },
+  "detailed_safety_widget": { "template_id": 2003, "element_id": "43d7d6f0", "status": "blocked_unchanged" },
+  "future_write_requires_fresh_pre_write_snapshot": true
+}

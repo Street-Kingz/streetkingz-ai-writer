@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "elementor_template_applicability_diagnosis",
+  "product_id": 70,
+  "template_id": 2003,
+  "previous_failure": {
+    "http_status": 409,
+    "code": "streetkingz_ai_template_not_applicable",
+    "response_sha256": "e210dd3549558964896077c6339ff1f4918e66366c3c4547b4c7cd7a6ec1b2dd"
+  },
+  "preserved_ownership_evidence": [
+    "data-elementor-type=product",
+    "data-elementor-id=2003",
+    "data-elementor-post-type=elementor_library",
+    "elementor-page-2003"
+  ],
+  "current_parser_limitation": "Version 1.1.0 accepted only a PHP-unserialized flat array of exact, non-trailing-slash condition strings.",
+  "actual_stored_condition_shape": "not present in preserved response; requires the deployed 1.1.1 bounded condition diagnostic",
+  "root_cause_classification": "VALIDATOR_AMBIGUITY: the 1.1.0 failure response cannot distinguish missing conditions from an unsupported serialization/nesting/token variant",
+  "correction": "Bounded normalization of PHP-serialized, JSON-array, nested-array and trailing-slash variants; explicit include/exclude precedence; unknown rules fail closed.",
+  "external_requests": 0,
+  "writes": 0
+}

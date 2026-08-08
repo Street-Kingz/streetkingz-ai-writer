@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Authoritative Reader
  * Description: Narrow, authenticated, read-only product source endpoint for the Street Kingz AI Writer.
- * Version: 1.1.0
+ * Version: 1.1.2
  */
 
 defined('ABSPATH') || exit;
@@ -83,23 +83,111 @@ function streetkingz_ai_read_authoritative_product(WP_REST_Request $request) {
     ]);
 }
 
+function streetkingz_ai_condition_tokens($value, int $depth = 0): array {
+    if ($depth > 4) {
+        return ['tokens' => [], 'format' => 'unsupported_depth', 'valid' => false];
+    }
+    if (is_array($value)) {
+        $tokens = [];
+        foreach ($value as $item) {
+            $parsed = streetkingz_ai_condition_tokens($item, $depth + 1);
+            if (!$parsed['valid']) {
+                return $parsed;
+            }
+            $tokens = array_merge($tokens, $parsed['tokens']);
+        }
+        return ['tokens' => $tokens, 'format' => $depth === 0 ? 'array' : 'nested_array', 'valid' => true];
+    }
+    if (!is_string($value)) {
+        return ['tokens' => [], 'format' => gettype($value), 'valid' => false];
+    }
+    $trimmed = trim($value);
+    if ($trimmed === '') {
+        return ['tokens' => [], 'format' => 'empty', 'valid' => false];
+    }
+    $unserialized = maybe_unserialize($trimmed);
+    if ($unserialized !== $trimmed) {
+        $parsed = streetkingz_ai_condition_tokens($unserialized, $depth + 1);
+        $parsed['format'] = 'php_serialized_' . $parsed['format'];
+        return $parsed;
+    }
+    $json = json_decode($trimmed, true);
+    if (json_last_error() === JSON_ERROR_NONE && is_array($json)) {
+        $parsed = streetkingz_ai_condition_tokens($json, $depth + 1);
+        $parsed['format'] = 'json_' . $parsed['format'];
+        return $parsed;
+    }
+    return ['tokens' => [rtrim($trimmed, '/')], 'format' => 'condition_string', 'valid' => true];
+}
+
+function streetkingz_ai_condition_analysis($condition_value, int $product_id): array {
+    $parsed = streetkingz_ai_condition_tokens($condition_value);
+    $rules = array_values(array_unique($parsed['tokens']));
+    $include_all = ['include/woocommerce/product', 'include/woocommerce/products', 'include/singular/product'];
+    $exclude_all = ['exclude/woocommerce/product', 'exclude/woocommerce/products', 'exclude/singular/product'];
+    $included = false;
+    $excluded = false;
+    $unknown = [];
+    $rule_diagnostics = [];
+    foreach ($rules as $rule) {
+        $effect = null;
+        $matched = false;
+        $diagnostic = ['rule' => $rule, 'requested_product_id' => $product_id];
+        if (in_array($rule, $include_all, true)) {
+            $effect = 'include';
+            $matched = true;
+            $diagnostic['rule_type'] = 'all_products';
+        } elseif (in_array($rule, $exclude_all, true)) {
+            $effect = 'exclude';
+            $matched = true;
+            $diagnostic['rule_type'] = 'all_products';
+        } elseif (preg_match('#^(include|exclude)/(?:woocommerce/product|singular/product)/(\d+)$#', $rule, $match)) {
+            $effect = $match[1];
+            $target_product_id = filter_var($match[2], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+            $matched = $target_product_id !== false && $target_product_id === $product_id;
+            $diagnostic += ['rule_type' => 'exact_product', 'target_product_id' => $target_product_id, 'membership' => $matched];
+        } elseif (preg_match('#^(include|exclude)/product/in_product_tag/(\d+)$#', $rule, $match)) {
+            $effect = $match[1];
+            $term_id = filter_var($match[2], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+            $term = $term_id === false ? false : term_exists($term_id, 'product_tag');
+            $term_exists_in_taxonomy = !is_wp_error($term) && $term !== 0 && $term !== null;
+            $membership = $term_exists_in_taxonomy && has_term((int) $term_id, 'product_tag', $product_id);
+            $matched = $membership === true;
+            $diagnostic += [
+                'rule_type' => 'product_tag_membership',
+                'taxonomy' => 'product_tag',
+                'term_id' => $term_id,
+                'term_exists' => $term_exists_in_taxonomy,
+                'membership' => $matched,
+            ];
+        } else {
+            $unknown[] = $rule;
+            $diagnostic += ['rule_type' => 'unknown', 'matched' => false];
+        }
+        if ($effect === 'include' && $matched) {
+            $included = true;
+        }
+        if ($effect === 'exclude' && $matched) {
+            $excluded = true;
+        }
+        $diagnostic += ['effect' => $effect, 'matched' => $matched];
+        $rule_diagnostics[] = $diagnostic;
+    }
+    $applicable = $parsed['valid'] && !$unknown && $included && !$excluded;
+    return [
+        'applicable' => $applicable,
+        'storage_format' => $parsed['format'],
+        'normalised_rules' => $rules,
+        'unknown_rules' => $unknown,
+        'include_matched' => $included,
+        'exclude_matched' => $excluded,
+        'rule_diagnostics' => $rule_diagnostics,
+        'fail_closed' => !$applicable,
+    ];
+}
+
 function streetkingz_ai_condition_applies_to_product($condition_value, int $product_id): bool {
-    $conditions = maybe_unserialize($condition_value);
-    if (!is_array($conditions)) {
-        return false;
-    }
-    foreach ($conditions as $condition) {
-        if (!is_string($condition)) {
-            continue;
-        }
-        if ($condition === 'include/woocommerce/product' || $condition === 'include/woocommerce/products') {
-            return true;
-        }
-        if ($condition === 'include/woocommerce/product/' . $product_id || $condition === 'include/singular/product/' . $product_id) {
-            return true;
-        }
-    }
-    return false;
+    return streetkingz_ai_condition_analysis($condition_value, $product_id)['applicable'];
 }
 
 function streetkingz_ai_resolve_product_template(int $product_id) {
@@ -117,8 +205,21 @@ function streetkingz_ai_resolve_product_template(int $product_id) {
     if (!$template_type['present'] || !in_array($template_type['raw_stored_value'], ['product', 'single-product'], true)) {
         return new WP_Error('streetkingz_ai_template_type_mismatch', 'Associated template is not an Elementor product template.', ['status' => 409]);
     }
-    if (!$conditions['present'] || !streetkingz_ai_condition_applies_to_product($conditions['raw_stored_value'], $product_id)) {
-        return new WP_Error('streetkingz_ai_template_not_applicable', 'Configured Elementor template is not applicable to the requested product.', ['status' => 409]);
+    $condition_analysis = $conditions['present'] ? streetkingz_ai_condition_analysis($conditions['raw_stored_value'], $product_id) : [
+        'applicable' => false,
+        'storage_format' => 'missing',
+        'normalised_rules' => [],
+        'unknown_rules' => [],
+        'include_matched' => false,
+        'exclude_matched' => false,
+        'rule_diagnostics' => [],
+        'fail_closed' => true,
+    ];
+    if (!$condition_analysis['applicable']) {
+        return new WP_Error('streetkingz_ai_template_not_applicable', 'Configured Elementor template is not applicable to the requested product.', [
+            'status' => 409,
+            'condition_diagnostic' => $condition_analysis,
+        ]);
     }
     $elementor = streetkingz_ai_raw_meta_value($template_id, '_elementor_data');
     if (!$elementor['present'] || $elementor['row_count'] !== 1) {
@@ -136,6 +237,7 @@ function streetkingz_ai_resolve_product_template(int $product_id) {
             'verified' => true,
             'method' => 'fixed_allowlisted_template_plus_elementor_theme_builder_conditions',
             'raw_conditions' => $conditions['raw_stored_value'],
+            'condition_diagnostic' => $condition_analysis,
         ],
         'raw_elementor_data' => $elementor['raw_stored_value'],
         'parsed_elementor_data' => json_decode($elementor['raw_stored_value'], true),

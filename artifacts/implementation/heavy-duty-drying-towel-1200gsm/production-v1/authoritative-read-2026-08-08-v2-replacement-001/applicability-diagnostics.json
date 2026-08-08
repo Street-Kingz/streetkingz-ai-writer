@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "wordpress_elementor_applicability_diagnostics",
+  "post_id": 70,
+  "template_id": 2003,
+  "condition_source": "wp_postmeta._elementor_conditions",
+  "condition_format": "php_serialized_nested_array",
+  "normalised_rules": [
+    "include/product/in_product_tag/50"
+  ],
+  "include_rules": [
+    "include/product/in_product_tag/50"
+  ],
+  "exclude_rules": [],
+  "unknown_rules": [
+    "include/product/in_product_tag/50"
+  ],
+  "applicability": false,
+  "fail_closed": true,
+  "response_code": "streetkingz_ai_template_not_applicable"
+}

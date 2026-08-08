@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { canonicalAuthoritativePost, mapRequiredElementorWidgets } from "../cms/wordpressAuthoritativeReader.js";
 import { buildAuthoritativeCmsFieldMap, validateAuthoritativeCmsFieldMap } from "../cms/wordpressAuthoritativeMap.js";
-import { renderAuthoritativeWritePlan } from "../cms/renderAuthoritativeWritePlan.js";
+import { renderAuthoritativeWritePlan, renderHumanMergeInput } from "../cms/renderAuthoritativeWritePlan.js";
 import { parseFinalReviewMarkdown } from "../verification/currentPage.js";
 
 async function mapped() {
@@ -37,4 +37,8 @@ test("excerpt partial replacement protects additional items and detailed safety 
   assert.equal(map.mappings.clarity_trust.implementation_status, "REQUIRES_HUMAN_CHANGE");
   assert.ok(map.mappings.clarity_trust.content_that_survives.some((item) => /43d7d6f0/.test(item)));
   assert.match(renderAuthoritativeWritePlan(map), /awaiting_human_implementation_approval/);
+  const mergeInput = renderHumanMergeInput(map, { evidenceIds: ["ev_test"] });
+  assert.match(mergeInput, /Exact authoritative current description/);
+  assert.match(mergeInput, /REQUIRES_HUMAN_COPY_MERGE/);
+  assert.match(mergeInput, /`ev_test`/);
 });
