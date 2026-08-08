@@ -1,0 +1,523 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "interpretation_decision_approval",
+  "fixture_only": true,
+  "source_interpretation_id": "interpretation_02dc70f8154f075cc5d017d3",
+  "source_interpretation_sha256": "02dc70f8154f075cc5d017d3a1dd6e63c6e228b85ab24ac4a583c62f4244f76a",
+  "reviewer": "fixture-reviewer-not-a-real-approval",
+  "created_at": "2026-08-08T12:00:00.000Z",
+  "decisions": [
+    {
+      "action_id": "approved_action_0e88228f9a4277958cd9a8c1",
+      "decision_area": "search_positioning",
+      "approval_state": "approved",
+      "original_decision_sha256": "9dc3b6adf9a590ece4d127963d2f6dc602262bc379fdaf36674af302d06dd224",
+      "original_interpretation": {
+        "area": "search_positioning",
+        "outcome": "reposition",
+        "current_state": "present",
+        "recommendation": "Center the above-fold product positioning and opening summary on the “car drying towel” and “microfibre car drying towel” phrase family, while retaining Heavy Duty and 1200GSM as factual differentiators. The strategic purpose is to make the product category explicit for the queries already showing demand and first-party visibility. Use each phrase only where natural, preserve UK-readable wording, and do not adopt “best,” waffle-weave terminology or other claims that are not verified for this plush towel.",
+        "evidence_ids": [
+          "ev_0070937601532c2a501db22b",
+          "ev_b77f17bcbbd291179ba662ee",
+          "ev_3bb78e5c67db6cd015977f6b",
+          "ev_ecc2c1bd4e72d712f2eda7d7",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_ed08924f3394b29222b9b9b0",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "keyword_ideas",
+          "search_console"
+        ],
+        "external_evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_ed08924f3394b29222b9b9b0",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c"
+        ],
+        "confidence": "high",
+        "confidence_reason": "Direct product facts, independent demand evidence and page-specific Search Console visibility agree on the relevant product category and phrase family.",
+        "limitations": [
+          "Current positioning prominence is not captured.",
+          "Search Console observations do not prove that wording changes will improve performance."
+        ]
+      },
+      "human_modification": null,
+      "reason": "Fixture coverage for a directly approved action.",
+      "original_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_e8632f3e030a416fa9a31f69",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c"
+      ],
+      "approved_at": "2026-08-08T12:00:00.000Z"
+    },
+    {
+      "action_id": "approved_action_6d2ca864a35c9478030c6793",
+      "decision_area": "title_headings",
+      "approval_state": "pending",
+      "original_decision_sha256": "791718144a26a32b008a5232852d3d77e2ab9d99f5fbe2b00e990244dc9bf4cb",
+      "original_interpretation": {
+        "area": "title_headings",
+        "outcome": "improve",
+        "current_state": "present",
+        "recommendation": "Improve the visible product H1 so it naturally identifies the item as a car drying towel while preserving the existing Heavy Duty and 1200GSM identity; use “microfibre” in a descriptive subheading only if it avoids repetition. The strategic purpose is to clarify category relevance for “car drying towel” and microfibre phrase families. Avoid repetitive variants, “best” language and any implication that 1200GSM alone proves superiority. Do not alter heading hierarchy until the actual hierarchy has been checked.",
+        "evidence_ids": [
+          "ev_0070937601532c2a501db22b",
+          "ev_b77f17bcbbd291179ba662ee",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "keyword_ideas",
+          "search_console"
+        ],
+        "external_evidence_ids": [
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c"
+        ],
+        "confidence": "medium",
+        "confidence_reason": "The existing name and relevant query language are direct, but the extraction does not establish heading hierarchy, nearby wording or visual prominence.",
+        "limitations": [
+          "The visible product name establishes presence but not the complete heading structure.",
+          "This recommendation does not assess title-tag metadata."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_e8632f3e030a416fa9a31f69",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_907119722c3b5882339cf9ad",
+      "decision_area": "differentiation",
+      "approval_state": "pending",
+      "original_decision_sha256": "a307e2d93e98ce8b4857ba054ef28d8ad4c97d7bc7c02248b5f6dbf9d4486a28",
+      "original_interpretation": {
+        "area": "differentiation",
+        "outcome": "reposition",
+        "current_state": "present",
+        "recommendation": "Prioritize the verified 1200GSM dual-layer, double-sided plush construction, soft edging, water-holding benefit and saturated-weight trade-off in a concise differentiation block within the primary product summary. External results commonly surface absorbency, scratch considerations and construction choices, so the strategic purpose is to make this towel’s factual construction and trade-offs easier to distinguish. Do not claim superiority over waffle, twist or competitor towels, and do not omit the wet-weight limitation.",
+        "evidence_ids": [
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_03eaf1f2b6bd5f09a0c4da51",
+          "ev_3bb78e5c67db6cd015977f6b",
+          "ev_dd6ef7fbfda651a55c9feead",
+          "ev_f6eaa22dc231a51d58332d7d",
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_4cf0bed2c8389d97ec6b3cc2"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "serp_advanced"
+        ],
+        "external_evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_4cf0bed2c8389d97ec6b3cc2"
+        ],
+        "confidence": "medium",
+        "confidence_reason": "The differentiating facts are direct and SERP observations provide relevant competitive context, but current prominence and relative competitor differentiation are not established.",
+        "limitations": [
+          "The extraction does not show where these facts currently appear.",
+          "SERP snippets do not establish competitor product parity or superiority."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_dd6ef7fbfda651a55c9feead",
+        "ev_f6eaa22dc231a51d58332d7d",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_4cf0bed2c8389d97ec6b3cc2"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_4cbc89aa3d06b1b104641ead",
+      "decision_area": "product_description_benefits",
+      "approval_state": "pending",
+      "original_decision_sha256": "6dec1dc04d845440094032ede53373e0990eb56e655e429908a17ac67f15edad",
+      "original_interpretation": {
+        "area": "product_description_benefits",
+        "outcome": "improve",
+        "current_state": "present",
+        "recommendation": "Reorder the existing description so the opening paragraph identifies it naturally as a microfibre car drying towel, then connects verified construction to outcomes such as fewer passes, faster drying and reduced paint contact, followed by intended vehicles and surfaces. The strategic purpose is to align the description with relevant product-intent searches while making the feature-to-benefit logic clearer. Use the phrase family sparingly, retain the clean-paint usage condition and avoid converting “extreme absorbency” into an uncited quantified or comparative claim.",
+        "evidence_ids": [
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_1f19b6123547f898e270cfd7",
+          "ev_33f10080286279cf93006b05",
+          "ev_5c06c311f77674f9e23f5909",
+          "ev_db33c004bd2fbbabb5a29158",
+          "ev_6c5743cebf9b844617d8e794",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "keyword_ideas",
+          "search_console"
+        ],
+        "external_evidence_ids": [
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c"
+        ],
+        "confidence": "medium",
+        "confidence_reason": "Benefits and search relevance are directly supported, but the evidence does not reveal the current description order or persuasive effectiveness.",
+        "limitations": [
+          "No conversion evidence identifies which benefit order performs best.",
+          "The recommendation does not authorize new performance claims."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_33f10080286279cf93006b05",
+        "ev_5c06c311f77674f9e23f5909",
+        "ev_db33c004bd2fbbabb5a29158",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_e8632f3e030a416fa9a31f69",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_3d339c6971196b46e41a518b",
+      "decision_area": "specifications",
+      "approval_state": "pending",
+      "original_decision_sha256": "6c403b3f7ceb294b3b1d85b3e5fb9eb17caff3df44632c96f16f4659a69b2ffc",
+      "original_interpretation": {
+        "area": "specifications",
+        "outcome": "no_change",
+        "current_state": "present",
+        "recommendation": "Retain the existing specification set covering material, size, GSM and edge construction. The supplied evidence does not support adding further specifications or changing the verified values; any separate display-format decision should wait for evidence showing how the specification block currently renders.",
+        "evidence_ids": [
+          "ev_46f4fdd27000093c56fda5bb",
+          "ev_6480ef536c6606f8e8a06cf2",
+          "ev_76b3fc2ba72f0b68b8a0edb6",
+          "ev_a013ffa90fecfff2602da15d",
+          "ev_df6a0d1603bb10feb5ea36c0",
+          "ev_e0b1334202c00b30a34009ae",
+          "ev_e7403c77f3be5be7f6ce97e3"
+        ],
+        "evidence_categories": [
+          "product_facts"
+        ],
+        "external_evidence_ids": [],
+        "confidence": "high",
+        "confidence_reason": "A complete set of core structured facts is directly verified, while no supplied evidence identifies a distinct factual specification gap.",
+        "limitations": [
+          "Display quality and mobile rendering are unknown.",
+          "The absence of evidence for another specification does not prove that none exists operationally."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_46f4fdd27000093c56fda5bb",
+        "ev_6480ef536c6606f8e8a06cf2",
+        "ev_76b3fc2ba72f0b68b8a0edb6",
+        "ev_a013ffa90fecfff2602da15d",
+        "ev_df6a0d1603bb10feb5ea36c0",
+        "ev_e0b1334202c00b30a34009ae",
+        "ev_e7403c77f3be5be7f6ce97e3"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_11e58f9321e027dd617d8f3b",
+      "decision_area": "faqs_questions",
+      "approval_state": "rejected",
+      "original_decision_sha256": "2c7277730d380bd066e2abaa69be02e5d575ab3f10a0170b14f675565b21737d",
+      "original_interpretation": {
+        "area": "faqs_questions",
+        "outcome": "improve",
+        "current_state": "present",
+        "recommendation": "Keep the existing FAQ topics and add one distinct question within the FAQ addressing the surfaced topic “what side of microfiber towel to use to dry a car.” Its strategic purpose is to resolve a specific usage question without repeating the existing scratch, care, weight, quantity or XL comparison entries. Any answer must be limited to the verified double-sided plush construction and existing lay-flat, drag-or-pat instructions; do not infer professional endorsement or unverified side-specific performance, and use the search wording naturally rather than repeatedly.",
+        "evidence_ids": [
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_2a11cf44ec88f39019337bab",
+          "ev_c100d4e041f1bfd05cdfb231",
+          "ev_16217359f215673368a8c63d",
+          "ev_948134da96ac25cbc58fc7e8",
+          "ev_7eaaa8da51e88bf042ccb631",
+          "ev_cd0fe752a33fa1418bac218f"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "serp_advanced"
+        ],
+        "external_evidence_ids": [
+          "ev_16217359f215673368a8c63d"
+        ],
+        "confidence": "medium",
+        "confidence_reason": "The addition is distinct and grounded in a surfaced question plus verified construction and usage facts, but the external signal consists of one PAA observation.",
+        "limitations": [
+          "A complete answer is not supplied by the external evidence.",
+          "FAQ schema and current FAQ visibility are unknown."
+        ]
+      },
+      "human_modification": null,
+      "reason": "Fixture coverage only; this is not a real editorial rejection.",
+      "original_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2a11cf44ec88f39019337bab",
+        "ev_c100d4e041f1bfd05cdfb231",
+        "ev_16217359f215673368a8c63d",
+        "ev_948134da96ac25cbc58fc7e8",
+        "ev_7eaaa8da51e88bf042ccb631",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "approved_at": "2026-08-08T12:00:00.000Z"
+    },
+    {
+      "action_id": "approved_action_314db9c63eda7cf5bdb51d76",
+      "decision_area": "comparisons",
+      "approval_state": "modified",
+      "original_decision_sha256": "aa03103bd22b88a557d800aab7aec0080e9bf0e7a2c1a8eeb31e60786f1a5adc",
+      "original_interpretation": {
+        "area": "comparisons",
+        "outcome": "add",
+        "current_state": "absent",
+        "recommendation": "Add a compact dedicated Heavy Duty 1200GSM versus XL 800GSM selection table near the product-selection or related-product area. This must acknowledge and reuse the existing FAQ comparison rather than duplicate it: compare only the verified distinctions that this towel is thicker, double-sided, smaller, heavier and more substantial, while the XL is larger, lighter and easier-gliding. The strategic purpose is to make the existing choice guidance scannable amid a market where multiple towel constructions and selection discussions surface. Link to or consolidate the FAQ explanation, and avoid declaring either towel universally superior.",
+        "evidence_ids": [
+          "ev_2bc48197465b65346af179ed",
+          "ev_7f02bfb4738fecbb2e8549bb",
+          "ev_97b719bee372c6f804006026",
+          "ev_cd0fe752a33fa1418bac218f",
+          "ev_b647e2d73618df545a60e54e",
+          "ev_4cf0bed2c8389d97ec6b3cc2",
+          "ev_355b4220d56bc5781283cc9a"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "serp_advanced"
+        ],
+        "external_evidence_ids": [
+          "ev_b647e2d73618df545a60e54e",
+          "ev_4cf0bed2c8389d97ec6b3cc2",
+          "ev_355b4220d56bc5781283cc9a"
+        ],
+        "confidence": "medium",
+        "confidence_reason": "Verified comparison facts already exist and external results support product-choice context, but the evidence does not directly demonstrate demand for this exact dedicated comparison section.",
+        "limitations": [
+          "No user-behavior evidence confirms that a dedicated table is needed.",
+          "External results show construction choices but not the proposed XL comparison format."
+        ]
+      },
+      "human_modification": "Create a compact Heavy Duty 1200GSM versus XL 800GSM choice-aid structure using only the verified distinctions already cited, and consolidate rather than duplicate the existing FAQ comparison.",
+      "reason": "Fixture coverage for a human-narrowed implementation instruction.",
+      "original_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_97b719bee372c6f804006026",
+        "ev_cd0fe752a33fa1418bac218f",
+        "ev_b647e2d73618df545a60e54e",
+        "ev_4cf0bed2c8389d97ec6b3cc2",
+        "ev_355b4220d56bc5781283cc9a"
+      ],
+      "approved_at": "2026-08-08T12:00:00.000Z"
+    },
+    {
+      "action_id": "approved_action_da7795f4b017b64433b1b59c",
+      "decision_area": "care_usage_guidance",
+      "approval_state": "pending",
+      "original_decision_sha256": "26f71328db3e6aa2eb323704d6125e39d86c55e6212a53d90722f33fbddeb351",
+      "original_interpretation": {
+        "area": "care_usage_guidance",
+        "outcome": "no_change",
+        "current_state": "present",
+        "recommendation": "Retain the existing wash, drying, storage and panel-drying guidance. Do not add the surfaced waffle-weave drying-speed topic because this product is verified as double-sided plush rather than waffle weave, and the evidence does not establish that the topic applies to it.",
+        "evidence_ids": [
+          "ev_0c7c1182cd5a1dace3ee51ca",
+          "ev_2a11cf44ec88f39019337bab",
+          "ev_35800b8db2b3b4d929fc7b4b",
+          "ev_81434c3631efe91982a8e66a",
+          "ev_950c176f1a1bf3c4c8419d08",
+          "ev_156e61dd68f7233c191afb30",
+          "ev_00074e51369b2db9ccd7185c"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "serp_advanced"
+        ],
+        "external_evidence_ids": [
+          "ev_00074e51369b2db9ccd7185c"
+        ],
+        "confidence": "high",
+        "confidence_reason": "Comprehensive care and usage instructions are directly verified, while the only cited external question is specific to a different construction.",
+        "limitations": [
+          "Current placement and prominence of the guidance are unknown.",
+          "No post-purchase support data were supplied."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2a11cf44ec88f39019337bab",
+        "ev_35800b8db2b3b4d929fc7b4b",
+        "ev_81434c3631efe91982a8e66a",
+        "ev_950c176f1a1bf3c4c8419d08",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_00074e51369b2db9ccd7185c"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_e0d88511d4cf4bcd1bc43017",
+      "decision_area": "internal_linking",
+      "approval_state": "pending",
+      "original_decision_sha256": "72e6cb48c2a0923e48c35af96c6ef2c198963aadaeb6f16cfa89bd3c4444aabe",
+      "original_interpretation": {
+        "area": "internal_linking",
+        "outcome": "no_change",
+        "current_state": "present",
+        "recommendation": "Retain the confirmed link to The Origin Shampoo in the relevant washing instruction. No supplied external or first-party evidence supports adding another internal link or changing its target, and the Microfibre Wash Mitt cannot be treated as a confirmed link without an extracted URL.",
+        "evidence_ids": [
+          "ev_4d9b21d63307c78e3bf26b2b",
+          "ev_5ac381162714adb7db3c0ecc",
+          "ev_91755da93a8bf53061ed0524",
+          "ev_d110ad46783cfaadea7d0865"
+        ],
+        "evidence_categories": [
+          "product_facts"
+        ],
+        "external_evidence_ids": [],
+        "confidence": "high",
+        "confidence_reason": "The current link and target are directly verified, and no supplied evidence indicates a distinct linking gap.",
+        "limitations": [
+          "Link placement, crawl treatment and click performance are unknown.",
+          "The extraction does not confirm a URL for every named related product."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_4d9b21d63307c78e3bf26b2b",
+        "ev_5ac381162714adb7db3c0ecc",
+        "ev_91755da93a8bf53061ed0524",
+        "ev_d110ad46783cfaadea7d0865"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_5a7c78f49528f4dfedc101ca",
+      "decision_area": "metadata",
+      "approval_state": "pending",
+      "original_decision_sha256": "89b4458a9245bd9c3a07219706ac7984bfabd82df7b4dadfda9439b0c3824cbf",
+      "original_interpretation": {
+        "area": "metadata",
+        "outcome": "insufficient_evidence",
+        "current_state": "unknown",
+        "recommendation": "Capture the actual title tag and meta description before deciding whether either should change. Once retrieved, evaluate whether the title tag naturally communicates the “car drying towel” category and 1200GSM differentiation and whether the meta description accurately summarizes microfibre construction and verified benefits. The strategic purpose would be query and snippet clarity, but no change should be made solely from the visible product name; avoid keyword repetition, “best” claims and unverified performance language.",
+        "evidence_ids": [
+          "ev_14586f382c4b5507ee374766",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_ed08924f3394b29222b9b9b0",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c",
+          "ev_19a68df8c0e971fcec1c8e49"
+        ],
+        "evidence_categories": [
+          "keyword_ideas",
+          "search_console"
+        ],
+        "external_evidence_ids": [
+          "ev_14586f382c4b5507ee374766",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_ed08924f3394b29222b9b9b0",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c",
+          "ev_19a68df8c0e971fcec1c8e49"
+        ],
+        "confidence": "high",
+        "confidence_reason": "The extraction explicitly leaves metadata unknown, so inspection is required despite clear evidence of relevant query families.",
+        "limitations": [
+          "Neither the current title tag nor the meta description is available.",
+          "Search demand and Search Console visibility cannot establish whether current metadata is deficient."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_14586f382c4b5507ee374766",
+        "ev_e8632f3e030a416fa9a31f69",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c",
+        "ev_19a68df8c0e971fcec1c8e49"
+      ],
+      "approved_at": null
+    },
+    {
+      "action_id": "approved_action_f45bd65873d2017816ce2fb8",
+      "decision_area": "clarity_trust",
+      "approval_state": "pending",
+      "original_decision_sha256": "d0af8faf3e103c116004baf518f76d14e25f867766bfe02cfe70ddc102b7ffcb",
+      "original_interpretation": {
+        "area": "clarity_trust",
+        "outcome": "clarify",
+        "current_state": "present",
+        "recommendation": "Qualify the “safe on all paint” claim wherever it appears by keeping the existing conditions visible nearby: correct use and application only to clean, shampooed paint. Also retain the disclosed wet-weight trade-off alongside absorbency messaging. The strategic purpose is to align broad trust claims with the page’s verified limitations and scratch-safety guidance, not to add a zero-risk guarantee.",
+        "evidence_ids": [
+          "ev_d67a5e6277ac9a3ccbe79b2c",
+          "ev_6c5743cebf9b844617d8e794",
+          "ev_40936f5cfc99132392553647",
+          "ev_03eaf1f2b6bd5f09a0c4da51",
+          "ev_549b5d29c9922c68d39651fd",
+          "ev_211daba071aadd72b583c0c1"
+        ],
+        "evidence_categories": [
+          "product_facts",
+          "serp_advanced"
+        ],
+        "external_evidence_ids": [
+          "ev_211daba071aadd72b583c0c1"
+        ],
+        "confidence": "high",
+        "confidence_reason": "The broad claim, usage conditions and wet-weight limitation are directly verified, while scratch avoidance is independently surfaced as a customer question.",
+        "limitations": [
+          "The extraction does not establish whether these qualifications are already adjacent to the claims.",
+          "No evidence measures the effect on customer trust or conversion."
+        ]
+      },
+      "human_modification": null,
+      "reason": null,
+      "original_evidence_ids": [
+        "ev_d67a5e6277ac9a3ccbe79b2c",
+        "ev_6c5743cebf9b844617d8e794",
+        "ev_40936f5cfc99132392553647",
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_549b5d29c9922c68d39651fd",
+        "ev_211daba071aadd72b583c0c1"
+      ],
+      "approved_at": null
+    }
+  ],
+  "approval_artifact_id": "approval_cf0a0c67e1512a3e0cf11f88"
+}

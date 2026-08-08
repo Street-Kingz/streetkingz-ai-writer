@@ -1,0 +1,413 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "generation_brief",
+  "fixture_only": true,
+  "source_interpretation_id": "interpretation_02dc70f8154f075cc5d017d3",
+  "source_interpretation_sha256": "02dc70f8154f075cc5d017d3a1dd6e63c6e228b85ab24ac4a583c62f4244f76a",
+  "approval_artifact_id": "approval_cf0a0c67e1512a3e0cf11f88",
+  "objective": "improve_existing_product_page",
+  "product": {
+    "subject_id": "product_20fcada95c00204601928709",
+    "product_name": "Heavy Duty Drying Towel – 1200gsm",
+    "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+  },
+  "approved_actions": [
+    {
+      "action_id": "approved_action_0e88228f9a4277958cd9a8c1",
+      "decision_area": "search_positioning",
+      "approval_state": "approved",
+      "generation_objective": "reposition_existing_content",
+      "approved_instruction": "Center the above-fold product positioning and opening summary on the “car drying towel” and “microfibre car drying towel” phrase family, while retaining Heavy Duty and 1200GSM as factual differentiators. The strategic purpose is to make the product category explicit for the queries already showing demand and first-party visibility. Use each phrase only where natural, preserve UK-readable wording, and do not adopt “best,” waffle-weave terminology or other claims that are not verified for this plush towel.",
+      "original_interpretation": "Center the above-fold product positioning and opening summary on the “car drying towel” and “microfibre car drying towel” phrase family, while retaining Heavy Duty and 1200GSM as factual differentiators. The strategic purpose is to make the product category explicit for the queries already showing demand and first-party visibility. Use each phrase only where natural, preserve UK-readable wording, and do not adopt “best,” waffle-weave terminology or other claims that are not verified for this plush towel.",
+      "human_modification_reason": "Fixture coverage for a directly approved action.",
+      "interpretation_outcome": "reposition",
+      "current_state": "present",
+      "allowed_operations": [
+        "move",
+        "replace",
+        "no_output"
+      ],
+      "allowed_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_e8632f3e030a416fa9a31f69",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0"
+      ],
+      "factual_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ],
+      "search_evidence_ids": [
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c",
+        "ev_e8632f3e030a416fa9a31f69",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0"
+      ],
+      "search_execution_authorized": true,
+      "current_content": [
+        {
+          "evidence_id": "ev_0070937601532c2a501db22b",
+          "field_path": "product.name",
+          "value": "Heavy Duty Drying Towel – 1200gsm"
+        },
+        {
+          "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+          "field_path": "product.features[1]",
+          "value": "Double-sided plush microfibre construction"
+        },
+        {
+          "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+          "field_path": "product.features[0]",
+          "value": "1200GSM dual-layer construction"
+        },
+        {
+          "evidence_id": "ev_5c06c311f77674f9e23f5909",
+          "field_path": "product.intended_use[0]",
+          "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics"
+        },
+        {
+          "evidence_id": "ev_690390ecc0dbcae27b89d40f",
+          "field_path": "product.claims[1]",
+          "value": "Soft premium feel"
+        },
+        {
+          "evidence_id": "ev_a5bc8d87c07e1324c582b725",
+          "field_path": "product.claims[0]",
+          "value": "Extreme absorbency"
+        },
+        {
+          "evidence_id": "ev_b77f17bcbbd291179ba662ee",
+          "field_path": "product.category_type",
+          "value": "Microfibre car drying towel"
+        },
+        {
+          "evidence_id": "ev_d071b25d86399af8a71dfce7",
+          "field_path": "product.intended_use[1]",
+          "value": "Post-wash drying, especially on larger or heavily rinsed vehicles"
+        },
+        {
+          "evidence_id": "ev_d67a5e6277ac9a3ccbe79b2c",
+          "field_path": "product.claims[2]",
+          "value": "Safe on all paint"
+        },
+        {
+          "evidence_id": "ev_dd6ef7fbfda651a55c9feead",
+          "field_path": "product.features[2]",
+          "value": "Soft microfibre edging"
+        }
+      ],
+      "page_state_detail": {},
+      "required_limitations": [
+        "Current positioning prominence is not captured.",
+        "Search Console observations do not prove that wording changes will improve performance."
+      ],
+      "implementation_constraints": [
+        "Implement only this approved instruction; do not introduce a new strategy.",
+        "Use factual claims only when supported by allowed factual evidence IDs.",
+        "Preserve supported meaning while changing placement or presentation."
+      ]
+    },
+    {
+      "action_id": "approved_action_314db9c63eda7cf5bdb51d76",
+      "decision_area": "comparisons",
+      "approval_state": "modified",
+      "generation_objective": "create_approved_comparison_presentation",
+      "approved_instruction": "Create a compact Heavy Duty 1200GSM versus XL 800GSM choice-aid structure using only the verified distinctions already cited, and consolidate rather than duplicate the existing FAQ comparison.",
+      "original_interpretation": "Add a compact dedicated Heavy Duty 1200GSM versus XL 800GSM selection table near the product-selection or related-product area. This must acknowledge and reuse the existing FAQ comparison rather than duplicate it: compare only the verified distinctions that this towel is thicker, double-sided, smaller, heavier and more substantial, while the XL is larger, lighter and easier-gliding. The strategic purpose is to make the existing choice guidance scannable amid a market where multiple towel constructions and selection discussions surface. Link to or consolidate the FAQ explanation, and avoid declaring either towel universally superior.",
+      "human_modification_reason": "Fixture coverage for a human-narrowed implementation instruction.",
+      "interpretation_outcome": "add",
+      "current_state": "absent",
+      "allowed_operations": [
+        "insert",
+        "no_output"
+      ],
+      "allowed_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_355b4220d56bc5781283cc9a",
+        "ev_4cf0bed2c8389d97ec6b3cc2",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_97b719bee372c6f804006026",
+        "ev_b647e2d73618df545a60e54e",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "factual_evidence_ids": [
+        "ev_2bc48197465b65346af179ed",
+        "ev_7f02bfb4738fecbb2e8549bb",
+        "ev_97b719bee372c6f804006026",
+        "ev_cd0fe752a33fa1418bac218f"
+      ],
+      "search_evidence_ids": [
+        "ev_355b4220d56bc5781283cc9a",
+        "ev_4cf0bed2c8389d97ec6b3cc2",
+        "ev_b647e2d73618df545a60e54e"
+      ],
+      "search_execution_authorized": false,
+      "current_content": [
+        {
+          "evidence_id": "ev_2bc48197465b65346af179ed",
+          "field_path": "product.faqs[0].answer",
+          "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+        },
+        {
+          "evidence_id": "ev_7f02bfb4738fecbb2e8549bb",
+          "field_path": "product.objections_or_buying_questions[0]",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?"
+        },
+        {
+          "evidence_id": "ev_97b719bee372c6f804006026",
+          "field_path": "product.limitations[0]",
+          "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand"
+        },
+        {
+          "evidence_id": "ev_cd0fe752a33fa1418bac218f",
+          "field_path": "product.faqs[0].question",
+          "value": "What’s the difference between this and the XL 800GSM Drying Towel?"
+        }
+      ],
+      "page_state_detail": {
+        "dedicated_comparison_section": "absent",
+        "comparison_content_elsewhere": "present",
+        "comparison_content_location": "FAQ and extracted comparison/limitation facts"
+      },
+      "required_limitations": [
+        "No user-behavior evidence confirms that a dedicated table is needed.",
+        "External results show construction choices but not the proposed XL comparison format."
+      ],
+      "implementation_constraints": [
+        "Implement only this approved instruction; do not introduce a new strategy.",
+        "Use factual claims only when supported by allowed factual evidence IDs.",
+        "Use only verified comparison facts; do not claim superiority or invent competitor attributes.",
+        "Create a genuinely distinct element and do not duplicate existing content."
+      ]
+    }
+  ],
+  "allowed_evidence": [
+    {
+      "id": "ev_0070937601532c2a501db22b",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.name",
+        "label": "name",
+        "value": "Heavy Duty Drying Towel – 1200gsm"
+      }
+    },
+    {
+      "id": "ev_22f176f73ebb5516944bfdc3",
+      "category": "search_console",
+      "signal": {
+        "query": "car drying towel",
+        "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "clicks": 0,
+        "impressions": 719,
+        "ctr": 0,
+        "average_position": 28.966620305980527,
+        "keyword_relationship_count": 87,
+        "page_relationship_count": 1
+      }
+    },
+    {
+      "id": "ev_2bc48197465b65346af179ed",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.faqs[0].answer",
+        "label": "answer",
+        "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one."
+      }
+    },
+    {
+      "id": "ev_355b4220d56bc5781283cc9a",
+      "category": "serp_advanced",
+      "signal": {
+        "keyword": "waffle weave car drying towel",
+        "serp_item_type": "organic",
+        "title": "Automotive Drying Towels: Waffle Weave, Plush & Twist",
+        "description": "Shop automotive drying towels here at Autofiber. Our towel designs including waffle weave, plush and twist towels, all with high quality drying properties.",
+        "url": "https://www.autofiber.com/collections/drying?srsltid=AfmBOoq_9bwY9CfAmiS1myBTBemFGSLptWAsE9plfQsGPrJDN_yFXvJH",
+        "domain": "www.autofiber.com",
+        "rank_group": 3,
+        "rank_absolute": 3
+      }
+    },
+    {
+      "id": "ev_386c0d66a38af9541621e08c",
+      "category": "search_console",
+      "signal": {
+        "query": "microfibre car drying towel",
+        "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "clicks": 0,
+        "impressions": 62,
+        "ctr": 0,
+        "average_position": 33.564516129032256,
+        "keyword_relationship_count": 116,
+        "page_relationship_count": 1
+      }
+    },
+    {
+      "id": "ev_3bb78e5c67db6cd015977f6b",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.features[0]",
+        "label": "features",
+        "value": "1200GSM dual-layer construction"
+      }
+    },
+    {
+      "id": "ev_4cf0bed2c8389d97ec6b3cc2",
+      "category": "serp_advanced",
+      "signal": {
+        "keyword": "microfiber towel for drying car",
+        "serp_item_type": "organic",
+        "title": "Automotive Drying Towels: Waffle Weave, Plush & Twist",
+        "description": "Shop automotive drying towels here at Autofiber. Our towel designs including waffle weave, plush and twist towels, all with high quality drying properties.",
+        "url": "https://www.autofiber.com/collections/drying?srsltid=AfmBOorXbMmIukY5USRU1-49NxuogjPlinx4hScPcU1HEfBNQJyCsbbJ",
+        "domain": "www.autofiber.com",
+        "rank_group": 2,
+        "rank_absolute": 4
+      }
+    },
+    {
+      "id": "ev_7f02bfb4738fecbb2e8549bb",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.objections_or_buying_questions[0]",
+        "label": "objections or buying questions",
+        "value": "What’s the difference between this and the XL 800GSM Drying Towel?"
+      }
+    },
+    {
+      "id": "ev_97b719bee372c6f804006026",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.limitations[0]",
+        "label": "limitations",
+        "value": "Compared with the XL 800GSM towel, it is smaller, heavier and more substantial in the hand"
+      }
+    },
+    {
+      "id": "ev_b647e2d73618df545a60e54e",
+      "category": "serp_advanced",
+      "signal": {
+        "keyword": "best car drying towel",
+        "serp_item_type": "organic",
+        "title": "Best drying towel? : r/AutoDetailing",
+        "description": "What is the best drying towel currently?",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "domain": "www.reddit.com",
+        "rank_group": 2,
+        "rank_absolute": 3
+      }
+    },
+    {
+      "id": "ev_b77f17bcbbd291179ba662ee",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.category_type",
+        "label": "category type",
+        "value": "Microfibre car drying towel"
+      }
+    },
+    {
+      "id": "ev_cd0fe752a33fa1418bac218f",
+      "category": "product_facts",
+      "signal": {
+        "field_path": "product.faqs[0].question",
+        "label": "question",
+        "value": "What’s the difference between this and the XL 800GSM Drying Towel?"
+      }
+    },
+    {
+      "id": "ev_e8632f3e030a416fa9a31f69",
+      "category": "keyword_ideas",
+      "signal": {
+        "keyword": "microfiber drying towels for cars",
+        "monthly_search_volume": 720,
+        "keyword_difficulty": 1,
+        "cpc_usd": 1.34,
+        "paid_competition_level": "HIGH"
+      }
+    },
+    {
+      "id": "ev_ecc2c1bd4e72d712f2eda7d7",
+      "category": "keyword_ideas",
+      "signal": {
+        "keyword": "microfiber towel for drying car",
+        "monthly_search_volume": 5400,
+        "keyword_difficulty": 8,
+        "cpc_usd": 1.17,
+        "paid_competition_level": "HIGH"
+      }
+    },
+    {
+      "id": "ev_ed08924f3394b29222b9b9b0",
+      "category": "keyword_ideas",
+      "signal": {
+        "keyword": "best car drying towel",
+        "monthly_search_volume": 2900,
+        "keyword_difficulty": 0,
+        "cpc_usd": 2.48,
+        "paid_competition_level": "HIGH"
+      }
+    }
+  ],
+  "product_facts": {
+    "evidence_ids": [
+      "ev_0070937601532c2a501db22b",
+      "ev_2bc48197465b65346af179ed",
+      "ev_3bb78e5c67db6cd015977f6b",
+      "ev_7f02bfb4738fecbb2e8549bb",
+      "ev_97b719bee372c6f804006026",
+      "ev_b77f17bcbbd291179ba662ee",
+      "ev_cd0fe752a33fa1418bac218f"
+    ]
+  },
+  "search_constraints": {
+    "independent_keyword_selection_allowed": false,
+    "authorised_actions": [
+      {
+        "action_id": "approved_action_0e88228f9a4277958cd9a8c1",
+        "evidence_ids": [
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c",
+          "ev_e8632f3e030a416fa9a31f69",
+          "ev_ecc2c1bd4e72d712f2eda7d7",
+          "ev_ed08924f3394b29222b9b9b0"
+        ]
+      }
+    ]
+  },
+  "brand_constraints": {
+    "customer_id": "streetkingz",
+    "locale": "en-GB",
+    "spelling": "UK English",
+    "direction": [
+      "buyer-intent",
+      "practical",
+      "helpful and specific"
+    ],
+    "prohibited": [
+      "author sign-off",
+      "unsupported product or performance claims"
+    ],
+    "source": "existing project writing constraints"
+  },
+  "prohibited_claims": [
+    "unsupported best or superiority claims",
+    "unsupported ranking or Google-preference claims",
+    "invented product, competitor, performance, safety or comparison facts",
+    "keyword variants not explicitly authorised by an approved action"
+  ],
+  "output_requirements": {
+    "strict_schema": true,
+    "claim_citations_required": true,
+    "publication_allowed": false,
+    "generated_state": "awaiting_human_review"
+  },
+  "generation_brief_id": "generation_brief_cbb31b91ee7d395f5730a017",
+  "generation_brief_sha256": "cbb31b91ee7d395f5730a017efa001e11456be09fce79747299f2c3e836e4d85"
+}

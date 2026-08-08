@@ -14,7 +14,8 @@
     "auth:search-console": "node --env-file=.env scripts/authoriseSearchConsole.js",
     "research:aggregate": "node scripts/buildResearchState.js",
     "research:page-inventory": "node scripts/buildPageInventory.js",
-    "interpret:product-page": "node --env-file=.env scripts/runProductPageInterpretation.js"
+    "interpret:product-page": "node --env-file=.env scripts/runProductPageInterpretation.js",
+    "generation:fixture": "node scripts/buildGenerationFixture.js"
   },
   "dependencies": {
     "express": "^4.19.0",

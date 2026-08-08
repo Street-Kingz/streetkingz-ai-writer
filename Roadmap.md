@@ -24,7 +24,7 @@ The following information domains must remain separate throughout the pipeline:
 - **Brand knowledge:** tone, commercial principles, editorial rules and approved claims.
 - **Product facts:** factual product information gathered from authoritative first-party sources.
 - **Research evidence:** keyword, SERP, competitor and site evidence returned by external or internal sources.
-- **AI interpretation:** inferred audiences, problems, intent, opportunities, recommendations and draft content.
+- **AI interpretation:** evidence-backed findings and recommendations about what should change and why. Draft content belongs only to the later, human-approved generation stage.
 
 Research artifacts must be reusable by future product pages, buying guides, comparison pages, FAQs and articles. Final HTML must not become the canonical source for research or content planning.
 
@@ -45,17 +45,25 @@ The underlying product extraction, evidence collection, interpretation and decis
 ## Intended normal workflow
 
 ```text
-Select product/source
+Evidence
     ↓
-Select objective
+Research state
     ↓
-Run
+Current Page Inventory / Gap Matrix
     ↓
-Review recommendation/content
+Decision Brief
     ↓
-Approve
+GPT-5.6 Sol interpretation and deterministic validation
     ↓
-Publish
+Human approval of individual decisions
+    ↓
+Constrained generation
+    ↓
+Human approval of generated changes
+    ↓
+Publication
+    ↓
+Measurement
 ```
 
 Provider selection, cache resolution, evidence collection and sufficiency checks happen inside `Run`; recurring manual research is not a user step.
@@ -71,13 +79,21 @@ DataForSEO Google Organic SERP Advanced
     ↓
 Google Search Console
     ↓
-Evidence aggregation and sufficiency assessment
+Evidence aggregation and objective-specific sufficiency
     ↓
-Opportunity decision / strategy
+Current Page Inventory and Gap Matrix
     ↓
-Content generation
+Compact deterministic Decision Brief
     ↓
-Validation, human approval and publication
+Validated interpretation / strategy
+    ↓
+Decision-level human approval
+    ↓
+Constrained generation and validation
+    ↓
+Generated-change human approval
+    ↓
+Publication and measurement
 ```
 
 Each arrow is a stage boundary, not an instruction to combine stages into one prompt. Later phases may consume earlier artifacts, but they must not rewrite facts or evidence to fit a preferred recommendation.
@@ -99,20 +115,23 @@ Each arrow is a stage boundary, not an instruction to combine stages into one pr
 - [x] Primary V1 evidence-source layer: Product Facts, DataForSEO Keyword Ideas, DataForSEO Google Organic SERP Advanced and Google Search Console.
 - [x] Deterministic cross-provider research-state aggregation with inspectable keyword/topic, site-page, external-page/domain, SERP-feature and Search Console relationship groups.
 - [x] Objective-specific evidence-sufficiency contracts for product-page improvement, supporting content and content-opportunity identification, with explainable `sufficient`, `partial`, `insufficient` and `unavailable` states.
+- [x] Deterministic Current Page Inventory and Gap Matrix separating known page state from external opportunity evidence.
+- [x] Compact, model-independent Decision Brief as the permanent primary model-facing interpretation representation.
+- [x] Canonical citation architecture covering only evidence explicitly exposed to interpretation.
+- [x] GPT-5.6 Sol interpretation with strict Structured Outputs. GPT-5.6 Sol is the preferred production interpretation model; GPT-4.1 is no longer on the critical path.
+- [x] Deterministic interpretation validation, immutable controlled AI calls, human product-value review and clean production interpretation validation.
 
 ### Current
 
-- [ ] Productionise Keyword Ideas: finalise operational documentation, artifact retention conventions and the reviewed command path while preserving the proven request and cache behaviour.
-- [ ] Implement the evidence-cited opportunity/interpretation decision layer and produce the first complete content decision.
+- [ ] Human-approved constrained generation: individual approval artifacts, compact generation briefs, strict output contracts, bounded validation and mandatory post-generation human review.
 
 ### Next
 
-- [ ] Produce and human-review the first approved content brief from the recorded decision.
+- [ ] Run one controlled generation-model validation from explicitly approved real decisions.
+- [ ] Human-review the generated changes and approve the first real page change.
 
 ### Later
 
-- [ ] Generate the first content asset from an approved decision and brief.
-- [ ] Complete human review and approval.
 - [ ] Publish the first approved asset.
 - [ ] Measure performance and feed observed outcomes back into future decisions.
 
@@ -276,7 +295,7 @@ The controlled SERP Advanced run proved that the provider can collect organic re
 
 ## 5. Phase 4: Opportunity decision and content brief
 
-**Status: Next.** This is the single AI interpretation and strategy stage; no earlier collection or sufficiency stage asks AI to perform research or rewrite evidence.
+**Status: Complete.** This is the single AI interpretation and strategy stage. It uses deterministic page state, the compact Decision Brief, canonical citations, GPT-5.6 Sol, deterministic validation and mandatory decision-level human approval.
 
 ### Goal
 
@@ -284,30 +303,24 @@ Use product facts, site context and research evidence to decide the highest-valu
 
 ### Deliverables
 
-- A normalized opportunity-candidate artifact containing the viable actions:
-  - Create a cornerstone guide.
-  - Create a supporting article.
-  - Improve an existing article.
-  - Improve the product page.
-  - Add or improve FAQs.
-  - Take no action.
-- A simple, documented decision rubric covering product relevance, search opportunity, commercial intent, existing-content overlap, evidence quality and implementation effort.
-- An objective-specific sufficiency gate that declines or defers a recommendation when required evidence is missing.
-- A decision artifact containing the selected action, alternatives, rationale, supporting evidence references, uncertainty and human approval or override.
-- A content-type-neutral brief containing objective, audience, intent, questions, claims, evidence, internal links, products, CTA strategy, required sections, images, schema needs and target length.
-- Optional type-specific brief fields selected through a content profile rather than a separate workflow.
-- A Markdown rendering of the decision and brief for easy human review.
+- [x] Objective-specific sufficiency that declines or defers interpretation when required evidence is missing.
+- [x] Deterministic Current Page Inventory and Gap Matrix establishing what exists before strategy is considered.
+- [x] Compact, model-independent Decision Brief containing only decision-useful signals and canonical citations.
+- [x] Strict interpretation output covering every required decision area with an action, `no_change` or `insufficient_evidence` result.
+- [x] Deterministic validation for schema, citations, evidence categories, page state, bounded contradictions, unsupported claims and vague actions.
+- [x] GPT-5.6 Sol controlled production validation and two independent 48/50 human product-value reviews.
+- [x] Immutable per-call artifacts and explicit zero-retry call lifecycle accounting.
+- [x] A Markdown interpretation rendering suitable for direct human review.
 
 ### Acceptance criteria
 
-- The decision stage can validly return “take no action.”
-- No draft-generation call occurs before the decision and brief artifacts exist.
-- No AI decision call occurs until the Evidence Engine reports sufficient evidence for the requested objective.
-- The selected action cites the product and research evidence that supports it.
-- Human approval or override is recorded without overwriting the original recommendation.
-- The brief distinguishes required facts from editorial interpretation.
-- The same decision mechanism can choose among product-page, buying-guide, comparison, FAQ and article outcomes without separate end-to-end workflows.
-- The Heavy Duty Drying Towel produces one reviewed decision and an approved brief suitable for the V1 drafting stage.
+- [x] The decision stage can validly return `no_change` or `insufficient_evidence` without manufacturing work.
+- [x] No generation call occurs before validated interpretation and individual human approval artifacts exist.
+- [x] No AI interpretation call occurs until the Evidence Engine reports sufficient evidence for the requested objective.
+- [x] Every finding and decision cites only evidence exposed through the canonical citation universe.
+- [x] Product-page presence is deterministic rather than rediscovered by AI.
+- [x] The Heavy Duty Drying Towel interpretation materially uses all four evidence categories and produces commercially useful reviewed decisions.
+- [x] Human approval or modification is recorded downstream without overwriting the interpretation.
 
 ### Explicit non-goals
 
@@ -320,7 +333,7 @@ Use product facts, site context and research evidence to decide the highest-valu
 
 ## 6. Phase 5: Structured draft generation
 
-**Status: Later.** Begins only after the first evidence-backed decision and human-approved brief.
+**Status: Current — foundation implemented.** Begins only after evidence-backed interpretation decisions receive explicit individual human approval. Generation implements approved strategy; it does not create new strategy.
 
 ### Goal
 
@@ -332,6 +345,9 @@ Generate an inspectable semantic draft from the approved brief while keeping res
 - A content profile that declares required and allowed blocks for the selected Heavy Duty Drying Towel opportunity.
 - Stage-specific prompts that consume the approved brief, referenced facts, evidence and brand knowledge rather than raw user instructions.
 - A structured JSON draft and a readable Markdown representation.
+- An immutable decision-level approval artifact supporting `approved`, `modified`, `rejected` and `pending` without changing the interpretation.
+- A compact generation brief containing only approved/modified actions, necessary current content, allowed evidence and customer writing constraints.
+- A strict generated-change contract and deterministic validation for approval scope, operations, evidence, page state, bounded claim language and human-review state.
 - Claim-to-evidence references for factual or research-dependent statements.
 - Generation metadata including model, provider, prompt version, content-profile version and source artifact versions.
 - A targeted section-regeneration mechanism that creates a new revision without regenerating unrelated approved blocks.
@@ -340,6 +356,9 @@ Generate an inspectable semantic draft from the approved brief while keeping res
 ### Acceptance criteria
 
 - The canonical draft is structured data rather than final HTML.
+- Rejected and pending decisions cannot enter generation; modified decisions retain the original interpretation and human instruction.
+- Generation cannot introduce strategy, search targets, sections or claims outside an approved action and its allowed evidence.
+- Generated output remains `awaiting_human_review` and has no publication side effect.
 - Required blocks are present and conform to the selected content profile.
 - Product claims can be traced to product facts; research claims can be traced to research evidence.
 - Unsupported claims are flagged rather than silently accepted.
@@ -358,7 +377,7 @@ Generate an inspectable semantic draft from the approved brief while keeping res
 
 ## 7. Phase 6: Rendering, validation and WordPress draft output
 
-**Status: Later.** Covers validation, human approval and publication handoff for the first generated asset.
+**Status: Later.** Covers post-generation human approval, rendering and publication handoff. Publication remains separate and is not complete.
 
 ### Goal
 

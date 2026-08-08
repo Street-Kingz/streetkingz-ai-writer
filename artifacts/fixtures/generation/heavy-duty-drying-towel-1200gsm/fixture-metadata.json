@@ -1,0 +1,10 @@
+{
+  "fixture_only": true,
+  "ai_calls": 0,
+  "external_provider_calls": 0,
+  "preserved_raw_response_ref": "../../../live-validation/interpretation-sol-production-validation-2026-08-08/gpt-5.6-sol/call_001/raw-response.json",
+  "preserved_raw_response_sha256": "108fbd7fd0cbfdeafb2bb56b8cb8b3b15621d4b4149f75cf87e68c9a467cc5b4",
+  "source_interpretation_sha256": "02dc70f8154f075cc5d017d3a1dd6e63c6e228b85ab24ac4a583c62f4244f76a",
+  "approval_artifact_id": "approval_cf0a0c67e1512a3e0cf11f88",
+  "generation_brief_id": "generation_brief_cbb31b91ee7d395f5730a017"
+}

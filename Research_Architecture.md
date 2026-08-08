@@ -23,9 +23,21 @@ Provider-specific normalisation
         ↓
 Evidence aggregation, coverage and sufficiency
         ↓
-AI interpretation and opportunity decision
+Deterministic Current Page Inventory and Gap Matrix
         ↓
-Content generation and validation
+Compact model-independent Decision Brief
+        ↓
+GPT-5.6 Sol interpretation and deterministic validation
+        ↓
+Decision-level human approval
+        ↓
+Constrained generation and deterministic validation
+        ↓
+Generated-change human approval
+        ↓
+Publication
+        ↓
+Measurement
 ```
 
 AI does not perform research. It must not browse, fetch pages or call research providers. Providers collect evidence. AI receives validated evidence and coverage only after the engine determines that sufficient evidence exists for the requested objective, and its findings must cite evidence IDs.
@@ -52,14 +64,18 @@ AI does not perform research. It must not browse, fetch pages or call research p
 - Preflight maximum-cost enforcement and recorded actual provider cost.
 - Fixture-backed tests that make no live provider calls.
 - One controlled live Keyword Ideas request followed by a cache-only rerun with zero additional requests. The saved run returned 100 keyword ideas at a recorded cost of $0.024 and produced complete evidence, coverage and summary artifacts after the renderer compatibility fix.
+- DataForSEO SERP Advanced and Google Search Console providers with controlled live validation, deterministic cache reuse and preserved provenance.
+- Deterministic cross-provider aggregation, coverage and objective-specific sufficiency.
+- Current Page Inventory, Gap Matrix, compact Decision Brief and canonical citation architecture.
+- GPT-5.6 Sol interpretation, strict output validation, immutable call lifecycle and two independent 48/50 product-value reviews.
 
 ### Current and next work
 
-1. Productionise the proven Keyword Ideas command, documentation and retention conventions without changing its validated provider contract.
-2. Implement DataForSEO Google Organic SERP Advanced as an independent provider.
-3. Integrate Google Search Console as independent first-party site evidence.
-4. Complete cross-provider aggregation and objective-specific evidence-sufficiency rules.
-5. Implement opportunity scoring and the single AI interpretation/decision stage.
+1. Use the validated Product Facts, Keyword Ideas, SERP Advanced and Search Console evidence layer with deterministic caching and provenance.
+2. Keep Current Page Inventory, Gap Matrix and the compact Decision Brief as permanent deterministic interpretation inputs.
+3. Use GPT-5.6 Sol as the preferred production interpreter; GPT-4.1 is no longer on the critical path.
+4. Implement constrained generation only from individually approved or human-modified decisions.
+5. Validate generated changes and require a second human approval before publication.
 
 ## V1 provider path
 
@@ -81,8 +97,8 @@ These are the preferred V1 implementations:
 |---|---|---|
 | Product Facts | Approved first-party facts and deterministic research seeds | Implemented |
 | DataForSEO Keyword Ideas | Keyword discovery, volume, difficulty and commercial metrics | Implemented and live-validated |
-| DataForSEO Google Organic SERP Advanced | Ranking pages, result types, SERP features, People Also Ask and related searches when returned | Next |
-| Google Search Console | First-party queries, pages, impressions, clicks and positions | Upcoming |
+| DataForSEO Google Organic SERP Advanced | Ranking pages, result types, SERP features, People Also Ask and related searches when returned | Implemented and live-validated |
+| Google Search Console | First-party queries, pages, impressions, clicks and positions | Implemented and live-validated |
 | Competitor page | Targeted inspection of explicit public pages | Optional, targeted |
 | Manual Autocomplete/PAA imports | Recovery and debugging only | Optional fallback |
 | Reddit | Potential qualitative language/concern evidence | Future evaluation, not required |
@@ -103,8 +119,11 @@ research/
 ├── clients/               # Provider transports and configuration
 ├── validation/            # Schema, provenance and artifact checks
 ├── renderers/             # Human-readable evidence reports
-├── aggregation/           # Planned cross-provider grouping/corroboration
-└── sufficiency/           # Planned objective-specific sufficiency decisions
+├── aggregation/           # Cross-provider grouping/corroboration
+└── sufficiency/           # Objective-specific sufficiency decisions
+
+interpretation/            # Inventory, Gap Matrix, Decision Brief, model contract and validation
+generation/                # Decision approval, compact generation brief, output contract and validation
 ```
 
 Do not create placeholder modules merely to match this diagram. Add them when their milestone is implemented.
@@ -121,8 +140,11 @@ Do not create placeholder modules merely to match this diagram. Add them when th
 8. Validate provenance, confidence and provider results.
 9. Aggregate stable evidence IDs without erasing provider-specific observations.
 10. Produce coverage, failures and an objective-specific sufficiency state.
-11. If evidence is sufficient, pass only validated evidence and coverage to the AI interpretation/decision stage.
-12. If evidence is insufficient, stop or request a scoped additional provider; absence must not be treated as negative evidence.
+11. If evidence is sufficient, derive the Current Page Inventory, Gap Matrix and compact Decision Brief deterministically.
+12. Run and validate interpretation, then record human approval independently for each decision.
+13. Pass only approved or human-modified decisions and their necessary evidence into constrained generation.
+14. Validate generated changes and require human approval before a separate publication stage.
+15. If evidence is insufficient, stop or request a scoped additional provider; absence must not be treated as negative evidence.
 
 ## Provider contract
 
@@ -224,9 +246,9 @@ V1 does not yet define numeric SEO thresholds or a mathematically sophisticated 
 
 ## AI interpretation and opportunity decision
 
-There is one downstream interpretation/strategy stage. It consumes validated `evidence.json`, `coverage.json` and the sufficiency result; it has no network or provider access. It returns findings and candidate actions with evidence citations, uncertainty and a recommendation or a justified decision not to act.
+There is one downstream interpretation/strategy stage. Deterministic evidence, sufficiency, Current Page Inventory and Gap Matrix feed a compact, model-independent Decision Brief. GPT-5.6 Sol is the preferred production interpretation model; GPT-4.1 is no longer on the critical path. It returns findings and exactly one bounded decision per required area with canonical evidence citations and uncertainty.
 
-Interpretation never changes raw or normalised evidence. Content generation begins only after sufficient evidence, a recorded decision/brief and human approval exist.
+Interpretation never changes raw or normalised evidence. Its validated output remains immutable. A separate approval artifact records `approved`, `modified`, `rejected` or `pending` for each decision. Generation receives only approved/modified work, necessary current content and allowed evidence; it cannot independently choose strategy, search targets, sections or claims. Generated changes require deterministic validation and a second human approval. Publication and measurement remain later, separate stages.
 
 ## Failure handling
 
@@ -260,11 +282,12 @@ The evidence architecture is ready for the first complete decision when:
 2. **Completed — Phase 2 product extraction:** capture rendered source, canonical product facts and field-level provenance with deterministic cache reuse.
 3. **Completed — Evidence Engine foundation:** establish contracts, stable IDs, provider isolation, validation, coverage, caching and summaries.
 4. **Completed — Keyword Ideas proof:** implement the DataForSEO adapter, cost controls and deterministic cache; complete controlled live and cache-only validation.
-5. **Current — productionise Keyword Ideas:** finish operational documentation and retention conventions without expanding provider scope.
-6. **Next — SERP Advanced:** add fixture-first tests, provider adapter, normalisation, cache/cost controls and one separately approved live validation.
-7. **Next — Search Console:** add first-party query/page performance evidence with independent authentication and cache scope.
-8. **Next — aggregation and sufficiency:** group evidence, expose conflicts/gaps and define objective-specific sufficiency using real provider shapes.
-9. **Next — opportunity decision:** implement evidence-cited scoring, recommendation/“take no action,” human override and the first approved brief.
-10. **Later — content and learning loop:** generate the first asset, validate it, complete human review, publish with approval, measure performance and feed outcomes into later decisions.
+5. **Completed — external evidence providers:** validate Keyword Ideas, SERP Advanced and Search Console with deterministic caching and provenance.
+6. **Completed — aggregation and sufficiency:** group evidence, expose conflicts/gaps and enforce objective-specific sufficiency.
+7. **Completed — page state and Decision Brief:** derive Current Page Inventory, Gap Matrix and the compact model-facing representation.
+8. **Completed — interpretation:** validate GPT-5.6 Sol decisions, canonical citations, product value and immutable controlled calls.
+9. **Current — human-approved constrained generation:** record individual approvals and generate only from the evidence-bounded approved subset.
+10. **Next — controlled generation validation and review:** validate one generated change set and complete human approval for the first real page change.
+11. **Later — publication and learning loop:** publish only approved output, measure performance and feed outcomes into later decisions.
 
 Targeted competitor-page extraction may be scheduled when a decision needs page-level evidence unavailable from structured SERP results. Manual imports and Reddit are not milestones on the critical V1 path.
