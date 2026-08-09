@@ -61,7 +61,7 @@ test("Elementor document API, pre-write snapshot and compensating rollback are p
 });
 
 test("Elementor save receives a narrowly scoped template capability without broadening the writer role", () => {
-  assert.match(plugin, /Version: 0\.1\.7/);
+  assert.match(plugin, /Version: 0\.1\.8/);
   assert.match(plugin, /streetkingz_ai_writer_map_template_save_capability/);
   assert.match(plugin, /\$cap === 'edit_post'/);
   assert.match(plugin, /\(int\) \(\$args\[0\] \?\? 0\) === STREETKINGZ_AI_WRITE_TEMPLATE_ID/);
@@ -92,7 +92,7 @@ test("dry-run performs no mutation and execute is an explicit separate mode", ()
 });
 
 test("one-time execution is atomically and persistently claimed before mutation", () => {
-  assert.match(plugin, /Version: 0\.1\.7/);
+  assert.match(plugin, /Version: 0\.1\.8/);
   assert.match(plugin, /STREETKINGZ_AI_EXECUTION_OPTION_PREFIX/);
   assert.match(plugin, /INSERT IGNORE INTO \{\$wpdb->options\}/);
   assert.match(plugin, /\$inserted !== 1/);

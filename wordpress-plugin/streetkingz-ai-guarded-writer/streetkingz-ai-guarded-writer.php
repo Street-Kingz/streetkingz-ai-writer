@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Guarded Writer
  * Description: Approval-bound writer for one reviewed product-copy change set. Inactive unless a separate write capability is deliberately assigned.
- * Version: 0.1.7
+ * Version: 0.1.8
  */
 
 defined('ABSPATH') || exit;
@@ -40,6 +40,30 @@ function streetkingz_ai_writer_ensure_role(): void {
 }
 
 register_activation_hook(__FILE__, 'streetkingz_ai_writer_ensure_role');
+
+function streetkingz_ai_writer_is_protected_rest_request(WP_REST_Request $request): bool {
+    return preg_match('#^/streetkingz-ai/v1/approved-product-70-copy/(?:approval(?:/status)?|execution-contract|execution/status|dry-run|execute)$#D', $request->get_route()) === 1;
+}
+
+/* Protected control-plane state and dry-run results must always reach WordPress. */
+function streetkingz_ai_writer_disable_protected_rest_cache(): void {
+    if (!defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', true);
+    if (!defined('LSCACHE_NO_CACHE')) define('LSCACHE_NO_CACHE', true);
+    do_action('litespeed_control_set_nocache', 'Street Kingz guarded Writer control plane');
+}
+
+add_filter('rest_pre_dispatch', static function ($result, WP_REST_Server $server, WP_REST_Request $request) {
+    if (streetkingz_ai_writer_is_protected_rest_request($request)) streetkingz_ai_writer_disable_protected_rest_cache();
+    return $result;
+}, 1, 3);
+
+add_filter('rest_post_dispatch', static function ($response, WP_REST_Server $server, WP_REST_Request $request) {
+    if (streetkingz_ai_writer_is_protected_rest_request($request) && $response instanceof WP_HTTP_Response) {
+        $response->header('Cache-Control', 'no-cache, must-revalidate, max-age=0, no-store, private');
+        $response->header('X-LiteSpeed-Cache-Control', 'no-cache');
+    }
+    return $response;
+}, 999, 3);
 
 /* Activation hooks do not run when an active plugin is replaced. This bounded migration creates/reconciles only the named writer role. */
 add_action('init', static function (): void {

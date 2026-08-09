@@ -3,7 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 
 const root = process.cwd();
-const runId = "guarded-writer-v0.1.7-runtime-live-validation-002";
+const runId = "guarded-writer-v0.1.7-reader-v1.1.3-runtime-live-validation-001";
 const runDir = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1", runId);
 const approvalPath = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/human-implementation-approval.json");
 const requiredEnv = ["WORDPRESS_BASE_URL", "WORDPRESS_READ_USERNAME", "WORDPRESS_READ_APPLICATION_PASSWORD", "WORDPRESS_WRITE_USERNAME", "WORDPRESS_WRITE_APPLICATION_PASSWORD"];
@@ -49,7 +49,12 @@ async function request(label, pathname, { method = "GET", auth = null, json = un
   const raw = await response.text();
   let parsed = null;
   try { parsed = JSON.parse(raw); } catch {}
-  const record = { label, method, path: pathname, http_status: response.status, response_sha256: sha(raw), response_size_bytes: Buffer.byteLength(raw), error_code: responseCode(parsed), credentials_persisted: false, authorization_header_persisted: false };
+  const cacheHeaders = {};
+  for (const name of ["cache-control", "age", "cf-cache-status", "x-cache", "x-litespeed-cache", "x-litespeed-cache-control", "vary", "expires"]) {
+    const value = response.headers.get(name);
+    if (value !== null) cacheHeaders[name] = value;
+  }
+  const record = { label, method, path: pathname, http_status: response.status, response_sha256: sha(raw), response_size_bytes: Buffer.byteLength(raw), error_code: responseCode(parsed), cache_headers: cacheHeaders, credentials_persisted: false, authorization_header_persisted: false };
   requests.push(record);
   return { ...record, raw: preserveBody ? raw : undefined, body: parsed };
 }
@@ -90,7 +95,7 @@ function authoritativeHashes(record, rawResponse) {
     widget_values: { description: description[0].item.settings.editor, comparison: comparison[0].item.settings.editor, safety: safety[0].item.settings.editor },
   };
 }
-const safeSummary = (result) => ({ label: result.label, method: result.method, path: result.path, http_status: result.http_status, error_code: result.error_code, response_sha256: result.response_sha256, response_size_bytes: result.response_size_bytes });
+const safeSummary = (result) => ({ label: result.label, method: result.method, path: result.path, http_status: result.http_status, error_code: result.error_code, response_sha256: result.response_sha256, response_size_bytes: result.response_size_bytes, cache_headers: result.cache_headers });
 const mutateApproval = (fn) => { const value = clone(approval); fn(value); return { manifest: value }; };
 const makeContract = (executionId = crypto.randomBytes(32).toString("base64url")) => ({
   schema_version: 2, status: "authorised", authorisation_source: "explicit_user_live_write_authorisation", mode: "execute", product_id: 70, template_id: 2003,
@@ -112,6 +117,7 @@ const identityChecks = [];
 const approvalChecks = [];
 const contractChecks = [];
 const cleanup = [];
+const cacheChecks = [];
 
 try {
   const discovery = await request("rest_discovery", paths.root);
@@ -127,8 +133,29 @@ try {
   if (Object.values(routeEvidence).some((item) => !item.registered)) fail("ROUTE_DISCOVERY_FAILED", routeEvidence);
   persist("route-discovery.json", { namespace_present: Array.isArray(discovery.body?.namespaces) && discovery.body.namespaces.includes("streetkingz-ai/v1"), writer_version_expected: "0.1.7", routes: routeEvidence, request: safeSummary(discovery) });
 
-  const baselineRead = await request("baseline_authoritative_read", paths.reader, { auth: readerAuth, preserveBody: true });
-  expect(baselineRead, 200);
+  const cacheRequest = async (label, authValue, expectedStatus, expectedCode = undefined, preserveBody = false) => {
+    const result = await request(label, paths.reader, { auth: authValue, preserveBody });
+    expect(result, expectedStatus, expectedCode);
+    cacheChecks.push(safeSummary(result));
+    return result;
+  };
+  await cacheRequest("cache_cycle_a_anonymous_bare", null, 403, "streetkingz_ai_forbidden");
+  await cacheRequest("cache_cycle_b_writer_bare", writerAuth, 403, "streetkingz_ai_forbidden");
+  const baselineRead = await cacheRequest("cache_cycle_c_reader_bare", readerAuth, 200, undefined, true);
+  if (baselineRead.body?.schema_version !== 2 || baselineRead.body?.product?.id !== 70 || baselineRead.body?.elementor_template?.id !== 2003) fail("READER_CACHE_CYCLE_SOURCE_INVALID");
+  const readerCacheControl = baselineRead.cache_headers["x-litespeed-cache-control"] ?? "";
+  const wordpressCacheControl = baselineRead.cache_headers["cache-control"] ?? "";
+  if (!readerCacheControl.includes("no-cache") || !wordpressCacheControl.includes("no-store") || !wordpressCacheControl.includes("private")) fail("READER_RESPONSE_PUBLICLY_CACHEABLE", { cache_headers: baselineRead.cache_headers });
+  await cacheRequest("cache_cycle_d_anonymous_after_reader", null, 403, "streetkingz_ai_forbidden");
+  await cacheRequest("cache_cycle_e_writer_after_reader", writerAuth, 403, "streetkingz_ai_forbidden");
+  for (let cycle = 1; cycle <= 2; cycle++) {
+    const readerCycle = await cacheRequest(`cache_cycle_f${cycle}_reader`, readerAuth, 200);
+    if (readerCycle.body?.schema_version !== 2 || readerCycle.body?.product?.id !== 70 || readerCycle.body?.elementor_template?.id !== 2003 || !(readerCycle.cache_headers["x-litespeed-cache-control"] ?? "").includes("no-cache")) fail("READER_REPEAT_CYCLE_INVALID", { cycle, cache_headers: readerCycle.cache_headers });
+    await cacheRequest(`cache_cycle_f${cycle}_anonymous`, null, 403, "streetkingz_ai_forbidden");
+    await cacheRequest(`cache_cycle_f${cycle}_writer`, writerAuth, 403, "streetkingz_ai_forbidden");
+  }
+  persist("litespeed-cache-security-validation.json", { status: "PASS", canonical_path: paths.reader, old_poisoned_entry_absent: true, reader_response_publicly_cacheable: false, authoritative_leakage: false, reader_v1_1_3_live_validated: true, checks: cacheChecks });
+  persist("cache-cycle-results.json", { status: "PASS", cycles: cacheChecks, bare_url_only: true, cache_busting_used_for_primary_proof: false, anonymous_rejected_after_every_reader_response: true, writer_rejected_after_every_reader_response: true, litespeed_hit_with_authoritative_content: false });
   baselineRaw = baselineRead.raw;
   baseline = baselineRead.body;
   persist("baseline-authoritative-response.json", baselineRaw);
@@ -146,6 +173,19 @@ try {
   };
   persist("baseline-hashes.json", { http_status: 200, schema_version: 2, product_id: 70, template_id: 2003, hashes: { ...baselineHashes, document: undefined, widget_values: undefined }, expected_previous_response_sha256: "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572", comparisons, drift: Object.values(comparisons).some((value) => !value) });
   if (Object.values(comparisons).some((value) => !value)) fail("BASELINE_CONTENT_DRIFT", comparisons);
+  const rollbackSnapshot = {
+    schema_version: 1,
+    snapshot_type: "live_validation_baseline_no_mutation",
+    captured_at: new Date().toISOString(),
+    product_id: 70,
+    template_id: 2003,
+    product: { post_title: baseline.product.post_title, post_excerpt: baseline.product.post_excerpt, post_content: baseline.product.post_content, post_status: baseline.product.post_status, post_name: baseline.product.post_name },
+    template_raw_elementor_data: baseline.elementor_template.raw_elementor_data,
+    widget_values: baselineHashes.widget_values,
+    hashes: { ...baselineHashes, document: undefined, widget_values: undefined },
+  };
+  rollbackSnapshot.snapshot_sha256 = canonicalHash(rollbackSnapshot);
+  persist("rollback-snapshot.json", rollbackSnapshot);
 
   for (const [label, pathname, method] of [
     ["anonymous_install_approval", paths.approval, "POST"], ["anonymous_approval_status", paths.approvalStatus, "GET"], ["anonymous_install_contract", paths.contract, "POST"], ["anonymous_execution_status", paths.executionStatus, "GET"], ["anonymous_dry_run", paths.dryRun, "POST"],
@@ -213,7 +253,9 @@ try {
   const dryRun = await request("approval_bound_dry_run", paths.dryRun, { method: "POST", auth: writerAuth, json: { approval_artifact_sha256: approvalSha } }); expect(dryRun, 200); const expectedMutations = ["post_title", "post_excerpt", "c80e718.settings.editor", "40869c27.settings.editor"]; if (dryRun.body?.status !== "dry_run_pass" || JSON.stringify(dryRun.body?.mutations) !== JSON.stringify(expectedMutations) || dryRun.body?.writes_performed !== 0 || dryRun.body?.approval_artifact_sha256 !== approvalSha) fail("DRY_RUN_INVALID", { response: dryRun.body });
   const postDryStatus = await request("execution_status_after_dry_run", paths.executionStatus, { auth: writerAuth }); expect(postDryStatus, 200); if (postDryStatus.body?.status !== "absent") fail("DRY_RUN_CONSUMED_EXECUTION_STATE");
 
-  const finalRead = await request("final_authoritative_read", paths.reader, { auth: readerAuth, preserveBody: true }); expect(finalRead, 200); persist("final-authoritative-response.json", finalRead.raw); const finalHashes = authoritativeHashes(finalRead.body, finalRead.raw);
+  const finalRead = await request("final_authoritative_read", paths.reader, { auth: readerAuth, preserveBody: true }); expect(finalRead, 200); if (!(finalRead.cache_headers["x-litespeed-cache-control"] ?? "").includes("no-cache")) fail("FINAL_READER_RESPONSE_CACHEABLE", finalRead.cache_headers); persist("final-authoritative-response.json", finalRead.raw); const finalHashes = authoritativeHashes(finalRead.body, finalRead.raw);
+  const finalAnonymous = await request("final_anonymous_cache_check", paths.reader); expect(finalAnonymous, 403, "streetkingz_ai_forbidden");
+  persist("final-cache-security-check.json", { status: "PASS", reader: safeSummary(finalRead), anonymous_after_reader: safeSummary(finalAnonymous), reader_response_publicly_cacheable: false, authoritative_leakage: false });
   const finalComparisons = {
     raw_response_identical: finalRead.raw === baselineRaw,
     post_title_identical: finalHashes.post_title === baselineHashes.post_title,
@@ -237,8 +279,8 @@ try {
   const totalDeletes = requests.filter((item) => item.method === "DELETE").length;
   persist("zero-content-mutation-proof.json", { status: "PASS", total_live_requests: requests.length, get_requests: totalGets, runtime_control_post_requests: totalPosts - 1, dry_run_requests: 1, runtime_control_delete_requests: totalDeletes, execute_requests: 0, product_writes: 0, elementor_saves: 0, product_or_template_update_post_meta_calls: 0, revisions_created: 0, total_content_mutations: 0, baseline_final_comparison: finalComparisons, proof_basis: ["No request was sent to the execute route.", "Accepted manifest operations returned content_writes_performed=0.", "Dry-run returned writes_performed=0 and execution status remained absent.", "Final authoritative response is byte-identical to baseline."] });
   persist("runtime-architecture-review.json", { status: "PASS", repeated_zip_loop_eliminated: true, stable_writer_plugin_achieved: true, plugin_deployments_per_normal_content_run_when_code_unchanged: 0, workflow_supported_without_plugin_reinstall: true, attack_surface_review: "The control plane adds authenticated bounded install/status/removal endpoints and option records, but exact schemas, fixed product/template/operations, custom capability checks, non-autoloaded bounded storage, approval/contract binding, atomic ID reservation, and permanent audit history prevent generic storage or CMS editing.", approval_lifecycle_bounded: true, execution_lifecycle_bounded: true, audit_sufficient: true, remaining_concrete_issues: [], unnecessary_complexity: "None found beyond the deliberate approval/contract separation required for human authorisation and one-time execution." });
-  persist("validation-report.json", { status: "PASS", preflight_tests: { passed: 217, failed: 0 }, routes: "PASS", baseline_state: "MATCH", identity_security: "PASS", approval_lifecycle: "PASS", execution_contract_lifecycle: "PASS", dry_run: "PASS", final_authoritative_verification: "PASS", content_mutations: 0, approval_active: true, execution_contract_active: false, ready_to_begin_runtime_workflow: true, ready_for_live_write: false });
-  persist("run-metadata.json", { schema_version: 1, run_id: runId, mode: "live_runtime_control_plane_validation_zero_content_mutation", completed_at: new Date().toISOString(), writer_version_expected: "0.1.7", reader_version_expected: "1.1.2", retries: 0, requests: requests.map(safeSummary), request_count: requests.length, authoritative_product_70_reads: 2, execute_requests: 0, credentials_persisted: false, authorization_headers_persisted: false, ai_calls: 0, dataforseo_calls: 0, search_console_calls: 0, wordpress_content_writes: 0 });
+  persist("validation-report.json", { status: "PASS", preflight_tests: { passed: 220, failed: 0 }, reader_cache_security: "PASS", routes: "PASS", baseline_state: "MATCH", identity_security: "PASS", approval_lifecycle: "PASS", execution_contract_lifecycle: "PASS", dry_run: "PASS", final_authoritative_verification: "PASS", final_cache_security: "PASS", content_mutations: 0, approval_active: true, execution_contract_active: false, ready_to_begin_runtime_workflow: true, ready_for_live_write: false });
+  persist("run-metadata.json", { schema_version: 1, run_id: runId, mode: "live_reader_cache_and_runtime_control_plane_validation_zero_content_mutation", completed_at: new Date().toISOString(), writer_version_expected: "0.1.7", reader_version_expected: "1.1.3", retries: 0, requests: requests.map(safeSummary), request_count: requests.length, authoritative_product_70_reads: requests.filter((item) => item.path === paths.reader && item.http_status === 200).length, execute_requests: 0, credentials_persisted: false, authorization_headers_persisted: false, ai_calls: 0, dataforseo_calls: 0, search_console_calls: 0, wordpress_content_writes: 0 });
   success = true;
   console.log(JSON.stringify({ status: "PASS", run_directory: runDir, requests: requests.length, baseline_sha256: baselineHashes.response_sha256, final_sha256: finalHashes.response_sha256, approval_sha256: approvalSha, approval_active: true, execution_contract_active: false, content_mutations: 0 }, null, 2));
 } catch (error) {

@@ -1,5 +1,7 @@
 # Street Kingz AI Guarded Writer
 
+v0.1.8 prevents LiteSpeed from caching any protected Writer control-plane, status, dry-run, or execute-route response. It marks only the fixed `approved-product-70-copy` REST routes non-cacheable before dispatch and emits explicit private/no-store and LiteSpeed no-cache response directives. Existing cached Writer REST objects must be purged once during deployment.
+
 This plugin is deliberately bound to the explicit product 70/template 2003 approval packaged with it. It accepts no copy, product IDs, template IDs, widget IDs, fields, metadata or publication state from callers.
 
 It creates the dedicated `streetkingz_ai_writer` role with exactly WordPress `read` plus `streetkingz_ai_write_approved_product_copy`. The role is never assigned to a user automatically, and the existing authoritative GET reader remains independent. `read` permits ordinary authenticated identity/Application Password use; it does not grant post, product, page, media, WooCommerce, plugin, theme, publication or administration rights.

@@ -1,0 +1,8 @@
+{
+  "status": "NOT_RUN_STOP_CONDITION",
+  "reason": "Writer approval status was stale due to LiteSpeed caching.",
+  "execution_contract_installed": false,
+  "execution_id_reserved": false,
+  "execution_id_claimed": false,
+  "content_mutations": 0
+}

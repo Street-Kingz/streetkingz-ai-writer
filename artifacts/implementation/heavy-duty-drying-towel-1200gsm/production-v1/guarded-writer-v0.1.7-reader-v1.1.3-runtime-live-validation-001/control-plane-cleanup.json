@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "approval_installed_during_validation": true,
+  "approval_removed_by_fail_safe": true,
+  "approval_active_at_completion": false,
+  "execution_contract_installed": false,
+  "execution_contract_active_at_completion": false,
+  "execution_id_claimed": false,
+  "permanent_execution_history_deleted": false,
+  "content_mutations": 0
+}

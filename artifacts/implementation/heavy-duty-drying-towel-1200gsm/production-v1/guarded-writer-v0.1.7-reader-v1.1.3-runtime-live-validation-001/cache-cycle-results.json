@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "cycles": [
+    {
+      "label": "cache_cycle_a_anonymous_bare",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "cache_cycle_b_writer_bare",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "cache_cycle_c_reader_bare",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "response_size_bytes": 111063,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "cache_cycle_d_anonymous_after_reader",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "cache_cycle_e_writer_after_reader",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "cache_cycle_f1_reader",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "response_size_bytes": 111063,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "cache_cycle_f1_anonymous",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "cache_cycle_f1_writer",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "cache_cycle_f2_reader",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "response_size_bytes": 111063,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "cache_cycle_f2_anonymous",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "cache_cycle_f2_writer",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    }
+  ],
+  "bare_url_only": true,
+  "cache_busting_used_for_primary_proof": false,
+  "anonymous_rejected_after_every_reader_response": true,
+  "writer_rejected_after_every_reader_response": true,
+  "litespeed_hit_with_authoritative_content": false
+}

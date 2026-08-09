@@ -1,0 +1,23 @@
+{
+  "attempted": true,
+  "results": [
+    {
+      "label": "emergency_approval_cleanup",
+      "method": "DELETE",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/approval",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "098f2331b4d9bd032c646ba224c41e9edb00e72dabddcde52d8cfa74f15baa0f",
+      "response_size_bytes": 58,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    }
+  ],
+  "approval_active_by_run_tracking": false,
+  "contract_active_by_run_tracking": false
+}

@@ -1,0 +1,14 @@
+{
+  "status": "FAIL_STALE_CACHED_STATUS_RESPONSE",
+  "invalid_manifests_rejected_before_failure": 9,
+  "valid_approval_install_http_status": 200,
+  "valid_approval_install_content_writes": 0,
+  "status_after_install_http_status": 200,
+  "status_after_install_response": "stale_absent",
+  "status_after_install_x_litespeed_cache": "hit",
+  "silent_replacement": "NOT_RUN",
+  "explicit_removal": "PASS_FAIL_SAFE_CLEANUP",
+  "approval_active_at_completion": false,
+  "content_mutations": 0,
+  "root_cause": "The initial authenticated absent status response entered LiteSpeed cache and was replayed after successful installation."
+}

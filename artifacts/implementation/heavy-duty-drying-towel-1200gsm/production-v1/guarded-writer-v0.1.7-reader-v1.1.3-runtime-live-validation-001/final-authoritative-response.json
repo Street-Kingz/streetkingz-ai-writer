@@ -1,0 +1,5 @@
+{
+  "status": "NOT_PERFORMED_STOP_CONDITION",
+  "reason": "Validation stopped at the stale Writer approval-status response.",
+  "baseline_response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572"
+}
