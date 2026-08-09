@@ -1,0 +1,179 @@
+{
+  "cycles": [
+    {
+      "cycle": 1,
+      "anonymous": [
+        {
+          "status": 403,
+          "error_code": "streetkingz_ai_recovery_forbidden",
+          "body_status": null,
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache-control": "no-cache",
+            "vary": "Origin,Accept-Encoding"
+          }
+        },
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ],
+      "reader": [
+        {
+          "status": 403,
+          "error_code": "streetkingz_ai_recovery_forbidden",
+          "body_status": null,
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache-control": "no-cache",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        },
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ],
+      "writer": [
+        {
+          "status": 403,
+          "error_code": "streetkingz_ai_recovery_forbidden",
+          "body_status": null,
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache-control": "no-cache",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        },
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ],
+      "recovery": [
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "miss",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ]
+    },
+    {
+      "cycle": 2,
+      "anonymous": [
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        },
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ],
+      "reader": [
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        },
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ],
+      "writer": [
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        },
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ],
+      "recovery": [
+        {
+          "status": 200,
+          "error_code": null,
+          "body_status": "locked",
+          "cache_headers": {
+            "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+            "x-litespeed-cache": "hit",
+            "vary": "Accept-Encoding",
+            "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"status":"not_run","reason":"preflight_recovery_identity_not_configured","live_requests":0,"expected_namespace":"streetkingz-ai/v1","expected_resource":"incidents/template-2003-elementor-normalization/recover","source_methods":["GET","POST","DELETE"],"source_permission_capability":"streetkingz_ai_recover_template_2003"}

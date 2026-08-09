@@ -1,0 +1,1 @@
+{"status":"offline_source_review","planned_recovery_invalidation_bounded":true,"planned_targets":["template 2003 post cache","template 2003 post-meta cache","LiteSpeed post 2003","LiteSpeed product 70"],"performed":false,"separate_security_defect":"Recovery REST route itself lacks effective route-scoped LiteSpeed exclusion; authenticated status response was publicly replayed"}

@@ -1,0 +1,1 @@
+{"status":"blocked_preflight","reader_credentials":"present","writer_credentials":"present","reader_writer_distinct":true,"recovery_username":"absent","recovery_application_password":"absent","role_assignment_behavior":"plugin_registers_role_but_assigns_no_user","live_identity_probes":0,"roles_modified":false,"credentials_modified":false}

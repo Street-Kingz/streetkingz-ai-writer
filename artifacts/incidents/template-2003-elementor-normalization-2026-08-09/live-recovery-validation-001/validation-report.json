@@ -1,0 +1,11 @@
+{
+  "decision": "STOP_LITESPEED_PROTECTED_RESPONSE_LEAK",
+  "recoveryAccepted": true,
+  "othersRejected": false,
+  "root_cause_classification": "authenticated Recovery status response cached and replayed by LiteSpeed before WordPress capability checks",
+  "evidence": "Recovery response was MISS; subsequent anonymous, Reader, and Writer responses were HTTP 200 with X-LiteSpeed-Cache: hit",
+  "live_validation_passed": false,
+  "ready_for_human_recovery_authorisation": false,
+  "content_mutations": 0,
+  "required_fix": "Add and deploy route-scoped LiteSpeed no-cache enforcement for the fixed Recovery REST route, purge its cache entry, then rerun validation"
+}

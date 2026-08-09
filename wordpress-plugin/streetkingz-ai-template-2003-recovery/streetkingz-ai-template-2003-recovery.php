@@ -2,11 +2,11 @@
 /**
  * Plugin Name: Street Kingz AI Template 2003 Incident Recovery
  * Description: One-time, fixed-scope recovery for the 2026-08-09 Elementor normalization incident.
- * Version: 0.1.0
+ * Version: 0.1.1
  */
 if (!defined('ABSPATH')) exit;
 
-const SKAI_RECOVERY_VERSION = '0.1.0';
+const SKAI_RECOVERY_VERSION = '0.1.1';
 const SKAI_RECOVERY_INCIDENT = 'template-2003-elementor-normalization-2026-08-09';
 const SKAI_RECOVERY_TEMPLATE_ID = 2003;
 const SKAI_RECOVERY_PRODUCT_ID = 70;
@@ -31,6 +31,34 @@ function skai_recovery_activate(): void {
     add_role(SKAI_RECOVERY_ROLE, 'Street Kingz AI Template 2003 Recovery', ['read' => true, SKAI_RECOVERY_CAP => true]);
 }
 register_activation_hook(__FILE__, 'skai_recovery_activate');
+
+function skai_recovery_is_protected_rest_request(WP_REST_Request $request): bool {
+    return $request->get_route() === '/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover';
+}
+
+/*
+ * Every method on this fixed incident resource is capability-protected. Mark
+ * it non-cacheable before REST permission dispatch so LiteSpeed cannot replay
+ * an authenticated status or dry-run response to another identity.
+ */
+function skai_recovery_disable_protected_rest_cache(): void {
+    if (!defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', true);
+    if (!defined('LSCACHE_NO_CACHE')) define('LSCACHE_NO_CACHE', true);
+    do_action('litespeed_control_set_nocache', 'Street Kingz template-2003 incident Recovery control plane');
+}
+
+add_filter('rest_pre_dispatch', static function ($result, WP_REST_Server $server, WP_REST_Request $request) {
+    if (skai_recovery_is_protected_rest_request($request)) skai_recovery_disable_protected_rest_cache();
+    return $result;
+}, 1, 3);
+
+add_filter('rest_post_dispatch', static function ($response, WP_REST_Server $server, WP_REST_Request $request) {
+    if (skai_recovery_is_protected_rest_request($request) && $response instanceof WP_HTTP_Response) {
+        $response->header('Cache-Control', 'no-cache, must-revalidate, max-age=0, no-store, private');
+        $response->header('X-LiteSpeed-Cache-Control', 'no-cache');
+    }
+    return $response;
+}, 999, 3);
 
 add_action('rest_api_init', function (): void {
     register_rest_route('streetkingz-ai/v1', '/incidents/template-2003-elementor-normalization/recover', [

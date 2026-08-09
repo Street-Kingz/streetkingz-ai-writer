@@ -1,0 +1,1 @@
+{"status":"offline_source_and_test_evidence_only","recovery_id_required":true,"high_entropy_format":"43-128 base64url characters","atomic_claim":"INSERT IGNORE into unique WordPress options option_name","dry_run_claims":false,"terminal_states":["succeeded","failed_after_claim"],"normal_writer_namespace_reused":false,"live_claims":0}

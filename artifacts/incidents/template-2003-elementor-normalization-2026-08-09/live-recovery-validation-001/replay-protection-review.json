@@ -1,0 +1,1 @@
+{"status":"offline_source_and_tests_only","atomic_claim":"INSERT IGNORE immediately before update_metadata","dry_run_consumes":false,"failed_after_claim_permanent":true,"success_permanent":true,"normal_writer_namespace_separate":true,"live_recovery_ids_created":0,"live_claims":0}
