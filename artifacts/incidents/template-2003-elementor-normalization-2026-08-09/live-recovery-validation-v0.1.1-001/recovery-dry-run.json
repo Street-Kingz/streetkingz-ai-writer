@@ -1,0 +1,8 @@
+{
+  "status": "not_run",
+  "reason": "v0.1.1 dry_run requires an active valid contract; installing one would create an execute-capable production contract prohibited by this task",
+  "contract_installed": false,
+  "recovery_id_created": false,
+  "recovery_id_claimed": false,
+  "content_mutations": 0
+}

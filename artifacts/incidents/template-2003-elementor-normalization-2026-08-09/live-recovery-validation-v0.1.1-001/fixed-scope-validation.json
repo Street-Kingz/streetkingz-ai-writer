@@ -1,0 +1,8 @@
+{
+  "live_negative_contract_installs_performed": 0,
+  "reason": "a fully isolated single-field install test could activate an execute-capable contract and was prohibited",
+  "offline_tests_passed": 35,
+  "template_fixed": 2003,
+  "meta_fixed": "_elementor_data",
+  "generic_route_present": false
+}

@@ -1,0 +1,46 @@
+{
+  "namespace_present": true,
+  "recovery_route": {
+    "namespace": "streetkingz-ai/v1",
+    "methods": [
+      "GET",
+      "POST",
+      "DELETE"
+    ],
+    "endpoints": [
+      {
+        "methods": [
+          "GET"
+        ],
+        "args": []
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "args": []
+      },
+      {
+        "methods": [
+          "DELETE"
+        ],
+        "args": []
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover"
+        }
+      ]
+    }
+  },
+  "reader_route_present": true,
+  "writer_routes": [
+    "/streetkingz-ai/v1/approved-product-70-copy/(?P<mode>dry-run|execute)",
+    "/streetkingz-ai/v1/approved-product-70-copy/approval",
+    "/streetkingz-ai/v1/approved-product-70-copy/approval/status",
+    "/streetkingz-ai/v1/approved-product-70-copy/execution-contract",
+    "/streetkingz-ai/v1/approved-product-70-copy/execution/status"
+  ]
+}

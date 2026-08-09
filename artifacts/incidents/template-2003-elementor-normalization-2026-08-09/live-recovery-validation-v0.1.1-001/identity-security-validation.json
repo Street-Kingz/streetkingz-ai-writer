@@ -1,0 +1,7 @@
+{
+  "reader_to_recovery": 403,
+  "writer_to_recovery": 403,
+  "recovery_to_recovery": 200,
+  "recovery_to_reader": 403,
+  "recovery_to_writer": 403
+}

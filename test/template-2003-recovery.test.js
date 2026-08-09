@@ -39,7 +39,7 @@ test("other meta mutation impossible",()=>assert.match(plugin,/SKAI_RECOVERY_MET
 test("malformed recovery source rejected",()=>assert.equal(validateFixture(contract({target_raw_elementor_data:"{"})),false));
 test("arbitrary value injection rejected",()=>assert.equal(validateFixture(contract({target_raw_elementor_data:originalRaw+" "})),false));
 test("dry-run zero mutation",()=>{const body=plugin.slice(plugin.indexOf("if ($body['action'] === 'dry_run')"),plugin.indexOf("function skai_recovery_claim"));assert.doesNotMatch(body,/skai_recovery_write_exact/);});
-test("dry-run performs no claim",()=>assert.match(plugin,/content_writes' => 0,'claims' => 0/));
+test("dry-run performs no claim",()=>{const fn=plugin.slice(plugin.indexOf("function skai_recovery_validation_dry_run"),plugin.indexOf("function skai_recovery_validate_contract"));assert.match(fn,/claim_possible'=>false/);assert.doesNotMatch(fn,/skai_recovery_claim/);});
 test("valid one-time claim uses atomic INSERT IGNORE",()=>assert.match(plugin,/INSERT IGNORE INTO \{\$wpdb->options\}/));
 test("replay is rejected",()=>assert.match(plugin,/streetkingz_ai_recovery_replay_rejected/));
 test("concurrent duplicate claim has database unique-key winner",()=>{assert.match(plugin,/SKAI_RECOVERY_CLAIM_PREFIX/);assert.match(plugin,/\$inserted === 1/);});

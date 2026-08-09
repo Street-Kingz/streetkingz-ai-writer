@@ -1,0 +1,13 @@
+{
+  "decision": "PARTIAL_PASS_CONTRACTLESS_BOUNDARY",
+  "identity_and_cache_pass": true,
+  "incident_state_pass": true,
+  "dry_run_live_pass": false,
+  "ready_for_human_recovery_authorisation": false,
+  "cache_security_pass": true,
+  "three_way_identity_separation_pass": true,
+  "recovery_identity": {"user_id":4,"username":"cody-recovery","role":"streetkingz_ai_template_2003_recovery","broad_capabilities":false},
+  "final_cache_check_pass": true,
+  "total_get_requests": 34,
+  "blocker": "v0.1.1 cannot run dry-run without installing the same valid active contract that can execute; task prohibited such a contract"
+}

@@ -8,7 +8,7 @@ for(const key of required) if(!process.env[key]?.trim()) throw new Error(`PREFLI
 const users=[process.env.WORDPRESS_READ_USERNAME,process.env.WORDPRESS_WRITE_USERNAME,process.env.WORDPRESS_RECOVERY_USERNAME];
 if(new Set(users).size!==3) throw new Error("PREFLIGHT_IDENTITIES_NOT_DISTINCT");
 const root=process.cwd();
-const runDir=path.join(root,"artifacts/incidents/template-2003-elementor-normalization-2026-08-09/live-recovery-validation-001");
+const runDir=path.join(root,"artifacts/incidents/template-2003-elementor-normalization-2026-08-09/live-recovery-validation-v0.1.1-001");
 if(fs.existsSync(runDir)) throw new Error("IMMUTABLE_RUN_DIRECTORY_EXISTS");
 fs.mkdirSync(runDir,{recursive:true});
 const base=process.env.WORDPRESS_BASE_URL.replace(/\/$/,"");
@@ -65,6 +65,6 @@ if(!recoveryAccepted||!othersRejected){write("validation-report.json",{decision:
     write("zero-content-mutation-proof.json",{live_requests:requests.length,get_requests:requests.length,post_requests:0,execute_requests:0,contract_installs:0,recovery_claims:0,update_metadata_calls:0,update_post_meta_calls:0,elementor_save_calls:0,wp_update_post_calls:0,revisions:0,content_mutations:0});
     const ready=incidentPass&&final.text===baseline.text;
     write("validation-report.json",{decision:ready?"PARTIAL_PASS_CONTRACTLESS_BOUNDARY":"STOP_INCIDENT_DRIFT",identity_and_cache_pass:true,incident_state_pass:incidentPass,dry_run_live_pass:false,ready_for_human_recovery_authorisation:false,blocker:"v0.1.0 cannot run dry-run without installing the same valid active contract that can execute; task prohibited such a contract"});
-    write("run-metadata.json",{run_id:"live-recovery-validation-001",created_at:new Date().toISOString(),retries:0,requests,credentials_persisted:false,authorization_headers_persisted:false,live_writes:0});
+    write("run-metadata.json",{run_id:"live-recovery-validation-v0.1.1-001",created_at:new Date().toISOString(),retries:0,requests,credentials_persisted:false,authorization_headers_persisted:false,live_writes:0});
   }
 }

@@ -1,0 +1,11 @@
+{
+  "bounded": true,
+  "targets": [
+    "template 2003 post cache",
+    "template 2003 post-meta cache",
+    "LiteSpeed post 2003",
+    "LiteSpeed product 70"
+  ],
+  "global_invalidation": false,
+  "performed": false
+}

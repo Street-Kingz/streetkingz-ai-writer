@@ -1,0 +1,315 @@
+{
+  "run_id": "live-recovery-validation-v0.1.1-001",
+  "created_at": "2026-08-09T15:07:26.288Z",
+  "retries": 0,
+  "requests": [
+    {
+      "label": "rest_discovery",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 200,
+      "error_code": null,
+      "response_size": 1640681,
+      "cache_headers": {
+        "x-litespeed-cache": "miss",
+        "x-litespeed-cache-control": "public,max-age=604800",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "identity_reader",
+      "method": "GET",
+      "identity": "reader",
+      "status": 200,
+      "error_code": null,
+      "response_size": 1919,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "identity_writer",
+      "method": "GET",
+      "identity": "writer",
+      "status": 200,
+      "error_code": null,
+      "response_size": 1957,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "identity_recovery",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 1994,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c1_anonymous_1",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "recovery_status_c1_reader_2",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c1_writer_3",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c1_recovery_4",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 100,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c1_anonymous_5",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "recovery_status_c1_reader_5",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c1_writer_5",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c2_anonymous_1",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "recovery_status_c2_reader_2",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c2_writer_3",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c2_recovery_4",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 100,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c2_anonymous_5",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Origin,Accept-Encoding"
+      }
+    },
+    {
+      "label": "recovery_status_c2_reader_5",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_status_c2_writer_5",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_to_reader",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_size": 124,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "recovery_to_writer",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "response_size": 144,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "authoritative_baseline",
+      "method": "GET",
+      "identity": "reader",
+      "status": 200,
+      "error_code": null,
+      "response_size": 111903,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    },
+    {
+      "label": "authoritative_final",
+      "method": "GET",
+      "identity": "reader",
+      "status": 200,
+      "error_code": null,
+      "response_size": 111903,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      }
+    }
+  ],
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false,
+  "additional_final_get_requests": 12,
+  "total_live_requests": 34,
+  "live_writes": 0
+}

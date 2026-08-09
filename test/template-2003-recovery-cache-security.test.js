@@ -6,16 +6,16 @@ const source=fs.readFileSync("wordpress-plugin/streetkingz-ai-template-2003-reco
 const matcher=source.slice(source.indexOf("function skai_recovery_is_protected_rest_request"),source.indexOf("function skai_recovery_disable_protected_rest_cache"));
 const cacheBlock=source.slice(source.indexOf("function skai_recovery_disable_protected_rest_cache"),source.indexOf("add_action('rest_api_init'"));
 
-test("Recovery v0.1.1 carries route-scoped cache hardening",()=>{assert.match(source,/Version:\s*0\.1\.1/);assert.match(source,/SKAI_RECOVERY_VERSION = '0\.1\.1'/);});
-test("fixed Recovery resource is in no-cache scope",()=>assert.match(matcher,/\/streetkingz-ai\/v1\/incidents\/template-2003-elementor-normalization\/recover/));
+test("Recovery v0.1.2 carries route-scoped cache hardening",()=>{assert.match(source,/Version:\s*0\.1\.2/);assert.match(source,/SKAI_RECOVERY_VERSION = '0\.1\.2'/);});
+test("fixed Recovery resources are in no-cache scope",()=>{for(const route of ["recover","validation-manifest","validation/status","validation/dry-run"])assert.match(matcher,new RegExp(route.replace("/","\\/")));});
 test("unrelated REST routes are excluded",()=>{assert.match(matcher,/===/);assert.doesNotMatch(matcher,/products|approved-product-70-copy|wp\/v2|str_starts_with/);});
 test("anonymous rejection receives private no-store headers",()=>assert.match(cacheBlock,/no-cache, must-revalidate, max-age=0, no-store, private/));
 test("Reader rejection uses the same protected dispatch path",()=>assert.match(cacheBlock,/skai_recovery_is_protected_rest_request\(\$request\)/));
 test("Writer rejection uses the same protected dispatch path",()=>assert.match(cacheBlock,/rest_pre_dispatch/));
 test("Recovery authenticated HTTP 200 is LiteSpeed no-cache",()=>{assert.match(cacheBlock,/LSCACHE_NO_CACHE/);assert.match(cacheBlock,/litespeed_control_set_nocache/);});
 test("GET status is protected",()=>{assert.match(source,/WP_REST_Server::READABLE/);assert.match(source,/permission_callback' => 'skai_recovery_permission'/);});
-test("POST dry-run shares the protected fixed resource",()=>{assert.match(source,/WP_REST_Server::CREATABLE/);assert.match(source,/\['install_contract','dry_run','execute'\]/);});
-test("POST execute shares the protected fixed resource",()=>assert.match(source,/\['action'\] === 'dry_run'/));
+test("POST validation dry-run is separately protected",()=>{assert.match(source,/validation\/dry-run/);assert.match(source,/validation_dry_run/);});
+test("POST execute remains on the production resource",()=>assert.match(source,/\['install_contract','execute'\]/));
 test("DELETE removal shares the protected fixed resource",()=>{assert.match(source,/WP_REST_Server::DELETABLE/);assert.match(source,/callback' => 'skai_recovery_remove'/);});
 test("no global cache disable is introduced",()=>{assert.doesNotMatch(source,/add_filter\(\s*['\"]litespeed_[^'\"]+['\"]\s*,\s*['\"]__return_false/);assert.doesNotMatch(source,/do_action\(['\"]litespeed_purge_all/);});
 test("fixed template restriction remains",()=>assert.match(source,/SKAI_RECOVERY_TEMPLATE_ID = 2003/));

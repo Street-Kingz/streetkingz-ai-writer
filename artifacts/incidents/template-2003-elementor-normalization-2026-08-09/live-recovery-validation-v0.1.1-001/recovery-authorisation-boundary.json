@@ -1,0 +1,7 @@
+{
+  "separate_human_recovery_approval_required": true,
+  "normal_content_approval_sufficient": false,
+  "writer_execution_contract_sufficient": false,
+  "recovery_capability_required": true,
+  "active_contract_present": false
+}

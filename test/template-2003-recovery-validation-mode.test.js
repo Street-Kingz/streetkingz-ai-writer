@@ -1,0 +1,31 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+
+const source=fs.readFileSync("wordpress-plugin/streetkingz-ai-template-2003-recovery/streetkingz-ai-template-2003-recovery.php","utf8");
+const validation=source.slice(source.indexOf("function skai_recovery_validate_validation_manifest"),source.indexOf("function skai_recovery_validate_contract"));
+const production=source.slice(source.indexOf("function skai_recovery_validate_contract"));
+
+test("v0.1.2 defines a separate validation-manifest schema",()=>{assert.match(source,/Version:\s*0\.1\.2/);assert.match(validation,/status.*validation_only/);assert.match(validation,/validate_exact_raw_recovery_plan/);});
+test("validation manifest is fixed to the incident",()=>assert.match(validation,/SKAI_RECOVERY_INCIDENT/));
+test("validation manifest is fixed to post 2003",()=>assert.match(validation,/SKAI_RECOVERY_TEMPLATE_ID/));
+test("validation manifest is fixed to raw Elementor meta",()=>assert.match(validation,/SKAI_RECOVERY_META_KEY/));
+test("validation current hash is hard-bound",()=>assert.match(validation,/SKAI_RECOVERY_CURRENT_HASH/));
+test("validation target hash is hard-bound",()=>assert.match(validation,/SKAI_RECOVERY_TARGET_HASH/));
+test("validation diff and type are hard-bound",()=>{assert.match(validation,/SKAI_RECOVERY_DIFF_HASH/);assert.match(validation,/equal_valued_string_to_number_only/);assert.match(validation,/unexpected_diff_count.*!== 0/);});
+test("arbitrary validation values and wrong post or meta fail exact schema",()=>{assert.match(validation,/skai_recovery_exact_keys/);assert.match(validation,/target_raw_elementor_data/);assert.match(validation,/hash\('sha256', \$raw\)/);});
+test("validation requires no human recovery approval",()=>{assert.doesNotMatch(validation,/human_recovery_approval|explicit_human_incident_recovery_authorisation/);});
+test("validation schema contains no recovery ID",()=>{const keys=validation.slice(validation.indexOf("$keys ="),validation.indexOf("if (!skai_recovery_exact_keys"));assert.doesNotMatch(keys,/recovery_id|execution_id|claim/);});
+test("validation installation creates no reservation or claim",()=>{const fn=source.slice(source.indexOf("function skai_recovery_install_validation_manifest"),source.indexOf("function skai_recovery_validation_status"));assert.doesNotMatch(fn,/RESERVATION|CLAIM|skai_recovery_claim|update_metadata/);assert.match(fn,/content_mutations' => 0/);});
+test("validation dry-run cannot mutate or claim",()=>{const fn=source.slice(source.indexOf("function skai_recovery_validation_dry_run"),source.indexOf("function skai_recovery_validate_contract"));assert.doesNotMatch(fn,/skai_recovery_execute|skai_recovery_claim|update_metadata/);assert.match(fn,/execution_capable'=>false/);assert.match(fn,/claim_possible'=>false/);assert.match(fn,/content_mutation_possible'=>false/);});
+test("production validator categorically rejects validation manifest",()=>{assert.match(production,/human_recovery_approval/);assert.match(production,/one_time_recovery_id/);assert.match(production,/explicit_human_incident_recovery_authorisation/);});
+test("no validation promotion operation exists",()=>assert.doesNotMatch(source,/promote|convert_validation|validation_to_contract/i));
+test("production and validation active states are mutually exclusive",()=>{assert.match(source,/Remove the non-executable validation manifest before installing/);assert.match(source,/Validation cannot be installed while a production recovery contract is active/);});
+test("production recovery still requires human approval",()=>assert.match(production,/streetkingz_ai_recovery_approval_binding_invalid/));
+test("production recovery still requires one-time ID",()=>assert.match(production,/one_time_recovery_id/));
+test("production recovery still claims atomically before metadata write",()=>assert.ok(source.indexOf("skai_recovery_claim($record)")<source.indexOf("skai_recovery_write_exact($target)")));
+test("validation lifecycle has install status and removal",()=>{for(const name of ["skai_recovery_install_validation_manifest","skai_recovery_validation_status","skai_recovery_remove_validation_manifest"])assert.match(source,new RegExp(name));});
+test("validation removal leaves no execution authority",()=>{const fn=source.slice(source.indexOf("function skai_recovery_remove_validation_manifest"),source.indexOf("function skai_recovery_validation_dry_run"));assert.match(fn,/execution_capable' => false/);assert.match(fn,/recovery_id_present' => false/);assert.match(fn,/claim_possible' => false/);});
+test("all validation routes require Recovery permission callback",()=>{const routes=source.slice(source.indexOf("register_rest_route('streetkingz-ai/v1', '/incidents/template-2003-elementor-normalization/validation-manifest"),source.indexOf("function skai_recovery_permission"));assert.equal((routes.match(/permission_callback' => 'skai_recovery_permission'/g)||[]).length,4);});
+test("Reader Writer and anonymous remain denied by dedicated capability",()=>{assert.match(source,/current_user_can\(SKAI_RECOVERY_CAP\)/);assert.doesNotMatch(source,/streetkingz_ai_read_product_source|streetkingz_ai_write_approved_product_copy|__return_true/);});
+test("validation routes inherit route-scoped no-store protection",()=>{for(const route of ["validation-manifest","validation/status","validation/dry-run"])assert.match(source,new RegExp(route.replace("/","\\/")));assert.match(source,/no-store, private/);assert.match(source,/litespeed_control_set_nocache/);});

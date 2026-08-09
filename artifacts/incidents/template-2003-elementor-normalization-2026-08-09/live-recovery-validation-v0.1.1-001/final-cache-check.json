@@ -1,0 +1,138 @@
+{
+  "pass": true,
+  "calls": [
+    {
+      "target": "reader",
+      "identity": "reader",
+      "status": 200,
+      "error_code": null,
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "reader",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "reader",
+      "identity": "recovery",
+      "status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "reader",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "writer",
+      "identity": "writer",
+      "status": 200,
+      "error_code": null,
+      "body_status": "installed",
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "writer",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "writer",
+      "identity": "recovery",
+      "status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "writer",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "recovery",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "body_status": "locked",
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "recovery",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "recovery",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "target": "recovery",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "body_status": null,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    }
+  ],
+  "content_mutations": 0
+}
