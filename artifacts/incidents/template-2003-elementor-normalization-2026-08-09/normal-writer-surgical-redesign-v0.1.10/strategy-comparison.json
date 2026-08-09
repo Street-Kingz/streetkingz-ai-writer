@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "decision": "surgical_raw_json_token_replacement",
+  "options": [
+    {
+      "option": "A_elementor_document_save",
+      "unrelated_state_preservation": "failed in production",
+      "exact_type_preservation": false,
+      "security": "requires temporary Elementor editing capabilities",
+      "rollback_reliability": "cannot reproduce the historical raw state under the narrow user",
+      "selected": false
+    },
+    {
+      "option": "B_decode_mutate_json_encode_update_metadata",
+      "unrelated_state_preservation": "not byte-safe",
+      "exact_type_preservation": "parsed types can be retained but encoding, escaping, float formatting and representation can change",
+      "security": "could be bounded",
+      "rollback_reliability": "raw snapshot can restore, but forward write can rewrite representation",
+      "selected": false
+    },
+    {
+      "option": "C_surgical_raw_json_token_replacement",
+      "unrelated_state_preservation": "exact outside two value-token spans",
+      "exact_type_preservation": true,
+      "security": "compile-time template/meta/widget scope plus approval, hashes and one-time claim",
+      "rollback_reliability": "exact captured raw bytes",
+      "selected": true
+    },
+    {
+      "option": "D_narrower_elementor_supported_api",
+      "unrelated_state_preservation": "no qualifying persisted widget-level API found",
+      "exact_type_preservation": "not established",
+      "security": "not applicable",
+      "rollback_reliability": "not established",
+      "selected": false
+    }
+  ],
+  "stop_condition_triggered": false
+}

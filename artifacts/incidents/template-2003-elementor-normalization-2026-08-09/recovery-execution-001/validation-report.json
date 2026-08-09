@@ -1,0 +1,11 @@
+{
+  "decision": "RECOVERY_SUCCEEDED",
+  "tests": "332/332 PASS",
+  "execute_requests": 1,
+  "retries": 0,
+  "target_exact": true,
+  "product_70_unchanged": true,
+  "rendered_verification": true,
+  "recovery_id_permanently_consumed": true,
+  "final_control_status": "locked"
+}

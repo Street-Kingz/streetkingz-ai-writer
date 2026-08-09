@@ -1,0 +1,60 @@
+{
+  "current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "current_raw_length": 49698,
+  "target_raw_length": 49418,
+  "differing_paths": 140,
+  "string_to_number_reversions": 140,
+  "other_differences": 0,
+  "widget_content_changes": 0,
+  "safety_changes": [
+    {
+      "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "string",
+      "current_type": "number",
+      "original_value": "15",
+      "current_value": 15,
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "43d7d6f0",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": false,
+      "incident_allowlist_match": false
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "string",
+      "current_type": "number",
+      "original_value": "15",
+      "current_value": 15,
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "43d7d6f0",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": false,
+      "incident_allowlist_match": false
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "string",
+      "current_type": "number",
+      "original_value": "1.2",
+      "current_value": 1.2,
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "43d7d6f0",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": false,
+      "incident_allowlist_match": false
+    }
+  ]
+}

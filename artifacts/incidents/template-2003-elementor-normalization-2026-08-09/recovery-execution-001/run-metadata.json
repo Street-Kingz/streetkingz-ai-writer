@@ -1,0 +1,144 @@
+{
+  "created_at": "2026-08-09T15:39:23.566Z",
+  "requests": [
+    {
+      "label": "initial_production_status",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "65e7b60be548a5acd548b299fb835e16df8d507a3e5b451ce0f2b94d301981c6",
+      "response_size": 100,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "initial_validation_status",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation/status",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "ec0306b30f3c5c8ba708814df0daf09ce9a51060d25a467bb8449fbcc931ef72",
+      "response_size": 107,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "fresh_pre_recovery_authoritative",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "bd2ed8e54bbb016800b82630a3c4da6fbf003e1471d953fde042b2c4488ab23d",
+      "response_size": 111903,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "install_final_validation_manifest",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation-manifest",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "674c1f62f7c5379cfc6456f2c2b68cb3679e13bacb8b904594d8da158f1be17c",
+      "response_size": 219,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "final_recovery_dry_run",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation/dry-run",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "dcb5fd677a518164a7198d354039401c16d841586957a15bb44b1dd1f8f02ba5",
+      "response_size": 1086,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "remove_final_validation_manifest",
+      "method": "DELETE",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation-manifest",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "1c9d313c1d963377f6129a73606b0bc127c42afb1e641dd06ccde6aa44ca0ada",
+      "response_size": 130,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "install_one_time_recovery_contract",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "507f6b9e0b63aa743bca426bac112649d8b6d0654c4a75996771a03b10f32e16",
+      "response_size": 232,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "installed_unused_status",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "4ca18b0bc06acace94ac46ac184fc64f1824ea66ee9e7f2ff0b73c0d29f8fd61",
+      "response_size": 312,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "execute_recovery",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "3f2b6df9e2e71a3bedabd6ae2a1e78c5b22e8a99d6aec7f9493e062470821f38",
+      "response_size": 105,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "post_recovery_authoritative",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "1691c64eea051ee63ada65614ab8a9aa56302a3aa52a395fe1b324ad509f5bfd",
+      "response_size": 111063,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "post_recovery_control_status",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "65e7b60be548a5acd548b299fb835e16df8d507a3e5b451ce0f2b94d301981c6",
+      "response_size": 100,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    },
+    {
+      "label": "rendered_product_page",
+      "method": "GET",
+      "path": "/product/heavy-duty-drying-towel-1200gsm/",
+      "status": 200,
+      "error_code": null,
+      "response_sha256": "da1fd24476d72e133bf8cc56cfc5975bbf09b27221acdd3644c7f2b7f55e1bba",
+      "response_size": 276490,
+      "credentials_persisted": false,
+      "authorization_persisted": false
+    }
+  ],
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0,
+  "execute_requests": 1,
+  "retries": 0
+}

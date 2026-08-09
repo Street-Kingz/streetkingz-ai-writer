@@ -1,0 +1,13 @@
+{
+  "execute_http_status": 200,
+  "execute_status": "succeeded",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "required_target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "byte_exact_target": true,
+  "strict_parsed_equality": true,
+  "remaining_template_differences": 0,
+  "product_70_unchanged": true,
+  "slug_unchanged": true,
+  "publication_unchanged": true,
+  "production_control_status": "locked"
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "authoritative_response_sha256": "bd2ed8e54bbb016800b82630a3c4da6fbf003e1471d953fde042b2c4488ab23d",
+  "current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "differing_paths": 140,
+  "string_to_number_reversions": 140,
+  "unexpected_differences": 0
+}

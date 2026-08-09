@@ -47,9 +47,9 @@ test("product mutation omits slug, status, content and meta", () => {
   }
 });
 
-test("Elementor document API, pre-write snapshot and compensating rollback are present", () => {
-  assert.match(plugin, /documents->get\(STREETKINGZ_AI_WRITE_TEMPLATE_ID\)/);
-  assert.match(plugin, /->save\(\['elements' => \$elements\]\)/);
+test("fixed raw template persistence, pre-write snapshot and compensating rollback are present", () => {
+  assert.match(plugin, /streetkingz_ai_writer_persist_surgical_template/);
+  assert.match(plugin, /update_metadata\('post', STREETKINGZ_AI_WRITE_TEMPLATE_ID, '_elementor_data', wp_slash\(\$expected_raw\)\)/);
   assert.match(plugin, /streetkingz_ai_writer_persist_snapshot\(\$prepared\)/);
   assert.match(plugin, /fopen\(\$path, 'x'\)/);
   for (const field of ["fresh_pre_write_rollback", "captured_at", "applicability", "authoritative_source", "post_content", "template_elementor_data", "authoritative_source_sha256"]) assert.match(plugin, new RegExp(field));
@@ -57,19 +57,14 @@ test("Elementor document API, pre-write snapshot and compensating rollback are p
   assert.match(plugin, /streetkingz_ai_writer_verify_state\(\$prepared, false, \$verification\)/);
   assert.match(plugin, /streetkingz_ai_writer_verify_state\(\$prepared, true\)/);
   assert.match(plugin, /streetkingz_ai_rollback_verification_failed/);
-  assert.doesNotMatch(plugin, /update_post_meta\s*\(.*_elementor_data/s);
+  assert.doesNotMatch(plugin, /Document::save|documents->get|update_post_meta\s*\(.*_elementor_data/s);
 });
 
-test("Elementor save receives a narrowly scoped template capability without broadening the writer role", () => {
-  assert.match(plugin, /Version: 0\.1\.9/);
-  assert.match(plugin, /streetkingz_ai_writer_map_template_save_capability/);
-  assert.match(plugin, /\$cap === \$edit_posts/);
-  assert.match(plugin, /\$cap === \$edit_post/);
-  assert.match(plugin, /\(int\) \(\$args\[0\] \?\? 0\) === STREETKINGZ_AI_WRITE_TEMPLATE_ID/);
+test("surgical template persistence uses only the narrow Writer capability", () => {
+  assert.match(plugin, /Version: 0\.1\.10/);
+  assert.match(plugin, /streetkingz_ai_writer_persist_surgical_template/);
   assert.match(plugin, /current_user_can\(STREETKINGZ_AI_WRITE_CAPABILITY\)/);
-  assert.match(plugin, /add_filter\('map_meta_cap'.*10, 4\)/);
-  assert.match(plugin, /remove_filter\('map_meta_cap'.*10\)/);
-  assert.match(plugin, /finally/);
+  assert.doesNotMatch(plugin, /map_meta_cap|user_has_cap|documents->get|Document::save/);
   assert.doesNotMatch(plugin, /add_cap\([^\n]*(?:edit_post|edit_posts|edit_products)/);
 });
 
@@ -78,22 +73,22 @@ test("rollback verifies fresh persisted semantics even when the failed Elementor
   assert.match(rollback, /streetkingz_ai_writer_clear_persisted_state_caches/);
   assert.match(rollback, /streetkingz_ai_writer_source\(\$prepared\['approval'\]\)/);
   assert.match(rollback, /if \(!hash_equals/);
-  assert.match(rollback, /streetkingz_ai_writer_save_elementor\(\$prepared\['original'\]\['document'\]\)/);
+  assert.match(rollback, /streetkingz_ai_writer_persist_surgical_template\(\$prepared\['original'\]\['template_raw'\]\)/);
   assert.match(rollback, /streetkingz_ai_writer_verify_state\(\$prepared, false, \$verification\)/);
   assert.doesNotMatch(rollback, /&&\s*streetkingz_ai_writer_verify_state/);
-  assert.match(plugin, /streetkingz_ai_elementor_persisted_state_mismatch/);
-  assert.match(plugin, /elementor_failure_code/);
+  assert.match(plugin, /streetkingz_ai_template_persisted_state_mismatch/);
+  assert.match(plugin, /persistence_failure_code/);
 });
 
 test("dry-run performs no mutation and execute is an explicit separate mode", () => {
   assert.match(plugin, /dry-run\|execute/);
   const dryRunBranch = plugin.slice(plugin.indexOf("if ($request['mode'] === 'dry-run')"), plugin.indexOf("$snapshot =", plugin.indexOf("if ($request['mode'] === 'dry-run')")));
-  assert.doesNotMatch(dryRunBranch, /wp_update_post|streetkingz_ai_writer_save_elementor/);
+  assert.doesNotMatch(dryRunBranch, /wp_update_post|streetkingz_ai_writer_persist_surgical_template|update_metadata/);
   assert.match(dryRunBranch, /'writes_performed' => 0/);
 });
 
 test("one-time execution is atomically and persistently claimed before mutation", () => {
-  assert.match(plugin, /Version: 0\.1\.9/);
+  assert.match(plugin, /Version: 0\.1\.10/);
   assert.match(plugin, /STREETKINGZ_AI_EXECUTION_OPTION_PREFIX/);
   assert.match(plugin, /INSERT IGNORE INTO \{\$wpdb->options\}/);
   assert.match(plugin, /\$inserted !== 1/);
@@ -118,7 +113,7 @@ test("all post-claim outcomes remain consumed and dry-run never claims", () => {
   const dryRunBranch = request.slice(request.indexOf("if ($request['mode'] === 'dry-run')"), request.indexOf("$snapshot ="));
   assert.doesNotMatch(dryRunBranch, /claim_execution|add_option|finish_execution/);
   assert.match(request, /product_write_failed/);
-  assert.match(request, /elementor_write_failed_rolled_back/);
+  assert.match(request, /template_write_failed_rolled_back/);
   assert.match(request, /post_write_verification_failed_rolled_back/);
   assert.match(request, /finish_execution\(\$claim, 'succeeded'/);
   assert.match(plugin, /The claim remains permanently unavailable/);

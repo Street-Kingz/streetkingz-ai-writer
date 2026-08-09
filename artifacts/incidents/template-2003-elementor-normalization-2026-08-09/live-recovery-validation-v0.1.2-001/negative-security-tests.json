@@ -1,0 +1,142 @@
+[
+  {
+    "name": "wrong_incident",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_scope_invalid"
+  },
+  {
+    "name": "wrong_post",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_scope_invalid"
+  },
+  {
+    "name": "template_2002",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_scope_invalid"
+  },
+  {
+    "name": "template_2004",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_scope_invalid"
+  },
+  {
+    "name": "wrong_meta",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_scope_invalid"
+  },
+  {
+    "name": "wrong_current",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_guards_invalid"
+  },
+  {
+    "name": "wrong_target",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_guards_invalid"
+  },
+  {
+    "name": "wrong_diff",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_guards_invalid"
+  },
+  {
+    "name": "unexpected_diff",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_guards_invalid"
+  },
+  {
+    "name": "arbitrary_target",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_target_invalid"
+  },
+  {
+    "name": "extra_operation",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_scope_invalid"
+  },
+  {
+    "name": "publication",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_shape_invalid"
+  },
+  {
+    "name": "slug",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_shape_invalid"
+  },
+  {
+    "name": "title",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_shape_invalid"
+  },
+  {
+    "name": "excerpt",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_shape_invalid"
+  },
+  {
+    "name": "anonymous_status",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "anonymous_install",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "anonymous_dry_run",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "anonymous_remove",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "reader_status",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "reader_install",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "reader_dry_run",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "reader_remove",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "writer_status",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "writer_install",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "writer_dry_run",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "writer_remove",
+    "status": 403,
+    "error_code": "streetkingz_ai_recovery_forbidden"
+  },
+  {
+    "name": "silent_replacement",
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_validation_active"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "mode": "recover",
+  "retries": 0,
+  "exact_operation": "one fixed WordPress update_metadata operation",
+  "post_id": 2003,
+  "meta_key": "_elementor_data",
+  "elementor_document_save_used": false,
+  "allowed_mutations": [
+    "template_2003._elementor_data"
+  ],
+  "blocked_mutations": [
+    "product_70",
+    "other_posts",
+    "other_templates",
+    "other_meta",
+    "slug",
+    "publication"
+  ],
+  "candidate_recovery_id_sha256": "89a8c6a624fa9996608d3b6f555efbb01a539be653813fe3345883960b7c6474",
+  "live_installation": false,
+  "claim_state": "unclaimed"
+}

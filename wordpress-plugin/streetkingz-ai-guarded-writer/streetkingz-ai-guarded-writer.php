@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Guarded Writer
  * Description: Approval-bound writer for one reviewed product-copy change set. Inactive unless a separate write capability is deliberately assigned.
- * Version: 0.1.9
+ * Version: 0.1.10
  */
 
 defined('ABSPATH') || exit;
@@ -400,6 +400,50 @@ function streetkingz_ai_writer_patch_element(array &$items, string $id, string $
     return $patched;
 }
 
+/*
+ * Build the candidate Elementor value by replacing only the two JSON string
+ * tokens already proven to belong to the fixed widgets. The exact compact
+ * prefix is intentional: any representation or key-order drift fails closed
+ * rather than causing a whole-document re-encode.
+ */
+function streetkingz_ai_writer_patch_raw_editor_token(string $raw, string $id, string $old_value, string $new_value) {
+    if (!in_array($id, [STREETKINGZ_AI_WRITE_DESCRIPTION_ID, STREETKINGZ_AI_WRITE_COMPARISON_ID], true)) return new WP_Error('streetkingz_ai_raw_patch_target_forbidden', 'Only the two approved Elementor editor leaves can be patched.', ['status' => 409]);
+    $id_token = wp_json_encode($id);
+    $old_token = wp_json_encode($old_value);
+    $new_token = wp_json_encode($new_value);
+    if (!is_string($id_token) || !is_string($old_token) || !is_string($new_token)) return new WP_Error('streetkingz_ai_raw_patch_encoding_failed', 'An approved Elementor value could not be encoded.', ['status' => 409]);
+    $prefix = '"id":' . $id_token . ',"elType":"widget","settings":{"editor":';
+    if (substr_count($raw, $prefix) !== 1) return new WP_Error('streetkingz_ai_raw_patch_anchor_ambiguous', 'The fixed Elementor raw anchor is missing or duplicated.', ['status' => 409, 'element_id' => $id]);
+    $value_start = strpos($raw, $prefix) + strlen($prefix);
+    if (substr($raw, $value_start, strlen($old_token)) !== $old_token) return new WP_Error('streetkingz_ai_raw_patch_old_value_mismatch', 'The raw Elementor leaf does not match the freshly parsed value.', ['status' => 409, 'element_id' => $id]);
+    $after = substr($raw, $value_start + strlen($old_token), 1);
+    if ($after !== ',' && $after !== '}') return new WP_Error('streetkingz_ai_raw_patch_boundary_invalid', 'The approved raw Elementor leaf boundary is invalid.', ['status' => 409, 'element_id' => $id]);
+    return [
+        'raw' => substr_replace($raw, $new_token, $value_start, strlen($old_token)),
+        'span' => ['element_id' => $id, 'property' => 'settings.editor', 'start' => $value_start, 'old_length' => strlen($old_token), 'new_length' => strlen($new_token), 'old_sha256' => hash('sha256', $old_value), 'new_sha256' => hash('sha256', $new_value)],
+    ];
+}
+
+function streetkingz_ai_writer_build_surgical_template(string $raw, array $original_document, array $values) {
+    $description = streetkingz_ai_writer_find_elements($original_document, STREETKINGZ_AI_WRITE_DESCRIPTION_ID);
+    $comparison = streetkingz_ai_writer_find_elements($original_document, STREETKINGZ_AI_WRITE_COMPARISON_ID);
+    if (count($description) !== 1 || count($comparison) !== 1) return new WP_Error('streetkingz_ai_raw_patch_target_ambiguous', 'The approved raw patch targets are missing or duplicated.', ['status' => 409]);
+    $patched_raw = $raw;
+    $spans = [];
+    foreach ([[STREETKINGZ_AI_WRITE_DESCRIPTION_ID, $description[0]['element']['settings']['editor'] ?? null, $values['description']], [STREETKINGZ_AI_WRITE_COMPARISON_ID, $comparison[0]['element']['settings']['editor'] ?? null, $values['comparison']]] as [$id, $old, $new]) {
+        if (!is_string($old) || !is_string($new)) return new WP_Error('streetkingz_ai_raw_patch_value_invalid', 'Approved raw patch values must be strings.', ['status' => 409, 'element_id' => $id]);
+        $result = streetkingz_ai_writer_patch_raw_editor_token($patched_raw, $id, $old, $new);
+        if (is_wp_error($result)) return $result;
+        $patched_raw = $result['raw'];
+        $spans[] = $result['span'];
+    }
+    $patched_document = json_decode($patched_raw, true);
+    if (!is_array($patched_document)) return new WP_Error('streetkingz_ai_raw_patch_json_invalid', 'The surgically patched Elementor data is invalid.', ['status' => 409]);
+    $expected = $original_document;
+    if (streetkingz_ai_writer_patch_element($expected, STREETKINGZ_AI_WRITE_DESCRIPTION_ID, $values['description']) !== 1 || streetkingz_ai_writer_patch_element($expected, STREETKINGZ_AI_WRITE_COMPARISON_ID, $values['comparison']) !== 1 || $patched_document !== $expected) return new WP_Error('streetkingz_ai_raw_patch_unexpected_difference', 'The raw patch changed data outside the two approved leaves.', ['status' => 409]);
+    return ['raw' => $patched_raw, 'document' => $patched_document, 'raw_sha256' => hash('sha256', $patched_raw), 'spans' => $spans, 'unexpected_changed_paths' => 0];
+}
+
 function streetkingz_ai_writer_prepare(array $source) {
     $approval = $source['approval'];
     $guards = $approval['current_state_guards'];
@@ -424,7 +468,9 @@ function streetkingz_ai_writer_prepare(array $source) {
     $widget_guards = ['description_widget' => STREETKINGZ_AI_WRITE_DESCRIPTION_ID, 'comparison_widget' => STREETKINGZ_AI_WRITE_COMPARISON_ID, 'safety_widget' => STREETKINGZ_AI_WRITE_SAFETY_ID];
     foreach ($widget_guards as $guard => $id) if (!hash_equals($guards[$guard], hash('sha256', $located[$id]['element']['settings']['editor'] ?? ''))) return new WP_Error('streetkingz_ai_widget_stale', 'A protected Elementor widget changed.', ['status' => 409, 'element_id' => $id]);
     $original = ['product' => $source['product'], 'template_raw' => $raw, 'document' => $document, 'widget_values' => array_map(static fn($item) => $item['element']['settings']['editor'] ?? null, $located)];
-    if (streetkingz_ai_writer_patch_element($document, STREETKINGZ_AI_WRITE_DESCRIPTION_ID, $values['description']) !== 1 || streetkingz_ai_writer_patch_element($document, STREETKINGZ_AI_WRITE_COMPARISON_ID, $values['comparison']) !== 1) return new WP_Error('streetkingz_ai_elementor_patch_failed', 'Approved Elementor properties could not be patched exactly once.', ['status' => 409]);
+    $surgical = streetkingz_ai_writer_build_surgical_template($raw, $document, $values);
+    if (is_wp_error($surgical)) return $surgical;
+    $document = $surgical['document'];
     $fresh_snapshot = [
         'schema_version' => 1,
         'snapshot_type' => 'fresh_pre_write_rollback',
@@ -445,7 +491,7 @@ function streetkingz_ai_writer_prepare(array $source) {
         ],
     ];
     $fresh_snapshot['authoritative_source_sha256'] = hash('sha256', wp_json_encode($fresh_snapshot['authoritative_source'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
-    return ['original' => $original, 'fresh_snapshot' => $fresh_snapshot, 'patched_document' => $document, 'targets' => $values, 'guards' => $guards];
+    return ['original' => $original, 'fresh_snapshot' => $fresh_snapshot, 'patched_document' => $document, 'patched_raw' => $surgical['raw'], 'raw_patch' => ['target_sha256' => $surgical['raw_sha256'], 'spans' => $surgical['spans'], 'unexpected_changed_paths' => 0], 'targets' => $values, 'guards' => $guards];
 }
 
 function streetkingz_ai_writer_persist_snapshot(array $prepared) {
@@ -463,33 +509,6 @@ function streetkingz_ai_writer_persist_snapshot(array $prepared) {
     return ['path' => $path, 'sha256' => hash('sha256', $encoded)];
 }
 
-/*
- * Elementor's public Document::save() performs an edit_post capability check.
- * The dedicated writer role intentionally has no generic post-edit capability,
- * so grant that one meta capability only while this fixed template is saved by
- * the already-authorised, bounded writer path. Nothing is persisted on the role.
- */
-function streetkingz_ai_writer_map_template_save_capability(array $caps, string $cap, int $user_id, array $args): array {
-    $template = get_post_type_object('elementor_library');
-    $edit_posts = $template && isset($template->cap->edit_posts) ? $template->cap->edit_posts : null;
-    $edit_post = $template && isset($template->cap->edit_post) ? $template->cap->edit_post : null;
-    if (
-        is_array($GLOBALS['streetkingz_ai_writer_template_save_scope'] ?? null) &&
-        ($GLOBALS['streetkingz_ai_writer_template_save_scope']['user_id'] ?? 0) === $user_id &&
-        ($GLOBALS['streetkingz_ai_writer_template_save_scope']['template_id'] ?? 0) === STREETKINGZ_AI_WRITE_TEMPLATE_ID
-    ) {
-        /* Elementor checks the post type's plural primitive before its per-post meta capability. */
-        if ($edit_posts && $cap === $edit_posts && empty($args)) return ['read'];
-        if ($edit_post && $cap === $edit_post && (int) ($args[0] ?? 0) === STREETKINGZ_AI_WRITE_TEMPLATE_ID) return ['read'];
-    }
-    return $caps;
-}
-
-function streetkingz_ai_writer_canonical_document_hash(array $document): string {
-    $encoded = wp_json_encode($document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    return is_string($encoded) ? hash('sha256', $encoded) : '';
-}
-
 function streetkingz_ai_writer_read_persisted_template() {
     global $wpdb;
     $rows = $wpdb->get_results($wpdb->prepare(
@@ -500,70 +519,47 @@ function streetkingz_ai_writer_read_persisted_template() {
     if (count($rows) !== 1 || !is_string($rows[0]['meta_value'])) return new WP_Error('streetkingz_ai_persisted_template_unavailable', 'Persisted Elementor data is missing or ambiguous.', ['status' => 500]);
     $document = json_decode($rows[0]['meta_value'], true);
     if (!is_array($document)) return new WP_Error('streetkingz_ai_persisted_template_invalid', 'Persisted Elementor data is invalid.', ['status' => 500]);
-    return ['raw' => $rows[0]['meta_value'], 'document' => $document, 'canonical_sha256' => streetkingz_ai_writer_canonical_document_hash($document)];
+    return ['raw' => $rows[0]['meta_value'], 'document' => $document, 'raw_sha256' => hash('sha256', $rows[0]['meta_value'])];
 }
 
-function streetkingz_ai_writer_safe_save_value($value) {
-    if (is_bool($value) || is_null($value) || is_int($value) || is_float($value)) return $value;
-    if (is_string($value)) return ['type' => 'string', 'length' => strlen($value), 'sha256' => hash('sha256', $value)];
-    return null;
-}
-
-function streetkingz_ai_writer_save_elementor(array $elements) {
-    if (!class_exists('\\Elementor\\Plugin')) return new WP_Error('streetkingz_ai_elementor_api_unavailable', 'Elementor document API is unavailable.', ['status' => 500]);
-    if (!current_user_can(STREETKINGZ_AI_WRITE_CAPABILITY)) return new WP_Error('streetkingz_ai_elementor_save_forbidden', 'The bounded writer capability is required for the Elementor save.', ['status' => 403]);
+/*
+ * This is deliberately not a generic metadata API. Both target coordinates are
+ * compile-time constants and callers can supply only the already-verified full
+ * raw candidate produced by the two-leaf surgical patcher.
+ */
+function streetkingz_ai_writer_persist_surgical_template(string $expected_raw) {
+    if (!current_user_can(STREETKINGZ_AI_WRITE_CAPABILITY)) return new WP_Error('streetkingz_ai_template_write_forbidden', 'The bounded writer capability is required for the fixed template write.', ['status' => 403]);
+    $expected_document = json_decode($expected_raw, true);
+    if (!is_array($expected_document)) return new WP_Error('streetkingz_ai_template_write_invalid', 'The fixed template candidate is invalid.', ['status' => 409]);
     $before = streetkingz_ai_writer_read_persisted_template();
     if (is_wp_error($before)) return $before;
-    $expected_hash = streetkingz_ai_writer_canonical_document_hash($elements);
     $diagnostics = [
-        'elementor_version' => defined('ELEMENTOR_VERSION') ? ELEMENTOR_VERSION : null,
+        'persistence_mechanism' => 'fixed_raw_elementor_data_update_metadata',
         'template_id' => STREETKINGZ_AI_WRITE_TEMPLATE_ID,
-        'pre_save_persisted_template_sha256' => $before['canonical_sha256'],
-        'expected_post_save_template_sha256' => $expected_hash,
-        'save_invocation_reached' => false,
+        'meta_key' => '_elementor_data',
+        'pre_write_persisted_raw_sha256' => $before['raw_sha256'],
+        'expected_post_write_raw_sha256' => hash('sha256', $expected_raw),
+        'update_metadata_reached' => false,
     ];
-    $GLOBALS['streetkingz_ai_writer_template_save_scope'] = ['user_id' => get_current_user_id(), 'template_id' => STREETKINGZ_AI_WRITE_TEMPLATE_ID];
-    add_filter('map_meta_cap', 'streetkingz_ai_writer_map_template_save_capability', 10, 4);
-    try {
-        $document = \Elementor\Plugin::$instance->documents->get(STREETKINGZ_AI_WRITE_TEMPLATE_ID);
-        if (!$document) return new WP_Error('streetkingz_ai_elementor_document_unavailable', 'Elementor document is unavailable.', ['status' => 500]);
-        $post_type = get_post_type_object('elementor_library');
-        $edit_posts = $post_type && isset($post_type->cap->edit_posts) ? $post_type->cap->edit_posts : null;
-        $edit_post = $post_type && isset($post_type->cap->edit_post) ? $post_type->cap->edit_post : null;
-        $diagnostics['document_class'] = get_class($document);
-        $diagnostics['document_type'] = method_exists($document, 'get_name') ? $document->get_name() : null;
-        $diagnostics['edit_posts_capability'] = $edit_posts;
-        $diagnostics['edit_post_capability'] = $edit_post;
-        $diagnostics['edit_posts_allowed_immediately_before_save'] = $edit_posts ? current_user_can($edit_posts) : false;
-        $diagnostics['edit_post_allowed_immediately_before_save'] = $edit_post ? current_user_can($edit_post, STREETKINGZ_AI_WRITE_TEMPLATE_ID) : false;
-        if (!$diagnostics['edit_posts_allowed_immediately_before_save'] || !$diagnostics['edit_post_allowed_immediately_before_save']) {
-            return new WP_Error('streetkingz_ai_elementor_bounded_capability_failed', 'The bounded Elementor save capabilities did not resolve.', ['status' => 500, 'diagnostics' => $diagnostics]);
-        }
-        /* Document::save expects decoded element data under the elements key. */
-        $diagnostics['save_invocation_reached'] = true;
-        $result = $document->save(['elements' => $elements]);
-        $diagnostics['save_return_type'] = gettype($result);
-        $diagnostics['save_return_value'] = streetkingz_ai_writer_safe_save_value($result);
-    } catch (Throwable $error) {
-        $diagnostics['exception_class'] = get_class($error);
-        $diagnostics['exception_code'] = $error->getCode();
-        $result = new WP_Error('streetkingz_ai_elementor_save_exception', 'Elementor document save raised an exception.', ['status' => 500, 'diagnostics' => $diagnostics]);
-    } finally {
-        remove_filter('map_meta_cap', 'streetkingz_ai_writer_map_template_save_capability', 10);
-        unset($GLOBALS['streetkingz_ai_writer_template_save_scope']);
-    }
+    $diagnostics['update_metadata_reached'] = true;
+    $result = update_metadata('post', STREETKINGZ_AI_WRITE_TEMPLATE_ID, '_elementor_data', wp_slash($expected_raw));
+    $diagnostics['update_metadata_return_type'] = gettype($result);
+    $diagnostics['update_metadata_return_value'] = is_bool($result) ? $result : null;
     streetkingz_ai_writer_clear_persisted_state_caches();
     $after = streetkingz_ai_writer_read_persisted_template();
     if (is_wp_error($after)) return $after;
-    $diagnostics['post_save_persisted_template_sha256'] = $after['canonical_sha256'];
-    $diagnostics['persisted_state_matches_expected'] = $expected_hash !== '' && hash_equals($expected_hash, $after['canonical_sha256']);
-    return ['api_result' => $result, 'persisted_matches_expected' => $diagnostics['persisted_state_matches_expected'], 'diagnostics' => $diagnostics];
+    $diagnostics['post_write_persisted_raw_sha256'] = $after['raw_sha256'];
+    $diagnostics['persisted_raw_matches_expected'] = hash_equals($diagnostics['expected_post_write_raw_sha256'], $after['raw_sha256']) && $after['raw'] === $expected_raw;
+    $diagnostics['persisted_parsed_matches_expected'] = $after['document'] === $expected_document;
+    return ['persistence_result' => $result, 'persisted_matches_expected' => $diagnostics['persisted_raw_matches_expected'] && $diagnostics['persisted_parsed_matches_expected'], 'diagnostics' => $diagnostics];
 }
 
 function streetkingz_ai_writer_clear_persisted_state_caches(): void {
     clean_post_cache(STREETKINGZ_AI_WRITE_PRODUCT_ID);
     clean_post_cache(STREETKINGZ_AI_WRITE_TEMPLATE_ID);
     wp_cache_delete(STREETKINGZ_AI_WRITE_TEMPLATE_ID, 'post_meta');
+    do_action('litespeed_purge_post', STREETKINGZ_AI_WRITE_TEMPLATE_ID);
+    do_action('litespeed_purge_post', STREETKINGZ_AI_WRITE_PRODUCT_ID);
 }
 
 function streetkingz_ai_writer_verify_state(array $expected, bool $targets = false, ?array &$diagnostics = null): bool {
@@ -577,12 +573,12 @@ function streetkingz_ai_writer_verify_state(array $expected, bool $targets = fal
     $document = json_decode($source['template']['raw_elementor_data'], true);
     if (!is_array($document)) { $diagnostics = ['product_matches' => $product_matches, 'template_valid' => false]; return false; }
     $expected_document = $targets ? $expected['patched_document'] : $expected['original']['document'];
-    $actual_semantic = wp_json_encode($document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    $expected_semantic = wp_json_encode($expected_document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    $actual_hash = is_string($actual_semantic) ? hash('sha256', $actual_semantic) : '';
-    $expected_hash = is_string($expected_semantic) ? hash('sha256', $expected_semantic) : '';
-    $template_matches = $actual_hash !== '' && $expected_hash !== '' && hash_equals($expected_hash, $actual_hash);
-    $diagnostics = ['product_matches' => $product_matches, 'persisted_template_sha256' => $actual_hash, 'expected_template_sha256' => $expected_hash, 'template_matches' => $template_matches];
+    $expected_raw = $targets ? $expected['patched_raw'] : $expected['original']['template_raw'];
+    $actual_raw = $source['template']['raw_elementor_data'];
+    $actual_hash = hash('sha256', $actual_raw);
+    $expected_hash = hash('sha256', $expected_raw);
+    $template_matches = hash_equals($expected_hash, $actual_hash) && $actual_raw === $expected_raw && $document === $expected_document;
+    $diagnostics = ['product_matches' => $product_matches, 'persisted_template_raw_sha256' => $actual_hash, 'expected_template_raw_sha256' => $expected_hash, 'raw_byte_match' => $actual_raw === $expected_raw, 'parsed_strict_match' => $document === $expected_document, 'template_matches' => $template_matches];
     if (!$product_matches || !$template_matches) return false;
     foreach ([STREETKINGZ_AI_WRITE_DESCRIPTION_ID, STREETKINGZ_AI_WRITE_COMPARISON_ID, STREETKINGZ_AI_WRITE_SAFETY_ID] as $id) {
         $matches = streetkingz_ai_writer_find_elements($document, $id);
@@ -601,19 +597,17 @@ function streetkingz_ai_writer_rollback(array $prepared, ?array &$diagnostics = 
     streetkingz_ai_writer_clear_persisted_state_caches();
     $persisted = streetkingz_ai_writer_source($prepared['approval']);
     if (is_wp_error($persisted)) { $diagnostics['persisted_read_error'] = $persisted->get_error_code(); return false; }
-    $persisted_document = json_decode($persisted['template']['raw_elementor_data'], true);
+    $persisted_raw = $persisted['template']['raw_elementor_data'];
+    $persisted_document = json_decode($persisted_raw, true);
     if (!is_array($persisted_document)) { $diagnostics['persisted_template_valid'] = false; return false; }
-    $persisted_semantic = wp_json_encode($persisted_document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    $original_semantic = wp_json_encode($prepared['original']['document'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    if (!is_string($persisted_semantic) || !is_string($original_semantic)) return false;
-    $diagnostics['pre_restore_persisted_template_sha256'] = hash('sha256', $persisted_semantic);
-    $diagnostics['rollback_target_template_sha256'] = hash('sha256', $original_semantic);
+    $diagnostics['pre_restore_persisted_template_sha256'] = hash('sha256', $persisted_raw);
+    $diagnostics['rollback_target_template_sha256'] = hash('sha256', $prepared['original']['template_raw']);
     if (!hash_equals($diagnostics['rollback_target_template_sha256'], $diagnostics['pre_restore_persisted_template_sha256'])) {
         $diagnostics['template_restore_called'] = true;
-        $elementor = streetkingz_ai_writer_save_elementor($prepared['original']['document']);
-        /* The API return is diagnostic only; freshly persisted state is authoritative. */
-        $diagnostics['template_restore_diagnostics'] = is_array($elementor) ? ($elementor['diagnostics'] ?? []) : [];
-        if (is_wp_error($elementor)) $diagnostics['template_restore_error'] = $elementor->get_error_code();
+        $restore = streetkingz_ai_writer_persist_surgical_template($prepared['original']['template_raw']);
+        /* The persistence return is diagnostic only; freshly persisted bytes are authoritative. */
+        $diagnostics['template_restore_diagnostics'] = is_array($restore) ? ($restore['diagnostics'] ?? []) : [];
+        if (is_wp_error($restore)) $diagnostics['template_restore_error'] = $restore->get_error_code();
     }
     /* Always verify freshly persisted state, including when the failed save never changed the template. */
     $verified = streetkingz_ai_writer_verify_state($prepared, false, $verification);
@@ -653,19 +647,18 @@ function streetkingz_ai_guarded_writer_request(WP_REST_Request $request) {
     if (is_wp_error($claim)) return $claim;
     $product_result = wp_update_post(['ID' => STREETKINGZ_AI_WRITE_PRODUCT_ID, 'post_title' => $prepared['targets']['post_title'], 'post_excerpt' => $prepared['targets']['post_excerpt']], true);
     if (is_wp_error($product_result)) return streetkingz_ai_writer_failed_after_claim($claim, 'product_write_failed', $product_result);
-    $elementor_result = streetkingz_ai_writer_save_elementor($prepared['patched_document']);
-    $elementor_persisted = !is_wp_error($elementor_result) && !empty($elementor_result['persisted_matches_expected']);
-    if (!$elementor_persisted) {
-        $api_result = is_array($elementor_result) ? ($elementor_result['api_result'] ?? null) : $elementor_result;
-        $elementor_failure_code = is_wp_error($api_result) ? $api_result->get_error_code() : (is_wp_error($elementor_result) ? $elementor_result->get_error_code() : 'streetkingz_ai_elementor_persisted_state_mismatch');
-        $elementor_diagnostics = is_array($elementor_result) ? ($elementor_result['diagnostics'] ?? []) : (is_wp_error($elementor_result) ? ($elementor_result->get_error_data()['diagnostics'] ?? []) : []);
-        if (!streetkingz_ai_writer_rollback($prepared, $rollback_diagnostics)) return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rollback_unverified', new WP_Error('streetkingz_ai_rollback_verification_failed', 'Elementor write failed and rollback could not be verified.', ['status' => 500, 'elementor_failure_code' => $elementor_failure_code, 'elementor_diagnostics' => $elementor_diagnostics, 'rollback_diagnostics' => $rollback_diagnostics]));
-        return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rolled_back', new WP_Error('streetkingz_ai_write_rolled_back', 'Elementor write did not produce the exact persisted target; compensating rollback completed and was verified.', ['status' => 500, 'elementor_failure_code' => $elementor_failure_code, 'elementor_diagnostics' => $elementor_diagnostics]));
+    $template_result = streetkingz_ai_writer_persist_surgical_template($prepared['patched_raw']);
+    $template_persisted = !is_wp_error($template_result) && !empty($template_result['persisted_matches_expected']);
+    if (!$template_persisted) {
+        $persistence_failure_code = is_wp_error($template_result) ? $template_result->get_error_code() : 'streetkingz_ai_template_persisted_state_mismatch';
+        $template_diagnostics = is_array($template_result) ? ($template_result['diagnostics'] ?? []) : [];
+        if (!streetkingz_ai_writer_rollback($prepared, $rollback_diagnostics)) return streetkingz_ai_writer_failed_after_claim($claim, 'template_write_failed_rollback_unverified', new WP_Error('streetkingz_ai_rollback_verification_failed', 'The fixed template write failed and rollback could not be verified.', ['status' => 500, 'persistence_failure_code' => $persistence_failure_code, 'template_diagnostics' => $template_diagnostics, 'rollback_diagnostics' => $rollback_diagnostics]));
+        return streetkingz_ai_writer_failed_after_claim($claim, 'template_write_failed_rolled_back', new WP_Error('streetkingz_ai_write_rolled_back', 'The fixed template write did not produce the exact persisted bytes; compensating rollback completed and was verified.', ['status' => 500, 'persistence_failure_code' => $persistence_failure_code, 'template_diagnostics' => $template_diagnostics]));
     }
     if (!streetkingz_ai_writer_verify_state($prepared, true)) {
         if (!streetkingz_ai_writer_rollback($prepared, $rollback_diagnostics)) return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rollback_unverified', new WP_Error('streetkingz_ai_post_write_and_rollback_verification_failed', 'Post-write verification failed and rollback could not be verified.', ['status' => 500, 'rollback_diagnostics' => $rollback_diagnostics]));
         return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rolled_back', new WP_Error('streetkingz_ai_post_write_verification_failed_rolled_back', 'Post-write verification failed; rollback completed and was verified.', ['status' => 500]));
     }
     if (!streetkingz_ai_writer_finish_execution($claim, 'succeeded', 'approved_mutations_verified')) return new WP_Error('streetkingz_ai_execution_audit_update_failed', 'Approved mutations were verified, but the permanent execution audit state could not be marked succeeded. The claim remains unavailable.', ['status' => 500]);
-    return rest_ensure_response(['status' => 'write_complete_requires_post_write_verification', 'snapshot_sha256' => $snapshot['sha256'], 'elementor_diagnostics' => $elementor_result['diagnostics']]);
+    return rest_ensure_response(['status' => 'write_complete_requires_post_write_verification', 'snapshot_sha256' => $snapshot['sha256'], 'raw_patch' => $prepared['raw_patch'], 'template_persistence_diagnostics' => $template_result['diagnostics']]);
 }

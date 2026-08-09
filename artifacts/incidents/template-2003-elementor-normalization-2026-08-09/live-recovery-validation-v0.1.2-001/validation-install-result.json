@@ -1,0 +1,8 @@
+{
+  "status": "validation_installed",
+  "validation_sha256": "d056692c0873f24c6dcb1c6acb4e2668c5326c4522eedae811f2485c34d8512b",
+  "execution_capable": false,
+  "recovery_id_present": false,
+  "claim_possible": false,
+  "content_mutations": 0
+}

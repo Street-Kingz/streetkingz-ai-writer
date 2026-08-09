@@ -1,0 +1,18 @@
+{
+  "validation": {
+    "status": "validation_installed",
+    "validation_sha256": "d056692c0873f24c6dcb1c6acb4e2668c5326c4522eedae811f2485c34d8512b",
+    "incident_id": "template-2003-elementor-normalization-2026-08-09",
+    "template_id": 2003,
+    "meta_key": "_elementor_data",
+    "installed_at": "2026-08-09T15:26:48+00:00",
+    "execution_capable": false,
+    "recovery_id_present": false,
+    "claim_possible": false
+  },
+  "production": {
+    "status": "locked",
+    "incident": "template-2003-elementor-normalization-2026-08-09",
+    "template_id": 2003
+  }
+}

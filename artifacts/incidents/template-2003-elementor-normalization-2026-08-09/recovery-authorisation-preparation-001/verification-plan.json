@@ -1,0 +1,19 @@
+{
+  "preflight": [
+    "fresh authoritative Reader GET",
+    "current raw hash exact",
+    "140-path diff exact",
+    "fresh rollback snapshot persisted",
+    "final dry run pass"
+  ],
+  "post_recovery": [
+    "fresh authoritative Reader GET",
+    "target raw hash exact",
+    "strict parsed equality with preserved source",
+    "Product 70 unchanged",
+    "description/comparison/safety content unchanged",
+    "rendered page healthy"
+  ],
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "rollback_verification": "fresh authoritative raw hash equals captured drifted rollback source"
+}

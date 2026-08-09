@@ -1,0 +1,733 @@
+{
+  "run_id": "live-recovery-validation-v0.1.2-001",
+  "created_at": "2026-08-09T15:27:14.709Z",
+  "requests": [
+    {
+      "label": "route_discovery",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 200,
+      "error_code": null,
+      "response_size": 1641775,
+      "cache_headers": {
+        "x-litespeed-cache": "miss",
+        "x-litespeed-cache-control": "public,max-age=604800"
+      }
+    },
+    {
+      "label": "initial_production_status",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 100,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "initial_validation_status",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 107,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_anonymous",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_reader",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_writer",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_recovery",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 107,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_anonymous",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_reader",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_1_writer",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_anonymous",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_reader",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_writer",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_recovery",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 107,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_anonymous",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_reader",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "cache_2_writer",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "baseline_authoritative",
+      "method": "GET",
+      "identity": "reader",
+      "status": 200,
+      "error_code": null,
+      "response_size": 111903,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "validation_install",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 219,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "validation_status",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 353,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "production_status_during_validation",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 100,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_wrong_incident",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_scope_invalid",
+      "response_size": 158,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_wrong_post",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_scope_invalid",
+      "response_size": 158,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_template_2002",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_scope_invalid",
+      "response_size": 158,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_template_2004",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_scope_invalid",
+      "response_size": 158,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_wrong_meta",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_scope_invalid",
+      "response_size": 158,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_wrong_current",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_guards_invalid",
+      "response_size": 166,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_wrong_target",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_guards_invalid",
+      "response_size": 166,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_wrong_diff",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_guards_invalid",
+      "response_size": 166,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_unexpected_diff",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_guards_invalid",
+      "response_size": 166,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_arbitrary_target",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_target_invalid",
+      "response_size": 155,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_extra_operation",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_scope_invalid",
+      "response_size": 158,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_publication",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_shape_invalid",
+      "response_size": 161,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_slug",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_shape_invalid",
+      "response_size": 161,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_title",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_shape_invalid",
+      "response_size": 161,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "negative_excerpt",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_shape_invalid",
+      "response_size": 161,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_anonymous_status",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_anonymous_install",
+      "method": "POST",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_anonymous_dry_run",
+      "method": "POST",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_anonymous_remove",
+      "method": "DELETE",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_reader_status",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_reader_install",
+      "method": "POST",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_reader_dry_run",
+      "method": "POST",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_reader_remove",
+      "method": "DELETE",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_writer_status",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_writer_install",
+      "method": "POST",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_writer_dry_run",
+      "method": "POST",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "denied_writer_remove",
+      "method": "DELETE",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "silent_replacement",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_validation_active",
+      "response_size": 146,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "validation_dry_run",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 1086,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "production_rejects_validation",
+      "method": "POST",
+      "identity": "recovery",
+      "status": 409,
+      "error_code": "streetkingz_ai_recovery_contract_shape_invalid",
+      "response_size": 151,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "production_status_after_rejection",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 100,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "validation_remove",
+      "method": "DELETE",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 130,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "validation_status_after_remove",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 107,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "production_status_after_remove",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 100,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "final_authoritative",
+      "method": "GET",
+      "identity": "reader",
+      "status": 200,
+      "error_code": null,
+      "response_size": 111903,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "final_cache_recovery",
+      "method": "GET",
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "response_size": 107,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "final_cache_anonymous",
+      "method": "GET",
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "final_cache_reader",
+      "method": "GET",
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "label": "final_cache_writer",
+      "method": "GET",
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "response_size": 149,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    }
+  ],
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false,
+  "retries": 0,
+  "live_content_writes": 0,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0
+}

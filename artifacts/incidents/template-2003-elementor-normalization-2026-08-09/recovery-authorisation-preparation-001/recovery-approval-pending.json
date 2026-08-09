@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "pending_human_recovery_approval",
+  "incident_id": "template-2003-elementor-normalization-2026-08-09",
+  "allowed_post_id": 2003,
+  "allowed_meta_key": "_elementor_data",
+  "expected_current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "expected_diff_count": 140,
+  "expected_diff_type": "equal_valued_string_to_number_only",
+  "unexpected_diff_count": 0,
+  "product_70_writable": false,
+  "other_templates_writable": false,
+  "other_meta_writable": false,
+  "slug_change_authorised": false,
+  "publication_change_authorised": false,
+  "normal_writer_execution_authorised": false,
+  "human_recovery_approval": "PENDING",
+  "required_statement_sha256": "4fdb4b4ff62381c5b668fcf9ca129533a55996d7bed78054f1923949147c7dc5",
+  "pending_approval_fingerprint_sha256": "4bb5701adbf3aa3bcd6bab9773e456c98f7f25e3c131600c7c96d971cc2f01a7"
+}

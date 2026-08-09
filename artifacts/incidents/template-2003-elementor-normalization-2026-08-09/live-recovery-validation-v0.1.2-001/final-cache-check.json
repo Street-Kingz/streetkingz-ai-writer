@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "calls": [
+    {
+      "identity": "recovery",
+      "status": 200,
+      "error_code": null,
+      "body_status": "validation_absent",
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "identity": "anonymous",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "body_status": null,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "identity": "reader",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "body_status": null,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    },
+    {
+      "identity": "writer",
+      "status": 403,
+      "error_code": "streetkingz_ai_recovery_forbidden",
+      "body_status": null,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache"
+      }
+    }
+  ]
+}

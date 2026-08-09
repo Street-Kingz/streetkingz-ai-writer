@@ -1,0 +1,14 @@
+{
+  "production_rejection": {
+    "status": 409,
+    "error_code": "streetkingz_ai_recovery_contract_shape_invalid"
+  },
+  "production_status": {
+    "status": "locked",
+    "incident": "template-2003-elementor-normalization-2026-08-09",
+    "template_id": 2003
+  },
+  "validation_has_recovery_id": false,
+  "validation_has_human_approval": false,
+  "promotion_endpoint": false
+}

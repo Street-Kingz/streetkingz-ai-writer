@@ -1,0 +1,7 @@
+{
+  "http_status": 200,
+  "expected_content_present": true,
+  "malformed_document_marker": false,
+  "response_sha256": "da1fd24476d72e133bf8cc56cfc5975bbf09b27221acdd3644c7f2b7f55e1bba",
+  "response_size": 276490
+}

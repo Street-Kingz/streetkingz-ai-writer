@@ -1,0 +1,10 @@
+{
+  "tests": "332/332 PASS",
+  "recovery_plugin_version": "0.1.2",
+  "authorisation_sha256": "9e6fe427f08dd32b3c74a9263d9650f9bec4f31a30f29fb82ec0446df6b179bd",
+  "statement_sha256": "4829f9bbff4f2e8c837f43b5dc81fdb3e8cb1af147f75c02d594b9d5c4645ba1",
+  "run_directory_created_before_requests": true,
+  "retries": 0,
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false
+}

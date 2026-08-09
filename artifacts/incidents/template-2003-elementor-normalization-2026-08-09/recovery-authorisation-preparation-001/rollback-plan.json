@@ -1,0 +1,9 @@
+{
+  "before_claim": "capture fresh exact current drifted raw _elementor_data and persist immutable rollback snapshot",
+  "trigger": "any post-claim recovery or verification failure",
+  "restore": "directly restore the exact fresh drifted raw snapshot to post 2003 / _elementor_data",
+  "required_restored_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "terminal_state": "failed_after_claim",
+  "recovery_id_consumed_permanently": true,
+  "retries": 0
+}

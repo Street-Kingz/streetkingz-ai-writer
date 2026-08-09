@@ -1,0 +1,108 @@
+{
+  "namespace_present": true,
+  "validation_manifest": {
+    "namespace": "streetkingz-ai/v1",
+    "methods": [
+      "POST",
+      "DELETE"
+    ],
+    "endpoints": [
+      {
+        "methods": [
+          "POST"
+        ],
+        "args": []
+      },
+      {
+        "methods": [
+          "DELETE"
+        ],
+        "args": []
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation-manifest"
+        }
+      ]
+    }
+  },
+  "validation_status": {
+    "namespace": "streetkingz-ai/v1",
+    "methods": [
+      "GET"
+    ],
+    "endpoints": [
+      {
+        "methods": [
+          "GET"
+        ],
+        "args": []
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation/status"
+        }
+      ]
+    }
+  },
+  "validation_dry_run": {
+    "namespace": "streetkingz-ai/v1",
+    "methods": [
+      "POST"
+    ],
+    "endpoints": [
+      {
+        "methods": [
+          "POST"
+        ],
+        "args": []
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/validation/dry-run"
+        }
+      ]
+    }
+  },
+  "production_recovery": {
+    "namespace": "streetkingz-ai/v1",
+    "methods": [
+      "GET",
+      "POST",
+      "DELETE"
+    ],
+    "endpoints": [
+      {
+        "methods": [
+          "GET"
+        ],
+        "args": []
+      },
+      {
+        "methods": [
+          "POST"
+        ],
+        "args": []
+      },
+      {
+        "methods": [
+          "DELETE"
+        ],
+        "args": []
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/incidents/template-2003-elementor-normalization/recover"
+        }
+      ]
+    }
+  }
+}

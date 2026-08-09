@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "template_id": 2003,
+  "meta_key": "_elementor_data",
+  "allowed_paths": [
+    "c80e718.settings.editor",
+    "40869c27.settings.editor"
+  ],
+  "raw_policy": "Only the two existing JSON string value tokens may differ. All prefix, separator, key-order, whitespace, escaping, Unicode encoding and suffix bytes are copied from the fresh raw source.",
+  "parsed_policy": "After raw splicing, strict parsed equality is required against a clone of the fresh parsed document with exactly the two approved leaves changed.",
+  "anchor_policy": "Each fixed widget anchor must occur exactly once and its encoded old value and following JSON boundary must match.",
+  "persistence_policy": "One internal update_metadata call with compile-time post 2003 and _elementor_data coordinates; its return is diagnostic only.",
+  "verification_policy": "Fresh persisted raw string, SHA-256, and strict parsed structure must all equal the exact expected candidate.",
+  "rollback_policy": "Restore and freshly verify the exact captured pre-write raw string; numeric/string equivalence is never accepted.",
+  "generic_metadata_interface_exposed": false,
+  "elementor_document_save_used": false
+}

@@ -1,0 +1,30 @@
+{
+  "status": "validation_dry_run_passed",
+  "incident_id": "template-2003-elementor-normalization-2026-08-09",
+  "post_id": 2003,
+  "meta_key": "_elementor_data",
+  "observed_current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "expected_current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "current_raw_length": 49698,
+  "target_raw_length": 49418,
+  "diff_count": 140,
+  "diff_classification": "equal_valued_string_to_number_only",
+  "unexpected_diff_count": 0,
+  "product_70_protected": true,
+  "other_templates_protected": true,
+  "other_meta_protected": true,
+  "cache_invalidation_plan": [
+    "template_2003_post_cache",
+    "template_2003_post_meta_cache",
+    "litespeed_template_2003",
+    "litespeed_product_70"
+  ],
+  "post_recovery_verification_plan": "fresh_authoritative_raw_hash_and_strict_parsed_equality",
+  "rollback_plan": "exact_captured_drifted_raw_restore",
+  "execution_capable": false,
+  "recovery_id_present": false,
+  "claim_possible": false,
+  "content_mutation_possible": false,
+  "content_mutations": 0
+}

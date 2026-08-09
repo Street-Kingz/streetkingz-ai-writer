@@ -1,0 +1,13 @@
+{
+  "tests": "332/332 PASS",
+  "credentials": {
+    "reader": true,
+    "writer": true,
+    "recovery": true
+  },
+  "identities_distinct": true,
+  "retries": 0,
+  "run_directory_created_before_requests": true,
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false
+}

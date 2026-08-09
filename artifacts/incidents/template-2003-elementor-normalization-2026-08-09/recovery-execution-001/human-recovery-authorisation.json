@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "approved",
+  "authorisation_source": "explicit_human_incident_recovery_authorisation",
+  "statement": "I authorise the exact restoration of template 2003 _elementor_data from the current known incident state e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00 to the preserved pre-incident state 81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01. No other content or metadata is authorised to change.",
+  "statement_sha256": "4829f9bbff4f2e8c837f43b5dc81fdb3e8cb1af147f75c02d594b9d5c4645ba1",
+  "authorised_at": "2026-08-09T15:39:14.746Z",
+  "incident_id": "template-2003-elementor-normalization-2026-08-09",
+  "template_id": 2003,
+  "meta_key": "_elementor_data",
+  "expected_current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "product_70_modification_authorised": false,
+  "other_template_modification_authorised": false,
+  "other_meta_modification_authorised": false,
+  "publication_modification_authorised": false,
+  "slug_modification_authorised": false
+}

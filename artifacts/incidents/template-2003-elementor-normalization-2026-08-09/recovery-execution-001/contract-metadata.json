@@ -1,0 +1,8 @@
+{
+  "contract_sha256": "b34d69c32d4df04038e6957646158adabcca3d72372fa6b74216aeb6e7d892a7",
+  "recovery_id_sha256": "89a8c6a624fa9996608d3b6f555efbb01a539be653813fe3345883960b7c6474",
+  "approval_sha256": "9e6fe427f08dd32b3c74a9263d9650f9bec4f31a30f29fb82ec0446df6b179bd",
+  "installed_live": false,
+  "claimed": false,
+  "retries": 0
+}

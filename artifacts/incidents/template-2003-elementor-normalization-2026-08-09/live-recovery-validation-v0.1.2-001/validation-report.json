@@ -1,0 +1,12 @@
+{
+  "decision": "PASS_WITH_RESPONSE_SCHEMA_GAP",
+  "cache_security": true,
+  "incident_state": true,
+  "validation_install": true,
+  "validation_dry_run": true,
+  "execution_isolation": true,
+  "cleanup": true,
+  "content_unchanged": true,
+  "install_response_content_mutation_possible_field": "missing",
+  "ready_for_human_recovery_authorisation": false
+}

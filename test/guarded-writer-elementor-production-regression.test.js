@@ -55,15 +55,12 @@ test("production document patches description and comparison only", () => {
   assert.equal(locateAll(patched, "43d7d6f0")[0].element.settings.editor, safety);
 });
 
-test("Elementor Document save payload is decoded elements, not raw stored JSON", () => {
-  const patched = clone(original);
-  patch(patched, "c80e718", approved("description"));
-  patch(patched, "40869c27", approved("comparison"));
-  const payload = { elements: patched };
-  assert.ok(Array.isArray(payload.elements));
-  assert.equal(payload.elements[0].elType, "container");
-  assert.match(plugin, /\$document->save\(\['elements' => \$elements\]\)/);
-  assert.doesNotMatch(plugin, /update_post_meta\s*\(.*_elementor_data/s);
+test("surgical persistence splices only fixed editor value tokens", () => {
+  assert.match(plugin, /function streetkingz_ai_writer_patch_raw_editor_token/);
+  assert.match(plugin, /STREETKINGZ_AI_WRITE_DESCRIPTION_ID, STREETKINGZ_AI_WRITE_COMPARISON_ID/);
+  assert.match(plugin, /substr_replace\(\$raw, \$new_token, \$value_start, strlen\(\$old_token\)\)/);
+  assert.match(plugin, /update_metadata\('post', STREETKINGZ_AI_WRITE_TEMPLATE_ID, '_elementor_data', wp_slash\(\$expected_raw\)\)/);
+  assert.doesNotMatch(plugin, /Document::save|documents->get|->save\(\['elements'/);
 });
 
 test("production locator does not retain PHP references into the rollback document", () => {
@@ -72,40 +69,35 @@ test("production locator does not retain PHP references into the rollback docume
   assert.doesNotMatch(locator, /array &\$items|foreach \(\$items as \$index => &\$item\)|'element' => &\$item/);
 });
 
-test("bounded capability bridge covers Elementor's plural and per-post checks", () => {
-  const bridge = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_map_template_save_capability"), plugin.indexOf("function streetkingz_ai_writer_canonical_document_hash"));
-  assert.match(bridge, /\$cap === \$edit_posts && empty\(\$args\)/);
-  assert.match(bridge, /\$cap === \$edit_post && \(int\) \(\$args\[0\]/);
-  assert.match(bridge, /STREETKINGZ_AI_WRITE_TEMPLATE_ID/);
-  assert.doesNotMatch(bridge, /add_cap|edit_products|manage_options/);
+test("surgical path needs no temporary or generic Elementor capabilities", () => {
+  assert.doesNotMatch(plugin, /streetkingz_ai_writer_map_template_save_capability|map_meta_cap|user_has_cap/);
+  assert.doesNotMatch(plugin, /add_cap\([^\n]*(?:edit_post|edit_posts|edit_products)/);
+  assert.match(plugin, /current_user_can\(STREETKINGZ_AI_WRITE_CAPABILITY\)/);
 });
 
-test("capability bridge is installed before document acquisition and removed in finally", () => {
-  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_save_elementor"), plugin.indexOf("function streetkingz_ai_writer_clear_persisted_state_caches"));
-  assert.ok(save.indexOf("add_filter('map_meta_cap'") < save.indexOf("documents->get(STREETKINGZ_AI_WRITE_TEMPLATE_ID)"));
-  assert.match(save, /finally[\s\S]*remove_filter\('map_meta_cap'/);
-  assert.match(save, /unset\(\$GLOBALS\['streetkingz_ai_writer_template_save_scope'\]\)/);
+test("fixed persistence coordinates cannot be supplied by a caller", () => {
+  const persist = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_persist_surgical_template"), plugin.indexOf("function streetkingz_ai_writer_verify_state"));
+  assert.match(persist, /STREETKINGZ_AI_WRITE_TEMPLATE_ID/);
+  assert.match(persist, /'_elementor_data'/);
+  assert.doesNotMatch(persist, /\$post_id|\$meta_key|WP_REST_Request/);
 });
 
-test("save outcome records return semantics but trusts exact persisted state", () => {
-  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_save_elementor"), plugin.indexOf("function streetkingz_ai_writer_clear_persisted_state_caches"));
-  assert.match(save, /save_return_type/);
-  assert.match(save, /save_return_value/);
-  assert.match(save, /post_save_persisted_template_sha256/);
-  assert.match(save, /persisted_state_matches_expected/);
-  assert.match(plugin, /\$elementor_persisted = .*persisted_matches_expected/);
+test("persistence records return semantics but trusts exact raw persisted state", () => {
+  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_persist_surgical_template"), plugin.indexOf("function streetkingz_ai_writer_verify_state"));
+  for (const field of ["update_metadata_return_type", "update_metadata_return_value", "post_write_persisted_raw_sha256", "persisted_raw_matches_expected", "persisted_parsed_matches_expected"]) assert.match(save, new RegExp(field));
+  assert.match(plugin, /\$template_persisted = !is_wp_error\(\$template_result\) && !empty\(\$template_result\['persisted_matches_expected'\]\)/);
 });
 
 test("truthy API return cannot override wrong persistence", () => {
   const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
-  assert.match(request, /if \(!\$elementor_persisted\)/);
-  assert.doesNotMatch(request, /if \(\$elementor_result\)/);
+  assert.match(request, /if \(!\$template_persisted\)/);
+  assert.doesNotMatch(request, /if \(\$template_result\)/);
 });
 
 test("false API return with exact persistence is not falsely failed", () => {
   const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
-  assert.match(request, /!empty\(\$elementor_result\['persisted_matches_expected'\]\)/);
-  assert.doesNotMatch(request, /\$elementor_result === false/);
+  assert.match(request, /!empty\(\$template_result\['persisted_matches_expected'\]\)/);
+  assert.doesNotMatch(request, /\$template_result === false/);
 });
 
 test("rollback skips a restore call when persisted template is already original", () => {
@@ -120,9 +112,9 @@ test("rollback judges restore by fresh persisted verification, not restore retur
   assert.doesNotMatch(rollback, /\$elementor === false/);
 });
 
-test("bounded diagnostics contain hashes and types but no content or credentials", () => {
-  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_save_elementor"), plugin.indexOf("function streetkingz_ai_writer_clear_persisted_state_caches"));
-  for (const field of ["elementor_version", "document_class", "document_type", "template_id", "save_return_type", "save_return_value", "pre_save_persisted_template_sha256", "expected_post_save_template_sha256", "post_save_persisted_template_sha256"]) assert.match(save, new RegExp(field));
+test("bounded diagnostics contain raw hashes and types but no content or credentials", () => {
+  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_persist_surgical_template"), plugin.indexOf("function streetkingz_ai_writer_verify_state"));
+  for (const field of ["template_id", "meta_key", "update_metadata_return_type", "update_metadata_return_value", "pre_write_persisted_raw_sha256", "expected_post_write_raw_sha256", "post_write_persisted_raw_sha256"]) assert.match(save, new RegExp(field));
   assert.doesNotMatch(save, /Authorization|Application Password|api_key|exact_cms_value/);
 });
 

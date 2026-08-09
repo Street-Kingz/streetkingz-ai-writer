@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "investigation_type": "offline_normal_writer_elementor_mutation_redesign",
+  "elementor_version_in_incident": "3.33.6",
+  "production_fixture": "artifacts/incidents/template-2003-elementor-normalization-2026-08-09/recovery-execution-001/post-recovery-authoritative-response.json",
+  "production_fixture_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "apis_investigated": [
+    {
+      "api": "Elementor\\Core\\Base\\Document::save",
+      "result": "rejected",
+      "reason": "Saves/sanitises the complete supplied elements tree and caused 140 unrelated numeric-to-string changes in production."
+    },
+    {
+      "api": "Elementor Documents Manager AJAX save endpoint",
+      "result": "rejected",
+      "reason": "Builds document data from the complete elements/settings request and delegates to Document::save."
+    },
+    {
+      "api": "Elementor element/widget Controls_Stack data mutation",
+      "result": "rejected",
+      "reason": "Provides in-memory widget settings and control sanitisation, not an independent persisted single-widget transaction. Persistence ultimately belongs to the document data."
+    },
+    {
+      "api": "WordPress update_metadata with fixed post/meta coordinates and a surgically patched raw value",
+      "result": "selected",
+      "reason": "Can preserve every byte outside the two approved JSON string tokens and supports exact raw rollback and verification."
+    }
+  ],
+  "narrow_supported_elementor_api_found": false,
+  "selected_architecture": "fixed_raw_json_token_splice_then_fixed_update_metadata",
+  "external_primary_sources": [
+    "https://github.com/elementor/elementor/blob/main/core/documents-manager.php",
+    "https://developers.elementor.com/docs/data-structure/widget-element/"
+  ],
+  "live_requests": 0,
+  "live_writes": 0
+}

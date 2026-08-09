@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "version": "0.1.10",
+  "zip": "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.10.zip",
+  "zip_sha256": "0345e23f60b061ad9b3c9b8001783427ee5f4cea6dffe091d81e3b66ab50f8c4",
+  "contents": [
+    "streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php",
+    "streetkingz-ai-guarded-writer/README.md"
+  ],
+  "source_package_recursive_diff_exit": 0,
+  "source_package_parity": true,
+  "approval_included": false,
+  "execution_contract_included": false,
+  "execution_id_included": false,
+  "credentials_included": false,
+  "env_included": false,
+  "recovery_authority_included": false
+}
