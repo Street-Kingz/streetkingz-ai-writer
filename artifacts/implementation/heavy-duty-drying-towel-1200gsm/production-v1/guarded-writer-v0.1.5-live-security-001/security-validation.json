@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "anonymous_dry_run": {
+      "http_status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "accepted": false
+    },
+    "reader_only_dry_run": {
+      "http_status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "accepted": false
+    },
+    "writer_dry_run": {
+      "http_status": 500,
+      "error_code": "streetkingz_ai_approval_missing",
+      "accepted": false
+    }
+  },
+  "identities_distinct": true,
+  "execution_authorisation_present": false,
+  "retries": 0,
+  "failure": {
+    "code": "WRITER_DRY_RUN_FAILED",
+    "message": "WRITER_DRY_RUN_FAILED",
+    "details": {
+      "status": 500,
+      "error_code": "streetkingz_ai_approval_missing"
+    }
+  }
+}

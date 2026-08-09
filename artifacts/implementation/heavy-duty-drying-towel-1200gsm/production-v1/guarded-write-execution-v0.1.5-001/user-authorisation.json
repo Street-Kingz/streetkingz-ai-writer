@@ -1,0 +1,46 @@
+{
+  "authorisation": "I authorise the exact four approved changes to product 70.",
+  "source": "explicit_user_message",
+  "product_id": 70,
+  "template_id": 2003,
+  "approved_fields": [
+    {
+      "field_id": "post_title",
+      "cms_target": {
+        "post_id": 70,
+        "field": "post_title"
+      },
+      "approved_target_sha256": "5956266310c5f3b84917b9fb237c6738f44e8866e2bdfc31df54a291f4ae60d2"
+    },
+    {
+      "field_id": "description",
+      "cms_target": {
+        "template_id": 2003,
+        "meta_key": "_elementor_data",
+        "element_id": "c80e718",
+        "property": "settings.editor"
+      },
+      "approved_target_sha256": "b4475adadfe786262b86192630ccdda4d5d303bcc7bba212c407839c7f0f2ee9"
+    },
+    {
+      "field_id": "comparison",
+      "cms_target": {
+        "template_id": 2003,
+        "meta_key": "_elementor_data",
+        "element_id": "40869c27",
+        "property": "settings.editor",
+        "parent_element_id": "4691e088"
+      },
+      "approved_target_sha256": "329fc5f12fb502e6b931fa14a2f3a74faacb8f31362b3d67641afbb66c5010fa"
+    },
+    {
+      "field_id": "post_excerpt",
+      "cms_target": {
+        "post_id": 70,
+        "field": "post_excerpt"
+      },
+      "approved_target_sha256": "abe84c91ddfda7e1efab48cf5f9982bfe5189e59f048e59f632b29c77f999aef"
+    }
+  ],
+  "publication_authorised": false
+}

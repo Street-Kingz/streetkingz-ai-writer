@@ -1,0 +1,18 @@
+{
+  "total_live_requests": 15,
+  "get_requests": 2,
+  "dry_run_requests": 12,
+  "execute_negative_requests": 1,
+  "real_execution_requests": 0,
+  "wp_update_post_calls": 0,
+  "update_post_meta_calls": 0,
+  "elementor_save_calls": 0,
+  "revisions_created": 0,
+  "live_wordpress_content_writes": 0,
+  "proof_basis": [
+    "All writer requests except the one execute-negative request used the dry-run route.",
+    "The execute-negative request returned streetkingz_ai_execution_locked before authoritative preparation, claim, or mutation.",
+    "The accepted dry-run response reported writes_performed=0.",
+    "No execution-authorisation.json or one-time execution ID was supplied."
+  ]
+}

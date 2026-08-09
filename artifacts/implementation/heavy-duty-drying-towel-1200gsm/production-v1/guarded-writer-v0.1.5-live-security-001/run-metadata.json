@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-writer-v0.1.5-live-security-001",
+  "created_at": "2026-08-09T08:01:08.796Z",
+  "mode": "live_security_zero_mutation",
+  "expected_writer_version": "0.1.5",
+  "retries": 0,
+  "request_count": 4,
+  "credentials_persisted": false,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0,
+  "wordpress_content_writes": 0
+}

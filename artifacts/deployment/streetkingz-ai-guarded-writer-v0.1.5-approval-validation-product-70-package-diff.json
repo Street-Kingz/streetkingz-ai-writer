@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "comparison": {
+    "base_zip": "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.5.zip",
+    "base_zip_sha256": "f5a43f15c39349f96edc4e81cd7b6cd065f063dd89ffb0deb22e9a6d08b615a4",
+    "validation_zip": "artifacts/deployment/streetkingz-ai-guarded-writer-v0.1.5-approval-validation-product-70.zip",
+    "validation_zip_sha256": "c3d077cb5a1bc0fe749a12be961499e2ad17d0be202cb008e96478f45fb85223"
+  },
+  "runtime_source": {
+    "source_php_sha256": "b70a1b7204652e5ce75417dcca06ae8f3b1c290fd77e0f44ae93938aabbc3556",
+    "packaged_php_sha256": "b70a1b7204652e5ce75417dcca06ae8f3b1c290fd77e0f44ae93938aabbc3556",
+    "byte_identical": true
+  },
+  "intentional_additions": [
+    "streetkingz-ai-guarded-writer/human-implementation-approval.json"
+  ],
+  "approval_manifest": {
+    "source_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+    "packaged_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+    "byte_identical": true
+  },
+  "unexpected_differences": [],
+  "execution_authorisation_included": false,
+  "credentials_included": false,
+  "environment_files_included": false,
+  "parity_status": "PASS"
+}

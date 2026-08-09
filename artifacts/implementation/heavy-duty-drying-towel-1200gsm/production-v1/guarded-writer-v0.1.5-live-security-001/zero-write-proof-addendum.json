@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "CORRECTED_EVIDENCE",
+  "supersedes_proof_basis_only_in": "zero-write-proof.json",
+  "request_counts_in_zero_write_proof_remain_valid": true,
+  "total_live_requests": 4,
+  "get_requests": 1,
+  "dry_run_requests": 3,
+  "execute_negative_requests": 0,
+  "real_execution_requests": 0,
+  "wp_update_post_calls": 0,
+  "update_post_meta_calls": 0,
+  "elementor_save_calls": 0,
+  "revisions_created": 0,
+  "live_wordpress_content_writes": 0,
+  "corrected_proof_basis": [
+    "REST discovery was GET-only.",
+    "Anonymous and reader-only dry-run requests were rejected by the permission callback.",
+    "The writer-authenticated dry-run request returned streetkingz_ai_approval_missing from manifest loading, before authoritative source preparation, rollback persistence, execution claiming, or any mutation call.",
+    "No execute request was made because validation stopped immediately at the required failure boundary."
+  ],
+  "credentials_persisted": false
+}

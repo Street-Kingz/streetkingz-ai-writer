@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "approval_artifact_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+  "live_response_approval_artifact_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+  "fingerprint_matches": true,
+  "product_id": 70,
+  "template_id": 2003,
+  "approved_target_count": 4,
+  "approval_source": "explicit_user_approval",
+  "publication_authorised": false,
+  "previous_error_absent": true
+}

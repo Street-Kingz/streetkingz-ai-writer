@@ -1,0 +1,8 @@
+{
+  "expected_version": "0.1.5",
+  "local_source_version_match": true,
+  "clean_package_sha256": "f5a43f15c39349f96edc4e81cd7b6cd065f063dd89ffb0deb22e9a6d08b615a4",
+  "live_route_present": true,
+  "live_version_marker_exposed": false,
+  "conclusion": "route behavior validated; precise live patch version is not externally observable through the bounded contract"
+}

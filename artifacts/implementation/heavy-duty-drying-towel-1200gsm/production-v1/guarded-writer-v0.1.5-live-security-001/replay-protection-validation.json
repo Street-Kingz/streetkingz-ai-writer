@@ -1,0 +1,10 @@
+{
+  "deployed_version_expected": "0.1.5",
+  "claim_implementation_present_in_tested_local_source": true,
+  "live_claim_diagnostic_available": false,
+  "live_claim_consumption_attempted": false,
+  "dry_run_consumption_observable_live": false,
+  "dry_run_consumption_code_and_offline_tests": "validated_non_consuming",
+  "atomic_mechanism": "single INSERT IGNORE into uniquely indexed wp_options.option_name; acceptance requires exactly one inserted row",
+  "limitation": "The bounded REST contract intentionally exposes neither plugin version nor execution-audit options. Without installing a real execution contract, live route behavior cannot independently prove the v0.1.5 claim branch or inspect claim state."
+}

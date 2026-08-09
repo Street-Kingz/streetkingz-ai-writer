@@ -1,0 +1,17 @@
+{
+  "total_live_requests": 4,
+  "get_requests": 1,
+  "writer_dry_run_requests": 3,
+  "execute_negative_requests": 0,
+  "real_execution_requests": 0,
+  "wp_update_post_calls": 0,
+  "update_post_meta_calls": 0,
+  "elementor_save_calls": 0,
+  "revisions_created": 0,
+  "live_wordpress_content_writes": 0,
+  "proof_basis": [
+    "Only REST discovery, dry-run, and one execute-without-contract rejection were requested.",
+    "The execute request returned streetkingz_ai_execution_locked before source preparation, snapshot persistence, claim, or mutation.",
+    "The only accepted writer request returned writes_performed=0."
+  ]
+}

@@ -9,7 +9,7 @@ const packaged = path.join(temporary, "streetkingz-ai-guarded-writer");
 fs.cpSync(source, packaged, { recursive: true });
 if (fs.existsSync(path.join(source, "execution-authorisation.json"))) throw new Error("Refusing to package live execution authorisation.");
 if (fs.existsSync(path.join(source, "human-implementation-approval.json"))) throw new Error("Refusing to package a product approval artifact in the clean writer ZIP.");
-const output = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.5.zip");
+const output = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.6.zip");
 if (fs.existsSync(output)) throw new Error(`Refusing to overwrite ${output}`);
 execFileSync("zip", ["-X", "-r", output, "streetkingz-ai-guarded-writer"], { cwd: temporary, stdio: "ignore" });
 console.log(output);

@@ -1,0 +1,9 @@
+{
+  "method": "POST",
+  "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+  "body": {
+    "approval_artifact_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37"
+  },
+  "credentials_persisted": false,
+  "execution_authorisation_included": false
+}

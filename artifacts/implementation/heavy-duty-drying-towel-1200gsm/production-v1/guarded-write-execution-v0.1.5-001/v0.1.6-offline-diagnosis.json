@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "incident": "first_live_guarded_write_elementor_failure",
+  "diagnosis": {
+    "failing_call": "Elementor\\Plugin::$instance->documents->get(2003)->save(['elements' => decoded_patched_document])",
+    "product_updates_before_failure": ["post_title", "post_excerpt"],
+    "elementor_persistence_observed": false,
+    "root_cause": "Elementor Document::save enforces edit_post for template 2003, while the deliberately narrow Street Kingz AI Writer role has no generic edit_post/edit_posts capability. v0.1.5 supplied no bounded capability mapping for the supported document save.",
+    "v0_1_5_logging_limit": "The original save return/error was collapsed into the rollback error response, so the preserved HTTP artifact does not distinguish false from WP_Error or retain an Elementor message.",
+    "cache_or_css_reached": "not_observable_from_preserved_response",
+    "external_restoration_evidence": {
+      "authoritative_responses_byte_identical": true,
+      "sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572"
+    }
+  },
+  "rollback_false_failure": {
+    "cause": "v0.1.5 required a second Elementor save to return success before it called fresh state verification. The same save failed, so boolean short-circuiting skipped verification even though the template had not persisted a change and the product fields had been restored.",
+    "stale_cache_proven": false,
+    "fresh_database_source": "streetkingz_ai_writer_source plus authoritative Reader direct wp_posts/wp_postmeta queries"
+  },
+  "v0_1_6": {
+    "elementor_api": "supported Elementor document save",
+    "save_payload": "decoded full elements array under elements",
+    "permission_bridge": "temporary map_meta_cap grant for edit_post on template 2003 only, for the current user holding the custom writer capability, removed in finally",
+    "rollback": "fresh persisted semantic comparison; restore Elementor only if persisted template differs; clear caches and re-read before final verification",
+    "security_scope_broadened": false
+  },
+  "live_requests": 0,
+  "live_writes": 0
+}

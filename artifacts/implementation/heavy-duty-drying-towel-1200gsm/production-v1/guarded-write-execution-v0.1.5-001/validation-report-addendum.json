@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "supersedes_interpretation_of_mutation_occurred_in": "validation-report.json",
+  "status": "FAIL",
+  "failure_classification": "ELEMENTOR_WRITE_FAILED_COMPENSATING_ROLLBACK_EXTERNALLY_VERIFIED",
+  "transient_approved_product_mutation_occurred": true,
+  "elementor_mutation_succeeded": false,
+  "rollback_required": true,
+  "plugin_internal_rollback_verification": "FAIL",
+  "external_authoritative_rollback_verification": "PASS",
+  "current_authoritative_state_equals_pre_write_state": true,
+  "execution_audit_state": "failed_after_claim",
+  "execution_id_permanently_consumed": true,
+  "further_writes_performed": false,
+  "roadmap_update_allowed": false
+}

@@ -1,0 +1,11 @@
+{
+  "contract_sha256": "446a845b6b0be6edbbfd74a9771a791406e0f3f2bb2540db382aad2ea065c069",
+  "approval_sha256": "af4d73ad7dfca9dbebdc0b95d1a63d988110fe02d7cb35b4459fdeff4e41fa37",
+  "one_time_execution_id_sha256": "e7d771000800788e8fe02db6f47fc89cd70e959484754dd28c0526249da1f097",
+  "product_id": 70,
+  "template_id": 2003,
+  "mode": "execute",
+  "publication_authorised": false,
+  "raw_contract_persisted": false,
+  "initial_state": "expected_unused_pending_atomic_claim"
+}

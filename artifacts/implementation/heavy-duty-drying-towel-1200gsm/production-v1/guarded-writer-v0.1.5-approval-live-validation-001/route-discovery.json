@@ -1,0 +1,15 @@
+{
+  "namespace_present": true,
+  "writer_route": "/streetkingz-ai/v1/approved-product-70-copy/(?P<mode>dry-run|execute)",
+  "writer_route_present": true,
+  "writer_methods": [
+    "POST"
+  ],
+  "reader_route": "/streetkingz-ai/v1/products/(?P<id>\\d+)/authoritative",
+  "reader_route_present": true,
+  "reader_methods": [
+    "GET"
+  ],
+  "discovery_http_status": 200,
+  "discovery_sha256": "a0bc9f788fe4006c55f41cf6fb347b46a7a55cee7b1babb66b5fb21ad4000cd0"
+}

@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "verified": true,
+  "product_restored_exactly": true,
+  "template_restored_semantically": true,
+  "execute_error_code": "streetkingz_ai_rollback_verification_failed"
+}

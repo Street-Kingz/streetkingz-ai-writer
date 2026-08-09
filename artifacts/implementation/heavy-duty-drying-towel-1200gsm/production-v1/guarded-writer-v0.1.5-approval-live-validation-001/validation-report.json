@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "approval_loading": "PASS",
+  "fresh_state_guards": "PASS",
+  "rollback_snapshot": "PASS",
+  "live_dry_run": "PASS",
+  "replay_claim": "NOT_EXERCISED_NO_CONTRACT",
+  "live_content_writes": 0,
+  "failure": null
+}

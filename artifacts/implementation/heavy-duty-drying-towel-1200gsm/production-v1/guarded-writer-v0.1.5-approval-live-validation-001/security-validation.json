@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "identities_distinct": true,
+  "execution_authorisation_present": false,
+  "checks": {
+    "anonymous_dry_run": {
+      "http_status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "accepted": false
+    },
+    "reader_only_dry_run": {
+      "http_status": 403,
+      "error_code": "streetkingz_ai_write_forbidden",
+      "accepted": false
+    },
+    "execute_without_contract": {
+      "http_status": 423,
+      "error_code": "streetkingz_ai_execution_locked",
+      "accepted": false
+    },
+    "wrong_product": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "wrong_template": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "arbitrary_widget": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "safety_widget": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "slug": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "metadata": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "faq_question": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "extra_payload": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "fifth_unapproved_target": {
+      "http_status": 400,
+      "error_code": "streetkingz_ai_write_payload_invalid",
+      "accepted": false
+    },
+    "writer_approval_bound_dry_run": {
+      "http_status": 200,
+      "error_code": null,
+      "accepted": true
+    }
+  },
+  "failure": null
+}

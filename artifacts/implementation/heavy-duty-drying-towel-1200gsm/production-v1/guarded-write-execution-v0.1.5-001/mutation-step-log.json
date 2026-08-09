@@ -1,0 +1,23 @@
+{
+  "status": "FAILED_ROLLED_BACK_EXTERNALLY_VERIFIED",
+  "steps": [
+    {
+      "step": "product_fields",
+      "result": "succeeded_transiently",
+      "scope": [
+        "post_title",
+        "post_excerpt"
+      ]
+    },
+    {
+      "step": "elementor_template",
+      "result": "failed"
+    },
+    {
+      "step": "compensating_rollback",
+      "result": "plugin_reported_unverified_but_external_authoritative_read_passed"
+    }
+  ],
+  "forward_progress_stopped": true,
+  "retries": 0
+}

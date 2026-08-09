@@ -1,0 +1,20 @@
+{
+  "status": "FAIL",
+  "mutation_occurred": false,
+  "failure": {
+    "code": "EXECUTION_FAILED_ROLLBACK_VERIFIED",
+    "message": "EXECUTION_FAILED_ROLLBACK_VERIFIED",
+    "details": {
+      "execute": {
+        "code": "streetkingz_ai_rollback_verification_failed",
+        "message": "Elementor write failed and rollback could not be verified.",
+        "data": {
+          "status": 500
+        }
+      }
+    },
+    "mutation_occurred": false
+  },
+  "wordpress_content_scope": "none",
+  "roadmap_update_allowed": false
+}

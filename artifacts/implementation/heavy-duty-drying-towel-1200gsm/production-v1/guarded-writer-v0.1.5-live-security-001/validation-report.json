@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "live_security": "FAIL",
+  "replay_claim_live_observability": "LIMITED_BY_DESIGN",
+  "content_mutation": false,
+  "failure": {
+    "code": "WRITER_DRY_RUN_FAILED",
+    "message": "WRITER_DRY_RUN_FAILED",
+    "details": {
+      "status": 500,
+      "error_code": "streetkingz_ai_approval_missing"
+    }
+  }
+}

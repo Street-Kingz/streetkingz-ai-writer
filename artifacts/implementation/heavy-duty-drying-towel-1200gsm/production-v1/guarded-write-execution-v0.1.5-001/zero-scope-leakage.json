@@ -1,0 +1,16 @@
+{
+  "status": "PASS_AFTER_ROLLBACK",
+  "pre_and_post_rollback_authoritative_response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "authoritative_response_byte_identical": true,
+  "blocked_fields_modified": 0,
+  "other_products_modified": 0,
+  "other_templates_modified": 0,
+  "metadata_modified": 0,
+  "taxonomy_modified": 0,
+  "pricing_modified": 0,
+  "stock_modified": 0,
+  "media_modified": 0,
+  "safety_widget_modified": 0,
+  "faq_question_modified": 0,
+  "approved_product_fields_transiently_modified_then_restored": true
+}

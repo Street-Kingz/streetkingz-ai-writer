@@ -1,0 +1,9 @@
+{
+  "status": "failed_after_claim",
+  "claim_succeeded": true,
+  "claimed_at_observed_boundary": "2026-08-09T08:25:04.054Z",
+  "one_time_execution_id_sha256": "e7d771000800788e8fe02db6f47fc89cd70e959484754dd28c0526249da1f097",
+  "contract_sha256": "446a845b6b0be6edbbfd74a9771a791406e0f3f2bb2540db382aad2ea065c069",
+  "permanently_consumed": true,
+  "evidence": "The server reached the post-claim Elementor failure branch. Returning streetkingz_ai_rollback_verification_failed rather than streetkingz_ai_execution_audit_update_failed proves the failed_after_claim audit transition persisted."
+}

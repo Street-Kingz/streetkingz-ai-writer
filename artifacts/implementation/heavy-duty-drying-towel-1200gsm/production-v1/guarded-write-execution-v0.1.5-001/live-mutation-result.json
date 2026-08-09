@@ -1,0 +1,13 @@
+{
+  "http_status": 500,
+  "response_sha256": "492b15fe1a7c67123eacb1e07a380e9e6488a0b616e9698b159c040b53528585",
+  "response": {
+    "code": "streetkingz_ai_rollback_verification_failed",
+    "message": "Elementor write failed and rollback could not be verified.",
+    "data": {
+      "status": 500
+    }
+  },
+  "retries": 0,
+  "credentials_persisted": false
+}
