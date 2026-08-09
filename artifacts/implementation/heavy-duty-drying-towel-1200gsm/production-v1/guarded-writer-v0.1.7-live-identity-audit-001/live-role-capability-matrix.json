@@ -1,0 +1,157 @@
+{
+  "identities": {
+    "reader": {
+      "user_id": 2,
+      "username": "cody",
+      "display_name": "Cody",
+      "roles": [
+        "streetkingz_ai_reader"
+      ],
+      "capabilities": {
+        "read": true,
+        "streetkingz_ai_read_product_source": true,
+        "streetkingz_ai_reader": true
+      },
+      "extra_capabilities": {
+        "streetkingz_ai_reader": true
+      },
+      "inspection_context": "edit",
+      "response_fields": [
+        "_links",
+        "avatar_urls",
+        "capabilities",
+        "description",
+        "elementor_introduction",
+        "email",
+        "extra_capabilities",
+        "first_name",
+        "id",
+        "is_super_admin",
+        "last_name",
+        "link",
+        "locale",
+        "meta",
+        "name",
+        "nickname",
+        "registered_date",
+        "roles",
+        "slug",
+        "url",
+        "username",
+        "woocommerce_meta",
+        "yoast_head",
+        "yoast_head_json"
+      ]
+    },
+    "writer": {
+      "user_id": 3,
+      "username": "cody-assistant",
+      "display_name": "Cody Assistant",
+      "roles": [
+        "streetkingz_ai_writer"
+      ],
+      "capabilities": {
+        "read": true,
+        "streetkingz_ai_write_approved_product_copy": true,
+        "streetkingz_ai_writer": true
+      },
+      "extra_capabilities": {
+        "streetkingz_ai_writer": true
+      },
+      "inspection_context": "edit",
+      "response_fields": [
+        "_links",
+        "avatar_urls",
+        "capabilities",
+        "description",
+        "elementor_introduction",
+        "email",
+        "extra_capabilities",
+        "first_name",
+        "id",
+        "is_super_admin",
+        "last_name",
+        "link",
+        "locale",
+        "meta",
+        "name",
+        "nickname",
+        "registered_date",
+        "roles",
+        "slug",
+        "url",
+        "username",
+        "woocommerce_meta",
+        "yoast_head",
+        "yoast_head_json"
+      ]
+    }
+  },
+  "probes": {
+    "reader": {
+      "reader_endpoint": {
+        "http_status": 200,
+        "error_code": null,
+        "allowed": true
+      },
+      "writer_status": {
+        "http_status": 403,
+        "error_code": "streetkingz_ai_write_forbidden",
+        "allowed": false
+      },
+      "manage_options": {
+        "http_status": 403,
+        "error_code": "rest_forbidden",
+        "allowed": false
+      },
+      "plugin_management": {
+        "http_status": 403,
+        "error_code": "rest_cannot_view_plugins",
+        "allowed": false
+      },
+      "edit_posts": {
+        "http_status": 403,
+        "error_code": "rest_forbidden_context",
+        "allowed": false
+      },
+      "edit_products": {
+        "http_status": 403,
+        "error_code": "rest_forbidden_context",
+        "allowed": false
+      }
+    },
+    "writer": {
+      "reader_endpoint": {
+        "http_status": 200,
+        "error_code": null,
+        "allowed": true
+      },
+      "writer_status": {
+        "http_status": 200,
+        "error_code": null,
+        "allowed": true
+      },
+      "manage_options": {
+        "http_status": 403,
+        "error_code": "rest_forbidden",
+        "allowed": false
+      },
+      "plugin_management": {
+        "http_status": 403,
+        "error_code": "rest_cannot_view_plugins",
+        "allowed": false
+      },
+      "edit_posts": {
+        "http_status": 403,
+        "error_code": "rest_forbidden_context",
+        "allowed": false
+      },
+      "edit_products": {
+        "http_status": 403,
+        "error_code": "rest_forbidden_context",
+        "allowed": false
+      }
+    }
+  },
+  "limitations": []
+}

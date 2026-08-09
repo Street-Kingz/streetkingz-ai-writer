@@ -1,0 +1,21 @@
+{
+  "status": 200,
+  "headers": {
+    "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+    "cf-cache-status": "DYNAMIC",
+    "cf-ray": "a28693550c976a38-MAN",
+    "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+    "server": "cloudflare",
+    "vary": "Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-litespeed-cache": "miss",
+    "x-litespeed-cache-control": "public,max-age=604800",
+    "x-litespeed-tag": "9f9_default,9f9_URL.01ebcdf810229c7e3dc03193dbc74291,9f9_REST,9f9_",
+    "x-powered-by": "PHP/8.2.30",
+    "x-robots-tag": "noindex",
+    "x-turbo-charged-by": "LiteSpeed"
+  },
+  "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "response_size_bytes": 111063,
+  "credentials_persisted": false
+}

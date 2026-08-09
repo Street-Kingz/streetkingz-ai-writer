@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "reader": {
+    "version_audited": "1.1.2",
+    "role_identifier": "streetkingz_ai_reader",
+    "role_capabilities": ["read", "streetkingz_ai_read_product_source"],
+    "contains_writer_capability": false,
+    "permission_callback": "is_user_logged_in() && current_user_can(STREETKINGZ_AI_READ_CAPABILITY)",
+    "permission_capability": "streetkingz_ai_read_product_source"
+  },
+  "writer": {
+    "version_audited": "0.1.7",
+    "role_identifier": "streetkingz_ai_writer",
+    "role_capabilities": ["read", "streetkingz_ai_write_approved_product_copy"],
+    "contains_reader_capability": false,
+    "permission_callback": "is_user_logged_in() && current_user_can(STREETKINGZ_AI_WRITE_CAPABILITY)",
+    "permission_capability": "streetkingz_ai_write_approved_product_copy"
+  },
+  "cross_role_upgrade_grants": false,
+  "client_read_credentials": ["WORDPRESS_READ_USERNAME", "WORDPRESS_READ_APPLICATION_PASSWORD"],
+  "client_write_credentials": ["WORDPRESS_WRITE_USERNAME", "WORDPRESS_WRITE_APPLICATION_PASSWORD"],
+  "credential_routing_correct": true
+}

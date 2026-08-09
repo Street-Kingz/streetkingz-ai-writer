@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "live_requests": 19,
+  "get_requests": 19,
+  "post_requests": 0,
+  "delete_requests": 0,
+  "product_writes": 0,
+  "template_writes": 0,
+  "metadata_writes": 0,
+  "role_changes": 0,
+  "capability_changes": 0,
+  "plugin_deployments": 0,
+  "live_wordpress_content_writes": 0
+}

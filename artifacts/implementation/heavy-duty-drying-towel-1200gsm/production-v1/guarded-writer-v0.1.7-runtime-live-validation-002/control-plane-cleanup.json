@@ -1,0 +1,9 @@
+{
+  "status": "NOT_REQUIRED",
+  "approval_installed_by_run": false,
+  "execution_contract_installed_by_run": false,
+  "approval_active_after_run": false,
+  "execution_contract_active_after_run": false,
+  "cleanup_requests": 0,
+  "site_content_changed": false
+}

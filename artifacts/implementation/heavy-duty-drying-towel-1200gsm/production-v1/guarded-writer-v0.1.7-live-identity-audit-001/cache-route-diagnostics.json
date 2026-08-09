@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "label": "anonymous_exact",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "response_size_bytes": 111063,
+      "cache_control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "age": null,
+      "x_cache": null,
+      "cf_cache_status": "DYNAMIC",
+      "credentials_persisted": false
+    },
+    {
+      "label": "anonymous_busted",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "age": null,
+      "x_cache": null,
+      "cf_cache_status": "DYNAMIC",
+      "credentials_persisted": false
+    },
+    {
+      "label": "writer_busted",
+      "http_status": 403,
+      "error_code": "streetkingz_ai_forbidden",
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "response_size_bytes": 124,
+      "cache_control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "age": null,
+      "x_cache": null,
+      "cf_cache_status": "DYNAMIC",
+      "credentials_persisted": false
+    },
+    {
+      "label": "reader_busted",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "response_size_bytes": 111063,
+      "cache_control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "age": null,
+      "x_cache": null,
+      "cf_cache_status": "DYNAMIC",
+      "credentials_persisted": false
+    }
+  ],
+  "content_mutations": 0
+}

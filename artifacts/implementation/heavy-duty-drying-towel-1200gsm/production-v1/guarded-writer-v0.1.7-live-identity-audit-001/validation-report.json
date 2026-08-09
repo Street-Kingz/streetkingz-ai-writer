@@ -1,0 +1,16 @@
+{
+  "status": "ROOT_CAUSE_CONFIRMED_OFFLINE_FIX_READY_DEPLOYMENT_REQUIRED",
+  "pre_change_tests": { "passed": 217, "failed": 0 },
+  "post_change_tests": { "passed": 220, "failed": 0 },
+  "credential_mapping": "PASS_DISTINCT_USERS",
+  "role_assignment": "PASS_EXPECTED_SINGLE_ROLES",
+  "custom_capability_matrix": "PASS_AT_ORIGIN",
+  "broad_capabilities": "ABSENT",
+  "cache_security": "FAIL_LIVE",
+  "root_cause": "LITESPEED_PUBLIC_CACHE_OF_AUTHENTICATED_REST_200",
+  "offline_reader_fix": "PASS",
+  "live_fix_deployed": false,
+  "post_correction_validation": "BLOCKED_PENDING_DEPLOYMENT_AND_PURGE",
+  "content_mutations": 0,
+  "ready_to_rerun_full_runtime_validation": false
+}

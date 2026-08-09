@@ -1,0 +1,10 @@
+{
+  "status": "NOT_RUN_PLUGIN_DEPLOYMENT_REQUIRED",
+  "reader_to_reader_endpoint": "PRE_FIX_HTTP_200",
+  "reader_to_writer_endpoint": "PRE_FIX_HTTP_403",
+  "writer_to_writer_endpoint": "PRE_FIX_HTTP_200_STATUS_BOUNDARY",
+  "writer_to_reader_endpoint": "PRE_FIX_BARE_URL_HTTP_200_CACHE_HIT; CACHE_BUSTED_HTTP_403",
+  "anonymous_reader_endpoint": "PRE_FIX_BARE_URL_HTTP_200_CACHE_HIT; CACHE_BUSTED_HTTP_403",
+  "reader_writer_separation_restored": false,
+  "reason": "Reader v1.1.3 must be deployed and the existing LiteSpeed object purged before validation."
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS_FOR_REQUESTS_PERFORMED",
+  "total_live_requests": 13,
+  "get_requests": 5,
+  "post_requests": 6,
+  "delete_requests": 2,
+  "accepted_runtime_manifest_mutations": 0,
+  "approval_installs": 0,
+  "execution_contract_installs": 0,
+  "dry_run_requests": 0,
+  "execute_requests": 0,
+  "product_writes": 0,
+  "elementor_saves": 0,
+  "metadata_writes": 0,
+  "revisions_created": 0,
+  "total_content_mutations": 0,
+  "evidence": [
+    "All anonymous and Reader control-plane requests were rejected with HTTP 403 before callbacks could modify runtime options.",
+    "The only HTTP 200 responses were REST discovery and two read-only authoritative responses (one with each identity).",
+    "No dry-run or execute request was sent with Writer credentials."
+  ]
+}

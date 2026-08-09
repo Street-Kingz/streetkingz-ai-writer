@@ -1,0 +1,17 @@
+{
+  "status": "FAIL_STOPPED_SAFELY",
+  "preflight_tests": { "passed": 217, "failed": 0 },
+  "route_discovery": "PASS",
+  "baseline_authoritative_state": "PASS_NO_DRIFT",
+  "anonymous_security": "PASS_FOR_TESTS_PERFORMED",
+  "reader_blocked_from_writer": "PASS_FOR_TESTS_PERFORMED",
+  "writer_blocked_from_reader": "FAIL_HTTP_200",
+  "approval_lifecycle": "NOT_RUN",
+  "execution_contract_lifecycle": "NOT_RUN",
+  "dry_run": "NOT_RUN",
+  "final_authoritative_verification": "NOT_RUN",
+  "content_mutations": 0,
+  "execute_requests": 0,
+  "ready_to_begin_runtime_workflow": false,
+  "ready_for_live_write": false
+}

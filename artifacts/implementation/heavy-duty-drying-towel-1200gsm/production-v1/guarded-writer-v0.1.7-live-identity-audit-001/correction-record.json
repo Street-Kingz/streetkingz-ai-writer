@@ -1,0 +1,22 @@
+{
+  "status": "OFFLINE_FIX_PREPARED_NOT_DEPLOYED",
+  "reader_version_before": "1.1.2",
+  "reader_version_after": "1.1.3",
+  "changes": [
+    "Route-scoped rest_pre_dispatch no-cache marking",
+    "DONOTCACHEPAGE and LSCACHE_NO_CACHE safeguards",
+    "LiteSpeed litespeed_control_set_nocache action",
+    "Explicit Cache-Control private/no-store and X-LiteSpeed-Cache-Control no-cache response directives"
+  ],
+  "route_scope": "^/streetkingz-ai/v1/products/[0-9]+/authoritative$",
+  "roles_changed": false,
+  "direct_capabilities_changed": false,
+  "credentials_changed": false,
+  "writer_plugin_changed": false,
+  "live_deployed": false,
+  "required_deployment_action": "Deploy Reader v1.1.3 and purge the existing LiteSpeed cached authoritative URL before post-correction validation.",
+  "package": "wordpress-plugin/streetkingz-ai-authoritative-reader-1.1.3.zip",
+  "package_sha256": "168fae86febd3343a6d00ffc9339309cb01cd5c5f3e44e0de028a3a1665ca318",
+  "source_package_parity": "PASS",
+  "site_content_modified": false
+}

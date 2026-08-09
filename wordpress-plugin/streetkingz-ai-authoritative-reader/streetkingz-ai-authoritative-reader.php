@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Authoritative Reader
  * Description: Narrow, authenticated, read-only product source endpoint for the Street Kingz AI Writer.
- * Version: 1.1.2
+ * Version: 1.1.3
  */
 
 defined('ABSPATH') || exit;
@@ -18,6 +18,35 @@ register_activation_hook(__FILE__, static function (): void {
         ]);
     }
 });
+
+function streetkingz_ai_is_authoritative_rest_request(WP_REST_Request $request): bool {
+    return preg_match('#^/streetkingz-ai/v1/products/[0-9]+/authoritative$#D', $request->get_route()) === 1;
+}
+
+/*
+ * The authoritative response is capability-protected and must never enter a
+ * full-page cache. LiteSpeed can otherwise cache an authenticated REST 200 and
+ * replay it before WordPress executes the permission callback. Mark only this
+ * fixed Reader route as non-cacheable at the earliest REST dispatch boundary.
+ */
+function streetkingz_ai_disable_authoritative_rest_cache(): void {
+    if (!defined('DONOTCACHEPAGE')) define('DONOTCACHEPAGE', true);
+    if (!defined('LSCACHE_NO_CACHE')) define('LSCACHE_NO_CACHE', true);
+    do_action('litespeed_control_set_nocache', 'Street Kingz authoritative Reader response');
+}
+
+add_filter('rest_pre_dispatch', static function ($result, WP_REST_Server $server, WP_REST_Request $request) {
+    if (streetkingz_ai_is_authoritative_rest_request($request)) streetkingz_ai_disable_authoritative_rest_cache();
+    return $result;
+}, 1, 3);
+
+add_filter('rest_post_dispatch', static function ($response, WP_REST_Server $server, WP_REST_Request $request) {
+    if (streetkingz_ai_is_authoritative_rest_request($request) && $response instanceof WP_HTTP_Response) {
+        $response->header('Cache-Control', 'no-cache, must-revalidate, max-age=0, no-store, private');
+        $response->header('X-LiteSpeed-Cache-Control', 'no-cache');
+    }
+    return $response;
+}, 999, 3);
 
 add_action('rest_api_init', static function (): void {
     register_rest_route('streetkingz-ai/v1', '/products/(?P<id>\d+)/authoritative', [

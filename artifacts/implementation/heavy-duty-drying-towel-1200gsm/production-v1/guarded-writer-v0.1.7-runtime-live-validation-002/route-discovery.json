@@ -1,0 +1,59 @@
+{
+  "namespace_present": true,
+  "writer_version_expected": "0.1.7",
+  "routes": {
+    "/wp-json/streetkingz-ai/v1/products/70/authoritative": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/products/(?P<id>\\d+)/authoritative",
+      "methods": [
+        "GET"
+      ]
+    },
+    "/wp-json/streetkingz-ai/v1/approved-product-70-copy/approval": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/approval",
+      "methods": [
+        "DELETE",
+        "POST"
+      ]
+    },
+    "/wp-json/streetkingz-ai/v1/approved-product-70-copy/approval/status": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/approval/status",
+      "methods": [
+        "GET"
+      ]
+    },
+    "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution-contract": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/execution-contract",
+      "methods": [
+        "DELETE",
+        "POST"
+      ]
+    },
+    "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution/status": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/execution/status",
+      "methods": [
+        "GET"
+      ]
+    },
+    "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/(?P<mode>dry-run|execute)",
+      "methods": [
+        "POST"
+      ]
+    }
+  },
+  "request": {
+    "label": "rest_discovery",
+    "method": "GET",
+    "path": "/wp-json/",
+    "http_status": 200,
+    "error_code": null,
+    "response_sha256": "31490f43cd236a3421d07dd0740221f517ef4b3bd7b83e0382b9efaf64487382",
+    "response_size_bytes": 1640155
+  }
+}

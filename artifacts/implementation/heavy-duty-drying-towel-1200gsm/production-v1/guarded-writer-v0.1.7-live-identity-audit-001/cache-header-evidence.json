@@ -1,0 +1,38 @@
+[
+  {
+    "label": "exact",
+    "status": 200,
+    "headers": {
+      "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a2868b463c438cad-MAN",
+      "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+      "server": "cloudflare",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-litespeed-cache": "hit",
+      "x-powered-by": "PHP/8.2.30",
+      "x-robots-tag": "noindex",
+      "x-turbo-charged-by": "LiteSpeed"
+    },
+    "response_size_bytes": 111063
+  },
+  {
+    "label": "busted",
+    "status": 403,
+    "headers": {
+      "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a2868b468d338cad-MAN",
+      "server": "cloudflare",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-litespeed-cache-control": "no-cache",
+      "x-litespeed-tag": "9f9_HTTP.403",
+      "x-powered-by": "PHP/8.2.30",
+      "x-robots-tag": "noindex",
+      "x-turbo-charged-by": "LiteSpeed"
+    },
+    "response_size_bytes": 124
+  }
+]

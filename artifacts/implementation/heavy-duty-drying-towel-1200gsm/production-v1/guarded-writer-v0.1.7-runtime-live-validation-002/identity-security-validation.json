@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "anonymous_writer_controls_blocked": true,
+  "reader_writer_controls_blocked": true,
+  "writer_authoritative_reader_http_status": 200,
+  "writer_authoritative_reader_expected_http_status": 403,
+  "reader_writer_separation": false,
+  "generic_cms_rights_tested": false,
+  "credentials_exposed": false,
+  "finding": "The Writer credentials were accepted by the Reader endpoint. Reader v1.1.2 checks streetkingz_ai_read_product_source, so the live Writer identity currently resolves that capability despite the intended role separation."
+}

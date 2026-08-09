@@ -1,0 +1,21 @@
+{
+  "status": "CONFIRMED",
+  "classification": "server_page_cache_leak_on_capability_protected_rest_response",
+  "exact_cause": "LiteSpeed cached an authenticated HTTP 200 response for the bare authoritative REST URL as public for 604800 seconds and replayed it before WordPress ran the Reader permission callback.",
+  "evidence": {
+    "anonymous_exact_url": { "http_status": 200, "response_size_bytes": 111063, "x_litespeed_cache": "hit" },
+    "anonymous_cache_busted": { "http_status": 403, "error_code": "streetkingz_ai_forbidden" },
+    "writer_cache_busted": { "http_status": 403, "error_code": "streetkingz_ai_forbidden" },
+    "reader_cache_busted": { "http_status": 200 },
+    "reader_origin_litespeed_directive": "public,max-age=604800",
+    "reader_origin_wordpress_directive": "no-cache, must-revalidate, max-age=0, no-store, private"
+  },
+  "credential_mapping_defect": false,
+  "role_definition_defect": false,
+  "user_assignment_defect": false,
+  "direct_user_capability_defect": false,
+  "permission_callback_defect": false,
+  "cache_stale_state_defect": true,
+  "plugin_cache_hardening_defect": true,
+  "security_impact": "The exact protected URL currently exposes the authoritative response anonymously until the cached object is purged and the route is excluded from LiteSpeed cache."
+}

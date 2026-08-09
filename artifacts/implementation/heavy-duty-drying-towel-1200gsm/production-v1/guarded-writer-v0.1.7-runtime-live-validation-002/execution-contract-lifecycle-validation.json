@@ -1,0 +1,8 @@
+{
+  "status": "NOT_RUN_STOP_CONDITION",
+  "reason": "Writer identity could access the authoritative Reader endpoint.",
+  "execution_contract_installed": false,
+  "execution_id_reserved": false,
+  "execution_id_claimed": false,
+  "content_writes": 0
+}
