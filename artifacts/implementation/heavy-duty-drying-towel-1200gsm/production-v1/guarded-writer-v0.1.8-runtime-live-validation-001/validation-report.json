@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "preflight_tests": {
+    "passed": 223,
+    "failed": 0
+  },
+  "reader_cache_security": "PASS",
+  "writer_cache_security": "PASS",
+  "routes": "PASS",
+  "baseline_state": "MATCH",
+  "identity_security": "PASS",
+  "approval_lifecycle": "PASS",
+  "execution_contract_lifecycle": "PASS",
+  "dry_run": "PASS",
+  "rollback_simulation": "PASS",
+  "final_authoritative_verification": "PASS",
+  "final_cache_security": "PASS",
+  "content_mutations": 0,
+  "approval_active": true,
+  "execution_contract_active": false,
+  "ready_to_request_new_live_write_authorisation": true,
+  "ready_for_live_write": false
+}

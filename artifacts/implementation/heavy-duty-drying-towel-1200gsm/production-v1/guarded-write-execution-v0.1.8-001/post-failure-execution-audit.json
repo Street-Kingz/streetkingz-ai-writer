@@ -1,0 +1,14 @@
+{
+  "label": "post_failure_execution_audit",
+  "method": "GET",
+  "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution/status",
+  "http_status": 200,
+  "error_code": null,
+  "response_sha256": "9b5caff1886baaab19c7c9dbd9f1d50bd057ac7ece13e8fb6fca5c4e5de367a1",
+  "response_size_bytes": 54,
+  "body": {
+    "status": "absent",
+    "product_id": 70,
+    "template_id": 2003
+  }
+}

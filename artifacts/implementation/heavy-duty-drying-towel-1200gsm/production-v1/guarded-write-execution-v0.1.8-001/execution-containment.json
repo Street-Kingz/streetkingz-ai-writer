@@ -1,0 +1,13 @@
+{
+  "status": "CONTAINED",
+  "execute_requests": 1,
+  "retries": 0,
+  "execution_id_sha256": "2512308a9733af96df4f99f8488baa3d1631800d868b65537dd50626eb21e3d2",
+  "execution_id_permanently_consumed": true,
+  "expected_permanent_audit_state": "failed_after_claim",
+  "active_execution_contract": false,
+  "contract_removal_http_status": 200,
+  "permanent_id_reservation_preserved": true,
+  "second_contract_created": false,
+  "second_execute_request": false
+}

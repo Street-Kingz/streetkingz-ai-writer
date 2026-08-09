@@ -1,0 +1,16 @@
+{
+  "label": "remove_failed_consumed_contract",
+  "method": "DELETE",
+  "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution-contract",
+  "http_status": 404,
+  "error_code": "streetkingz_ai_execution_locked",
+  "response_sha256": "71920477254c7478a806bb75fe697bb8aa9142bda77f33f3072887d8386b0c2f",
+  "response_size_bytes": 120,
+  "body": {
+    "code": "streetkingz_ai_execution_locked",
+    "message": "No runtime execution contract is installed.",
+    "data": {
+      "status": 404
+    }
+  }
+}

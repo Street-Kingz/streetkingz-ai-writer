@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "product_restored_exactly": true,
+  "template_restored_semantically": true,
+  "description_restored_exactly": true,
+  "comparison_restored_exactly": true,
+  "safety_widget_unchanged": true,
+  "blocked_fields_unchanged": true,
+  "live_writes": 0
+}

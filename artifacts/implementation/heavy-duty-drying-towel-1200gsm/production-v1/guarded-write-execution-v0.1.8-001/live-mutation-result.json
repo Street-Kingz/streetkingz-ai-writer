@@ -1,0 +1,16 @@
+{
+  "http_status": 500,
+  "error_code": "streetkingz_ai_rollback_verification_failed",
+  "response_sha256": "adf26e4c180a6a4cc9dcdba1c3f0479fc51169249d123cf9be56da1655b7b0da",
+  "response_size_bytes": 219,
+  "response": {
+    "code": "streetkingz_ai_rollback_verification_failed",
+    "message": "Elementor write failed and rollback could not be verified.",
+    "data": {
+      "status": 500,
+      "elementor_failure_code": "streetkingz_ai_elementor_save_returned_false"
+    }
+  },
+  "execute_requests": 1,
+  "retries": 0
+}

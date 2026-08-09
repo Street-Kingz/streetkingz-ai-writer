@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "writer_version": "0.1.8",
+  "approval_active": true,
+  "approval_sha256": "837f218f03c7493b8225bc3f9983b51566a81879124167f838eada172aeda48f",
+  "reason_approval_remains": "A validated approval is the intended durable first-stage runtime control and cannot authorise execution without a separate contract and explicit execute request.",
+  "execution_contract_active": false,
+  "executable_one_time_authorisation_active": false,
+  "accounts_roles_changed": false,
+  "plugin_files_changed": false,
+  "product_content_changed": false,
+  "template_content_changed": false
+}

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Guarded Writer
  * Description: Approval-bound writer for one reviewed product-copy change set. Inactive unless a separate write capability is deliberately assigned.
- * Version: 0.1.8
+ * Version: 0.1.9
  */
 
 defined('ABSPATH') || exit;
@@ -376,11 +376,12 @@ function streetkingz_ai_writer_source(array $approval) {
     return ['product' => $product, 'template' => $template, 'approval' => $approval];
 }
 
-function streetkingz_ai_writer_find_elements(array &$items, string $id, array $path = []): array {
+function streetkingz_ai_writer_find_elements(array $items, string $id, array $path = []): array {
     $found = [];
-    foreach ($items as $index => &$item) {
+    foreach ($items as $index => $item) {
         $current = array_merge($path, [$index]);
-        if (($item['id'] ?? null) === $id) $found[] = ['path' => $current, 'element' => &$item];
+        /* Never return references: they can contaminate a copied rollback document when the live tree is patched. */
+        if (($item['id'] ?? null) === $id) $found[] = ['path' => $current, 'element' => $item];
         if (!empty($item['elements']) && is_array($item['elements'])) $found = array_merge($found, streetkingz_ai_writer_find_elements($item['elements'], $id, array_merge($current, ['elements'])));
     }
     return $found;
@@ -469,33 +470,94 @@ function streetkingz_ai_writer_persist_snapshot(array $prepared) {
  * the already-authorised, bounded writer path. Nothing is persisted on the role.
  */
 function streetkingz_ai_writer_map_template_save_capability(array $caps, string $cap, int $user_id, array $args): array {
+    $template = get_post_type_object('elementor_library');
+    $edit_posts = $template && isset($template->cap->edit_posts) ? $template->cap->edit_posts : null;
+    $edit_post = $template && isset($template->cap->edit_post) ? $template->cap->edit_post : null;
     if (
-        !empty($GLOBALS['streetkingz_ai_writer_template_save_scope']) &&
-        $cap === 'edit_post' &&
-        (int) ($args[0] ?? 0) === STREETKINGZ_AI_WRITE_TEMPLATE_ID &&
-        $user_id === get_current_user_id() &&
-        current_user_can(STREETKINGZ_AI_WRITE_CAPABILITY)
-    ) return ['read'];
+        is_array($GLOBALS['streetkingz_ai_writer_template_save_scope'] ?? null) &&
+        ($GLOBALS['streetkingz_ai_writer_template_save_scope']['user_id'] ?? 0) === $user_id &&
+        ($GLOBALS['streetkingz_ai_writer_template_save_scope']['template_id'] ?? 0) === STREETKINGZ_AI_WRITE_TEMPLATE_ID
+    ) {
+        /* Elementor checks the post type's plural primitive before its per-post meta capability. */
+        if ($edit_posts && $cap === $edit_posts && empty($args)) return ['read'];
+        if ($edit_post && $cap === $edit_post && (int) ($args[0] ?? 0) === STREETKINGZ_AI_WRITE_TEMPLATE_ID) return ['read'];
+    }
     return $caps;
+}
+
+function streetkingz_ai_writer_canonical_document_hash(array $document): string {
+    $encoded = wp_json_encode($document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    return is_string($encoded) ? hash('sha256', $encoded) : '';
+}
+
+function streetkingz_ai_writer_read_persisted_template() {
+    global $wpdb;
+    $rows = $wpdb->get_results($wpdb->prepare(
+        "SELECT meta_id, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = %s ORDER BY meta_id ASC",
+        STREETKINGZ_AI_WRITE_TEMPLATE_ID,
+        '_elementor_data'
+    ), ARRAY_A);
+    if (count($rows) !== 1 || !is_string($rows[0]['meta_value'])) return new WP_Error('streetkingz_ai_persisted_template_unavailable', 'Persisted Elementor data is missing or ambiguous.', ['status' => 500]);
+    $document = json_decode($rows[0]['meta_value'], true);
+    if (!is_array($document)) return new WP_Error('streetkingz_ai_persisted_template_invalid', 'Persisted Elementor data is invalid.', ['status' => 500]);
+    return ['raw' => $rows[0]['meta_value'], 'document' => $document, 'canonical_sha256' => streetkingz_ai_writer_canonical_document_hash($document)];
+}
+
+function streetkingz_ai_writer_safe_save_value($value) {
+    if (is_bool($value) || is_null($value) || is_int($value) || is_float($value)) return $value;
+    if (is_string($value)) return ['type' => 'string', 'length' => strlen($value), 'sha256' => hash('sha256', $value)];
+    return null;
 }
 
 function streetkingz_ai_writer_save_elementor(array $elements) {
     if (!class_exists('\\Elementor\\Plugin')) return new WP_Error('streetkingz_ai_elementor_api_unavailable', 'Elementor document API is unavailable.', ['status' => 500]);
-    $document = \Elementor\Plugin::$instance->documents->get(STREETKINGZ_AI_WRITE_TEMPLATE_ID);
-    if (!$document) return new WP_Error('streetkingz_ai_elementor_document_unavailable', 'Elementor document is unavailable.', ['status' => 500]);
     if (!current_user_can(STREETKINGZ_AI_WRITE_CAPABILITY)) return new WP_Error('streetkingz_ai_elementor_save_forbidden', 'The bounded writer capability is required for the Elementor save.', ['status' => 403]);
-    $GLOBALS['streetkingz_ai_writer_template_save_scope'] = true;
+    $before = streetkingz_ai_writer_read_persisted_template();
+    if (is_wp_error($before)) return $before;
+    $expected_hash = streetkingz_ai_writer_canonical_document_hash($elements);
+    $diagnostics = [
+        'elementor_version' => defined('ELEMENTOR_VERSION') ? ELEMENTOR_VERSION : null,
+        'template_id' => STREETKINGZ_AI_WRITE_TEMPLATE_ID,
+        'pre_save_persisted_template_sha256' => $before['canonical_sha256'],
+        'expected_post_save_template_sha256' => $expected_hash,
+        'save_invocation_reached' => false,
+    ];
+    $GLOBALS['streetkingz_ai_writer_template_save_scope'] = ['user_id' => get_current_user_id(), 'template_id' => STREETKINGZ_AI_WRITE_TEMPLATE_ID];
     add_filter('map_meta_cap', 'streetkingz_ai_writer_map_template_save_capability', 10, 4);
     try {
+        $document = \Elementor\Plugin::$instance->documents->get(STREETKINGZ_AI_WRITE_TEMPLATE_ID);
+        if (!$document) return new WP_Error('streetkingz_ai_elementor_document_unavailable', 'Elementor document is unavailable.', ['status' => 500]);
+        $post_type = get_post_type_object('elementor_library');
+        $edit_posts = $post_type && isset($post_type->cap->edit_posts) ? $post_type->cap->edit_posts : null;
+        $edit_post = $post_type && isset($post_type->cap->edit_post) ? $post_type->cap->edit_post : null;
+        $diagnostics['document_class'] = get_class($document);
+        $diagnostics['document_type'] = method_exists($document, 'get_name') ? $document->get_name() : null;
+        $diagnostics['edit_posts_capability'] = $edit_posts;
+        $diagnostics['edit_post_capability'] = $edit_post;
+        $diagnostics['edit_posts_allowed_immediately_before_save'] = $edit_posts ? current_user_can($edit_posts) : false;
+        $diagnostics['edit_post_allowed_immediately_before_save'] = $edit_post ? current_user_can($edit_post, STREETKINGZ_AI_WRITE_TEMPLATE_ID) : false;
+        if (!$diagnostics['edit_posts_allowed_immediately_before_save'] || !$diagnostics['edit_post_allowed_immediately_before_save']) {
+            return new WP_Error('streetkingz_ai_elementor_bounded_capability_failed', 'The bounded Elementor save capabilities did not resolve.', ['status' => 500, 'diagnostics' => $diagnostics]);
+        }
         /* Document::save expects decoded element data under the elements key. */
+        $diagnostics['save_invocation_reached'] = true;
         $result = $document->save(['elements' => $elements]);
+        $diagnostics['save_return_type'] = gettype($result);
+        $diagnostics['save_return_value'] = streetkingz_ai_writer_safe_save_value($result);
     } catch (Throwable $error) {
-        $result = new WP_Error('streetkingz_ai_elementor_save_exception', 'Elementor document save raised an exception.', ['status' => 500, 'exception_class' => get_class($error)]);
+        $diagnostics['exception_class'] = get_class($error);
+        $diagnostics['exception_code'] = $error->getCode();
+        $result = new WP_Error('streetkingz_ai_elementor_save_exception', 'Elementor document save raised an exception.', ['status' => 500, 'diagnostics' => $diagnostics]);
     } finally {
         remove_filter('map_meta_cap', 'streetkingz_ai_writer_map_template_save_capability', 10);
         unset($GLOBALS['streetkingz_ai_writer_template_save_scope']);
     }
-    return $result;
+    streetkingz_ai_writer_clear_persisted_state_caches();
+    $after = streetkingz_ai_writer_read_persisted_template();
+    if (is_wp_error($after)) return $after;
+    $diagnostics['post_save_persisted_template_sha256'] = $after['canonical_sha256'];
+    $diagnostics['persisted_state_matches_expected'] = $expected_hash !== '' && hash_equals($expected_hash, $after['canonical_sha256']);
+    return ['api_result' => $result, 'persisted_matches_expected' => $diagnostics['persisted_state_matches_expected'], 'diagnostics' => $diagnostics];
 }
 
 function streetkingz_ai_writer_clear_persisted_state_caches(): void {
@@ -504,20 +566,24 @@ function streetkingz_ai_writer_clear_persisted_state_caches(): void {
     wp_cache_delete(STREETKINGZ_AI_WRITE_TEMPLATE_ID, 'post_meta');
 }
 
-function streetkingz_ai_writer_verify_state(array $expected, bool $targets = false): bool {
+function streetkingz_ai_writer_verify_state(array $expected, bool $targets = false, ?array &$diagnostics = null): bool {
     streetkingz_ai_writer_clear_persisted_state_caches();
     $approval = $expected['approval'];
     $source = streetkingz_ai_writer_source($approval);
-    if (is_wp_error($source)) return false;
+    if (is_wp_error($source)) { $diagnostics = ['source_error' => $source->get_error_code()]; return false; }
     $title = $targets ? $expected['targets']['post_title'] : $expected['original']['product']['post_title'];
     $excerpt = $targets ? $expected['targets']['post_excerpt'] : $expected['original']['product']['post_excerpt'];
-    if ($source['product']['post_title'] !== $title || $source['product']['post_excerpt'] !== $excerpt || $source['product']['post_content'] !== $expected['original']['product']['post_content'] || $source['product']['post_name'] !== $expected['original']['product']['post_name'] || $source['product']['post_status'] !== $expected['original']['product']['post_status']) return false;
+    $product_matches = $source['product']['post_title'] === $title && $source['product']['post_excerpt'] === $excerpt && $source['product']['post_content'] === $expected['original']['product']['post_content'] && $source['product']['post_name'] === $expected['original']['product']['post_name'] && $source['product']['post_status'] === $expected['original']['product']['post_status'];
     $document = json_decode($source['template']['raw_elementor_data'], true);
-    if (!is_array($document)) return false;
+    if (!is_array($document)) { $diagnostics = ['product_matches' => $product_matches, 'template_valid' => false]; return false; }
     $expected_document = $targets ? $expected['patched_document'] : $expected['original']['document'];
     $actual_semantic = wp_json_encode($document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     $expected_semantic = wp_json_encode($expected_document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    if (!is_string($actual_semantic) || !is_string($expected_semantic) || !hash_equals(hash('sha256', $expected_semantic), hash('sha256', $actual_semantic))) return false;
+    $actual_hash = is_string($actual_semantic) ? hash('sha256', $actual_semantic) : '';
+    $expected_hash = is_string($expected_semantic) ? hash('sha256', $expected_semantic) : '';
+    $template_matches = $actual_hash !== '' && $expected_hash !== '' && hash_equals($expected_hash, $actual_hash);
+    $diagnostics = ['product_matches' => $product_matches, 'persisted_template_sha256' => $actual_hash, 'expected_template_sha256' => $expected_hash, 'template_matches' => $template_matches];
+    if (!$product_matches || !$template_matches) return false;
     foreach ([STREETKINGZ_AI_WRITE_DESCRIPTION_ID, STREETKINGZ_AI_WRITE_COMPARISON_ID, STREETKINGZ_AI_WRITE_SAFETY_ID] as $id) {
         $matches = streetkingz_ai_writer_find_elements($document, $id);
         if (count($matches) !== 1) return false;
@@ -528,23 +594,32 @@ function streetkingz_ai_writer_verify_state(array $expected, bool $targets = fal
     return true;
 }
 
-function streetkingz_ai_writer_rollback(array $prepared): bool {
+function streetkingz_ai_writer_rollback(array $prepared, ?array &$diagnostics = null): bool {
+    $diagnostics = ['product_restore_called' => true, 'template_restore_called' => false];
     $product = wp_update_post(['ID' => STREETKINGZ_AI_WRITE_PRODUCT_ID, 'post_title' => $prepared['original']['product']['post_title'], 'post_excerpt' => $prepared['original']['product']['post_excerpt']], true);
-    if (is_wp_error($product)) return false;
+    if (is_wp_error($product)) { $diagnostics['product_restore_error'] = $product->get_error_code(); return false; }
     streetkingz_ai_writer_clear_persisted_state_caches();
     $persisted = streetkingz_ai_writer_source($prepared['approval']);
-    if (is_wp_error($persisted)) return false;
+    if (is_wp_error($persisted)) { $diagnostics['persisted_read_error'] = $persisted->get_error_code(); return false; }
     $persisted_document = json_decode($persisted['template']['raw_elementor_data'], true);
-    if (!is_array($persisted_document)) return false;
+    if (!is_array($persisted_document)) { $diagnostics['persisted_template_valid'] = false; return false; }
     $persisted_semantic = wp_json_encode($persisted_document, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     $original_semantic = wp_json_encode($prepared['original']['document'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     if (!is_string($persisted_semantic) || !is_string($original_semantic)) return false;
-    if (!hash_equals(hash('sha256', $original_semantic), hash('sha256', $persisted_semantic))) {
+    $diagnostics['pre_restore_persisted_template_sha256'] = hash('sha256', $persisted_semantic);
+    $diagnostics['rollback_target_template_sha256'] = hash('sha256', $original_semantic);
+    if (!hash_equals($diagnostics['rollback_target_template_sha256'], $diagnostics['pre_restore_persisted_template_sha256'])) {
+        $diagnostics['template_restore_called'] = true;
         $elementor = streetkingz_ai_writer_save_elementor($prepared['original']['document']);
-        if (is_wp_error($elementor) || $elementor === false) return false;
+        /* The API return is diagnostic only; freshly persisted state is authoritative. */
+        $diagnostics['template_restore_diagnostics'] = is_array($elementor) ? ($elementor['diagnostics'] ?? []) : [];
+        if (is_wp_error($elementor)) $diagnostics['template_restore_error'] = $elementor->get_error_code();
     }
     /* Always verify freshly persisted state, including when the failed save never changed the template. */
-    return streetkingz_ai_writer_verify_state($prepared, false);
+    $verified = streetkingz_ai_writer_verify_state($prepared, false, $verification);
+    $diagnostics['persisted_verification'] = $verification;
+    $diagnostics['verified'] = $verified;
+    return $verified;
 }
 
 function streetkingz_ai_guarded_writer_request(WP_REST_Request $request) {
@@ -579,15 +654,18 @@ function streetkingz_ai_guarded_writer_request(WP_REST_Request $request) {
     $product_result = wp_update_post(['ID' => STREETKINGZ_AI_WRITE_PRODUCT_ID, 'post_title' => $prepared['targets']['post_title'], 'post_excerpt' => $prepared['targets']['post_excerpt']], true);
     if (is_wp_error($product_result)) return streetkingz_ai_writer_failed_after_claim($claim, 'product_write_failed', $product_result);
     $elementor_result = streetkingz_ai_writer_save_elementor($prepared['patched_document']);
-    if (is_wp_error($elementor_result) || $elementor_result === false) {
-        $elementor_failure_code = is_wp_error($elementor_result) ? $elementor_result->get_error_code() : 'streetkingz_ai_elementor_save_returned_false';
-        if (!streetkingz_ai_writer_rollback($prepared)) return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rollback_unverified', new WP_Error('streetkingz_ai_rollback_verification_failed', 'Elementor write failed and rollback could not be verified.', ['status' => 500, 'elementor_failure_code' => $elementor_failure_code]));
-        return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rolled_back', new WP_Error('streetkingz_ai_write_rolled_back', 'Elementor write failed; compensating rollback completed and was verified.', ['status' => 500, 'elementor_failure_code' => $elementor_failure_code]));
+    $elementor_persisted = !is_wp_error($elementor_result) && !empty($elementor_result['persisted_matches_expected']);
+    if (!$elementor_persisted) {
+        $api_result = is_array($elementor_result) ? ($elementor_result['api_result'] ?? null) : $elementor_result;
+        $elementor_failure_code = is_wp_error($api_result) ? $api_result->get_error_code() : (is_wp_error($elementor_result) ? $elementor_result->get_error_code() : 'streetkingz_ai_elementor_persisted_state_mismatch');
+        $elementor_diagnostics = is_array($elementor_result) ? ($elementor_result['diagnostics'] ?? []) : (is_wp_error($elementor_result) ? ($elementor_result->get_error_data()['diagnostics'] ?? []) : []);
+        if (!streetkingz_ai_writer_rollback($prepared, $rollback_diagnostics)) return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rollback_unverified', new WP_Error('streetkingz_ai_rollback_verification_failed', 'Elementor write failed and rollback could not be verified.', ['status' => 500, 'elementor_failure_code' => $elementor_failure_code, 'elementor_diagnostics' => $elementor_diagnostics, 'rollback_diagnostics' => $rollback_diagnostics]));
+        return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rolled_back', new WP_Error('streetkingz_ai_write_rolled_back', 'Elementor write did not produce the exact persisted target; compensating rollback completed and was verified.', ['status' => 500, 'elementor_failure_code' => $elementor_failure_code, 'elementor_diagnostics' => $elementor_diagnostics]));
     }
     if (!streetkingz_ai_writer_verify_state($prepared, true)) {
-        if (!streetkingz_ai_writer_rollback($prepared)) return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rollback_unverified', new WP_Error('streetkingz_ai_post_write_and_rollback_verification_failed', 'Post-write verification failed and rollback could not be verified.', ['status' => 500]));
+        if (!streetkingz_ai_writer_rollback($prepared, $rollback_diagnostics)) return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rollback_unverified', new WP_Error('streetkingz_ai_post_write_and_rollback_verification_failed', 'Post-write verification failed and rollback could not be verified.', ['status' => 500, 'rollback_diagnostics' => $rollback_diagnostics]));
         return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rolled_back', new WP_Error('streetkingz_ai_post_write_verification_failed_rolled_back', 'Post-write verification failed; rollback completed and was verified.', ['status' => 500]));
     }
     if (!streetkingz_ai_writer_finish_execution($claim, 'succeeded', 'approved_mutations_verified')) return new WP_Error('streetkingz_ai_execution_audit_update_failed', 'Approved mutations were verified, but the permanent execution audit state could not be marked succeeded. The claim remains unavailable.', ['status' => 500]);
-    return rest_ensure_response(['status' => 'write_complete_requires_post_write_verification', 'snapshot_sha256' => $snapshot['sha256']]);
+    return rest_ensure_response(['status' => 'write_complete_requires_post_write_verification', 'snapshot_sha256' => $snapshot['sha256'], 'elementor_diagnostics' => $elementor_result['diagnostics']]);
 }

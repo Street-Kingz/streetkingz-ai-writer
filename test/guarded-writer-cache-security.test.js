@@ -4,8 +4,8 @@ import { readFile } from "node:fs/promises";
 
 const source = await readFile("wordpress-plugin/streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php", "utf8");
 
-test("Guarded Writer v0.1.8 prevents protected control-plane responses entering LiteSpeed cache", () => {
-  assert.match(source, /Version:\s*0\.1\.8/);
+test("Guarded Writer v0.1.9 preserves protected control-plane LiteSpeed cache prevention", () => {
+  assert.match(source, /Version:\s*0\.1\.9/);
   assert.match(source, /rest_pre_dispatch/);
   assert.match(source, /streetkingz_ai_writer_disable_protected_rest_cache/);
   assert.match(source, /litespeed_control_set_nocache/);

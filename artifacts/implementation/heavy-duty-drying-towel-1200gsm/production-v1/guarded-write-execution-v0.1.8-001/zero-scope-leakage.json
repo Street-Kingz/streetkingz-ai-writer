@@ -1,0 +1,14 @@
+{
+  "status": "PASS_AFTER_ROLLBACK",
+  "blocked_fields_modified": 0,
+  "other_products_modified": 0,
+  "other_templates_modified": 0,
+  "metadata_modified": 0,
+  "taxonomy_modified": 0,
+  "pricing_modified": 0,
+  "stock_modified": 0,
+  "media_modified": 0,
+  "safety_widget_modified": 0,
+  "faq_question_modified": 0,
+  "final_cms_state_matches_pre_write": true
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-write-execution-v0.1.8-001",
+  "status": "FAILED_EXECUTION_ROLLED_BACK_AND_CONTAINED",
+  "reader_version": "1.1.3",
+  "writer_version": "0.1.8",
+  "execute_requests": 1,
+  "retries": 0,
+  "execution_id_consumed": true,
+  "active_execution_contract": false,
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0,
+  "final_live_content_state_changed": false,
+  "committed_automatically": false
+}

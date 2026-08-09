@@ -1,0 +1,11 @@
+{
+  "status": "EXTERNALLY_VERIFIED_SUCCESS",
+  "plugin_internal_verification": "FAIL",
+  "pre_write_response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "post_rollback_response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "responses_byte_identical": true,
+  "product_restored": true,
+  "template_restored": true,
+  "protected_fields_restored": true,
+  "critical_unrecovered_state": false
+}

@@ -1,0 +1,21 @@
+{
+  "status": "FAILED_EXECUTION_ROLLED_BACK_AND_CONTAINED",
+  "pre_write_tests": "223/223 PASS",
+  "fresh_authoritative_read": "PASS",
+  "current_state_guards": "PASS",
+  "rollback_snapshot": "PASS",
+  "final_dry_run": "PASS",
+  "approved_target_hashes": "PASS",
+  "execute_requests": 1,
+  "retries": 0,
+  "product_mutation": "TRANSIENT_THEN_ROLLED_BACK",
+  "elementor_save": "FAIL_RETURNED_FALSE",
+  "comparison_mutation": "NOT_COMPLETED",
+  "plugin_internal_rollback_verification": "FAIL_FALSE_NEGATIVE",
+  "external_authoritative_rollback_verification": "PASS_BYTE_IDENTICAL",
+  "active_execution_contract": false,
+  "execution_id_consumed": true,
+  "final_content_state": "ORIGINAL_ROLLED_BACK_STATE",
+  "scope_leakage": 0,
+  "ready_for_live_write": false
+}

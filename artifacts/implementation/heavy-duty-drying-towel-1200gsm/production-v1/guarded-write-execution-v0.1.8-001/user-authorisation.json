@@ -1,0 +1,13 @@
+{
+  "statement": "I authorise the exact four approved changes to product 70 using the current active approval and a new one-time runtime execution contract.",
+  "received_at": "2026-08-09T12:25:07.654Z",
+  "product_id": 70,
+  "template_id": 2003,
+  "operations": [
+    "post_title",
+    "post_excerpt",
+    "c80e718.settings.editor",
+    "40869c27.settings.editor"
+  ],
+  "publication_authorised": false
+}

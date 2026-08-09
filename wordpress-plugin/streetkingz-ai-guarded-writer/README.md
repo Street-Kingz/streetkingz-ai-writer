@@ -1,6 +1,6 @@
 # Street Kingz AI Guarded Writer
 
-v0.1.8 prevents LiteSpeed from caching any protected Writer control-plane, status, dry-run, or execute-route response. It marks only the fixed `approved-product-70-copy` REST routes non-cacheable before dispatch and emits explicit private/no-store and LiteSpeed no-cache response directives. Existing cached Writer REST objects must be purged once during deployment.
+v0.1.9 retains the v0.1.8 protected-route cache controls and corrects the supported Elementor save boundary. Elementor 3.32.5 checks both the template post type's plural edit capability and the per-template edit meta capability; both are mapped to the writer's existing `read` primitive only inside the fixed template-2003 save scope and are removed in `finally`. Save and rollback decisions are based on freshly persisted canonical Elementor state, not the API return value alone. Element lookup no longer retains PHP references that could contaminate the rollback document, and bounded hash/type diagnostics make any future save result auditable without exposing content or credentials.
 
 This plugin is deliberately bound to the explicit product 70/template 2003 approval packaged with it. It accepts no copy, product IDs, template IDs, widget IDs, fields, metadata or publication state from callers.
 

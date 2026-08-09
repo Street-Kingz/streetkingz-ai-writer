@@ -66,6 +66,66 @@ test("Elementor Document save payload is decoded elements, not raw stored JSON",
   assert.doesNotMatch(plugin, /update_post_meta\s*\(.*_elementor_data/s);
 });
 
+test("production locator does not retain PHP references into the rollback document", () => {
+  const locator = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_find_elements"), plugin.indexOf("function streetkingz_ai_writer_patch_element"));
+  assert.match(locator, /function streetkingz_ai_writer_find_elements\(array \$items/);
+  assert.doesNotMatch(locator, /array &\$items|foreach \(\$items as \$index => &\$item\)|'element' => &\$item/);
+});
+
+test("bounded capability bridge covers Elementor's plural and per-post checks", () => {
+  const bridge = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_map_template_save_capability"), plugin.indexOf("function streetkingz_ai_writer_canonical_document_hash"));
+  assert.match(bridge, /\$cap === \$edit_posts && empty\(\$args\)/);
+  assert.match(bridge, /\$cap === \$edit_post && \(int\) \(\$args\[0\]/);
+  assert.match(bridge, /STREETKINGZ_AI_WRITE_TEMPLATE_ID/);
+  assert.doesNotMatch(bridge, /add_cap|edit_products|manage_options/);
+});
+
+test("capability bridge is installed before document acquisition and removed in finally", () => {
+  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_save_elementor"), plugin.indexOf("function streetkingz_ai_writer_clear_persisted_state_caches"));
+  assert.ok(save.indexOf("add_filter('map_meta_cap'") < save.indexOf("documents->get(STREETKINGZ_AI_WRITE_TEMPLATE_ID)"));
+  assert.match(save, /finally[\s\S]*remove_filter\('map_meta_cap'/);
+  assert.match(save, /unset\(\$GLOBALS\['streetkingz_ai_writer_template_save_scope'\]\)/);
+});
+
+test("save outcome records return semantics but trusts exact persisted state", () => {
+  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_save_elementor"), plugin.indexOf("function streetkingz_ai_writer_clear_persisted_state_caches"));
+  assert.match(save, /save_return_type/);
+  assert.match(save, /save_return_value/);
+  assert.match(save, /post_save_persisted_template_sha256/);
+  assert.match(save, /persisted_state_matches_expected/);
+  assert.match(plugin, /\$elementor_persisted = .*persisted_matches_expected/);
+});
+
+test("truthy API return cannot override wrong persistence", () => {
+  const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
+  assert.match(request, /if \(!\$elementor_persisted\)/);
+  assert.doesNotMatch(request, /if \(\$elementor_result\)/);
+});
+
+test("false API return with exact persistence is not falsely failed", () => {
+  const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
+  assert.match(request, /!empty\(\$elementor_result\['persisted_matches_expected'\]\)/);
+  assert.doesNotMatch(request, /\$elementor_result === false/);
+});
+
+test("rollback skips a restore call when persisted template is already original", () => {
+  const rollback = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_rollback"), plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
+  assert.match(rollback, /if \(!hash_equals\(\$diagnostics\['rollback_target_template_sha256'\], \$diagnostics\['pre_restore_persisted_template_sha256'\]\)\)/);
+  assert.match(rollback, /'template_restore_called' => false/);
+});
+
+test("rollback judges restore by fresh persisted verification, not restore return", () => {
+  const rollback = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_rollback"), plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
+  assert.match(rollback, /streetkingz_ai_writer_verify_state\(\$prepared, false, \$verification\)/);
+  assert.doesNotMatch(rollback, /\$elementor === false/);
+});
+
+test("bounded diagnostics contain hashes and types but no content or credentials", () => {
+  const save = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_save_elementor"), plugin.indexOf("function streetkingz_ai_writer_clear_persisted_state_caches"));
+  for (const field of ["elementor_version", "document_class", "document_type", "template_id", "save_return_type", "save_return_value", "pre_save_persisted_template_sha256", "expected_post_save_template_sha256", "post_save_persisted_template_sha256"]) assert.match(save, new RegExp(field));
+  assert.doesNotMatch(save, /Authorization|Application Password|api_key|exact_cms_value/);
+});
+
 test("approved HTML survives the production save transformation", () => {
   const patched = clone(original);
   patch(patched, "c80e718", approved("description"));

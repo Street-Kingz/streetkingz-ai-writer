@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "total_live_requests": 90,
+  "get_requests": 50,
+  "runtime_control_post_requests": 34,
+  "dry_run_requests": 1,
+  "runtime_control_delete_requests": 5,
+  "execute_requests": 0,
+  "product_writes": 0,
+  "elementor_saves": 0,
+  "product_or_template_update_post_meta_calls": 0,
+  "revisions_created": 0,
+  "total_content_mutations": 0,
+  "baseline_final_comparison": {
+    "raw_response_identical": true,
+    "post_title_identical": true,
+    "post_excerpt_identical": true,
+    "post_content_identical": true,
+    "slug_identical": true,
+    "publication_state_identical": true,
+    "template_semantically_identical": true,
+    "description_identical": true,
+    "comparison_identical": true,
+    "safety_identical": true
+  },
+  "proof_basis": [
+    "No request was sent to the execute route.",
+    "Accepted manifest operations returned content_writes_performed=0.",
+    "Dry-run returned writes_performed=0 and execution status remained absent.",
+    "Final authoritative response is byte-identical to baseline."
+  ]
+}

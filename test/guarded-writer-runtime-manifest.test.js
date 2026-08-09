@@ -8,8 +8,8 @@ import { DatabaseSync } from "node:sqlite";
 
 const plugin = fs.readFileSync("wordpress-plugin/streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php", "utf8");
 
-test("v0.1.8 uses one runtime option source and no bundled manifest fallback", () => {
-  assert.match(plugin, /Version: 0\.1\.8/);
+test("v0.1.9 uses one runtime option source and no bundled manifest fallback", () => {
+  assert.match(plugin, /Version: 0\.1\.9/);
   assert.match(plugin, /STREETKINGZ_AI_ACTIVE_APPROVAL_OPTION = 'streetkingz_ai_writer_active_approval_v1'/);
   assert.match(plugin, /STREETKINGZ_AI_ACTIVE_EXECUTION_OPTION = 'streetkingz_ai_writer_active_execution_v1'/);
   assert.doesNotMatch(plugin, /__DIR__\s*\.\s*['"]\/(?:human-implementation-approval|execution-authorisation)\.json/);

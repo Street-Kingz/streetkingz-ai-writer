@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "incident": "second_live_guarded_write_elementor_failure",
+  "mode": "offline_diagnosis_and_implementation",
+  "production_requests": 0,
+  "production_writes": 0,
+  "evidence": {
+    "v0_1_8_execution": "../guarded-write-execution-v0.1.8-001/",
+    "v0_1_5_execution": "../guarded-write-execution-v0.1.5-001/",
+    "pre_and_post_rollback_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+    "external_rollback_byte_identical": true,
+    "elementor_version": "3.32.5"
+  },
+  "elementor_save_diagnosis": {
+    "call": "Elementor\\Plugin::$instance->documents->get(2003)->save(['elements' => decoded_patched_document])",
+    "document_save_false_branch": "Elementor Core Base Document::save returns false only when is_editable_by_current_user() is false; otherwise the traced 3.32.5 method completes and returns true.",
+    "first_unsatisfied_condition": "Elementor\\User::is_current_user_can_edit_post_type() requires current_user_can($post_type_object->cap->edit_posts) before checking current_user_can($post_type_object->cap->edit_post, 2003).",
+    "v0_1_8_bridge": "Mapped only the per-post edit_post meta capability for template 2003.",
+    "root_cause": "The narrow Writer lacks the Elementor Library post type's edit_posts primitive and v0.1.8 did not map that plural capability. Document::save therefore returned boolean false before before_save, save_elements, metadata persistence, CSS deletion, document cache deletion, or after_save.",
+    "v0_1_5_and_v0_1_8_same_permission_path": true,
+    "v0_1_6_original_fix_complete": false,
+    "payload_shape_valid": true,
+    "persistence_observed": false
+  },
+  "rollback_false_negative": {
+    "root_cause": "streetkingz_ai_writer_find_elements returned element references into the decoded template. The code copied that referenced array into original.document and then patched the live document. PHP array copies retain referenced zvals, so the nominal rollback document could contain patched target values.",
+    "effect": "The unchanged persisted template was compared with a contaminated rollback document, treated as needing restoration, and the redundant restore call returned false at the same unsatisfied Elementor permission check. The function returned false before its final persisted-state verification.",
+    "stale_cache_required_to_explain_incident": false,
+    "external_ground_truth": "Reader direct wp_posts/wp_postmeta queries proved byte-identical restoration."
+  },
+  "v0_1_9": {
+    "capability_bridge": "Maps both the actual Elementor Library edit_posts primitive and edit_post meta capability to read only for the authenticated Writer and fixed template 2003 inside a try/finally save scope.",
+    "element_locator": "Returns values, never PHP references.",
+    "save_decision": "Fresh canonical persisted template state must equal the exact expected target regardless of the API return value.",
+    "rollback_decision": "A restore call is skipped when persisted state is already original; when called, its return is diagnostic and final fresh persisted state is authoritative.",
+    "diagnostics": [
+      "Elementor version",
+      "document class/type",
+      "template ID",
+      "immediate plural and per-post capability results",
+      "save invocation reached",
+      "safe save return type/value",
+      "exception class/code",
+      "pre-save, expected, and post-save canonical hashes",
+      "persisted match decision",
+      "restore-call decision/result diagnostics",
+      "post-rollback and rollback-target hashes"
+    ],
+    "permissions_broadened": false,
+    "direct_elementor_meta_writes": false,
+    "security_guards_weakened": false
+  },
+  "testing": {
+    "previous_total": 223,
+    "new_total": 238,
+    "passed": 238,
+    "failed": 0,
+    "php_cli_available": false,
+    "wordpress_runtime_tested": false,
+    "elementor_runtime_tested": false,
+    "production_fixture_tested": true
+  },
+  "package": {
+    "version": "0.1.9",
+    "path": "wordpress-plugin/streetkingz-ai-guarded-writer-0.1.9.zip",
+    "sha256": "56581ba263d1e400c104bea2d3c44aee1dd19c06cfb3c22832169ea907a0541f",
+    "runtime_source_sha256": "77f2b183f57bffe65eab4f61e09e2593ee430d3f6ef3d6528dfd2beabcb2dd7a",
+    "source_package_parity": true,
+    "approval_included": false,
+    "execution_contract_included": false,
+    "credentials_included": false
+  }
+}

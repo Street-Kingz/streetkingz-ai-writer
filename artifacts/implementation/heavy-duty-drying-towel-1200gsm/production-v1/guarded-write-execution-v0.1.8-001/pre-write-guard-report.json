@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "guards": {
+    "post_title": true,
+    "post_excerpt": true,
+    "template": true,
+    "description": true,
+    "comparison": true,
+    "safety": true
+  },
+  "drift": false
+}
