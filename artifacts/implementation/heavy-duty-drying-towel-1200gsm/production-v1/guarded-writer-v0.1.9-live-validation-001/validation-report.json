@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tests": "238/238",
+  "routes": "PASS",
+  "cache_security": "PASS",
+  "baseline": "MATCH",
+  "identity_security": "PASS",
+  "dual_capability_bridge": "STRUCTURALLY_PROVEN_RUNTIME_SAVE_NOT_INVOKED",
+  "persisted_state_verification": "PASS_STRUCTURAL_AND_TESTED",
+  "rollback_verification": "PASS_STRUCTURAL_AND_TESTED",
+  "approval": "PASS",
+  "dry_run": "PASS",
+  "final_state": "MATCH",
+  "content_mutations": 0,
+  "ready_to_request_new_authorisation": true,
+  "ready_for_live_write": false
+}

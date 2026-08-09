@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "reader_user_expected": {
+    "id": 2,
+    "role": "streetkingz_ai_reader"
+  },
+  "writer_user_expected": {
+    "id": 3,
+    "role": "streetkingz_ai_writer"
+  },
+  "checks": [
+    {
+      "label": "writer_settings",
+      "method": "GET",
+      "path": "/wp-json/wp/v2/settings",
+      "http_status": 403,
+      "error_code": "rest_forbidden",
+      "response_sha256": "e90ab292fcdb1189f5037d7989313dbf9343bcb739b76b2188c43fde194e48f2",
+      "response_size_bytes": 98,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "writer_plugins",
+      "method": "GET",
+      "path": "/wp-json/wp/v2/plugins",
+      "http_status": 403,
+      "error_code": "rest_cannot_view_plugins",
+      "response_sha256": "d93598506b2de24091436b47c57bc15672b0bab2ad92766ee693c5ab83bc1000",
+      "response_size_bytes": 129,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "writer_posts_edit",
+      "method": "GET",
+      "path": "/wp-json/wp/v2/posts?context=edit&per_page=1",
+      "http_status": 403,
+      "error_code": "rest_forbidden_context",
+      "response_sha256": "b0d54eeeb6b6388d645b86baea94852cfc3d5f503d6a328b8a43f872173c4b89",
+      "response_size_bytes": 127,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "writer_products_edit",
+      "method": "GET",
+      "path": "/wp-json/wp/v2/product?context=edit&per_page=1",
+      "http_status": 403,
+      "error_code": "rest_forbidden_context",
+      "response_sha256": "b0d54eeeb6b6388d645b86baea94852cfc3d5f503d6a328b8a43f872173c4b89",
+      "response_size_bytes": 127,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "writer_pages_edit",
+      "method": "GET",
+      "path": "/wp-json/wp/v2/pages?context=edit&per_page=1",
+      "http_status": 403,
+      "error_code": "rest_forbidden_context",
+      "response_sha256": "b0d54eeeb6b6388d645b86baea94852cfc3d5f503d6a328b8a43f872173c4b89",
+      "response_size_bytes": 127,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "writer_elementor_library_edit",
+      "method": "GET",
+      "path": "/wp-json/wp/v2/elementor_library?context=edit&per_page=1",
+      "http_status": 403,
+      "error_code": "rest_forbidden",
+      "response_sha256": "e90ab292fcdb1189f5037d7989313dbf9343bcb739b76b2188c43fde194e48f2",
+      "response_size_bytes": 98,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "cf-cache-status": "DYNAMIC",
+        "x-litespeed-cache-control": "no-cache",
+        "vary": "Accept-Encoding",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    }
+  ],
+  "reader_writer_separation_http_proven": true,
+  "writer_custom_boundary_reachable": true,
+  "generic_edit_posts": false,
+  "generic_edit_products": false,
+  "generic_edit_pages": false,
+  "manage_options": false,
+  "manage_woocommerce": false,
+  "plugin_file_management": false,
+  "reader_capability_on_writer": false,
+  "role_capability_details_basis": "Previously proven identity audit plus current HTTP denial checks; WordPress exposes no bounded capability-inspection route."
+}

@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "namespace_present": true,
+  "reader_version_expected": "1.1.3",
+  "writer_version_expected": "0.1.9",
+  "routes": {
+    "reader": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/products/(?P<id>\\d+)/authoritative",
+      "methods": [
+        "GET"
+      ]
+    },
+    "approval": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/approval",
+      "methods": [
+        "DELETE",
+        "POST"
+      ]
+    },
+    "approvalStatus": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/approval/status",
+      "methods": [
+        "GET"
+      ]
+    },
+    "executionStatus": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/execution/status",
+      "methods": [
+        "GET"
+      ]
+    },
+    "dryRun": {
+      "registered": true,
+      "discovered_route": "/streetkingz-ai/v1/approved-product-70-copy/(?P<mode>dry-run|execute)",
+      "methods": [
+        "POST"
+      ]
+    }
+  },
+  "request": {
+    "label": "rest_discovery",
+    "method": "GET",
+    "path": "/wp-json/",
+    "http_status": 200,
+    "error_code": null,
+    "response_sha256": "31490f43cd236a3421d07dd0740221f517ef4b3bd7b83e0382b9efaf64487382",
+    "response_size_bytes": 1640155,
+    "cache_headers": {
+      "cf-cache-status": "DYNAMIC",
+      "x-litespeed-cache": "miss",
+      "x-litespeed-cache-control": "public,max-age=604800",
+      "vary": "Origin,Accept-Encoding"
+    },
+    "credentials_persisted": false,
+    "authorization_header_persisted": false
+  }
+}

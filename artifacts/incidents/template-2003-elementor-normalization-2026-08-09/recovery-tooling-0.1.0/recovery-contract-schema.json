@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "contract_status": "schema_only_no_active_authorisation",
+  "incident_id": "template-2003-elementor-normalization-2026-08-09",
+  "fixed_template_id": 2003,
+  "fixed_meta_key": "_elementor_data",
+  "fixed_operation": "restore_exact_raw_elementor_data",
+  "human_authorisation_source_required": "explicit_human_incident_recovery_authorisation",
+  "human_recovery_approval_artifact_and_fingerprints_required": true,
+  "one_time_recovery_id_required": true,
+  "target_raw_value_required_at_runtime": true,
+  "product_70_modification_authorised": false,
+  "other_template_modification_authorised": false,
+  "other_meta_modification_authorised": false,
+  "publication_modification_authorised": false,
+  "slug_modification_authorised": false,
+  "production_contract_created": false
+}

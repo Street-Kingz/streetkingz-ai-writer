@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "approval_sha256": "837f218f03c7493b8225bc3f9983b51566a81879124167f838eada172aeda48f",
+  "runtime_installed_by_task": false,
+  "active": true,
+  "product_id": 70,
+  "template_id": 2003,
+  "exact_targets": [
+    "post_title",
+    "post_excerpt",
+    "c80e718.settings.editor",
+    "40869c27.settings.editor"
+  ],
+  "publication_authorised": false,
+  "slug_authorised": false,
+  "metadata_authorised": false,
+  "safety_widget_change_authorised": false,
+  "content_writes": 0,
+  "status_request": {
+    "label": "writer_approval_status_cache_origin",
+    "method": "GET",
+    "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/approval/status",
+    "http_status": 200,
+    "error_code": null,
+    "response_sha256": "93e23c089ef56cef66cbba7ed953a0dfe73cc39a3a1352a3270f38b991b06682",
+    "response_size_bytes": 185,
+    "cache_headers": {
+      "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "cf-cache-status": "DYNAMIC",
+      "x-litespeed-cache-control": "no-cache",
+      "vary": "Accept-Encoding",
+      "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+    },
+    "credentials_persisted": false,
+    "authorization_header_persisted": false
+  }
+}

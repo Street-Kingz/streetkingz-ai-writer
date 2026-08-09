@@ -1,0 +1,17 @@
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { execFileSync } from "node:child_process";
+const root = process.cwd();
+const name = "streetkingz-ai-template-2003-recovery";
+const source = path.join(root, "wordpress-plugin", name);
+for (const forbidden of ["recovery-contract.json", ".env", "execution-authorisation.json", "human-implementation-approval.json"]) if (fs.existsSync(path.join(source, forbidden))) throw new Error(`Refusing forbidden package file: ${forbidden}`);
+const php = fs.readFileSync(path.join(source, `${name}.php`), "utf8");
+const version = php.match(/^ \* Version: ([0-9]+\.[0-9]+\.[0-9]+)$/m)?.[1];
+if (!version) throw new Error("Recovery plugin version missing.");
+const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "streetkingz-recovery-"));
+fs.cpSync(source, path.join(temporary, name), { recursive: true });
+const output = path.join(root, "wordpress-plugin", `${name}-${version}.zip`);
+if (fs.existsSync(output)) throw new Error(`Refusing to overwrite ${output}`);
+execFileSync("zip", ["-X", "-r", output, name], { cwd: temporary, stdio: "ignore" });
+console.log(output);

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "incident_id": "template-2003-elementor-normalization-2026-08-09",
+  "template_id": 2003,
+  "meta_key": "_elementor_data",
+  "expected_current_raw_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00",
+  "expected_current_authoritative_response_sha256": "bd2ed8e54bbb016800b82630a3c4da6fbf003e1471d953fde042b2c4488ab23d",
+  "expected_diff_count": 140,
+  "expected_runtime_diff_sha256": "401ec670e2a443d7ec904edbb43964ebf39862256198c9c2d79c50293662c80b",
+  "target_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "product_70_title_sha256": "70d2740df079f126b15fac1a79dbb579accf5cc9b3b8c0f69f2ab8d89496326a",
+  "product_70_excerpt_sha256": "42403585f01631a26e0ab3139ad11ad40874882d46dc70a94e756fc24e653675",
+  "product_70_content_sha256": "2914f1e1185e6a6c8e737ff7c29d9eb80e165d5ea401da0b080ce2f75d548a48",
+  "description_sha256": "72f9f609c59de983f61e8305d6cea67d8ae07d5743ca77e0d0efcd5fea2169b7",
+  "comparison_sha256": "019780f33556ba09df132a4a92e473f2523fe41615c7f058916b96ebec31ba07",
+  "safety_sha256": "bcf0b42d978be2f9caf218bfd55bab0bd902f05532e00868eae40fa06dc74bb6",
+  "fail_closed": true
+}

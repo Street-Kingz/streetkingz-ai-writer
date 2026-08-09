@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "plugin": "Street Kingz AI Template 2003 Incident Recovery",
+  "version": "0.1.0",
+  "separate_plugin": true,
+  "authentication": "WordPress Application Password authentication plus dedicated custom capability",
+  "role": "streetkingz_ai_template_2003_recovery",
+  "capability": "streetkingz_ai_recover_template_2003",
+  "role_assigned_automatically": false,
+  "normal_writer_capability_sufficient": false,
+  "fixed_post_id": 2003,
+  "fixed_meta_key": "_elementor_data",
+  "generic_metadata_api": false,
+  "elementor_document_save_used": false,
+  "atomic_claim": "INSERT IGNORE into uniquely indexed WordPress options table",
+  "claim_states": ["claimed_executing", "succeeded", "failed_after_claim"],
+  "automatic_retry": false,
+  "claim_cleanup": false,
+  "cache_invalidation": ["post cache 2003", "post-meta cache 2003", "LiteSpeed post 2003", "LiteSpeed product 70"],
+  "global_elementor_regeneration": false
+}

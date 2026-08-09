@@ -1,0 +1,11 @@
+{
+  "status": "PASS_STRUCTURAL_AND_TESTED",
+  "locator_returns_references": true,
+  "rollback_document_independent": false,
+  "redundant_restore_skipped": true,
+  "supported_elementor_restore": true,
+  "restore_return_authoritative": false,
+  "fresh_persisted_verification": true,
+  "false_restore_correct_state_passes": true,
+  "truthy_restore_wrong_state_fails": true
+}

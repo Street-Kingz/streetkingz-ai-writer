@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "request": {
+    "label": "product_70_dry_run",
+    "method": "POST",
+    "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+    "http_status": 200,
+    "error_code": null,
+    "response_sha256": "8803e18dc86e1fd9305330f6a65a5668742a2967589bed6eb14c1fcfc22f092f",
+    "response_size_bytes": 270,
+    "cache_headers": {
+      "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "cf-cache-status": "DYNAMIC",
+      "x-litespeed-cache-control": "no-cache",
+      "vary": "Accept-Encoding",
+      "expires": "Wed, 11 Jan 1984 05:00:00 GMT"
+    },
+    "credentials_persisted": false,
+    "authorization_header_persisted": false
+  },
+  "exact_targets": [
+    "post_title",
+    "post_excerpt",
+    "c80e718.settings.editor",
+    "40869c27.settings.editor"
+  ],
+  "current_state_guards": "MATCH",
+  "approved_target_hashes": "MATCH",
+  "unexpected_structural_differences": 0,
+  "slug_unchanged": true,
+  "metadata_unchanged": true,
+  "faq_unchanged": true,
+  "safety_widget_unchanged": true,
+  "unrelated_elementor_unchanged": true,
+  "post_content_unchanged": true,
+  "publication_unchanged": true,
+  "execution_id_claimed": false,
+  "revisions": 0,
+  "content_writes": 0
+}

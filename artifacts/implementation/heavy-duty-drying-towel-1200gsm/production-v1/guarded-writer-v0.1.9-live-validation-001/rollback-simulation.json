@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "product_restored": true,
+  "template_restored_semantically": true,
+  "target_widgets_restored": true,
+  "safety_unchanged": true,
+  "blocked_areas_unchanged": true,
+  "live_writes": 0
+}

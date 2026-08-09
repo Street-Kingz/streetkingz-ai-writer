@@ -1,0 +1,63 @@
+{
+  "http_status": 500,
+  "error_code": "streetkingz_ai_rollback_verification_failed",
+  "response_sha256": "bbd5e103b6d4c0d660a09a72806d96643be2afa3614282bdf0c10913729e76bb",
+  "response_size_bytes": 2374,
+  "response": {
+    "code": "streetkingz_ai_rollback_verification_failed",
+    "message": "Elementor write failed and rollback could not be verified.",
+    "data": {
+      "status": 500,
+      "elementor_failure_code": "streetkingz_ai_elementor_persisted_state_mismatch",
+      "elementor_diagnostics": {
+        "elementor_version": "3.33.6",
+        "template_id": 2003,
+        "pre_save_persisted_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+        "expected_post_save_template_sha256": "3887d9e9211d1e69a1c49f9e729d6195df126ca691423289e368c7d143ed5ee2",
+        "save_invocation_reached": true,
+        "document_class": "ElementorPro\\Modules\\Woocommerce\\Documents\\Product",
+        "document_type": "product",
+        "edit_posts_capability": "edit_posts",
+        "edit_post_capability": "edit_post",
+        "edit_posts_allowed_immediately_before_save": true,
+        "edit_post_allowed_immediately_before_save": true,
+        "save_return_type": "boolean",
+        "save_return_value": true,
+        "post_save_persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa",
+        "persisted_state_matches_expected": false
+      },
+      "rollback_diagnostics": {
+        "product_restore_called": true,
+        "template_restore_called": true,
+        "pre_restore_persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa",
+        "rollback_target_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+        "template_restore_diagnostics": {
+          "elementor_version": "3.33.6",
+          "template_id": 2003,
+          "pre_save_persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa",
+          "expected_post_save_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+          "save_invocation_reached": true,
+          "document_class": "ElementorPro\\Modules\\Woocommerce\\Documents\\Product",
+          "document_type": "product",
+          "edit_posts_capability": "edit_posts",
+          "edit_post_capability": "edit_post",
+          "edit_posts_allowed_immediately_before_save": true,
+          "edit_post_allowed_immediately_before_save": true,
+          "save_return_type": "boolean",
+          "save_return_value": true,
+          "post_save_persisted_template_sha256": "4369211ae0e19a6aab55fe0d01a1aee1d634426a2f9459d6e9796380254fe47a",
+          "persisted_state_matches_expected": false
+        },
+        "persisted_verification": {
+          "product_matches": true,
+          "persisted_template_sha256": "4369211ae0e19a6aab55fe0d01a1aee1d634426a2f9459d6e9796380254fe47a",
+          "expected_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+          "template_matches": false
+        },
+        "verified": false
+      }
+    }
+  },
+  "execute_requests": 1,
+  "retries": 0
+}

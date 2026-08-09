@@ -1,0 +1,26 @@
+{
+  "status": "DESIGN_ONLY_NOT_AUTHORISED",
+  "source_of_truth": "guarded-write-execution-v0.1.9-001/pre-write-authoritative-response.json raw template _elementor_data",
+  "source_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "target": { "post_id": 2003, "post_type": "elementor_library", "meta_key": "_elementor_data", "expected_single_row": true },
+  "product_fields_touched": [],
+  "other_template_meta_touched": [],
+  "pre_recovery": [
+    "Require a new explicit human incident-recovery authorisation for this exact raw restoration.",
+    "Perform one fresh authoritative read and require the current raw _elementor_data SHA-256 e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00.",
+    "Persist a new immutable snapshot of the complete current drifted authoritative state.",
+    "Require product title, excerpt, content, slug, status and protected widget values to match the recorded incident state."
+  ],
+  "operation": "Through a separate incident-only, fixed-target recovery component, update exactly the existing template-2003 _elementor_data value to the preserved raw JSON using WordPress metadata slashing semantics. Do not call Document::save and do not expose arbitrary post IDs, meta keys, or values.",
+  "cache_clearing": ["clean_post_cache(2003)", "delete post_meta cache for 2003", "delete Elementor document cache/Post CSS so it regenerates from restored source"],
+  "post_recovery_verification": [
+    "Fresh authoritative Reader response.",
+    "Raw _elementor_data SHA-256 equals 81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01.",
+    "Parsed template is strictly type-semantically identical to the preserved source.",
+    "Complete authoritative product/template state equals the pre-v0.1.9 snapshot except allowed cache timestamps outside protected content.",
+    "Rendered page HTTP 200 and deterministic title, description, comparison, safety, slug, and publication checks pass."
+  ],
+  "failure_behavior": "Stop immediately. If the direct update occurred but exact verification fails, use the newly captured drifted snapshot for one bounded compensating restoration, verify it, and classify critical failure. Never fall back to Document::save.",
+  "human_recovery_authorisation_required": true,
+  "execution_contract_reused": false
+}

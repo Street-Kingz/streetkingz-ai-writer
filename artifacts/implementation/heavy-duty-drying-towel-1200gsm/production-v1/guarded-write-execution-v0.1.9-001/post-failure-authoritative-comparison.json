@@ -1,0 +1,1142 @@
+{
+  "status": "DRIFT_PRESENT",
+  "http_status": 200,
+  "pre_response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "post_response_sha256": "bd2ed8e54bbb016800b82630a3c4da6fbf003e1471d953fde042b2c4488ab23d",
+  "product": {
+    "title_identical": true,
+    "excerpt_identical": true,
+    "content_identical": true,
+    "slug_identical": true,
+    "status_identical": true
+  },
+  "template": {
+    "raw_identical": false,
+    "semantic_identical": false,
+    "difference_count": 140,
+    "differences": [
+      {
+        "path": "0.elements.0.elements.0.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "3d1e557b540ac045b3b327994a351f08a443f9216f9b2b8d3a0f42b58671ac83",
+        "after_sha256": "3d1e557b540ac045b3b327994a351f08a443f9216f9b2b8d3a0f42b58671ac83"
+      },
+      {
+        "path": "0.elements.0.elements.0.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "69f59c273b6e669ac32a6dd5e1b2cb63333d8b004f9696447aee2d422ce63763",
+        "after_sha256": "69f59c273b6e669ac32a6dd5e1b2cb63333d8b004f9696447aee2d422ce63763"
+      },
+      {
+        "path": "0.elements.0.elements.0.settings.min_height.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "2099a9b5f777e242d1f9e19d27e232cc71e2fa7964fc988a319fce5671ca7f73",
+        "after_sha256": "2099a9b5f777e242d1f9e19d27e232cc71e2fa7964fc988a319fce5671ca7f73"
+      },
+      {
+        "path": "0.elements.0.elements.0.settings.min_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "26d228663f13a88592a12d16cf9587caab0388b262d6d9f126ed62f9333aca94",
+        "after_sha256": "26d228663f13a88592a12d16cf9587caab0388b262d6d9f126ed62f9333aca94"
+      },
+      {
+        "path": "0.elements.0.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "39fa9ec190eee7b6f4dff1100d6343e10918d044c75eac8f9e9a2596173f80c9",
+        "after_sha256": "39fa9ec190eee7b6f4dff1100d6343e10918d044c75eac8f9e9a2596173f80c9"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+        "after_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4",
+        "after_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.1.settings.star_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8139b33952401b3ee0e2ca84651cb9a1d7f66d442bf908f9cf1f53ea746e5801",
+        "after_sha256": "8139b33952401b3ee0e2ca84651cb9a1d7f66d442bf908f9cf1f53ea746e5801"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.2.settings.sale_price_spacing.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4",
+        "after_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.3.settings.text_typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b",
+        "after_sha256": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.4.settings.button_typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b",
+        "after_sha256": "f5ca38f748a1d6eaf726b8a42fb575c3c71f1864a8143301782de13da2d9202b"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.4.settings.variations_spacing.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8",
+        "after_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.4.settings.variations_width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306",
+        "after_sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.4.settings.view_cart_spacing.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.5.settings.icon_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8",
+        "after_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.5.settings.icon_typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8",
+        "after_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.5.settings.icon_typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+        "after_sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.5.settings.icon_typography_font_size_tablet.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+        "after_sha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3"
+      },
+      {
+        "path": "0.elements.0.elements.1.elements.5.settings.space_between.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "535fa30d7e25dd8a49f1536779734ec8286108d115da5045d77f3b4185d8f790",
+        "after_sha256": "535fa30d7e25dd8a49f1536779734ec8286108d115da5045d77f3b4185d8f790"
+      },
+      {
+        "path": "0.elements.0.elements.1.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+        "after_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "path": "0.elements.0.elements.1.settings.width_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306",
+        "after_sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
+      },
+      {
+        "path": "0.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "a037a7dfaf26abe1265bd5d51447be3bb1fdaef7c4c7a14bcf0d819818fb80b0",
+        "after_sha256": "a037a7dfaf26abe1265bd5d51447be3bb1fdaef7c4c7a14bcf0d819818fb80b0"
+      },
+      {
+        "path": "1.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "59e19706d51d39f66711c2653cd7eb1291c94d9b55eb14bda74ce4dc636d015a",
+        "after_sha256": "59e19706d51d39f66711c2653cd7eb1291c94d9b55eb14bda74ce4dc636d015a"
+      },
+      {
+        "path": "1.elements.1.elements.0.elements.0.settings.size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca",
+        "after_sha256": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca"
+      },
+      {
+        "path": "1.elements.1.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "1.elements.1.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "1.elements.1.elements.1.elements.0.settings.size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca",
+        "after_sha256": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca"
+      },
+      {
+        "path": "1.elements.1.elements.1.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "1.elements.1.elements.1.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "1.elements.1.elements.2.elements.0.settings.size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca",
+        "after_sha256": "5f9c4ab08cac7457e9111a30e4664920607ea2c115a1433d7be98e97e64244ca"
+      },
+      {
+        "path": "1.elements.1.elements.2.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "1.elements.1.elements.2.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "1.elements.1.settings.grid_rows_grid.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "after_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      {
+        "path": "2.elements.0.elements.1.settings._element_custom_width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "99ee50221221864d50c60baea6f14d8ac2e235cc6e78be6088cd40cc97fca394",
+        "after_sha256": "99ee50221221864d50c60baea6f14d8ac2e235cc6e78be6088cd40cc97fca394"
+      },
+      {
+        "path": "2.elements.0.elements.1.settings._element_custom_width_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5426d2ca50f244fb43fe9eafc82da08f33f3b4f8d9140802bd0102e780b629d6",
+        "after_sha256": "5426d2ca50f244fb43fe9eafc82da08f33f3b4f8d9140802bd0102e780b629d6"
+      },
+      {
+        "path": "2.elements.0.elements.1.settings.typography_line_height.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ec6c168f4411ec8fa9ab8d47dd25954ce53728404fed0e7a9bc7f29dab38c30d",
+        "after_sha256": "ec6c168f4411ec8fa9ab8d47dd25954ce53728404fed0e7a9bc7f29dab38c30d"
+      },
+      {
+        "path": "2.elements.0.elements.3.settings._element_custom_width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "99ee50221221864d50c60baea6f14d8ac2e235cc6e78be6088cd40cc97fca394",
+        "after_sha256": "99ee50221221864d50c60baea6f14d8ac2e235cc6e78be6088cd40cc97fca394"
+      },
+      {
+        "path": "2.elements.0.elements.3.settings._element_custom_width_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5426d2ca50f244fb43fe9eafc82da08f33f3b4f8d9140802bd0102e780b629d6",
+        "after_sha256": "5426d2ca50f244fb43fe9eafc82da08f33f3b4f8d9140802bd0102e780b629d6"
+      },
+      {
+        "path": "2.elements.0.elements.3.settings.typography_line_height.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ec6c168f4411ec8fa9ab8d47dd25954ce53728404fed0e7a9bc7f29dab38c30d",
+        "after_sha256": "ec6c168f4411ec8fa9ab8d47dd25954ce53728404fed0e7a9bc7f29dab38c30d"
+      },
+      {
+        "path": "2.elements.0.elements.5.settings._element_custom_width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "99ee50221221864d50c60baea6f14d8ac2e235cc6e78be6088cd40cc97fca394",
+        "after_sha256": "99ee50221221864d50c60baea6f14d8ac2e235cc6e78be6088cd40cc97fca394"
+      },
+      {
+        "path": "2.elements.0.elements.5.settings._element_custom_width_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5426d2ca50f244fb43fe9eafc82da08f33f3b4f8d9140802bd0102e780b629d6",
+        "after_sha256": "5426d2ca50f244fb43fe9eafc82da08f33f3b4f8d9140802bd0102e780b629d6"
+      },
+      {
+        "path": "2.elements.0.elements.5.settings.typography_line_height.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ec6c168f4411ec8fa9ab8d47dd25954ce53728404fed0e7a9bc7f29dab38c30d",
+        "after_sha256": "ec6c168f4411ec8fa9ab8d47dd25954ce53728404fed0e7a9bc7f29dab38c30d"
+      },
+      {
+        "path": "3.elements.0.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4",
+        "after_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+      },
+      {
+        "path": "3.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61",
+        "after_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "path": "3.elements.1.elements.0.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ac1964eb089654e01f7bfb4871e0cd31ea4d2aa6e6e48774b6b9917b1341dbf6",
+        "after_sha256": "ac1964eb089654e01f7bfb4871e0cd31ea4d2aa6e6e48774b6b9917b1341dbf6"
+      },
+      {
+        "path": "3.elements.1.elements.0.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "after_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760"
+      },
+      {
+        "path": "3.elements.1.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db",
+        "after_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+      },
+      {
+        "path": "3.elements.1.elements.0.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "3.elements.1.elements.0.elements.3.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+        "after_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+      },
+      {
+        "path": "3.elements.1.elements.0.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "3.elements.1.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "3.elements.1.elements.1.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8c9089be2f18fb286889edf8531a43aff6fa8b6f28b531f8167d87d66b8f5b1d",
+        "after_sha256": "8c9089be2f18fb286889edf8531a43aff6fa8b6f28b531f8167d87d66b8f5b1d"
+      },
+      {
+        "path": "3.elements.1.elements.1.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "after_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760"
+      },
+      {
+        "path": "3.elements.1.elements.1.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db",
+        "after_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+      },
+      {
+        "path": "3.elements.1.elements.1.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "3.elements.1.elements.1.elements.3.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+        "after_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+      },
+      {
+        "path": "3.elements.1.elements.1.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "3.elements.1.elements.1.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "3.elements.1.elements.2.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "21113a3f71a6ecda7311c6e8539d1c9bd9949d3e6f23fbf4bcc781f96b30083a",
+        "after_sha256": "21113a3f71a6ecda7311c6e8539d1c9bd9949d3e6f23fbf4bcc781f96b30083a"
+      },
+      {
+        "path": "3.elements.1.elements.2.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "after_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760"
+      },
+      {
+        "path": "3.elements.1.elements.2.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db",
+        "after_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+      },
+      {
+        "path": "3.elements.1.elements.2.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "3.elements.1.elements.2.elements.3.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+        "after_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+      },
+      {
+        "path": "3.elements.1.elements.2.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "3.elements.1.elements.2.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "3.elements.1.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+        "after_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "path": "3.elements.1.settings.flex_gap_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569",
+        "after_sha256": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569"
+      },
+      {
+        "path": "3.elements.1.settings.flex_gap_tablet.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+        "after_sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+      },
+      {
+        "path": "4.elements.0.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4",
+        "after_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+      },
+      {
+        "path": "4.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61",
+        "after_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "path": "4.elements.1.elements.0.elements.0.settings.icon_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+        "after_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "path": "4.elements.1.elements.1.elements.0.settings.icon_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+        "after_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "path": "4.elements.1.elements.2.elements.0.settings.icon_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+        "after_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "path": "4.elements.1.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+        "after_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "path": "4.elements.1.settings.flex_gap_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+        "after_sha256": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d"
+      },
+      {
+        "path": "5.elements.0.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4",
+        "after_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+      },
+      {
+        "path": "5.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61",
+        "after_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "path": "5.elements.1.elements.0.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "456d12e33d0edb0eec5aee0bd933b654e0ccfb16506adbc588af712ba654dcc3",
+        "after_sha256": "456d12e33d0edb0eec5aee0bd933b654e0ccfb16506adbc588af712ba654dcc3"
+      },
+      {
+        "path": "5.elements.1.elements.0.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "after_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760"
+      },
+      {
+        "path": "5.elements.1.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db",
+        "after_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+      },
+      {
+        "path": "5.elements.1.elements.0.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "5.elements.1.elements.0.elements.3.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+        "after_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+      },
+      {
+        "path": "5.elements.1.elements.0.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "5.elements.1.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "5.elements.1.elements.1.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "85d6385b945c0d602103db39b0b654b2af93b5127938e26a959c123f0789b948",
+        "after_sha256": "85d6385b945c0d602103db39b0b654b2af93b5127938e26a959c123f0789b948"
+      },
+      {
+        "path": "5.elements.1.elements.1.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "after_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760"
+      },
+      {
+        "path": "5.elements.1.elements.1.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db",
+        "after_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+      },
+      {
+        "path": "5.elements.1.elements.1.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "5.elements.1.elements.1.elements.3.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+        "after_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+      },
+      {
+        "path": "5.elements.1.elements.1.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "5.elements.1.elements.1.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "5.elements.1.elements.2.elements.0.settings.image.id",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6c94e35ccc352d4e9ef0b99562cff995a5741ce8de8ad11b568892934daee366",
+        "after_sha256": "6c94e35ccc352d4e9ef0b99562cff995a5741ce8de8ad11b568892934daee366"
+      },
+      {
+        "path": "5.elements.1.elements.2.elements.0.settings.space.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306",
+        "after_sha256": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306"
+      },
+      {
+        "path": "5.elements.1.elements.2.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "after_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760"
+      },
+      {
+        "path": "5.elements.1.elements.2.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db",
+        "after_sha256": "c2356069e9d1e79ca924378153cfbbfb4d4416b1f99d41a2940bfdb66c5319db"
+      },
+      {
+        "path": "5.elements.1.elements.2.elements.2.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "5.elements.1.elements.2.elements.3.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3",
+        "after_sha256": "4523540f1504cd17100c4835e85b7eefd49911580f8efff0599a8f283be6b9e3"
+      },
+      {
+        "path": "5.elements.1.elements.2.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "5.elements.1.elements.2.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "5.elements.1.settings.flex_gap.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103",
+        "after_sha256": "d59eced1ded07f84c145592f65bdf854358e009c5cd705f5215bf18697fed103"
+      },
+      {
+        "path": "5.elements.1.settings.flex_gap_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569",
+        "after_sha256": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569"
+      },
+      {
+        "path": "5.elements.1.settings.flex_gap_tablet.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+        "after_sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+      },
+      {
+        "path": "6.elements.0.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4",
+        "after_sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+      },
+      {
+        "path": "6.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61",
+        "after_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.0.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.0.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.0.elements.0.settings.typography_line_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590",
+        "after_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_line_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590",
+        "after_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.2.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.2.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.2.elements.0.settings.typography_line_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590",
+        "after_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.3.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.3.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.3.elements.0.settings.typography_line_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590",
+        "after_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_line_height.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+        "after_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_line_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590",
+        "after_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+        "after_sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_line_height.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a",
+        "after_sha256": "4ec9599fc203d176a301536c2e091a19bc852759b255bd6818810a42c5fed14a"
+      },
+      {
+        "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_line_height_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590",
+        "after_sha256": "77ac319bfe1979e2d799d9e6987e65feb54f61511c03552ebae990826c208590"
+      },
+      {
+        "path": "6.elements.1.elements.0.settings.accordion_item_title_distance_from_content_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "after_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      },
+      {
+        "path": "6.elements.1.elements.0.settings.accordion_item_title_space_between.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+        "after_sha256": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d"
+      },
+      {
+        "path": "6.elements.1.elements.0.settings.accordion_item_title_space_between_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+        "after_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+      },
+      {
+        "path": "6.elements.1.elements.0.settings.icon_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8",
+        "after_sha256": "4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8"
+      },
+      {
+        "path": "6.elements.1.elements.0.settings.title_typography_font_size_mobile.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61",
+        "after_sha256": "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+      },
+      {
+        "path": "7.elements.0.elements.0.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09",
+        "after_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09"
+      },
+      {
+        "path": "7.elements.0.elements.0.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "7.elements.0.elements.0.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "7.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09",
+        "after_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09"
+      },
+      {
+        "path": "7.elements.0.elements.1.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "7.elements.0.elements.1.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "7.elements.0.elements.2.elements.0.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09",
+        "after_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09"
+      },
+      {
+        "path": "7.elements.0.elements.2.elements.1.settings.typography_font_size.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9",
+        "after_sha256": "b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9"
+      },
+      {
+        "path": "7.elements.0.elements.2.settings.width.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb",
+        "after_sha256": "070773670e8054e4bba940b4f8969eb3c7b2156204d08ca48318ee61d61a2ceb"
+      },
+      {
+        "path": "7.elements.0.settings.grid_rows_grid.size",
+        "kind": "value",
+        "before_type": "number",
+        "after_type": "string",
+        "before_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "after_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      }
+    ]
+  },
+  "credentials_persisted": false,
+  "authorization_header_persisted": false
+}

@@ -1,0 +1,648 @@
+{
+  "template_id": 2003,
+  "groups": {
+    "by_element": [
+      {
+        "value": "fb324e9",
+        "count": 5
+      },
+      {
+        "value": "4691e088",
+        "count": 5
+      },
+      {
+        "value": "7d9b8f42",
+        "count": 4
+      },
+      {
+        "value": "3d0ba1b2",
+        "count": 4
+      },
+      {
+        "value": "4e58d8c",
+        "count": 4
+      },
+      {
+        "value": "1208c225",
+        "count": 3
+      },
+      {
+        "value": "c80e718",
+        "count": 3
+      },
+      {
+        "value": "1ec85220",
+        "count": 3
+      },
+      {
+        "value": "184be346",
+        "count": 3
+      },
+      {
+        "value": "5a58bc3d",
+        "count": 3
+      },
+      {
+        "value": "631c46f6",
+        "count": 3
+      },
+      {
+        "value": "40869c27",
+        "count": 3
+      },
+      {
+        "value": "43d7d6f0",
+        "count": 3
+      },
+      {
+        "value": "608874af",
+        "count": 3
+      },
+      {
+        "value": "424b4039",
+        "count": 3
+      },
+      {
+        "value": "5331a23c",
+        "count": 2
+      },
+      {
+        "value": "634424b",
+        "count": 2
+      },
+      {
+        "value": "3385fdc2",
+        "count": 2
+      },
+      {
+        "value": "1a3721bd",
+        "count": 2
+      },
+      {
+        "value": "3d0638a3",
+        "count": 2
+      },
+      {
+        "value": "25de7821",
+        "count": 2
+      },
+      {
+        "value": "3efd8299",
+        "count": 2
+      },
+      {
+        "value": "6de8922",
+        "count": 2
+      },
+      {
+        "value": "5bad4349",
+        "count": 2
+      },
+      {
+        "value": "59392ca0",
+        "count": 2
+      },
+      {
+        "value": "4c52c513",
+        "count": 2
+      },
+      {
+        "value": "1996",
+        "count": 1
+      },
+      {
+        "value": "2001",
+        "count": 1
+      },
+      {
+        "value": "2002",
+        "count": 1
+      },
+      {
+        "value": "2142",
+        "count": 1
+      },
+      {
+        "value": "2143",
+        "count": 1
+      },
+      {
+        "value": "2211",
+        "count": 1
+      },
+      {
+        "value": "2394",
+        "count": 1
+      },
+      {
+        "value": "8361470",
+        "count": 1
+      },
+      {
+        "value": "18275666",
+        "count": 1
+      },
+      {
+        "value": "27188724",
+        "count": 1
+      },
+      {
+        "value": "28050591",
+        "count": 1
+      },
+      {
+        "value": "36512385",
+        "count": 1
+      },
+      {
+        "value": "56ebdcd3",
+        "count": 1
+      },
+      {
+        "value": "5500218e",
+        "count": 1
+      },
+      {
+        "value": "6c835544",
+        "count": 1
+      },
+      {
+        "value": "4d8934f0",
+        "count": 1
+      },
+      {
+        "value": "67873dc4",
+        "count": 1
+      },
+      {
+        "value": "243d78d3",
+        "count": 1
+      },
+      {
+        "value": "7d81fa73",
+        "count": 1
+      },
+      {
+        "value": "75ba2c42",
+        "count": 1
+      },
+      {
+        "value": "50d9f4f9",
+        "count": 1
+      },
+      {
+        "value": "1ffc1d38",
+        "count": 1
+      },
+      {
+        "value": "1dd9f1fb",
+        "count": 1
+      },
+      {
+        "value": "654284a7",
+        "count": 1
+      },
+      {
+        "value": "49bc7bc0",
+        "count": 1
+      },
+      {
+        "value": "4b6c2fcf",
+        "count": 1
+      },
+      {
+        "value": "7654d711",
+        "count": 1
+      },
+      {
+        "value": "1420e24f",
+        "count": 1
+      },
+      {
+        "value": "52113d85",
+        "count": 1
+      },
+      {
+        "value": "5b7df094",
+        "count": 1
+      },
+      {
+        "value": "42074a8c",
+        "count": 1
+      },
+      {
+        "value": "46d0797",
+        "count": 1
+      },
+      {
+        "value": "2bf134f2",
+        "count": 1
+      },
+      {
+        "value": "70fe8fe",
+        "count": 1
+      },
+      {
+        "value": "5d8a60ae",
+        "count": 1
+      },
+      {
+        "value": "b4b3d84",
+        "count": 1
+      },
+      {
+        "value": "7ff943fe",
+        "count": 1
+      },
+      {
+        "value": "6a955a21",
+        "count": 1
+      },
+      {
+        "value": "655a2e5a",
+        "count": 1
+      },
+      {
+        "value": "47d7f899",
+        "count": 1
+      },
+      {
+        "value": "38eeda83",
+        "count": 1
+      },
+      {
+        "value": "25ff925e",
+        "count": 1
+      },
+      {
+        "value": "5225e05d",
+        "count": 1
+      },
+      {
+        "value": "5f1f3696",
+        "count": 1
+      },
+      {
+        "value": "7cc851b6",
+        "count": 1
+      },
+      {
+        "value": "fd40331",
+        "count": 1
+      },
+      {
+        "value": "1c13ad4c",
+        "count": 1
+      },
+      {
+        "value": "54c91fd7",
+        "count": 1
+      },
+      {
+        "value": "68f12ba",
+        "count": 1
+      },
+      {
+        "value": "1e4ba856",
+        "count": 1
+      },
+      {
+        "value": "5e280bb9",
+        "count": 1
+      },
+      {
+        "value": "2b4bd398",
+        "count": 1
+      },
+      {
+        "value": "30ed927c",
+        "count": 1
+      },
+      {
+        "value": "609cb9a8",
+        "count": 1
+      },
+      {
+        "value": "68a247ea",
+        "count": 1
+      },
+      {
+        "value": "2dcb6abd",
+        "count": 1
+      },
+      {
+        "value": "232738bb",
+        "count": 1
+      },
+      {
+        "value": "708f75ac",
+        "count": 1
+      },
+      {
+        "value": "4fede34d",
+        "count": 1
+      },
+      {
+        "value": "2ddec348",
+        "count": 1
+      },
+      {
+        "value": "139b0439",
+        "count": 1
+      },
+      {
+        "value": "42b1a790",
+        "count": 1
+      },
+      {
+        "value": "54f17074",
+        "count": 1
+      },
+      {
+        "value": "37153de9",
+        "count": 1
+      },
+      {
+        "value": "7a5ef162",
+        "count": 1
+      },
+      {
+        "value": "62821a7e",
+        "count": 1
+      }
+    ],
+    "by_widget_type": [
+      {
+        "value": "text-editor",
+        "count": 51
+      },
+      {
+        "value": "none",
+        "count": 34
+      },
+      {
+        "value": "image",
+        "count": 15
+      },
+      {
+        "value": "heading",
+        "count": 14
+      },
+      {
+        "value": "icon-list",
+        "count": 5
+      },
+      {
+        "value": "nested-accordion",
+        "count": 5
+      },
+      {
+        "value": "woocommerce-product-add-to-cart",
+        "count": 4
+      },
+      {
+        "value": "icon",
+        "count": 3
+      },
+      {
+        "value": "rating",
+        "count": 3
+      },
+      {
+        "value": "woocommerce-product-title",
+        "count": 2
+      },
+      {
+        "value": "woocommerce-product-price",
+        "count": 2
+      },
+      {
+        "value": "woocommerce-product-rating",
+        "count": 1
+      },
+      {
+        "value": "woocommerce-product-short-description",
+        "count": 1
+      }
+    ],
+    "by_setting": [
+      {
+        "value": "size",
+        "count": 133
+      },
+      {
+        "value": "id",
+        "count": 7
+      }
+    ],
+    "by_family": [
+      {
+        "value": "sizing",
+        "count": 103
+      },
+      {
+        "value": "responsive layout",
+        "count": 30
+      },
+      {
+        "value": "unknown/other",
+        "count": 7
+      }
+    ],
+    "by_original_value": [
+      {
+        "value": "15",
+        "count": 12
+      },
+      {
+        "value": "16",
+        "count": 12
+      },
+      {
+        "value": "33.3",
+        "count": 12
+      },
+      {
+        "value": "0",
+        "count": 9
+      },
+      {
+        "value": "17",
+        "count": 6
+      },
+      {
+        "value": "24",
+        "count": 6
+      },
+      {
+        "value": "30",
+        "count": 6
+      },
+      {
+        "value": "240",
+        "count": 6
+      },
+      {
+        "value": "1.2",
+        "count": 6
+      },
+      {
+        "value": "14",
+        "count": 5
+      },
+      {
+        "value": "18",
+        "count": 5
+      },
+      {
+        "value": "40",
+        "count": 5
+      },
+      {
+        "value": "11",
+        "count": 4
+      },
+      {
+        "value": "10",
+        "count": 3
+      },
+      {
+        "value": "22",
+        "count": 3
+      },
+      {
+        "value": "26",
+        "count": 3
+      },
+      {
+        "value": "100",
+        "count": 3
+      },
+      {
+        "value": "330",
+        "count": 3
+      },
+      {
+        "value": "700",
+        "count": 3
+      },
+      {
+        "value": "1.6",
+        "count": 3
+      },
+      {
+        "value": "1",
+        "count": 2
+      },
+      {
+        "value": "5",
+        "count": 2
+      },
+      {
+        "value": "20",
+        "count": 2
+      },
+      {
+        "value": "25",
+        "count": 2
+      },
+      {
+        "value": "2",
+        "count": 1
+      },
+      {
+        "value": "8",
+        "count": 1
+      },
+      {
+        "value": "23",
+        "count": 1
+      },
+      {
+        "value": "28",
+        "count": 1
+      },
+      {
+        "value": "60",
+        "count": 1
+      },
+      {
+        "value": "90",
+        "count": 1
+      },
+      {
+        "value": "400",
+        "count": 1
+      },
+      {
+        "value": "650",
+        "count": 1
+      },
+      {
+        "value": "1300",
+        "count": 1
+      },
+      {
+        "value": "1996",
+        "count": 1
+      },
+      {
+        "value": "2001",
+        "count": 1
+      },
+      {
+        "value": "2002",
+        "count": 1
+      },
+      {
+        "value": "2142",
+        "count": 1
+      },
+      {
+        "value": "2143",
+        "count": 1
+      },
+      {
+        "value": "2211",
+        "count": 1
+      },
+      {
+        "value": "2394",
+        "count": 1
+      },
+      {
+        "value": "0.9",
+        "count": 1
+      }
+    ],
+    "by_nesting_level": [
+      {
+        "value": "3",
+        "count": 63
+      },
+      {
+        "value": "2",
+        "count": 45
+      },
+      {
+        "value": "4",
+        "count": 20
+      },
+      {
+        "value": "1",
+        "count": 12
+      }
+    ]
+  },
+  "counts": {
+    "total_differing_paths": 140,
+    "numeric_to_equal_numeric_string": 140,
+    "string_to_number": 0,
+    "other_value_changes": 0,
+    "missing_properties": 0,
+    "added_properties": 0,
+    "array_or_structural_changes": 0,
+    "widget_content_changes": 0,
+    "safety_widget_changes": 3
+  }
+}

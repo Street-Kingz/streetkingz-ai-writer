@@ -1,0 +1,9 @@
+{
+  "current_strict_guard_correctly_detected_incident": true,
+  "broad_numeric_string_normalization_recommended": false,
+  "narrow_allowlist_as_primary_guard_recommended": false,
+  "raw_plus_semantic_dual_guards_recommended": true,
+  "policy": "Keep raw persisted SHA-256 and strict type-semantic document hash as mandatory mutation guards. A separately reported, property-aware Elementor interpretation may explain a diff but must not silently authorize it or replace the raw guard.",
+  "incident_classifier_scope": "Only settings size/id number-to-identical-string changes are recognized for diagnosis. This classifier is not an execution equivalence rule.",
+  "reason": "Raw/type drift is operationally meaningful for rollback, revisions, exports, migrations, and audit even when current rendering is likely equivalent."
+}

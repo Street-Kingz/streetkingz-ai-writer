@@ -1,0 +1,15 @@
+{
+  "status": "PASS_STRUCTURAL",
+  "local_source_sha256": "77f2b183f57bffe65eab4f61e09e2593ee430d3f6ef3d6528dfd2beabcb2dd7a",
+  "deployed_version_claim": "0.1.9 clean deployment confirmed by user",
+  "live_version_endpoint_available": false,
+  "edit_posts_bridge": true,
+  "edit_post_bridge": true,
+  "exact_template_constant": true,
+  "guarded_global_scope": true,
+  "filter_installed_before_document_lookup": true,
+  "deterministic_finally_teardown": true,
+  "generic_capability_grants": false,
+  "actual_document_save_performed": false,
+  "live_runtime_limitation": "The temporary capability results occur only inside the mutation-capable save method; no safe non-mutating endpoint exposes them."
+}

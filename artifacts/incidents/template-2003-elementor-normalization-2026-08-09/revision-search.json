@@ -1,0 +1,10 @@
+{
+  "search_scope": "Preserved v0.1.5, v0.1.8, and v0.1.9 execution artifacts and repository source",
+  "pre_incident_revision_found": false,
+  "revision_id": null,
+  "timestamp": null,
+  "byte_identical_revision_proven": false,
+  "reason": "No preserved artifact records a template revision ID or revision _elementor_data. The authoritative Reader contract does not expose revisions, and no live query was performed in this offline task.",
+  "suitable_recovery_source": false,
+  "preferred_recovery_source": "The immutable pre-write authoritative response and fresh rollback snapshot, whose raw _elementor_data hash is 81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01."
+}

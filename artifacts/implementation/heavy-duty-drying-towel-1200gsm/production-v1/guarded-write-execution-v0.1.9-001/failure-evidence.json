@@ -1,0 +1,183 @@
+{
+  "status": "FAIL",
+  "code": "GUARDED_EXECUTION_FAILED",
+  "details": {
+    "http_status": 500,
+    "error_code": "streetkingz_ai_rollback_verification_failed",
+    "response": {
+      "code": "streetkingz_ai_rollback_verification_failed",
+      "message": "Elementor write failed and rollback could not be verified.",
+      "data": {
+        "status": 500,
+        "elementor_failure_code": "streetkingz_ai_elementor_persisted_state_mismatch",
+        "elementor_diagnostics": {
+          "elementor_version": "3.33.6",
+          "template_id": 2003,
+          "pre_save_persisted_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+          "expected_post_save_template_sha256": "3887d9e9211d1e69a1c49f9e729d6195df126ca691423289e368c7d143ed5ee2",
+          "save_invocation_reached": true,
+          "document_class": "ElementorPro\\Modules\\Woocommerce\\Documents\\Product",
+          "document_type": "product",
+          "edit_posts_capability": "edit_posts",
+          "edit_post_capability": "edit_post",
+          "edit_posts_allowed_immediately_before_save": true,
+          "edit_post_allowed_immediately_before_save": true,
+          "save_return_type": "boolean",
+          "save_return_value": true,
+          "post_save_persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa",
+          "persisted_state_matches_expected": false
+        },
+        "rollback_diagnostics": {
+          "product_restore_called": true,
+          "template_restore_called": true,
+          "pre_restore_persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa",
+          "rollback_target_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+          "template_restore_diagnostics": {
+            "elementor_version": "3.33.6",
+            "template_id": 2003,
+            "pre_save_persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa",
+            "expected_post_save_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+            "save_invocation_reached": true,
+            "document_class": "ElementorPro\\Modules\\Woocommerce\\Documents\\Product",
+            "document_type": "product",
+            "edit_posts_capability": "edit_posts",
+            "edit_post_capability": "edit_post",
+            "edit_posts_allowed_immediately_before_save": true,
+            "edit_post_allowed_immediately_before_save": true,
+            "save_return_type": "boolean",
+            "save_return_value": true,
+            "post_save_persisted_template_sha256": "4369211ae0e19a6aab55fe0d01a1aee1d634426a2f9459d6e9796380254fe47a",
+            "persisted_state_matches_expected": false
+          },
+          "persisted_verification": {
+            "product_matches": true,
+            "persisted_template_sha256": "4369211ae0e19a6aab55fe0d01a1aee1d634426a2f9459d6e9796380254fe47a",
+            "expected_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e",
+            "template_matches": false
+          },
+          "verified": false
+        }
+      }
+    }
+  },
+  "execute_requests": 1,
+  "contract_installed": true,
+  "execution_claimed": false,
+  "execution_id_sha256": "842148e7e50fd4fc4ac36eb181c6c57496f3f428d6e3f92e84c706dd347a097a",
+  "contract_sha256": "3e8bfcdf04e2ebf4ce6a9edac09d7231c5d43fabc165442f60c474c27f69ef7e",
+  "requests": [
+    {
+      "label": "active_approval_status",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/approval/status",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "93e23c089ef56cef66cbba7ed953a0dfe73cc39a3a1352a3270f38b991b06682",
+      "response_size_bytes": 185,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "initial_execution_status",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution/status",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "9b5caff1886baaab19c7c9dbd9f1d50bd057ac7ece13e8fb6fca5c4e5de367a1",
+      "response_size_bytes": 54,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "fresh_pre_write_authoritative",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "response_size_bytes": 111063,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "install_one_time_execution_contract",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution-contract",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "eb4b166691b7c5315c714a53c6cbf11705446f1a08e559f34b69021cebdb0a82",
+      "response_size_bytes": 282,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "execution_status_unused",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execution/status",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "b82f0cdbffc072d8c36fee2a20c941d1bfe5021962ea54426b6f31f5a3631754",
+      "response_size_bytes": 281,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "final_pre_write_dry_run",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 200,
+      "error_code": null,
+      "response_sha256": "8803e18dc86e1fd9305330f6a65a5668742a2967589bed6eb14c1fcfc22f092f",
+      "response_size_bytes": 270,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    },
+    {
+      "label": "single_guarded_execute",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execute",
+      "http_status": 500,
+      "error_code": "streetkingz_ai_rollback_verification_failed",
+      "response_sha256": "bbd5e103b6d4c0d660a09a72806d96643be2afa3614282bdf0c10913729e76bb",
+      "response_size_bytes": 2374,
+      "cache_headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "x-litespeed-cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "credentials_persisted": false,
+      "authorization_header_persisted": false
+    }
+  ],
+  "stopped_at": "2026-08-09T12:58:45.400Z"
+}

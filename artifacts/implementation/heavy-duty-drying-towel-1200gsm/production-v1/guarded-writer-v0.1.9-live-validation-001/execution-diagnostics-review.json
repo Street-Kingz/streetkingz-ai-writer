@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "fields": [
+    "elementor_version",
+    "document_class",
+    "document_type",
+    "template_id",
+    "edit_posts_allowed_immediately_before_save",
+    "edit_post_allowed_immediately_before_save",
+    "save_invocation_reached",
+    "save_return_type",
+    "save_return_value",
+    "exception_class",
+    "pre_save_persisted_template_sha256",
+    "expected_post_save_template_sha256",
+    "post_save_persisted_template_sha256",
+    "persisted_state_matches_expected",
+    "template_restore_diagnostics",
+    "rollback_target_template_sha256",
+    "persisted_verification"
+  ],
+  "credentials_or_headers_logged": false,
+  "unrelated_content_logged": false
+}

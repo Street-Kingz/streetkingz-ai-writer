@@ -1,0 +1,11 @@
+{
+  "status": "PASS_STRUCTURAL_AND_TESTED",
+  "direct_fresh_postmeta_read": true,
+  "cache_clearing": true,
+  "canonical_hash": true,
+  "persisted_match_controls_forward_progress": true,
+  "save_return_alone_authoritative": false,
+  "false_save_correct_state_handled": true,
+  "truthy_save_wrong_state_rejected": true,
+  "stale_document_final_authority": false
+}

@@ -1,0 +1,45 @@
+{
+  "elementor_version": "3.33.6",
+  "official_source": "https://github.com/elementor/elementor/tree/3.33.6",
+  "trace": [
+    {
+      "file": "core/base/document.php",
+      "method": "Elementor\\Core\\Base\\Document::save",
+      "evidence": "When current_user_can('unfiltered_html') is false, map_deep applies wp_kses_post to every non-boolean, non-null leaf in the entire supplied data array."
+    },
+    {
+      "file": "WordPress wp-includes/kses.php",
+      "method": "wp_kses_post -> wp_kses",
+      "evidence": "The API accepts and returns strings; numeric scalars passed by Elementor's map_deep are processed through the string KSES pipeline."
+    },
+    {
+      "file": "core/base/document.php",
+      "method": "Document::save_elements",
+      "evidence": "The already-KSES-processed elements are passed to get_elements_raw_data, encoded with wp_json_encode/wp_slash, and written with update_metadata."
+    },
+    {
+      "file": "core/base/document.php",
+      "method": "Document::get_elements_raw_data",
+      "evidence": "During saving, each element instance returns get_data_for_save(). No code converts numeric strings back to numbers."
+    },
+    {
+      "file": "includes/base/element-base.php",
+      "method": "Element_Base::get_data_for_save",
+      "evidence": "Returns raw element data and on_save settings; it retains the KSES-produced scalar types."
+    },
+    {
+      "file": "includes/controls/number.php",
+      "method": "Control_Number::get_value/get_style_value",
+      "evidence": "Both numeric strings and numbers pass is_numeric and are returned for CSS/control use."
+    },
+    {
+      "file": "core/documents-manager.php",
+      "method": "Documents_Manager::ajax_save",
+      "evidence": "Elementor's editor save convention sends the complete elements document plus document settings to Document::save; no supported widget-only persistence operation is exposed here."
+    }
+  ],
+  "proven_conversion_mechanism": "The Writer intentionally lacks unfiltered_html, so Elementor's whole-document KSES branch stringifies numeric leaves before persistence.",
+  "deliberate_security_behavior": true,
+  "historical_numeric_types_reproduced_by_current_writer_document_save": false,
+  "repeat_save_prediction": "The same 140 values will remain or become strings on every save through the same no-unfiltered_html path."
+}

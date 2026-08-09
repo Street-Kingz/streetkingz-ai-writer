@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "run_type": "offline_production_incident_investigation",
+  "date": "2026-08-09",
+  "elementor_version": "3.33.6",
+  "previous_tests": 238,
+  "new_tests": 19,
+  "complete_tests": 257,
+  "failed_tests": 0,
+  "wordpress_runtime_tested": false,
+  "elementor_runtime_tested": false,
+  "live_wordpress_requests": 0,
+  "live_wordpress_writes": 0,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0,
+  "credentials_persisted": false,
+  "authorization_headers_persisted": false
+}

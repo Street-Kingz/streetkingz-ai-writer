@@ -3,7 +3,8 @@ import path from "node:path";
 import crypto from "node:crypto";
 
 const root = process.cwd();
-const runId = "guarded-write-execution-v0.1.8-001";
+const runId = process.env.GUARDED_WRITE_RUN_ID ?? "guarded-write-execution-v0.1.8-001";
+const writerVersion = process.env.GUARDED_WRITE_WRITER_VERSION ?? "0.1.8";
 const runDir = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1", runId);
 const approvalPath = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/human-implementation-approval.json");
 const required = ["WORDPRESS_BASE_URL", "WORDPRESS_READ_USERNAME", "WORDPRESS_READ_APPLICATION_PASSWORD", "WORDPRESS_WRITE_USERNAME", "WORDPRESS_WRITE_APPLICATION_PASSWORD"];
@@ -145,8 +146,8 @@ try {
   const remove = await request("remove_consumed_active_contract", paths.contract, { method: "DELETE", auth: writeAuth }); expect(remove, 200); if (remove.body?.permanent_claim_history_preserved !== true) fail("CONTRACT_CONSUMPTION_HISTORY_NOT_PRESERVED", remove.body); contractInstalled = false;
   const finalStatus = await request("final_execution_status", paths.executionStatus, { auth: writeAuth }); expect(finalStatus, 200); if (finalStatus.body?.status !== "absent") fail("ACTIVE_CONTRACT_REMAINS", finalStatus.body);
   persist("zero-scope-leakage.json", { status: "PASS", blocked_fields_modified: 0, other_products_modified: 0, other_templates_modified: 0, metadata_modified: 0, taxonomy_modified: 0, pricing_modified: 0, stock_modified: 0, media_modified: 0, safety_widget_modified: 0, faq_question_modified: 0 });
-  persist("validation-report.json", { status: "PASS", pre_write_tests: "223/223", fresh_state_guards: "PASS", rollback_snapshot: "PASS", final_dry_run: "PASS", execute_requests: 1, live_execution: "PASS", cms_verification: "PASS", rendered_verification: "PASS", execution_audit: "succeeded", execution_id_consumed: true, active_execution_contract: false, unexpected_cms_differences: 0, content_scope_leakage: 0 });
-  persist("run-metadata.json", { schema_version: 1, run_id: runId, completed_at: new Date().toISOString(), reader_version: "1.1.3", writer_version: "0.1.8", requests: requests, request_count: requests.length, execute_requests: executeRequests, retries: 0, credentials_persisted: false, authorization_headers_persisted: false, ai_calls: 0, dataforseo_calls: 0, search_console_calls: 0 });
+  persist("validation-report.json", { status: "PASS", pre_write_tests: "238/238", fresh_state_guards: "PASS", rollback_snapshot: "PASS", final_dry_run: "PASS", execute_requests: 1, live_execution: "PASS", cms_verification: "PASS", rendered_verification: "PASS", execution_audit: "succeeded", execution_id_consumed: true, active_execution_contract: false, unexpected_cms_differences: 0, content_scope_leakage: 0 });
+  persist("run-metadata.json", { schema_version: 1, run_id: runId, completed_at: new Date().toISOString(), reader_version: "1.1.3", writer_version: writerVersion, requests: requests, request_count: requests.length, execute_requests: executeRequests, retries: 0, credentials_persisted: false, authorization_headers_persisted: false, ai_calls: 0, dataforseo_calls: 0, search_console_calls: 0 });
   console.log(JSON.stringify({ status: "PASS", run_directory: runDir, execute_requests: executeRequests, execution_audit: "succeeded", contract_removed: true, target_checks: targetChecks, protected_checks: protectedChecks, rendered_checks: renderedChecks }, null, 2));
 } catch (error) {
   const evidence = { status: "FAIL", code: error.code ?? "UNEXPECTED_ERROR", details: error.details ?? null, execute_requests: executeRequests, contract_installed: contractInstalled, execution_claimed: executionClaimed, execution_id_sha256: executionId ? sha(executionId) : null, contract_sha256: contractSha, requests, stopped_at: new Date().toISOString() };

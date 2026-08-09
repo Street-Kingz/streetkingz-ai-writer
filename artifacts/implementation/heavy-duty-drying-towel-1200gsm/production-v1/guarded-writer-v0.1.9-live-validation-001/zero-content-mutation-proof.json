@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "execute_requests": 0,
+  "execution_contract_installs": 0,
+  "execution_ids_claimed": 0,
+  "product_writes": 0,
+  "elementor_saves": 0,
+  "update_post_meta_calls": 0,
+  "revisions": 0,
+  "total_content_mutations": 0,
+  "baseline_final": {
+    "raw_response_identical": true,
+    "post_title": true,
+    "post_excerpt": true,
+    "post_content": true,
+    "template_semantic": true,
+    "description": true,
+    "comparison": true,
+    "safety": true,
+    "slug": true,
+    "publication": true
+  },
+  "request_count": 26
+}

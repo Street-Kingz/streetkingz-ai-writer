@@ -1,0 +1,45 @@
+{
+  "status": "CRITICAL_FAILURE_STOPPED",
+  "execute_requests": 1,
+  "retries": 0,
+  "elementor_version": "3.33.6",
+  "document_class": "ElementorPro\\Modules\\Woocommerce\\Documents\\Product",
+  "capabilities_immediately_before_save": {
+    "edit_posts": true,
+    "edit_post_template_2003": true
+  },
+  "forward_save": {
+    "api_return_type": "boolean",
+    "api_return_value": true,
+    "persisted_exact_target": false,
+    "persisted_template_sha256": "4d5b3edda984018486b07a37cba6f39e01047e53c3d353175907eb87d14d5afa"
+  },
+  "rollback": {
+    "product_restored_exactly": true,
+    "template_restore_api_return_value": true,
+    "template_restored_exactly": false,
+    "post_rollback_template_sha256": "4369211ae0e19a6aab55fe0d01a1aee1d634426a2f9459d6e9796380254fe47a",
+    "rollback_target_template_sha256": "1cd3793c9aa25d49c99584d6917d55ab441dd098953a6fec9f7f4e4b6b83b27e"
+  },
+  "external_authoritative_verification": {
+    "pre_response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+    "post_response_sha256": "bd2ed8e54bbb016800b82630a3c4da6fbf003e1471d953fde042b2c4488ab23d",
+    "product_title_restored": true,
+    "product_excerpt_restored": true,
+    "product_content_unchanged": true,
+    "slug_unchanged": true,
+    "publication_unchanged": true,
+    "description_restored": true,
+    "comparison_restored": true,
+    "safety_unchanged": true,
+    "template_semantic_difference_count": 140,
+    "difference_class": "numeric JSON values converted from numbers to equal-valued strings by Elementor save normalization"
+  },
+  "containment": {
+    "execution_id_permanently_reserved": true,
+    "active_execution_contract_removed": true,
+    "retry_performed": false,
+    "further_write_performed": false
+  },
+  "decision": "No further mutation is authorised. Exact template restoration and a corrected serialization strategy require a separate incident-recovery decision."
+}

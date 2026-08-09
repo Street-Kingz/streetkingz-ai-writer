@@ -1,0 +1,40 @@
+{
+  "options": [
+    {
+      "option": "A_DOCUMENT_SAVE",
+      "byte_exact": false,
+      "type_exact": false,
+      "supported_elementor_api": true,
+      "assessment": "REJECT for incident recovery under the current permission model: it inevitably traverses the KSES normalization branch and repeats the 140 conversions."
+    },
+    {
+      "option": "B_DIRECT_EXACT_ELEMENTOR_DATA",
+      "byte_exact": true,
+      "type_exact": true,
+      "supported_elementor_api": false,
+      "assessment": "RECOMMENDED as a separately authorised incident-only operation: replace exactly one existing _elementor_data row for template 2003 with the preserved raw value, using a fixed implementation and exact before/after hashes; clear caches and verify immediately."
+    },
+    {
+      "option": "C_WORDPRESS_REVISION",
+      "byte_exact": "UNKNOWN",
+      "type_exact": "UNKNOWN",
+      "supported_elementor_api": "DEPENDS_ON_RESTORE_PATH",
+      "assessment": "No exact revision is identified in offline evidence. Do not use without first proving its raw meta is byte-identical and that restoration does not pass through Document::save."
+    },
+    {
+      "option": "D_HOSTING_DATABASE_BACKUP",
+      "byte_exact": true,
+      "type_exact": true,
+      "supported_elementor_api": false,
+      "assessment": "Potentially exact but operationally broader and higher risk unless restoration can be scoped to the single template-2003 _elementor_data row."
+    },
+    {
+      "option": "E_ACCEPT_NORMALIZED_BASELINE",
+      "byte_exact": false,
+      "type_exact": false,
+      "supported_elementor_api": true,
+      "assessment": "REJECT: it abandons the approved recovery source, masks an unintended whole-document rewrite, and violates the incident requirement not to adopt drift as baseline."
+    }
+  ],
+  "recommended": "B_DIRECT_EXACT_ELEMENTOR_DATA"
+}

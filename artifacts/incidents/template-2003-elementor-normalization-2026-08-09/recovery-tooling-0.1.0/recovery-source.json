@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "incident_id": "template-2003-elementor-normalization-2026-08-09",
+  "source_artifact": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/guarded-write-execution-v0.1.9-001/pre-write-authoritative-response.json",
+  "source_json_path": "elementor_template.raw_elementor_data",
+  "template_id": 2003,
+  "product_context": 70,
+  "raw_length": 49418,
+  "raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "canonical_parsed_sha256": "f6ca4629a4d8d79e975415ddb6026a773ff6c73756de19a411f8c4cac00605e1",
+  "raw_value_bundled": false
+}

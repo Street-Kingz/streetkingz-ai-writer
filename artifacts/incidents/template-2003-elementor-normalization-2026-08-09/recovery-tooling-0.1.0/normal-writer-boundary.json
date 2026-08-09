@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "normal_writer_modified": false,
+  "normal_product_70_execution_blocked": true,
+  "whole_document_elementor_normalization_unresolved": true,
+  "incident_recovery_is_not_normal_content_authority": true,
+  "recovery_success_alone_makes_normal_writer_safe": false
+}

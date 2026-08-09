@@ -1,0 +1,36 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import { diffElementorDocuments, incidentNumericStringEquivalent, sha256, validateExactRecoverySpecification } from "../lib/elementorNormalizationIncident.js";
+
+const execution = "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/guarded-write-execution-v0.1.9-001";
+const pre = JSON.parse(fs.readFileSync(`${execution}/pre-write-authoritative-response.json`, "utf8"));
+const current = JSON.parse(fs.readFileSync(`${execution}/post-failure-authoritative-response.json`, "utf8"));
+const beforeRaw = pre.elementor_template.raw_elementor_data;
+const currentRaw = current.elementor_template.raw_elementor_data;
+const before = JSON.parse(beforeRaw);
+const after = JSON.parse(currentRaw);
+const changes = diffElementorDocuments(before, after);
+const writer = fs.readFileSync("wordpress-plugin/streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php", "utf8");
+const expected = { current_raw_sha256: sha256(currentRaw), recovery_raw_sha256: sha256(beforeRaw) };
+const recovery = { template_id: 2003, allowed_meta_key: "_elementor_data", product_mutation_allowed: false, current_raw_sha256: expected.current_raw_sha256, recovery_raw_sha256: expected.recovery_raw_sha256 };
+
+test("production incident fixtures retain the exact template identities", () => { assert.equal(pre.elementor_template.id, 2003); assert.equal(current.elementor_template.id, 2003); });
+test("incident independently contains exactly 140 differences", () => assert.equal(changes.length, 140));
+test("all 140 differences are equal-valued number-to-string conversions", () => assert.equal(changes.filter(incidentNumericStringEquivalent).length, 140));
+test("incident contains no other value, property, array, or structure changes", () => assert.equal(changes.filter((x) => !incidentNumericStringEquivalent(x)).length, 0));
+test("every difference records its path and nearest Elementor identity", () => { for (const change of changes) { assert.ok(change.path); assert.ok(change.element_id); assert.ok(change.element_type); } });
+test("raw persisted hashes remain strictly different", () => { assert.equal(sha256(beforeRaw), "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01"); assert.equal(sha256(currentRaw), "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00"); });
+test("strict parsed semantics remain different", () => assert.notDeepEqual(before, after));
+test("incident-specific classification accepts only settings size and media id coercions", () => { assert.deepEqual([...new Set(changes.map((x) => x.property_name))].sort(), ["id", "size"]); });
+test("non-equivalent numeric strings remain rejected", () => assert.equal(incidentNumericStringEquivalent({ path: "0.settings.size", property_name: "size", original_type: "number", current_type: "string", original_value: 50, current_value: "51" }), false));
+test("numeric-string widget content remains rejected", () => assert.equal(incidentNumericStringEquivalent({ path: "0.settings.editor", property_name: "editor", original_type: "number", current_type: "string", original_value: 50, current_value: "50" }), false));
+test("exact recovery specification is accepted only for template 2003 raw Elementor data", () => assert.equal(validateExactRecoverySpecification(recovery, expected), true));
+test("recovery cannot target Product 70", () => assert.equal(validateExactRecoverySpecification({ ...recovery, product_mutation_allowed: true }, expected), false));
+test("recovery cannot target another template", () => assert.equal(validateExactRecoverySpecification({ ...recovery, template_id: 2004 }, expected), false));
+test("recovery cannot target unrelated metadata", () => assert.equal(validateExactRecoverySpecification({ ...recovery, allowed_meta_key: "_other" }, expected), false));
+test("malformed recovery snapshots are rejected", () => assert.equal(validateExactRecoverySpecification({ template_id: 2003 }, expected), false));
+test("wrong current baseline hash is rejected", () => assert.equal(validateExactRecoverySpecification({ ...recovery, current_raw_sha256: "0".repeat(64) }, expected), false));
+test("post-recovery design requires exact raw hash verification", () => assert.equal(recovery.recovery_raw_sha256, sha256(beforeRaw)));
+test("normal Writer exposes no incident recovery or direct Elementor meta route", () => { assert.doesNotMatch(writer, /incident-recovery|template-recovery|restore-elementor-data/i); assert.doesNotMatch(writer, /update_post_meta\s*\(.*_elementor_data/s); });
+test("failed execution remains permanently reserved and cannot be reused", () => { const cleanup = JSON.parse(fs.readFileSync(`${execution}/failure-contract-cleanup.json`, "utf8")); assert.equal(cleanup.permanent_id_reservation_preserved, true); assert.match(writer, /streetkingz_ai_execution_replay_rejected/); });

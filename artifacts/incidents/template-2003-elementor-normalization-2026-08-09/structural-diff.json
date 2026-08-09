@@ -1,0 +1,2901 @@
+{
+  "schema_version": 1,
+  "incident": "template_2003_elementor_3_33_6_numeric_string_normalization",
+  "source": {
+    "pre_write": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/guarded-write-execution-v0.1.9-001/pre-write-authoritative-response.json",
+    "current": "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/guarded-write-execution-v0.1.9-001/post-failure-authoritative-response.json"
+  },
+  "template_id": 2003,
+  "hashes": {
+    "pre_raw_elementor_data_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+    "current_raw_elementor_data_sha256": "e0a329efe268638edfbb3d6274512c26aeb0da835e4a9279a1d088d0d562de00"
+  },
+  "counts": {
+    "total_differing_paths": 140,
+    "numeric_to_equal_numeric_string": 140,
+    "string_to_number": 0,
+    "other_value_changes": 0,
+    "missing_properties": 0,
+    "added_properties": 0,
+    "array_or_structural_changes": 0,
+    "widget_content_changes": 0,
+    "safety_widget_changes": 3
+  },
+  "all_changes_match_incident_allowlist": true,
+  "groups": {
+    "by_element": [
+      {
+        "value": "fb324e9",
+        "count": 5
+      },
+      {
+        "value": "4691e088",
+        "count": 5
+      },
+      {
+        "value": "7d9b8f42",
+        "count": 4
+      },
+      {
+        "value": "3d0ba1b2",
+        "count": 4
+      },
+      {
+        "value": "4e58d8c",
+        "count": 4
+      },
+      {
+        "value": "1208c225",
+        "count": 3
+      },
+      {
+        "value": "c80e718",
+        "count": 3
+      },
+      {
+        "value": "1ec85220",
+        "count": 3
+      },
+      {
+        "value": "184be346",
+        "count": 3
+      },
+      {
+        "value": "5a58bc3d",
+        "count": 3
+      },
+      {
+        "value": "631c46f6",
+        "count": 3
+      },
+      {
+        "value": "40869c27",
+        "count": 3
+      },
+      {
+        "value": "43d7d6f0",
+        "count": 3
+      },
+      {
+        "value": "608874af",
+        "count": 3
+      },
+      {
+        "value": "424b4039",
+        "count": 3
+      },
+      {
+        "value": "5331a23c",
+        "count": 2
+      },
+      {
+        "value": "634424b",
+        "count": 2
+      },
+      {
+        "value": "3385fdc2",
+        "count": 2
+      },
+      {
+        "value": "1a3721bd",
+        "count": 2
+      },
+      {
+        "value": "3d0638a3",
+        "count": 2
+      },
+      {
+        "value": "25de7821",
+        "count": 2
+      },
+      {
+        "value": "3efd8299",
+        "count": 2
+      },
+      {
+        "value": "6de8922",
+        "count": 2
+      },
+      {
+        "value": "5bad4349",
+        "count": 2
+      },
+      {
+        "value": "59392ca0",
+        "count": 2
+      },
+      {
+        "value": "4c52c513",
+        "count": 2
+      },
+      {
+        "value": "1996",
+        "count": 1
+      },
+      {
+        "value": "2001",
+        "count": 1
+      },
+      {
+        "value": "2002",
+        "count": 1
+      },
+      {
+        "value": "2142",
+        "count": 1
+      },
+      {
+        "value": "2143",
+        "count": 1
+      },
+      {
+        "value": "2211",
+        "count": 1
+      },
+      {
+        "value": "2394",
+        "count": 1
+      },
+      {
+        "value": "8361470",
+        "count": 1
+      },
+      {
+        "value": "18275666",
+        "count": 1
+      },
+      {
+        "value": "27188724",
+        "count": 1
+      },
+      {
+        "value": "28050591",
+        "count": 1
+      },
+      {
+        "value": "36512385",
+        "count": 1
+      },
+      {
+        "value": "56ebdcd3",
+        "count": 1
+      },
+      {
+        "value": "5500218e",
+        "count": 1
+      },
+      {
+        "value": "6c835544",
+        "count": 1
+      },
+      {
+        "value": "4d8934f0",
+        "count": 1
+      },
+      {
+        "value": "67873dc4",
+        "count": 1
+      },
+      {
+        "value": "243d78d3",
+        "count": 1
+      },
+      {
+        "value": "7d81fa73",
+        "count": 1
+      },
+      {
+        "value": "75ba2c42",
+        "count": 1
+      },
+      {
+        "value": "50d9f4f9",
+        "count": 1
+      },
+      {
+        "value": "1ffc1d38",
+        "count": 1
+      },
+      {
+        "value": "1dd9f1fb",
+        "count": 1
+      },
+      {
+        "value": "654284a7",
+        "count": 1
+      },
+      {
+        "value": "49bc7bc0",
+        "count": 1
+      },
+      {
+        "value": "4b6c2fcf",
+        "count": 1
+      },
+      {
+        "value": "7654d711",
+        "count": 1
+      },
+      {
+        "value": "1420e24f",
+        "count": 1
+      },
+      {
+        "value": "52113d85",
+        "count": 1
+      },
+      {
+        "value": "5b7df094",
+        "count": 1
+      },
+      {
+        "value": "42074a8c",
+        "count": 1
+      },
+      {
+        "value": "46d0797",
+        "count": 1
+      },
+      {
+        "value": "2bf134f2",
+        "count": 1
+      },
+      {
+        "value": "70fe8fe",
+        "count": 1
+      },
+      {
+        "value": "5d8a60ae",
+        "count": 1
+      },
+      {
+        "value": "b4b3d84",
+        "count": 1
+      },
+      {
+        "value": "7ff943fe",
+        "count": 1
+      },
+      {
+        "value": "6a955a21",
+        "count": 1
+      },
+      {
+        "value": "655a2e5a",
+        "count": 1
+      },
+      {
+        "value": "47d7f899",
+        "count": 1
+      },
+      {
+        "value": "38eeda83",
+        "count": 1
+      },
+      {
+        "value": "25ff925e",
+        "count": 1
+      },
+      {
+        "value": "5225e05d",
+        "count": 1
+      },
+      {
+        "value": "5f1f3696",
+        "count": 1
+      },
+      {
+        "value": "7cc851b6",
+        "count": 1
+      },
+      {
+        "value": "fd40331",
+        "count": 1
+      },
+      {
+        "value": "1c13ad4c",
+        "count": 1
+      },
+      {
+        "value": "54c91fd7",
+        "count": 1
+      },
+      {
+        "value": "68f12ba",
+        "count": 1
+      },
+      {
+        "value": "1e4ba856",
+        "count": 1
+      },
+      {
+        "value": "5e280bb9",
+        "count": 1
+      },
+      {
+        "value": "2b4bd398",
+        "count": 1
+      },
+      {
+        "value": "30ed927c",
+        "count": 1
+      },
+      {
+        "value": "609cb9a8",
+        "count": 1
+      },
+      {
+        "value": "68a247ea",
+        "count": 1
+      },
+      {
+        "value": "2dcb6abd",
+        "count": 1
+      },
+      {
+        "value": "232738bb",
+        "count": 1
+      },
+      {
+        "value": "708f75ac",
+        "count": 1
+      },
+      {
+        "value": "4fede34d",
+        "count": 1
+      },
+      {
+        "value": "2ddec348",
+        "count": 1
+      },
+      {
+        "value": "139b0439",
+        "count": 1
+      },
+      {
+        "value": "42b1a790",
+        "count": 1
+      },
+      {
+        "value": "54f17074",
+        "count": 1
+      },
+      {
+        "value": "37153de9",
+        "count": 1
+      },
+      {
+        "value": "7a5ef162",
+        "count": 1
+      },
+      {
+        "value": "62821a7e",
+        "count": 1
+      }
+    ],
+    "by_widget_type": [
+      {
+        "value": "text-editor",
+        "count": 51
+      },
+      {
+        "value": "none",
+        "count": 34
+      },
+      {
+        "value": "image",
+        "count": 15
+      },
+      {
+        "value": "heading",
+        "count": 14
+      },
+      {
+        "value": "icon-list",
+        "count": 5
+      },
+      {
+        "value": "nested-accordion",
+        "count": 5
+      },
+      {
+        "value": "woocommerce-product-add-to-cart",
+        "count": 4
+      },
+      {
+        "value": "icon",
+        "count": 3
+      },
+      {
+        "value": "rating",
+        "count": 3
+      },
+      {
+        "value": "woocommerce-product-title",
+        "count": 2
+      },
+      {
+        "value": "woocommerce-product-price",
+        "count": 2
+      },
+      {
+        "value": "woocommerce-product-rating",
+        "count": 1
+      },
+      {
+        "value": "woocommerce-product-short-description",
+        "count": 1
+      }
+    ],
+    "by_setting": [
+      {
+        "value": "size",
+        "count": 133
+      },
+      {
+        "value": "id",
+        "count": 7
+      }
+    ],
+    "by_family": [
+      {
+        "value": "sizing",
+        "count": 103
+      },
+      {
+        "value": "responsive layout",
+        "count": 30
+      },
+      {
+        "value": "unknown/other",
+        "count": 7
+      }
+    ],
+    "by_original_value": [
+      {
+        "value": "15",
+        "count": 12
+      },
+      {
+        "value": "16",
+        "count": 12
+      },
+      {
+        "value": "33.3",
+        "count": 12
+      },
+      {
+        "value": "0",
+        "count": 9
+      },
+      {
+        "value": "17",
+        "count": 6
+      },
+      {
+        "value": "24",
+        "count": 6
+      },
+      {
+        "value": "30",
+        "count": 6
+      },
+      {
+        "value": "240",
+        "count": 6
+      },
+      {
+        "value": "1.2",
+        "count": 6
+      },
+      {
+        "value": "14",
+        "count": 5
+      },
+      {
+        "value": "18",
+        "count": 5
+      },
+      {
+        "value": "40",
+        "count": 5
+      },
+      {
+        "value": "11",
+        "count": 4
+      },
+      {
+        "value": "10",
+        "count": 3
+      },
+      {
+        "value": "22",
+        "count": 3
+      },
+      {
+        "value": "26",
+        "count": 3
+      },
+      {
+        "value": "100",
+        "count": 3
+      },
+      {
+        "value": "330",
+        "count": 3
+      },
+      {
+        "value": "700",
+        "count": 3
+      },
+      {
+        "value": "1.6",
+        "count": 3
+      },
+      {
+        "value": "1",
+        "count": 2
+      },
+      {
+        "value": "5",
+        "count": 2
+      },
+      {
+        "value": "20",
+        "count": 2
+      },
+      {
+        "value": "25",
+        "count": 2
+      },
+      {
+        "value": "2",
+        "count": 1
+      },
+      {
+        "value": "8",
+        "count": 1
+      },
+      {
+        "value": "23",
+        "count": 1
+      },
+      {
+        "value": "28",
+        "count": 1
+      },
+      {
+        "value": "60",
+        "count": 1
+      },
+      {
+        "value": "90",
+        "count": 1
+      },
+      {
+        "value": "400",
+        "count": 1
+      },
+      {
+        "value": "650",
+        "count": 1
+      },
+      {
+        "value": "1300",
+        "count": 1
+      },
+      {
+        "value": "1996",
+        "count": 1
+      },
+      {
+        "value": "2001",
+        "count": 1
+      },
+      {
+        "value": "2002",
+        "count": 1
+      },
+      {
+        "value": "2142",
+        "count": 1
+      },
+      {
+        "value": "2143",
+        "count": 1
+      },
+      {
+        "value": "2211",
+        "count": 1
+      },
+      {
+        "value": "2394",
+        "count": 1
+      },
+      {
+        "value": "0.9",
+        "count": 1
+      }
+    ],
+    "by_nesting_level": [
+      {
+        "value": "3",
+        "count": 63
+      },
+      {
+        "value": "2",
+        "count": 45
+      },
+      {
+        "value": "4",
+        "count": 20
+      },
+      {
+        "value": "1",
+        "count": 12
+      }
+    ]
+  },
+  "differences": [
+    {
+      "path": "0.elements.0.elements.0.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1996,
+      "current_value": "1996",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 1996,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.0.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 90,
+      "current_value": "90",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "56ebdcd3",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.0.settings.min_height.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 650,
+      "current_value": "650",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1208c225",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.0.settings.min_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 400,
+      "current_value": "400",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "1208c225",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 60,
+      "current_value": "60",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1208c225",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 40,
+      "current_value": "40",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5331a23c",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-title",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 30,
+      "current_value": "30",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "5331a23c",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-title",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.1.settings.star_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0.9,
+      "current_value": "0.9",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "27188724",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-rating",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.2.settings.sale_price_spacing.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "634424b",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-price",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 30,
+      "current_value": "30",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "634424b",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-price",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.3.settings.text_typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 20,
+      "current_value": "20",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5500218e",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-short-description",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.4.settings.button_typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 20,
+      "current_value": "20",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7d9b8f42",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-add-to-cart",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.4.settings.variations_spacing.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 11,
+      "current_value": "11",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7d9b8f42",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-add-to-cart",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.4.settings.variations_width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 100,
+      "current_value": "100",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7d9b8f42",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-add-to-cart",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.4.settings.view_cart_spacing.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7d9b8f42",
+      "element_type": "widget",
+      "widget_type": "woocommerce-product-add-to-cart",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.5.settings.icon_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 11,
+      "current_value": "11",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "fb324e9",
+      "element_type": "widget",
+      "widget_type": "icon-list",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.5.settings.icon_typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 11,
+      "current_value": "11",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "fb324e9",
+      "element_type": "widget",
+      "widget_type": "icon-list",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.5.settings.icon_typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 10,
+      "current_value": "10",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "fb324e9",
+      "element_type": "widget",
+      "widget_type": "icon-list",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.5.settings.icon_typography_font_size_tablet.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 8,
+      "current_value": "8",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "fb324e9",
+      "element_type": "widget",
+      "widget_type": "icon-list",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.elements.5.settings.space_between.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 23,
+      "current_value": "23",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "fb324e9",
+      "element_type": "widget",
+      "widget_type": "icon-list",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 40,
+      "current_value": "40",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "3385fdc2",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.elements.1.settings.width_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 100,
+      "current_value": "100",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "3385fdc2",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "0.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1300,
+      "current_value": "1300",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "6c835544",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 28,
+      "current_value": "28",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4d8934f0",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.0.elements.0.settings.size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 26,
+      "current_value": "26",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "67873dc4",
+      "element_type": "widget",
+      "widget_type": "icon",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "243d78d3",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7d81fa73",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.1.elements.0.settings.size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 26,
+      "current_value": "26",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "75ba2c42",
+      "element_type": "widget",
+      "widget_type": "icon",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.1.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "50d9f4f9",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.1.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1ffc1d38",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.2.elements.0.settings.size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 26,
+      "current_value": "26",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1dd9f1fb",
+      "element_type": "widget",
+      "widget_type": "icon",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.2.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "654284a7",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.elements.2.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "49bc7bc0",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "1.elements.1.settings.grid_rows_grid.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1,
+      "current_value": "1",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4b6c2fcf",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.1.settings._element_custom_width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 700,
+      "current_value": "700",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "c80e718",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.1.settings._element_custom_width_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 330,
+      "current_value": "330",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "c80e718",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.1.settings.typography_line_height.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.6,
+      "current_value": "1.6",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "c80e718",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.3.settings._element_custom_width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 700,
+      "current_value": "700",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1ec85220",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.3.settings._element_custom_width_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 330,
+      "current_value": "330",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "1ec85220",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.3.settings.typography_line_height.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.6,
+      "current_value": "1.6",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1ec85220",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.5.settings._element_custom_width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 700,
+      "current_value": "700",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "184be346",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.5.settings._element_custom_width_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 330,
+      "current_value": "330",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "184be346",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "2.elements.0.elements.5.settings.typography_line_height.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.6,
+      "current_value": "1.6",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "184be346",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.0.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 30,
+      "current_value": "30",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7654d711",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 14,
+      "current_value": "14",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1420e24f",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2211,
+      "current_value": "2211",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 2211,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 240,
+      "current_value": "240",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "52113d85",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 24,
+      "current_value": "24",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5b7df094",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "42074a8c",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.elements.3.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 17,
+      "current_value": "17",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "46d0797",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1a3721bd",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1a3721bd",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2142,
+      "current_value": "2142",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 2142,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 240,
+      "current_value": "240",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "2bf134f2",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 24,
+      "current_value": "24",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "70fe8fe",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5d8a60ae",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.elements.3.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 17,
+      "current_value": "17",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "18275666",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "3d0638a3",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.1.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "3d0638a3",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2143,
+      "current_value": "2143",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 2143,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 240,
+      "current_value": "240",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "b4b3d84",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 24,
+      "current_value": "24",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7ff943fe",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "6a955a21",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.elements.3.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 17,
+      "current_value": "17",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "655a2e5a",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "25de7821",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.elements.2.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "25de7821",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 40,
+      "current_value": "40",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5a58bc3d",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.settings.flex_gap_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 25,
+      "current_value": "25",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "5a58bc3d",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "3.elements.1.settings.flex_gap_tablet.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 10,
+      "current_value": "10",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "5a58bc3d",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.0.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 30,
+      "current_value": "30",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "47d7f899",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 14,
+      "current_value": "14",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "38eeda83",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.1.elements.0.elements.0.settings.icon_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 18,
+      "current_value": "18",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "25ff925e",
+      "element_type": "widget",
+      "widget_type": "rating",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.1.elements.1.elements.0.settings.icon_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 18,
+      "current_value": "18",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "8361470",
+      "element_type": "widget",
+      "widget_type": "rating",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.1.elements.2.elements.0.settings.icon_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 18,
+      "current_value": "18",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5225e05d",
+      "element_type": "widget",
+      "widget_type": "rating",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.1.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 40,
+      "current_value": "40",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "3efd8299",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "4.elements.1.settings.flex_gap_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 5,
+      "current_value": "5",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "3efd8299",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.0.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 30,
+      "current_value": "30",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5f1f3696",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 14,
+      "current_value": "14",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "28050591",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2394,
+      "current_value": "2394",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 2394,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 240,
+      "current_value": "240",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7cc851b6",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 24,
+      "current_value": "24",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "fd40331",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1c13ad4c",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.elements.3.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 17,
+      "current_value": "17",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "54c91fd7",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "6de8922",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "6de8922",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2001,
+      "current_value": "2001",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 2001,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 240,
+      "current_value": "240",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "68f12ba",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 24,
+      "current_value": "24",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "1e4ba856",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5e280bb9",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.elements.3.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 17,
+      "current_value": "17",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "2b4bd398",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5bad4349",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.1.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "5bad4349",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.elements.0.settings.image.id",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2002,
+      "current_value": "2002",
+      "property_name": "id",
+      "property_family": "unknown/other",
+      "element_id": 2002,
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.elements.0.settings.space.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 100,
+      "current_value": "100",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "59392ca0",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 240,
+      "current_value": "240",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "59392ca0",
+      "element_type": "widget",
+      "widget_type": "image",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 24,
+      "current_value": "24",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "30ed927c",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.elements.2.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "609cb9a8",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.elements.3.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 17,
+      "current_value": "17",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "68a247ea",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4c52c513",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.elements.2.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4c52c513",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.settings.flex_gap.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 40,
+      "current_value": "40",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "631c46f6",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.settings.flex_gap_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 25,
+      "current_value": "25",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "631c46f6",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "5.elements.1.settings.flex_gap_tablet.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 10,
+      "current_value": "10",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "631c46f6",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.0.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 30,
+      "current_value": "30",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "36512385",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 14,
+      "current_value": "14",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "2dcb6abd",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.0.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "40869c27",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.0.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "40869c27",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.0.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.2,
+      "current_value": "1.2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "40869c27",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "43d7d6f0",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "43d7d6f0",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.1.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.2,
+      "current_value": "1.2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "43d7d6f0",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.2.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "608874af",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.2.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "608874af",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.2.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.2,
+      "current_value": "1.2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "608874af",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.3.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "424b4039",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.3.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "424b4039",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.3.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.2,
+      "current_value": "1.2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "424b4039",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "3d0ba1b2",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "3d0ba1b2",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_line_height.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 18,
+      "current_value": "18",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "3d0ba1b2",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.4.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.2,
+      "current_value": "1.2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "3d0ba1b2",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4e58d8c",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 15,
+      "current_value": "15",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4e58d8c",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_line_height.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 18,
+      "current_value": "18",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4e58d8c",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.elements.5.elements.0.settings.typography_line_height_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1.2,
+      "current_value": "1.2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4e58d8c",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 4,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.settings.accordion_item_title_distance_from_content_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 0,
+      "current_value": "0",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4691e088",
+      "element_type": "widget",
+      "widget_type": "nested-accordion",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.settings.accordion_item_title_space_between.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 5,
+      "current_value": "5",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4691e088",
+      "element_type": "widget",
+      "widget_type": "nested-accordion",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.settings.accordion_item_title_space_between_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 2,
+      "current_value": "2",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4691e088",
+      "element_type": "widget",
+      "widget_type": "nested-accordion",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.settings.icon_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 11,
+      "current_value": "11",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4691e088",
+      "element_type": "widget",
+      "widget_type": "nested-accordion",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "6.elements.1.elements.0.settings.title_typography_font_size_mobile.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 14,
+      "current_value": "14",
+      "property_name": "size",
+      "property_family": "responsive layout",
+      "element_id": "4691e088",
+      "element_type": "widget",
+      "widget_type": "nested-accordion",
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.0.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 22,
+      "current_value": "22",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "232738bb",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.0.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "708f75ac",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.0.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "4fede34d",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.1.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 22,
+      "current_value": "22",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "2ddec348",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.1.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "139b0439",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.1.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "42b1a790",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.2.elements.0.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 22,
+      "current_value": "22",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "54f17074",
+      "element_type": "widget",
+      "widget_type": "heading",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.2.elements.1.settings.typography_font_size.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 16,
+      "current_value": "16",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "37153de9",
+      "element_type": "widget",
+      "widget_type": "text-editor",
+      "nesting_level": 3,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.elements.2.settings.width.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 33.3,
+      "current_value": "33.3",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "7a5ef162",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 2,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    },
+    {
+      "path": "7.elements.0.settings.grid_rows_grid.size",
+      "change_kind": "value",
+      "original_type": "number",
+      "current_type": "string",
+      "original_value": 1,
+      "current_value": "1",
+      "property_name": "size",
+      "property_family": "sizing",
+      "element_id": "62821a7e",
+      "element_type": "container",
+      "widget_type": null,
+      "nesting_level": 1,
+      "value_equal_after_numeric_coercion": true,
+      "incident_allowlist_match": true
+    }
+  ]
+}

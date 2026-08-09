@@ -1,0 +1,16 @@
+{
+  "whole_document_save_rewrites_unrelated_state": true,
+  "observed_unrelated_paths": 140,
+  "supported_widget_only_persistence_found": false,
+  "elementor_editor_convention": "Documents_Manager::ajax_save submits the complete elements tree and settings to Document::save.",
+  "current_architecture_acceptable_unchanged": false,
+  "required_future_work": [
+    "Separate incident recovery from normal content execution.",
+    "Determine and test a bounded way to prevent whole-document KSES scalar stringification without granting persistent generic unfiltered_html rights.",
+    "Precompute the exact Elementor post-save representation and fail before claim if unrelated persisted changes would occur.",
+    "Retain raw and strict semantic guards plus full post-save structural diff.",
+    "Make rollback capable of exact incident restoration when Document::save cannot reproduce historical raw state."
+  ],
+  "candidate_for_later_review": "A temporary, fixed-template, exact-operation unfiltered_html capability mapping could bypass Elementor's map_deep KSES branch, but it is not implemented or approved here and requires dedicated security/runtime tests.",
+  "normal_writer_may_invoke_incident_recovery": false
+}

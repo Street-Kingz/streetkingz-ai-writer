@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "success_requires_fresh_authoritative_read": true,
+  "required_raw_sha256": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+  "strict_parsed_equality_required": true,
+  "numeric_string_differences_remaining": 0,
+  "protected_widgets": ["c80e718", "40869c27", "43d7d6f0"],
+  "protected_product_fields": ["post_title", "post_excerpt", "post_content", "post_name", "post_status"],
+  "other_post_meta_changes_allowed": false,
+  "rendered_page_verification_required": true,
+  "failure_behavior": "restore exact captured drifted raw state, verify its raw hash, record failed_after_claim, never reuse ID"
+}

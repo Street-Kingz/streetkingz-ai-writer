@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "plugin": "streetkingz-ai-template-2003-recovery",
+  "version": "0.1.0",
+  "zip": "wordpress-plugin/streetkingz-ai-template-2003-recovery-0.1.0.zip",
+  "zip_sha256": "33c78a61a6fac71ce4a66faa6cef92dfa2625d34c064737c0ee7a9ffc6268fd6",
+  "files": [
+    "streetkingz-ai-template-2003-recovery/README.md",
+    "streetkingz-ai-template-2003-recovery/streetkingz-ai-template-2003-recovery.php"
+  ],
+  "php_source_sha256": "e0fb97cc70a09c1ba35189fe3f7310da831fc335b4c0d59ce85efa79c49042e2",
+  "readme_sha256": "d8eb258cdb5eccab614be09292727e0f9fed79524c625ff536bd9b97aa50b74f",
+  "source_package_parity": "PASS",
+  "active_recovery_contract_included": false,
+  "recovery_id_included": false,
+  "credentials_included": false,
+  "environment_file_included": false
+}

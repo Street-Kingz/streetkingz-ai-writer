@@ -1,0 +1,26 @@
+{
+  "severity": "MEDIUM",
+  "reason": "Internal persisted state drift is proven and future guards are blocked; no textual or structural loss is present, while editor/migration behavior has not been runtime-tested sufficiently to call the drift harmless.",
+  "frontend": {
+    "assessment": "LIKELY_EQUIVALENT_NOT_RUNTIME_PROVEN",
+    "evidence": "All changed size leaves retain the same lexical numeric value and Elementor number controls accept both through is_numeric; media IDs also retain identical digits. No content, units, structure, arrays, or properties changed."
+  },
+  "editor": {
+    "assessment": "LIKELY_EQUIVALENT_NOT_RUNTIME_PROVEN",
+    "evidence": "HTML number inputs and Elementor number controls accept numeric strings, but the exact Product document was not opened in a local Elementor 3.33.6 editor runtime."
+  },
+  "future_save": {
+    "assessment": "NORMALIZED_STATE_STABLE_EXPECTED",
+    "evidence": "The no-unfiltered_html KSES path produces strings; subsequent saves receive strings and do not restore historical numeric types."
+  },
+  "migration_import_export": {
+    "assessment": "UNKNOWN",
+    "evidence": "Exports use get_elements_raw_data and would export the current string types. Cross-version strict-type effects were not established."
+  },
+  "guard_hash": {
+    "assessment": "NOT_EQUIVALENT",
+    "evidence": "Raw and strict parsed hashes differ, correctly blocking execution."
+  },
+  "visible_page_broken": "NO EVIDENCE OF BREAKAGE; NOT LIVE-RENDER-TESTED IN THIS OFFLINE TASK",
+  "safe_to_call_harmless": false
+}
