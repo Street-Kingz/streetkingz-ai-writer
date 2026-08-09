@@ -1,0 +1,37 @@
+{
+  "product_id": 70,
+  "template_id": 2003,
+  "guards": {
+    "post_title": {
+      "expected": "70d2740df079f126b15fac1a79dbb579accf5cc9b3b8c0f69f2ab8d89496326a",
+      "actual": "70d2740df079f126b15fac1a79dbb579accf5cc9b3b8c0f69f2ab8d89496326a",
+      "status": "MATCH"
+    },
+    "post_excerpt": {
+      "expected": "42403585f01631a26e0ab3139ad11ad40874882d46dc70a94e756fc24e653675",
+      "actual": "42403585f01631a26e0ab3139ad11ad40874882d46dc70a94e756fc24e653675",
+      "status": "MATCH"
+    },
+    "template_elementor_data": {
+      "expected": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+      "actual": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01",
+      "status": "MATCH"
+    },
+    "description_widget": {
+      "expected": "72f9f609c59de983f61e8305d6cea67d8ae07d5743ca77e0d0efcd5fea2169b7",
+      "actual": "72f9f609c59de983f61e8305d6cea67d8ae07d5743ca77e0d0efcd5fea2169b7",
+      "status": "MATCH"
+    },
+    "comparison_widget": {
+      "expected": "019780f33556ba09df132a4a92e473f2523fe41615c7f058916b96ebec31ba07",
+      "actual": "019780f33556ba09df132a4a92e473f2523fe41615c7f058916b96ebec31ba07",
+      "status": "MATCH"
+    },
+    "safety_widget": {
+      "expected": "bcf0b42d978be2f9caf218bfd55bab0bd902f05532e00868eae40fa06dc74bb6",
+      "actual": "bcf0b42d978be2f9caf218bfd55bab0bd902f05532e00868eae40fa06dc74bb6",
+      "status": "MATCH"
+    }
+  },
+  "drift_detected": false
+}

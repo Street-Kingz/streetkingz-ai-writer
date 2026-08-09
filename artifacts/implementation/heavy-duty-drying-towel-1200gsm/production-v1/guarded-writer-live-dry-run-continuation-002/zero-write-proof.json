@@ -1,0 +1,15 @@
+{
+  "authoritative_get_requests": 1,
+  "security_dry_run_requests": 1,
+  "real_execution_requests": 0,
+  "wp_update_post_calls": 0,
+  "update_post_meta_calls": 0,
+  "elementor_save_calls": 0,
+  "revisions_created": 0,
+  "live_content_writes": 0,
+  "proof": [
+    "Only the GET authoritative route and POST dry-run route were invoked.",
+    "The dry-run response reported writes_performed=0.",
+    "No execute route or execution-authorisation contract was used."
+  ]
+}

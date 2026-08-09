@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-writer-live-dry-run-continuation-002",
+  "created_at": "2026-08-08T19:32:29.402Z",
+  "retries": 0,
+  "requests": [
+    {
+      "type": "authoritative_get",
+      "method": "GET",
+      "path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 200,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572"
+    },
+    {
+      "type": "writer_dry_run",
+      "method": "POST",
+      "path": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 200,
+      "response_sha256": "8a5fa8bfa7cd12e694d89ce67783e313333c8ec106128866c35263fe3f634215"
+    }
+  ],
+  "request_count": 2,
+  "authoritative_product_70_gets": 1,
+  "real_execution_requests": 0,
+  "credentials_persisted": false,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0,
+  "wordpress_content_writes": 0
+}

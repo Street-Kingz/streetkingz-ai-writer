@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "authorisation_source": "explicit_user_live_write_authorisation",
+  "authorisation_text": "I authorise the exact four approved changes to product 70.",
+  "product_id": 70,
+  "template_id": 2003,
+  "approved_targets": [
+    "product.post_title",
+    "product.post_excerpt",
+    "template.2003.c80e718.settings.editor",
+    "template.2003.40869c27.settings.editor"
+  ],
+  "publication_authorised": false,
+  "content_outside_approved_targets_authorised": false,
+  "live_execution_completed": false
+}

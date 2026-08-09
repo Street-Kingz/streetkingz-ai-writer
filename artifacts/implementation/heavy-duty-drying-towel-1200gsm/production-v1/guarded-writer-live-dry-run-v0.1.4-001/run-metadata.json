@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-writer-live-dry-run-v0.1.4-001",
+  "created_at": "2026-08-08T18:51:00.968Z",
+  "mode": "live_state_dry_run_zero_mutation",
+  "plugin_version_expected": "0.1.4",
+  "status": "FAIL",
+  "code": "AUTHORITATIVE_READ_FAILED",
+  "message": "AUTHORITATIVE_READ_FAILED",
+  "details": {
+    "status": 404
+  },
+  "requests": [
+    {
+      "label": "anonymous_dry_run",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 403,
+      "response_size_bytes": 134,
+      "response_sha256": "bc10796e59de8eb376e8001b3605a5eb14ebd51fc81e0b693ffb682f3c105b05"
+    },
+    {
+      "label": "reader_identity_dry_run",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 403,
+      "response_size_bytes": 134,
+      "response_sha256": "bc10796e59de8eb376e8001b3605a5eb14ebd51fc81e0b693ffb682f3c105b05"
+    },
+    {
+      "label": "writer_identity_authoritative_read",
+      "method": "GET",
+      "endpoint": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 404,
+      "response_size_bytes": 114,
+      "response_sha256": "321227fe038fc2f282fd904a174fbaf931eb5d763ce64eded0e6a3f31d32119f"
+    },
+    {
+      "label": "execute_without_contract",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execute",
+      "http_status": 423,
+      "response_size_bytes": 127,
+      "response_sha256": "dcc6aa09937529bbc3169d20a07c18afd69a4b06c863cca845c0627b29aa40cb"
+    },
+    {
+      "label": "wrong_product",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "wrong_template",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "arbitrary_widget",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "safety_widget",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "slug",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "metadata",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "faq_question",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "extra_payload",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 400,
+      "response_size_bytes": 135,
+      "response_sha256": "e050f110e8f8d5e641e26dbd70696c8fb8c504f4ec0e349b0f5833394a182f7b"
+    },
+    {
+      "label": "fresh_authoritative_product_70",
+      "method": "GET",
+      "endpoint": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 404,
+      "response_size_bytes": 114,
+      "response_sha256": "321227fe038fc2f282fd904a174fbaf931eb5d763ce64eded0e6a3f31d32119f"
+    }
+  ],
+  "request_count": 13,
+  "retries": 0,
+  "wordpress_content_writes": 0,
+  "credentials_persisted": false
+}

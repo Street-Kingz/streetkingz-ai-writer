@@ -1,0 +1,25 @@
+{
+  "targets": {
+    "post_title": {
+      "expected": "5956266310c5f3b84917b9fb237c6738f44e8866e2bdfc31df54a291f4ae60d2",
+      "actual": "5956266310c5f3b84917b9fb237c6738f44e8866e2bdfc31df54a291f4ae60d2",
+      "status": "MATCH"
+    },
+    "description": {
+      "expected": "b4475adadfe786262b86192630ccdda4d5d303bcc7bba212c407839c7f0f2ee9",
+      "actual": "b4475adadfe786262b86192630ccdda4d5d303bcc7bba212c407839c7f0f2ee9",
+      "status": "MATCH"
+    },
+    "comparison": {
+      "expected": "329fc5f12fb502e6b931fa14a2f3a74faacb8f31362b3d67641afbb66c5010fa",
+      "actual": "329fc5f12fb502e6b931fa14a2f3a74faacb8f31362b3d67641afbb66c5010fa",
+      "status": "MATCH"
+    },
+    "post_excerpt": {
+      "expected": "abe84c91ddfda7e1efab48cf5f9982bfe5189e59f048e59f632b29c77f999aef",
+      "actual": "abe84c91ddfda7e1efab48cf5f9982bfe5189e59f048e59f632b29c77f999aef",
+      "status": "MATCH"
+    }
+  },
+  "all_match": true
+}

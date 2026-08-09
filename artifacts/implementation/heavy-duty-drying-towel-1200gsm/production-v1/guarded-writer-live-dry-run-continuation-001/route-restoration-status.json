@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-writer-live-dry-run-continuation-001",
+  "status": "blocked_before_live_requests",
+  "reader_plugin": {
+    "expected_slug": "streetkingz-ai-authoritative-reader",
+    "expected_version": "1.1.2",
+    "expected_route": "/wp-json/streetkingz-ai/v1/products/{id}/authoritative",
+    "local_source_version_verified": true,
+    "existing_zip": "artifacts/deployment/streetkingz-ai-authoritative-reader-v1.1.2.zip",
+    "existing_zip_sha256": "95ade0c7b00b5a79ad5024e9141fdcb7184cabf1b9127960026d2d8374e88832",
+    "prior_live_route_result": {
+      "http_status": 404,
+      "error_code": "rest_no_route"
+    }
+  },
+  "preflight": {
+    "tests_passed": 193,
+    "tests_failed": 0,
+    "read_credentials_present": true,
+    "write_credentials_present": true,
+    "identities_distinct": true,
+    "approval_valid": true,
+    "writer_version_unchanged": "0.1.4",
+    "execution_authorisation_absent": true,
+    "retries": 0
+  },
+  "restoration_capability": {
+    "connected_wordpress_admin_browser": false,
+    "ssh_wp_cli_sftp_or_deployment_credentials": false,
+    "dedicated_rest_accounts_have_plugin_management_permission": false,
+    "safe_automatic_activation_or_installation_available": false
+  },
+  "stop_reason": "Reader plugin activation or installation requires a manual WordPress Admin action; broadening REST account permissions is prohibited.",
+  "replacement_product_70_reads": 0,
+  "live_requests_this_continuation": 0,
+  "wordpress_content_writes": 0,
+  "credentials_persisted": false,
+  "required_user_action": "In WordPress Admin, activate Street Kingz AI Authoritative Reader if installed. If absent, upload artifacts/deployment/streetkingz-ai-authoritative-reader-v1.1.2.zip and activate it. Then confirm the route is restored."
+}

@@ -1,0 +1,18 @@
+{
+  "requested_url": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/products/70/authoritative",
+  "final_url": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/products/70/authoritative",
+  "http_status": 404,
+  "retrieved_at": "2026-08-08T18:51:00.965Z",
+  "response_size_bytes": 114,
+  "response_sha256": "321227fe038fc2f282fd904a174fbaf931eb5d763ce64eded0e6a3f31d32119f",
+  "request_count": 1,
+  "response_body": {
+    "code": "rest_no_route",
+    "message": "No route was found matching the URL and request method.",
+    "data": {
+      "status": 404
+    }
+  },
+  "credentials_persisted": false,
+  "authorization_header_persisted": false
+}

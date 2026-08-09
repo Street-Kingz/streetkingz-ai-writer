@@ -1,0 +1,52 @@
+{
+  "requested_url": "https://streetkingz.co.uk/wp-json/",
+  "final_url": "https://streetkingz.co.uk/wp-json/",
+  "http_status": 200,
+  "retrieved_at": "2026-08-08T19:27:54.562Z",
+  "response_size_bytes": 1638893,
+  "response_sha256": "a0bc9f788fe4006c55f41cf6fb347b46a7a55cee7b1babb66b5fb21ad4000cd0",
+  "streetkingz_namespace_present": true,
+  "streetkingz_routes": {
+    "/streetkingz-ai/v1": {
+      "namespace": "streetkingz-ai/v1",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ]
+        }
+      ]
+    },
+    "/streetkingz-ai/v1/products/(?P<id>\\d+)/authoritative": {
+      "namespace": "streetkingz-ai/v1",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ]
+        }
+      ]
+    },
+    "/streetkingz-ai/v1/approved-product-70-copy/(?P<mode>dry-run|execute)": {
+      "namespace": "streetkingz-ai/v1",
+      "methods": [
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "POST"
+          ]
+        }
+      ]
+    }
+  },
+  "product_70_authoritative_request_performed": false,
+  "mutating_requests": 0
+}

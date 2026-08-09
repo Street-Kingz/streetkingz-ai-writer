@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Guarded Writer
  * Description: Approval-bound writer for one reviewed product-copy change set. Inactive unless a separate write capability is deliberately assigned.
- * Version: 0.1.4
+ * Version: 0.1.5
  */
 
 defined('ABSPATH') || exit;
@@ -11,6 +11,7 @@ const STREETKINGZ_AI_WRITE_CAPABILITY = 'streetkingz_ai_write_approved_product_c
 const STREETKINGZ_AI_WRITER_ROLE = 'streetkingz_ai_writer';
 const STREETKINGZ_AI_WRITER_ROLE_VERSION = '1';
 const STREETKINGZ_AI_WRITER_ROLE_VERSION_OPTION = 'streetkingz_ai_writer_role_version';
+const STREETKINGZ_AI_EXECUTION_OPTION_PREFIX = 'streetkingz_ai_exec_';
 const STREETKINGZ_AI_WRITE_PRODUCT_ID = 70;
 const STREETKINGZ_AI_WRITE_TEMPLATE_ID = 2003;
 const STREETKINGZ_AI_WRITE_DESCRIPTION_ID = 'c80e718';
@@ -88,7 +89,57 @@ function streetkingz_ai_writer_execution_authorisation(WP_REST_Request $request,
     if (!hash_equals(hash('sha256', $raw), $request->get_json_params()['execution_authorisation_sha256'] ?? '')) return new WP_Error('streetkingz_ai_execution_authorisation_hash_mismatch', 'Execution authorisation fingerprint does not match.', ['status' => 409]);
     if (($contract['status'] ?? null) !== 'authorised' || ($contract['authorisation_source'] ?? null) !== 'explicit_user_live_write_authorisation' || ($contract['mode'] ?? null) !== 'execute' || ($contract['product_id'] ?? null) !== STREETKINGZ_AI_WRITE_PRODUCT_ID || ($contract['template_id'] ?? null) !== STREETKINGZ_AI_WRITE_TEMPLATE_ID || ($contract['publication_authorised'] ?? null) !== false || !is_string($contract['one_time_execution_id'] ?? null) || $contract['one_time_execution_id'] === '') return new WP_Error('streetkingz_ai_execution_authorisation_scope_invalid', 'Execution authorisation scope is invalid.', ['status' => 409]);
     if (!hash_equals($contract['approval_artifact_sha256'] ?? '', $packaged['sha256']) || ($contract['current_state_guards'] ?? null) !== ($approval['current_state_guards'] ?? null) || ($contract['approved_target_hashes'] ?? null) !== ($approval['approved_target_hashes'] ?? null)) return new WP_Error('streetkingz_ai_execution_authorisation_binding_invalid', 'Execution authorisation is not bound to the approved state and targets.', ['status' => 409]);
-    return $contract;
+    return ['contract' => $contract, 'sha256' => hash('sha256', $raw)];
+}
+
+function streetkingz_ai_writer_execution_option_name(string $execution_id): string {
+    return STREETKINGZ_AI_EXECUTION_OPTION_PREFIX . hash('sha256', $execution_id);
+}
+
+/*
+ * One INSERT IGNORE is the atomic boundary. WordPress's options table has a unique
+ * option_name index, so concurrent attempts for one hashed execution ID have one
+ * winner. This avoids a check-then-write race and no cleanup path removes records.
+ */
+function streetkingz_ai_writer_claim_execution(array $execution_authorisation, string $approval_sha256) {
+    global $wpdb;
+    $contract = $execution_authorisation['contract'];
+    $execution_id = $contract['one_time_execution_id'];
+    $record = [
+        'schema_version' => 1,
+        'state' => 'claimed_executing',
+        'execution_id_sha256' => hash('sha256', $execution_id),
+        'contract_sha256' => $execution_authorisation['sha256'],
+        'approval_sha256' => $approval_sha256,
+        'product_id' => STREETKINGZ_AI_WRITE_PRODUCT_ID,
+        'template_id' => STREETKINGZ_AI_WRITE_TEMPLATE_ID,
+        'claimed_at' => gmdate('c'),
+        'completed_at' => null,
+    ];
+    $option_name = streetkingz_ai_writer_execution_option_name($execution_id);
+    $inserted = $wpdb->query($wpdb->prepare("INSERT IGNORE INTO {$wpdb->options} (option_name, option_value, autoload) VALUES (%s, %s, %s)", $option_name, maybe_serialize($record), 'no'));
+    if ($inserted !== 1) {
+        return new WP_Error('streetkingz_ai_execution_replay_rejected', 'This one-time execution authorisation has already been claimed.', ['status' => 409]);
+    }
+    wp_cache_delete($option_name, 'options');
+    wp_cache_delete('notoptions', 'options');
+    return ['option_name' => $option_name, 'record' => $record];
+}
+
+function streetkingz_ai_writer_finish_execution(array $claim, string $state, string $result): bool {
+    if (!in_array($state, ['succeeded', 'failed_after_claim'], true)) return false;
+    $record = $claim['record'];
+    $record['state'] = $state;
+    $record['result'] = $result;
+    $record['completed_at'] = gmdate('c');
+    return update_option($claim['option_name'], $record, false);
+}
+
+function streetkingz_ai_writer_failed_after_claim(array $claim, string $result, WP_Error $error): WP_Error {
+    if (!streetkingz_ai_writer_finish_execution($claim, 'failed_after_claim', $result)) {
+        return new WP_Error('streetkingz_ai_execution_audit_update_failed', 'Execution failed after its one-time authorisation was claimed, and final audit-state persistence failed. The claim remains permanently unavailable.', ['status' => 500, 'original_error' => $error->get_error_code()]);
+    }
+    return $error;
 }
 
 function streetkingz_ai_writer_source(array $approval) {
@@ -236,16 +287,29 @@ function streetkingz_ai_guarded_writer_request(WP_REST_Request $request) {
     if ($request['mode'] === 'dry-run') return rest_ensure_response(['status' => 'dry_run_pass', 'product_id' => 70, 'template_id' => 2003, 'approval_artifact_sha256' => $packaged['sha256'], 'mutations' => ['post_title', 'post_excerpt', 'c80e718.settings.editor', '40869c27.settings.editor'], 'writes_performed' => 0]);
     $snapshot = streetkingz_ai_writer_persist_snapshot($prepared);
     if (is_wp_error($snapshot)) return $snapshot;
+    /* Revalidate all bindings and authoritative guards at the last boundary before claiming. */
+    $approval = streetkingz_ai_writer_validate_request($request, $packaged);
+    if (is_wp_error($approval)) return $approval;
+    $execution_authorisation = streetkingz_ai_writer_execution_authorisation($request, $packaged, $approval);
+    if (is_wp_error($execution_authorisation)) return $execution_authorisation;
+    $fresh_source = streetkingz_ai_writer_source($approval);
+    if (is_wp_error($fresh_source)) return $fresh_source;
+    $fresh_prepared = streetkingz_ai_writer_prepare($fresh_source);
+    if (is_wp_error($fresh_prepared)) return $fresh_prepared;
+    if (($fresh_prepared['fresh_snapshot']['hashes'] ?? null) !== ($prepared['fresh_snapshot']['hashes'] ?? null)) return new WP_Error('streetkingz_ai_preclaim_state_changed', 'Authoritative state changed after rollback capture.', ['status' => 409]);
+    $claim = streetkingz_ai_writer_claim_execution($execution_authorisation, $packaged['sha256']);
+    if (is_wp_error($claim)) return $claim;
     $product_result = wp_update_post(['ID' => STREETKINGZ_AI_WRITE_PRODUCT_ID, 'post_title' => $prepared['targets']['post_title'], 'post_excerpt' => $prepared['targets']['post_excerpt']], true);
-    if (is_wp_error($product_result)) return $product_result;
+    if (is_wp_error($product_result)) return streetkingz_ai_writer_failed_after_claim($claim, 'product_write_failed', $product_result);
     $elementor_result = streetkingz_ai_writer_save_elementor($prepared['patched_document']);
     if (is_wp_error($elementor_result) || $elementor_result === false) {
-        if (!streetkingz_ai_writer_rollback($prepared)) return new WP_Error('streetkingz_ai_rollback_verification_failed', 'Elementor write failed and rollback could not be verified.', ['status' => 500]);
-        return new WP_Error('streetkingz_ai_write_rolled_back', 'Elementor write failed; compensating rollback completed and was verified.', ['status' => 500]);
+        if (!streetkingz_ai_writer_rollback($prepared)) return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rollback_unverified', new WP_Error('streetkingz_ai_rollback_verification_failed', 'Elementor write failed and rollback could not be verified.', ['status' => 500]));
+        return streetkingz_ai_writer_failed_after_claim($claim, 'elementor_write_failed_rolled_back', new WP_Error('streetkingz_ai_write_rolled_back', 'Elementor write failed; compensating rollback completed and was verified.', ['status' => 500]));
     }
     if (!streetkingz_ai_writer_verify_state($prepared, true)) {
-        if (!streetkingz_ai_writer_rollback($prepared)) return new WP_Error('streetkingz_ai_post_write_and_rollback_verification_failed', 'Post-write verification failed and rollback could not be verified.', ['status' => 500]);
-        return new WP_Error('streetkingz_ai_post_write_verification_failed_rolled_back', 'Post-write verification failed; rollback completed and was verified.', ['status' => 500]);
+        if (!streetkingz_ai_writer_rollback($prepared)) return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rollback_unverified', new WP_Error('streetkingz_ai_post_write_and_rollback_verification_failed', 'Post-write verification failed and rollback could not be verified.', ['status' => 500]));
+        return streetkingz_ai_writer_failed_after_claim($claim, 'post_write_verification_failed_rolled_back', new WP_Error('streetkingz_ai_post_write_verification_failed_rolled_back', 'Post-write verification failed; rollback completed and was verified.', ['status' => 500]));
     }
+    if (!streetkingz_ai_writer_finish_execution($claim, 'succeeded', 'approved_mutations_verified')) return new WP_Error('streetkingz_ai_execution_audit_update_failed', 'Approved mutations were verified, but the permanent execution audit state could not be marked succeeded. The claim remains unavailable.', ['status' => 500]);
     return rest_ensure_response(['status' => 'write_complete_requires_post_write_verification', 'snapshot_sha256' => $snapshot['sha256']]);
 }

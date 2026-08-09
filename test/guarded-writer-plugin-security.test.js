@@ -64,3 +64,34 @@ test("dry-run performs no mutation and execute is an explicit separate mode", ()
   assert.doesNotMatch(dryRunBranch, /wp_update_post|streetkingz_ai_writer_save_elementor/);
   assert.match(dryRunBranch, /'writes_performed' => 0/);
 });
+
+test("one-time execution is atomically and persistently claimed before mutation", () => {
+  assert.match(plugin, /Version: 0\.1\.5/);
+  assert.match(plugin, /STREETKINGZ_AI_EXECUTION_OPTION_PREFIX/);
+  assert.match(plugin, /INSERT IGNORE INTO \{\$wpdb->options\}/);
+  assert.match(plugin, /\$inserted !== 1/);
+  assert.match(plugin, /streetkingz_ai_execution_replay_rejected/);
+  assert.match(plugin, /'state' => 'claimed_executing'/);
+  assert.match(plugin, /\['succeeded', 'failed_after_claim'\]/);
+  assert.match(plugin, /execution_id_sha256/);
+  assert.match(plugin, /contract_sha256/);
+  assert.match(plugin, /approval_sha256/);
+  assert.doesNotMatch(plugin, /delete_option\s*\(.*STREETKINGZ_AI_EXECUTION_OPTION_PREFIX|delete_option\s*\(\$claim\['option_name'\]\)/s);
+
+  const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
+  const snapshot = request.indexOf("streetkingz_ai_writer_persist_snapshot($prepared)");
+  const claim = request.indexOf("streetkingz_ai_writer_claim_execution(");
+  const productWrite = request.indexOf("wp_update_post([");
+  assert.ok(snapshot >= 0 && snapshot < claim && claim < productWrite);
+});
+
+test("all post-claim outcomes remain consumed and dry-run never claims", () => {
+  const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
+  const dryRunBranch = request.slice(request.indexOf("if ($request['mode'] === 'dry-run')"), request.indexOf("$snapshot ="));
+  assert.doesNotMatch(dryRunBranch, /claim_execution|add_option|finish_execution/);
+  assert.match(request, /product_write_failed/);
+  assert.match(request, /elementor_write_failed_rolled_back/);
+  assert.match(request, /post_write_verification_failed_rolled_back/);
+  assert.match(request, /finish_execution\(\$claim, 'succeeded'/);
+  assert.match(plugin, /The claim remains permanently unavailable/);
+});

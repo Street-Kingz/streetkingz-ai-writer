@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "authoritative_read": "PASS",
+  "fresh_state_guards": "PASS",
+  "rollback_snapshot": "PASS",
+  "live_state_dry_run": "PASS",
+  "approved_target_hashes": "PASS",
+  "unexpected_structural_differences": 0,
+  "rollback_simulation": "PASS",
+  "execution_authorisation_present": false,
+  "live_content_writes": 0
+}

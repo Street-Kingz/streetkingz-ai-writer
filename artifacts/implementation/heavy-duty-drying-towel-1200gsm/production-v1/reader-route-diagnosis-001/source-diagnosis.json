@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "route_currently_registered",
+  "manual_state_accepted": {
+    "reader_v1_1_2_active": true,
+    "writer_v0_1_4_active": true,
+    "reader_identity_present": true,
+    "writer_identity_present": true
+  },
+  "reader_registration": {
+    "hook": "rest_api_init",
+    "namespace": "streetkingz-ai/v1",
+    "route_pattern": "/products/(?P<id>\\d+)/authoritative",
+    "method": "WP_REST_Server::READABLE (GET)",
+    "callback": "streetkingz_ai_read_authoritative_product",
+    "registration_is_conditional": false,
+    "bootstrap_guard": "defined('ABSPATH') || exit"
+  },
+  "writer_registration": {
+    "hook": "rest_api_init",
+    "namespace": "streetkingz-ai/v1",
+    "route_pattern": "/approved-product-70-copy/(?P<mode>dry-run|execute)",
+    "method": "WP_REST_Server::CREATABLE (POST)",
+    "callback": "streetkingz_ai_guarded_writer_request"
+  },
+  "collision_review": {
+    "function_name_collision": false,
+    "class_name_collision": false,
+    "constant_collision": false,
+    "namespace_collision": false,
+    "route_collision": false,
+    "hook_collision": false,
+    "bootstrap_guard_collision": false,
+    "writer_can_remove_or_replace_reader_route": false,
+    "writer_can_return_early_from_reader_file": false,
+    "shared_rest_namespace_is_valid_and_non_destructive": true
+  },
+  "runner_review": {
+    "requested_path": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+    "registered_pattern_matches_requested_path": true,
+    "requested_method": "GET",
+    "registered_method_matches": true,
+    "runner_path_or_method_defect": false
+  },
+  "live_discovery": {
+    "rest_index_http_status": 200,
+    "namespace_present": true,
+    "authoritative_route_present": true,
+    "writer_route_present": true,
+    "product_70_authoritative_request_performed": false
+  },
+  "diagnosis": {
+    "source_code_root_cause_identified": false,
+    "current_route_registration_failure_present": false,
+    "earlier_404_classification": "transient_or_stale_runtime_or_http_cache_view",
+    "evidence": [
+      "The earlier reader-identity and writer-identity GETs returned byte-identical rest_no_route bodies, which occurs before permission_callback execution.",
+      "The current unauthenticated REST index advertises the exact authoritative route and GET method.",
+      "The runner path and method exactly match the registered v1.1.2 route.",
+      "The writer plugin registers a distinct POST route and contains no remove_action, remove_filter, unregister_rest_route, or reader bootstrap mutation."
+    ],
+    "bounded_inference": "A stale cached 404 or transient PHP/runtime route set is more consistent with the evidence than a Reader/Writer source collision. The preserved earlier response lacks headers, so the exact cache/runtime layer cannot be proven retrospectively."
+  },
+  "changes_performed": {
+    "production_code": false,
+    "plugin_activation": false,
+    "roles_or_capabilities": false,
+    "content": false
+  }
+}

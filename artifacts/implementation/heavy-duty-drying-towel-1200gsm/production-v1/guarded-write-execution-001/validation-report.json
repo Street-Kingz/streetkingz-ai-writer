@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "BLOCKED_BEFORE_LIVE_REQUESTS",
+  "blocker": "SERVER_SIDE_EXECUTION_AUTHORISATION_DEPLOYMENT_UNAVAILABLE",
+  "detail": "Guarded Writer v0.1.4 requires execution-authorisation.json to be readable from the deployed plugin directory. The configured reader and writer identities have only their narrow custom capabilities and cannot install plugin files. No SSH, WP-CLI, SFTP, deployment credential, or connected WordPress Admin browser is available.",
+  "pre_write_tests": {
+    "passed": 193,
+    "failed": 0
+  },
+  "execution_contract": {
+    "created": false,
+    "reason": "A local-only file would not satisfy the live server check and would make the tested package-source boundary misleading.",
+    "server_side_present": false,
+    "consumed": false
+  },
+  "live_requests": {
+    "fresh_authoritative_reads": 0,
+    "dry_runs": 0,
+    "execute_requests": 0
+  },
+  "mutation": {
+    "wp_update_post_calls": 0,
+    "update_post_meta_calls": 0,
+    "elementor_save_calls": 0,
+    "revisions_created": 0,
+    "wordpress_content_writes": 0
+  },
+  "rollback_required": false,
+  "roadmap_updated": false,
+  "credentials_persisted": false,
+  "required_external_state": "Install the one-time exact execution-authorisation.json into the deployed guarded-writer v0.1.4 plugin directory through an approved secure deployment channel, without replacing or changing plugin PHP code."
+}

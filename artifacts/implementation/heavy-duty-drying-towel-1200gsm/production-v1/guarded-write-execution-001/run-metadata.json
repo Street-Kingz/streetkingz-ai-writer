@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "run_id": "guarded-write-execution-001",
+  "mode": "guarded_live_execution_preflight",
+  "status": "blocked_before_live_requests",
+  "product_id": 70,
+  "template_id": 2003,
+  "pre_write_tests_passed": 193,
+  "pre_write_tests_failed": 0,
+  "retries": 0,
+  "live_requests": 0,
+  "live_execution_requests": 0,
+  "wordpress_content_writes": 0,
+  "ai_calls": 0,
+  "dataforseo_calls": 0,
+  "search_console_calls": 0,
+  "roadmap_modified": false,
+  "credentials_persisted": false
+}
