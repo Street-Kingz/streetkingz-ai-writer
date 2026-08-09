@@ -63,7 +63,8 @@ test("production claim stores bounded audit data and has no reuse cleanup", () =
   for (const field of ["execution_id_sha256", "contract_sha256", "approval_sha256", "product_id", "template_id", "claimed_at", "completed_at"]) assert.match(plugin, new RegExp(field));
   assert.match(plugin, /failed_after_claim/);
   assert.match(plugin, /succeeded/);
-  assert.doesNotMatch(plugin, /delete_option\s*\(/);
+  const claimLifecycle = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_claim_execution"), plugin.indexOf("function streetkingz_ai_writer_source"));
+  assert.doesNotMatch(claimLifecycle, /delete_option\s*\(/);
   assert.doesNotMatch(plugin, /set_transient|wp_cache_add|static\s+\$.*execution|global\s+\$.*execution/i);
 });
 

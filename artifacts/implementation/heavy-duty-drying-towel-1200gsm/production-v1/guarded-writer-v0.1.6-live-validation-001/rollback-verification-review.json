@@ -1,0 +1,14 @@
+{
+  "status": "PASS_SOURCE_AND_FIXTURE_VALIDATED",
+  "cache_clearing": [
+    "clean_post_cache(70)",
+    "clean_post_cache(2003)",
+    "wp_cache_delete(2003, 'post_meta')"
+  ],
+  "fresh_source": "direct wp_posts query plus Reader direct wp_postmeta query",
+  "canonical_semantic_comparison": true,
+  "stale_elementor_object_used_for_verification": false,
+  "unchanged_template_skips_redundant_elementor_restore": true,
+  "persisted_verification_always_reached_after_product_restore": true,
+  "live_mutation_tested": false
+}

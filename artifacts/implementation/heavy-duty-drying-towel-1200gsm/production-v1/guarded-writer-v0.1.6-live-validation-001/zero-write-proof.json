@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "total_live_requests": 17,
+  "get_requests": 4,
+  "post_security_requests": 13,
+  "real_execute_requests": 0,
+  "execute_negative_requests": 1,
+  "wp_update_post_calls": 0,
+  "update_post_meta_calls": 0,
+  "elementor_save_calls": 0,
+  "revisions_created": 0,
+  "live_content_writes": 0,
+  "proof": "All writer-authenticated POSTs stopped at missing packaged approval before request preparation, snapshot, claim, or mutation; the sole /execute request was a negative lock probe with no valid approval or contract."
+}

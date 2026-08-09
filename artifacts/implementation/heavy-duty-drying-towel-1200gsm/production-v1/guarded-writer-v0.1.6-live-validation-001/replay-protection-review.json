@@ -1,0 +1,9 @@
+{
+  "status": "PASS_SOURCE_AND_DATABASE_PRIMITIVE_TESTED",
+  "atomic_primitive": "INSERT IGNORE into wp_options unique option_name",
+  "dry_run_consumes": false,
+  "claimed_ids_deleted": false,
+  "failed_after_claim_reusable": false,
+  "concurrent_test": "exactly one winner in database uniqueness test",
+  "real_execution_id_created_or_claimed": false
+}

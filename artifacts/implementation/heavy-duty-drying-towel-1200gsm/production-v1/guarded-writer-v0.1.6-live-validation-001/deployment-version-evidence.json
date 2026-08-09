@@ -1,0 +1,9 @@
+{
+  "method": "GET",
+  "endpoint": "/wp-content/plugins/streetkingz-ai-guarded-writer/README.md",
+  "http_status": 200,
+  "response_size_bytes": 3036,
+  "response_sha256": "e64253d4cfb981c5b80fb6db997bdefb2036ca99313aa3a541b6a9cf01c28317",
+  "contains_v016_permission_fix": true,
+  "credentials_persisted": false
+}

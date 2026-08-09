@@ -1,0 +1,23 @@
+{
+  "status": "PASS_WITH_LIVE_OBSERVABILITY_LIMITATION",
+  "deployed_readme_proves_v016_permission_fix": true,
+  "writer_role_capabilities": [
+    "read",
+    "streetkingz_ai_write_approved_product_copy"
+  ],
+  "generic_edit_posts": false,
+  "generic_edit_products": false,
+  "implementation": {
+    "map_meta_cap_callback": "streetkingz_ai_writer_map_template_save_capability",
+    "required_capability": "streetkingz_ai_write_approved_product_copy",
+    "meta_capability": "edit_post",
+    "post_id": 2003,
+    "scope_flag": "streetkingz_ai_writer_template_save_scope",
+    "installed_immediately_before_document_save": true,
+    "removed_in_finally": true,
+    "persisted_role_change": false
+  },
+  "actual_elementor_save_performed": false,
+  "live_diagnostic_available": false,
+  "limitation": "No non-mutating live endpoint exposes current_user_can or the call-scoped map_meta_cap state. The mapping can only be exercised inside a future authorised document save."
+}

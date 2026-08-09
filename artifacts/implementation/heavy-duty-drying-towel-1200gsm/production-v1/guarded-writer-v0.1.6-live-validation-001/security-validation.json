@@ -1,0 +1,156 @@
+{
+  "requests": [
+    {
+      "label": "rest_discovery",
+      "method": "GET",
+      "endpoint": "/wp-json/",
+      "http_status": 200,
+      "response_size_bytes": 1638893,
+      "response_sha256": "a0bc9f788fe4006c55f41cf6fb347b46a7a55cee7b1babb66b5fb21ad4000cd0",
+      "error_code": null
+    },
+    {
+      "label": "anonymous_writer_dry_run",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 403,
+      "response_size_bytes": 134,
+      "response_sha256": "bc10796e59de8eb376e8001b3605a5eb14ebd51fc81e0b693ffb682f3c105b05",
+      "error_code": "streetkingz_ai_write_forbidden"
+    },
+    {
+      "label": "reader_writer_dry_run",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 403,
+      "response_size_bytes": 134,
+      "response_sha256": "bc10796e59de8eb376e8001b3605a5eb14ebd51fc81e0b693ffb682f3c105b05",
+      "error_code": "streetkingz_ai_write_forbidden"
+    },
+    {
+      "label": "writer_reader_boundary",
+      "method": "GET",
+      "endpoint": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 403,
+      "response_size_bytes": 124,
+      "response_sha256": "0a18852687b91b271b49e68f5ffd0d2f1629b2b0d8c7e1eb709b615501e3354c",
+      "error_code": "streetkingz_ai_forbidden"
+    },
+    {
+      "label": "writer_clean_dry_run",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "writer_execute_without_contract",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/execute",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "wrong_product_route",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-71-copy/dry-run",
+      "http_status": 404,
+      "response_size_bytes": 114,
+      "response_sha256": "321227fe038fc2f282fd904a174fbaf931eb5d763ce64eded0e6a3f31d32119f",
+      "error_code": "rest_no_route"
+    },
+    {
+      "label": "wrong_template",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "arbitrary_widget",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "safety_widget",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "slug",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "metadata",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "faq_target",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "fifth_mutation",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "extra_payload",
+      "method": "POST",
+      "endpoint": "/wp-json/streetkingz-ai/v1/approved-product-70-copy/dry-run",
+      "http_status": 500,
+      "response_size_bytes": 116,
+      "response_sha256": "9267b1404e8c1194976288c671e8f1bad32cedd71003ffb770173a50284c834d",
+      "error_code": "streetkingz_ai_approval_missing"
+    },
+    {
+      "label": "authoritative_reader_get",
+      "method": "GET",
+      "endpoint": "/wp-json/streetkingz-ai/v1/products/70/authoritative",
+      "http_status": 200,
+      "response_size_bytes": 111063,
+      "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+      "error_code": null
+    }
+  ],
+  "expectations": {
+    "anonymous_rejected": true,
+    "reader_rejected": true,
+    "writer_rejected_by_reader": true,
+    "clean_writer_missing_approval": true,
+    "execute_stopped_before_mutation": true
+  },
+  "target_tests_note": "The clean package stops authenticated writer requests at approval loading before payload validation; fixed route and target restrictions are source/test-verified, not live-classification-verified in this run."
+}

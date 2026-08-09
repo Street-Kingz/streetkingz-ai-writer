@@ -1,0 +1,13 @@
+{
+  "http_status": 200,
+  "schema_version": 2,
+  "product_id": 70,
+  "template_id": 2003,
+  "response_sha256": "ec5f6e85d6a08f031e11d880c470711b0b7822be0e45eeb7d6aa5c3cb6202572",
+  "response_size_bytes": 111063,
+  "original_guard_hashes": {
+    "post_title": "70d2740df079f126b15fac1a79dbb579accf5cc9b3b8c0f69f2ab8d89496326a",
+    "post_excerpt": "42403585f01631a26e0ab3139ad11ad40874882d46dc70a94e756fc24e653675",
+    "template": "81991fbccece6edcedb9cd84fc4d8dca99765b473cf24b2f8df26b5946f91c01"
+  }
+}

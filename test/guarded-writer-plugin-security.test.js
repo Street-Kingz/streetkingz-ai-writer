@@ -4,11 +4,12 @@ import { readFile } from "node:fs/promises";
 
 const plugin = await readFile("wordpress-plugin/streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php", "utf8");
 
-test("writer is separately permissioned and POST-only", () => {
+test("writer is separately permissioned and mutation endpoint is POST-only", () => {
   assert.match(plugin, /streetkingz_ai_write_approved_product_copy/);
-  assert.match(plugin, /WP_REST_Server::CREATABLE/);
+  const route = plugin.slice(plugin.indexOf("register_rest_route('streetkingz-ai/v1', '/approved-product-70-copy/(?P<mode>"), plugin.indexOf("register_rest_route('streetkingz-ai/v1', '/approved-product-70-copy/approval'"));
+  assert.match(route, /WP_REST_Server::CREATABLE/);
   assert.match(plugin, /current_user_can\(STREETKINGZ_AI_WRITE_CAPABILITY\)/);
-  assert.doesNotMatch(plugin, /WP_REST_Server::READABLE|WP_REST_Server::EDITABLE|WP_REST_Server::DELETABLE/);
+  assert.doesNotMatch(route, /WP_REST_Server::READABLE|WP_REST_Server::EDITABLE|WP_REST_Server::DELETABLE/);
 });
 
 test("writer scope is compile-time fixed and request accepts no copy or arbitrary targets", () => {
@@ -18,15 +19,16 @@ test("writer scope is compile-time fixed and request accepts no copy or arbitrar
 });
 
 test("execute remains locked without a separate exact user authorisation contract", () => {
-  assert.match(plugin, /execution-authorisation\.json/);
+  assert.match(plugin, /STREETKINGZ_AI_ACTIVE_EXECUTION_OPTION/);
   assert.match(plugin, /streetkingz_ai_execution_locked/);
   assert.match(plugin, /explicit_user_live_write_authorisation/);
   for (const binding of ["approval_artifact_sha256", "current_state_guards", "approved_target_hashes", "product_id", "template_id", "one_time_execution_id", "publication_authorised"]) assert.match(plugin, new RegExp(binding));
-  assert.match(plugin, /hash\('sha256', \$raw\)/);
+  assert.match(plugin, /streetkingz_ai_writer_canonical_manifest/);
 });
 
-test("packaged approval, exact target hashes and all current-state guards are enforced", () => {
-  assert.match(plugin, /human-implementation-approval\.json/);
+test("runtime approval, exact target hashes and all current-state guards are enforced", () => {
+  assert.match(plugin, /STREETKINGZ_AI_ACTIVE_APPROVAL_OPTION/);
+  assert.doesNotMatch(plugin, /human-implementation-approval\.json/);
   assert.match(plugin, /hash_equals\(\$packaged\['sha256'\]/);
   assert.match(plugin, /approved_target_sha256/);
   for (const guard of ["post_title", "post_excerpt", "template_elementor_data", "description_widget", "comparison_widget", "safety_widget"]) assert.match(plugin, new RegExp(`guards\['${guard}'\]`));
@@ -59,7 +61,7 @@ test("Elementor document API, pre-write snapshot and compensating rollback are p
 });
 
 test("Elementor save receives a narrowly scoped template capability without broadening the writer role", () => {
-  assert.match(plugin, /Version: 0\.1\.6/);
+  assert.match(plugin, /Version: 0\.1\.7/);
   assert.match(plugin, /streetkingz_ai_writer_map_template_save_capability/);
   assert.match(plugin, /\$cap === 'edit_post'/);
   assert.match(plugin, /\(int\) \(\$args\[0\] \?\? 0\) === STREETKINGZ_AI_WRITE_TEMPLATE_ID/);
@@ -90,7 +92,7 @@ test("dry-run performs no mutation and execute is an explicit separate mode", ()
 });
 
 test("one-time execution is atomically and persistently claimed before mutation", () => {
-  assert.match(plugin, /Version: 0\.1\.6/);
+  assert.match(plugin, /Version: 0\.1\.7/);
   assert.match(plugin, /STREETKINGZ_AI_EXECUTION_OPTION_PREFIX/);
   assert.match(plugin, /INSERT IGNORE INTO \{\$wpdb->options\}/);
   assert.match(plugin, /\$inserted !== 1/);
@@ -100,7 +102,8 @@ test("one-time execution is atomically and persistently claimed before mutation"
   assert.match(plugin, /execution_id_sha256/);
   assert.match(plugin, /contract_sha256/);
   assert.match(plugin, /approval_sha256/);
-  assert.doesNotMatch(plugin, /delete_option\s*\(.*STREETKINGZ_AI_EXECUTION_OPTION_PREFIX|delete_option\s*\(\$claim\['option_name'\]\)/s);
+  const claimLifecycle = plugin.slice(plugin.indexOf("function streetkingz_ai_writer_claim_execution"), plugin.indexOf("function streetkingz_ai_writer_source"));
+  assert.doesNotMatch(claimLifecycle, /delete_option\s*\(/);
 
   const request = plugin.slice(plugin.indexOf("function streetkingz_ai_guarded_writer_request"));
   const snapshot = request.indexOf("streetkingz_ai_writer_persist_snapshot($prepared)");
