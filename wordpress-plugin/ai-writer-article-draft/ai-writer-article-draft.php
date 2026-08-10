@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AI Writer Article Draft
  * Description: Bounded, approval-bound creation of one new draft post from exact Gutenberg content.
- * Version: 0.1.0
+ * Version: 0.1.1
  */
 
 defined('ABSPATH') || exit;
@@ -16,7 +16,7 @@ const AI_WRITER_DRAFT_EXECUTION_PREFIX = 'ai_writer_draft_execution_';
 const AI_WRITER_DRAFT_MAX_BYTES = 250000;
 const AI_WRITER_DRAFT_MAX_TITLE = 200;
 const AI_WRITER_DRAFT_MAX_EXCERPT = 500;
-const AI_WRITER_DRAFT_VERSION = '1.0.0';
+const AI_WRITER_DRAFT_VERSION = '1.0.1';
 
 function ai_writer_draft_ensure_role(): void {
     $allowed = ['read' => true, AI_WRITER_DRAFT_CAPABILITY => true];
@@ -124,6 +124,20 @@ function ai_writer_draft_dry_run() {
     $claim = ai_writer_draft_record(ai_writer_draft_execution_option($contract['execution_id']));
     return rest_ensure_response(['status' => 'valid', 'title' => $contract['title'], 'content_sha256' => $contract['content_sha256'], 'post_type' => 'post', 'post_status' => 'draft', 'h1_count' => 0, 'approved_blocks' => $contract['allowed_blocks'], 'forbidden_content_checks' => 'PASS', 'execution_id_state' => $claim ? 'claimed' : 'unclaimed', 'contract_binding' => 'PASS', 'create_capable' => true, 'mutation_performed' => false, 'claim_performed' => false, 'content_writes' => 0]);
 }
+function ai_writer_draft_created_draft_readback(WP_REST_Request $request) {
+    $contract = ai_writer_draft_contract_from_store();
+    if (is_wp_error($contract)) return $contract;
+    $execution_id = (string) $request['execution_id'];
+    $claim = ai_writer_draft_record(ai_writer_draft_execution_option($execution_id));
+    if (!$claim || ($claim['status'] ?? null) !== 'succeeded' || !is_int($claim['created_post_id'] ?? null) || $claim['created_post_id'] < 1) return new WP_Error('ai_writer_draft_readback_unavailable', 'No successfully created draft is bound to this execution.', ['status' => 404]);
+    if (($claim['execution_id_sha256'] ?? '') !== ai_writer_draft_hash($execution_id) || ($claim['contract_sha256'] ?? '') !== ai_writer_draft_hash($contract)) return new WP_Error('ai_writer_draft_readback_binding', 'Execution and contract bindings do not match.', ['status' => 409]);
+    $post = get_post((int) $claim['created_post_id']);
+    if (!$post || (int) $post->ID !== (int) $claim['created_post_id'] || $post->post_type !== 'post' || $post->post_status !== 'draft' || $post->post_title !== $contract['title']) return new WP_Error('ai_writer_draft_readback_mismatch', 'The created draft no longer matches its bounded contract.', ['status' => 409]);
+    if (!hash_equals($contract['content_sha256'], ai_writer_draft_hash($post->post_content))) return new WP_Error('ai_writer_draft_readback_content', 'Persisted draft content does not match its bounded contract.', ['status' => 409]);
+    if ((string) get_post_meta((int) $post->ID, '_wp_page_template', true) !== '') return new WP_Error('ai_writer_draft_readback_template', 'Unexpected template assignment detected.', ['status' => 409]);
+    foreach (get_object_taxonomies('post') as $taxonomy) if (wp_get_object_terms((int) $post->ID, $taxonomy, ['fields' => 'ids'])) return new WP_Error('ai_writer_draft_readback_taxonomy', 'Unexpected taxonomy assignment detected.', ['status' => 409]);
+    return rest_ensure_response(['status' => 'verified', 'post_id' => (int) $post->ID, 'post_type' => $post->post_type, 'post_status' => $post->post_status, 'post_title' => $post->post_title, 'post_name' => $post->post_name, 'content_sha256' => ai_writer_draft_hash($post->post_content), 'template_assignment' => '', 'taxonomy_state' => 'empty', 'metadata_state' => 'bounded', 'content_writes' => 0]);
+}
 function ai_writer_draft_readback(int $post_id, array $contract) {
     $post = get_post($post_id); if (!$post || (int) $post->ID !== $post_id || $post->post_type !== 'post' || $post->post_status !== 'draft' || $post->post_title !== $contract['title'] || $post->post_content !== $contract['content']) return new WP_Error('ai_writer_draft_readback_mismatch', 'Fresh persisted draft state does not exactly match.', ['status' => 500]);
     if ((string) get_post_meta($post_id, '_wp_page_template', true) !== '') return new WP_Error('ai_writer_draft_template_unexpected', 'Unexpected template assignment detected.', ['status' => 500]);
@@ -154,5 +168,6 @@ add_action('rest_api_init', static function (): void {
     ]);
     register_rest_route('ai-writer/v1', '/article-draft/status', ['methods' => WP_REST_Server::READABLE, 'permission_callback' => 'ai_writer_draft_permission', 'callback' => 'ai_writer_draft_status']);
     register_rest_route('ai-writer/v1', '/article-draft/dry-run', ['methods' => WP_REST_Server::READABLE, 'permission_callback' => 'ai_writer_draft_permission', 'callback' => 'ai_writer_draft_dry_run']);
+    register_rest_route('ai-writer/v1', '/article-draft/created-draft/(?P<execution_id>[A-Za-z0-9._-]+)', ['methods' => WP_REST_Server::READABLE, 'permission_callback' => 'ai_writer_draft_permission', 'callback' => 'ai_writer_draft_created_draft_readback']);
     register_rest_route('ai-writer/v1', '/article-draft/execute', ['methods' => WP_REST_Server::CREATABLE, 'permission_callback' => 'ai_writer_draft_permission', 'callback' => 'ai_writer_draft_execute']);
 });

@@ -1,6 +1,6 @@
 # AI Writer Article Draft
 
-Version 0.1.0. This plugin is an intentionally narrow control plane for creating one exact, human-approved Gutenberg draft post.
+Version 0.1.1. This plugin is an intentionally narrow control plane for creating one exact, human-approved Gutenberg draft post, with execution-bound persisted-state verification.
 
 It does not include a contract, execution ID, credentials, or test content. Install alone does not create content. A separate contract must be installed by an account with `streetkingz_ai_create_article_draft`; execution is one-time and validates persisted state before success.
 

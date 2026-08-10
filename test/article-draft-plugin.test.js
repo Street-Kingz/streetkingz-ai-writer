@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
 
 const plugin = await readFile("wordpress-plugin/ai-writer-article-draft/ai-writer-article-draft.php", "utf8");
 const readme = await readFile("wordpress-plugin/ai-writer-article-draft/README.md", "utf8");
@@ -12,6 +13,7 @@ test("article draft plugin exposes only the bounded lifecycle", () => {
   assert.match(plugin, /post_type.*post/);
   assert.match(plugin, /post_status.*draft/);
   assert.match(plugin, /AI_WRITER_DRAFT_CAPABILITY/);
+  assert.match(plugin, /article-draft\/created-draft\/\(\?P<execution_id>/);
 });
 
 test("role is narrow and cannot grant broad CMS or publication rights", () => {
@@ -75,6 +77,19 @@ test("fresh read-back is authoritative and cleanup is exact-ID only", () => {
   assert.match(plugin, /get_edit_post_link/);
 });
 
+test("created-draft read-back is execution-bound and server-side only", () => {
+  assert.match(plugin, /function ai_writer_draft_created_draft_readback/);
+  assert.match(plugin, /get_post\(\(int\) \$claim\['created_post_id'\]\)/);
+  assert.match(plugin, /execution_id_sha256/);
+  assert.match(plugin, /contract_sha256/);
+  assert.match(plugin, /hash_equals\(\$contract\['content_sha256'\], ai_writer_draft_hash\(\$post->post_content\)\)/);
+  assert.match(plugin, /'content_sha256' => ai_writer_draft_hash\(\$post->post_content\)/);
+  assert.match(plugin, /'template_assignment' => ''/);
+  assert.match(plugin, /'taxonomy_state' => 'empty'/);
+  assert.doesNotMatch(plugin, /\$request->get_param\(['"]post_id/);
+  assert.doesNotMatch(plugin, /'meta'\s*=>|get_post_meta\([^\n]+\*|get_post_custom/);
+});
+
 test("plugin has no Product 70, Template 2003, or broad Elementor dependency", () => {
   assert.doesNotMatch(plugin, /Product 70|Template 2003|2003|product_id|elementor_template/i);
   assert.doesNotMatch(readme, /Product 70|Template 2003|Elementor document/i);
@@ -82,4 +97,18 @@ test("plugin has no Product 70, Template 2003, or broad Elementor dependency", (
 
 test("package source contains no active contract, execution ID, credentials, or live fixture", () => {
   assert.doesNotMatch(plugin, /gutenberg-render-test-draft-001|07068b84ccc1d902b4759cbf526fa7ef6f818358c2171289e8052615ba1071a3|application[_ -]?password|Authorization:\s*Basic/i);
+});
+
+test("deployment ZIP has a WordPress-detectable plugin root", () => {
+  const zip = "artifacts/deployment/ai-writer-article-draft-0.1.1.zip";
+  const entries = execFileSync("unzip", ["-Z1", zip], { encoding: "utf8" })
+    .trim().split(/\r?\n/).filter(Boolean);
+  assert.ok(entries.includes("ai-writer-article-draft/"));
+  assert.ok(entries.includes("ai-writer-article-draft/ai-writer-article-draft.php"));
+  assert.ok(entries.includes("ai-writer-article-draft/README.md"));
+  assert.ok(entries.every((entry) => entry === "ai-writer-article-draft/" || entry.startsWith("ai-writer-article-draft/")));
+  assert.doesNotMatch(entries.join("\n"), /^(?:wordpress-plugin|artifacts)\//m);
+  assert.match(plugin, /^\s*\* Plugin Name:\s*AI Writer Article Draft\s*$/m);
+  assert.match(plugin, /^\s*\* Version:\s*0\.1\.1\s*$/m);
+  assert.doesNotMatch(entries.join("\n"), /(?:\.env|execution-authorisation|active-contract|credentials)/i);
 });
