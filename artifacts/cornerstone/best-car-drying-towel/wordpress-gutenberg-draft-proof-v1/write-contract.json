@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "wordpress_create_draft_proof_contract",
+  "execution_id": "gutenberg-render-test-draft-001",
+  "operation": "CREATE_NEW_POST",
+  "target": {
+    "post_type": "post",
+    "post_status": "draft",
+    "existing_post_id": null
+  },
+  "payload": {
+    "post_title": "STREET KINGZ AI WRITER — GUTENBERG RENDER TEST",
+    "post_excerpt": "Non-production Kadence/native WordPress rendering test. Not for publication.",
+    "post_content_sha256": "07068b84ccc1d902b4759cbf526fa7ef6f818358c2171289e8052615ba1071a3"
+  },
+  "authority": {
+    "publish": false,
+    "edit_existing_posts": false,
+    "edit_products": false,
+    "edit_elementor": false,
+    "arbitrary_meta": false,
+    "retry": false
+  },
+  "verification": {
+    "require_created_post_id": true,
+    "read_back_fields": [
+      "id",
+      "post_type",
+      "status",
+      "title",
+      "content"
+    ],
+    "expected_status": "draft",
+    "expected_post_type": "post"
+  },
+  "cleanup": {
+    "on_verification_failure": "trash_or_delete_only_created_post",
+    "require_exact_created_post_id": true,
+    "never_touch_existing_posts": true
+  },
+  "live_execution": false,
+  "wordpress_writes": 0,
+  "ai_calls": 0,
+  "package_sha256": "a7931ec3f83ce51c9af33dfe11c7b57a7e0a45b2a7ca776b1e1494690c310b1b"
+}

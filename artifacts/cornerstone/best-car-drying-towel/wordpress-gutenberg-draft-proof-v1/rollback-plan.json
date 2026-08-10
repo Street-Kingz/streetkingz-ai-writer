@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "trigger": "persisted read-back verification failure",
+  "action": "trash_or_delete_only_created_post",
+  "identity": "created_post_id_from_same_execution",
+  "safeguards": [
+    "never accept caller-supplied existing post ID",
+    "never modify Product 70",
+    "never modify Template 2003",
+    "verify cleanup by exact ID"
+  ],
+  "successful_verification": "leave draft intact for human visual inspection"
+}

@@ -1,0 +1,27 @@
+{
+  "block_names": [
+    "paragraph",
+    "paragraph",
+    "heading",
+    "paragraph",
+    "list",
+    "group",
+    "heading",
+    "paragraph",
+    "columns",
+    "column",
+    "heading",
+    "paragraph",
+    "column",
+    "heading",
+    "paragraph",
+    "image",
+    "buttons",
+    "button",
+    "heading",
+    "heading",
+    "paragraph"
+  ],
+  "h1_count": 0,
+  "allowed_blocks": true
+}

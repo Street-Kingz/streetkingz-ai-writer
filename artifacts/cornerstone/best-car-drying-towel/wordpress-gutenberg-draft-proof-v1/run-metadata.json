@@ -1,0 +1,11 @@
+{
+  "artifact_type": "offline_gutenberg_draft_proof",
+  "generated_at": "2026-08-10T20:53:57.387Z",
+  "execution_state": "PREPARED_NOT_EXECUTED",
+  "package_sha256": "a7931ec3f83ce51c9af33dfe11c7b57a7e0a45b2a7ca776b1e1494690c310b1b",
+  "content_sha256": "07068b84ccc1d902b4759cbf526fa7ef6f818358c2171289e8052615ba1071a3",
+  "wordpress_writes": 0,
+  "writer_executions": 0,
+  "publication_attempts": 0,
+  "ai_calls": 0
+}

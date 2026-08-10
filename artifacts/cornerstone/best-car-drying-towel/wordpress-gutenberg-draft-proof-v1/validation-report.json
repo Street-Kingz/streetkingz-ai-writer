@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "block_names": [
+    "paragraph",
+    "paragraph",
+    "heading",
+    "paragraph",
+    "list",
+    "group",
+    "heading",
+    "paragraph",
+    "columns",
+    "column",
+    "heading",
+    "paragraph",
+    "column",
+    "heading",
+    "paragraph",
+    "image",
+    "buttons",
+    "button",
+    "heading",
+    "heading",
+    "paragraph"
+  ],
+  "h1_count": 0,
+  "content_sha256": "07068b84ccc1d902b4759cbf526fa7ef6f818358c2171289e8052615ba1071a3",
+  "package_sha256": "a7931ec3f83ce51c9af33dfe11c7b57a7e0a45b2a7ca776b1e1494690c310b1b",
+  "live_execution": false,
+  "wordpress_writes": 0,
+  "ai_calls": 0
+}
