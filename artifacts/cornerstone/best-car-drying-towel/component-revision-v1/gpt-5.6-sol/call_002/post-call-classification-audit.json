@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "post_call_classification_audit",
+  "source_response_immutable": true,
+  "original_call_time_validation_preserved": true,
+  "classification_corrections": [
+    "Concept analysis now reads rendered component data rather than component metadata.",
+    "cta_direction is excluded when an actual customer-facing cta_label exists.",
+    "A short quick-answer criteria list is a brief reference rather than a substantial explanation.",
+    "Page-specific substantial cues distinguish an explanation from an incidental reference."
+  ],
+  "budgets_changed": false,
+  "owners_changed": false,
+  "post_correction_deterministic_status": "PASS",
+  "post_correction_deterministic_errors": [],
+  "editorial_status": "FAIL",
+  "accepted": false
+}

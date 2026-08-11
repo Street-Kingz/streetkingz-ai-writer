@@ -1,0 +1,15 @@
+{
+  "ai_calls": 0,
+  "artifact_type": "voice_transformation_preparation_run",
+  "input_sha256": "828fdd4e1bcfbb5efb1ab444506d68bbe340e0393993c3dd56f98a4daa0cbe25",
+  "schema_version": "1.0.0",
+  "source_paths": {
+    "approvalRecord": "artifacts/voice/street-kingz-founder-v1/approved-v1.1.0-001/approval-record.json",
+    "pagePlan": "artifacts/cornerstone/best-car-drying-towel/component-draft-v1/approved-page-plan.json",
+    "researchPacket": "artifacts/cornerstone/best-car-drying-towel/fixture-v1/research-packet.json",
+    "sourcePage": "artifacts/cornerstone/best-car-drying-towel/component-revision-v1/deterministic-acceptance-001/semantic-page.json",
+    "strategy": "artifacts/cornerstone/best-car-drying-towel/strategy-v1/gpt-5.6-sol/call_002/strategy.json",
+    "voiceProfile": "artifacts/voice/street-kingz-founder-v1/approved-v1.1.0-001/approved-voice-profile.json"
+  },
+  "wordpress_writes": 0
+}

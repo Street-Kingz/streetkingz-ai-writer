@@ -5,3 +5,7 @@ node_modules
 .credentials/
 client_secret*.json
 google-oauth*.json
+.DS_Store
+artifacts/deployment/*.zip
+artifacts/implementation/
+artifacts/implementation/

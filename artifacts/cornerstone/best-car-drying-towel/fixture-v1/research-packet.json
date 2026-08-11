@@ -1,0 +1,1280 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_research_packet",
+  "packet_version": "1.0.0",
+  "packet_id": "cornerstone_packet_ec2b7e4474da4ae08993919c",
+  "generated_at": "2026-08-09T00:00:00.000Z",
+  "deterministic_content_sha256": "93ae699e1917873bbb4fdc4a26064a2706ff4ddcb173fec389781d23d628ac06",
+  "identity": {
+    "topic": "Choosing the best car drying towel",
+    "primary_query": "best car drying towel",
+    "proposed_url": "https://streetkingz.co.uk/guides/best-car-drying-towel/",
+    "fixture_provenance": {
+      "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+      "evidence_sha256": "4a8d46817137dd2905059a40e16670e7fce3638df4caeb056aa39982925f5cf9",
+      "research_state_id": "research_state_da50a19ba60e6b045635c6eb",
+      "research_state_sha256": "501952b66d96d7558d0abe222c58ca7d454c9a0bb24f8b787c82e10b1fd9a572"
+    }
+  },
+  "search_demand": {
+    "primary_keyword": {
+      "query": "best car drying towel",
+      "metrics": {
+        "monthly_search_volume": 2900,
+        "cpc_usd": 2.48,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0,
+        "source_updated_at": "2026-07-12 05:02:00 +00:00"
+      },
+      "evidence_ids": [
+        "ev_ed08924f3394b29222b9b9b0"
+      ]
+    },
+    "supporting_queries": [
+      {
+        "query": "microfiber towel for drying car",
+        "metrics": {
+          "monthly_search_volume": 5400,
+          "cpc_usd": 1.17,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 8
+        },
+        "evidence_ids": [
+          "ev_ecc2c1bd4e72d712f2eda7d7"
+        ]
+      },
+      {
+        "query": "microfiber towel for car drying",
+        "metrics": {
+          "monthly_search_volume": 1600,
+          "cpc_usd": 1.2,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 3
+        },
+        "evidence_ids": [
+          "ev_6da945a33cb44149b7d8ddb9"
+        ]
+      },
+      {
+        "query": "waffle weave car drying towel",
+        "metrics": {
+          "monthly_search_volume": 210,
+          "cpc_usd": 1.74,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 0
+        },
+        "evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ]
+      },
+      {
+        "query": "best leaf blower for car drying",
+        "metrics": {
+          "monthly_search_volume": 170,
+          "cpc_usd": 1.43,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 0
+        },
+        "evidence_ids": [
+          "ev_883cfd7c0ff49c3bc63b86db"
+        ]
+      },
+      {
+        "query": "best leaf blower for drying car",
+        "metrics": {
+          "monthly_search_volume": 170,
+          "cpc_usd": 1.43,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 0
+        },
+        "evidence_ids": [
+          "ev_bb0a342214a0eaab10525cb2"
+        ]
+      },
+      {
+        "query": "best car dryer",
+        "metrics": {
+          "monthly_search_volume": 140,
+          "cpc_usd": 2.34,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 0
+        },
+        "evidence_ids": [
+          "ev_1efb11a51a0410e2d4891a60"
+        ]
+      },
+      {
+        "query": "best car drying blower",
+        "metrics": {
+          "monthly_search_volume": 140,
+          "cpc_usd": 3.19,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 0
+        },
+        "evidence_ids": [
+          "ev_b1c2674223e5867abe74521b"
+        ]
+      },
+      {
+        "query": "chamois for car drying",
+        "metrics": {
+          "monthly_search_volume": 140,
+          "cpc_usd": 0.94,
+          "paid_competition_level": "HIGH",
+          "keyword_difficulty": 0
+        },
+        "evidence_ids": [
+          "ev_1d80de1c8d32419e438b602b"
+        ]
+      }
+    ],
+    "search_console_evidence": [
+      "ev_0d8d161d084b594fff388b97",
+      "ev_173c0ef3d02dbe8332b5662d",
+      "ev_19a68df8c0e971fcec1c8e49",
+      "ev_1ae40e8f6c6c8d148fabf41a",
+      "ev_22f176f73ebb5516944bfdc3",
+      "ev_386c0d66a38af9541621e08c",
+      "ev_414e200d878b278336920b75",
+      "ev_4da218218c6cd993691e0fb3",
+      "ev_4f19130a26005a5c3d3e5381",
+      "ev_51fddf294b672a671a3c03c0",
+      "ev_6d0843b6fba6e753515971ff",
+      "ev_86b58850ea0ee2b74c175403",
+      "ev_1825a8ca5207fd32e94a7989",
+      "ev_25ee58148e4a213d93b4030b",
+      "ev_5a4142e0f62c166b7f496898",
+      "ev_8e80ef97bfdd2533644953e8",
+      "ev_9df1378687a3b2deabe8971c",
+      "ev_a3a9b21f77f051f2ee53db62",
+      "ev_b801de5da7836d1acb7d1239",
+      "ev_bcbe42b0a2777cc0e6fb74d8",
+      "ev_f8679fd09c25bde5fef9c79f",
+      "ev_fa4b222c5c25be18a71a133c"
+    ]
+  },
+  "intent": {
+    "primary": "commercial_investigation",
+    "secondary": "informational",
+    "confidence": "high",
+    "trace": {
+      "kind": "deterministic_derivation",
+      "statement": "Query wording and 7 classified organic results indicate commercial_investigation intent with informational support.",
+      "evidence_ids": [
+        "ev_0ecff79f83c96838259bb05e",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_8ee7c6172f08a1260f6548ed",
+        "ev_9011b332294a36321b5dc453",
+        "ev_92d35d004d3da59946df24b9",
+        "ev_94042d16a210f9cdc8cbcc15",
+        "ev_b647e2d73618df545a60e54e",
+        "ev_f286838d0df9ad613d11c33a",
+        "ev_fd01b717f5a2715ff8dba619"
+      ],
+      "limitation": null
+    }
+  },
+  "serp": {
+    "observed_results": [
+      {
+        "title": "Microfiber Car Drying Towels",
+        "description": "3 days ago — Find the best microfiber drying towel for cars — absorbent, lint-free, scratch-free options for unprotected, ceramic-coated and waxed vehicles. Read more",
+        "url": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoo9fksf4kfyIi6sFtqUG1Ri3E_aWi2LlJ7u7NydrCD7PK4Gzxh5",
+        "domain": "theragcompany.com",
+        "rank": 2,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94"
+        ]
+      },
+      {
+        "title": "Best drying towel? : r/AutoDetailing",
+        "description": "What is the best drying towel currently?",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "domain": "www.reddit.com",
+        "rank": 3,
+        "page_type": "discussion",
+        "evidence_ids": [
+          "ev_b647e2d73618df545a60e54e"
+        ]
+      },
+      {
+        "title": "Car Drying Towels",
+        "description": "At 36\" x 25\" x 1\" thick and rated to hold close to a gallon of water, our Woolly Mammoth is the best towel to dry a car for anyone who wants serious absorbency ... Read more",
+        "url": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopJkAMwtV-RhFKC5LWW23Rz07gv325lqVGpEAQxF5mVFARDf5IP",
+        "domain": "www.chemicalguys.com",
+        "rank": 6,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      },
+      {
+        "title": "Best Microfiber Towel For Your Car In 2026",
+        "description": "Discover the best microfiber towels for drying your car. If you want to dry in style, get the Liquid8r. If you want to dry your car, get the Miracle Dryer.",
+        "url": "https://carwashwiz.com/car-wash/best-microfiber-towel/",
+        "domain": "carwashwiz.com",
+        "rank": 7,
+        "page_type": "editorial_guide",
+        "evidence_ids": [
+          "ev_454919bf91a89c2cb83a7640"
+        ]
+      },
+      {
+        "title": "Car Drying Towel",
+        "description": "Discover ultra-absorbent microfiber car drying towels that dry vehicles quickly without streaks or scratches. Holds Up to 9 lbs, No Streaks, Scratches, or ...",
+        "url": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+        "domain": "www.amazon.com",
+        "rank": 8,
+        "page_type": "unclassified_page",
+        "evidence_ids": [
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "title": "The best towels for drying and detailing your car (2025)",
+        "description": "Jul 5, 2025 — The best towels for drying and detailing your car (2025) · 1. Best car drying towel: AutoManiacs Drying Towel · 2. Runner-up car drying towel: ... Read more",
+        "url": "https://flatsixes.com/porsche-products/the-best-car-towels-drying-detailing/",
+        "domain": "flatsixes.com",
+        "rank": 11,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_94042d16a210f9cdc8cbcc15"
+        ]
+      },
+      {
+        "title": "Drying Towels & Blowers",
+        "description": "Shop the best microfiber Drying Towels & Blowers for a quick dry and spotless finish. Upgrade your car wash game with our top-rated collection.",
+        "url": "https://www.autogeek.net/drying.html?srsltid=AfmBOoo5a7n6IbDQVkTEeiblEOrTgFyiBYzAe5MWzZmCRnJdgHR2UB6h",
+        "domain": "www.autogeek.net",
+        "rank": 12,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_6cbefe8bfb2333a7521015b3"
+        ]
+      }
+    ],
+    "result_page_types": {
+      "commercial_listing": 4,
+      "discussion": 1,
+      "editorial_guide": 1,
+      "unclassified_page": 1
+    },
+    "recurring_themes": [
+      {
+        "term": "towels",
+        "observed_result_count": 6,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      },
+      {
+        "term": "microfiber",
+        "observed_result_count": 4,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "term": "absorbent",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "term": "vehicles",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      }
+    ],
+    "recurring_questions": [
+      {
+        "question": "Do car drying towels really work?",
+        "evidence_ids": [
+          "ev_9011b332294a36321b5dc453"
+        ]
+      },
+      {
+        "question": "What do professional detailers use to dry cars?",
+        "evidence_ids": [
+          "ev_fd01b717f5a2715ff8dba619"
+        ]
+      },
+      {
+        "question": "What is the best cloth for drying cars?",
+        "evidence_ids": [
+          "ev_8ee7c6172f08a1260f6548ed"
+        ]
+      },
+      {
+        "question": "What towels do you use to dry cars?",
+        "evidence_ids": [
+          "ev_0ecff79f83c96838259bb05e"
+        ]
+      }
+    ],
+    "commercial_vs_informational_balance": {
+      "commercial_result_count": 4,
+      "informational_result_count": 2,
+      "classification": "mixed"
+    },
+    "notable_features": [
+      "serp_ai_overview",
+      "serp_discussion",
+      "serp_people_also_ask",
+      "serp_product_element",
+      "serp_related_search",
+      "serp_video"
+    ]
+  },
+  "competitor_coverage": {
+    "observed_from_snippets": [
+      {
+        "term": "towels",
+        "observed_result_count": 6,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_f286838d0df9ad613d11c33a"
+        ],
+        "trace_kind": "observed_evidence"
+      },
+      {
+        "term": "microfiber",
+        "observed_result_count": 4,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9"
+        ],
+        "trace_kind": "observed_evidence"
+      },
+      {
+        "term": "absorbent",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ],
+        "trace_kind": "observed_evidence"
+      },
+      {
+        "term": "vehicles",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ],
+        "trace_kind": "observed_evidence"
+      }
+    ],
+    "important_differences": [
+      {
+        "page": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoo9fksf4kfyIi6sFtqUG1Ri3E_aWi2LlJ7u7NydrCD7PK4Gzxh5",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94"
+        ]
+      },
+      {
+        "page": "https://carwashwiz.com/car-wash/best-microfiber-towel/",
+        "observed_page_type": "editorial_guide",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_454919bf91a89c2cb83a7640"
+        ]
+      },
+      {
+        "page": "https://www.autogeek.net/drying.html?srsltid=AfmBOoo5a7n6IbDQVkTEeiblEOrTgFyiBYzAe5MWzZmCRnJdgHR2UB6h",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_6cbefe8bfb2333a7521015b3"
+        ]
+      },
+      {
+        "page": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+        "observed_page_type": "unclassified_page",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "page": "https://flatsixes.com/porsche-products/the-best-car-towels-drying-detailing/",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_94042d16a210f9cdc8cbcc15"
+        ]
+      },
+      {
+        "page": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "observed_page_type": "discussion",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_b647e2d73618df545a60e54e"
+        ]
+      },
+      {
+        "page": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopJkAMwtV-RhFKC5LWW23Rz07gv325lqVGpEAQxF5mVFARDf5IP",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      }
+    ],
+    "weak_or_missing_coverage": [
+      {
+        "kind": "judgement_required",
+        "statement": "Page-level competitor coverage gaps cannot be asserted from titles/snippets alone.",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_b647e2d73618df545a60e54e",
+          "ev_f286838d0df9ad613d11c33a"
+        ],
+        "limitation": "Fetch and inspect explicit ranking pages before claiming competitors omit a subject."
+      }
+    ],
+    "claims_requiring_evidence": [
+      "Performance, scratch-safety, absorbency and material comparisons require first-party or authoritative supporting evidence."
+    ]
+  },
+  "topic_model": {
+    "entities_concepts": [
+      {
+        "name": "towels",
+        "kind": "observed_serp_term",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      },
+      {
+        "name": "microfiber",
+        "kind": "observed_serp_term",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "name": "absorbent",
+        "kind": "observed_serp_term",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "name": "vehicles",
+        "kind": "observed_serp_term",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      }
+    ],
+    "subtopics": [
+      {
+        "name": "Do car drying towels really work?",
+        "basis": "observed question",
+        "evidence_ids": [
+          "ev_9011b332294a36321b5dc453"
+        ]
+      },
+      {
+        "name": "What do professional detailers use to dry cars?",
+        "basis": "observed question",
+        "evidence_ids": [
+          "ev_fd01b717f5a2715ff8dba619"
+        ]
+      },
+      {
+        "name": "What is the best cloth for drying cars?",
+        "basis": "observed question",
+        "evidence_ids": [
+          "ev_8ee7c6172f08a1260f6548ed"
+        ]
+      },
+      {
+        "name": "What towels do you use to dry cars?",
+        "basis": "observed question",
+        "evidence_ids": [
+          "ev_0ecff79f83c96838259bb05e"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "Do car drying towels really work?",
+        "evidence_ids": [
+          "ev_9011b332294a36321b5dc453"
+        ]
+      },
+      {
+        "question": "What do professional detailers use to dry cars?",
+        "evidence_ids": [
+          "ev_fd01b717f5a2715ff8dba619"
+        ]
+      },
+      {
+        "question": "What is the best cloth for drying cars?",
+        "evidence_ids": [
+          "ev_8ee7c6172f08a1260f6548ed"
+        ]
+      },
+      {
+        "question": "What towels do you use to dry cars?",
+        "evidence_ids": [
+          "ev_0ecff79f83c96838259bb05e"
+        ]
+      }
+    ],
+    "terminology": [
+      "best car dryer",
+      "best car drying blower",
+      "best car drying towel",
+      "best leaf blower for car drying",
+      "best leaf blower for drying car",
+      "chamois for car drying",
+      "microfiber towel for car drying",
+      "microfiber towel for drying car",
+      "waffle weave car drying towel"
+    ],
+    "relationships": [
+      {
+        "from": "Choosing the best car drying towel",
+        "to": "Heavy Duty Drying Towel – 1200gsm",
+        "relationship": "genuinely relevant product candidate",
+        "evidence_ids": [
+          "ev_0070937601532c2a501db22b",
+          "ev_b77f17bcbbd291179ba662ee"
+        ]
+      }
+    ]
+  },
+  "streetkingz_relevance": {
+    "relevant_products": [
+      {
+        "subject_id": "product_20fcada95c00204601928709",
+        "name": "Heavy Duty Drying Towel – 1200gsm",
+        "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "relevance": "The first-party product type/name directly overlaps the requested topic; inclusion must remain helpful rather than forced.",
+        "confidence": "high",
+        "evidence_ids": [
+          "ev_0070937601532c2a501db22b",
+          "ev_b77f17bcbbd291179ba662ee"
+        ]
+      }
+    ],
+    "relevant_categories_pages": [
+      {
+        "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "evidence_ids": [
+          "ev_0d8d161d084b594fff388b97",
+          "ev_173c0ef3d02dbe8332b5662d",
+          "ev_19a68df8c0e971fcec1c8e49",
+          "ev_1ae40e8f6c6c8d148fabf41a",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c",
+          "ev_414e200d878b278336920b75",
+          "ev_4da218218c6cd993691e0fb3",
+          "ev_4f19130a26005a5c3d3e5381",
+          "ev_51fddf294b672a671a3c03c0",
+          "ev_6d0843b6fba6e753515971ff",
+          "ev_86b58850ea0ee2b74c175403"
+        ]
+      },
+      {
+        "url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+        "evidence_ids": [
+          "ev_1825a8ca5207fd32e94a7989",
+          "ev_25ee58148e4a213d93b4030b",
+          "ev_5a4142e0f62c166b7f496898",
+          "ev_8e80ef97bfdd2533644953e8",
+          "ev_9df1378687a3b2deabe8971c",
+          "ev_a3a9b21f77f051f2ee53db62",
+          "ev_b801de5da7836d1acb7d1239",
+          "ev_bcbe42b0a2777cc0e6fb74d8",
+          "ev_f8679fd09c25bde5fef9c79f",
+          "ev_fa4b222c5c25be18a71a133c"
+        ]
+      }
+    ],
+    "possible_internal_links": [
+      {
+        "source_page": "https://streetkingz.co.uk/guides/best-car-drying-towel/",
+        "destination_page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "relationship": "Existing Street Kingz page has observed query/page relevance to the cornerstone topic.",
+        "suggested_anchor_direction": "Use descriptive natural language about best car drying towel; exact-match wording is not required.",
+        "confidence": "medium",
+        "evidence_ids": [
+          "ev_0d8d161d084b594fff388b97",
+          "ev_173c0ef3d02dbe8332b5662d",
+          "ev_19a68df8c0e971fcec1c8e49",
+          "ev_1ae40e8f6c6c8d148fabf41a",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c",
+          "ev_414e200d878b278336920b75",
+          "ev_4da218218c6cd993691e0fb3",
+          "ev_4f19130a26005a5c3d3e5381",
+          "ev_51fddf294b672a671a3c03c0",
+          "ev_6d0843b6fba6e753515971ff",
+          "ev_86b58850ea0ee2b74c175403"
+        ]
+      },
+      {
+        "source_page": "https://streetkingz.co.uk/guides/best-car-drying-towel/",
+        "destination_page": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+        "relationship": "Existing Street Kingz page has observed query/page relevance to the cornerstone topic.",
+        "suggested_anchor_direction": "Use descriptive natural language about best car drying towel; exact-match wording is not required.",
+        "confidence": "medium",
+        "evidence_ids": [
+          "ev_1825a8ca5207fd32e94a7989",
+          "ev_25ee58148e4a213d93b4030b",
+          "ev_5a4142e0f62c166b7f496898",
+          "ev_8e80ef97bfdd2533644953e8",
+          "ev_9df1378687a3b2deabe8971c",
+          "ev_a3a9b21f77f051f2ee53db62",
+          "ev_b801de5da7836d1acb7d1239",
+          "ev_bcbe42b0a2777cc0e6fb74d8",
+          "ev_f8679fd09c25bde5fef9c79f",
+          "ev_fa4b222c5c25be18a71a133c"
+        ]
+      }
+    ],
+    "commercial_connection": "A relevant Street Kingz product may be offered as an optional solution after the reader's problem is answered."
+  },
+  "evidence": {
+    "source_references": [
+      {
+        "evidence_id": "ev_0070937601532c2a501db22b",
+        "source_type": "product_fact",
+        "provider_id": "product_facts",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "supports": "first-party product relevance"
+      },
+      {
+        "evidence_id": "ev_04714acf2358fc4c7a246de8",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_0d8d161d084b594fff388b97",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_0ecff79f83c96838259bb05e",
+        "source_type": "serp_people_also_ask",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_1376b33fe222bd42d6c7f4b1",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_173c0ef3d02dbe8332b5662d",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_181c9962532c11f0396ee33b",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_1825a8ca5207fd32e94a7989",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_19a68df8c0e971fcec1c8e49",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_1ae40e8f6c6c8d148fabf41a",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_1d80de1c8d32419e438b602b",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-12 10:54:33 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_1efb11a51a0410e2d4891a60",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-12 05:22:04 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_22f176f73ebb5516944bfdc3",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_23a73f980b3182e3935f21e9",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-15 22:59:18 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_25ee58148e4a213d93b4030b",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_26bfe55c1dfaf57a44348d94",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_386c0d66a38af9541621e08c",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_414e200d878b278336920b75",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_44fb7875cd1e5f269ca58321",
+        "source_type": "serp_discussion",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_454919bf91a89c2cb83a7640",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_4da218218c6cd993691e0fb3",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_4f19130a26005a5c3d3e5381",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_51fddf294b672a671a3c03c0",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_5a4142e0f62c166b7f496898",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_5ea246017fc2691e9da7789d",
+        "source_type": "serp_product_element",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_6cbefe8bfb2333a7521015b3",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_6d0843b6fba6e753515971ff",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_6da945a33cb44149b7d8ddb9",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-12 22:44:03 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_8335593fc8780e3ec0125ba7",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_86b58850ea0ee2b74c175403",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_883cfd7c0ff49c3bc63b86db",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-14 02:32:27 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_8e80ef97bfdd2533644953e8",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_8ee7c6172f08a1260f6548ed",
+        "source_type": "serp_people_also_ask",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_9011b332294a36321b5dc453",
+        "source_type": "serp_people_also_ask",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_92d35d004d3da59946df24b9",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_94042d16a210f9cdc8cbcc15",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_9cba6e8fe1c0263e020ce5ea",
+        "source_type": "serp_product_element",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_9df1378687a3b2deabe8971c",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_a3a9b21f77f051f2ee53db62",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_a55b952eb10f41862378c6fe",
+        "source_type": "serp_ai_overview",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_a574994468921d042560c8fc",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_b1c2674223e5867abe74521b",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-14 13:28:13 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_b3e003e186feb53ca0cbbd94",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_b647e2d73618df545a60e54e",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_b77f17bcbbd291179ba662ee",
+        "source_type": "product_fact",
+        "provider_id": "product_facts",
+        "observed_at": "2026-08-06T16:37:16.159Z",
+        "retrieved_at": "2026-08-08T06:14:45.417Z",
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "supports": "first-party product relevance"
+      },
+      {
+        "evidence_id": "ev_b801de5da7836d1acb7d1239",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_bb0a342214a0eaab10525cb2",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-10 18:48:47 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_bcbe42b0a2777cc0e6fb74d8",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_e1b336ff3425dba2b31556e3",
+        "source_type": "serp_video",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_e7f7d6fe16e7606c7fc2d65a",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_ecc2c1bd4e72d712f2eda7d7",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-13 12:54:47 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_ed08924f3394b29222b9b9b0",
+        "source_type": "keyword_idea",
+        "provider_id": "dataforseo_keyword_ideas",
+        "observed_at": "2026-07-12 05:02:00 +00:00",
+        "retrieved_at": "2026-08-08T06:14:45.449Z",
+        "source_url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_ideas/live",
+        "supports": "search demand metrics"
+      },
+      {
+        "evidence_id": "ev_f286838d0df9ad613d11c33a",
+        "source_type": "serp_organic_result",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_f40fafbdfa1eac939a767523",
+        "source_type": "serp_related_search",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      },
+      {
+        "evidence_id": "ev_f8679fd09c25bde5fef9c79f",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_fa4b222c5c25be18a71a133c",
+        "source_type": "search_console_query_page_performance",
+        "provider_id": "google_search_console",
+        "observed_at": "2026-08-05T23:59:59.000Z",
+        "retrieved_at": "2026-08-08T07:21:51.349Z",
+        "source_url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F/searchAnalytics/query",
+        "supports": "first-party search/page observation"
+      },
+      {
+        "evidence_id": "ev_fd01b717f5a2715ff8dba619",
+        "source_type": "serp_people_also_ask",
+        "provider_id": "dataforseo_google_organic_serp_advanced",
+        "observed_at": "2026-08-08 06:36:05 +00:00",
+        "retrieved_at": "2026-08-08T06:35:57.147Z",
+        "source_url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "supports": "SERP observation"
+      }
+    ],
+    "unsupported_areas": [
+      "Ranking-page section coverage and omissions are not known because page-level competitor documents were not collected."
+    ],
+    "freshness": {
+      "oldest_observed_at": "2026-07-10 18:48:47 +00:00",
+      "newest_retrieved_at": "2026-08-08T07:21:51.349Z"
+    }
+  },
+  "risks": {
+    "cannibalisation": {
+      "conflicts": [
+        {
+          "conflicting_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+          "overlap_reason": "The existing page has Search Console query evidence with strong token overlap to the proposed primary query.",
+          "severity": "medium",
+          "recommended_action": "differentiate_intent",
+          "evidence_ids": [
+            "ev_0d8d161d084b594fff388b97",
+            "ev_173c0ef3d02dbe8332b5662d",
+            "ev_19a68df8c0e971fcec1c8e49",
+            "ev_1ae40e8f6c6c8d148fabf41a",
+            "ev_22f176f73ebb5516944bfdc3",
+            "ev_386c0d66a38af9541621e08c",
+            "ev_414e200d878b278336920b75",
+            "ev_4da218218c6cd993691e0fb3",
+            "ev_4f19130a26005a5c3d3e5381",
+            "ev_51fddf294b672a671a3c03c0",
+            "ev_6d0843b6fba6e753515971ff",
+            "ev_86b58850ea0ee2b74c175403"
+          ]
+        },
+        {
+          "conflicting_url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+          "overlap_reason": "The existing page has Search Console query evidence with strong token overlap to the proposed primary query.",
+          "severity": "medium",
+          "recommended_action": "differentiate_intent",
+          "evidence_ids": [
+            "ev_1825a8ca5207fd32e94a7989",
+            "ev_25ee58148e4a213d93b4030b",
+            "ev_5a4142e0f62c166b7f496898",
+            "ev_8e80ef97bfdd2533644953e8",
+            "ev_9df1378687a3b2deabe8971c",
+            "ev_a3a9b21f77f051f2ee53db62",
+            "ev_b801de5da7836d1acb7d1239",
+            "ev_bcbe42b0a2777cc0e6fb74d8",
+            "ev_f8679fd09c25bde5fef9c79f",
+            "ev_fa4b222c5c25be18a71a133c"
+          ]
+        }
+      ],
+      "overall_risk": "medium",
+      "recommended_action": "human_review_required",
+      "limitation": null
+    },
+    "insufficient_evidence": [
+      "Ranking-page section coverage and omissions are not known because page-level competitor documents were not collected."
+    ],
+    "unclear_intent": false,
+    "stale_evidence": false,
+    "weak_commercial_relevance": false,
+    "uncertainty": [
+      "Content-gap conclusions require human or AI judgement after page-level evidence is available."
+    ]
+  },
+  "model_handoff": {
+    "deterministic_system_provides": [
+      "validated evidence references",
+      "keyword metrics",
+      "observed SERP results and questions",
+      "provisional intent",
+      "site overlap candidates",
+      "product relevance candidates",
+      "explicit unknowns"
+    ],
+    "future_model_receives": "This packet plus a strict output schema and approved brand rules; not raw provider payloads.",
+    "future_model_responsibilities": [
+      "nuanced intent interpretation",
+      "SERP synthesis without inventing page coverage",
+      "information-gap judgement",
+      "article strategy",
+      "natural structure refinement",
+      "drafting after human brief approval"
+    ]
+  }
+}

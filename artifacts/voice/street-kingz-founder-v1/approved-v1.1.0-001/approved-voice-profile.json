@@ -1,0 +1,549 @@
+{
+  "approval": {
+    "approval_text_sha256": "220db978839902fc2129352dd0b19e3b657e9c9a6e5e1aa9dce66f674e178e5c",
+    "human_amendment_ids": [
+      "sk_human_rule_simplicity_contrast_v1"
+    ],
+    "observed_profile_hash": "2deeba720a6ed2a98e4a9e35655924fb53c19995aff7cc771e1720f25b9cc3bd",
+    "reviewed_at": "2026-08-10T15:39:41.879Z",
+    "reviewer": "Ben"
+  },
+  "artifact_type": "site_voice_profile",
+  "corpus_assessment": {
+    "artifact_type": "voice_corpus_assessment",
+    "eligible_sources": 27,
+    "excluded_sources": 0,
+    "influence_tiers": {
+      "excluded": 0,
+      "limited": 3,
+      "primary": 24,
+      "supporting": 0
+    },
+    "recommendation": "Human review is required before approval.",
+    "schema_version": "1.0.0",
+    "source_type_diversity": 3,
+    "spoken_words": 4205,
+    "strength": "strong",
+    "sufficient": true,
+    "usable_words": 4614,
+    "weak_areas": [],
+    "written_words": 409
+  },
+  "corpus_composition": {
+    "spoken": {
+      "sources": 24,
+      "words": 4205
+    },
+    "written": {
+      "sources": 3,
+      "words": 409
+    }
+  },
+  "diagnostic_source_hash": "77e9e3a92bf9216b0e4874cbcb9e3943cbfab273d569dec8ac3d65ea6af5753b",
+  "editorial_adaptations": [
+    {
+      "classification": "EDITORIAL_ADAPTATION",
+      "confidence": "high",
+      "dimension": "spoken_written_adaptation",
+      "mode_scope": "both",
+      "observation_id": "sk_adapt_spoken_polish",
+      "rule": "Keep the direct address, contractions, practical explanations, candid qualifications and occasional humour; remove filler, loops, transcript fragments, repeated hooks, repeated CTAs, routine swearing and unsupported anecdotes.",
+      "source_ids": [
+        "street-kingz-video:066891c7b1a2e43a5d6a8843",
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2d34732d895c4a6540455eec",
+        "street-kingz-video:2eecde83ebd903335140cc3c",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7a30c452a69e9878ffc698eb",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177",
+        "sk_voice_written_editorial_direction_2026_08_10",
+        "sk_voice_written_founder_boundaries_2026_08_10",
+        "sk_voice_written_adaptation_rules_2026_08_10",
+        "sk_voice_written_adaptation_rules_2026_08_10"
+      ]
+    }
+  ],
+  "founder_fact_policy": {
+    "founder_fact_registry": [],
+    "transcript_claims_imported_as_facts": false,
+    "unsupported_personal_experience": "reject",
+    "voice_profile_is_fact_source": false
+  },
+  "human_rules": [
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "Founder-led, straightforward, conversational and useful; avoid corporate, academic and SEO-blog language.",
+      "rule_id": "sk_rule_founder_led",
+      "source_ids": []
+    },
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "Write for normal people who like a clean car, explaining useful technical terms without detailing-obsessive jargon.",
+      "rule_id": "sk_rule_customer",
+      "source_ids": []
+    },
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "First-person opinion is allowed; personal experience, testing, history and customer claims require separate founder-fact evidence.",
+      "rule_id": "sk_rule_fact_boundary",
+      "source_ids": []
+    },
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "Acknowledge Street Kingz ownership naturally, help first and describe where the product fits without pretending independence or claiming universal superiority.",
+      "rule_id": "sk_rule_commercial",
+      "source_ids": []
+    },
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "Be honest about limitations without legalistic caveats or repeated disclaimers.",
+      "rule_id": "sk_rule_caveats",
+      "source_ids": []
+    },
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "Reject generic AI/SEO filler, internal evidence language and robotic summaries.",
+      "rule_id": "sk_rule_no_ai_filler",
+      "source_ids": []
+    },
+    {
+      "classification": "EXPLICIT_HUMAN_RULE",
+      "confidence": "high",
+      "rule": "Where natural, explain decisions by contrasting the straightforward, practical option with unnecessary complication. Use the contrast to clarify what matters, distinguish useful specifications from impressive-sounding numbers, prefer the practical answer when complexity adds little value, and challenge detailing theatre only when evidence supports it. Do not repeat it as a catchphrase, force it into every section, manufacture arguments, attack other brands or make unsupported claims.",
+      "rule_id": "sk_human_rule_simplicity_contrast_v1",
+      "source_ids": []
+    }
+  ],
+  "limitations": [
+    "Imported transcripts are complete as stored but unverified against the original audio.",
+    "Only 409 words of genuine written direction are available, and all are constrained editorial/onboarding material.",
+    "Twenty-four videos establish recurring communication patterns but should not be treated as exhaustive of the founder's voice."
+  ],
+  "observations": [
+    {
+      "classification": "STRONG_OBSERVED_PATTERN",
+      "confidence": "high",
+      "dimension": "directness",
+      "evidence_summary": {
+        "independent_sources": 25,
+        "occurrences": 233,
+        "pattern_id": "second_person",
+        "prevalence": 0.926
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_second_person",
+      "rule": "Address the customer directly and frame advice around what they need to do or decide.",
+      "source_ids": [
+        "street-kingz-video:066891c7b1a2e43a5d6a8843",
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2d34732d895c4a6540455eec",
+        "street-kingz-video:2eecde83ebd903335140cc3c",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7a30c452a69e9878ffc698eb",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177",
+        "sk_voice_written_founder_boundaries_2026_08_10"
+      ]
+    },
+    {
+      "classification": "STRONG_OBSERVED_PATTERN",
+      "confidence": "high",
+      "dimension": "sentence_rhythm",
+      "evidence_summary": {
+        "independent_sources": 27,
+        "occurrences": 227,
+        "pattern_id": "contractions",
+        "prevalence": 1
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_contractions",
+      "rule": "Use ordinary contractions and a mix of explanatory sentences with short emphatic follow-ups.",
+      "source_ids": [
+        "street-kingz-video:066891c7b1a2e43a5d6a8843",
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2d34732d895c4a6540455eec",
+        "street-kingz-video:2eecde83ebd903335140cc3c",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7a30c452a69e9878ffc698eb",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177",
+        "sk_voice_written_editorial_direction_2026_08_10",
+        "sk_voice_written_founder_boundaries_2026_08_10",
+        "sk_voice_written_adaptation_rules_2026_08_10"
+      ]
+    },
+    {
+      "classification": "STRONG_OBSERVED_PATTERN",
+      "confidence": "high",
+      "dimension": "first_person",
+      "evidence_summary": {
+        "independent_sources": 26,
+        "occurrences": 232,
+        "pattern_id": "first_person",
+        "prevalence": 0.963
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_first_person",
+      "rule": "Use first person naturally for a personal view, admission or recommendation rather than maintaining detached editorial distance.",
+      "source_ids": [
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2d34732d895c4a6540455eec",
+        "street-kingz-video:2eecde83ebd903335140cc3c",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7a30c452a69e9878ffc698eb",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177",
+        "sk_voice_written_editorial_direction_2026_08_10",
+        "sk_voice_written_founder_boundaries_2026_08_10",
+        "sk_voice_written_adaptation_rules_2026_08_10"
+      ]
+    },
+    {
+      "classification": "STRONG_OBSERVED_PATTERN",
+      "confidence": "high",
+      "dimension": "explanation_style",
+      "evidence_summary": {
+        "independent_sources": 22,
+        "occurrences": 69,
+        "pattern_id": "practical_sequence",
+        "prevalence": 0.815
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_practical_sequence",
+      "rule": "Explain technical or practical points through what the customer does next, using concrete sequences rather than abstract definitions.",
+      "source_ids": [
+        "street-kingz-video:066891c7b1a2e43a5d6a8843",
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2d34732d895c4a6540455eec",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7a30c452a69e9878ffc698eb",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177"
+      ]
+    },
+    {
+      "classification": "STRONG_OBSERVED_PATTERN",
+      "confidence": "high",
+      "dimension": "technical_language",
+      "evidence_summary": {
+        "independent_sources": 19,
+        "occurrences": 42,
+        "pattern_id": "plain_explanation",
+        "prevalence": 0.704
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_plain_explanation",
+      "rule": "Translate a specification into its practical consequence in plain language.",
+      "source_ids": [
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2d34732d895c4a6540455eec",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:ff83ce3346fce1733e294177"
+      ]
+    },
+    {
+      "classification": "STRONG_OBSERVED_PATTERN",
+      "confidence": "high",
+      "dimension": "humour_personality",
+      "evidence_summary": {
+        "independent_sources": 20,
+        "occurrences": 42,
+        "pattern_id": "humour_or_swearing",
+        "prevalence": 0.741
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_humour",
+      "rule": "Humour is blunt, self-aware and conversational, often used to puncture overcomplication; use sparingly in polished articles.",
+      "source_ids": [
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e2590a3d1565949a812f2dbf",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177"
+      ]
+    },
+    {
+      "classification": "MODERATE_OBSERVED_PATTERN",
+      "confidence": "medium",
+      "dimension": "commercial_language",
+      "evidence_summary": {
+        "independent_sources": 16,
+        "occurrences": 21,
+        "pattern_id": "direct_cta",
+        "prevalence": 0.593
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_commercial_directness",
+      "rule": "Move openly from useful explanation to a direct product invitation; long-form copy should soften repeated hard CTAs without hiding ownership.",
+      "source_ids": [
+        "street-kingz-video:078aa4b6ad745ce2d12925cd",
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:2eecde83ebd903335140cc3c",
+        "street-kingz-video:5bd19dff4285d20140f82759",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177"
+      ]
+    },
+    {
+      "classification": "MODERATE_OBSERVED_PATTERN",
+      "confidence": "medium",
+      "dimension": "transitions",
+      "evidence_summary": {
+        "independent_sources": 15,
+        "occurrences": 26,
+        "pattern_id": "rhetorical_questions",
+        "prevalence": 0.556
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_questions",
+      "rule": "Questions are used to introduce a problem, anticipate an objection or challenge an overcomplicated view.",
+      "source_ids": [
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:2eecde83ebd903335140cc3c",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:64a416a8aa535dc3e71bd42c",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:7a30c452a69e9878ffc698eb",
+        "street-kingz-video:7f46bc49640fb309ddd05401",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:ce67dc97b5f26747c186043a",
+        "street-kingz-video:ce899b29f1071ecbd6fe5395",
+        "street-kingz-video:e9595bc1a601d32187496ad6",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f26443916f81960901db9852",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177"
+      ]
+    },
+    {
+      "classification": "MODERATE_OBSERVED_PATTERN",
+      "confidence": "medium",
+      "dimension": "qualification",
+      "evidence_summary": {
+        "independent_sources": 5,
+        "occurrences": 9,
+        "pattern_id": "candid_qualifier",
+        "prevalence": 0.185
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_candid_qualification",
+      "rule": "Qualify advice with candid uncertainty or a plain admission rather than formal evidentiary language.",
+      "source_ids": [
+        "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+        "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+        "street-kingz-video:b8811954efb8cae1bb4af722",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "street-kingz-video:ff83ce3346fce1733e294177"
+      ]
+    },
+    {
+      "classification": "WEAK_OBSERVED_PATTERN",
+      "confidence": "medium",
+      "dimension": "pronouns",
+      "evidence_summary": {
+        "independent_sources": 8,
+        "occurrences": 17,
+        "pattern_id": "company_pronouns",
+        "prevalence": 0.296
+      },
+      "mode_scope": "spoken",
+      "observation_id": "sk_observed_company_pronouns",
+      "rule": "I is much more common in speech; we and our appear when the company or shared position genuinely calls for them.",
+      "source_ids": [
+        "street-kingz-video:2084a6dc3d660d7707819f9d",
+        "street-kingz-video:63b6aaeba1deef50b1bed624",
+        "street-kingz-video:70c92128dcd689380968f698",
+        "street-kingz-video:e4193838fe0f236180345b38",
+        "street-kingz-video:eca717cb645fae04c2cb51a4",
+        "street-kingz-video:f2943d7ea04ce64b4639b585",
+        "sk_voice_written_editorial_direction_2026_08_10",
+        "sk_voice_written_founder_boundaries_2026_08_10"
+      ]
+    },
+    {
+      "classification": "WEAK_OBSERVED_PATTERN",
+      "confidence": "medium",
+      "dimension": "recommendation_style",
+      "mode_scope": "written",
+      "observation_id": "sk_written_direct_advice",
+      "rule": "In the available written direction, recommendations are conditional and tied to the customer's vehicle, routine or trade-off.",
+      "source_ids": [
+        "sk_voice_written_founder_boundaries_2026_08_10"
+      ]
+    }
+  ],
+  "observed_profile_hash": "2deeba720a6ed2a98e4a9e35655924fb53c19995aff7cc771e1720f25b9cc3bd",
+  "profile_id": "street-kingz-founder-v1",
+  "profile_version": "1.1.0",
+  "schema_version": "1.0.0",
+  "site_id": "street-kingz",
+  "spoken_written_comparison": {
+    "contradictions": [
+      "Speech frequently uses strong sales imperatives and swearing; explicit written rules call for low-pressure, selectively humorous long-form copy."
+    ],
+    "preserve_in_articles": [
+      "directness",
+      "plain explanations",
+      "practical framing",
+      "honest ownership",
+      "candid qualification",
+      "occasional natural humour"
+    ],
+    "reduce_in_articles": [
+      "filler",
+      "repetition",
+      "abandoned sentences",
+      "TikTok hook repetition",
+      "routine swearing",
+      "repeated get-yours CTAs",
+      "video-dependent references"
+    ],
+    "shared_patterns": [
+      "direct recommendations",
+      "contractions and uncomplicated language",
+      "first-person judgement",
+      "customer-centred trade-offs"
+    ],
+    "spoken_only_or_stronger": [
+      "frequent rhetorical questions",
+      "swearing and teasing humour",
+      "fragmented demonstrations",
+      "repeated direct CTAs",
+      "self-corrections and conversational loops"
+    ],
+    "written_only_or_stronger": [
+      "deliberately stated pronoun rules",
+      "explicit fact/experience boundaries",
+      "more controlled qualification",
+      "long-form audience and formality direction"
+    ]
+  },
+  "state": "approved",
+  "voice_identity": "street-kingz-founder"
+}

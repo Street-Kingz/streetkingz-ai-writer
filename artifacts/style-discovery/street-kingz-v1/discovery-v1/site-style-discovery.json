@@ -1,0 +1,1132 @@
+{
+  "artifact_type": "site_style_discovery",
+  "discovery_version": "1.0.0",
+  "status": "PASS",
+  "pages": [
+    {
+      "observation_version": "1.0.0",
+      "url": "https://streetkingz.co.uk/",
+      "page_type": "homepage",
+      "source_hash": "7fb0c652ac912fef7fa71a9c9e657d433aee8513a2828e0afdbc3fef0d8f6917",
+      "evidence": {
+        "html_bytes": 207711,
+        "stylesheet_count": 2,
+        "image_count": 11,
+        "section_count": 9,
+        "heading_counts": {
+          "h1": 0,
+          "h2": 21,
+          "h3": 9
+        }
+      },
+      "global_signals": {
+        "colors": [
+          [
+            "#ffffff",
+            29
+          ],
+          [
+            "#050505",
+            11
+          ],
+          [
+            "#000000",
+            6
+          ],
+          [
+            "#080808",
+            2
+          ],
+          [
+            "#0a0a0a",
+            2
+          ],
+          [
+            "#0d0d0d",
+            2
+          ],
+          [
+            "#32373c",
+            2
+          ],
+          [
+            "#7e1114",
+            2
+          ],
+          [
+            "#8a1316",
+            2
+          ],
+          [
+            "#a3161a",
+            2
+          ],
+          [
+            "#00d084",
+            1
+          ],
+          [
+            "#060606",
+            1
+          ],
+          [
+            "#0693e3",
+            1
+          ],
+          [
+            "#111111",
+            1
+          ],
+          [
+            "#1159af",
+            1
+          ],
+          [
+            "#13612e",
+            1
+          ],
+          [
+            "#181818",
+            1
+          ],
+          [
+            "#1a1a1a",
+            1
+          ],
+          [
+            "#2ecc71",
+            1
+          ],
+          [
+            "#6d6d6d",
+            1
+          ],
+          [
+            "#7a7a7a",
+            1
+          ],
+          [
+            "#7bdcb5",
+            1
+          ],
+          [
+            "#8ed1fc",
+            1
+          ],
+          [
+            "#9b51e0",
+            1
+          ],
+          [
+            "#abb8c3",
+            1
+          ],
+          [
+            "#b3b3b3",
+            1
+          ],
+          [
+            "#b82105",
+            1
+          ],
+          [
+            "#ce312a",
+            1
+          ],
+          [
+            "#cf2e2e",
+            1
+          ],
+          [
+            "#e10600",
+            1
+          ],
+          [
+            "#e5e5e5",
+            1
+          ],
+          [
+            "#f5a524",
+            1
+          ],
+          [
+            "#f5c400",
+            1
+          ],
+          [
+            "#f5d26a",
+            1
+          ],
+          [
+            "#f5f5f5",
+            1
+          ],
+          [
+            "#f7630c",
+            1
+          ],
+          [
+            "#f78da7",
+            1
+          ],
+          [
+            "#fcb900",
+            1
+          ],
+          [
+            "#ff6900",
+            1
+          ]
+        ],
+        "fonts": [
+          [
+            "Encode Sans Condensed",
+            29
+          ],
+          [
+            "-apple-system",
+            2
+          ],
+          [
+            "inherit",
+            1
+          ],
+          [
+            "var(--global-body-font-family)",
+            1
+          ],
+          [
+            "var(--global-heading-font-family)",
+            1
+          ],
+          [
+            "var(--global-primary-nav-font-family)",
+            1
+          ]
+        ],
+        "font_imports": [],
+        "radii": [],
+        "shadows": [],
+        "buttons": 9,
+        "full_bleed_signals": 36,
+        "split_signals": 21
+      },
+      "geometry": {
+        "max_widths": [],
+        "paddings": [],
+        "full_width_likelihood": "observed",
+        "split_layout_likelihood": "observed"
+      },
+      "surfaces": {
+        "dark_section_signals": 13,
+        "color_candidates": [
+          [
+            "#ffffff",
+            29
+          ],
+          [
+            "#050505",
+            11
+          ],
+          [
+            "#000000",
+            6
+          ],
+          [
+            "#080808",
+            2
+          ],
+          [
+            "#0a0a0a",
+            2
+          ],
+          [
+            "#0d0d0d",
+            2
+          ],
+          [
+            "#32373c",
+            2
+          ],
+          [
+            "#7e1114",
+            2
+          ],
+          [
+            "#8a1316",
+            2
+          ],
+          [
+            "#a3161a",
+            2
+          ],
+          [
+            "#00d084",
+            1
+          ],
+          [
+            "#060606",
+            1
+          ]
+        ]
+      },
+      "rhythm": {
+        "image_to_section_ratio": 1.2222222222222223,
+        "section_count": 9,
+        "spacing_values": []
+      },
+      "imagery": {
+        "count": 11,
+        "dominant": true,
+        "full_bleed_signals": 36
+      },
+      "responsive": {
+        "media_query_count": 0,
+        "responsive_evidence": "unknown"
+      }
+    },
+    {
+      "observation_version": "1.0.0",
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "page_type": "product",
+      "source_hash": "37608a4404241d19ceb8989a24ecd96728c143e8e9c5abb1a8d9baa5b5732c94",
+      "evidence": {
+        "html_bytes": 276500,
+        "stylesheet_count": 3,
+        "image_count": 14,
+        "section_count": 9,
+        "heading_counts": {
+          "h1": 1,
+          "h2": 20,
+          "h3": 0
+        }
+      },
+      "global_signals": {
+        "colors": [
+          [
+            "#ffffff",
+            57
+          ],
+          [
+            "#000000",
+            15
+          ],
+          [
+            "#050505",
+            11
+          ],
+          [
+            "#b81e0f",
+            6
+          ],
+          [
+            "#d6d6d6",
+            6
+          ],
+          [
+            "#8a1316",
+            3
+          ],
+          [
+            "#080808",
+            2
+          ],
+          [
+            "#0a0a0a",
+            2
+          ],
+          [
+            "#0d0d0d",
+            2
+          ],
+          [
+            "#111111",
+            2
+          ],
+          [
+            "#32373c",
+            2
+          ],
+          [
+            "#7e1114",
+            2
+          ],
+          [
+            "#a3161a",
+            2
+          ],
+          [
+            "#00d084",
+            1
+          ],
+          [
+            "#060606",
+            1
+          ],
+          [
+            "#0693e3",
+            1
+          ],
+          [
+            "#1159af",
+            1
+          ],
+          [
+            "#13612e",
+            1
+          ],
+          [
+            "#181818",
+            1
+          ],
+          [
+            "#1a1a1a",
+            1
+          ],
+          [
+            "#2ecc71",
+            1
+          ],
+          [
+            "#6d6d6d",
+            1
+          ],
+          [
+            "#7a7a7a",
+            1
+          ],
+          [
+            "#7bdcb5",
+            1
+          ],
+          [
+            "#7d1114",
+            1
+          ],
+          [
+            "#8ed1fc",
+            1
+          ],
+          [
+            "#9b51e0",
+            1
+          ],
+          [
+            "#abb8c3",
+            1
+          ],
+          [
+            "#b3b3b3",
+            1
+          ],
+          [
+            "#b82105",
+            1
+          ],
+          [
+            "#ce312a",
+            1
+          ],
+          [
+            "#cf2e2e",
+            1
+          ],
+          [
+            "#e10600",
+            1
+          ],
+          [
+            "#e5e5e5",
+            1
+          ],
+          [
+            "#f5a524",
+            1
+          ],
+          [
+            "#f5c400",
+            1
+          ],
+          [
+            "#f5d26a",
+            1
+          ],
+          [
+            "#f5f5f5",
+            1
+          ],
+          [
+            "#f7630c",
+            1
+          ],
+          [
+            "#f78da7",
+            1
+          ],
+          [
+            "#fcb900",
+            1
+          ],
+          [
+            "#ff6900",
+            1
+          ]
+        ],
+        "fonts": [
+          [
+            "Encode Sans Condensed",
+            29
+          ],
+          [
+            "-apple-system",
+            2
+          ],
+          [
+            "inherit",
+            1
+          ],
+          [
+            "var(--global-body-font-family)",
+            1
+          ],
+          [
+            "var(--global-heading-font-family)",
+            1
+          ],
+          [
+            "var(--global-primary-nav-font-family)",
+            1
+          ]
+        ],
+        "font_imports": [],
+        "radii": [
+          [
+            "12px 12px 12px 12px",
+            3
+          ],
+          [
+            "10px 10px 10px 10px",
+            1
+          ]
+        ],
+        "shadows": [],
+        "buttons": 16,
+        "full_bleed_signals": 54,
+        "split_signals": 21
+      },
+      "geometry": {
+        "max_widths": [
+          "100%",
+          "700px",
+          "700px",
+          "700px",
+          "100%",
+          "1024px){.elementor-2003 .elementor-element.elementor-element-fb324e9 > .elementor-widget-container{margin:0px 0px 0px 0px",
+          "767px){.elementor-2003 .elementor-element.elementor-element-3baadcc0{--padding-top:0px",
+          "330px",
+          "330px",
+          "330px"
+        ],
+        "paddings": [
+          "0px 0px 0px 0px",
+          "0px 0px -20px 0px",
+          "0px 0px 0px 0px",
+          "0px 80px 0px 80px",
+          "0px 0px 7px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "10px 0px 0px 0px",
+          "10px 0px 0px 0px",
+          "10px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "50px 0px 0px 0px",
+          "50px 0px 0px 0px",
+          "50px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px"
+        ],
+        "full_width_likelihood": "observed",
+        "split_layout_likelihood": "observed"
+      },
+      "surfaces": {
+        "dark_section_signals": 22,
+        "color_candidates": [
+          [
+            "#ffffff",
+            57
+          ],
+          [
+            "#000000",
+            15
+          ],
+          [
+            "#050505",
+            11
+          ],
+          [
+            "#b81e0f",
+            6
+          ],
+          [
+            "#d6d6d6",
+            6
+          ],
+          [
+            "#8a1316",
+            3
+          ],
+          [
+            "#080808",
+            2
+          ],
+          [
+            "#0a0a0a",
+            2
+          ],
+          [
+            "#0d0d0d",
+            2
+          ],
+          [
+            "#111111",
+            2
+          ],
+          [
+            "#32373c",
+            2
+          ],
+          [
+            "#7e1114",
+            2
+          ]
+        ]
+      },
+      "rhythm": {
+        "image_to_section_ratio": 1.5555555555555556,
+        "section_count": 9,
+        "spacing_values": [
+          "0px 0px 0px 0px",
+          "0px 0px -20px 0px",
+          "0px 0px 0px 0px",
+          "0px 80px 0px 80px",
+          "0px 0px 7px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px"
+        ]
+      },
+      "imagery": {
+        "count": 14,
+        "dominant": true,
+        "full_bleed_signals": 54
+      },
+      "responsive": {
+        "media_query_count": 3,
+        "responsive_evidence": "observed"
+      }
+    }
+  ],
+  "profile": {
+    "theme_id": "streetkingz.co.uk-theme-v1",
+    "class_prefix": "discovered-editorial",
+    "container": {
+      "max_width": "1024px",
+      "reading_width": "48rem",
+      "gutter": "1.25rem"
+    },
+    "layout": {
+      "page_canvas": "full_width",
+      "section_surface": "full_width",
+      "width_roles": {
+        "hero": "wide",
+        "quick_answer": "reading",
+        "criteria_cards": "wide",
+        "rich_text_section": "reading",
+        "product_recommendation": "wide",
+        "key_takeaway": "reading",
+        "faq": "reading",
+        "conclusion": "reading",
+        "image_text": "wide",
+        "comparison_table": "wide",
+        "product_comparison": "wide",
+        "call_to_action": "reading",
+        "related_guides": "reading"
+      }
+    },
+    "breakpoints": {
+      "mobile": "0-47.99rem",
+      "desktop": "48rem+"
+    },
+    "typography": {
+      "body": "Encode Sans Condensed, 'Arial Narrow', Arial, sans-serif",
+      "heading": "Encode Sans Condensed, 'Arial Narrow', Arial, sans-serif",
+      "primary_family": "Encode Sans Condensed",
+      "fallback_stack": "'Arial Narrow', Arial, sans-serif",
+      "font_availability": "unverified",
+      "font_class": "condensed_sans",
+      "line_height": 1.65,
+      "font_import": null
+    },
+    "surfaces": {
+      "page": {
+        "background": "#050505",
+        "text": "#ffffff",
+        "text_muted": "#d6d6d6",
+        "heading": "#ffffff",
+        "link": "#ffffff",
+        "border": "#555555",
+        "accent": "#b81e0f",
+        "accent_text": "#ffffff"
+      },
+      "surface": {
+        "background": "#ffffff",
+        "text": "#050505",
+        "text_muted": "#666666",
+        "heading": "#050505",
+        "link": "#050505",
+        "border": "#dddddd",
+        "accent": "#b81e0f",
+        "accent_text": "#ffffff"
+      },
+      "surface_alt": {
+        "background": "#f4f4f1",
+        "text": "#050505",
+        "text_muted": "#666666",
+        "heading": "#050505",
+        "link": "#050505",
+        "border": "#dddddd",
+        "accent": "#b81e0f",
+        "accent_text": "#ffffff"
+      },
+      "surface_dark": {
+        "background": "#050505",
+        "text": "#ffffff",
+        "text_muted": "#d6d6d6",
+        "heading": "#ffffff",
+        "link": "#ffffff",
+        "border": "#555555",
+        "accent": "#b81e0f",
+        "accent_text": "#ffffff"
+      },
+      "surface_emphasis": {
+        "background": "#050505",
+        "text": "#ffffff",
+        "text_muted": "#d6d6d6",
+        "heading": "#ffffff",
+        "link": "#ffffff",
+        "border": "#555555",
+        "accent": "#b81e0f",
+        "accent_text": "#ffffff"
+      }
+    },
+    "surface_assignment": {
+      "hero": "surface_emphasis",
+      "product_recommendation": "surface_dark"
+    },
+    "colors": {
+      "page": "#ffffff",
+      "ink": "#171717",
+      "muted": "#666666",
+      "surface": "#f4f4f1",
+      "border": "#dddddd",
+      "accent": "#171717",
+      "accent_text": "#ffffff",
+      "dark": "#171717"
+    },
+    "shape": {
+      "radius": "0.25rem",
+      "shadow": "none"
+    },
+    "media": {
+      "product_images": {}
+    },
+    "primitives": {
+      "section": "section",
+      "card": "article",
+      "callout": "aside",
+      "table": "table",
+      "faq": "details"
+    },
+    "profile_id": "streetkingz.co.uk-style-v1",
+    "profile_version": "1.0.0",
+    "site_id": "streetkingz.co.uk",
+    "provenance": [
+      {
+        "rule": "dominant_colours",
+        "scope": "GLOBAL",
+        "observed": [
+          [
+            "#ffffff",
+            86
+          ],
+          [
+            "#050505",
+            22
+          ],
+          [
+            "#000000",
+            21
+          ],
+          [
+            "#b81e0f",
+            6
+          ],
+          [
+            "#d6d6d6",
+            6
+          ]
+        ],
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "font_family",
+        "scope": "GLOBAL",
+        "observed": "Encode Sans Condensed",
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "full_width_composition",
+        "scope": "GLOBAL",
+        "observed": true,
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "page_type_geometry",
+        "scope": "PAGE_TYPE",
+        "observed": {
+          "homepage": {
+            "full_width": "observed",
+            "split": "observed"
+          },
+          "product": {
+            "full_width": "observed",
+            "split": "observed"
+          }
+        },
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "responsive_behaviour",
+        "scope": "GLOBAL",
+        "observed": true,
+        "supporting_urls": [
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 1,
+        "confidence": "low"
+      }
+    ],
+    "human_overrides": {},
+    "page_surface_role": "page",
+    "design_grammar": {
+      "page_geometry": {
+        "canvas": "full_width_sections",
+        "max_content_width": "1024px",
+        "confidence": "medium"
+      },
+      "section_geometry": {
+        "full_bleed": true,
+        "split_layout": true,
+        "confidence": "medium"
+      },
+      "visual_rhythm": {
+        "section_counts": [
+          {
+            "page_type": "homepage",
+            "count": 9
+          },
+          {
+            "page_type": "product",
+            "count": 9
+          }
+        ],
+        "image_to_section_ratios": [
+          {
+            "page_type": "homepage",
+            "ratio": 1.2222222222222223
+          },
+          {
+            "page_type": "product",
+            "ratio": 1.5555555555555556
+          }
+        ],
+        "spacing_samples": [
+          "0px 0px 0px 0px",
+          "0px 0px -20px 0px",
+          "0px 0px 0px 0px",
+          "0px 80px 0px 80px",
+          "0px 0px 7px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px",
+          "0px 0px 0px 0px"
+        ]
+      },
+      "image_behaviour": {
+        "dominant": true,
+        "full_bleed_signals": 90,
+        "page_types": [
+          {
+            "page_type": "homepage",
+            "count": 11,
+            "dominant": true
+          },
+          {
+            "page_type": "product",
+            "count": 14,
+            "dominant": true
+          }
+        ]
+      },
+      "responsive_behaviour": {
+        "evidence": "observed",
+        "media_query_counts": [
+          {
+            "page_type": "homepage",
+            "count": 0
+          },
+          {
+            "page_type": "product",
+            "count": 3
+          }
+        ]
+      },
+      "page_type_rules": {
+        "homepage": {
+          "full_bleed": "observed",
+          "split": "observed",
+          "image_dominance": true
+        },
+        "product": {
+          "full_bleed": "observed",
+          "split": "observed",
+          "image_dominance": true
+        }
+      }
+    },
+    "discovery_evidence": [
+      {
+        "rule": "dominant_colours",
+        "scope": "GLOBAL",
+        "observed": [
+          [
+            "#ffffff",
+            86
+          ],
+          [
+            "#050505",
+            22
+          ],
+          [
+            "#000000",
+            21
+          ],
+          [
+            "#b81e0f",
+            6
+          ],
+          [
+            "#d6d6d6",
+            6
+          ]
+        ],
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "font_family",
+        "scope": "GLOBAL",
+        "observed": "Encode Sans Condensed",
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "full_width_composition",
+        "scope": "GLOBAL",
+        "observed": true,
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "page_type_geometry",
+        "scope": "PAGE_TYPE",
+        "observed": {
+          "homepage": {
+            "full_width": "observed",
+            "split": "observed"
+          },
+          "product": {
+            "full_width": "observed",
+            "split": "observed"
+          }
+        },
+        "supporting_urls": [
+          "https://streetkingz.co.uk/",
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 2,
+        "confidence": "medium"
+      },
+      {
+        "rule": "responsive_behaviour",
+        "scope": "GLOBAL",
+        "observed": true,
+        "supporting_urls": [
+          "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+        ],
+        "support_count": 1,
+        "confidence": "low"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "rule": "dominant_colours",
+      "scope": "GLOBAL",
+      "observed": [
+        [
+          "#ffffff",
+          86
+        ],
+        [
+          "#050505",
+          22
+        ],
+        [
+          "#000000",
+          21
+        ],
+        [
+          "#b81e0f",
+          6
+        ],
+        [
+          "#d6d6d6",
+          6
+        ]
+      ],
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "font_family",
+      "scope": "GLOBAL",
+      "observed": "Encode Sans Condensed",
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "full_width_composition",
+      "scope": "GLOBAL",
+      "observed": true,
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "page_type_geometry",
+      "scope": "PAGE_TYPE",
+      "observed": {
+        "homepage": {
+          "full_width": "observed",
+          "split": "observed"
+        },
+        "product": {
+          "full_width": "observed",
+          "split": "observed"
+        }
+      },
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "responsive_behaviour",
+      "scope": "GLOBAL",
+      "observed": true,
+      "supporting_urls": [
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 1,
+      "confidence": "low"
+    }
+  ],
+  "validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "profile_hash": "48cf127d0886a37cb868713789d7e0b1c69cd55489da843efd123b83de32a261"
+}

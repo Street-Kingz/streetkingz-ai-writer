@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_draft_validation",
+  "status": "FAIL",
+  "downstream_eligible": false,
+  "errors": [
+    {
+      "code": "AI_PROVIDER_FAILURE",
+      "path": "$",
+      "message": "No semantic draft was returned because the one authorised call_002 provider request failed with HTTP 429."
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,12 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { canonicalJson, sha256 } from "../research/core/canonical.js";
+import { createSiteAdapter, mapSemanticPageToSiteAdapter, validateSiteAdapter } from "../rendering/site-adapter.js";
+import { STREET_KINGZ_SITE_ADAPTER, SYNTHETIC_SECOND_SITE_ADAPTER } from "../rendering/site-adapters.js";
+
+const page = { page_type: "article", h1: "Example", components: [{ component_id: "hero-1", component_type: "hero", data: { supporting_copy: "Useful" } }, { component_id: "product-1", component_type: "product_recommendation", data: { product_id: "p1" } }, { component_id: "faq-1", component_type: "faq", data: { items: [] } }] };
+
+test("SiteAdapter contract is versioned and mappings are deterministic", () => { assert.equal(validateSiteAdapter(STREET_KINGZ_SITE_ADAPTER).status, "PASS"); const first = mapSemanticPageToSiteAdapter(page, STREET_KINGZ_SITE_ADAPTER); const second = mapSemanticPageToSiteAdapter(page, STREET_KINGZ_SITE_ADAPTER); assert.deepEqual(first, second); assert.equal(first.semantic_content_modified, false); assert.equal(first.semantic_page_sha256, sha256(canonicalJson(page))); });
+test("same SemanticPage supports materially different adapters", () => { const street = mapSemanticPageToSiteAdapter(page, STREET_KINGZ_SITE_ADAPTER); const other = mapSemanticPageToSiteAdapter(page, SYNTHETIC_SECOND_SITE_ADAPTER); assert.notDeepEqual(street.mappings, other.mappings); assert.equal(street.semantic_page_sha256, other.semantic_page_sha256); });
+test("native, composed, fallback and unsupported states are explicit", () => { const adapter = createSiteAdapter({ adapter_id: "fixture", site_id: "fixture.test", mappings: { hero: { state: "NATIVE", target: "masthead" }, rich_text_section: { state: "COMPOSED", target: "body-plus-callout" }, criteria_cards: { state: "FALLBACK", target: "generic-fallback-renderer" }, faq: { state: "UNSUPPORTED" } } }); const mapped = mapSemanticPageToSiteAdapter(page, adapter); assert.deepEqual(mapped.mappings.map((item) => item.state), ["NATIVE", "FALLBACK", "UNSUPPORTED"]); assert.throws(() => mapSemanticPageToSiteAdapter(page, adapter, { fallback_allowed: false }), /Unsupported component mapping/); });
+test("generic adapter core has no site-specific dependency", async () => { const source = (await import("node:fs/promises")).readFile("rendering/site-adapter.js", "utf8"); for (const term of ["street kingz", "elementor", "kadence", "product 70"]) assert.equal((await source).toLowerCase().includes(term), false, term); });

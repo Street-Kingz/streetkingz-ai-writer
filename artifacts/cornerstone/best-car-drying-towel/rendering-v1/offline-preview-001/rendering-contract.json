@@ -1,0 +1,33 @@
+{
+  "renderer_contract_version": "1.0.0",
+  "theme": {
+    "theme_id": "street-kingz-editorial-v1",
+    "class_prefix": "sk-editorial",
+    "container": {
+      "max_width": "72rem",
+      "reading_width": "48rem",
+      "gutter": "1.25rem"
+    },
+    "breakpoints": {
+      "mobile": "0-47.99rem",
+      "desktop": "48rem+"
+    },
+    "typography": {
+      "body": "system-ui",
+      "heading": "system-ui",
+      "line_height": 1.65
+    },
+    "primitives": {
+      "section": "section",
+      "card": "article",
+      "callout": "aside",
+      "table": "table",
+      "faq": "details"
+    }
+  },
+  "wordpress": {
+    "persistence": "not_implemented",
+    "writes": false,
+    "elementor_document_save": false
+  }
+}

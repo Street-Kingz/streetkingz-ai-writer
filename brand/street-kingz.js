@@ -1,0 +1,16 @@
+import { createBrandVoiceProfile } from "./voice-profile.js";
+
+export const STREET_KINGZ_BRAND_VOICE = createBrandVoiceProfile({
+  brand_name: "Street Kingz",
+  audience: "Everyday car owners who enjoy a clean car but are not professional detailers.",
+  positioning: "Make owning a clean car easier, simpler and more enjoyable.",
+  tone: ["conversational", "confident", "practical", "founder-led", "honest", "relatable"],
+  sentence_style: "Plain English, varied short and medium sentences, natural contractions.",
+  personality: "A helpful founder who has an opinion and respects the reader's time.",
+  forbidden_phrases: ["when it comes to", "ultimate solution", "revolutionary", "premium solution", "high-quality solution", "unlock", "elevate your experience", "game changer"],
+  preferred_phrases: ["the reason we made this", "what most people actually need", "the annoying bit", "makes the job easier", "worth spending more on", "you don't need to"],
+  recommendation_style: "first_person_opinion",
+  founder_style: "first_person_reason",
+  opinion_strength: "clear",
+  forbidden_jargon_policy: "Use technical terms only when they help a normal car owner decide."
+});

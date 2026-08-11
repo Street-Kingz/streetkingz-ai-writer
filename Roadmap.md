@@ -98,6 +98,30 @@ Publication and measurement
 
 Each arrow is a stage boundary, not an instruction to combine stages into one prompt. Later phases may consume earlier artifacts, but they must not rewrite facts or evidence to fit a preferred recommendation.
 
+## Production publishing baseline
+
+**Status: Proven in production on 2026-08-09.** Guarded Writer v0.1.10 completed the first successful end-to-end guarded implementation against Product 70 and Elementor template 2003. The immutable execution report is `artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/guarded-write-execution-v0.1.10-001/validation-report.json`.
+
+The single authorised request changed exactly `post_title`, `post_excerpt`, `c80e718.settings.editor` and `40869c27.settings.editor`. The expected raw Elementor candidate and strict parsed candidate both matched after persistence; unexpected paths and scope leaks were zero. The safety widget, FAQ questions, unrelated Elementor state, product content, slug, status, metadata, taxonomy, price, stock, media and all other products/templates remained unchanged. CMS and rendered-page verification passed. The one-time execution ID was atomically claimed and permanently consumed, the execution audit finished `succeeded`, the runtime contract was removed, and rollback was not required.
+
+Guarded Writer v0.1.10 is therefore the frozen production baseline. Normal content runs change runtime approval and one-time contract records, not plugin code or ZIPs. Plugin deployment is required only for an independently justified code change.
+
+The production invariants are:
+
+- Dedicated Reader and Writer identities with narrow custom capabilities and no generic CMS editing rights.
+- Route-scoped non-cacheable protected REST responses.
+- Fixed product, template, widget and field scope.
+- Fresh authoritative reads, strict current-state hashes and approved-target hashes.
+- Separate content-generation authority, explicit human approval and one-time CMS mutation authority.
+- Runtime approval plus a separately installed execution contract with a high-entropy one-time ID, atomic claim, replay rejection and permanent `failed_after_claim` consumption.
+- A fresh exact rollback snapshot immediately before mutation.
+- Surgical raw Elementor value-token replacement with no full-document decode/reserialisation and no `Elementor Document::save()`.
+- Exact persisted raw candidate verification, strict parsed verification, protected-field verification and rendered-page verification.
+- Fail-closed handling of any unexpected byte, path, type, field or rendered difference.
+- Human approval remains mandatory and automatic publication remains disabled.
+
+Historical approaches and incident evidence remain part of the audit record. `Elementor Document::save()` and whole-document Elementor persistence are retired for normal guarded mutation. Surgical raw Elementor value replacement is the current production architecture. The Template 2003 Recovery plugin remains incident-only emergency tooling and is not part of normal publishing.
+
 ## Delivery status and upcoming milestones
 
 ### Completed
@@ -120,20 +144,28 @@ Each arrow is a stage boundary, not an instruction to combine stages into one pr
 - [x] Canonical citation architecture covering only evidence explicitly exposed to interpretation.
 - [x] GPT-5.6 Sol interpretation with strict Structured Outputs. GPT-5.6 Sol is the preferred production interpretation model; GPT-4.1 is no longer on the critical path.
 - [x] Deterministic interpretation validation, immutable controlled AI calls, human product-value review and clean production interpretation validation.
+- [x] Human-approved constrained Product-70 generation with strict output contracts, deterministic validation and generated-change review.
+- [x] First production guarded implementation using Writer v0.1.10: exact four-target mutation, surgical Elementor persistence, strict raw/type preservation, one-time execution, CMS verification and rendered verification.
+- [x] Runtime approval and execution-contract control plane, eliminating plugin redeployment from normal content runs.
 
 ### Current
 
-- [ ] Human-approved constrained generation: individual approval artifacts, compact generation briefs, strict output contracts, bounded validation and mandatory post-generation human review.
+- [x] Fixture-first deterministic cornerstone research packet and structured content brief builder using cached Product Facts, Keyword Ideas, SERP, Search Console and research-state evidence, with strict traceability, uncertainty, internal-link and cannibalisation validation plus JSON/Markdown output.
+- [x] Controlled AI-assisted cornerstone strategy refinement from the bounded packet, with packet-derived evidence/product/link enums, stable entity IDs, deterministic canonical resolution, immutable one-call artifacts, fail-closed validation and separate usefulness review. The accepted production fixture is `PASS_WITH_WARNINGS` pending human review of evidence gaps and cannibalisation.
+- [x] Versioned Street Kingz component-based editorial page contract and deterministic page-plan builder. Component requirements are declared per page plan/type rather than imposed globally. The semantic layer fixes the approved component types, order, evidence/product/link bindings and media requirements without arbitrary HTML or WordPress/Elementor knowledge. The drying-towel plan is human-approved.
 
 ### Next
 
-- [ ] Run one controlled generation-model validation from explicitly approved real decisions.
-- [ ] Human-review the generated changes and approve the first real page change.
+- [x] Complete and human-approve the drying-towel semantic page, including the final bounded wording correction. The immutable final artifact is `artifacts/cornerstone/best-car-drying-towel/final-human-approved-v2/`.
+- [x] Implement the generic offline Street Kingz component renderer and theme contract. The first preview is `artifacts/cornerstone/best-car-drying-towel/rendering-v1/offline-preview-001/`; no WordPress persistence or publication is included.
+- [x] Implement the generic SiteStyleProfile boundary, paired surface/foreground tokens and Street Kingz visual pass. The approved semantic fixture now renders through a provenance-bearing Street Kingz profile with neutral/default, dark and mixed-surface contrast coverage; the latest preview is `artifacts/cornerstone/best-car-drying-towel/rendering-v1/visual-review-v1-007/`.
 
 ### Later
 
-- [ ] Publish the first approved asset.
-- [ ] Measure performance and feed observed outcomes back into future decisions.
+- [ ] Human review of the final offline rendered page/design and accessibility presentation.
+- [ ] Produce a WordPress-ready draft package after separate draft approval; do not auto-publish.
+- [ ] Design a separate narrow WordPress handoff/persistence path; do not use Elementor whole-document save or broaden Guarded Writer.
+- [ ] Measure Search Console and GA4 outcomes at deliberate review windows and feed evidence back into later decisions.
 
 ## 1. Phase 0: Baseline and safety
 
@@ -333,7 +365,7 @@ Use product facts, site context and research evidence to decide the highest-valu
 
 ## 6. Phase 5: Structured draft generation
 
-**Status: Current — foundation implemented.** Begins only after evidence-backed interpretation decisions receive explicit individual human approval. Generation implements approved strategy; it does not create new strategy.
+**Status: Complete for the constrained Product-70 profile; not yet implemented for cornerstone articles.** Generation begins only after evidence-backed interpretation decisions receive explicit individual human approval. Generation implements approved strategy; it does not create new strategy.
 
 ### Goal
 
@@ -377,7 +409,7 @@ Generate an inspectable semantic draft from the approved brief while keeping res
 
 ## 7. Phase 6: Rendering, validation and WordPress draft output
 
-**Status: Later.** Covers post-generation human approval, rendering and publication handoff. Publication remains separate and is not complete.
+**Status: Offline cornerstone rendering implemented; WordPress draft handoff remains later.** Publication remains a separate authority. Automatic publication is disabled.
 
 ### Goal
 
@@ -413,7 +445,35 @@ Turn the reviewed structured draft into safe, consistent, WordPress-ready output
 - Requiring WordPress API access to complete V1.
 - Replacing WordPress revision history or approval controls.
 
-## 8. Phase 7: Evaluate whether the pipeline is worth expanding
+## 8. Phase 7: Generic site-style discovery
+
+**Status: Complete offline.** A deterministic, provenance-bearing discovery layer now derives a SiteStyleProfile from multiple representative pages and feeds the site-independent renderer. Street Kingz is the first fixture; a synthetic second site proves the profile is not a hidden Street Kingz layout.
+
+### Deliverables completed
+
+- Multi-page HTML/CSS observation contract covering tokens, geometry, surfaces, rhythm, imagery, component signals and responsive evidence.
+- Confidence/provenance records with GLOBAL, PAGE_TYPE and fallback handling.
+- Neutral fallback and synthetic alternate-site profiles.
+- Offline Street Kingz profile and deterministic article preview; no WordPress integration or writes.
+
+### Next milestone
+
+Human visual review of the discovered StreetStyleProfile and preview, followed by a narrowly scoped design adjustment only if the review identifies a material mismatch.
+
+## 9. Phase 8: SiteAdapter presentation boundary
+
+**Status: v1 contract implemented offline.** Semantic content now has an explicit adapter boundary for mapping into native site patterns. The existing SiteStyleProfile renderer remains available as a deterministic fallback; it is no longer treated as a universal recreation of a target site's complete design.
+
+Completed:
+
+- Generic versioned SiteAdapter contract with NATIVE, COMPOSED, FALLBACK and UNSUPPORTED states.
+- Street Kingz WordPress/Kadence/Elementor adapter configuration with provenance and honest unmapped-pattern fallbacks.
+- Synthetic second-site adapter proving the same SemanticPage can map to different presentation targets.
+- CMS audit artifact; no WordPress persistence implemented.
+
+Next: human review of the adapter mapping, then a separately authorised narrow CMS integration design.
+
+## 10. Phase 9: Evaluate whether the pipeline is worth expanding
 
 **Status: Later.** Measures the first published asset and feeds real outcomes back into future evidence and decisions.
 

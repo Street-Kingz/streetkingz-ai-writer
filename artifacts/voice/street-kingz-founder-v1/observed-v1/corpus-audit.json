@@ -1,0 +1,23 @@
+{
+  "artifact_type": "street_kingz_voice_corpus_audit",
+  "excluded_sources": [
+    {
+      "reason": "AI-assisted copy cannot establish the founder's voice.",
+      "source_id": "sk_ai_cornerstone_semantic_page_excluded"
+    },
+    {
+      "reason": "Repository records do not establish author identity or whether copy was AI-transformed.",
+      "source_id": "sk_catalogue_authorship_uncertain"
+    }
+  ],
+  "existing_analyser_found": false,
+  "genuine_transcript_sources": 0,
+  "genuine_written_sources": 3,
+  "note": "No prior transcript/video analysis implementation or corpus was present. Existing AI-assisted editorial pages and uncertain catalogue copy were excluded.",
+  "schema_version": "1.0.0",
+  "searched_locations": [
+    "repository tracked files",
+    "repository artifacts",
+    "repository working tree"
+  ]
+}

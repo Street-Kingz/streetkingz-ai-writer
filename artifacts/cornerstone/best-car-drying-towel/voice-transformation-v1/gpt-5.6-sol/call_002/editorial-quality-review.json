@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "voice_transformation_editorial_review",
+  "status": "FAIL",
+  "accepted_for_human_review": false,
+  "founder_voice": "Material issue remains.",
+  "assessment": {
+    "page_progression": true,
+    "product_integration_natural": true,
+    "technical_language_simplified": true,
+    "simplicity_contrast_used": true,
+    "raw_tiktok_mannerisms_introduced": 0,
+    "first_person_component_count": 5,
+    "faq_count": 3
+  },
+  "issues": [
+    {
+      "code": "DETERMINISTIC_VALIDATION_FAILED",
+      "severity": "error"
+    }
+  ]
+}

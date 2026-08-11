@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_strategy_run_metadata",
+  "status": "PASS_WITH_WARNINGS",
+  "calls": 1,
+  "retries": 0,
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "1.1.0",
+  "input_hash": "dd09135d6738721d7e091914991cea510a5e4636b0065488b03f9522a51963c2",
+  "system_prompt_sha256": "3c7738a901fa6d735e1c2a51bdb14c0e8e8638477898e0913fef48d42010ebbd",
+  "started_at": "2026-08-09T19:33:50.547Z",
+  "completed_at": "2026-08-09T19:36:21.836Z",
+  "usage": {
+    "input_tokens": 20707,
+    "output_tokens": 11202,
+    "total_tokens": 31909
+  },
+  "cost_usd": null,
+  "cost_status": "unknown"
+}

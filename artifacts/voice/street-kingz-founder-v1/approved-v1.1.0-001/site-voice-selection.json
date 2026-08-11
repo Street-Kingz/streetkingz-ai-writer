@@ -1,0 +1,10 @@
+{
+  "approval_record_sha256": "c2091d3825f06d1810796389069789ac8b7560e22288835f66e4345e8a87f4cd",
+  "approved_profile_sha256": "d208d7a3fa5fe56feec59b3ffffe2b807e855ff296fff9678e9b1218e9376d18",
+  "artifact_type": "site_voice_profile_selection",
+  "schema_version": "1.0.0",
+  "site_id": "street-kingz",
+  "state": "active",
+  "voice_profile_id": "street-kingz-founder-v1",
+  "voice_profile_version": "1.1.0"
+}

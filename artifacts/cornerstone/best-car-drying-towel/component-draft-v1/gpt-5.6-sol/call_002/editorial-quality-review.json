@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_quality_review",
+  "status": "NOT_PERFORMED",
+  "accepted_for_human_review": false,
+  "reason": "No model output existed to review after the zero-retry HTTP 429 provider failure.",
+  "issues": [],
+  "human_review_issues": []
+}

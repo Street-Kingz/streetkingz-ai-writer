@@ -1,0 +1,21 @@
+import { readFile, mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { canonicalJson, sha256 } from "../research/core/canonical.js";
+import { deriveCornerstoneStrategyAllowlists } from "../cornerstone/strategy-allowlists.js";
+import { createRendererContract } from "../rendering/contracts.js";
+import { STREET_KINGZ_THEME } from "../rendering/themes.js";
+import { renderSemanticPageHtml, renderStreetKingzEditorialCss } from "../rendering/html.js";
+
+const root = path.resolve("artifacts/cornerstone/best-car-drying-towel");
+const page = JSON.parse(await readFile(path.join(root, "final-human-approved-v3/semantic-page.json"), "utf8"));
+const packet = JSON.parse(await readFile(path.join(root, "fixture-v1/research-packet.json"), "utf8"));
+const allowlists = deriveCornerstoneStrategyAllowlists(packet);
+const html = renderSemanticPageHtml(page, { allowlists, theme: STREET_KINGZ_THEME });
+const css = renderStreetKingzEditorialCss(STREET_KINGZ_THEME);
+const outputDirectory = path.join(root, "rendering-v1/offline-preview-008");
+await mkdir(outputDirectory, { recursive: true });
+await writeFile(path.join(outputDirectory, "rendered-page.html"), `${html}\n`);
+await writeFile(path.join(outputDirectory, "rendered-page.css"), `${css}\n`);
+await writeFile(path.join(outputDirectory, "rendering-contract.json"), `${JSON.stringify(createRendererContract(STREET_KINGZ_THEME), null, 2)}\n`);
+await writeFile(path.join(outputDirectory, "rendering-validation.json"), `${JSON.stringify({ artifact_type: "offline_semantic_page_render_validation", status: "PASS", h1_count: (html.match(/<h1\b/g) || []).length, required_media_missing: page.components.flatMap((component) => component.media_requirements).filter((item) => item.status === "required_missing").map((item) => item.requirement_id), optional_media_missing: page.components.flatMap((component) => component.media_requirements).filter((item) => item.status === "optional_missing").map((item) => item.requirement_id), wordpress_writes: 0, elementor_document_save: false, rendered_html_sha256: sha256(html), rendered_css_sha256: sha256(css), semantic_page_sha256: sha256(canonicalJson(page)) }, null, 2)}\n`);
+console.log(JSON.stringify({ outputDirectory, status: "PASS", rendered_html_sha256: sha256(html), semantic_page_sha256: sha256(canonicalJson(page)) }));

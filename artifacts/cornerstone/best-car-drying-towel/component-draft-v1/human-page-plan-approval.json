@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "human_component_page_plan_approval",
+  "status": "APPROVED",
+  "plan_id": "editorial_page_plan_2bc085dc025bacd01b21fc6c",
+  "plan_hash": "4a3ad8b5c2bfd12bd7aecefec9e6c38fbb1068eec38b767818f01b7004099310",
+  "approved_component_sequence": [
+    "01_hero_db1ccb26",
+    "02_quick_answer_eb07986e",
+    "03_criteria_cards_44e50cdc",
+    "04_comparison_table_84c42ed0",
+    "05_rich_text_section_cfb857cc",
+    "06_product_recommendation_55fb7dcb",
+    "07_rich_text_section_7c121c6a",
+    "08_key_takeaway_db6e5d8e",
+    "09_faq_5dc1c294",
+    "10_conclusion_b18ab30e"
+  ],
+  "semantic_drafting": true,
+  "add_components": false,
+  "alter_sequence": false,
+  "wordpress_mutation": false,
+  "wordpress_publication": false,
+  "approval_text_sha256": "12eb076194ecd14baef509cf06defb6d63f615a0042581b6a7ba6d0c6a96a52c",
+  "recorded_at": "2026-08-09T20:30:05.960Z"
+}

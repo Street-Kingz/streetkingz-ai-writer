@@ -1,0 +1,72 @@
+{
+  "renderer_contract_version": "1.0.0",
+  "theme": {
+    "theme_id": "street-kingz-editorial-v2",
+    "class_prefix": "sk-editorial",
+    "container": {
+      "max_width": "72rem",
+      "reading_width": "50rem",
+      "gutter": "1.25rem"
+    },
+    "breakpoints": {
+      "mobile": "0-47.99rem",
+      "desktop": "48rem+"
+    },
+    "typography": {
+      "body": "Arial, sans-serif",
+      "heading": "'Encode Sans Condensed', 'Arial Narrow', Arial, sans-serif",
+      "line_height": 1.6
+    },
+    "colors": {
+      "page": "#ffffff",
+      "ink": "#000000",
+      "muted": "#666666",
+      "surface": "#f7f7f7",
+      "border": "#dddddd",
+      "accent": "#b81e0f",
+      "accent_dark": "#8a1316",
+      "accent_text": "#ffffff",
+      "dark": "#000000"
+    },
+    "shape": {
+      "radius": "12px",
+      "shadow": "0 8px 24px rgba(0,0,0,.08)"
+    },
+    "media": {
+      "product_images": {
+        "product_20fcada95c00204601928709": {
+          "url": "https://streetkingz.co.uk/wp-content/uploads/2025/11/1200gsm-Fold-scaled-.webp",
+          "alt": "Heavy Duty Drying Towel – 1200gsm"
+        }
+      }
+    },
+    "primitives": {
+      "section": "section",
+      "card": "article",
+      "callout": "aside",
+      "table": "table",
+      "faq": "details"
+    },
+    "profile_id": "street-kingz-site-v1",
+    "profile_version": "1.0.0",
+    "site_id": "streetkingz.co.uk",
+    "provenance": [
+      {
+        "source_url": "https://streetkingz.co.uk/",
+        "pattern": "black/white brand hierarchy, condensed display type, direct practical messaging and red action accents",
+        "confidence": "observed"
+      },
+      {
+        "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "pattern": "ecommerce product imagery, dark product feature treatment and rounded CTA language",
+        "confidence": "observed"
+      }
+    ],
+    "human_overrides": {}
+  },
+  "wordpress": {
+    "persistence": "not_implemented",
+    "writes": false,
+    "elementor_document_save": false
+  }
+}

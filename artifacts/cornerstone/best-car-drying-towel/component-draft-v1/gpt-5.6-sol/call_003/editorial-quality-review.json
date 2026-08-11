@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_quality_review",
+  "status": "PASS",
+  "accepted_for_human_review": true,
+  "dimensions": {
+    "useful_beyond_schema": true,
+    "generic_seo_filler_absent": true,
+    "forced_commercialisation_absent": true,
+    "invented_experience_absent": true
+  },
+  "issues": [],
+  "human_review_issues": [
+    "Confirm tone and usefulness component by component.",
+    "Confirm every product statement against the cited Product Facts.",
+    "Supply or approve the required hero lifestyle image before rendering."
+  ]
+}

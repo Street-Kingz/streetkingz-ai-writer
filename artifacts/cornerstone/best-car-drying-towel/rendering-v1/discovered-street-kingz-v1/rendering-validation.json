@@ -1,0 +1,12 @@
+{
+  "artifact_type": "discovered_site_style_render_validation",
+  "status": "PASS",
+  "semantic_page_sha256": "d55cc6fc52429a1b39e93cb8e676b6f01ccc88230aaac2c163f2be07c2fb6b25",
+  "style_profile_sha256": "48cf127d0886a37cb868713789d7e0b1c69cd55489da843efd123b83de32a261",
+  "rendered_html_sha256": "cb8b018f80194d14fa166ef39e68fc28796af28159b41cc077c9d030393c3575",
+  "h1_count": 1,
+  "required_media_state": "offline_placeholder",
+  "browser_preview_status": "PASS",
+  "wordpress_writes": 0,
+  "ai_calls": 0
+}

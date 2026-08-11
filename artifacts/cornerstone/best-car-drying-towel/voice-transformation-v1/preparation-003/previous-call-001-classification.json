@@ -1,0 +1,18 @@
+{
+  "artifact_type": "voice_transformation_failure_classification",
+  "call_directory": "artifacts/cornerstone/best-car-drying-towel/voice-transformation-v1/gpt-5.6-sol/call_001",
+  "classification": "FAILED_AS_DESIGNED",
+  "corrective_boundary": "Model controls visible editorial prose only; source-owned metadata is deterministically reattached after parsing.",
+  "immutable": true,
+  "reasons": [
+    {
+      "code": "MEDIA_DRIFT",
+      "detail": "The model was previously asked to reproduce source-owned media_requirements."
+    },
+    {
+      "code": "LEGALISTIC_REGISTER_REMAINED",
+      "detail": "Known evidence-process wording survived the editorial rewrite."
+    }
+  ],
+  "schema_version": "1.0.0"
+}

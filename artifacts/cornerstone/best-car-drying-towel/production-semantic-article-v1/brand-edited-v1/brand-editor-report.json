@@ -1,0 +1,251 @@
+{
+  "artifact_type": "brand_edited_semantic_page",
+  "brand_profile_version": "1.0.0",
+  "brand_name": "Street Kingz",
+  "source_semantic_page_sha256": "8b97f6dc8919a60c3b266bc99d6ad63bf086cb9838bbdce223ad13ac4fa66ad5",
+  "semantic_page_sha256": "ef55a5a1906a19326df6af5b29b655d143466ad730a997f6bc3f218d582184cf",
+  "semantic_content_modified": true,
+  "editorial_report": {
+    "artifact_type": "editorial_report",
+    "profile": "Street Kingz",
+    "components": [
+      {
+        "component": "hero",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "quick_answer",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "rich_text_section",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "criteria_cards",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "comparison_table",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 7,
+          "human_feel": 7,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 7,
+          "human_feel": 7,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "product_recommendation",
+        "issues": [
+          {
+            "type": "weak_opinion",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.9,
+        "rewrite_required": true,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 8,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 8,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "pros_tradeoffs",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 7,
+          "human_feel": 7,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 7,
+          "human_feel": 7,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "founder_note",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "faq",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "conclusion",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 9,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      },
+      {
+        "component": "call_to_action",
+        "issues": [],
+        "confidence": 0.99,
+        "rewrite_required": false,
+        "scores_before": {
+          "voice": 8,
+          "human_feel": 8,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "scores_after": {
+          "voice": 8,
+          "human_feel": 8,
+          "commercial_confidence": 7,
+          "clarity": 8
+        },
+        "score_improved": true
+      }
+    ],
+    "issues": [
+      {
+        "type": "weak_opinion",
+        "confidence": 0.9
+      }
+    ],
+    "rewrite_count": 1
+  },
+  "product_references_preserved": true,
+  "edited_components": [
+    "01_hero",
+    "02_quick_answer",
+    "03_rich_text",
+    "04_criteria",
+    "05_comparison",
+    "06_product",
+    "07_pros_tradeoffs",
+    "08_founder_note",
+    "09_faq",
+    "10_conclusion",
+    "11_call_to_action"
+  ],
+  "wordpress_writes": 0,
+  "ai_calls": 0
+}

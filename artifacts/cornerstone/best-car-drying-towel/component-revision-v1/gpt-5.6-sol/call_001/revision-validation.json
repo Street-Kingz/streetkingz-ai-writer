@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "founder_revision_validation",
+  "downstream_eligible": false,
+  "status": "FAIL",
+  "errors": [
+    {
+      "code": "CONCEPT_REPETITION",
+      "path": "$.page.components",
+      "message": "gsm appears materially in 5 components; limit is 3."
+    },
+    {
+      "code": "CONCEPT_REPETITION",
+      "path": "$.page.components",
+      "message": "dimensions appears materially in 5 components; limit is 4."
+    },
+    {
+      "code": "CONCEPT_REPETITION",
+      "path": "$.page.components",
+      "message": "edging appears materially in 3 components; limit is 2."
+    },
+    {
+      "code": "CONCEPT_REPETITION",
+      "path": "$.page.components",
+      "message": "saturated_handling appears materially in 6 components; limit is 4."
+    },
+    {
+      "code": "CONCEPT_REPETITION",
+      "path": "$.page.components",
+      "message": "care appears materially in 6 components; limit is 3."
+    },
+    {
+      "code": "UNSUPPORTED_FIRST_PERSON_EXPERIENCE",
+      "path": "$.components[2].data",
+      "message": "I would always consider it alongside the towel’s size and construction."
+    }
+  ],
+  "warnings": [],
+  "founderVoice": {
+    "schema_version": "1.0.0",
+    "artifact_type": "founder_voice_validation",
+    "voice_version": "1.0.0",
+    "status": "FAIL",
+    "errors": [
+      {
+        "code": "UNSUPPORTED_FIRST_PERSON_EXPERIENCE",
+        "path": "$.components[2].data",
+        "message": "I would always consider it alongside the towel’s size and construction."
+      }
+    ],
+    "warnings": [],
+    "metrics": {
+      "first_person_component_count": 6,
+      "first_person_components": [
+        "01_hero_db1ccb26",
+        "02_quick_answer_eb07986e",
+        "03_criteria_cards_44e50cdc",
+        "05_rich_text_section_cfb857cc",
+        "06_product_recommendation_55fb7dcb",
+        "09_faq_5dc1c294"
+      ],
+      "founder_fact_registry_count": 0
+    }
+  },
+  "repetition": {
+    "concept_component_counts": {
+      "gsm": 5,
+      "dimensions": 5,
+      "edging": 3,
+      "saturated_handling": 6,
+      "care": 6,
+      "construction": 5
+    },
+    "limits": {
+      "gsm": 3,
+      "dimensions": 4,
+      "edging": 2,
+      "saturated_handling": 4,
+      "care": 3,
+      "construction": 5
+    }
+  }
+}

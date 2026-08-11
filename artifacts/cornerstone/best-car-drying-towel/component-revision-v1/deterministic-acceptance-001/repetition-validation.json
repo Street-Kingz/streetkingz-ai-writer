@@ -1,0 +1,83 @@
+{
+  "legacy_mention_component_counts": {
+    "gsm": 3,
+    "dimensions": 3,
+    "edging": 3,
+    "saturated_handling": 1,
+    "care": 3,
+    "construction": 5
+  },
+  "legacy_limits": {
+    "gsm": 3,
+    "dimensions": 4,
+    "edging": 2,
+    "saturated_handling": 4,
+    "care": 3,
+    "construction": 5
+  },
+  "authoritative_method": "page_specific_concept_ownership",
+  "concept_summary": {
+    "gsm": {
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "max_substantial_components": 2,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc"
+      ],
+      "brief_reference_count": 2,
+      "product_specification_count": 2,
+      "faq_direct_answer_count": 0
+    },
+    "dimensions": {
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "max_substantial_components": 2,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc",
+        "05_rich_text_section_cfb857cc"
+      ],
+      "brief_reference_count": 4,
+      "product_specification_count": 1,
+      "faq_direct_answer_count": 0
+    },
+    "edging": {
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "max_substantial_components": 1,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc"
+      ],
+      "brief_reference_count": 1,
+      "product_specification_count": 1,
+      "faq_direct_answer_count": 0
+    },
+    "saturated_handling": {
+      "primary_component_id": "05_rich_text_section_cfb857cc",
+      "max_substantial_components": 2,
+      "substantial_component_ids": [
+        "05_rich_text_section_cfb857cc",
+        "06_product_recommendation_55fb7dcb"
+      ],
+      "brief_reference_count": 1,
+      "product_specification_count": 0,
+      "faq_direct_answer_count": 0
+    },
+    "care": {
+      "primary_component_id": "08_key_takeaway_db6e5d8e",
+      "max_substantial_components": 2,
+      "substantial_component_ids": [
+        "08_key_takeaway_db6e5d8e"
+      ],
+      "brief_reference_count": 1,
+      "product_specification_count": 0,
+      "faq_direct_answer_count": 0
+    },
+    "construction": {
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "max_substantial_components": 2,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc"
+      ],
+      "brief_reference_count": 1,
+      "product_specification_count": 1,
+      "faq_direct_answer_count": 1
+    }
+  }
+}

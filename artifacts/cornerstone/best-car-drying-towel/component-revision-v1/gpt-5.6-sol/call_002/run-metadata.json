@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "founder_revision_run_metadata",
+  "calls": 1,
+  "retries": 0,
+  "status": "FAIL",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "prompt_version": "1.1.0",
+  "input_hash": "8aa5932fb4c8f434435c23fd607a08c74d0b0211ab7455cff8f0b5d27f074121",
+  "source_semantic_page_sha256": "51a340f7767a77b69519a0053b296e66f5ecaceb1044b89192fe8777885caced",
+  "semantic_page_sha256": "e396ef51898d5b8a8be4d088471242ae46695ef6cfc730befeca9fd5f007d37e",
+  "started_at": "2026-08-09T21:26:06.937Z",
+  "completed_at": "2026-08-09T21:27:41.709Z",
+  "usage": {
+    "input_tokens": 61851,
+    "output_tokens": 9053,
+    "total_tokens": 70904
+  },
+  "cost_usd": null,
+  "cost_status": "unknown",
+  "wordpress_writes": 0,
+  "writer_executions": 0,
+  "recovery_executions": 0,
+  "publication_attempts": 0
+}

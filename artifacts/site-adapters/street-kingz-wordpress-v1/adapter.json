@@ -1,0 +1,93 @@
+{
+  "adapter_version": "1.0.0",
+  "cms": {
+    "platform": "wordpress",
+    "theme": "kadence",
+    "builder": "elementor",
+    "persistence": "not_implemented",
+    "writes": false
+  },
+  "confidence_policy": "unmapped components use fallback or fail closed",
+  "adapter_id": "street-kingz-wordpress-v1",
+  "site_id": "streetkingz.co.uk",
+  "provenance": [
+    {
+      "source_url": "https://streetkingz.co.uk/",
+      "observation": "Kadence site shell and global content/container patterns",
+      "confidence": "medium"
+    },
+    {
+      "source_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "observation": "WooCommerce product presentation and Elementor Theme Builder product template",
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "hero": {
+      "state": "COMPOSED",
+      "target": "kadence-entry-hero-plus-responsive-media",
+      "confidence": "low"
+    },
+    "quick_answer": {
+      "state": "NATIVE",
+      "target": "kadence-entry-content-callout",
+      "confidence": "low"
+    },
+    "rich_text_section": {
+      "state": "NATIVE",
+      "target": "kadence-entry-content",
+      "confidence": "medium"
+    },
+    "criteria_cards": {
+      "state": "FALLBACK",
+      "target": "generic-fallback-renderer",
+      "confidence": "none",
+      "notes": "No reusable editorial criteria pattern verified."
+    },
+    "comparison_table": {
+      "state": "FALLBACK",
+      "target": "generic-fallback-renderer",
+      "confidence": "none"
+    },
+    "product_recommendation": {
+      "state": "COMPOSED",
+      "target": "woocommerce-product-reference-plus-native-theme-content",
+      "confidence": "low"
+    },
+    "product_comparison": {
+      "state": "FALLBACK",
+      "target": "generic-fallback-renderer",
+      "confidence": "none"
+    },
+    "key_takeaway": {
+      "state": "COMPOSED",
+      "target": "kadence-entry-content-callout",
+      "confidence": "low"
+    },
+    "faq": {
+      "state": "COMPOSED",
+      "target": "native-details-or-existing-accordion",
+      "confidence": "low"
+    },
+    "conclusion": {
+      "state": "NATIVE",
+      "target": "kadence-entry-content",
+      "confidence": "medium"
+    },
+    "call_to_action": {
+      "state": "COMPOSED",
+      "target": "native-theme-button",
+      "confidence": "low"
+    },
+    "image_text": {
+      "state": "COMPOSED",
+      "target": "native-responsive-media-plus-content",
+      "confidence": "low"
+    },
+    "related_guides": {
+      "state": "NATIVE",
+      "target": "kadence-entry-content-links",
+      "confidence": "low"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "semantic_page_valid": true,
+  "required_components_present": true,
+  "missing_components": [],
+  "product_references_preserved": true,
+  "hardcoded_urls": false,
+  "unsupported_components": [],
+  "wordpress_writes": 0,
+  "ai_calls": 0,
+  "semantic_page_sha256": "8b97f6dc8919a60c3b266bc99d6ad63bf086cb9838bbdce223ad13ac4fa66ad5",
+  "gutenberg_markup_sha256": "6bdb3faece079be1a30c54f6bb508c818c34e597dffc13f5285902f8debc2a28",
+  "h1_count": 1,
+  "word_count": 912
+}

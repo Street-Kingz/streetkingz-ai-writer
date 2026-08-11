@@ -1,0 +1,16 @@
+{
+  "artifact_type": "voice_corpus_import_validation",
+  "errors": [],
+  "metrics": {
+    "duplicate_ids": 0,
+    "duplicate_texts": 0,
+    "excluded_upstream": 408,
+    "sources": 24,
+    "spoken_sources": 24,
+    "words": 4205,
+    "written_sources": 0
+  },
+  "observed_semantic_sha256": "8514eb2c52735720e6f06af2515a5a167356d80e75250b3161baa7758c90a3bf",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

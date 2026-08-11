@@ -1,0 +1,91 @@
+{
+  "artifact_type": "spoken_to_written_adaptation",
+  "factual_boundary": {
+    "founder_fact_registry": [],
+    "transcript_claims_imported_as_facts": false,
+    "unsupported_personal_experience": "reject",
+    "voice_profile_is_fact_source": false
+  },
+  "natural_communication": {
+    "contradictions": [
+      "Speech frequently uses strong sales imperatives and swearing; explicit written rules call for low-pressure, selectively humorous long-form copy."
+    ],
+    "preserve_in_articles": [
+      "directness",
+      "plain explanations",
+      "practical framing",
+      "honest ownership",
+      "candid qualification",
+      "occasional natural humour"
+    ],
+    "reduce_in_articles": [
+      "filler",
+      "repetition",
+      "abandoned sentences",
+      "TikTok hook repetition",
+      "routine swearing",
+      "repeated get-yours CTAs",
+      "video-dependent references"
+    ],
+    "shared_patterns": [
+      "direct recommendations",
+      "contractions and uncomplicated language",
+      "first-person judgement",
+      "customer-centred trade-offs"
+    ],
+    "spoken_only_or_stronger": [
+      "frequent rhetorical questions",
+      "swearing and teasing humour",
+      "fragmented demonstrations",
+      "repeated direct CTAs",
+      "self-corrections and conversational loops"
+    ],
+    "written_only_or_stronger": [
+      "deliberately stated pronoun rules",
+      "explicit fact/experience boundaries",
+      "more controlled qualification",
+      "long-form audience and formality direction"
+    ]
+  },
+  "profile_id": "street-kingz-founder-v1",
+  "profile_version": "1.1.0",
+  "rule": {
+    "classification": "EDITORIAL_ADAPTATION",
+    "confidence": "high",
+    "dimension": "spoken_written_adaptation",
+    "mode_scope": "both",
+    "observation_id": "sk_adapt_spoken_polish",
+    "rule": "Keep the direct address, contractions, practical explanations, candid qualifications and occasional humour; remove filler, loops, transcript fragments, repeated hooks, repeated CTAs, routine swearing and unsupported anecdotes.",
+    "source_ids": [
+      "street-kingz-video:066891c7b1a2e43a5d6a8843",
+      "street-kingz-video:078aa4b6ad745ce2d12925cd",
+      "street-kingz-video:0f0d646eea7a8f6ebe8865ec",
+      "street-kingz-video:2084a6dc3d660d7707819f9d",
+      "street-kingz-video:2d34732d895c4a6540455eec",
+      "street-kingz-video:2eecde83ebd903335140cc3c",
+      "street-kingz-video:5bb5ef70ee9d7397de1316f9",
+      "street-kingz-video:5bd19dff4285d20140f82759",
+      "street-kingz-video:63b6aaeba1deef50b1bed624",
+      "street-kingz-video:64a416a8aa535dc3e71bd42c",
+      "street-kingz-video:70c92128dcd689380968f698",
+      "street-kingz-video:7a30c452a69e9878ffc698eb",
+      "street-kingz-video:7f46bc49640fb309ddd05401",
+      "street-kingz-video:aaed544bb263a5b4f2ec3bcf",
+      "street-kingz-video:b8811954efb8cae1bb4af722",
+      "street-kingz-video:ce67dc97b5f26747c186043a",
+      "street-kingz-video:ce899b29f1071ecbd6fe5395",
+      "street-kingz-video:e2590a3d1565949a812f2dbf",
+      "street-kingz-video:e4193838fe0f236180345b38",
+      "street-kingz-video:e9595bc1a601d32187496ad6",
+      "street-kingz-video:eca717cb645fae04c2cb51a4",
+      "street-kingz-video:f26443916f81960901db9852",
+      "street-kingz-video:f2943d7ea04ce64b4639b585",
+      "street-kingz-video:ff83ce3346fce1733e294177",
+      "sk_voice_written_editorial_direction_2026_08_10",
+      "sk_voice_written_founder_boundaries_2026_08_10",
+      "sk_voice_written_adaptation_rules_2026_08_10",
+      "sk_voice_written_adaptation_rules_2026_08_10"
+    ]
+  },
+  "schema_version": "1.0.0"
+}

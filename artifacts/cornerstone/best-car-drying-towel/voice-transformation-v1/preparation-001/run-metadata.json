@@ -1,0 +1,10 @@
+{
+  "ai_calls": 0,
+  "approved_profile_path": "artifacts/voice/street-kingz-founder-v1/approved-v1.1.0-001/approved-voice-profile.json",
+  "artifact_type": "voice_transformation_preparation_run",
+  "input_sha256": "88cdbede7f7c4ffe57099074c292107957dc92dd8ff29053e92ae195b514847b",
+  "prepared_at": "2026-08-10T15:39:41.879Z",
+  "schema_version": "1.0.0",
+  "source_page_path": "artifacts/cornerstone/best-car-drying-towel/component-revision-v1/deterministic-acceptance-001/semantic-page.json",
+  "wordpress_writes": 0
+}

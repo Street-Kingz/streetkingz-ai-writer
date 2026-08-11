@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_draft_provider_failure",
+  "provider": "openai",
+  "model": "gpt-5.6-sol",
+  "http_status": 429,
+  "error_code": "AI_PROVIDER_FAILURE",
+  "error_message": "OpenAI editorial draft request failed with HTTP 429.",
+  "model_output_present": false,
+  "raw_model_response_present": false,
+  "retry_attempted": false
+}

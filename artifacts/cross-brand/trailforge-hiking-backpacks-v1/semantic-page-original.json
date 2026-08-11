@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "semantic_page",
+  "page_type": "article",
+  "title": "The Best Hiking Backpacks for Beginners",
+  "h1": "The Best Hiking Backpacks for Beginners",
+  "introduction_deck": "A first hiking backpack does not need to be complicated. Choose the capacity and comfort you will actually use, then start walking.",
+  "audience": "Beginner hikers who want reliable gear without overcomplicating choices.",
+  "components": [
+    {
+      "component_id": "hero",
+      "component_type": "hero",
+      "data": {
+        "h1": "The Best Hiking Backpacks for Beginners",
+        "supporting_copy": "Reliable gear should help you enjoy the trail, not give you another thing to worry about."
+      }
+    },
+    {
+      "component_id": "quick",
+      "component_type": "quick_answer",
+      "data": {
+        "heading": "What is the best hiking backpack for a beginner?",
+        "concise_answer": "The best starting point is a comfortable pack with enough room for the walks you plan to take, without carrying more than you need.",
+        "supporting_points": [
+          "Choose capacity around your usual walk length.",
+          "Prioritise comfortable straps and sensible adjustment.",
+          "Leave room to learn what you actually use."
+        ]
+      }
+    },
+    {
+      "component_id": "rich",
+      "component_type": "rich_text_section",
+      "data": {
+        "heading": "Start with the walks you want to do",
+        "paragraphs": [
+          "A short local walk needs a different pack from a full day on the hills. Think about water, an extra layer, food and basic safety items before you think about pockets and features."
+        ],
+        "key_points": [
+          "Comfort beats unnecessary features.",
+          "Pack for the conditions, not an imagined expedition."
+        ]
+      }
+    },
+    {
+      "component_id": "criteria",
+      "component_type": "criteria_cards",
+      "data": {
+        "heading": "What to look for",
+        "cards": [
+          {
+            "title": "Capacity",
+            "explanation": "Enough room for your normal essentials.",
+            "why_it_matters": "Too small is frustrating; too large encourages overpacking."
+          },
+          {
+            "title": "Comfort",
+            "explanation": "Adjustable straps and a fit that feels stable.",
+            "why_it_matters": "A comfortable pack makes it easier to keep walking."
+          },
+          {
+            "title": "Weather handling",
+            "explanation": "Materials and covers suited to your conditions.",
+            "why_it_matters": "Beginners need confidence when the weather changes."
+          },
+          {
+            "title": "Simplicity",
+            "explanation": "Features you can understand and use.",
+            "why_it_matters": "A straightforward pack is easier to live with."
+          }
+        ]
+      }
+    },
+    {
+      "component_id": "comparison",
+      "component_type": "comparison_table",
+      "data": {
+        "heading": "Backpack comparison",
+        "columns": [
+          "Pack",
+          "Best for",
+          "Capacity",
+          "Who should buy"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "TrailForge DayPack 20L",
+              "Day walks",
+              "20L",
+              "Beginners keeping trips simple"
+            ]
+          },
+          {
+            "cells": [
+              "TrailForge Explorer 35L",
+              "Longer days",
+              "35L",
+              "Hikers carrying extra layers and food"
+            ]
+          },
+          {
+            "cells": [
+              "Generic Budget Backpack",
+              "Occasional use",
+              "Varies",
+              "Anyone testing the hobby on a budget"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component_id": "product",
+      "component_type": "product_recommendation",
+      "data": {
+        "heading": "A good place to begin: TrailForge DayPack 20L",
+        "product_reference": {
+          "id": "trailforge_daypack_20l",
+          "slug": "daypack-20l",
+          "name": "TrailForge DayPack 20L"
+        },
+        "product_id": "trailforge_daypack_20l",
+        "recommendation_context": "A compact day pack is enough for many beginner walks.",
+        "relevance_reason": "The DayPack 20L is a sensible option for local and shorter day walks.",
+        "suitable_customer": "Beginners carrying water, food and one extra layer.",
+        "limitations": [
+          "It will not suit overnight trips.",
+          "Cold-weather layers take more space."
+        ],
+        "cta_label": "See the pack details"
+      }
+    },
+    {
+      "component_id": "tradeoffs",
+      "component_type": "pros_tradeoffs",
+      "data": {
+        "heading": "Keep the trade-offs in view",
+        "pros": {
+          "heading": "Pros",
+          "items": [
+            "Simple to pack",
+            "Light enough for day walks",
+            "Beginner friendly"
+          ]
+        },
+        "tradeoffs": {
+          "heading": "Trade-offs",
+          "items": [
+            "Limited for overnight trips",
+            "Less room for bulky winter gear"
+          ]
+        }
+      }
+    },
+    {
+      "component_id": "founder",
+      "component_type": "founder_note",
+      "data": {
+        "heading": "Why we keep it simple",
+        "opinion": "We make beginner gear because your first walk should feel encouraging, not like an exam. Start with what you need, learn as you go and upgrade when your walks genuinely ask for it.",
+        "attribution": "— TrailForge"
+      }
+    },
+    {
+      "component_id": "faq",
+      "component_type": "faq",
+      "data": {
+        "heading": "Beginner backpack FAQs",
+        "items": [
+          {
+            "question": "Is 20L enough for a day hike?",
+            "answer": "For many short walks, yes. Pack water, food, an extra layer and basic safety items first."
+          },
+          {
+            "question": "Do I need a 35L pack?",
+            "answer": "Only if your walks or weather require more space."
+          },
+          {
+            "question": "Is a budget backpack fine?",
+            "answer": "It can be, especially while you are finding out how often you hike."
+          }
+        ]
+      }
+    },
+    {
+      "component_id": "conclusion",
+      "component_type": "conclusion",
+      "data": {
+        "heading": "Choose the pack you will actually use",
+        "summary": "A beginner backpack should make walking easier, not add decisions. Start with the capacity and comfort your normal routes need.",
+        "next_step": "Choose a simple pack and take it on a walk."
+      }
+    },
+    {
+      "component_id": "cta",
+      "component_type": "call_to_action",
+      "data": {
+        "heading": "Start simple",
+        "body": "Find a backpack that fits your next walk, then learn from using it.",
+        "product_references": [
+          {
+            "id": "trailforge_daypack_20l",
+            "slug": "daypack-20l",
+            "name": "TrailForge DayPack 20L"
+          },
+          {
+            "id": "trailforge_explorer_35l",
+            "slug": "explorer-35l",
+            "name": "TrailForge Explorer 35L"
+          },
+          {
+            "id": "generic_budget_backpack",
+            "slug": "generic-budget-backpack",
+            "name": "Generic Budget Backpack"
+          }
+        ],
+        "cta_label": "Explore TrailForge packs"
+      }
+    }
+  ]
+}

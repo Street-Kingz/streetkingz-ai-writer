@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "founder_revision_editorial_quality_review",
+  "status": "NOT_PERFORMED",
+  "accepted_for_human_review": false,
+  "reason": "Deterministic revision validation failed before qualitative editorial acceptance. The response remains preserved but downstream-ineligible.",
+  "issues": [],
+  "human_review_issues": []
+}

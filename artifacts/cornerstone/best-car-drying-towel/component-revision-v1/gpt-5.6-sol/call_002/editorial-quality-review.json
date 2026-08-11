@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "founder_revision_editorial_quality_review",
+  "status": "FAIL",
+  "accepted_for_human_review": false,
+  "founder_question": "Does this genuinely sound like something the founder of Street Kingz could have written for customers?",
+  "founder_question_answer": "NO",
+  "assessment": {
+    "page_moves_forward": true,
+    "each_component_earns_place": false,
+    "sections_or_items_that_could_be_removed": [
+      {
+        "component_type": "faq",
+        "item": "What criteria should I use to choose the best car drying towel for my vehicle and routine?",
+        "reason": "It points back to buying criteria already explained rather than resolving a residual question."
+      }
+    ],
+    "product_introduced_naturally": false,
+    "useful_for_towel_choice": true
+  },
+  "metrics": {
+    "first_person_component_count": 4,
+    "total_components": 9
+  },
+  "issues": [
+    {
+      "code": "COMMERCIAL_TRANSPARENCY_WEAK",
+      "severity": "error",
+      "message": "The product recommendation says 'Street Kingz sells' in a detached third-person voice instead of acknowledging the commercial role naturally in founder/company voice."
+    },
+    {
+      "code": "REDUNDANT_FAQ",
+      "severity": "warning",
+      "message": "The general criteria FAQ repeats completed coverage rather than answering a residual question."
+    }
+  ],
+  "human_review_issues": [
+    "Product commercial transparency is not naturally founder-led.",
+    "One FAQ item can be removed without losing useful information."
+  ]
+}

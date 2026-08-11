@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_strategy_validation",
+  "packet_id": "cornerstone_packet_ec2b7e4474da4ae08993919c",
+  "status": "FAIL",
+  "downstream_eligible": false,
+  "errors": [
+    {
+      "code": "INVENTED_PRODUCT",
+      "path": "$.streetkingz_integration.genuinely_relevant_products[1]",
+      "message": "Product name/URL is not present in the packet."
+    },
+    {
+      "code": "UNSUPPORTED_COMPETITOR_CLAIM",
+      "path": "$.content_gaps.defensible_gaps[0].statement",
+      "message": "Page-level competitor omission cannot be claimed from snippet-only evidence."
+    },
+    {
+      "code": "UNSUPPORTED_COMPETITOR_CLAIM",
+      "path": "$.content_gaps.cannot_currently_be_claimed[0].statement",
+      "message": "Page-level competitor omission cannot be claimed from snippet-only evidence."
+    }
+  ],
+  "warnings": [
+    {
+      "code": "OPEN_EVIDENCE_OR_JUDGEMENT",
+      "message": "Strategy preserves evidence gaps or human questions that must be resolved before drafting."
+    }
+  ]
+}

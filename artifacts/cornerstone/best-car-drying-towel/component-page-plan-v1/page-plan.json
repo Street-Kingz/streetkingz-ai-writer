@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_page_plan",
+  "plan_version": "1.0.0",
+  "page_type": "cornerstone",
+  "topic": "Choosing the best car drying towel",
+  "primary_query": "best car drying towel",
+  "search_intent": {
+    "primary": "commercial_investigation",
+    "secondary": "informational"
+  },
+  "title_direction": "Best Car Drying Towel: A Practical Guide to Choosing the Right One",
+  "h1_direction": "Best Car Drying Towel: A Practical Guide to Choosing the Right One",
+  "introduction_objective": "The reader should leave with a practical checklist for evaluating construction, size, handling, intended use and care, plus enough verified information to decide whether the registered product fits their vehicle and drying routine.",
+  "packet_id": "cornerstone_packet_ec2b7e4474da4ae08993919c",
+  "strategy_id": "cornerstone_strategy_e1199435edf001a74d6f709d",
+  "components": [
+    {
+      "component_id": "01_hero_db1ccb26",
+      "component_type": "hero",
+      "purpose": "State the topic, reader promise and evidence-bounded angle immediately.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_0d8d161d084b594fff388b97",
+        "ev_0ecff79f83c96838259bb05e",
+        "ev_1825a8ca5207fd32e94a7989",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_8ee7c6172f08a1260f6548ed",
+        "ev_9011b332294a36321b5dc453",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [
+        {
+          "requirement_id": "media_hero_lifestyle",
+          "kind": "lifestyle_image",
+          "purpose": "Show the page topic in a genuine use context.",
+          "alt_text_direction": "Describe the depicted task without keyword stuffing.",
+          "status": "required_missing"
+        }
+      ],
+      "conversion_role": "education",
+      "required_content": [
+        "H1 direction",
+        "short supporting deck",
+        "no unsupported superlative"
+      ]
+    },
+    {
+      "component_id": "02_quick_answer_eb07986e",
+      "component_type": "quick_answer",
+      "purpose": "Answer the searcher's core decision near the top before commercial content.",
+      "evidence_ids": [
+        "ev_0ecff79f83c96838259bb05e",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_94042d16a210f9cdc8cbcc15",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_f286838d0df9ad613d11c33a"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "qualified direct answer",
+        "decision depends on verified criteria"
+      ]
+    },
+    {
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "purpose": "Make the approved selection criteria scannable and useful without a wall of text.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_0ecff79f83c96838259bb05e",
+        "ev_23a73f980b3182e3935f21e9",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_8ee7c6172f08a1260f6548ed",
+        "ev_9011b332294a36321b5dc453",
+        "ev_92d35d004d3da59946df24b9",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_fd01b717f5a2715ff8dba619"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Give an early, qualified answer explaining that the best choice depends on use case and verified criteria; do not imply that a universal winner has been established.",
+        "Explain how to evaluate a drying towel using clearly defined criteria such as microfibre construction, weave, GSM, dimensions, edging, weight when saturated and vehicle size, without asserting unsupported performance relationships.",
+        "Address microfibre directly because it is prominent in both supporting query demand and observed SERP terminology.",
+        "Provide practical drying instructions grounded in the supplied first-party guidance: use on clean, shampooed paint, remove standing water, lay the towel flat, drag gently or pat without pressure, and wring only when saturated.",
+        "Cover care instructions, including cold gentle washing with suitable detergent, avoiding fabric softener and bleach, and air drying rather than tumble drying.",
+        "Present the registered product through verified specifications and fit: 1200 GSM dual-sided microfibre, 90 × 60 cm dimensions, soft microfibre edging, suitability for cars and larger vehicles, and the limitation that it becomes heavier when saturated.",
+        "Answer the observed questions about whether drying towels work, what cloth is suitable and what towels people use, while distinguishing supported guidance from unsupported professional endorsement."
+      ]
+    },
+    {
+      "component_id": "04_comparison_table_84c42ed0",
+      "component_type": "comparison_table",
+      "purpose": "Compare only dimensions supported by evidence and expose unknown performance claims as limitations.",
+      "evidence_ids": [
+        "ev_1d80de1c8d32419e438b602b",
+        "ev_23a73f980b3182e3935f21e9",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_ecc2c1bd4e72d712f2eda7d7"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [
+        {
+          "requirement_id": "media_comparison_visual",
+          "kind": "comparison_visual",
+          "purpose": "Optional visual aid for the bounded comparison criteria.",
+          "alt_text_direction": "Describe compared criteria without implying unsupported performance.",
+          "status": "optional_missing"
+        }
+      ],
+      "conversion_role": "education",
+      "required_content": [
+        "Microfibre, waffle weave and chamois: what can be compared",
+        "explicit evidence limitations"
+      ]
+    },
+    {
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "purpose": "Help readers consider vehicle size, towel dimensions, manageability when wet and intended surfaces or uses.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Match the towel to your vehicle and drying routine"
+      ]
+    },
+    {
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "purpose": "Present only packet-backed products after the reader understands the decision criteria.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [
+        "internal_link_a9cb3a3b0131bcadefb559fa"
+      ],
+      "media_requirements": [],
+      "conversion_role": "product_discovery",
+      "required_content": [
+        "Use as the sole verified product example and an optional high-GSM choice for readers whose needs align with its dimensions, intended uses and handling characteristics.",
+        "Its first-party product type directly matches the topic, and the packet supplies specifications, intended uses, instructions, care requirements and limitations that enable a helpful fit assessment."
+      ]
+    },
+    {
+      "component_id": "07_rich_text_section_7c121c6a",
+      "component_type": "rich_text_section",
+      "purpose": "Turn the supplied first-party use instructions into a concise, ordered workflow.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [
+        {
+          "requirement_id": "media_how_to_dry_a_car_with_a_microfibre_towel",
+          "kind": "demonstration_image",
+          "purpose": "Demonstrate the approved practical process.",
+          "alt_text_direction": "Describe the action shown accurately.",
+          "status": "optional_missing"
+        }
+      ],
+      "conversion_role": "education",
+      "required_content": [
+        "How to dry a car with a microfibre towel"
+      ]
+    },
+    {
+      "component_id": "08_key_takeaway_db6e5d8e",
+      "component_type": "key_takeaway",
+      "purpose": "Protect practical usefulness by including the verified care restrictions and cleaning process.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "How to wash, dry and care for the towel",
+        "concise care restrictions"
+      ]
+    },
+    {
+      "component_id": "09_faq_5dc1c294",
+      "component_type": "faq",
+      "purpose": "Answer only approved searcher questions with claim-level evidence boundaries.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_8ee7c6172f08a1260f6548ed",
+        "ev_9011b332294a36321b5dc453",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_fd01b717f5a2715ff8dba619"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "What criteria should a reader use to choose the best car drying towel for their own vehicle and routine?",
+        "What is the best cloth for drying a car, and what can be said without unsupported material or safety comparisons?",
+        "Do car drying towels work, and what correct-use conditions affect the answer?",
+        "What do professional detailers use? Answer only if a suitable source is added; do not infer professional practice from the question itself.",
+        "How should a drying towel be used and maintained so that the reader follows the supplied product guidance?"
+      ]
+    },
+    {
+      "component_id": "10_conclusion_b18ab30e",
+      "component_type": "conclusion",
+      "purpose": "Summarise the decision framework once and give a proportionate next step without repeating the page.",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_0d8d161d084b594fff388b97",
+        "ev_0ecff79f83c96838259bb05e",
+        "ev_173c0ef3d02dbe8332b5662d",
+        "ev_1825a8ca5207fd32e94a7989",
+        "ev_19a68df8c0e971fcec1c8e49",
+        "ev_1ae40e8f6c6c8d148fabf41a",
+        "ev_1d80de1c8d32419e438b602b",
+        "ev_1efb11a51a0410e2d4891a60",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_23a73f980b3182e3935f21e9",
+        "ev_25ee58148e4a213d93b4030b",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_386c0d66a38af9541621e08c",
+        "ev_414e200d878b278336920b75",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_4da218218c6cd993691e0fb3",
+        "ev_4f19130a26005a5c3d3e5381",
+        "ev_51fddf294b672a671a3c03c0",
+        "ev_5a4142e0f62c166b7f496898",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_6d0843b6fba6e753515971ff",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_86b58850ea0ee2b74c175403",
+        "ev_883cfd7c0ff49c3bc63b86db",
+        "ev_8e80ef97bfdd2533644953e8",
+        "ev_8ee7c6172f08a1260f6548ed",
+        "ev_9011b332294a36321b5dc453",
+        "ev_92d35d004d3da59946df24b9",
+        "ev_94042d16a210f9cdc8cbcc15",
+        "ev_9df1378687a3b2deabe8971c",
+        "ev_a3a9b21f77f051f2ee53db62",
+        "ev_b1c2674223e5867abe74521b",
+        "ev_b647e2d73618df545a60e54e",
+        "ev_b77f17bcbbd291179ba662ee",
+        "ev_b801de5da7836d1acb7d1239",
+        "ev_bb0a342214a0eaab10525cb2",
+        "ev_bcbe42b0a2777cc0e6fb74d8",
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_f286838d0df9ad613d11c33a",
+        "ev_f8679fd09c25bde5fef9c79f",
+        "ev_fa4b222c5c25be18a71a133c",
+        "ev_fd01b717f5a2715ff8dba619"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [
+        "internal_link_a9cb3a3b0131bcadefb559fa"
+      ],
+      "media_requirements": [],
+      "conversion_role": "consideration",
+      "required_content": [
+        "decision summary",
+        "non-repetitive next step"
+      ]
+    }
+  ],
+  "component_sequence": [
+    "01_hero_db1ccb26",
+    "02_quick_answer_eb07986e",
+    "03_criteria_cards_44e50cdc",
+    "04_comparison_table_84c42ed0",
+    "05_rich_text_section_cfb857cc",
+    "06_product_recommendation_55fb7dcb",
+    "07_rich_text_section_7c121c6a",
+    "08_key_takeaway_db6e5d8e",
+    "09_faq_5dc1c294",
+    "10_conclusion_b18ab30e"
+  ],
+  "allowed_component_types": [
+    "hero",
+    "quick_answer",
+    "rich_text_section",
+    "key_takeaway",
+    "comparison_table",
+    "criteria_cards",
+    "image_text",
+    "product_recommendation",
+    "product_comparison",
+    "pros_tradeoffs",
+    "founder_note",
+    "faq",
+    "related_guides",
+    "conclusion",
+    "call_to_action"
+  ],
+  "human_review_state": "awaiting_page_plan_approval",
+  "drafting_authorised": false,
+  "publication_authorised": false,
+  "renderer_state": "not_implemented",
+  "plan_id": "editorial_page_plan_8bb7486ecf70e3989397c42d",
+  "deterministic_content_sha256": "694d0d475b3cd2be863a1c7f02a0c38c29b2ec82608ba2cd61119dcfbce4167b"
+}

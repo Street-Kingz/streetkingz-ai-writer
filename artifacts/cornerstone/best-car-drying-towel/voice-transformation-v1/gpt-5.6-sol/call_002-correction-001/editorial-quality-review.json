@@ -1,0 +1,17 @@
+{
+  "accepted_for_human_review": true,
+  "artifact_type": "voice_transformation_editorial_review",
+  "assessment": {
+    "faq_count": 3,
+    "first_person_component_count": 5,
+    "page_progression": true,
+    "product_integration_natural": true,
+    "raw_tiktok_mannerisms_introduced": 0,
+    "simplicity_contrast_used": true,
+    "technical_language_simplified": true
+  },
+  "founder_voice": "Reads as a careful founder-written article rather than a transcript, agency page or casualised AI draft.",
+  "issues": [],
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

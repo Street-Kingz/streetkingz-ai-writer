@@ -1,0 +1,713 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_content_brief",
+  "brief_version": "1.0.0",
+  "brief_id": "cornerstone_brief_01945ce8f7b75f5f2fe75c96",
+  "deterministic_content_sha256": "b0e31f32aceeced734adb6dfcab331b9716a2fdee1766b6cf5597d16d2f770fa",
+  "packet_id": "cornerstone_packet_ec2b7e4474da4ae08993919c",
+  "topic": "Choosing the best car drying towel",
+  "primary_query": "best car drying towel",
+  "search_intent": {
+    "primary": "commercial_investigation",
+    "secondary": "informational",
+    "confidence": "high",
+    "trace": {
+      "kind": "deterministic_derivation",
+      "statement": "Query wording and 7 classified organic results indicate commercial_investigation intent with informational support.",
+      "evidence_ids": [
+        "ev_0ecff79f83c96838259bb05e",
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_8ee7c6172f08a1260f6548ed",
+        "ev_9011b332294a36321b5dc453",
+        "ev_92d35d004d3da59946df24b9",
+        "ev_94042d16a210f9cdc8cbcc15",
+        "ev_b647e2d73618df545a60e54e",
+        "ev_f286838d0df9ad613d11c33a",
+        "ev_fd01b717f5a2715ff8dba619"
+      ],
+      "limitation": null
+    }
+  },
+  "target_reader": "A vehicle owner comparing safe and effective options and wanting a practical, evidence-aware choice.",
+  "reader_problem": "The reader needs to understand the criteria behind best car drying towel and choose an approach without relying on unsupported superlatives.",
+  "search_opportunity": {
+    "summary": "Cached evidence records demand for “best car drying towel” and a mixed SERP.",
+    "metrics": {
+      "monthly_search_volume": 2900,
+      "cpc_usd": 2.48,
+      "paid_competition_level": "HIGH",
+      "keyword_difficulty": 0,
+      "source_updated_at": "2026-07-12 05:02:00 +00:00"
+    },
+    "evidence_ids": [
+      "ev_ed08924f3394b29222b9b9b0"
+    ],
+    "trace_kind": "observed_evidence"
+  },
+  "serp_observations": {
+    "observed_results": [
+      {
+        "title": "Microfiber Car Drying Towels",
+        "description": "3 days ago — Find the best microfiber drying towel for cars — absorbent, lint-free, scratch-free options for unprotected, ceramic-coated and waxed vehicles. Read more",
+        "url": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoo9fksf4kfyIi6sFtqUG1Ri3E_aWi2LlJ7u7NydrCD7PK4Gzxh5",
+        "domain": "theragcompany.com",
+        "rank": 2,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94"
+        ]
+      },
+      {
+        "title": "Best drying towel? : r/AutoDetailing",
+        "description": "What is the best drying towel currently?",
+        "url": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "domain": "www.reddit.com",
+        "rank": 3,
+        "page_type": "discussion",
+        "evidence_ids": [
+          "ev_b647e2d73618df545a60e54e"
+        ]
+      },
+      {
+        "title": "Car Drying Towels",
+        "description": "At 36\" x 25\" x 1\" thick and rated to hold close to a gallon of water, our Woolly Mammoth is the best towel to dry a car for anyone who wants serious absorbency ... Read more",
+        "url": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopJkAMwtV-RhFKC5LWW23Rz07gv325lqVGpEAQxF5mVFARDf5IP",
+        "domain": "www.chemicalguys.com",
+        "rank": 6,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      },
+      {
+        "title": "Best Microfiber Towel For Your Car In 2026",
+        "description": "Discover the best microfiber towels for drying your car. If you want to dry in style, get the Liquid8r. If you want to dry your car, get the Miracle Dryer.",
+        "url": "https://carwashwiz.com/car-wash/best-microfiber-towel/",
+        "domain": "carwashwiz.com",
+        "rank": 7,
+        "page_type": "editorial_guide",
+        "evidence_ids": [
+          "ev_454919bf91a89c2cb83a7640"
+        ]
+      },
+      {
+        "title": "Car Drying Towel",
+        "description": "Discover ultra-absorbent microfiber car drying towels that dry vehicles quickly without streaks or scratches. Holds Up to 9 lbs, No Streaks, Scratches, or ...",
+        "url": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+        "domain": "www.amazon.com",
+        "rank": 8,
+        "page_type": "unclassified_page",
+        "evidence_ids": [
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "title": "The best towels for drying and detailing your car (2025)",
+        "description": "Jul 5, 2025 — The best towels for drying and detailing your car (2025) · 1. Best car drying towel: AutoManiacs Drying Towel · 2. Runner-up car drying towel: ... Read more",
+        "url": "https://flatsixes.com/porsche-products/the-best-car-towels-drying-detailing/",
+        "domain": "flatsixes.com",
+        "rank": 11,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_94042d16a210f9cdc8cbcc15"
+        ]
+      },
+      {
+        "title": "Drying Towels & Blowers",
+        "description": "Shop the best microfiber Drying Towels & Blowers for a quick dry and spotless finish. Upgrade your car wash game with our top-rated collection.",
+        "url": "https://www.autogeek.net/drying.html?srsltid=AfmBOoo5a7n6IbDQVkTEeiblEOrTgFyiBYzAe5MWzZmCRnJdgHR2UB6h",
+        "domain": "www.autogeek.net",
+        "rank": 12,
+        "page_type": "commercial_listing",
+        "evidence_ids": [
+          "ev_6cbefe8bfb2333a7521015b3"
+        ]
+      }
+    ],
+    "result_page_types": {
+      "commercial_listing": 4,
+      "discussion": 1,
+      "editorial_guide": 1,
+      "unclassified_page": 1
+    },
+    "recurring_themes": [
+      {
+        "term": "towels",
+        "observed_result_count": 6,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      },
+      {
+        "term": "microfiber",
+        "observed_result_count": 4,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "term": "absorbent",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "term": "vehicles",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      }
+    ],
+    "recurring_questions": [
+      {
+        "question": "Do car drying towels really work?",
+        "evidence_ids": [
+          "ev_9011b332294a36321b5dc453"
+        ]
+      },
+      {
+        "question": "What do professional detailers use to dry cars?",
+        "evidence_ids": [
+          "ev_fd01b717f5a2715ff8dba619"
+        ]
+      },
+      {
+        "question": "What is the best cloth for drying cars?",
+        "evidence_ids": [
+          "ev_8ee7c6172f08a1260f6548ed"
+        ]
+      },
+      {
+        "question": "What towels do you use to dry cars?",
+        "evidence_ids": [
+          "ev_0ecff79f83c96838259bb05e"
+        ]
+      }
+    ],
+    "commercial_vs_informational_balance": {
+      "commercial_result_count": 4,
+      "informational_result_count": 2,
+      "classification": "mixed"
+    },
+    "notable_features": [
+      "serp_ai_overview",
+      "serp_discussion",
+      "serp_people_also_ask",
+      "serp_product_element",
+      "serp_related_search",
+      "serp_video"
+    ]
+  },
+  "competitor_coverage": {
+    "observed_from_snippets": [
+      {
+        "term": "towels",
+        "observed_result_count": 6,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_f286838d0df9ad613d11c33a"
+        ],
+        "trace_kind": "observed_evidence"
+      },
+      {
+        "term": "microfiber",
+        "observed_result_count": 4,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9"
+        ],
+        "trace_kind": "observed_evidence"
+      },
+      {
+        "term": "absorbent",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ],
+        "trace_kind": "observed_evidence"
+      },
+      {
+        "term": "vehicles",
+        "observed_result_count": 2,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_92d35d004d3da59946df24b9"
+        ],
+        "trace_kind": "observed_evidence"
+      }
+    ],
+    "important_differences": [
+      {
+        "page": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoo9fksf4kfyIi6sFtqUG1Ri3E_aWi2LlJ7u7NydrCD7PK4Gzxh5",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94"
+        ]
+      },
+      {
+        "page": "https://carwashwiz.com/car-wash/best-microfiber-towel/",
+        "observed_page_type": "editorial_guide",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_454919bf91a89c2cb83a7640"
+        ]
+      },
+      {
+        "page": "https://www.autogeek.net/drying.html?srsltid=AfmBOoo5a7n6IbDQVkTEeiblEOrTgFyiBYzAe5MWzZmCRnJdgHR2UB6h",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_6cbefe8bfb2333a7521015b3"
+        ]
+      },
+      {
+        "page": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+        "observed_page_type": "unclassified_page",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_92d35d004d3da59946df24b9"
+        ]
+      },
+      {
+        "page": "https://flatsixes.com/porsche-products/the-best-car-towels-drying-detailing/",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_94042d16a210f9cdc8cbcc15"
+        ]
+      },
+      {
+        "page": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+        "observed_page_type": "discussion",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_b647e2d73618df545a60e54e"
+        ]
+      },
+      {
+        "page": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopJkAMwtV-RhFKC5LWW23Rz07gv325lqVGpEAQxF5mVFARDf5IP",
+        "observed_page_type": "commercial_listing",
+        "snippet_only": true,
+        "evidence_ids": [
+          "ev_f286838d0df9ad613d11c33a"
+        ]
+      }
+    ],
+    "weak_or_missing_coverage": [
+      {
+        "kind": "judgement_required",
+        "statement": "Page-level competitor coverage gaps cannot be asserted from titles/snippets alone.",
+        "evidence_ids": [
+          "ev_26bfe55c1dfaf57a44348d94",
+          "ev_454919bf91a89c2cb83a7640",
+          "ev_6cbefe8bfb2333a7521015b3",
+          "ev_92d35d004d3da59946df24b9",
+          "ev_94042d16a210f9cdc8cbcc15",
+          "ev_b647e2d73618df545a60e54e",
+          "ev_f286838d0df9ad613d11c33a"
+        ],
+        "limitation": "Fetch and inspect explicit ranking pages before claiming competitors omit a subject."
+      }
+    ],
+    "claims_requiring_evidence": [
+      "Performance, scratch-safety, absorbency and material comparisons require first-party or authoritative supporting evidence."
+    ]
+  },
+  "content_gaps": [
+    {
+      "gap": "Page-level competitor coverage gaps cannot be asserted from titles/snippets alone.",
+      "status": "unverified",
+      "trace_kind": "judgement_required",
+      "evidence_ids": [
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_92d35d004d3da59946df24b9",
+        "ev_94042d16a210f9cdc8cbcc15",
+        "ev_b647e2d73618df545a60e54e",
+        "ev_f286838d0df9ad613d11c33a"
+      ],
+      "limitation": "Fetch and inspect explicit ranking pages before claiming competitors omit a subject."
+    }
+  ],
+  "supporting_queries": [
+    {
+      "query": "microfiber towel for drying car",
+      "metrics": {
+        "monthly_search_volume": 5400,
+        "cpc_usd": 1.17,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 8
+      },
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7"
+      ]
+    },
+    {
+      "query": "microfiber towel for car drying",
+      "metrics": {
+        "monthly_search_volume": 1600,
+        "cpc_usd": 1.2,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 3
+      },
+      "evidence_ids": [
+        "ev_6da945a33cb44149b7d8ddb9"
+      ]
+    },
+    {
+      "query": "waffle weave car drying towel",
+      "metrics": {
+        "monthly_search_volume": 210,
+        "cpc_usd": 1.74,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0
+      },
+      "evidence_ids": [
+        "ev_23a73f980b3182e3935f21e9"
+      ]
+    },
+    {
+      "query": "best leaf blower for car drying",
+      "metrics": {
+        "monthly_search_volume": 170,
+        "cpc_usd": 1.43,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0
+      },
+      "evidence_ids": [
+        "ev_883cfd7c0ff49c3bc63b86db"
+      ]
+    },
+    {
+      "query": "best leaf blower for drying car",
+      "metrics": {
+        "monthly_search_volume": 170,
+        "cpc_usd": 1.43,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0
+      },
+      "evidence_ids": [
+        "ev_bb0a342214a0eaab10525cb2"
+      ]
+    },
+    {
+      "query": "best car dryer",
+      "metrics": {
+        "monthly_search_volume": 140,
+        "cpc_usd": 2.34,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0
+      },
+      "evidence_ids": [
+        "ev_1efb11a51a0410e2d4891a60"
+      ]
+    },
+    {
+      "query": "best car drying blower",
+      "metrics": {
+        "monthly_search_volume": 140,
+        "cpc_usd": 3.19,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0
+      },
+      "evidence_ids": [
+        "ev_b1c2674223e5867abe74521b"
+      ]
+    },
+    {
+      "query": "chamois for car drying",
+      "metrics": {
+        "monthly_search_volume": 140,
+        "cpc_usd": 0.94,
+        "paid_competition_level": "HIGH",
+        "keyword_difficulty": 0
+      },
+      "evidence_ids": [
+        "ev_1d80de1c8d32419e438b602b"
+      ]
+    }
+  ],
+  "entities_concepts": [
+    {
+      "name": "towels",
+      "kind": "observed_serp_term",
+      "evidence_ids": [
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_92d35d004d3da59946df24b9",
+        "ev_94042d16a210f9cdc8cbcc15",
+        "ev_f286838d0df9ad613d11c33a"
+      ]
+    },
+    {
+      "name": "microfiber",
+      "kind": "observed_serp_term",
+      "evidence_ids": [
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_454919bf91a89c2cb83a7640",
+        "ev_6cbefe8bfb2333a7521015b3",
+        "ev_92d35d004d3da59946df24b9"
+      ]
+    },
+    {
+      "name": "absorbent",
+      "kind": "observed_serp_term",
+      "evidence_ids": [
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_92d35d004d3da59946df24b9"
+      ]
+    },
+    {
+      "name": "vehicles",
+      "kind": "observed_serp_term",
+      "evidence_ids": [
+        "ev_26bfe55c1dfaf57a44348d94",
+        "ev_92d35d004d3da59946df24b9"
+      ]
+    }
+  ],
+  "required_questions": [
+    {
+      "question": "Do car drying towels really work?",
+      "evidence_ids": [
+        "ev_9011b332294a36321b5dc453"
+      ]
+    },
+    {
+      "question": "What do professional detailers use to dry cars?",
+      "evidence_ids": [
+        "ev_fd01b717f5a2715ff8dba619"
+      ]
+    },
+    {
+      "question": "What is the best cloth for drying cars?",
+      "evidence_ids": [
+        "ev_8ee7c6172f08a1260f6548ed"
+      ]
+    },
+    {
+      "question": "What towels do you use to dry cars?",
+      "evidence_ids": [
+        "ev_0ecff79f83c96838259bb05e"
+      ]
+    }
+  ],
+  "relevant_streetkingz_products": [
+    {
+      "subject_id": "product_20fcada95c00204601928709",
+      "name": "Heavy Duty Drying Towel – 1200gsm",
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "relevance": "The first-party product type/name directly overlaps the requested topic; inclusion must remain helpful rather than forced.",
+      "confidence": "high",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ]
+    }
+  ],
+  "internal_link_opportunities": [
+    {
+      "source_page": "https://streetkingz.co.uk/guides/best-car-drying-towel/",
+      "destination_page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "relationship": "Existing Street Kingz page has observed query/page relevance to the cornerstone topic.",
+      "suggested_anchor_direction": "Use descriptive natural language about best car drying towel; exact-match wording is not required.",
+      "confidence": "medium",
+      "evidence_ids": [
+        "ev_0d8d161d084b594fff388b97",
+        "ev_173c0ef3d02dbe8332b5662d",
+        "ev_19a68df8c0e971fcec1c8e49",
+        "ev_1ae40e8f6c6c8d148fabf41a",
+        "ev_22f176f73ebb5516944bfdc3",
+        "ev_386c0d66a38af9541621e08c",
+        "ev_414e200d878b278336920b75",
+        "ev_4da218218c6cd993691e0fb3",
+        "ev_4f19130a26005a5c3d3e5381",
+        "ev_51fddf294b672a671a3c03c0",
+        "ev_6d0843b6fba6e753515971ff",
+        "ev_86b58850ea0ee2b74c175403"
+      ]
+    },
+    {
+      "source_page": "https://streetkingz.co.uk/guides/best-car-drying-towel/",
+      "destination_page": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "relationship": "Existing Street Kingz page has observed query/page relevance to the cornerstone topic.",
+      "suggested_anchor_direction": "Use descriptive natural language about best car drying towel; exact-match wording is not required.",
+      "confidence": "medium",
+      "evidence_ids": [
+        "ev_1825a8ca5207fd32e94a7989",
+        "ev_25ee58148e4a213d93b4030b",
+        "ev_5a4142e0f62c166b7f496898",
+        "ev_8e80ef97bfdd2533644953e8",
+        "ev_9df1378687a3b2deabe8971c",
+        "ev_a3a9b21f77f051f2ee53db62",
+        "ev_b801de5da7836d1acb7d1239",
+        "ev_bcbe42b0a2777cc0e6fb74d8",
+        "ev_f8679fd09c25bde5fef9c79f",
+        "ev_fa4b222c5c25be18a71a133c"
+      ]
+    }
+  ],
+  "evidence_requirements": [
+    "Cite first-party product facts for Street Kingz product characteristics.",
+    "Use authoritative evidence for general safety or performance claims.",
+    "Collect explicit page-level competitor evidence before asserting coverage gaps."
+  ],
+  "claims_requiring_caution": [
+    "Performance, scratch-safety, absorbency and material comparisons require first-party or authoritative supporting evidence."
+  ],
+  "title_direction": "Use a clear reader-first title aligned to commercial_investigation intent; avoid an unqualified “best” claim unless criteria are explicit.",
+  "h1_direction": "State the topic and practical decision being answered for “best car drying towel”.",
+  "recommended_article_structure": [
+    {
+      "section": "Answer the core choice",
+      "purpose": "Resolve what “best car drying towel” means for this reader before discussing products.",
+      "trace_kind": "deterministic_derivation",
+      "evidence_ids": [
+        "ev_ed08924f3394b29222b9b9b0"
+      ]
+    },
+    {
+      "section": "Do car drying towels really work?",
+      "purpose": "Answer an observed searcher question directly and practically.",
+      "trace_kind": "observed_evidence",
+      "evidence_ids": [
+        "ev_9011b332294a36321b5dc453"
+      ]
+    },
+    {
+      "section": "What do professional detailers use to dry cars?",
+      "purpose": "Answer an observed searcher question directly and practically.",
+      "trace_kind": "observed_evidence",
+      "evidence_ids": [
+        "ev_fd01b717f5a2715ff8dba619"
+      ]
+    },
+    {
+      "section": "What is the best cloth for drying cars?",
+      "purpose": "Answer an observed searcher question directly and practically.",
+      "trace_kind": "observed_evidence",
+      "evidence_ids": [
+        "ev_8ee7c6172f08a1260f6548ed"
+      ]
+    },
+    {
+      "section": "What towels do you use to dry cars?",
+      "purpose": "Answer an observed searcher question directly and practically.",
+      "trace_kind": "observed_evidence",
+      "evidence_ids": [
+        "ev_0ecff79f83c96838259bb05e"
+      ]
+    },
+    {
+      "section": "How to choose a suitable option",
+      "purpose": "Explain decision criteria before presenting any genuinely relevant Street Kingz option.",
+      "trace_kind": "deterministic_derivation",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ]
+    }
+  ],
+  "conversion_opportunity": "Answer the problem first, then offer relevant Street Kingz products as optional next steps tied to stated selection criteria.",
+  "cannibalisation_assessment": {
+    "conflicts": [
+      {
+        "conflicting_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "overlap_reason": "The existing page has Search Console query evidence with strong token overlap to the proposed primary query.",
+        "severity": "medium",
+        "recommended_action": "differentiate_intent",
+        "evidence_ids": [
+          "ev_0d8d161d084b594fff388b97",
+          "ev_173c0ef3d02dbe8332b5662d",
+          "ev_19a68df8c0e971fcec1c8e49",
+          "ev_1ae40e8f6c6c8d148fabf41a",
+          "ev_22f176f73ebb5516944bfdc3",
+          "ev_386c0d66a38af9541621e08c",
+          "ev_414e200d878b278336920b75",
+          "ev_4da218218c6cd993691e0fb3",
+          "ev_4f19130a26005a5c3d3e5381",
+          "ev_51fddf294b672a671a3c03c0",
+          "ev_6d0843b6fba6e753515971ff",
+          "ev_86b58850ea0ee2b74c175403"
+        ]
+      },
+      {
+        "conflicting_url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+        "overlap_reason": "The existing page has Search Console query evidence with strong token overlap to the proposed primary query.",
+        "severity": "medium",
+        "recommended_action": "differentiate_intent",
+        "evidence_ids": [
+          "ev_1825a8ca5207fd32e94a7989",
+          "ev_25ee58148e4a213d93b4030b",
+          "ev_5a4142e0f62c166b7f496898",
+          "ev_8e80ef97bfdd2533644953e8",
+          "ev_9df1378687a3b2deabe8971c",
+          "ev_a3a9b21f77f051f2ee53db62",
+          "ev_b801de5da7836d1acb7d1239",
+          "ev_bcbe42b0a2777cc0e6fb74d8",
+          "ev_f8679fd09c25bde5fef9c79f",
+          "ev_fa4b222c5c25be18a71a133c"
+        ]
+      }
+    ],
+    "overall_risk": "medium",
+    "recommended_action": "human_review_required",
+    "limitation": null
+  },
+  "confidence": {
+    "level": "high",
+    "rationale": "Demand, SERP and first-party evidence are deterministic; page-level competitor coverage remains unavailable."
+  },
+  "freshness_requirements": {
+    "review_serp_after_days": 90,
+    "review_keyword_metrics_after_days": 90,
+    "review_product_facts_on_source_change": true
+  },
+  "do_cover": [
+    "Directly resolve the primary query and its decision criteria.",
+    "Do car drying towels really work?",
+    "Explain the relevance of absorbent where evidence supports it.",
+    "Explain the relevance of microfiber where evidence supports it.",
+    "Explain the relevance of towels where evidence supports it.",
+    "Explain the relevance of vehicles where evidence supports it.",
+    "What do professional detailers use to dry cars?",
+    "What is the best cloth for drying cars?",
+    "What towels do you use to dry cars?"
+  ],
+  "do_not_cover": [
+    "Unsupported claims about what ranking competitor pages omit.",
+    "Forced product mentions unrelated to the reader's decision.",
+    "Keyword-density targets or repetitive query variants.",
+    "Performance or safety claims without cited evidence."
+  ],
+  "open_questions": [
+    "Which explicit ranking pages should be inspected before finalising information-gap claims?",
+    "Does the human reviewer want a comparison-led guide or a method-led guide within the observed mixed intent?",
+    "Which internal links are editorially natural once the final article URL and surrounding copy exist?"
+  ],
+  "human_review_state": "awaiting_human_review"
+}

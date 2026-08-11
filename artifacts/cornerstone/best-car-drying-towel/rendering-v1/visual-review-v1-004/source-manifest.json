@@ -1,0 +1,14 @@
+{
+  "artifact_type": "visual_review_preview",
+  "source_preview": "../offline-preview-005",
+  "source_semantic_sha256": "d55cc6fc52429a1b39e93cb8e676b6f01ccc88230aaac2c163f2be07c2fb6b25",
+  "source_render_sha256": "2e01f1271febc883181965ffec3f35bf63b0cba9ec5a2ce64b923e271143521b",
+  "browser_openable": true,
+  "screenshots": {
+    "desktop": null,
+    "mobile": null
+  },
+  "changes_to_content_or_css": false,
+  "wordpress_writes": 0,
+  "ai_calls": 0
+}

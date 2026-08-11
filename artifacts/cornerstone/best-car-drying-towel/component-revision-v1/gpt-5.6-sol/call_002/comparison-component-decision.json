@@ -1,0 +1,11 @@
+{
+  "decision": "remove",
+  "rationale": "The available material identifies microfibre, waffle weave and chamois as options people search for, but it does not support a useful performance comparison. Removing the table avoids presenting a caveat-heavy comparison that would not help the reader choose.",
+  "evidence_ids": [
+    "ev_1d80de1c8d32419e438b602b",
+    "ev_23a73f980b3182e3935f21e9",
+    "ev_6da945a33cb44149b7d8ddb9",
+    "ev_ecc2c1bd4e72d712f2eda7d7"
+  ],
+  "customer_value": "The reader moves directly from the core buying criteria to applying them to their own vehicle and routine."
+}

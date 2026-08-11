@@ -1,0 +1,87 @@
+{
+  "artifact_type": "voice_corpus_import_audit",
+  "combined": {
+    "spoken": {
+      "sources": 24,
+      "words": 4205
+    },
+    "written": {
+      "sources": 3,
+      "words": 409
+    }
+  },
+  "excluded_existing": [
+    {
+      "reason": "AI-assisted copy cannot establish the founder's voice.",
+      "source_id": "sk_ai_cornerstone_semantic_page_excluded"
+    },
+    {
+      "reason": "Repository records do not establish author identity or whether copy was AI-transformed.",
+      "source_id": "sk_catalogue_authorship_uncertain"
+    }
+  ],
+  "excluded_upstream": {
+    "AI_GENERATED": 408,
+    "AI_TRANSFORMED": 0,
+    "THIRD_PARTY": 0,
+    "UNCERTAIN_AUTHORSHIP": 0
+  },
+  "existing_written_assessment": [
+    {
+      "authorship_class": "GENUINE_AUTHOR_CONTENT",
+      "influence_tier": "limited",
+      "limitation": "constrained_instruction",
+      "mode": "written",
+      "retained": true,
+      "source_id": "sk_voice_written_editorial_direction_2026_08_10",
+      "words": 148
+    },
+    {
+      "authorship_class": "GENUINE_AUTHOR_CONTENT",
+      "influence_tier": "limited",
+      "limitation": "semi_natural",
+      "mode": "written",
+      "retained": true,
+      "source_id": "sk_voice_written_founder_boundaries_2026_08_10",
+      "words": 130
+    },
+    {
+      "authorship_class": "GENUINE_AUTHOR_CONTENT",
+      "influence_tier": "limited",
+      "limitation": "constrained_instruction",
+      "mode": "written",
+      "retained": true,
+      "source_id": "sk_voice_written_adaptation_rules_2026_08_10",
+      "words": 131
+    }
+  ],
+  "imported": {
+    "duplicate_ids": 0,
+    "duplicate_texts": 0,
+    "excluded_upstream": 408,
+    "sources": 24,
+    "spoken_sources": 24,
+    "words": 4205,
+    "written_sources": 0
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "8514eb2c52735720e6f06af2515a5a167356d80e75250b3161baa7758c90a3bf",
+  "source_artifact": "imports/voice/street-kingz/voice-corpus.json",
+  "source_artifact_modified": false,
+  "validation": {
+    "artifact_type": "voice_corpus_import_validation",
+    "errors": [],
+    "metrics": {
+      "duplicate_ids": 0,
+      "duplicate_texts": 0,
+      "excluded_upstream": 408,
+      "sources": 24,
+      "spoken_sources": 24,
+      "words": 4205,
+      "written_sources": 0
+    },
+    "observed_semantic_sha256": "8514eb2c52735720e6f06af2515a5a167356d80e75250b3161baa7758c90a3bf",
+    "schema_version": "1.0.0",
+    "status": "PASS"
+  }
+}

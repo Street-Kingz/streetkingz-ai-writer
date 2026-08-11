@@ -1,0 +1,91 @@
+{
+  "artifact_type": "voice_diagnostic",
+  "customer_copy_modified": false,
+  "findings": [
+    {
+      "excerpt": "Construction tells you how the towel is made, while weave describes the way its fibres are arranged. Microfibre is a prominent car-drying option, and waffle weave is another format people search for, but the name alone does not establish which will perform better. Check the actual product description rather than assuming every towel with the same broad label is identical.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[2].data.cards[0].explanation",
+      "pattern_id": "formal_proof_language",
+      "reason": "Proof-oriented wording is useful internally but sounds rigid in customer-facing advice.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "Construction tells you how the towel is made, while weave describes the way its fibres are arranged. Microfibre is a prominent car-drying option, and waffle weave is another format people search for, but the name alone does not establish which will perform better. Check the actual product description rather than assuming every towel with the same broad label is identical.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[2].data.cards[0].explanation",
+      "pattern_id": "technical_without_practical_payoff",
+      "reason": "The technical point needs an immediate practical consequence in plain language.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "GSM means grams per square metre and describes the weight of the fabric. It is useful for understanding the type of towel you are considering, but it is not a quality score. I would look at GSM alongside the rest of the specification rather than using it to declare one towel better, safer or faster.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[2].data.cards[1].explanation",
+      "pattern_id": "technical_without_practical_payoff",
+      "reason": "The technical point needs an immediate practical consequence in plain language.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "Look at the edge finish as well as the main fabric. Edging is a separate part of the towel’s construction, so it deserves its own check when you compare product descriptions. Do not assume the centre fabric tells you how the whole towel is finished.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[2].data.cards[3].explanation",
+      "pattern_id": "definition_then_instruction",
+      "reason": "Clinical definition-plus-instruction phrasing is accurate but more formal than the direct, practical target voice.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "My view is that it makes the most sense for someone who actively wants a large, dense towel and is comfortable handling the extra weight once it is saturated. That wet weight is the trade-off. The product details support that fit assessment, but they do not make it a universal winner.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[4].data.relevance_reason",
+      "pattern_id": "detached_evidentiary",
+      "reason": "Detached evidentiary framing puts the internal proof process in the foreground instead of speaking plainly to the customer.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "My view is that it makes the most sense for someone who actively wants a large, dense towel and is comfortable handling the extra weight once it is saturated. That wet weight is the trade-off. The product details support that fit assessment, but they do not make it a universal winner.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[4].data.relevance_reason",
+      "pattern_id": "nominalised_formality",
+      "reason": "Abstract nouns create distance where direct advice would be clearer.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "My view is that it makes the most sense for someone who actively wants a large, dense towel and is comfortable handling the extra weight once it is saturated. That wet weight is the trade-off. The product details support that fit assessment, but they do not make it a universal winner.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[4].data.relevance_reason",
+      "pattern_id": "formal_proof_language",
+      "reason": "Proof-oriented wording is useful internally but sounds rigid in customer-facing advice.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    },
+    {
+      "excerpt": "There is no reliable basis here for naming one towel or method as the professional standard, so I would not pretend there is a single consensus.",
+      "factual_meaning_status": "preserve",
+      "path": "$.components[7].data.items[2].answer",
+      "pattern_id": "legalistic_absence",
+      "reason": "Legalistic absence language sounds defensive; preserve uncertainty in ordinary words.",
+      "recommendation": "Rewrite the delivery only; do not add, remove or strengthen the claim."
+    }
+  ],
+  "first_person_opportunities": [
+    {
+      "direction": "Keep the founder's direct judgement, but replace detached proof language with a plain statement of the product's fit and trade-off.",
+      "path": "$.components[4].data.relevance_reason"
+    }
+  ],
+  "legalistic_or_rigid_findings": 5,
+  "profile_id": "street-kingz-founder-v1",
+  "schema_version": "1.0.0",
+  "source_semantic_hash": "77e9e3a92bf9216b0e4874cbcb9e3943cbfab273d569dec8ac3d65ea6af5753b",
+  "status": "VOICE_MISMATCH_FOUND",
+  "too_technical_findings": 2,
+  "unnecessary_first_person_opportunities": [
+    {
+      "direction": "Criteria definitions and practical steps do not need extra first person; direct neutral explanation is more natural here.",
+      "paths": [
+        "$.components[2].data.cards",
+        "$.components[5].data"
+      ]
+    }
+  ]
+}

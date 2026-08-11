@@ -1,0 +1,9 @@
+{
+  "artifact_type": "human_approved_semantic_page",
+  "approval_state": "HUMAN_APPROVED",
+  "source_semantic_page_sha256": "22a7bc8d9fbef4a38f8afd69462297e44cfc3e52078fe7f155d2f7c151bd9b47",
+  "final_semantic_page_sha256": "d55cc6fc52429a1b39e93cb8e676b6f01ccc88230aaac2c163f2be07c2fb6b25",
+  "ai_calls": 0,
+  "wordpress_writes": 0,
+  "publication_attempts": 0
+}

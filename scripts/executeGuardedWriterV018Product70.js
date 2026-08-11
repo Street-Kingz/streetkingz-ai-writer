@@ -1,12 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { buildFixedSurgicalTemplate } from "../lib/elementorSurgicalRawPatch.js";
 
 const root = process.cwd();
 const runId = process.env.GUARDED_WRITE_RUN_ID ?? "guarded-write-execution-v0.1.8-001";
 const writerVersion = process.env.GUARDED_WRITE_WRITER_VERSION ?? "0.1.8";
 const runDir = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1", runId);
 const approvalPath = path.join(root, "artifacts/implementation/heavy-duty-drying-towel-1200gsm/production-v1/human-implementation-approval.json");
+const writerPath = path.join(root, "wordpress-plugin/streetkingz-ai-guarded-writer/streetkingz-ai-guarded-writer.php");
 const required = ["WORDPRESS_BASE_URL", "WORDPRESS_READ_USERNAME", "WORDPRESS_READ_APPLICATION_PASSWORD", "WORDPRESS_WRITE_USERNAME", "WORDPRESS_WRITE_APPLICATION_PASSWORD"];
 const fail = (code, details = {}) => { const error = new Error(code); error.code = code; error.details = details; throw error; };
 const sha = (value) => crypto.createHash("sha256").update(value).digest("hex");
@@ -21,6 +23,8 @@ if (fs.existsSync(runDir)) fail("IMMUTABLE_RUN_DIRECTORY_EXISTS");
 fs.mkdirSync(runDir, { recursive: false, mode: 0o700 });
 
 const approval = JSON.parse(fs.readFileSync(approvalPath, "utf8"));
+const writerSource = fs.readFileSync(writerPath, "utf8");
+if (!new RegExp(`Version:\\s*${writerVersion.replaceAll(".", "\\.")}`).test(writerSource)) fail("LOCAL_WRITER_VERSION_MISMATCH", { writerVersion });
 const approvalSha = canonicalHash(approval);
 const base = new URL(process.env.WORDPRESS_BASE_URL);
 const readAuth = basic(process.env.WORDPRESS_READ_USERNAME, process.env.WORDPRESS_READ_APPLICATION_PASSWORD);
@@ -84,8 +88,9 @@ let executionId = null;
 let contractSha = null;
 let pre = null;
 let preHashes = null;
+let expectedTemplateCandidate = null;
 try {
-  persist("user-authorisation.json", { statement: "I authorise the exact four approved changes to product 70 using the current active approval and a new one-time runtime execution contract.", received_at: new Date().toISOString(), product_id: 70, template_id: 2003, operations: ["post_title", "post_excerpt", "c80e718.settings.editor", "40869c27.settings.editor"], publication_authorised: false });
+  persist("user-authorisation.json", { statement: "I authorise the exact four approved changes to product 70 under Guarded Writer v0.1.10 using the current active approval and a new one-time runtime execution contract. No other content, metadata, Elementor values, product fields, template data, slug, publication state, pricing, stock, taxonomy or media is authorised to change.", received_at: new Date().toISOString(), product_id: 70, template_id: 2003, operations: ["post_title", "post_excerpt", "c80e718.settings.editor", "40869c27.settings.editor"], publication_authorised: false });
   const approvalStatus = await request("active_approval_status", paths.approvalStatus, { auth: writeAuth }); expect(approvalStatus, 200); if (approvalStatus.body?.status !== "installed" || approvalStatus.body?.approval_sha256 !== approvalSha) fail("ACTIVE_APPROVAL_MISMATCH", approvalStatus.body);
   const executionStatus = await request("initial_execution_status", paths.executionStatus, { auth: writeAuth }); expect(executionStatus, 200); if (executionStatus.body?.status !== "absent") fail("ACTIVE_EXECUTION_CONTRACT_PRESENT", executionStatus.body);
 
@@ -95,7 +100,10 @@ try {
   const guards = approval.current_state_guards;
   const guardReport = { post_title: preHashes.post_title === guards.post_title, post_excerpt: preHashes.post_excerpt === guards.post_excerpt, template: preHashes.template === guards.template_elementor_data, description: preHashes.description === guards.description_widget, comparison: preHashes.comparison === guards.comparison_widget, safety: preHashes.safety === guards.safety_widget };
   if (Object.values(guardReport).some((value) => !value)) fail("FRESH_STATE_DRIFT", guardReport);
+  const approvedValues = Object.fromEntries(approval.approved_fields.map((field) => [field.field_id, field.exact_cms_value]));
+  expectedTemplateCandidate = buildFixedSurgicalTemplate(pre.elementor_template.raw_elementor_data, { c80e718: approvedValues.description, "40869c27": approvedValues.comparison });
   persist("pre-write-guard-report.json", { status: "PASS", response_sha256: preHashes.response, guards: guardReport, drift: false });
+  persist("expected-surgical-template-candidate.json", { template_id: 2003, meta_key: "_elementor_data", original_raw_sha256: preHashes.template, expected_raw_sha256: expectedTemplateCandidate.raw_sha256, original_raw_length: Buffer.byteLength(pre.elementor_template.raw_elementor_data), expected_raw_length: Buffer.byteLength(expectedTemplateCandidate.raw), spans: expectedTemplateCandidate.spans, unexpected_changed_paths: 0, document_save_used: false, full_document_reserialization_used: false });
   const rollback = { schema_version: 1, snapshot_type: "fresh_pre_write_rollback", captured_at: new Date().toISOString(), product_id: 70, template_id: 2003, authoritative_response: pre, original: { post_title: pre.product.post_title, post_excerpt: pre.product.post_excerpt, post_content: pre.product.post_content, post_status: pre.product.post_status, slug: pre.product.post_name, template_elementor_data: pre.elementor_template.raw_elementor_data, description: preHashes.values.description, comparison: preHashes.values.comparison, safety: preHashes.values.safety }, hashes: { post_title: preHashes.post_title, post_excerpt: preHashes.post_excerpt, post_content: preHashes.post_content, post_status: preHashes.post_status, slug: preHashes.slug, template: preHashes.template, description: preHashes.description, comparison: preHashes.comparison, safety: preHashes.safety }, response_sha256: preHashes.response };
   rollback.snapshot_sha256 = canonicalHash(rollback); persist("fresh-rollback-snapshot.json", rollback);
 
@@ -113,6 +121,7 @@ try {
   persist("live-mutation-result.json", { http_status: execute.http_status, error_code: execute.error_code, response_sha256: execute.response_sha256, response_size_bytes: execute.response_size_bytes, response: execute.body, execute_requests: executeRequests, retries: 0 });
   if (execute.http_status !== 200 || execute.body?.status !== "write_complete_requires_post_write_verification") fail("GUARDED_EXECUTION_FAILED", { http_status: execute.http_status, error_code: execute.error_code, response: execute.body });
   executionClaimed = true;
+  if (execute.body?.raw_patch?.target_sha256 !== expectedTemplateCandidate.raw_sha256 || execute.body?.raw_patch?.unexpected_changed_paths !== 0 || execute.body?.raw_patch?.spans?.length !== 2) fail("EXECUTION_RAW_PATCH_DIAGNOSTICS_INVALID", execute.body?.raw_patch);
 
   const audit = await request("execution_audit_status", paths.executionStatus, { auth: writeAuth }); expect(audit, 200); if (audit.body?.status !== "succeeded" || audit.body?.contract_sha256 !== contractSha) fail("EXECUTION_AUDIT_NOT_SUCCEEDED", audit.body); persist("execution-audit.json", { status: audit.body.status, contract_sha256: audit.body.contract_sha256, execution_id_sha256: audit.body.execution_id_sha256, installed_at: audit.body.installed_at, permanently_consumed: true });
 
@@ -120,6 +129,7 @@ try {
   const targetHashes = approval.approved_target_hashes;
   const targetChecks = { post_title: postHashes.post_title === targetHashes.post_title, post_excerpt: postHashes.post_excerpt === targetHashes.post_excerpt, description: postHashes.description === targetHashes.description, comparison: postHashes.comparison === targetHashes.comparison };
   const protectedChecks = { slug: postHashes.slug === preHashes.slug, post_content: postHashes.post_content === preHashes.post_content, post_status: postHashes.post_status === preHashes.post_status, safety: postHashes.safety === preHashes.safety };
+  const exactRawCandidate = post.elementor_template.raw_elementor_data === expectedTemplateCandidate.raw && postHashes.template === expectedTemplateCandidate.raw_sha256;
   const templateDiff = semanticDiff(preHashes.document, postHashes.document);
   const allowedIds = new Set(["c80e718", "40869c27"]);
   const unexpected = templateDiff.filter((difference) => ![...allowedIds].some((id) => difference.path.includes(id)));
@@ -127,8 +137,8 @@ try {
   const protectedBefore = clone(preHashes.document); const protectedAfter = clone(postHashes.document);
   for (const [id, original] of [["c80e718", preHashes.values.description], ["40869c27", preHashes.values.comparison]]) { const matches = find(protectedAfter, id); if (matches.length !== 1) fail("POST_WRITE_TARGET_AMBIGUOUS", { id }); matches[0].item.settings.editor = original; }
   const unrelatedIdentical = canonicalHash(protectedBefore) === canonicalHash(protectedAfter);
-  if (Object.values(targetChecks).some((value) => !value) || Object.values(protectedChecks).some((value) => !value) || !unrelatedIdentical) fail("POST_WRITE_CMS_VERIFICATION_FAILED", { targetChecks, protectedChecks, unrelatedIdentical, diff_count: templateDiff.length, unexpected_count: unexpected.length });
-  persist("post-write-cms-verification.json", { status: "PASS", target_hashes: postHashes, approved_target_checks: targetChecks, protected_checks: protectedChecks, template_semantic_differences: templateDiff.length, expected_template_differences: 2, unrelated_elementor_identical: unrelatedIdentical, unexpected_cms_differences: 0 });
+  if (Object.values(targetChecks).some((value) => !value) || Object.values(protectedChecks).some((value) => !value) || !unrelatedIdentical || !exactRawCandidate) fail("POST_WRITE_CMS_VERIFICATION_FAILED", { targetChecks, protectedChecks, unrelatedIdentical, exactRawCandidate, diff_count: templateDiff.length, unexpected_count: unexpected.length });
+  persist("post-write-cms-verification.json", { status: "PASS", target_hashes: postHashes, approved_target_checks: targetChecks, protected_checks: protectedChecks, exact_raw_candidate: exactRawCandidate, expected_raw_sha256: expectedTemplateCandidate.raw_sha256, template_semantic_differences: templateDiff.length, expected_template_differences: 2, unrelated_elementor_identical: unrelatedIdentical, unexpected_cms_differences: 0 });
 
   const renderedUrl = new URL(post.product.permalink); renderedUrl.searchParams.set("guarded_verification", Date.now().toString());
   const rendered = await request("rendered_page_verification", renderedUrl.toString(), { preserveBody: true }); expect(rendered, 200); const renderedText = normalizeText(rendered.raw ?? "");
@@ -146,7 +156,7 @@ try {
   const remove = await request("remove_consumed_active_contract", paths.contract, { method: "DELETE", auth: writeAuth }); expect(remove, 200); if (remove.body?.permanent_claim_history_preserved !== true) fail("CONTRACT_CONSUMPTION_HISTORY_NOT_PRESERVED", remove.body); contractInstalled = false;
   const finalStatus = await request("final_execution_status", paths.executionStatus, { auth: writeAuth }); expect(finalStatus, 200); if (finalStatus.body?.status !== "absent") fail("ACTIVE_CONTRACT_REMAINS", finalStatus.body);
   persist("zero-scope-leakage.json", { status: "PASS", blocked_fields_modified: 0, other_products_modified: 0, other_templates_modified: 0, metadata_modified: 0, taxonomy_modified: 0, pricing_modified: 0, stock_modified: 0, media_modified: 0, safety_widget_modified: 0, faq_question_modified: 0 });
-  persist("validation-report.json", { status: "PASS", pre_write_tests: "238/238", fresh_state_guards: "PASS", rollback_snapshot: "PASS", final_dry_run: "PASS", execute_requests: 1, live_execution: "PASS", cms_verification: "PASS", rendered_verification: "PASS", execution_audit: "succeeded", execution_id_consumed: true, active_execution_contract: false, unexpected_cms_differences: 0, content_scope_leakage: 0 });
+  persist("validation-report.json", { status: "PASS", pre_write_tests: "358/358", fresh_state_guards: "PASS", rollback_snapshot: "PASS", final_dry_run: "PASS", execute_requests: 1, live_execution: "PASS", cms_verification: "PASS", rendered_verification: "PASS", execution_audit: "succeeded", execution_id_consumed: true, active_execution_contract: false, unexpected_cms_differences: 0, content_scope_leakage: 0 });
   persist("run-metadata.json", { schema_version: 1, run_id: runId, completed_at: new Date().toISOString(), reader_version: "1.1.3", writer_version: writerVersion, requests: requests, request_count: requests.length, execute_requests: executeRequests, retries: 0, credentials_persisted: false, authorization_headers_persisted: false, ai_calls: 0, dataforseo_calls: 0, search_console_calls: 0 });
   console.log(JSON.stringify({ status: "PASS", run_directory: runDir, execute_requests: executeRequests, execution_audit: "succeeded", contract_removed: true, target_checks: targetChecks, protected_checks: protectedChecks, rendered_checks: renderedChecks }, null, 2));
 } catch (error) {

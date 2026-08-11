@@ -1,0 +1,353 @@
+{
+  "appearances": [
+    {
+      "classification": "brief_reference",
+      "component_id": "01_hero_db1ccb26",
+      "component_type": "hero",
+      "concept_id": "gsm",
+      "text": "I’ll show you how to narrow the choice to something practical for your vehicle instead of chasing whichever product has the biggest headline number."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "02_quick_answer_eb07986e",
+      "component_type": "quick_answer",
+      "concept_id": "gsm",
+      "text": "Construction, weave and GSM."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "gsm",
+      "text": "GSM in context"
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "gsm",
+      "text": "GSM means grams per square metre and describes the weight of the fabric."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "gsm",
+      "text": "I would look at GSM alongside the rest of the specification rather than using it to declare one towel better, safer or faster."
+    },
+    {
+      "classification": "product_specification",
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "concept_id": "gsm",
+      "text": "Where the Street Kingz 1200 GSM towel fits"
+    },
+    {
+      "classification": "product_specification",
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "concept_id": "gsm",
+      "text": "It has a 1200 GSM dual-sided microfibre construction, measures 90 × 60 cm, uses soft microfibre edging and is listed as suitable for cars and larger vehicles."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "02_quick_answer_eb07986e",
+      "component_type": "quick_answer",
+      "concept_id": "dimensions",
+      "text": "Dimensions and edging."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "dimensions",
+      "text": "Microfibre is a prominent car-drying option, and waffle weave is another format people search for, but the name alone does not establish which will perform better."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "dimensions",
+      "text": "Dimensions"
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "dimensions",
+      "text": "Dimensions affect how much panel area a towel can cover and how easy it is to place and control."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "dimensions",
+      "text": "A large format may be useful across broad panels, but more size is not automatically better."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "concept_id": "dimensions",
+      "text": "A larger vehicle with broad panels may make a larger towel convenient, while a smaller car or tighter bodywork may favour something easier to position."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "concept_id": "dimensions",
+      "text": "A towel takes on extra weight as it collects water, and a large format can become harder to lift, reposition or wring."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "concept_id": "dimensions",
+      "text": "If you expect to wring the towel partway through, choose a format you can handle comfortably at that stage."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "concept_id": "dimensions",
+      "text": "Choose the format you can still control comfortably partway through the job."
+    },
+    {
+      "classification": "product_specification",
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "concept_id": "dimensions",
+      "text": "It has a 1200 GSM dual-sided microfibre construction, measures 90 × 60 cm, uses soft microfibre edging and is listed as suitable for cars and larger vehicles."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "10_conclusion_b18ab30e",
+      "component_type": "conclusion",
+      "concept_id": "dimensions",
+      "text": "The Street Kingz heavy-duty towel is worth considering if its large, dense format and handling trade-off suit you."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "02_quick_answer_eb07986e",
+      "component_type": "quick_answer",
+      "concept_id": "edging",
+      "text": "Dimensions and edging."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "edging",
+      "text": "Edging"
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "edging",
+      "text": "Look at the edge finish as well as the main fabric."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "edging",
+      "text": "Edging is a separate part of the towel’s construction, so it deserves its own check when you compare product descriptions."
+    },
+    {
+      "classification": "product_specification",
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "concept_id": "edging",
+      "text": "It has a 1200 GSM dual-sided microfibre construction, measures 90 × 60 cm, uses soft microfibre edging and is listed as suitable for cars and larger vehicles."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "concept_id": "saturated_handling",
+      "text": "Wet handling is where a good-looking specification can meet real-world inconvenience."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "05_rich_text_section_cfb857cc",
+      "component_type": "rich_text_section",
+      "concept_id": "saturated_handling",
+      "text": "The Street Kingz towel covered next is specifically described as becoming heavier when saturated, so that trade-off needs to suit you rather than surprise you."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "concept_id": "saturated_handling",
+      "text": "My view is that it makes the most sense for someone who actively wants a large, dense towel and is comfortable handling the extra weight once it is saturated."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "07_rich_text_section_7c121c6a",
+      "component_type": "rich_text_section",
+      "concept_id": "saturated_handling",
+      "text": "Wring it only when it becomes saturated."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "02_quick_answer_eb07986e",
+      "component_type": "quick_answer",
+      "concept_id": "care",
+      "text": "Use and care instructions."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "08_key_takeaway_db6e5d8e",
+      "component_type": "key_takeaway",
+      "concept_id": "care",
+      "text": "How to wash, dry and care for the towel"
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "08_key_takeaway_db6e5d8e",
+      "component_type": "key_takeaway",
+      "concept_id": "care",
+      "text": "For the Street Kingz towel, use a cold, gentle wash with suitable detergent, then let it air dry before putting it away clean and dry."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "08_key_takeaway_db6e5d8e",
+      "component_type": "key_takeaway",
+      "concept_id": "care",
+      "text": "Do not use fabric softener."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "08_key_takeaway_db6e5d8e",
+      "component_type": "key_takeaway",
+      "concept_id": "care",
+      "text": "Do not use bleach."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "08_key_takeaway_db6e5d8e",
+      "component_type": "key_takeaway",
+      "concept_id": "care",
+      "text": "Air dry rather than tumble dry."
+    },
+    {
+      "classification": "brief_reference",
+      "component_id": "02_quick_answer_eb07986e",
+      "component_type": "quick_answer",
+      "concept_id": "construction",
+      "text": "Construction, weave and GSM."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "construction",
+      "text": "Construction and weave"
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "construction",
+      "text": "Construction tells you how the towel is made, while weave describes the way its fibres are arranged."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "construction",
+      "text": "Microfibre is a prominent car-drying option, and waffle weave is another format people search for, but the name alone does not establish which will perform better."
+    },
+    {
+      "classification": "substantial_explanation",
+      "component_id": "03_criteria_cards_44e50cdc",
+      "component_type": "criteria_cards",
+      "concept_id": "construction",
+      "text": "Edging is a separate part of the towel’s construction, so it deserves its own check when you compare product descriptions."
+    },
+    {
+      "classification": "product_specification",
+      "component_id": "06_product_recommendation_55fb7dcb",
+      "component_type": "product_recommendation",
+      "concept_id": "construction",
+      "text": "It has a 1200 GSM dual-sided microfibre construction, measures 90 × 60 cm, uses soft microfibre edging and is listed as suitable for cars and larger vehicles."
+    },
+    {
+      "classification": "faq_direct_answer",
+      "component_id": "09_faq_5dc1c294",
+      "component_type": "faq",
+      "concept_id": "construction",
+      "text": "A purpose-made microfibre drying towel is a relevant option, but there is no evidence here that every microfibre towel is better than every waffle-weave towel, chamois or other method."
+    }
+  ],
+  "artifact_type": "concept_ownership_validation",
+  "concepts": {
+    "care": {
+      "brief_reference_count": 1,
+      "faq_direct_answer_count": 0,
+      "max_substantial_components": 2,
+      "primary_component_id": "08_key_takeaway_db6e5d8e",
+      "product_specification_count": 0,
+      "substantial_component_ids": [
+        "08_key_takeaway_db6e5d8e"
+      ]
+    },
+    "construction": {
+      "brief_reference_count": 1,
+      "faq_direct_answer_count": 1,
+      "max_substantial_components": 2,
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "product_specification_count": 1,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc"
+      ]
+    },
+    "dimensions": {
+      "brief_reference_count": 4,
+      "faq_direct_answer_count": 0,
+      "max_substantial_components": 2,
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "product_specification_count": 1,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc",
+        "05_rich_text_section_cfb857cc"
+      ]
+    },
+    "edging": {
+      "brief_reference_count": 1,
+      "faq_direct_answer_count": 0,
+      "max_substantial_components": 1,
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "product_specification_count": 1,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc"
+      ]
+    },
+    "gsm": {
+      "brief_reference_count": 2,
+      "faq_direct_answer_count": 0,
+      "max_substantial_components": 2,
+      "primary_component_id": "03_criteria_cards_44e50cdc",
+      "product_specification_count": 2,
+      "substantial_component_ids": [
+        "03_criteria_cards_44e50cdc"
+      ]
+    },
+    "saturated_handling": {
+      "brief_reference_count": 1,
+      "faq_direct_answer_count": 0,
+      "max_substantial_components": 2,
+      "primary_component_id": "05_rich_text_section_cfb857cc",
+      "product_specification_count": 0,
+      "substantial_component_ids": [
+        "05_rich_text_section_cfb857cc",
+        "06_product_recommendation_55fb7dcb"
+      ]
+    }
+  },
+  "errors": [],
+  "policy_id": "best_car_drying_towel_concept_ownership_v1",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

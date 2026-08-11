@@ -1,0 +1,110 @@
+[
+  {
+    "approximate_words": 148,
+    "authorship_class": "GENUINE_AUTHOR_CONTENT",
+    "content": "Street Kingz content should feel as though the founder is talking directly to the customer. First-person language such as I, me, my, we and our is allowed and encouraged where it makes the writing more natural. However, do not force first-person language into every paragraph. The desired effect is founder-led, experienced but not pretending to know everything, straightforward, conversational, useful, confident where evidence allows, honest about limitations, and written for normal people who like having a clean car, not detailing obsessives. Avoid corporate editorial voice, academic language, SEO-blog filler, robotic neutrality, excessive disclaimers, internal governance terminology, repeated evidence caveats, fake authority, exaggerated detailing language and unnecessary jargon. A future customer should be able to say: Yes, that sounds like me. I don't say that. That's too formal. I swear occasionally, but not in articles. I use we when talking about the company and I when giving my opinion.",
+    "context": "editorial_direction",
+    "date": "2026-08-10",
+    "editing_level": "self_edited_unknown",
+    "eligible_for_voice_analysis": true,
+    "exclusion_reason": null,
+    "influence_tier": "limited",
+    "mode": "written",
+    "naturalness": "constrained_instruction",
+    "original_or_transformed": "original",
+    "platform_constraints": [
+      "technical task brief"
+    ],
+    "source_id": "sk_voice_written_editorial_direction_2026_08_10",
+    "source_reference": "Human-authored Site Voice Profile task: CORE VOICE and HUMAN REVIEW / CORRECTION LOOP",
+    "source_type": "long_form_message",
+    "voice_confidence": "high",
+    "voice_identity": "street-kingz-founder"
+  },
+  {
+    "approximate_words": 130,
+    "authorship_class": "GENUINE_AUTHOR_CONTENT",
+    "content": "I wouldn't choose a towel on GSM alone. For most people, I'd look at size and handling as well as GSM. If you drive a larger car, I'd pay attention to how manageable the towel becomes when wet. I sell a 1200gsm towel, but that doesn't mean I'm going to tell you the biggest GSM number automatically wins. Street Kingz is my business. The copy should sound natural for me to say things such as I sell, our and we. Yes, this is my product. Here's where it fits. Decide whether that suits what you need. Do not pretend Street Kingz is an unrelated third party. Do not oversell it. Do not claim it is objectively the best. Do not invent personal testing, customer behaviour, sales history or product-development history.",
+    "context": "onboarding_questionnaire",
+    "date": "2026-08-10",
+    "editing_level": "deliberate_examples",
+    "eligible_for_voice_analysis": true,
+    "exclusion_reason": null,
+    "influence_tier": "limited",
+    "mode": "written",
+    "naturalness": "semi_natural",
+    "original_or_transformed": "original",
+    "platform_constraints": [
+      "examples selected to define editorial boundaries"
+    ],
+    "source_id": "sk_voice_written_founder_boundaries_2026_08_10",
+    "source_reference": "Human-authored founder voice requirements and examples",
+    "source_type": "questionnaire_response",
+    "voice_confidence": "high",
+    "voice_identity": "street-kingz-founder"
+  },
+  {
+    "approximate_words": 131,
+    "authorship_class": "GENUINE_AUTHOR_CONTENT",
+    "content": "Spoken material is excellent for discovering vocabulary, rhythm, humour, directness, explanations, opinions, natural phrasing, recommendation behaviour and personality. But spoken material may contain filler, repetition, fragments, abandoned sentences, conversational loops and context dependent on video. Written material may provide better evidence for paragraph construction, punctuation, long-form pacing, heading transitions, written explanations and commercial wording. The goal is: this sounds like this person sat down and wrote it carefully, not: this is a transcript. Knowing how someone speaks does not tell us what happened to them. Voice evidence may establish that Ben naturally writes: I'd go for the larger one if. That permits the construction stylistically. It does not permit: I've used this every weekend for two years. Personal experiences, testing history, customer experiences, company history and anecdotes require explicit factual evidence.",
+    "context": "architecture_direction",
+    "date": "2026-08-10",
+    "editing_level": "formal_task_brief",
+    "eligible_for_voice_analysis": true,
+    "exclusion_reason": null,
+    "influence_tier": "limited",
+    "mode": "written",
+    "naturalness": "constrained_instruction",
+    "original_or_transformed": "original",
+    "platform_constraints": [
+      "technical architecture specification"
+    ],
+    "source_id": "sk_voice_written_adaptation_rules_2026_08_10",
+    "source_reference": "Human-authored spoken/written and voice/fact boundary requirements",
+    "source_type": "long_form_message",
+    "voice_confidence": "medium",
+    "voice_identity": "street-kingz-founder"
+  },
+  {
+    "approximate_words": 11,
+    "authorship_class": "AI_TRANSFORMED",
+    "content": "AI-assisted cornerstone semantic page; retained only as an excluded provenance record.",
+    "context": "ai_assisted_editorial",
+    "date": "2026-08-10",
+    "editing_level": "ai_transformed",
+    "eligible_for_voice_analysis": false,
+    "exclusion_reason": "AI-assisted copy cannot establish the founder's voice.",
+    "influence_tier": "excluded",
+    "mode": "written",
+    "naturalness": "not_applicable",
+    "original_or_transformed": "original",
+    "platform_constraints": [],
+    "source_id": "sk_ai_cornerstone_semantic_page_excluded",
+    "source_reference": "artifacts/cornerstone/best-car-drying-towel/component-revision-v1/deterministic-acceptance-001/semantic-page.json",
+    "source_type": "article",
+    "voice_confidence": "low",
+    "voice_identity": "street-kingz-founder"
+  },
+  {
+    "approximate_words": 15,
+    "authorship_class": "UNCERTAIN_AUTHORSHIP",
+    "content": "Existing product catalogue copy; authorship is not established and it is excluded from voice learning.",
+    "context": "product_catalogue",
+    "date": null,
+    "editing_level": "unknown",
+    "eligible_for_voice_analysis": false,
+    "exclusion_reason": "Repository records do not establish author identity or whether copy was AI-transformed.",
+    "influence_tier": "excluded",
+    "mode": "written",
+    "naturalness": "marketplace_or_catalogue_constrained",
+    "original_or_transformed": "original",
+    "platform_constraints": [
+      "catalogue format"
+    ],
+    "source_id": "sk_catalogue_authorship_uncertain",
+    "source_reference": "catalogue/products.js",
+    "source_type": "product_description",
+    "voice_confidence": "low",
+    "voice_identity": "street-kingz-founder"
+  }
+]

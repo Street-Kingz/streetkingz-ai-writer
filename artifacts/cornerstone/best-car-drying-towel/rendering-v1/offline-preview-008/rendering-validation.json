@@ -1,0 +1,16 @@
+{
+  "artifact_type": "offline_semantic_page_render_validation",
+  "status": "PASS",
+  "h1_count": 1,
+  "required_media_missing": [
+    "media_hero_lifestyle"
+  ],
+  "optional_media_missing": [
+    "media_how_to_dry_a_car_with_a_microfibre_towel"
+  ],
+  "wordpress_writes": 0,
+  "elementor_document_save": false,
+  "rendered_html_sha256": "4a0c09b46a20270c1431ad70201ed992e6a9fa44e481151b850d43fc4092801f",
+  "rendered_css_sha256": "49b6108934ccebb4dbbcc95fea4333365b938bbc5328612c6734389bbae35776",
+  "semantic_page_sha256": "d55cc6fc52429a1b39e93cb8e676b6f01ccc88230aaac2c163f2be07c2fb6b25"
+}

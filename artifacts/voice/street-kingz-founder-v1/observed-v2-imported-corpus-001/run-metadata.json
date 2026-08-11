@@ -1,0 +1,9 @@
+{
+  "ai_calls": 0,
+  "artifact_type": "voice_profile_build_run",
+  "mode": "offline_deterministic",
+  "profile_hash": "2deeba720a6ed2a98e4a9e35655924fb53c19995aff7cc771e1720f25b9cc3bd",
+  "schema_version": "1.0.0",
+  "source_semantic_sha256": "8514eb2c52735720e6f06af2515a5a167356d80e75250b3161baa7758c90a3bf",
+  "wordpress_writes": 0
+}

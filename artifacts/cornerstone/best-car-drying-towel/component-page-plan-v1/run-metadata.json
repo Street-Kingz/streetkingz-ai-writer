@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_page_plan_run_metadata",
+  "packet_path": "artifacts/cornerstone/best-car-drying-towel/fixture-v1/research-packet.json",
+  "strategy_path": "artifacts/cornerstone/best-car-drying-towel/strategy-v1/gpt-5.6-sol/call_002/strategy.json",
+  "plan_id": "editorial_page_plan_8bb7486ecf70e3989397c42d",
+  "deterministic_content_sha256": "694d0d475b3cd2be863a1c7f02a0c38c29b2ec82608ba2cd61119dcfbce4167b",
+  "ai_calls": 0,
+  "wordpress_writes": 0
+}

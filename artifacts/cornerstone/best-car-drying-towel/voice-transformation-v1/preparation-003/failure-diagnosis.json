@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "voice_transformation_failure_diagnosis",
+  "call_directory": "artifacts/cornerstone/best-car-drying-towel/voice-transformation-v1/gpt-5.6-sol/call_001",
+  "classification": "FAILED_AS_DESIGNED",
+  "media": {
+    "root_cause": "The response contract asked the model to reproduce source-owned media_requirements. The response preserved the values but reordered object keys, and strict JSON representation comparison correctly treated that as metadata drift.",
+    "affected_components": ["01_hero_db1ccb26", "07_rich_text_section_7c121c6a"],
+    "model_authority_should_exist": false,
+    "correction": "The model-output schema now requires empty media arrays; the runtime reattaches the exact source arrays after parsing."
+  },
+  "language": {
+    "root_cause": "The prompt required factual/evidence preservation but did not clearly state that wording was authorised to change, and the register detector was too narrow for all evidence-process constructions.",
+    "matches": [
+      {"path": "$.components[2].data.cards[0].explanation", "phrase": "does not establish", "classification": "customer_facing_evidence_register"},
+      {"path": "$.components[4].data.relevance_reason", "phrase": "product details support", "classification": "detached_evidentiary_register"},
+      {"path": "$.components[4].data.relevance_reason", "phrase": "fit assessment", "classification": "detached_evidentiary_register"},
+      {"path": "$.components[7].data.items[2].answer", "phrase": "There is no reliable basis", "classification": "legalistic_qualification"}
+    ],
+    "claim_annotation_duplicates": true,
+    "correction": "The prompt now explicitly separates meaning preservation from wording preservation and the visible-copy validator rejects the bounded evidence-process register while leaving metadata untouched."
+  },
+  "architecture_redesign_required": false
+}

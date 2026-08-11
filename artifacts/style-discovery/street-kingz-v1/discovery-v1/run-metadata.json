@@ -1,0 +1,11 @@
+{
+  "artifact_type": "site_style_discovery_run",
+  "discovery_version": "1.0.0",
+  "source_urls": [
+    "https://streetkingz.co.uk/",
+    "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+  ],
+  "ai_calls": 0,
+  "wordpress_writes": 0,
+  "profile_hash": "48cf127d0886a37cb868713789d7e0b1c69cd55489da843efd123b83de32a261"
+}

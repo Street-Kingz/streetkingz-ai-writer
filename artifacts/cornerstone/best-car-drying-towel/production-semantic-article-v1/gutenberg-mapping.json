@@ -1,0 +1,111 @@
+{
+  "artifact_type": "gutenberg_rendering_plan",
+  "mapping_version": "1.0.0",
+  "semantic_page_sha256": "8b97f6dc8919a60c3b266bc99d6ad63bf086cb9838bbdce223ad13ac4fa66ad5",
+  "semantic_content_modified": false,
+  "component_mapping": {
+    "hero": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/group + core/cover-or-image + core/heading",
+      "confidence": "medium",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "stacked"
+    },
+    "quick_answer": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/group + core/heading + core/list",
+      "confidence": "medium",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "natural-flow"
+    },
+    "rich_text_section": {
+      "state": "NATIVE_BLOCK",
+      "target": "core/heading + core/paragraph + core/list",
+      "confidence": "high",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "natural-flow"
+    },
+    "criteria_cards": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/group + core/columns",
+      "confidence": "medium",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "stacked"
+    },
+    "comparison_table": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/table",
+      "confidence": "high",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "horizontal-scroll-or-stack"
+    },
+    "product_recommendation": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/group + WooCommerce product link + core/button",
+      "confidence": "medium",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "stacked"
+    },
+    "pros_tradeoffs": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/columns + core/list",
+      "confidence": "high",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "stacked"
+    },
+    "founder_note": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/group + core/paragraph",
+      "confidence": "high",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "natural-flow"
+    },
+    "faq": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/heading + core/paragraph",
+      "confidence": "medium",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "natural-flow",
+      "notes": "Core Details availability was not evidenced in the supplied site artifacts; avoid assuming an accordion plugin."
+    },
+    "conclusion": {
+      "state": "NATIVE_BLOCK",
+      "target": "core/heading + core/paragraph",
+      "confidence": "high",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "natural-flow"
+    },
+    "call_to_action": {
+      "state": "COMPOSED_BLOCKS",
+      "target": "core/paragraph + core/button",
+      "confidence": "medium",
+      "custom_code_required": false,
+      "editable": true,
+      "semantic_html": true,
+      "mobile": "stacked"
+    }
+  },
+  "product_reference_policy": "Resolve product_reference through the approved product registry; no URL is authored in the SemanticPage.",
+  "wordpress_writes": 0,
+  "ai_calls": 0
+}

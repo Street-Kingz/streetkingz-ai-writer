@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_strategy_quality_review",
+  "status": "PASS",
+  "mechanically_valid": true,
+  "checks": {
+    "clear_article_outcome": true,
+    "non_generic_angle": true,
+    "mixed_intent_handled": true,
+    "product_recommendations_packet_backed": true,
+    "commerce_not_forced": true,
+    "searcher_problem_addressed": true,
+    "uncertainty_preserved": true,
+    "unsupported_competitor_gaps_absent": true,
+    "cannibalisation_actionable": true,
+    "usable_without_research_rediscovery": true
+  },
+  "failed_checks": [],
+  "editorial_note": "This review checks usefulness signals without editing or silently improving the model response; final strategy approval remains human."
+}

@@ -1,0 +1,11 @@
+{
+  "decision": "remove",
+  "rationale": "The comparison only establishes that people search for microfibre, waffle-weave and chamois options. It does not provide material, safety or performance findings that would make the table a useful comparison, so retaining it would mainly repeat buying criteria and limitations covered elsewhere.",
+  "evidence_ids": [
+    "ev_1d80de1c8d32419e438b602b",
+    "ev_23a73f980b3182e3935f21e9",
+    "ev_6da945a33cb44149b7d8ddb9",
+    "ev_ecc2c1bd4e72d712f2eda7d7"
+  ],
+  "customer_value": "Removing the table keeps the guide focused on practical choices instead of presenting search interest as a meaningful product comparison."
+}

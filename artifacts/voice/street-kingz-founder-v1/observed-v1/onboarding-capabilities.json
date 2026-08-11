@@ -1,0 +1,24 @@
+{
+  "artifact_type": "voice_onboarding_capabilities",
+  "imports": [
+    "website_content",
+    "writing_samples",
+    "transcripts",
+    "social_email_content",
+    "questionnaire",
+    "free_writing"
+  ],
+  "insufficient_corpus": {
+    "action": "use_configurable_default_or_collect_more",
+    "automatic_personal_profile": false
+  },
+  "optional_sources": true,
+  "reports": [
+    "corpus_strength",
+    "source_diversity",
+    "confidence",
+    "weak_areas",
+    "additional_sample_value"
+  ],
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,388 @@
+{
+  "theme_id": "streetkingz.co.uk-theme-v1",
+  "class_prefix": "discovered-editorial",
+  "container": {
+    "max_width": "1024px",
+    "reading_width": "48rem",
+    "gutter": "1.25rem"
+  },
+  "layout": {
+    "page_canvas": "full_width",
+    "section_surface": "full_width",
+    "width_roles": {
+      "hero": "wide",
+      "quick_answer": "reading",
+      "criteria_cards": "wide",
+      "rich_text_section": "reading",
+      "product_recommendation": "wide",
+      "key_takeaway": "reading",
+      "faq": "reading",
+      "conclusion": "reading",
+      "image_text": "wide",
+      "comparison_table": "wide",
+      "product_comparison": "wide",
+      "call_to_action": "reading",
+      "related_guides": "reading"
+    }
+  },
+  "breakpoints": {
+    "mobile": "0-47.99rem",
+    "desktop": "48rem+"
+  },
+  "typography": {
+    "body": "Encode Sans Condensed, 'Arial Narrow', Arial, sans-serif",
+    "heading": "Encode Sans Condensed, 'Arial Narrow', Arial, sans-serif",
+    "primary_family": "Encode Sans Condensed",
+    "fallback_stack": "'Arial Narrow', Arial, sans-serif",
+    "font_availability": "unverified",
+    "font_class": "condensed_sans",
+    "line_height": 1.65,
+    "font_import": null
+  },
+  "surfaces": {
+    "page": {
+      "background": "#050505",
+      "text": "#ffffff",
+      "text_muted": "#d6d6d6",
+      "heading": "#ffffff",
+      "link": "#ffffff",
+      "border": "#555555",
+      "accent": "#b81e0f",
+      "accent_text": "#ffffff"
+    },
+    "surface": {
+      "background": "#ffffff",
+      "text": "#050505",
+      "text_muted": "#666666",
+      "heading": "#050505",
+      "link": "#050505",
+      "border": "#dddddd",
+      "accent": "#b81e0f",
+      "accent_text": "#ffffff"
+    },
+    "surface_alt": {
+      "background": "#f4f4f1",
+      "text": "#050505",
+      "text_muted": "#666666",
+      "heading": "#050505",
+      "link": "#050505",
+      "border": "#dddddd",
+      "accent": "#b81e0f",
+      "accent_text": "#ffffff"
+    },
+    "surface_dark": {
+      "background": "#050505",
+      "text": "#ffffff",
+      "text_muted": "#d6d6d6",
+      "heading": "#ffffff",
+      "link": "#ffffff",
+      "border": "#555555",
+      "accent": "#b81e0f",
+      "accent_text": "#ffffff"
+    },
+    "surface_emphasis": {
+      "background": "#050505",
+      "text": "#ffffff",
+      "text_muted": "#d6d6d6",
+      "heading": "#ffffff",
+      "link": "#ffffff",
+      "border": "#555555",
+      "accent": "#b81e0f",
+      "accent_text": "#ffffff"
+    }
+  },
+  "surface_assignment": {
+    "hero": "surface_emphasis",
+    "product_recommendation": "surface_dark"
+  },
+  "colors": {
+    "page": "#ffffff",
+    "ink": "#171717",
+    "muted": "#666666",
+    "surface": "#f4f4f1",
+    "border": "#dddddd",
+    "accent": "#171717",
+    "accent_text": "#ffffff",
+    "dark": "#171717"
+  },
+  "shape": {
+    "radius": "0.25rem",
+    "shadow": "none"
+  },
+  "media": {
+    "product_images": {}
+  },
+  "primitives": {
+    "section": "section",
+    "card": "article",
+    "callout": "aside",
+    "table": "table",
+    "faq": "details"
+  },
+  "profile_id": "streetkingz.co.uk-style-v1",
+  "profile_version": "1.0.0",
+  "site_id": "streetkingz.co.uk",
+  "provenance": [
+    {
+      "rule": "dominant_colours",
+      "scope": "GLOBAL",
+      "observed": [
+        [
+          "#ffffff",
+          86
+        ],
+        [
+          "#050505",
+          22
+        ],
+        [
+          "#000000",
+          21
+        ],
+        [
+          "#b81e0f",
+          6
+        ],
+        [
+          "#d6d6d6",
+          6
+        ]
+      ],
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "font_family",
+      "scope": "GLOBAL",
+      "observed": "Encode Sans Condensed",
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "full_width_composition",
+      "scope": "GLOBAL",
+      "observed": true,
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "page_type_geometry",
+      "scope": "PAGE_TYPE",
+      "observed": {
+        "homepage": {
+          "full_width": "observed",
+          "split": "observed"
+        },
+        "product": {
+          "full_width": "observed",
+          "split": "observed"
+        }
+      },
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "responsive_behaviour",
+      "scope": "GLOBAL",
+      "observed": true,
+      "supporting_urls": [
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 1,
+      "confidence": "low"
+    }
+  ],
+  "human_overrides": {},
+  "page_surface_role": "page",
+  "design_grammar": {
+    "page_geometry": {
+      "canvas": "full_width_sections",
+      "max_content_width": "1024px",
+      "confidence": "medium"
+    },
+    "section_geometry": {
+      "full_bleed": true,
+      "split_layout": true,
+      "confidence": "medium"
+    },
+    "visual_rhythm": {
+      "section_counts": [
+        {
+          "page_type": "homepage",
+          "count": 9
+        },
+        {
+          "page_type": "product",
+          "count": 9
+        }
+      ],
+      "image_to_section_ratios": [
+        {
+          "page_type": "homepage",
+          "ratio": 1.2222222222222223
+        },
+        {
+          "page_type": "product",
+          "ratio": 1.5555555555555556
+        }
+      ],
+      "spacing_samples": [
+        "0px 0px 0px 0px",
+        "0px 0px -20px 0px",
+        "0px 0px 0px 0px",
+        "0px 80px 0px 80px",
+        "0px 0px 7px 0px",
+        "0px 0px 0px 0px",
+        "0px 0px 0px 0px",
+        "0px 0px 0px 0px",
+        "0px 0px 0px 0px",
+        "0px 0px 0px 0px",
+        "0px 0px 0px 0px",
+        "0px 0px 0px 0px"
+      ]
+    },
+    "image_behaviour": {
+      "dominant": true,
+      "full_bleed_signals": 90,
+      "page_types": [
+        {
+          "page_type": "homepage",
+          "count": 11,
+          "dominant": true
+        },
+        {
+          "page_type": "product",
+          "count": 14,
+          "dominant": true
+        }
+      ]
+    },
+    "responsive_behaviour": {
+      "evidence": "observed",
+      "media_query_counts": [
+        {
+          "page_type": "homepage",
+          "count": 0
+        },
+        {
+          "page_type": "product",
+          "count": 3
+        }
+      ]
+    },
+    "page_type_rules": {
+      "homepage": {
+        "full_bleed": "observed",
+        "split": "observed",
+        "image_dominance": true
+      },
+      "product": {
+        "full_bleed": "observed",
+        "split": "observed",
+        "image_dominance": true
+      }
+    }
+  },
+  "discovery_evidence": [
+    {
+      "rule": "dominant_colours",
+      "scope": "GLOBAL",
+      "observed": [
+        [
+          "#ffffff",
+          86
+        ],
+        [
+          "#050505",
+          22
+        ],
+        [
+          "#000000",
+          21
+        ],
+        [
+          "#b81e0f",
+          6
+        ],
+        [
+          "#d6d6d6",
+          6
+        ]
+      ],
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "font_family",
+      "scope": "GLOBAL",
+      "observed": "Encode Sans Condensed",
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "full_width_composition",
+      "scope": "GLOBAL",
+      "observed": true,
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "page_type_geometry",
+      "scope": "PAGE_TYPE",
+      "observed": {
+        "homepage": {
+          "full_width": "observed",
+          "split": "observed"
+        },
+        "product": {
+          "full_width": "observed",
+          "split": "observed"
+        }
+      },
+      "supporting_urls": [
+        "https://streetkingz.co.uk/",
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 2,
+      "confidence": "medium"
+    },
+    {
+      "rule": "responsive_behaviour",
+      "scope": "GLOBAL",
+      "observed": true,
+      "supporting_urls": [
+        "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/"
+      ],
+      "support_count": 1,
+      "confidence": "low"
+    }
+  ]
+}

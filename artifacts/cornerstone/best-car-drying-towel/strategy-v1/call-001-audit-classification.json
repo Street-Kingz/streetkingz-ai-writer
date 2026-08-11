@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_strategy_call_audit_classification",
+  "call": "gpt-5.6-sol/call_001",
+  "classification": "FAILED_AS_DESIGNED",
+  "reason": "Generation promoted a product outside the packet-backed product registry and deterministic validation rejected the response.",
+  "immutable_evidence": {
+    "call_lifecycle_sha256": "052aacd07fca524c1b93a8ceaa1448a0cadcca32eb8da8023723d9acf827760c",
+    "strategy_input_sha256": "83e78e748b4776fc907dcdf9c0f61ba5deaf099492f4c151a9ec6829c2501cef",
+    "raw_response_sha256": "845535e8fdaf671be63392eaeacdd23cd616708f25a0e089c903d47e9600aa29",
+    "validation_sha256": "65635920d8f940cfbc81eb84be1993bfc09200e74af838aa8a72e1e11a1b96a1",
+    "run_metadata_sha256": "b1cd0f6c04415481bca759b46f6a3be61a35a266ce6a557385d6db4d850705b7"
+  },
+  "validator_weakened": false,
+  "historical_call_modified": false
+}

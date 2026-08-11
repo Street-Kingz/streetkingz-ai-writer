@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "cornerstone_strategy_validation",
+  "packet_id": "cornerstone_packet_ec2b7e4474da4ae08993919c",
+  "status": "PASS_WITH_WARNINGS",
+  "downstream_eligible": true,
+  "errors": [],
+  "warnings": [
+    {
+      "code": "OPEN_EVIDENCE_OR_JUDGEMENT",
+      "message": "Strategy preserves evidence gaps or human questions that must be resolved before drafting."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "generic_core": true,
+  "semantic_page_valid": true,
+  "product_references_preserved": true,
+  "street_kingz_leakage": false,
+  "wordpress_writes": 0,
+  "ai_calls": 0,
+  "semantic_page_sha256": "40a2aa39af9054daef96fef29938f29494b675216b3c768306d9a4a80e69cb20"
+}

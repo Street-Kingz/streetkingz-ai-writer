@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "founder_voice_validation",
+  "voice_version": "1.0.0",
+  "status": "PASS",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "first_person_component_count": 6,
+    "first_person_components": [
+      "01_hero_db1ccb26",
+      "02_quick_answer_eb07986e",
+      "03_criteria_cards_44e50cdc",
+      "06_product_recommendation_55fb7dcb",
+      "09_faq_5dc1c294",
+      "10_conclusion_b18ab30e"
+    ],
+    "founder_fact_registry_count": 0
+  }
+}

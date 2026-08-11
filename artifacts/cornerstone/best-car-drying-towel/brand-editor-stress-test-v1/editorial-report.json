@@ -1,0 +1,232 @@
+{
+  "artifact_type": "editorial_report",
+  "profile": "Street Kingz",
+  "components": [
+    {
+      "component": "hero",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "quick_answer",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "rich_text_section",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "criteria_cards",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "comparison_table",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 8,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 8,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "product_recommendation",
+      "issues": [
+        {
+          "type": "weak_opinion",
+          "confidence": 0.9
+        }
+      ],
+      "confidence": 0.9,
+      "rewrite_required": true,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 8,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 8,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "pros_tradeoffs",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 8,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 8,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "founder_note",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "faq",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "conclusion",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 9,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    },
+    {
+      "component": "call_to_action",
+      "issues": [],
+      "confidence": 0.99,
+      "rewrite_required": false,
+      "scores_before": {
+        "voice": 8,
+        "human_feel": 8,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "scores_after": {
+        "voice": 8,
+        "human_feel": 8,
+        "commercial_confidence": 7,
+        "clarity": 8
+      },
+      "score_improved": true
+    }
+  ],
+  "issues": [
+    {
+      "type": "weak_opinion",
+      "confidence": 0.9
+    }
+  ],
+  "rewrite_count": 1,
+  "source_semantic_page_sha256": "23e5329f13a9bbc254d440fa082b950b42844130ed0e9b8c503e5bb41fb3b6e7",
+  "edited_semantic_page_sha256": "0d5ea296cf8ba9b3bae2b37e577b7416d5ae7a3493b30dd30c92c93bd7962876",
+  "product_references_preserved": true,
+  "wordpress_writes": 0,
+  "ai_calls": 0
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_page_plan_validation",
+  "status": "PASS",
+  "errors": [],
+  "drafting_authorised": false,
+  "publication_authorised": false
+}

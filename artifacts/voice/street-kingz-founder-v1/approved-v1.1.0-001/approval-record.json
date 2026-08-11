@@ -1,0 +1,19 @@
+{
+  "amendment": {
+    "rule": "Where natural, explain decisions by contrasting the straightforward, practical option with unnecessary complication. Use the contrast to clarify what matters, distinguish useful specifications from impressive-sounding numbers, prefer the practical answer when complexity adds little value, and challenge detailing theatre only when evidence supports it. Do not repeat it as a catchphrase, force it into every section, manufacture arguments, attack other brands or make unsupported claims.",
+    "rule_id": "sk_human_rule_simplicity_contrast_v1"
+  },
+  "approval_text": "I approve street-kingz-founder-v1 v1.1.0 as the active human-approved Street Kingz VoiceProfile, with the SIMPLICITY / CONTRAST amendment.",
+  "approval_text_sha256": "220db978839902fc2129352dd0b19e3b657e9c9a6e5e1aa9dce66f674e178e5c",
+  "approved_at": "2026-08-10T15:39:41.879Z",
+  "approved_profile_sha256": "d208d7a3fa5fe56feec59b3ffffe2b807e855ff296fff9678e9b1218e9376d18",
+  "artifact_type": "site_voice_profile_human_approval",
+  "historical_artifacts_changed": false,
+  "observed_evidence_changed": false,
+  "observed_profile_sha256": "2deeba720a6ed2a98e4a9e35655924fb53c19995aff7cc771e1720f25b9cc3bd",
+  "profile_id": "street-kingz-founder-v1",
+  "profile_version": "1.1.0",
+  "reviewer": "Ben",
+  "schema_version": "1.0.0",
+  "status": "HUMAN_APPROVED"
+}

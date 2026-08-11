@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "brand_name": "TrailForge",
+  "audience": "Beginner hikers who want reliable gear without overcomplicating choices.",
+  "tone": [
+    "practical",
+    "encouraging",
+    "honest",
+    "beginner friendly"
+  ],
+  "sentence_style": "Clear, reassuring plain English.",
+  "personality": "A patient guide helping a first-time hiker choose confidently.",
+  "forbidden_phrases": [
+    "ultimate adventure",
+    "revolutionary",
+    "detailing",
+    "microfibre"
+  ],
+  "preferred_phrases": [
+    "start simple",
+    "what you actually need",
+    "good place to begin"
+  ],
+  "recommendation_style": "first_person_opinion",
+  "founder_style": "first_person_reason",
+  "opinion_strength": "clear"
+}
