@@ -58,8 +58,41 @@ export function validateWriterApproval(approval) {
   return approval;
 }
 
-export function verifyGuardedCurrentState(authoritative, approval) {
-  validateWriterApproval(approval);
+// Candidate manifests are deliberately separate from installed human approvals.
+// They are used only to exercise the existing bounded dry-run machinery.
+export function validateBoundedWriterApproval(approval) {
+  const errors = [];
+  if (approval?.product_id !== GUARDED_WRITER_SCOPE.product_id) errors.push("PRODUCT_IDENTITY_MISMATCH");
+  if (approval?.template_id !== GUARDED_WRITER_SCOPE.template_id) errors.push("TEMPLATE_IDENTITY_MISMATCH");
+  if (approval?.status !== "candidate" || approval?.approval_source !== "product_page_proposal") errors.push("CANDIDATE_STATE_INVALID");
+  if (!approval?.approval_timestamp) errors.push("MISSING_CANDIDATE_TIMESTAMP");
+  const requiredAuthorisation = ["slug_change_authorised", "metadata_change_authorised", "unrelated_elementor_changes_authorised", "detailed_safety_widget_change_authorised", "publication_authorised"];
+  if (JSON.stringify(Object.keys(approval?.authorisation || {}).sort()) !== JSON.stringify(requiredAuthorisation.sort())) errors.push("CANDIDATE_AUTHORISATION_SHAPE_INVALID");
+  if (requiredAuthorisation.some((key) => approval.authorisation?.[key] !== false)) errors.push("CANDIDATE_AUTHORISATION_FORBIDDEN");
+  const fields = approval?.approved_fields || [];
+  const expected = new Set(["post_title", "post_excerpt", "description", "comparison"]);
+  if (fields.length !== expected.size || new Set(fields.map((field) => field.field_id)).size !== expected.size || fields.some((field) => !expected.has(field.field_id))) errors.push("CANDIDATE_TARGET_SET_INVALID");
+  if (approval?.detailed_safety_widget?.template_id !== GUARDED_WRITER_SCOPE.template_id || approval?.detailed_safety_widget?.element_id !== GUARDED_WRITER_SCOPE.protected_safety_widget || approval?.detailed_safety_widget?.status !== "blocked_unchanged") errors.push("SAFETY_WIDGET_NOT_BLOCKED");
+  if (approval?.future_write_requires_fresh_pre_write_snapshot !== true) errors.push("FRESH_SNAPSHOT_NOT_REQUIRED");
+  for (const field of fields) {
+    if (field.status !== "candidate") errors.push(`CANDIDATE_FIELD_STATE_INVALID:${field.field_id}`);
+    if (field.approved_target_sha256 !== sha256(field.exact_cms_value)) errors.push(`TARGET_HASH_MISMATCH:${field.field_id}`);
+    if (field.current_state_guard_sha256 !== approval.current_state_guards?.[field.field_id === "description" ? "description_widget" : field.field_id === "comparison" ? "comparison_widget" : field.field_id]) errors.push(`CURRENT_GUARD_MISMATCH:${field.field_id}`);
+    const expectedTargets = {
+      post_title: { post_id: 70, field: "post_title" },
+      post_excerpt: { post_id: 70, field: "post_excerpt" },
+      description: { template_id: 2003, meta_key: "_elementor_data", element_id: "c80e718", property: "settings.editor" },
+      comparison: { template_id: 2003, meta_key: "_elementor_data", element_id: "40869c27", property: "settings.editor", parent_element_id: "4691e088" }
+    };
+    if (JSON.stringify(field.cms_target) !== JSON.stringify(expectedTargets[field.field_id])) errors.push(`TARGET_OUTSIDE_ALLOWLIST:${field.field_id}`);
+  }
+  if (!approval?.current_state_guards || !approval?.approved_target_hashes || !approval.current_state_guards.rendered_page) errors.push("CANDIDATE_HASH_GUARDS_MISSING");
+  if (errors.length) hardStop("CANDIDATE_APPROVAL_INVALID", { validation_errors: [...new Set(errors)] });
+  return approval;
+}
+
+export function verifyGuardedCurrentState(authoritative, approval, approvalValidator = validateWriterApproval) {
+  approvalValidator(approval);
   if (authoritative?.post_id !== GUARDED_WRITER_SCOPE.product_id || authoritative?.post_type !== "product") hardStop("PRODUCT_IDENTITY_MISMATCH");
   if (authoritative?.template?.id !== GUARDED_WRITER_SCOPE.template_id || authoritative?.template?.post_type !== "elementor_library" || authoritative?.template?.applicability?.verified !== true) hardStop("TEMPLATE_IDENTITY_OR_APPLICABILITY_MISMATCH");
   const guards = approval.current_state_guards;
@@ -110,9 +143,9 @@ export function buildFreshRollbackSnapshot(authoritative, verified, retrievalPro
   };
 }
 
-export async function prepareGuardedDryRun({ approval, authoritative, persistRollbackSnapshot }) {
+export async function prepareGuardedDryRun({ approval, authoritative, persistRollbackSnapshot, approvalValidator = validateWriterApproval }) {
   if (typeof persistRollbackSnapshot !== "function") hardStop("ROLLBACK_PERSISTENCE_REQUIRED");
-  const verified = verifyGuardedCurrentState(authoritative, approval);
+  const verified = verifyGuardedCurrentState(authoritative, approval, approvalValidator);
   const snapshot = buildFreshRollbackSnapshot(authoritative, verified);
   try { await persistRollbackSnapshot(snapshot); } catch (error) { hardStop("ROLLBACK_PERSISTENCE_FAILED", { cause: error.message }); }
   const values = approvedValues(approval);

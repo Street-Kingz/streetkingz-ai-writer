@@ -1,0 +1,264 @@
+{
+  "pages": [
+    {
+      "url": "https://streetkingz.co.uk/",
+      "page_type": "homepage",
+      "reason": "business_entry_point",
+      "file": "pages/page_32ef73b4a85c8155f02ad2d8.html",
+      "content_fingerprint": "4baea494351b639623828e1b945add95284a682b5328f07b88602fc7fe8d24a2",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/",
+        "final_url": "https://streetkingz.co.uk/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:28.791Z",
+        "response_size_bytes": 207711,
+        "response_sha256": "4baea494351b639623828e1b945add95284a682b5328f07b88602fc7fe8d24a2",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product-category/exterior/",
+      "page_type": "category_page",
+      "reason": "primary_navigation_category_page",
+      "file": "pages/page_f8b81bb47e00f0713f7632d7.html",
+      "content_fingerprint": "ff9474fa4085f5bff50f9d071498d7b58a58b0ad7a29518605b8ddb0b3ec0a0e",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product-category/exterior/",
+        "final_url": "https://streetkingz.co.uk/product-category/exterior/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:28.829Z",
+        "response_size_bytes": 196477,
+        "response_sha256": "ff9474fa4085f5bff50f9d071498d7b58a58b0ad7a29518605b8ddb0b3ec0a0e",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product-category/wheels/",
+      "page_type": "category_page",
+      "reason": "primary_navigation_category_page",
+      "file": "pages/page_aef3061db196ad37f9a9b471.html",
+      "content_fingerprint": "7f54452d2b186e22bc0e9d2b168a49095804693486248268d5f829a53685a4f4",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product-category/wheels/",
+        "final_url": "https://streetkingz.co.uk/product-category/wheels/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:28.863Z",
+        "response_size_bytes": 195701,
+        "response_sha256": "7f54452d2b186e22bc0e9d2b168a49095804693486248268d5f829a53685a4f4",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product-category/interior/",
+      "page_type": "category_page",
+      "reason": "primary_navigation_category_page",
+      "file": "pages/page_78609522509918396338a6c0.html",
+      "content_fingerprint": "a8cf3a3ab7fc8afc177c3552d5486dc8be7cab11d8a265dd77504be32cefc4e1",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product-category/interior/",
+        "final_url": "https://streetkingz.co.uk/product-category/interior/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:28.905Z",
+        "response_size_bytes": 196777,
+        "response_sha256": "a8cf3a3ab7fc8afc177c3552d5486dc8be7cab11d8a265dd77504be32cefc4e1",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product-category/accessories/",
+      "page_type": "category_page",
+      "reason": "primary_navigation_category_page",
+      "file": "pages/page_389c599b496f3e76b69ae4e1.html",
+      "content_fingerprint": "4e10829190aacac9ab26ecb6856871db7ec756924e2a6730c18b11e87089f35a",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product-category/accessories/",
+        "final_url": "https://streetkingz.co.uk/product-category/accessories/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:28.946Z",
+        "response_size_bytes": 195239,
+        "response_sha256": "4e10829190aacac9ab26ecb6856871db7ec756924e2a6730c18b11e87089f35a",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product-category/bundles/",
+      "page_type": "category_page",
+      "reason": "primary_navigation_category_page",
+      "file": "pages/page_ad6e39a79d437c46714d1755.html",
+      "content_fingerprint": "409fba801b4eddf61323400c5023a1fe3238764274a9229036579dc37c167d11",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product-category/bundles/",
+        "final_url": "https://streetkingz.co.uk/product-category/bundles/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:28.988Z",
+        "response_size_bytes": 196739,
+        "response_sha256": "409fba801b4eddf61323400c5023a1fe3238764274a9229036579dc37c167d11",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/about-us/",
+      "page_type": "about_page",
+      "reason": "primary_navigation_about_page",
+      "file": "pages/page_d1365ffc704e74e5dceab7cc.html",
+      "content_fingerprint": "56f76da42a232093ae5b3fdda16a206ef37058a6ce9abd8827d132e401a03088",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/about-us/",
+        "final_url": "https://streetkingz.co.uk/about-us/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.030Z",
+        "response_size_bytes": 180684,
+        "response_sha256": "56f76da42a232093ae5b3fdda16a206ef37058a6ce9abd8827d132e401a03088",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_515dde278701b3dbb37e998d.html",
+      "content_fingerprint": "ee6a04457c4ab62d30b10c8c04e8d4e0009494b848cdba45391ba3e3035ec7ae",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+        "final_url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.162Z",
+        "response_size_bytes": 276430,
+        "response_sha256": "ee6a04457c4ab62d30b10c8c04e8d4e0009494b848cdba45391ba3e3035ec7ae",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/slim-barrel-brush/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_16591453e9cebccc7b4d921a.html",
+      "content_fingerprint": "fd804fe93b5f180cbee37dfbd9fc23c6ced4b54085ac92a0b9176875760e9ece",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/slim-barrel-brush/",
+        "final_url": "https://streetkingz.co.uk/product/slim-barrel-brush/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.203Z",
+        "response_size_bytes": 273451,
+        "response_sha256": "fd804fe93b5f180cbee37dfbd9fc23c6ced4b54085ac92a0b9176875760e9ece",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_4cc1969c421439ada7a8f173.html",
+      "content_fingerprint": "46078db91c061eaf062d58afd38c287a40cfb6b7aa23c8862b13fca9be7211a5",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+        "final_url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.245Z",
+        "response_size_bytes": 271749,
+        "response_sha256": "46078db91c061eaf062d58afd38c287a40cfb6b7aa23c8862b13fca9be7211a5",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_1933fa46890866d5685c4f41.html",
+      "content_fingerprint": "fec5f3d00bd5c0521a5badef81da0e73672072192ba35f1c42d0958361dff5c7",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+        "final_url": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.284Z",
+        "response_size_bytes": 273134,
+        "response_sha256": "fec5f3d00bd5c0521a5badef81da0e73672072192ba35f1c42d0958361dff5c7",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_9940a4cce1c4aba88a6a44a3.html",
+      "content_fingerprint": "84a6f921b817097326ad2d7e2a380cf01f3dc2b71cb2e1120547718a887ffd43",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "final_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.326Z",
+        "response_size_bytes": 276305,
+        "response_sha256": "84a6f921b817097326ad2d7e2a380cf01f3dc2b71cb2e1120547718a887ffd43",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_09f45752373a0400fea56afd.html",
+      "content_fingerprint": "f75f4df33cab49c072b93db958639d04524f2678956fd48db9afd31cdc9e92d1",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+        "final_url": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.368Z",
+        "response_size_bytes": 275028,
+        "response_sha256": "f75f4df33cab49c072b93db958639d04524f2678956fd48db9afd31cdc9e92d1",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_90917b81c36a16e99d9503ca.html",
+      "content_fingerprint": "611400b915367093b95faefc15ac0b2f98b7582bc0b8a43f764e310a75b2d086",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+        "final_url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.410Z",
+        "response_size_bytes": 288931,
+        "response_sha256": "611400b915367093b95faefc15ac0b2f98b7582bc0b8a43f764e310a75b2d086",
+        "request_count": 1,
+        "method": "GET"
+      }
+    },
+    {
+      "url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+      "page_type": "product_sample",
+      "reason": "round_robin_primary_category_sample",
+      "file": "pages/page_8cf566f7b6437da53dc5862c.html",
+      "content_fingerprint": "76fa904666a70065790402ac492aed54ae452376664b2df3d08c726d47e4413e",
+      "retrieval": {
+        "requested_url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+        "final_url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+        "http_status": 200,
+        "retrieved_at": "2026-08-14T20:30:29.483Z",
+        "response_size_bytes": 275460,
+        "response_sha256": "76fa904666a70065790402ac492aed54ae452376664b2df3d08c726d47e4413e",
+        "request_count": 1,
+        "method": "GET"
+      }
+    }
+  ],
+  "credentials_persisted": false,
+  "request_headers_persisted": false,
+  "methods_used": [
+    "GET"
+  ]
+}

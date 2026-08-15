@@ -4,8 +4,8 @@ import { readFile } from "node:fs/promises";
 
 const source = await readFile("wordpress-plugin/streetkingz-ai-authoritative-reader/streetkingz-ai-authoritative-reader.php", "utf8");
 
-test("authoritative Reader v1.1.3 prevents capability-protected REST responses entering LiteSpeed cache", () => {
-  assert.match(source, /Version:\s*1\.1\.3/);
+test("authoritative Reader v1.2.0 prevents capability-protected REST responses entering LiteSpeed cache", () => {
+  assert.match(source, /Version:\s*1\.2\.0/);
   assert.match(source, /rest_pre_dispatch/);
   assert.match(source, /streetkingz_ai_disable_authoritative_rest_cache/);
   assert.match(source, /litespeed_control_set_nocache/);

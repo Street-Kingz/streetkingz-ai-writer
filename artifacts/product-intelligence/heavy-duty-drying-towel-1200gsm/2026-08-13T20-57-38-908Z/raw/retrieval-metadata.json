@@ -1,0 +1,13 @@
+{
+  "rendered_product_page": {
+    "request_count": 0,
+    "replayed_from_preserved_raw": true
+  },
+  "woocommerce": {
+    "request_count": 0,
+    "replayed_from_preserved_raw": true
+  },
+  "credentials_persisted": false,
+  "request_headers_persisted": false,
+  "write_capability": false
+}

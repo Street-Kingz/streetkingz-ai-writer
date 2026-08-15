@@ -1,0 +1,8 @@
+{
+  "artifact_type": "product_intelligence_founder_validation_metadata",
+  "created_at": "2026-08-14T06:34:06.755Z",
+  "source_evidence_changed": false,
+  "ai_calls": 0,
+  "external_requests": 0,
+  "known_next_slice_requirement": "The future product-page editor should use trusted Product Intelligence to sell the product. Accuracy remains a boundary, not the objective of the copy. It should prioritise commercially useful reasons to buy while preventing invented or unsupported claims. The currently identified overly defensive short-description wording must not be changed in this founder-validation slice."
+}

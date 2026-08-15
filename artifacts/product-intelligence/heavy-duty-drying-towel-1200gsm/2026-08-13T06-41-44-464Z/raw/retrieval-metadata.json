@@ -1,0 +1,24 @@
+{
+  "rendered_product_page": {
+    "requested_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "final_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "http_status": 200,
+    "retrieved_at": "2026-08-13T06:41:44.787Z",
+    "response_size_bytes": 276305,
+    "response_sha256": "65aa69d83c43ce3e0fc7dec5a01af7bf8d8b6302096a69667423f888ea16edeb",
+    "request_count": 1,
+    "method": "GET"
+  },
+  "woocommerce": {
+    "requested_url": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/products/70/authoritative",
+    "final_url": "https://streetkingz.co.uk/wp-json/streetkingz-ai/v1/products/70/authoritative",
+    "http_status": 200,
+    "retrieved_at": "2026-08-13T06:41:44.789Z",
+    "response_size_bytes": 110243,
+    "response_sha256": "149e462b86810f07edcad6fa649f27d825bfa3de73cc991c9d935d08e55a4368",
+    "request_count": 1
+  },
+  "credentials_persisted": false,
+  "request_headers_persisted": false,
+  "write_capability": false
+}

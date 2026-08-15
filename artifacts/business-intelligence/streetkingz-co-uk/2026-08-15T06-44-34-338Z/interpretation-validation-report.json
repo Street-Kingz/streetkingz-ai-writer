@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "business_intelligence_multipass_interpretation_validation",
+  "created_at": "2026-08-15T06:44:34.338Z",
+  "valid": true,
+  "validation_status": "awaiting_validation",
+  "partial_passes": [
+    {
+      "pass": "catalogue",
+      "valid": true,
+      "model": "gpt-5.6-terra",
+      "provider": "openai-responses",
+      "evidence_count": 26,
+      "input_tokens": 8184,
+      "output_tokens": 2304,
+      "reasoning_tokens": 453
+    },
+    {
+      "pass": "positioning",
+      "valid": true,
+      "model": "gpt-5.6-terra",
+      "provider": "openai-responses",
+      "evidence_count": 142,
+      "input_tokens": 21165,
+      "output_tokens": 1751,
+      "reasoning_tokens": 186
+    },
+    {
+      "pass": "customer",
+      "valid": true,
+      "model": "gpt-5.6-terra",
+      "provider": "openai-responses",
+      "evidence_count": 72,
+      "input_tokens": 14592,
+      "output_tokens": 2232,
+      "reasoning_tokens": 743
+    }
+  ],
+  "evidence_counts": {
+    "supplied_total": 482,
+    "selected_total": 240,
+    "contexts": {
+      "catalogue": 26,
+      "positioning": 142,
+      "customer": 72
+    }
+  },
+  "final_validation": {
+    "valid": true,
+    "errors": []
+  },
+  "execution_metadata": {
+    "deterministic_steps": [
+      "select_relevant_business_evidence",
+      "partition_evidence_by_pass",
+      "assemble_validated_partial_outputs",
+      "validate_business_intelligence_object"
+    ],
+    "ai_calls": [
+      {
+        "pass": "catalogue",
+        "provider": "openai-responses",
+        "model": "gpt-5.6-terra",
+        "reasoning_tokens": 453
+      },
+      {
+        "pass": "positioning",
+        "provider": "openai-responses",
+        "model": "gpt-5.6-terra",
+        "reasoning_tokens": 186
+      },
+      {
+        "pass": "customer",
+        "provider": "openai-responses",
+        "model": "gpt-5.6-terra",
+        "reasoning_tokens": 743
+      }
+    ],
+    "input_tokens": 43941,
+    "output_tokens": 6287,
+    "external_api_call_count": 3,
+    "execution_time_ms": 45452
+  }
+}

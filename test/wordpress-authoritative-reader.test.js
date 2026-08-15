@@ -41,6 +41,13 @@ test("raw post fields, Elementor document, hashes and rollback values remain exa
   assert.deepEqual(result.rollback_values, { post_title: fixture.product.post_title, post_excerpt: fixture.product.post_excerpt, post_content: fixture.product.post_content, _elementor_data: fixture.elementor_template.raw_elementor_data });
 });
 
+test("additive WooCommerce namespace survives canonical reader normalization", async () => {
+  const result = await createWordPressAuthoritativeReader({ config, fetchImpl: async () => response() }).readPost(70);
+  assert.deepEqual(result.woocommerce, fixture.woocommerce);
+  assert.equal(result.woocommerce.product_id, 70);
+  assert.equal(result.woocommerce.product_type, "simple");
+});
+
 test("required nested Elementor widgets resolve by exact ID with exact values", async () => {
   const result = await createWordPressAuthoritativeReader({ config, fetchImpl: async () => response() }).readPost(70);
   const widgets = mapRequiredElementorWidgets(result);

@@ -1,0 +1,966 @@
+{
+  "schema_version": "0.1.0",
+  "artifact_type": "commercial_product_page_editor_input",
+  "editorial_objective": {
+    "primary_objective": "persuade_the_intended_customer_to_buy",
+    "accuracy_boundary": "use_only_supported_or_permitted_intelligence",
+    "permission": "supported knowledge may be framed persuasively and benefit-led; sterile factual restatement is not required"
+  },
+  "audience": {
+    "business_wide_primary": {
+      "architecture": {
+        "type": {
+          "value": "focused_business",
+          "knowledge_type": "fact",
+          "assertion_scope": "objective",
+          "evidence_refs": [],
+          "confidence": 1,
+          "status": "human_corrected",
+          "correction_id": "bi_correction_d34123a707c9dd9cc60ef526",
+          "validation_decision_id": "bi_decision_0bcee9725b53994f58492acd"
+        },
+        "business_wide_profile_status": {
+          "value": "meaningful",
+          "knowledge_type": "fact",
+          "assertion_scope": "objective",
+          "evidence_refs": [],
+          "confidence": 1,
+          "status": "human_corrected",
+          "correction_id": "bi_correction_40460511fa8997d6a739eadd",
+          "validation_decision_id": "bi_decision_4d3f248ff189d9222060abc8"
+        }
+      },
+      "customer_groups": {
+        "target_customer_groups": [
+          {
+            "value": "people who clean and look after their own cars at home",
+            "knowledge_type": "fact",
+            "assertion_scope": "objective",
+            "evidence_refs": [],
+            "confidence": 1,
+            "status": "human_corrected",
+            "correction_id": "bi_correction_0067c10330df514c35d48108",
+            "validation_decision_id": "bi_decision_0523788df4a9fe2540ab8375"
+          },
+          {
+            "value": "Normal drivers",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_0b9dcdfd075adc8810e6c5fa"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_7a6800236d81b19ff1c9ef65"
+          },
+          {
+            "value": "Everyday UK drivers",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_a4e4769d5e0fca25613f07f0",
+              "bie_62c76a3f849bf47d042a7f4f"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_7e7c11206b2f8300584e0dda"
+          },
+          {
+            "value": "Everyday car owners who want better results without the fuss",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_c33001d42c91406b5f97f12d"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_ab4db5239a52d291652c4e8b"
+          }
+        ],
+        "customer_behaviours": [
+          {
+            "value": "The website communicates toward customers who clean their own cars on a real driveway.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_0b2b62312f8ab68ce69670f0"
+            ],
+            "confidence": 0.97,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_12f980057fd33d7ccf387795"
+          },
+          {
+            "value": "The website communicates use in regular home washing routines and driveway washes.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_434078f4fd798a98769bb098",
+              "bie_849e56467e295d7e1b3fa54d"
+            ],
+            "confidence": 0.96,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_fdc9cb3c5e103324a80abb34"
+          },
+          {
+            "value": "The website communicates that some customers undertake heavy weekend washes, including for bigger cars and vans.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_c17f8e8c55c3c40b0b0b4bbe"
+            ],
+            "confidence": 0.93,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_9965f4cd1d03a494c0f4a7e5"
+          }
+        ],
+        "customer_motivations": [
+          {
+            "value": "The website communicates a desire for products that work first time, every time.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_0b2b62312f8ab68ce69670f0",
+              "bie_0b9dcdfd075adc8810e6c5fa"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_391daa570a96b3e4e089f0b0"
+          },
+          {
+            "value": "The website communicates that everyday car owners want better cleaning results without fuss.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_c33001d42c91406b5f97f12d"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_b7491bab71f23f49a8c74c40"
+          }
+        ],
+        "customer_priorities": [
+          {
+            "value": "Products that work first time, every time.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_0b2b62312f8ab68ce69670f0",
+              "bie_0b9dcdfd075adc8810e6c5fa"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_ee96c82863682d83eb057cd6"
+          },
+          {
+            "value": "Better results without fuss.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_c33001d42c91406b5f97f12d"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_2c86ef0310539ef231f465ef"
+          },
+          {
+            "value": "Ease and control during vehicle washing is communicated as relevant, particularly around wheels and lower panels.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_64b6ed990fd9d1906068b7b5"
+            ],
+            "confidence": 0.9,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_e139dd9db98fa731cfb4a270"
+          }
+        ],
+        "customer_problems": [
+          {
+            "value": "The website communicates that customers may want to avoid fuss when seeking better cleaning results.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_c33001d42c91406b5f97f12d"
+            ],
+            "confidence": 0.96,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_43437ec13781ff06c8a1c1db"
+          },
+          {
+            "value": "The website communicates that standard long pressure-washer lances can feel awkward and be harder to control around wheels and lower panels.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_64b6ed990fd9d1906068b7b5"
+            ],
+            "confidence": 0.9,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_077400a1076189254aaecde6"
+          }
+        ],
+        "purchase_drivers": [
+          {
+            "value": "Products communicated as working first time, every time.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_0b2b62312f8ab68ce69670f0",
+              "bie_0b9dcdfd075adc8810e6c5fa"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_1adcc59541c00855e26cc2e6"
+          },
+          {
+            "value": "Faster, easier vehicle drying with fewer passes and less contact is communicated as relevant.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_d71fec9e0f8d45e4441c4d52"
+            ],
+            "confidence": 0.93,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_7f68515d227a02a38381dd63"
+          },
+          {
+            "value": "A cleaning tool that is easier to control and less awkward around wheels and lower panels is communicated as relevant.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_64b6ed990fd9d1906068b7b5"
+            ],
+            "confidence": 0.9,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_aa9c823ec79e06e3e110b94c"
+          }
+        ],
+        "exclusions": [
+          {
+            "value": "Professional detailers and professional car washers are not the intended core audience",
+            "knowledge_type": "fact",
+            "assertion_scope": "objective",
+            "evidence_refs": [],
+            "confidence": 1,
+            "status": "human_corrected",
+            "correction_id": "bi_correction_d216665d61b54caa5116308f",
+            "validation_decision_id": "bi_decision_754ceb3798edb60b8b25f2f6"
+          },
+          {
+            "value": "A brand-specific pressure-washer adapter is not included with the Stubby Gun Bundle.",
+            "knowledge_type": "fact",
+            "assertion_scope": "business_claim",
+            "evidence_refs": [
+              "bie_f5f8abf3ac4d8c1397e5f3c8"
+            ],
+            "confidence": 0.98,
+            "status": "human_verified",
+            "validation_decision_id": "bi_decision_1e5345574f5f772a195b4af1"
+          }
+        ]
+      }
+    },
+    "product_specific_refinement": {
+      "problems_solved": [
+        {
+          "value": "Difficulties in drying larger vehicles",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        },
+        {
+          "value": "Risk of scratching paint during drying",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ],
+      "objections": [
+        {
+          "value": "The towel may feel heavy when wet",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_6cfb4db94b38704dbeb03ede"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        },
+        {
+          "value": "Concerns about scratching paintwork",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_7cb2bb6386344aa3faf9ca89"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ],
+      "ideal_customers": [
+        {
+          "value": "People who wash their own vehicle at home, care about keeping it looking good, spend money looking after it, value product quality and achieving a good result, and are willing to pay more for a better product rather than simply choosing the cheapest option. They are primarily buying for their own vehicle. Professional detailers and professional car washers are not the intended target audience.",
+          "knowledge_type": "fact",
+          "evidence_refs": [],
+          "confidence": 1,
+          "status": "human_corrected",
+          "correction_id": "pio_correction_9843ac2f9985353980f805e0"
+        }
+      ],
+      "customer_groups": [
+        {
+          "value": "Owners of larger vehicles",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ]
+    },
+    "precedence": "validated_business_audience_is_primary; product_intelligence_may_refine_specific_relevance_but_not_replace_it"
+  },
+  "business_positioning": {
+    "value_proposition": [
+      {
+        "value": "Street Kingz presents its offer as straightforward car care intended to make car care easier and more enjoyable for everyday drivers.",
+        "knowledge_type": "derived",
+        "assertion_scope": "interpretation",
+        "evidence_refs": [
+          "bie_103a39d08b6ea2e89e46901f",
+          "bie_48c6d1112947e369b8086eb5"
+        ],
+        "confidence": 0.92,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_6a9c58b75aea123e81b5551f"
+      },
+      {
+        "value": "The business communicates a middle-ground proposition between low-performing cheap products and over-priced or professional-focused alternatives, combining premium-quality tools and accessories with ease of use and real-world effectiveness.",
+        "knowledge_type": "derived",
+        "assertion_scope": "interpretation",
+        "evidence_refs": [
+          "bie_bc8c6d63fbd8e1c4c8dd43e1",
+          "bie_81d76805e9c4806edbe1537f"
+        ],
+        "confidence": 0.94,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_e5e340321a68644ce6ee232c"
+      }
+    ],
+    "positioning_themes": [
+      {
+        "value": "Honesty and avoidance of hype, gimmicks, exaggerated claims, and unnecessary complexity.",
+        "knowledge_type": "derived",
+        "assertion_scope": "interpretation",
+        "evidence_refs": [
+          "bie_a96b5e8dcc4e470da3bda897",
+          "bie_46fb2074b607e8ff86dd97d4",
+          "bie_2f0653144ef87a6369aa358f",
+          "bie_515c41dbdaeacfffaf63212e"
+        ],
+        "confidence": 0.96,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_4660dcab4acc5f1a17d57549"
+      },
+      {
+        "value": "Real-world, day-to-day product testing and use rather than studio or idealised conditions.",
+        "knowledge_type": "derived",
+        "assertion_scope": "interpretation",
+        "evidence_refs": [
+          "bie_4bbdafc730a073ab3c7c3d8b",
+          "bie_9ba2a3ecdbe1dddefbe06234",
+          "bie_ac98b0d51531ebf0f1c5fd0b"
+        ],
+        "confidence": 0.95,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_543a3601365b4ec36aa49b5c"
+      },
+      {
+        "value": "Accessible, uncomplicated car care for regular use.",
+        "knowledge_type": "derived",
+        "assertion_scope": "interpretation",
+        "evidence_refs": [
+          "bie_48c6d1112947e369b8086eb5",
+          "bie_5124987d6ed975fc55f92da2",
+          "bie_103a39d08b6ea2e89e46901f"
+        ],
+        "confidence": 0.93,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_cd5671e40192003e131535ba"
+      },
+      {
+        "value": "Premium-quality positioning without boutique-brand pretension.",
+        "knowledge_type": "derived",
+        "assertion_scope": "interpretation",
+        "evidence_refs": [
+          "bie_97df0c3bdf4a59842b647fba",
+          "bie_4718ee3463fc086763b231bd",
+          "bie_81d76805e9c4806edbe1537f"
+        ],
+        "confidence": 0.9,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_624aef56c4982f41f575ecab"
+      }
+    ],
+    "differentiators": [
+      {
+        "value": "The business claims that every product is used weekly on its own cars and is tested in real-world driveway conditions.",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_9ba2a3ecdbe1dddefbe06234",
+          "bie_ac98b0d51531ebf0f1c5fd0b"
+        ],
+        "confidence": 0.97,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_49c451401e61624c0d84dac4"
+      },
+      {
+        "value": "The business explicitly positions itself between cheap Amazon kits and over-priced boutique brands.",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_81d76805e9c4806edbe1537f"
+        ],
+        "confidence": 0.98,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_67316cfe0cc62666e3079abb"
+      },
+      {
+        "value": "The business claims to exclude products that do not make car care easier and more enjoyable for everyday drivers.",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_103a39d08b6ea2e89e46901f",
+          "bie_424c150a772b2cf66955dbef"
+        ],
+        "confidence": 0.93,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_e1add734e778a26a8cab287a"
+      }
+    ],
+    "positioning_claims": [
+      {
+        "value": "“No gimmicks. Just results.”",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_a96b5e8dcc4e470da3bda897"
+        ],
+        "confidence": 0.99,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_390ee5305d0d8be52545289e"
+      },
+      {
+        "value": "“Premium without the fuss.”",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_97df0c3bdf4a59842b647fba"
+        ],
+        "confidence": 0.99,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_a78a83a5aa1b286fa1fb64b9"
+      },
+      {
+        "value": "The business states that it offers high-quality products at realistic prices, without the ego associated with boutique brands.",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_4718ee3463fc086763b231bd"
+        ],
+        "confidence": 0.98,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_80f904be2630e58f99f1207b"
+      },
+      {
+        "value": "The business states that its range uses proven, high-quality products that feel premium, perform consistently, and suit real weekend washes.",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_81d76805e9c4806edbe1537f"
+        ],
+        "confidence": 0.98,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_59bc1d4a9e30b8de37c99134"
+      },
+      {
+        "value": "The business states that its products are designed for UK conditions, daily-driven cars, and real-life use.",
+        "knowledge_type": "fact",
+        "assertion_scope": "business_claim",
+        "evidence_refs": [
+          "bie_e28ffbc82f34aea820efc81e"
+        ],
+        "confidence": 0.98,
+        "status": "human_verified",
+        "validation_decision_id": "bi_decision_10828139002dbcdc42efde18"
+      }
+    ],
+    "price_value_orientation": {
+      "value": "quality_over_lowest_price",
+      "knowledge_type": "fact",
+      "assertion_scope": "objective",
+      "evidence_refs": [],
+      "confidence": 1,
+      "status": "human_corrected",
+      "correction_id": "bi_correction_9fdcb71e57b7da0e0fea0a7a",
+      "validation_decision_id": "bi_decision_9eb45ae32c7b83d3c56dc50e"
+    }
+  },
+  "product": {
+    "identity": {
+      "product_name": {
+        "value": "Heavy Duty Car Drying Towel – 1200GSM",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_a23101a0392c0d6e2d8dea03"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      "brand": {
+        "value": null,
+        "knowledge_type": "unknown",
+        "evidence_refs": [
+          "pie_02accf197a53157d43bafaf0"
+        ],
+        "confidence": 0,
+        "status": "inferred"
+      },
+      "product_type": {
+        "value": "simple",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_6af4db46269500b099986411"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      "sku": {
+        "value": "1200TL",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_075acfbd23ca666caf09df8b"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      "category": {
+        "value": "Drying Towels",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_f9f5efbdf562bc9640940657"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      "variants": []
+    },
+    "features": [
+      {
+        "value": "1200GSM dual-layer thickness",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      {
+        "value": "Strong water-holding capacity",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      {
+        "value": "Soft premium feel",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      {
+        "value": "Suitable for paintwork when used correctly",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      },
+      {
+        "value": "Ideal for larger vehicles",
+        "knowledge_type": "fact",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "confidence": 1,
+        "status": "extracted"
+      }
+    ],
+    "benefits": [
+      {
+        "value": "Maximum absorbency",
+        "knowledge_type": "derived",
+        "evidence_refs": [
+          "pie_61842c7b90ef309f635efbd7"
+        ],
+        "confidence": 0.8,
+        "status": "inferred",
+        "supporting_feature_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "reasoning": "The towel's 1200GSM construction allows it to pull water quickly from surfaces."
+      },
+      {
+        "value": "Reduces contact pressure on paint",
+        "knowledge_type": "derived",
+        "evidence_refs": [
+          "pie_61842c7b90ef309f635efbd7"
+        ],
+        "confidence": 0.8,
+        "status": "inferred",
+        "supporting_feature_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "reasoning": "The thick fibers create a cushioned feel, minimizing the risk of scratches."
+      },
+      {
+        "value": "Fast, streak-free drying",
+        "knowledge_type": "derived",
+        "evidence_refs": [
+          "pie_61842c7b90ef309f635efbd7"
+        ],
+        "confidence": 0.8,
+        "status": "inferred",
+        "supporting_feature_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "reasoning": "The towel's design allows for quick drying without leaving streaks."
+      }
+    ],
+    "customer_relevance": {
+      "problems_solved": [
+        {
+          "value": "Difficulties in drying larger vehicles",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        },
+        {
+          "value": "Risk of scratching paint during drying",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ],
+      "objections": [
+        {
+          "value": "The towel may feel heavy when wet",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_6cfb4db94b38704dbeb03ede"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        },
+        {
+          "value": "Concerns about scratching paintwork",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_7cb2bb6386344aa3faf9ca89"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ],
+      "ideal_customers": [
+        {
+          "value": "People who wash their own vehicle at home, care about keeping it looking good, spend money looking after it, value product quality and achieving a good result, and are willing to pay more for a better product rather than simply choosing the cheapest option. They are primarily buying for their own vehicle. Professional detailers and professional car washers are not the intended target audience.",
+          "knowledge_type": "fact",
+          "evidence_refs": [],
+          "confidence": 1,
+          "status": "human_corrected",
+          "correction_id": "pio_correction_9843ac2f9985353980f805e0"
+        }
+      ],
+      "customer_groups": [
+        {
+          "value": "Owners of larger vehicles",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ]
+    },
+    "usage": {
+      "use_cases": [
+        {
+          "value": "Post-wash drying of vehicles",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        },
+        {
+          "value": "Drying painted surfaces without streaks",
+          "knowledge_type": "derived",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "confidence": 0.8,
+          "status": "inferred"
+        }
+      ]
+    },
+    "relevant_unknowns": []
+  },
+  "editorial_boundaries": {
+    "do_not_invent_specifications": true,
+    "do_not_invent_performance_claims": true,
+    "preserve_fact_derived_claim_distinctions": true,
+    "do_not_target_explicitly_excluded_audiences_as_primary": true,
+    "do_not_contradict_human_corrected_positioning": true,
+    "do_not_present_unknowns_as_known": true,
+    "permitted_persuasion": [
+      "benefit_led_framing",
+      "customer_problem_framing",
+      "emotional_relevance",
+      "product_differentiation",
+      "purchase_motivation",
+      "confident_supported_selling_language"
+    ]
+  },
+  "current_short_description": [
+    "1200GSM dual-layer thickness",
+    "Strong water-holding capacity, with a heavier feel once fully saturated",
+    "Soft premium feel",
+    "Suitable for paintwork when used correctly on a clean, shampooed surface",
+    "Ideal for larger vehicles"
+  ],
+  "ranked_selling_points": [
+    {
+      "value": "Fast, streak-free drying",
+      "role": "customer_outcome",
+      "angle_key": "drying_efficiency",
+      "score": 10,
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "prime_eligible": true,
+      "knowledge_type": "derived",
+      "status": "inferred",
+      "evidence_refs": [
+        "pie_61842c7b90ef309f635efbd7"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "value": "Better results without fuss.",
+      "role": "customer_priority",
+      "angle_key": "ease",
+      "score": 8,
+      "reason": "A validated business priority guides customer-relevant framing.",
+      "prime_eligible": true,
+      "knowledge_type": "fact",
+      "status": "human_verified",
+      "evidence_refs": [
+        "bie_c33001d42c91406b5f97f12d"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "value": "Products that work first time, every time.",
+      "role": "customer_priority",
+      "angle_key": "customer_priority",
+      "score": 8,
+      "reason": "A validated business priority guides customer-relevant framing.",
+      "prime_eligible": true,
+      "knowledge_type": "fact",
+      "status": "human_verified",
+      "evidence_refs": [
+        "bie_0b2b62312f8ab68ce69670f0",
+        "bie_0b9dcdfd075adc8810e6c5fa"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "value": "Accessible, uncomplicated car care for regular use.",
+      "role": "positioning",
+      "angle_key": "coverage_suitability",
+      "score": 7,
+      "reason": "A validated positioning theme keeps the selling frame on-brand.",
+      "prime_eligible": true,
+      "knowledge_type": "derived",
+      "status": "human_verified",
+      "evidence_refs": [
+        "bie_48c6d1112947e369b8086eb5",
+        "bie_5124987d6ed975fc55f92da2",
+        "bie_103a39d08b6ea2e89e46901f"
+      ],
+      "confidence": 0.93
+    },
+    {
+      "value": "Honesty and avoidance of hype, gimmicks, exaggerated claims, and unnecessary complexity.",
+      "role": "positioning",
+      "angle_key": "positioning",
+      "score": 7,
+      "reason": "A validated positioning theme keeps the selling frame on-brand.",
+      "prime_eligible": true,
+      "knowledge_type": "derived",
+      "status": "human_verified",
+      "evidence_refs": [
+        "bie_a96b5e8dcc4e470da3bda897",
+        "bie_46fb2074b607e8ff86dd97d4",
+        "bie_2f0653144ef87a6369aa358f",
+        "bie_515c41dbdaeacfffaf63212e"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "value": "Premium-quality positioning without boutique-brand pretension.",
+      "role": "positioning",
+      "angle_key": "quality_experience",
+      "score": 7,
+      "reason": "A validated positioning theme keeps the selling frame on-brand.",
+      "prime_eligible": true,
+      "knowledge_type": "derived",
+      "status": "human_verified",
+      "evidence_refs": [
+        "bie_97df0c3bdf4a59842b647fba",
+        "bie_4718ee3463fc086763b231bd",
+        "bie_81d76805e9c4806edbe1537f"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "value": "1200GSM dual-layer thickness",
+      "role": "feature",
+      "angle_key": "construction",
+      "score": 5,
+      "reason": "A supported product feature can substantiate a stronger benefit-led point.",
+      "prime_eligible": true,
+      "knowledge_type": "fact",
+      "status": "extracted",
+      "evidence_refs": [
+        "pie_1f1382712fd1ad6bddb9cbc7"
+      ],
+      "confidence": 1
+    },
+    {
+      "value": "Suitable for paintwork when used correctly",
+      "role": "feature",
+      "angle_key": "feature",
+      "score": 5,
+      "reason": "A supported product feature can substantiate a stronger benefit-led point.",
+      "prime_eligible": true,
+      "knowledge_type": "fact",
+      "status": "extracted",
+      "evidence_refs": [
+        "pie_1f1382712fd1ad6bddb9cbc7"
+      ],
+      "confidence": 1
+    }
+  ],
+  "rejected_selling_points": [
+    {
+      "value": "Maximum absorbency",
+      "role": "customer_outcome",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Reduces contact pressure on paint",
+      "role": "customer_outcome",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Difficulties in drying larger vehicles",
+      "role": "customer_problem",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Risk of scratching paint during drying",
+      "role": "customer_problem",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Drying painted surfaces without streaks",
+      "role": "ease_or_use_case",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Ease and control during vehicle washing is communicated as relevant, particularly around wheels and lower panels.",
+      "role": "customer_priority",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Post-wash drying of vehicles",
+      "role": "ease_or_use_case",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Real-world, day-to-day product testing and use rather than studio or idealised conditions.",
+      "role": "positioning",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Ideal for larger vehicles",
+      "role": "feature",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Soft premium feel",
+      "role": "feature",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Strong water-holding capacity",
+      "role": "feature",
+      "rejection": "overlapping_commercial_angle"
+    },
+    {
+      "value": "Concerns about scratching paintwork",
+      "role": "objection",
+      "rejection": "secondary_information"
+    },
+    {
+      "value": "The towel may feel heavy when wet",
+      "role": "objection",
+      "rejection": "secondary_information"
+    },
+    {
+      "value": "Gently wash the vehicle using a pH-safe shampoo",
+      "role": "care_or_instruction",
+      "rejection": "secondary_information"
+    },
+    {
+      "value": "Lay the towel flat on the panel and pat dry",
+      "role": "care_or_instruction",
+      "rejection": "secondary_information"
+    },
+    {
+      "value": "Not suitable for use with fabric softener",
+      "role": "limitation",
+      "rejection": "secondary_information"
+    }
+  ],
+  "instruction": "Create concise prime sales bullets that persuade the validated intended customer. Use supported benefits and customer relevance persuasively; do not lead with caveats, care instructions or narrow limitations. Do not invent measurements, guarantees, compatibility or performance claims. Return only the strict structured output."
+}

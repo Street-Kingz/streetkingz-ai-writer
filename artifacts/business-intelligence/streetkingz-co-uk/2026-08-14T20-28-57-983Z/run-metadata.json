@@ -1,0 +1,29 @@
+{
+  "artifact_type": "business_intelligence_evidence_run",
+  "schema_version": "1.0.0",
+  "business_url": "https://streetkingz.co.uk/",
+  "created_at": "2026-08-14T20:28:57.983Z",
+  "source_fingerprint": "760ebad63fa39ed04405378290d41a4516961537a8a37173f7ac9b10ded1020b",
+  "evidence_count": 482,
+  "pages_retrieved": 15,
+  "products_sampled": 8,
+  "execution_metadata": {
+    "deterministic_steps": [
+      "validate_business_url",
+      "read_homepage",
+      "extract_primary_navigation",
+      "plan_bounded_sources",
+      "read_supporting_pages",
+      "select_representative_products",
+      "read_product_sample",
+      "extract_literal_business_evidence",
+      "write_raw_artifacts"
+    ],
+    "external_api_call_count": 15,
+    "ai_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_ai_cost": 0,
+    "write_operations": 0
+  }
+}

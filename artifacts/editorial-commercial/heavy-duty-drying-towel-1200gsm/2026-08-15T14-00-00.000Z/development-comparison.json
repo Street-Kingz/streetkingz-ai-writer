@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1.0",
+  "artifact_type": "commercial_product_page_editor_comparison",
+  "current_short_description": [
+    "1200GSM dual-layer thickness",
+    "Strong water-holding capacity, with a heavier feel once fully saturated",
+    "Soft premium feel",
+    "Suitable for paintwork when used correctly on a clean, shampooed surface",
+    "Ideal for larger vehicles"
+  ],
+  "proposed_short_description": [
+    "Fast, streak-free drying for a better finish without the fuss",
+    "1200GSM dual-layer construction delivers maximum absorbency and strong water-holding capacity",
+    "Ideal for making light work of drying larger vehicles",
+    "Soft, premium feel helps reduce contact pressure on paintwork",
+    "A heavy-duty choice for dependable post-wash drying"
+  ],
+  "bullet_selection": [
+    {
+      "bullet": "Fast, streak-free drying for a better finish without the fuss",
+      "selected_for": "customer_outcome",
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "supporting_evidence_refs": [
+        "pie_61842c7b90ef309f635efbd7"
+      ]
+    },
+    {
+      "bullet": "1200GSM dual-layer construction delivers maximum absorbency and strong water-holding capacity",
+      "selected_for": "customer_outcome",
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "supporting_evidence_refs": [
+        "pie_61842c7b90ef309f635efbd7"
+      ]
+    },
+    {
+      "bullet": "Ideal for making light work of drying larger vehicles",
+      "selected_for": "customer_outcome",
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "supporting_evidence_refs": [
+        "pie_61842c7b90ef309f635efbd7"
+      ]
+    },
+    {
+      "bullet": "Soft, premium feel helps reduce contact pressure on paintwork",
+      "selected_for": "customer_outcome",
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "supporting_evidence_refs": [
+        "pie_61842c7b90ef309f635efbd7"
+      ]
+    },
+    {
+      "bullet": "A heavy-duty choice for dependable post-wash drying",
+      "selected_for": "customer_outcome",
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "supporting_evidence_refs": [
+        "pie_61842c7b90ef309f635efbd7"
+      ]
+    }
+  ],
+  "information_deliberately_not_used_in_prime_sales_copy": [
+    {
+      "value": "Concerns about scratching paintwork",
+      "role": "objection",
+      "belongs_in": "FAQ or objection handling",
+      "reason": "An objection belongs in supporting information unless it is commercially essential."
+    },
+    {
+      "value": "The towel may feel heavy when wet",
+      "role": "objection",
+      "belongs_in": "FAQ or objection handling",
+      "reason": "An objection belongs in supporting information unless it is commercially essential."
+    },
+    {
+      "value": "Gently wash the vehicle using a pH-safe shampoo",
+      "role": "care_or_instruction",
+      "belongs_in": "care/use guidance",
+      "reason": "Instructions belong in use guidance rather than prime sales space."
+    },
+    {
+      "value": "Lay the towel flat on the panel and pat dry",
+      "role": "care_or_instruction",
+      "belongs_in": "care/use guidance",
+      "reason": "Instructions belong in use guidance rather than prime sales space."
+    },
+    {
+      "value": "Not suitable for use with fabric softener",
+      "role": "limitation",
+      "belongs_in": "FAQ or objection handling",
+      "reason": "A limitation remains available for transparent supporting information, not a lead bullet."
+    }
+  ],
+  "validation": {
+    "factual_safety": "unsupported claims, invented measurements and guarantees remain rejected",
+    "commercial_priority": "persuasion is the objective; accuracy is the boundary"
+  },
+  "wordpress_writes": 0,
+  "publication_attempts": 0
+}

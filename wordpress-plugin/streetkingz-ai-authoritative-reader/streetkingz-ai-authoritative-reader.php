@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Street Kingz AI Authoritative Reader
  * Description: Narrow, authenticated, read-only product source endpoint for the Street Kingz AI Writer.
- * Version: 1.1.3
+ * Version: 1.2.0
  */
 
 defined('ABSPATH') || exit;
@@ -91,6 +91,11 @@ function streetkingz_ai_read_authoritative_product(WP_REST_Request $request) {
         return new WP_Error('streetkingz_ai_not_product', 'The requested post is not a product.', ['status' => 400]);
     }
 
+    $woocommerce = streetkingz_ai_read_woocommerce_product($post_id);
+    if (is_wp_error($woocommerce)) {
+        return $woocommerce;
+    }
+
     $template = streetkingz_ai_resolve_product_template($post_id);
     if (is_wp_error($template)) {
         return $template;
@@ -108,8 +113,132 @@ function streetkingz_ai_read_authoritative_product(WP_REST_Request $request) {
             'post_name' => $post['post_name'],
             'permalink' => get_permalink($post_id),
         ],
+        'woocommerce' => $woocommerce,
         'elementor_template' => $template,
     ]);
+}
+
+function streetkingz_ai_bounded_ids(array $values, int $limit = 100): array {
+    $ids = array_values(array_unique(array_filter(array_map('absint', $values), static function (int $id): bool {
+        return $id > 0;
+    })));
+    return array_slice($ids, 0, $limit);
+}
+
+function streetkingz_ai_inventory(WC_Product $product): array {
+    $manage_stock = $product->get_manage_stock() === true;
+    return [
+        'stock_status' => $product->get_stock_status(),
+        'manage_stock' => $manage_stock,
+        'stock_quantity' => $manage_stock ? $product->get_stock_quantity() : null,
+    ];
+}
+
+function streetkingz_ai_product_categories(WC_Product $product): array {
+    $categories = [];
+    foreach (streetkingz_ai_bounded_ids($product->get_category_ids(), 100) as $term_id) {
+        $term = get_term($term_id, 'product_cat');
+        if (!$term || is_wp_error($term)) continue;
+        $categories[] = [
+            'id' => (int) $term->term_id,
+            'name' => (string) $term->name,
+            'slug' => (string) $term->slug,
+        ];
+    }
+    return $categories;
+}
+
+function streetkingz_ai_attribute_options(WC_Product_Attribute $attribute): array {
+    $options = [];
+    foreach (array_slice($attribute->get_options(), 0, 100) as $option) {
+        if ($attribute->is_taxonomy()) {
+            $term = get_term((int) $option, $attribute->get_name());
+            if (!$term || is_wp_error($term)) continue;
+            $options[] = ['id' => (int) $term->term_id, 'name' => (string) $term->name, 'slug' => (string) $term->slug];
+        } else {
+            $options[] = (string) $option;
+        }
+    }
+    return $options;
+}
+
+function streetkingz_ai_product_attributes(WC_Product $product): array {
+    $attributes = [];
+    foreach (array_slice($product->get_attributes(), 0, 100) as $attribute) {
+        if (!$attribute instanceof WC_Product_Attribute) continue;
+        $attributes[] = [
+            'id' => (int) $attribute->get_id(),
+            'name' => (string) $attribute->get_name(),
+            'slug' => (string) $attribute->get_name(),
+            'options' => streetkingz_ai_attribute_options($attribute),
+            'visible' => $attribute->get_visible() === true,
+            'variation' => $attribute->get_variation() === true,
+        ];
+    }
+    return $attributes;
+}
+
+function streetkingz_ai_variation_record(WC_Product_Variation $variation): array {
+    return [
+        'id' => $variation->get_id(),
+        'sku' => $variation->get_sku(),
+        'pricing' => [
+            'regular_price' => $variation->get_regular_price(),
+            'sale_price' => $variation->get_sale_price(),
+            'current_price' => $variation->get_price(),
+        ],
+        'inventory' => streetkingz_ai_inventory($variation),
+        'attributes' => $variation->get_variation_attributes(),
+        'image_id' => $variation->get_image_id() ?: null,
+    ];
+}
+
+function streetkingz_ai_product_variations(WC_Product $product): array {
+    if (!$product->is_type('variable')) {
+        return ['variation_ids' => [], 'variations' => [], 'truncated' => false];
+    }
+    $all_ids = streetkingz_ai_bounded_ids($product->get_children(), 101);
+    $truncated = count($all_ids) > 100;
+    $variation_ids = array_slice($all_ids, 0, 100);
+    $variations = [];
+    foreach ($variation_ids as $variation_id) {
+        $variation = wc_get_product($variation_id);
+        if (!$variation instanceof WC_Product_Variation) continue;
+        $variations[] = streetkingz_ai_variation_record($variation);
+    }
+    return ['variation_ids' => $variation_ids, 'variations' => $variations, 'truncated' => $truncated];
+}
+
+function streetkingz_ai_read_woocommerce_product(int $post_id) {
+    if (!function_exists('wc_get_product')) {
+        return new WP_Error('streetkingz_ai_woocommerce_unavailable', 'WooCommerce product data is unavailable.', ['status' => 503]);
+    }
+    $product = wc_get_product($post_id);
+    if (!$product instanceof WC_Product) {
+        return new WP_Error('streetkingz_ai_not_woocommerce_product', 'The requested post is not a WooCommerce product.', ['status' => 400]);
+    }
+    $variation_data = streetkingz_ai_product_variations($product);
+    return [
+        'product_id' => $product->get_id(),
+        'sku' => $product->get_sku(),
+        'product_type' => $product->get_type(),
+        'pricing' => [
+            'regular_price' => $product->get_regular_price(),
+            'sale_price' => $product->get_sale_price(),
+            'current_price' => $product->get_price(),
+            'currency' => function_exists('get_woocommerce_currency') ? get_woocommerce_currency() : null,
+        ],
+        'inventory' => streetkingz_ai_inventory($product),
+        'categories' => streetkingz_ai_product_categories($product),
+        'attributes' => streetkingz_ai_product_attributes($product),
+        'variation_ids' => $variation_data['variation_ids'],
+        'variations' => $variation_data['variations'],
+        'variations_truncated' => $variation_data['truncated'],
+        'upsell_ids' => streetkingz_ai_bounded_ids($product->get_upsell_ids()),
+        'cross_sell_ids' => streetkingz_ai_bounded_ids($product->get_cross_sell_ids()),
+        'image_id' => $product->get_image_id() ?: null,
+        'gallery_image_ids' => streetkingz_ai_bounded_ids($product->get_gallery_image_ids()),
+    ];
 }
 
 function streetkingz_ai_condition_tokens($value, int $depth = 0): array {

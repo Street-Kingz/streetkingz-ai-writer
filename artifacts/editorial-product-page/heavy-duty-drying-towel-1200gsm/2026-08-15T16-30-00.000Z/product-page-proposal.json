@@ -1,0 +1,145 @@
+{
+  "schema_version": "0.1.0",
+  "artifact_type": "product_page_editor_proposal",
+  "validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sections": [
+    {
+      "section": "title",
+      "current": "Heavy Duty Drying Towel – 1200gsm",
+      "proposed": "Heavy Duty Drying Towel – 1200gsm",
+      "decision": "KEEP",
+      "reason": "The existing title clearly identifies the product.",
+      "product_support": [],
+      "business_influence": []
+    },
+    {
+      "section": "short_description",
+      "current": [
+        "1200GSM dual layer thickness",
+        "Extreme absorbency",
+        "Soft premium feel",
+        "Safe on all paint",
+        "Ideal for larger vehicles"
+      ],
+      "proposed": [
+        "Fast, streak-free post-wash drying",
+        "1200GSM dual-layer construction with strong water-holding capacity",
+        "Ideal for drying larger vehicles",
+        "Soft, premium feel for quality car care at home"
+      ],
+      "decision": "REPLACE",
+      "reason": "Prime bullets should lead with distinct product-grounded reasons to buy.",
+      "product_support": [
+        {
+          "value": "Fast, streak-free post-wash drying",
+          "evidence_refs": [],
+          "role": "commercial_editor_output"
+        },
+        {
+          "value": "1200GSM dual-layer construction with strong water-holding capacity",
+          "evidence_refs": [],
+          "role": "commercial_editor_output"
+        },
+        {
+          "value": "Ideal for drying larger vehicles",
+          "evidence_refs": [],
+          "role": "commercial_editor_output"
+        },
+        {
+          "value": "Soft, premium feel for quality car care at home",
+          "evidence_refs": [],
+          "role": "commercial_editor_output"
+        }
+      ],
+      "business_influence": []
+    },
+    {
+      "section": "main_description",
+      "current": "<h2>About this product</h2><p>This Heavy Duty Drying Towel uses an ultra-dense 1200GSM dual-sided microfibre blend designed to pull water off the paint with almost no effort. Each pass removes a huge amount of water, making it ideal for larger vehicles, heavy rinse-downs, or anyone who wants the quickest, easiest drying experience possible.</p><p>The 90 × 60 cm size offers excellent control while still covering large areas, meaning fewer passes, faster drying, and less contact with the paint — helping to prevent streaks, smears, and unwanted marks.</p><p>Its double-sided plush construction holds a serious amount of water while staying soft, gentle, and manageable. Whether you prefer to lay it flat, pat dry, or glide it across the surface, this towel makes light work of even the wettest panels.</p><h2>FAQ’s</h2><details><summary>What’s the difference between this and the XL 800GSM Drying Towel?</summary><p>The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.</p></details><details><summary>Will this towel scratch my paint?</summary><p>No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.</p></details>",
+      "proposed": "<h2>Serious drying power for home car care</h2><p>Finish your driveway wash without repeatedly chasing water around the bodywork. The dense 1200GSM dual-layer construction offers strong water-holding capacity, helping you dry panels quickly with fewer passes and less unnecessary contact.</p><p>Its soft, premium feel makes it suitable for paintwork when used correctly, while the fast, streak-free drying performance helps leave your car looking properly finished. It is also compatible with ceramic-coated and waxed vehicles.</p><p>Particularly useful for larger cars and vans, this heavy-duty towel is a quality choice for owners who want dependable drying performance rather than the cheapest option. Straightforward, effective and made for better results at home.</p>",
+      "decision": "EDIT",
+      "reason": "Expand the strongest product reasons without mechanically repeating the short description.",
+      "product_support": [
+        {
+          "value": "Fast, streak-free drying",
+          "evidence_refs": [
+            "pie_61842c7b90ef309f635efbd7"
+          ],
+          "knowledge_type": "derived"
+        },
+        {
+          "value": "1200GSM dual-layer thickness",
+          "evidence_refs": [
+            "pie_1f1382712fd1ad6bddb9cbc7"
+          ],
+          "knowledge_type": "fact"
+        },
+        {
+          "value": "Strong water-holding capacity",
+          "evidence_refs": [
+            "pie_1f1382712fd1ad6bddb9cbc7"
+          ],
+          "knowledge_type": "fact"
+        },
+        {
+          "value": "Suitable for paintwork when used correctly",
+          "evidence_refs": [
+            "pie_1f1382712fd1ad6bddb9cbc7"
+          ],
+          "knowledge_type": "fact"
+        },
+        {
+          "value": "Ideal for larger vehicles",
+          "evidence_refs": [
+            "pie_1f1382712fd1ad6bddb9cbc7"
+          ],
+          "knowledge_type": "fact"
+        },
+        {
+          "value": "Post-wash drying of vehicles",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "knowledge_type": "derived"
+        },
+        {
+          "value": "Drying painted surfaces without streaks",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "knowledge_type": "derived"
+        },
+        {
+          "value": "Difficulties in drying larger vehicles",
+          "evidence_refs": [
+            "pie_b53b40a18efd17e459896708"
+          ],
+          "knowledge_type": "derived"
+        }
+      ],
+      "business_influence": []
+    }
+  ],
+  "assessment": {
+    "strongest_existing_elements": [
+      "Product identity is clear."
+    ],
+    "weakest_existing_elements": [
+      "Prime short-description copy is more defensive than commercially useful."
+    ],
+    "missing_commercial_information": [],
+    "unnecessary_or_repetitive_information": [
+      "Caveats and usage warnings should not lead the page."
+    ],
+    "caveats_too_prominent": [],
+    "unsupported_claims": [],
+    "purchase_confidence_opportunities": [
+      "Lead with supported drying outcome, capacity, feel and suitability."
+    ]
+  },
+  "wordpress_writes": 0,
+  "publication_attempts": 0
+}

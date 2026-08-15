@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-08-13T21:06:36.561Z",
+  "started_at": "2026-08-13T21:05:59.839Z",
+  "model": "gpt-4o-mini-2024-07-18",
+  "usage": {
+    "input_tokens": 11972,
+    "output_tokens": 2848
+  },
+  "source_fingerprint": "b65262ff4a723a7565b46c648ebf25cb4d1ac2d47314cff885795a8acbbbdcc0",
+  "prompt_sha256": "93b7cc37bb317acd45ef6aaadfbad6ab95f54bf86effabb3c370453f8c0289d9",
+  "files": {
+    "product_intelligence": "product-intelligence.json",
+    "validation": "validation-report.json"
+  }
+}

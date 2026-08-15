@@ -1,0 +1,246 @@
+{
+  "schema_version": "0.1.0",
+  "artifact_type": "commercial_product_page_editor_comparison",
+  "current_short_description": [
+    "1200GSM dual-layer thickness",
+    "Strong water-holding capacity, with a heavier feel once fully saturated",
+    "Soft premium feel",
+    "Suitable for paintwork when used correctly on a clean, shampooed surface",
+    "Ideal for larger vehicles"
+  ],
+  "previous_commercial_editor_proposal": [
+    "Fast, streak-free drying for better driveway results without the fuss",
+    "1200GSM dual-layer construction with strong water-holding capacity",
+    "Thick, soft premium feel for drying paintwork",
+    "Ideal for making post-wash drying easier on larger vehicles",
+    "A premium, uncomplicated upgrade for your regular home car-care routine"
+  ],
+  "proposed_short_description": [
+    "Fast, streak-free drying without the usual fuss",
+    "1200GSM dual-layer construction with strong water-holding capacity",
+    "Soft, premium feel for paintwork-friendly drying",
+    "Ideal for larger vehicles and bigger driveway drying jobs"
+  ],
+  "bullet_selection": [
+    {
+      "bullet": "Fast, streak-free drying without the usual fuss",
+      "selected_for": "customer_outcome",
+      "reason": "A supported product benefit directly expresses a reason to buy.",
+      "product_support": {
+        "value": "Fast, streak-free drying",
+        "evidence_refs": [
+          "pie_61842c7b90ef309f635efbd7"
+        ],
+        "knowledge_type": "derived"
+      },
+      "business_influence": {
+        "value": "Better results without fuss.",
+        "evidence_refs": [
+          "bie_c33001d42c91406b5f97f12d"
+        ],
+        "role": "customer_priority"
+      }
+    },
+    {
+      "bullet": "1200GSM dual-layer construction with strong water-holding capacity",
+      "selected_for": "feature",
+      "reason": "A supported product feature can substantiate a stronger benefit-led point.",
+      "product_support": {
+        "value": "Strong water-holding capacity",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "knowledge_type": "fact"
+      },
+      "business_influence": null
+    },
+    {
+      "bullet": "Soft, premium feel for paintwork-friendly drying",
+      "selected_for": "feature",
+      "reason": "A supported product feature can substantiate a stronger benefit-led point.",
+      "product_support": {
+        "value": "Soft premium feel",
+        "evidence_refs": [
+          "pie_1f1382712fd1ad6bddb9cbc7"
+        ],
+        "knowledge_type": "fact"
+      },
+      "business_influence": {
+        "value": "Premium-quality positioning without boutique-brand pretension.",
+        "evidence_refs": [
+          "bie_97df0c3bdf4a59842b647fba",
+          "bie_4718ee3463fc086763b231bd",
+          "bie_81d76805e9c4806edbe1537f"
+        ],
+        "role": "positioning"
+      }
+    },
+    {
+      "bullet": "Ideal for larger vehicles and bigger driveway drying jobs",
+      "selected_for": "customer_problem",
+      "reason": "A product-specific problem connects the product to a customer need.",
+      "product_support": {
+        "value": "Difficulties in drying larger vehicles",
+        "evidence_refs": [
+          "pie_b53b40a18efd17e459896708"
+        ],
+        "knowledge_type": "derived"
+      },
+      "business_influence": null
+    }
+  ],
+  "information_deliberately_not_used_in_prime_sales_copy": [
+    {
+      "value": "Concerns about scratching paintwork",
+      "role": "objection",
+      "belongs_in": "FAQ or objection handling",
+      "reason": "An objection belongs in supporting information unless it is commercially essential."
+    },
+    {
+      "value": "The towel may feel heavy when wet",
+      "role": "objection",
+      "belongs_in": "FAQ or objection handling",
+      "reason": "An objection belongs in supporting information unless it is commercially essential."
+    },
+    {
+      "value": "Gently wash the vehicle using a pH-safe shampoo",
+      "role": "care_or_instruction",
+      "belongs_in": "care/use guidance",
+      "reason": "Instructions belong in use guidance rather than prime sales space."
+    },
+    {
+      "value": "Lay the towel flat on the panel and pat dry",
+      "role": "care_or_instruction",
+      "belongs_in": "care/use guidance",
+      "reason": "Instructions belong in use guidance rather than prime sales space."
+    },
+    {
+      "value": "Not suitable for use with fabric softener",
+      "role": "limitation",
+      "belongs_in": "FAQ or objection handling",
+      "reason": "A limitation remains available for transparent supporting information, not a lead bullet."
+    }
+  ],
+  "rejected_candidate_reasons": [
+    {
+      "value": "Maximum absorbency",
+      "role": "customer_outcome",
+      "rejection": "unsupported_superlative",
+      "reason": "A supported product benefit directly expresses a reason to buy."
+    },
+    {
+      "value": "Reduces contact pressure on paint",
+      "role": "customer_outcome",
+      "rejection": "overlapping_commercial_angle",
+      "reason": "A supported product benefit directly expresses a reason to buy."
+    },
+    {
+      "value": "Difficulties in drying larger vehicles",
+      "role": "customer_problem",
+      "rejection": "overlapping_commercial_angle",
+      "reason": "A product-specific problem connects the product to a customer need."
+    },
+    {
+      "value": "Risk of scratching paint during drying",
+      "role": "customer_problem",
+      "rejection": "overlapping_commercial_angle",
+      "reason": "A product-specific problem connects the product to a customer need."
+    },
+    {
+      "value": "Better results without fuss.",
+      "role": "customer_priority",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated business priority guides customer-relevant framing."
+    },
+    {
+      "value": "Drying painted surfaces without streaks",
+      "role": "ease_or_use_case",
+      "rejection": "overlapping_commercial_angle",
+      "reason": "A supported use case can make the product easier to picture in use."
+    },
+    {
+      "value": "Ease and control during vehicle washing is communicated as relevant, particularly around wheels and lower panels.",
+      "role": "customer_priority",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated business priority guides customer-relevant framing."
+    },
+    {
+      "value": "Post-wash drying of vehicles",
+      "role": "ease_or_use_case",
+      "rejection": "overlapping_commercial_angle",
+      "reason": "A supported use case can make the product easier to picture in use."
+    },
+    {
+      "value": "Products that work first time, every time.",
+      "role": "customer_priority",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated business priority guides customer-relevant framing."
+    },
+    {
+      "value": "Accessible, uncomplicated car care for regular use.",
+      "role": "positioning",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated positioning theme keeps the selling frame on-brand."
+    },
+    {
+      "value": "Honesty and avoidance of hype, gimmicks, exaggerated claims, and unnecessary complexity.",
+      "role": "positioning",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated positioning theme keeps the selling frame on-brand."
+    },
+    {
+      "value": "Premium-quality positioning without boutique-brand pretension.",
+      "role": "positioning",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated positioning theme keeps the selling frame on-brand."
+    },
+    {
+      "value": "Real-world, day-to-day product testing and use rather than studio or idealised conditions.",
+      "role": "positioning",
+      "rejection": "business_influence_only_no_product_proposition",
+      "reason": "A validated positioning theme keeps the selling frame on-brand."
+    },
+    {
+      "value": "Strong water-holding capacity",
+      "role": "feature",
+      "rejection": "overlapping_commercial_angle",
+      "reason": "A supported product feature can substantiate a stronger benefit-led point."
+    },
+    {
+      "value": "Concerns about scratching paintwork",
+      "role": "objection",
+      "rejection": "secondary_information",
+      "reason": "An objection belongs in supporting information unless it is commercially essential."
+    },
+    {
+      "value": "The towel may feel heavy when wet",
+      "role": "objection",
+      "rejection": "secondary_information",
+      "reason": "An objection belongs in supporting information unless it is commercially essential."
+    },
+    {
+      "value": "Gently wash the vehicle using a pH-safe shampoo",
+      "role": "care_or_instruction",
+      "rejection": "secondary_information",
+      "reason": "Instructions belong in use guidance rather than prime sales space."
+    },
+    {
+      "value": "Lay the towel flat on the panel and pat dry",
+      "role": "care_or_instruction",
+      "rejection": "secondary_information",
+      "reason": "Instructions belong in use guidance rather than prime sales space."
+    },
+    {
+      "value": "Not suitable for use with fabric softener",
+      "role": "limitation",
+      "rejection": "secondary_information",
+      "reason": "A limitation remains available for transparent supporting information, not a lead bullet."
+    }
+  ],
+  "validation": {
+    "factual_safety": "unsupported claims, invented measurements and guarantees remain rejected",
+    "commercial_priority": "persuasion is the objective; accuracy is the boundary"
+  },
+  "wordpress_writes": 0,
+  "publication_attempts": 0
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "artifact_type": "product_page_founder_information_preservation_correction",
+  "created_at": "2026-08-15T15:29:03.651Z",
+  "parent_proposal": {
+    "path": "artifacts/editorial-product-page/heavy-duty-drying-towel-1200gsm/2026-08-15T15-00-00.000Z/product-page-proposal.json",
+    "sha256": "fd772b52a147d1dad3415394908c386c6f2624f36576631eb1e54348ece45606"
+  },
+  "new_proposal": {
+    "path": "artifacts/editorial-product-page/heavy-duty-drying-towel-1200gsm/2026-08-15T15-29-03-651Z/product-page-proposal.json",
+    "sha256": "ab196b959b5ee2be2b39cc9599e471a53030409cc305ba20fee3265ab7a0fab9"
+  },
+  "correction_type": "founder_human_information_preservation_correction",
+  "original_main_description": "<p>Finish every wash with faster, easier drying. The dense 1200GSM dual-layer construction has strong water-holding capacity, lifting water from panels quickly for a streak-free finish with fewer passes—especially useful when drying larger vehicles.</p><p>Its thick, cushioned design combines serious absorbency with a soft, premium feel, helping reduce contact pressure on paintwork while drying.</p><p>Suitable for ceramic-coated and waxed cars, this heavy-duty towel brings dependable drying performance to your post-wash routine without unnecessary fuss.</p>",
+  "corrected_main_description": "<p>Finish every wash with faster, easier drying. The dense 1200GSM dual-layer construction has strong water-holding capacity, lifting water from panels quickly for a streak-free finish with fewer passes—especially useful when drying larger vehicles.</p><p>Its thick, cushioned design combines serious absorbency with a soft, premium feel, helping reduce contact pressure on paintwork while the 90 × 60 cm size balances coverage with control.</p><p>Suitable for cars, SUVs and vans, including paintwork, glass and exterior plastics, as well as ceramic-coated and waxed cars. Lay it flat, pat dry or glide it across the surface to make light work of post-wash drying.</p>",
+  "short_description_unchanged": true,
+  "support": {
+    "90 × 60 cm": {
+      "status": "SUPPORTED",
+      "source": "product.specifications"
+    },
+    "glass suitability": {
+      "status": "SUPPORTED",
+      "source": "product.specifications"
+    },
+    "exterior-plastic suitability": {
+      "status": "SUPPORTED",
+      "source": "product.specifications"
+    },
+    "lay-flat use": {
+      "status": "SUPPORTED",
+      "source": "product.usage.instructions"
+    },
+    "pat-dry use": {
+      "status": "SUPPORTED",
+      "source": "product.usage.instructions"
+    },
+    "glide use": {
+      "status": "SUPPORTED",
+      "source": "product.existing_content.faqs"
+    },
+    "ceramic-coated compatibility": {
+      "status": "SUPPORTED",
+      "source": "product.usage.compatibility"
+    },
+    "waxed compatibility": {
+      "status": "SUPPORTED",
+      "source": "product.usage.compatibility"
+    },
+    "contact-pressure benefit": {
+      "status": "SUPPORTED",
+      "source": "product.benefits"
+    }
+  }
+}
