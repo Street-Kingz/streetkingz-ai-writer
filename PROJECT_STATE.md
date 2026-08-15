@@ -2,7 +2,7 @@
 
 **Document status:** M0 and M1 complete; M2 ready for review, not started
 **Last updated:** 2026-08-15  
-**Repository checkpoint:** `53d1aa8e655ed6a4ccb6e4786ba2eab8deedb313` plus the uncommitted M1 working tree described below
+**Repository checkpoint:** `b12d16f4ad255c0286445893c9b43f661e6d2ff3`
 
 ## What we are building
 
@@ -83,12 +83,12 @@ Statuses below describe actual reusable capability, not file presence.
 | WordPress article draft creation | SUBSTANTIAL / PROOF-BOUND | guarded draft plugin and `rendering/wordpress-draft-proof.js`; product/article end-to-end handoff is not connected. |
 | Product Page Optimisation | SUBSTANTIAL / PAUSED | PIO+BIO+editorial proposal and adapter exist; implementation is paused at rendered-page guard. |
 | Guarded product-page implementation | SUBSTANTIAL / BLOCKED IN CURRENT ADAPTER | Elementor-aware reader/writer, hashes, approval, rollback and protected targets exist; current candidate lacks required rendered-page guard. |
-| Post-publication measurement | NOT STARTED | No connected measurement workflow. |
+| Post-publication measurement | PARTIAL | Google Search Console evidence capability already exists. There is no publication-linked measurement workflow yet and no closed learning loop from published article performance back into decisions. GA4 integration remains NOT STARTED. |
 | GA4 integration | NOT STARTED | No GA4 client/module found. |
 
 ## Milestone roadmap to the first usable article
 
-### M0 — Project control and legacy architecture consolidation (complete)
+### M0 — Project Control + Legacy Architecture Audit (complete)
 
 **Objective:** establish one canonical path, document legacy boundaries and lock Create SEO Article v1. Reuse `PROJECT_STATE.md`, this audit and `docs/LEGACY_CONSOLIDATION_PLAN.md`. **Status:** complete; the founder-directed M1 start signed off the path while preserving the rule that no legacy deletion or migration occurs without explicit approval.
 
@@ -155,6 +155,27 @@ Search for an existing implementation before creating a subsystem. Reuse canonic
 
 Do not extend LEGACY components with new product features unless an explicitly approved migration requires it.
 
+### Vertical Slice Rule
+
+Milestones should optimise for the smallest end-to-end usable vertical slice rather than attempting to perfect each subsystem independently.
+
+When a subsystem is already sufficient to support the current user-visible proof, prefer connecting and exercising it over expanding it.
+
+Do not spend multiple milestones perfecting an intermediate layer when a bounded implementation can move the workflow closer to real merchant use.
+
+Hardening discovered during an end-to-end run is valid blocker work.
+
+Once resolved, return immediately to the active milestone/path.
+
+The purpose of this rule is to stop development becoming:
+
+research
+→ more research infrastructure
+→ more interpretation infrastructure
+→ more editorial infrastructure
+
+without ever producing the user-visible outcome.
+
 ## Decision Log
 
 1. The project is workflow-driven, not prompt-driven.
@@ -190,5 +211,6 @@ Do not extend LEGACY components with new product features unless an explicitly a
 **Entry point:** `POST /workflows/create-seo-article` returns the deterministic plan. It is additive and isolated from the operational legacy `POST /generate-article` route.
 **Tests:** 5 focused contract/orchestrator tests pass; 11 focused workflow and legacy HTTP tests pass; full `npm test` passes 838/838.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
-**Scope:** M2 URL-to-evidence integration was not started; Product Page work and legacy cleanup were untouched.
+**Scope:** M2 URL-to-evidence integration was not started; Product Page work was untouched; legacy cleanup was not started.
+**Legacy cleanup:** not started.
 **Next milestone:** M2 — URL-to-Evidence Integration, ready for review only.
