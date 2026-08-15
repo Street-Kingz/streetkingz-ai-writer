@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "create_seo_article_development_proof",
+  "status": "PASS",
+  "assertions": {
+    "product_url_is_sufficient": true,
+    "merchant_topic_keyword_prompt_required": false,
+    "deterministic_identical_plans": true,
+    "contract_validation_errors": [],
+    "external_calls": 0,
+    "ai_calls": 0,
+    "wordpress_calls_or_writes": 0
+  },
+  "workflow_run_plan": {
+    "schema_version": "1.0.0",
+    "artifact_type": "workflow_run_plan",
+    "workflow": "create_seo_article",
+    "objective": "create_seo_article",
+    "contract_version": "1.0.0",
+    "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+    "workflow_input": {
+      "product_url": "https://www.example.com/products/example-product"
+    },
+    "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961",
+    "state": "ready",
+    "current_stage": "product_understanding",
+    "stages": [
+      {
+        "stage_id": "product_understanding",
+        "sequence": 1,
+        "objective": "create_seo_article",
+        "expected_output": "validated_product_intelligence",
+        "state": "ready",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "business_understanding",
+        "sequence": 2,
+        "objective": "create_seo_article",
+        "expected_output": "validated_business_intelligence",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "research",
+        "sequence": 3,
+        "objective": "create_seo_article",
+        "expected_output": "validated_research_state",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "opportunity_decision",
+        "sequence": 4,
+        "objective": "create_seo_article",
+        "expected_output": "validated_article_opportunity_decision",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "article_brief",
+        "sequence": 5,
+        "objective": "create_seo_article",
+        "expected_output": "validated_article_brief",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "article_generation",
+        "sequence": 6,
+        "objective": "create_seo_article",
+        "expected_output": "validated_semantic_article",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "validation",
+        "sequence": 7,
+        "objective": "create_seo_article",
+        "expected_output": "article_validation_report",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      },
+      {
+        "stage_id": "human_review",
+        "sequence": 8,
+        "objective": "create_seo_article",
+        "expected_output": "human_article_review",
+        "state": "pending",
+        "lineage": {
+          "workflow_run_id": "workflow_run_d99e0a6db63deef73d170a50",
+          "workflow_input_sha256": "018336ef3ba07e60ab4f723c81e2f841d4601a660a11db6180fddc2db95fa961"
+        },
+        "result": null,
+        "failure": null
+      }
+    ],
+    "external_calls_performed": 0,
+    "publication_allowed": false
+  }
+}

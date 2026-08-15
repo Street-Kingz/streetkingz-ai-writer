@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "node --test --test-concurrency=1 test/*.test.js",
+    "workflow:create-seo-article:proof": "node scripts/proveCreateSeoArticleWorkflow.js",
     "extract:product": "node scripts/extractProduct.js",
     "product-intelligence:evidence": "node --env-file=.env scripts/runProductIntelligenceEvidence.js",
     "product-intelligence:interpret": "node --env-file=.env scripts/runProductIntelligenceInterpretation.js",

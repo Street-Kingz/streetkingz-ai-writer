@@ -1,8 +1,8 @@
 # Street Kingz AI Ecommerce Assistant — Canonical Project State
 
-**Document status:** M0 audit output; awaiting founder review  
+**Document status:** M0 and M1 complete; M2 ready for review, not started
 **Last updated:** 2026-08-15  
-**Repository checkpoint:** `5c2fe7b3dcdd6f903126980e82c6d9f5347ab005`
+**Repository checkpoint:** `53d1aa8e655ed6a4ccb6e4786ba2eab8deedb313` plus the uncommitted M1 working tree described below
 
 ## What we are building
 
@@ -58,7 +58,7 @@ Statuses below describe actual reusable capability, not file presence.
 
 | Capability | Status | Evidence and current limitation |
 |---|---|---|
-| Workflow orchestration | SCAFFOLDED | `app.js`, `routes/`, `package.json`; only legacy `/generate-article` is exposed, no workflow selector. |
+| Workflow orchestration | M1 COMPLETE | `workflows/createSeoArticle.js` defines the generic `create_seo_article` contract and deterministic fail-closed orchestrator; `POST /workflows/create-seo-article` accepts a product URL alone. The legacy `/generate-article` remains isolated and operational. URL-to-evidence execution is intentionally deferred to M2. |
 | Product Understanding | SUBSTANTIAL | `product-intelligence/`, `scripts/runProductIntelligence*`; validated PIO and human correction exist for the towel. Product URL-to-orchestration is not connected. |
 | Business Understanding | SUBSTANTIAL | `business-intelligence/`, multi-pass interpretation and founder validation artifacts. No generic workflow entry point. |
 | Editorial Intelligence Context | COMPLETE | `editorial-intelligence/context.js`; deterministic validated PIO+BIO projection. |
@@ -88,17 +88,17 @@ Statuses below describe actual reusable capability, not file presence.
 
 ## Milestone roadmap to the first usable article
 
-### M0 — Project control and legacy architecture consolidation (current)
+### M0 — Project control and legacy architecture consolidation (complete)
 
-**Objective:** establish one canonical path, document legacy boundaries and lock Create SEO Article v1. Reuse `PROJECT_STATE.md`, this audit and `docs/LEGACY_CONSOLIDATION_PLAN.md`. Missing work is founder approval of the classification and cleanup plan. **Done when:** founder accepts the path and no deletion/migration occurs without approval.
+**Objective:** establish one canonical path, document legacy boundaries and lock Create SEO Article v1. Reuse `PROJECT_STATE.md`, this audit and `docs/LEGACY_CONSOLIDATION_PLAN.md`. **Status:** complete; the founder-directed M1 start signed off the path while preserving the rule that no legacy deletion or migration occurs without explicit approval.
 
 ### M1 — Create SEO Article workflow contract and orchestrator
 
-**Objective:** expose a direct workflow whose only required merchant input is a product URL. Reuse PIO/BIO contracts, research-state contracts, interpretation briefs and existing approval boundaries. Missing: workflow state/input/output contract and orchestration entry point. **Done when:** a URL can create a deterministic workflow run plan without a keyword/topic prompt.
+**Status:** COMPLETE — 2026-08-15. **Objective:** expose a direct workflow whose only required merchant input is a product URL. `workflows/createSeoArticle.js` now provides the explicit input, ordered-stage, output, lineage and transition contract. `POST /workflows/create-seo-article` creates a validated deterministic run plan without a keyword, topic or prompt. Invalid, failed, foreign-lineage, out-of-order or objective-changing stage results fail closed and block downstream stages. The contract performs no AI, external API or WordPress calls and cannot publish. Deterministic proof: `artifacts/workflows/create-seo-article/development-proof.json`. Tests: focused workflow/HTTP/legacy tests pass; full `npm test` passes 838/838. M2 integration was not started.
 
 ### M2 — URL-to-evidence integration
 
-**Objective:** connect product URL extraction/PIO and relevant business context to the research pipeline. Reuse `product-intelligence/ingestion.js`, `business-intelligence/ingestion.js`, `research/evidenceEngine.js` and cached provider clients. **Done when:** a run produces validated product/business/research artifacts from the URL with no manual path selection.
+**Status:** CURRENT — READY FOR REVIEW, NOT STARTED. **Objective:** connect product URL extraction/PIO and relevant business context to the research pipeline. Reuse `product-intelligence/ingestion.js`, `business-intelligence/ingestion.js`, `research/evidenceEngine.js` and cached provider clients. **Done when:** a run produces validated product/business/research artifacts from the URL with no manual path selection.
 
 ### M3 — Article opportunity decision
 
@@ -172,11 +172,23 @@ Do not extend LEGACY components with new product features unless an explicitly a
 
 ### M0 — Project Control + Legacy Architecture Audit
 
-**Status:** AWAITING FOUNDER REVIEW  
+**Status:** COMPLETE / PATH SIGNED OFF FOR M1
 **Date:** 2026-08-15  
 **Files changed:** `PROJECT_STATE.md`, `docs/LEGACY_CONSOLIDATION_PLAN.md`  
 **Tests:** existing `npm test` baseline; no tests changed  
 **External activity:** none; AI calls 0, external APIs 0, WordPress calls/writes 0  
 **Summary:** audited legacy article route and current evidence/intelligence/editorial/CMS paths; documented the canonical Create SEO Article path, gaps, duplication risks and proposed consolidation order.  
-**Next decision:** founder/advisor review of this audit and approval of any future migration/removal.
+**Next decision:** legacy migration/removal still requires explicit approval; none occurred in M1.
 
+### M1 — Create SEO Article Workflow Contract + Orchestrator
+
+**Status:** COMPLETE
+**Date:** 2026-08-15
+**Recovery classification:** A — the interrupted session had written no meaningful M1 work; HEAD and the tracked worktree still matched the M0 audit checkpoint. The unrelated untracked authoritative-reader ZIP was preserved.
+**Files changed:** `app.js`, `package.json`, `PROJECT_STATE.md`; added `workflows/createSeoArticle.js`, `routes/createSeoArticleWorkflow.js`, `scripts/proveCreateSeoArticleWorkflow.js`, `test/create-seo-article-workflow.test.js`, `test/http-create-seo-article-workflow.test.js`, and `artifacts/workflows/create-seo-article/development-proof.json`.
+**Contract:** product URL is the sole required merchant content input; merchant topic, keyword and prompt fields are rejected. Eight ordered stages have explicit expected outputs and immutable workflow/objective/input lineage. Only validated, complete, correctly bound results advance. Invalid or failed results fail the run and block every downstream stage.
+**Entry point:** `POST /workflows/create-seo-article` returns the deterministic plan. It is additive and isolated from the operational legacy `POST /generate-article` route.
+**Tests:** 5 focused contract/orchestrator tests pass; 11 focused workflow and legacy HTTP tests pass; full `npm test` passes 838/838.
+**External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
+**Scope:** M2 URL-to-evidence integration was not started; Product Page work and legacy cleanup were untouched.
+**Next milestone:** M2 — URL-to-Evidence Integration, ready for review only.
