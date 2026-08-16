@@ -22,6 +22,11 @@ export const OBJECTIVE_CONTRACTS = Object.freeze({
     "market_demand_evidence",
     "serp_landscape_evidence",
     "existing_site_coverage_assessment"
+  ]),
+  create_seo_article: Object.freeze([
+    "reliable_product_topic_facts",
+    "market_demand_query_evidence",
+    "serp_intent_content_shape_evidence"
   ])
 });
 

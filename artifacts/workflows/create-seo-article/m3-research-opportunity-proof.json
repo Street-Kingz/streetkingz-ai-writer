@@ -1,0 +1,415 @@
+{
+  "objective": "create_seo_article",
+  "merchant_inputs_received": [
+    "product_url"
+  ],
+  "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "product": {
+    "resolved": {
+      "reference": "artifacts/product-intelligence-founder-validation/heavy-duty-drying-towel-1200gsm/2026-08-14T06-35-19-842Z/product-intelligence-corrected.json",
+      "artifact_sha256": "bdb16a2996e56e029c26aa074919a526b92ae7a804e76e0613c0bbe1aac016a2",
+      "object_id": "pio_85791f2e3a45fa3f36a4a632",
+      "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "source_fingerprint": "b65262ff4a723a7565b46c648ebf25cb4d1ac2d47314cff885795a8acbbbdcc0",
+      "validation_status": "validated"
+    }
+  },
+  "business": {
+    "resolved": {
+      "reference": "artifacts/business-intelligence/streetkingz-co-uk/2026-08-15T06-44-34-338Z/founder-validation/business-intelligence-validated.json",
+      "artifact_sha256": "c31d78f4313d229f000d6abcdb08d1420e37bfd1c03572b4661822fd23cb9f68",
+      "object_id": "bio-multipass_56ff25439055282a683a0196",
+      "business_id": "business_c7adba04ebb538f70d960038",
+      "primary_domain": "https://streetkingz.co.uk/",
+      "source_fingerprint": "760ebad63fa39ed04405378290d41a4516961537a8a37173f7ac9b10ded1020b",
+      "validation_status": "validated"
+    }
+  },
+  "projection": {
+    "artifact_type": "product_facts",
+    "product_name": "Heavy Duty Car Drying Towel – 1200GSM",
+    "category_type": "simple",
+    "source_owner": "product_owner"
+  },
+  "research_seeds": [
+    "product.name",
+    "product.category_type"
+  ],
+  "keyword_candidates": [
+    {
+      "query": "microfiber towel for drying car",
+      "metrics": {
+        "monthly_search_volume": 5400,
+        "keyword_difficulty": 8,
+        "cpc_usd": 1.17,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best car drying towel",
+      "metrics": {
+        "monthly_search_volume": 2900,
+        "keyword_difficulty": 0,
+        "cpc_usd": 2.48,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_ed08924f3394b29222b9b9b0"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "microfiber towel for car drying",
+      "metrics": {
+        "monthly_search_volume": 1600,
+        "keyword_difficulty": 3,
+        "cpc_usd": 1.2,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_6da945a33cb44149b7d8ddb9"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "waffle weave car drying towel",
+      "metrics": {
+        "monthly_search_volume": 210,
+        "keyword_difficulty": 0,
+        "cpc_usd": 1.74,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best automotive drying towel",
+      "metrics": {
+        "monthly_search_volume": 110,
+        "keyword_difficulty": 0,
+        "cpc_usd": 1.92,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_0e9ab51ff78e7a40531e77be"
+      ],
+      "relevance": 0.2857142857142857,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "large drying towel for car",
+      "metrics": {
+        "monthly_search_volume": 70,
+        "keyword_difficulty": 0,
+        "cpc_usd": 3.8,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_f9a601dc1f920ec8da2df28d"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best car towel drying",
+      "metrics": {
+        "monthly_search_volume": 20,
+        "keyword_difficulty": 0,
+        "cpc_usd": 0.91,
+        "paid_competition_level": "HIGH"
+      },
+      "evidence_ids": [
+        "ev_cc557efe9ccdae309b441bba"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best microfibre car drying towel",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_cba0ce84881afaeaca79cb93"
+      ],
+      "relevance": 0.5714285714285714,
+      "product_term_matches": [
+        "drying",
+        "towel",
+        "microfibre"
+      ]
+    },
+    {
+      "query": "microfibre towel car drying",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_174031aa18df54db5a3e97dc"
+      ],
+      "relevance": 0.5714285714285714,
+      "product_term_matches": [
+        "drying",
+        "towel",
+        "microfibre"
+      ]
+    },
+    {
+      "query": "best car drying towel 2016",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_17d785499de1982598293438"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best car drying towel 2017",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_69f308706fffd7919ef41938"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best car drying towel 2018",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_b3fe7e9f5e9a8cfd6a672823"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best car drying towel 2022",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": 34,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_076de111e0f19a4434ae30c1"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best microfiber car drying towel australia",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_d454e99969098eb6c4f0c269"
+      ],
+      "relevance": 0.42857142857142855,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best drying towel autogeek",
+      "metrics": {
+        "monthly_search_volume": 10,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_480475e0e49937fcb23e38a8"
+      ],
+      "relevance": 0.2857142857142857,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    },
+    {
+      "query": "best auto detailing drying towel",
+      "metrics": {
+        "monthly_search_volume": null,
+        "keyword_difficulty": null,
+        "cpc_usd": null,
+        "paid_competition_level": null
+      },
+      "evidence_ids": [
+        "ev_8baf0a7f9bee2d286442c273"
+      ],
+      "relevance": 0.2857142857142857,
+      "product_term_matches": [
+        "drying",
+        "towel"
+      ]
+    }
+  ],
+  "serps_inspected": [
+    "waffle weave car drying towel",
+    "best car drying towel",
+    "best automotive drying towel",
+    "microfiber towel for drying car"
+  ],
+  "search_console": "OPTIONAL / NOT REQUIRED",
+  "research_sufficiency": "sufficient",
+  "decision": {
+    "outcome": "ARTICLE_RECOMMENDED",
+    "article_type": "supporting_article",
+    "primary_query": "microfiber towel for drying car",
+    "supporting_queries": [
+      {
+        "query": "best car drying towel",
+        "evidence_ids": [
+          "ev_ed08924f3394b29222b9b9b0"
+        ]
+      },
+      {
+        "query": "microfiber towel for car drying",
+        "evidence_ids": [
+          "ev_6da945a33cb44149b7d8ddb9"
+        ]
+      },
+      {
+        "query": "waffle weave car drying towel",
+        "evidence_ids": [
+          "ev_23a73f980b3182e3935f21e9"
+        ]
+      },
+      {
+        "query": "best automotive drying towel",
+        "evidence_ids": [
+          "ev_0e9ab51ff78e7a40531e77be"
+        ]
+      },
+      {
+        "query": "large drying towel for car",
+        "evidence_ids": [
+          "ev_f9a601dc1f920ec8da2df28d"
+        ]
+      }
+    ],
+    "search_intent": "mixed",
+    "reader_problem": "Help readers decide about microfiber towel for drying car.",
+    "product_relevance": "The candidate is derived from validated product facts and product-seeded demand evidence.",
+    "commercial_relevance": "The product is relevant to the selected search opportunity; no unsupported performance or ranking claim is made.",
+    "rationale": "The candidate has the strongest retained demand signal among product-relevant queries and has supporting SERP evidence.",
+    "evidence_ids": [
+      "ev_ecc2c1bd4e72d712f2eda7d7",
+      "ev_2402e4bb0c1bf2a17431c9f5",
+      "ev_268a5e6d930e2f3fd8ae0648",
+      "ev_35fc4936af8e40572505f795",
+      "ev_4cf0bed2c8389d97ec6b3cc2",
+      "ev_63e9847e4f5d4ec36ee46364",
+      "ev_6c54dd3f6805aeb1508681cd",
+      "ev_7eda71ccb9ee9698937a82ac",
+      "ev_990abd99717f4fc6f8121cd0",
+      "ev_ac6a726711be444d1302cf43",
+      "ev_acb651e5ab3753ee5bbd5149",
+      "ev_b8e4c363cfbf1ce8832f4cef",
+      "ev_bc2e6588860f8c1b5b22593c",
+      "ev_bd4cd1e3fbb3ff6fceff8df0",
+      "ev_bd6c0b36a0d57ab94aa4fd95",
+      "ev_bfc17c2a768137474c39d02e",
+      "ev_c5295da08e5f38c6f9285bfa",
+      "ev_c6907b8bb5a85f446b74c0a8",
+      "ev_ceb245dd6013ad58fc508a9b",
+      "ev_d38c09edc1bac57d8d212458",
+      "ev_d857da42979e79e286625355",
+      "ev_e612e72dd7fb06dcd3f12d80",
+      "ev_ee0b3e8c23ff9d8ec47a9953",
+      "ev_fd9d1f8eb0803e26a6f935ce",
+      "ev_fdc0ec3e296ae87f675c25d2",
+      "ev_ff3486d7e265b886bf2c605f",
+      "ev_0070937601532c2a501db22b",
+      "ev_b77f17bcbbd291179ba662ee"
+    ],
+    "alternatives_considered": [
+      "best car drying towel",
+      "microfiber towel for car drying",
+      "waffle weave car drying towel"
+    ],
+    "risks": [
+      "Page-level competitor coverage was not fetched."
+    ],
+    "confidence": "medium",
+    "research_state_id": "research_state_0ef3dcd58f516e7613081439",
+    "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a"
+  },
+  "next_stage": "ARTICLE_BRIEF READY",
+  "ai_calls": 0,
+  "external_provider_calls": 0,
+  "wordpress_calls": 0,
+  "publishing_attempts": 0,
+  "fixture": {
+    "evidence_path": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/heavy-duty-drying-towel-1200gsm/run_2026-08-08T07-22-30-159Z_b9eff88a/evidence.json",
+    "product_path": "artifacts/product-intelligence-founder-validation/heavy-duty-drying-towel-1200gsm/2026-08-14T06-35-19-842Z/product-intelligence-corrected.json",
+    "business_path": "artifacts/business-intelligence/streetkingz-co-uk/2026-08-15T06-44-34-338Z/founder-validation/business-intelligence-validated.json"
+  }
+}

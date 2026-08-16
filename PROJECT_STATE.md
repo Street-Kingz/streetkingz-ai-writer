@@ -2,7 +2,7 @@
 
 **Document status:** M0, M1 and M2 complete; M3 ready to begin
 **Last updated:** 2026-08-15  
-**Repository checkpoint:** `b12d16f4ad255c0286445893c9b43f661e6d2ff3` plus the uncommitted M2 working tree
+**Repository checkpoint:** `87acf1722de22c20eb867a1d1064bf4719363614` plus the uncommitted M3 working tree
 
 ## What we are building
 
@@ -29,7 +29,7 @@ The user chooses the objective. AI makes decisions within that objective. A disc
 
 **Current objective: CREATE SEO ARTICLE v1**
 
-**Current milestone: M3 — Article Opportunity Decision**
+**Current milestone: M4 — Structured Article Brief + Page Plan**
 
 **Goal:** Starting from a product URL, produce a researched, commercially worthwhile SEO article and finished draft without requiring the merchant to provide a topic, keyword, title, search intent, structure or prompt.
 
@@ -64,15 +64,15 @@ Statuses below describe actual reusable capability, not file presence.
 | Product Understanding | SUBSTANTIAL / CONNECTED FOR M2 SLICE | `product-intelligence/`, `scripts/runProductIntelligence*`; validated PIO and human correction exist for the towel. M2 resolves exact validated product intelligence from the canonical URL boundary and pauses when validation is unavailable. |
 | Business Understanding | SUBSTANTIAL / CONNECTED FOR M2 SLICE | `business-intelligence/`, multi-pass interpretation and founder validation artifacts. M2 resolves exact validated business intelligence by domain and pauses when validation is unavailable. |
 | Editorial Intelligence Context | COMPLETE / CONNECTED FOR M2 SLICE | `editorial-intelligence/context.js`; deterministic validated PIO+BIO projection is generated/reused and provenance-bound to the workflow. |
-| Research aggregation | SUBSTANTIAL | `research/evidenceEngine.js`, `research/aggregation/researchState.js`; artifact-driven and objective contracts exist. |
-| Product Facts research | SUBSTANTIAL | `research/providers/productFacts.js`; reusable provider and evidence contracts. |
+| Research aggregation | COMPLETE / CONNECTED FOR M3 SLICE | `research/evidenceEngine.js`, `research/aggregation/researchState.js`; article-specific objective, provenance and sufficiency are connected to Create SEO Article. |
+| Product Facts research | COMPLETE / CONNECTED FOR M3 SLICE | `research/productFactsProjection.js` adapts validated PIO deterministically into the existing Product Facts provider contract. |
 | DataForSEO Keyword Ideas | SUBSTANTIAL | `research/providers/dataForSeoKeywordIdeas.js`, `scripts/buildKeywordIdeasEvidence.js`; approval/cache preconditions exist. |
 | DataForSEO SERP research | SUBSTANTIAL | `research/providers/dataForSeoSerpAdvanced.js`, `scripts/buildSerpEvidence.js`; requires prior cached keyword evidence. |
 | Google Search Console | PARTIAL | `research/providers/googleSearchConsole.js`, script/client/tests; property/auth and orchestration are not part of a user workflow. |
 | Competitor research | PARTIAL | SERP evidence can expose ranking pages; no dedicated competitor-analysis decision workflow. |
 | Research sufficiency | SUBSTANTIAL | evidence coverage and research-state validators; not yet wired to Create SEO Article selection. |
-| Opportunity discovery | PARTIAL | `interpretation/`, decision briefs and objective contracts; no finished article-opportunity selector from a product URL. |
-| Decision making | PARTIAL | interpretation and `generation/execution.js` resolve bounded decisions; article objective is not a first-class direct workflow. |
+| Opportunity discovery | COMPLETE / CONNECTED FOR M3 SLICE | `workflows/createSeoArticleOpportunity.js` derives bounded candidates and validates article outcomes from evidence. |
+| Decision making | COMPLETE / CONNECTED FOR M3 SLICE | Create SEO Article now produces validated article opportunity outcomes without switching objectives or generating content. |
 | Cornerstone strategy/brief | SUBSTANTIAL / FIXTURE-BOUND | `cornerstone/`; strategy, allowlists and validation work against `artifacts/cornerstone/...` fixtures, not arbitrary merchant input. |
 | Page planning | SUBSTANTIAL / FIXTURE-BOUND | `editorial/plan.js`, `scripts/buildEditorialPagePlan.js`; deterministic and validated, but script defaults are hardcoded fixture paths. |
 | Semantic editorial components | SUBSTANTIAL | `editorial/contracts.js`, `editorial/plan.js`, renderers and validators. |
@@ -103,13 +103,16 @@ Statuses below describe actual reusable capability, not file presence.
 **Status:** COMPLETE — 2026-08-15. **Objective:** connect product URL extraction/PIO and relevant business context to the research pipeline. M2 adds the thin `workflows/createSeoArticleIntelligence.js` boundary, which resolves exact validated PIO/BIO artifacts, verifies actual SHA-256 content hashes and identity, creates or validates deterministic EIC, and binds provenance to the existing M1 stages. Missing validation pauses with an actionable required stage; malformed, ambiguous, mismatched, unsupported or tampered artifacts fail closed. The Street Kingz proof reaches `product_understanding` COMPLETE → `business_understanding` COMPLETE → `research` READY; research itself is not executed. No durable persistence, AI, external API, WordPress or publishing path was added.
 **Tests:** focused M1/M2 workflow and HTTP tests pass; full `npm test` passes 845/845. **Development proof:** `artifacts/workflows/create-seo-article/m2-url-to-evidence-proof.json`.
 
-### M3 — Article opportunity decision
+### M3 — Research Execution + Article Opportunity Decision
 
-**Objective:** make article opportunity selection explicit within the direct Create SEO Article objective. Reuse research sufficiency, interpretation context, decision briefs and evidence validation. Missing: article-specific decision area, recommendation/no-op contract and direct-workflow boundary. **Done when:** the system recommends an article opportunity or a justified no-article result without silently switching workflows.
+**Status:** COMPLETE — 2026-08-16. **Objective:** execute bounded product-led research and make article opportunity selection explicit within the direct Create SEO Article objective. M3 adds deterministic validated-PIO → Product Facts projection, automatic product-derived research seeds, an article-specific research objective, bounded candidate selection and validated `ARTICLE_RECOMMENDED`, `NO_ARTICLE_RECOMMENDED` and `RESEARCH_INSUFFICIENT` outcomes. The offline Street Kingz proof starts with `product_url` only, selects `microfiber towel for drying car` as a `supporting_article`, treats Search Console as optional and preserves unknown page-level competitor coverage. The workflow reaches `article_brief READY`; no brief is generated, no article is generated and nothing publishes.
+**Tests:** focused M3 tests pass 4/4; full `npm test` passes 849/849 with localhost permission. **Development proof:** `artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json`.
+**External activity:** AI calls 0, external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
+**Scope:** no durable persistence, competitor crawler, research expansion, article brief generation, article generation, legacy cleanup or Product Page work was started.
 
 ### M4 — Structured article brief and page plan
 
-**Objective:** connect a selected article opportunity to a reusable brief and semantic page plan. Reuse `generation/brief.js`, `editorial/plan.js`, cornerstone allowlists and rendering contracts. **Done when:** an approved opportunity produces a validated, provenance-bound brief and plan without fixture-only paths.
+**Status:** NOT STARTED. **Objective:** connect a selected article opportunity to a reusable brief and semantic page plan. Reuse `generation/brief.js`, `editorial/plan.js`, cornerstone allowlists and rendering contracts. **Done when:** an approved opportunity produces a validated, provenance-bound brief and plan without fixture-only paths.
 
 ### M5 — Controlled generation and validation
 
@@ -216,7 +219,7 @@ without ever producing the user-visible outcome.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
 **Scope:** M2 URL-to-evidence integration was completed in the subsequent M2 milestone; Product Page work was untouched; legacy cleanup was not started.
 **Legacy cleanup:** not started.
-**Next milestone:** M2 — URL-to-Evidence Integration, completed; M3 is now current.
+**Next milestone:** M4 — Structured Article Brief + Page Plan; M4 is current and NOT STARTED.
 
 ### M2 — URL-to-Evidence Integration
 
@@ -227,4 +230,15 @@ without ever producing the user-visible outcome.
 **Tests:** focused M1/M2 workflow and HTTP tests pass; full `npm test` passes 845/845; `git diff --check` passes.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, publishing attempts 0.
 **Scope:** no durable workflow persistence, research implementation, legacy cleanup or Product Page work was started.
-**Next milestone:** M3 — Article Opportunity Decision.
+**Next milestone:** M3 — Research Execution + Article Opportunity Decision.
+
+### M3 — Research Execution + Article Opportunity Decision
+
+**Status:** COMPLETE
+**Date:** 2026-08-16
+**Files changed:** `package.json`, `research/contracts/schemas.js`, `research/aggregation/researchState.js`, `research/providers/productFacts.js`, `research/providers/dataForSeoKeywordIdeas.js`, `research/providers/dataForSeoSerpAdvanced.js`, `research/productFactsProjection.js`, `workflows/createSeoArticleM3.js`, `workflows/createSeoArticleOpportunity.js`, `routes/createSeoArticleWorkflow.js`, `scripts/proveCreateSeoArticleM3.js`, `test/create-seo-article-m3.test.js`, `artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json`, `PROJECT_STATE.md`.
+**Integration:** validated PIO/BIO/EIC now feed bounded product-led research through a deterministic PIO → Product Facts adapter. Research seeds are automatic and capped at two; keyword candidates are capped at 25; SERP inspection is capped at five; Search Console remains optional. The article-specific research objective produces a validated sufficient state, then a bounded evidence-backed opportunity decision. `ARTICLE_RECOMMENDED` advances `article_brief` to READY without generating a brief. `NO_ARTICLE_RECOMMENDED` and `RESEARCH_INSUFFICIENT` remain distinct and do not advance.
+**Tests:** focused M3 tests pass 4/4; full `npm test` passes 849/849 with localhost test binding permission; `git diff --check` passes.
+**External activity:** AI calls 0, external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
+**Scope:** no durable persistence, research platform expansion, article brief generation, article generation, legacy cleanup or Product Page work was started.
+**Next milestone:** M4 — Structured Article Brief + Page Plan, NOT STARTED.

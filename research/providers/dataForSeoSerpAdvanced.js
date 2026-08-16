@@ -302,7 +302,7 @@ function normaliseTask({ task, result, request, shortlistEntry, providerRunId, r
   return { records: records.sort((a, b) => a.evidence_id.localeCompare(b.evidence_id)), unknownTypes, categories };
 }
 
-export function createDataForSeoSerpAdvancedProvider({ client, maxKeywords = DEFAULT_MAX_KEYWORDS, maxCostUsd } = {}) {
+export function createDataForSeoSerpAdvancedProvider({ client, maxKeywords = DEFAULT_MAX_KEYWORDS, maxCostUsd, locationCode = 2840, languageCode = "en" } = {}) {
   return {
     id: PROVIDER_ID,
     version: PROVIDER_VERSION,
@@ -336,7 +336,7 @@ export function createDataForSeoSerpAdvancedProvider({ client, maxKeywords = DEF
         scope: { market: scope?.market || "GB", language: scope?.language || "en-GB" },
         approval: { status: "approved", asserted_by: approval.asserted_by || "local_user" },
         endpoint: DATAFORSEO_SERP_ADVANCED_ENDPOINT,
-        parameters: { location_code: 2840, language_code: "en", device: "desktop", os: "windows", search_engine: "google", search_type: "organic", response_format: "advanced", depth: 10 },
+        parameters: { location_code: scope?.location_code ?? locationCode, language_code: scope?.language_code ?? languageCode, device: "desktop", os: "windows", search_engine: "google", search_type: "organic", response_format: "advanced", depth: 10 },
         shortlist
       };
       assertValid("DataForSEO SERP Advanced request", request, validateProviderRequest);

@@ -45,7 +45,7 @@ function normaliseSeedText(value) {
   return value.normalize("NFKC").replace(/[–—]/g, " ").replace(/\s+/g, " ").trim().toLowerCase();
 }
 
-export function deriveKeywordIdeaSeeds(evidence) {
+export function deriveKeywordIdeaSeeds(evidence, { maximum = 2 } = {}) {
   const acceptedPaths = new Set(["product.name", "product.category_type"]);
   const records = evidence.records.filter((record) =>
     record.provider_id === "product_facts" && acceptedPaths.has(record.value?.field_path)
@@ -60,7 +60,7 @@ export function deriveKeywordIdeaSeeds(evidence) {
     };
   });
   const unique = [...new Map(seeds.map((seed) => [seed.text, seed])).values()];
-  return unique.sort((a, b) => a.text.localeCompare(b.text));
+  return unique.sort((a, b) => a.text.localeCompare(b.text)).slice(0, maximum);
 }
 
 function confidence() {
@@ -181,7 +181,7 @@ function normaliseRecords({ task, result, request, providerRunId, retrievedAt, r
   }).sort((a, b) => a.evidence_id.localeCompare(b.evidence_id));
 }
 
-export function createDataForSeoKeywordIdeasProvider({ client, maxCostUsd } = {}) {
+export function createDataForSeoKeywordIdeasProvider({ client, maxCostUsd, locationCode = 2840, languageCode = "en" } = {}) {
   return {
     id: PROVIDER_ID,
     version: PROVIDER_VERSION,
@@ -205,7 +205,7 @@ export function createDataForSeoKeywordIdeasProvider({ client, maxCostUsd } = {}
       if (evidence.subject?.product_facts_sha256 !== sha256(factsRaw)) {
         throw new DataForSeoProviderError("Evidence artifact does not reference the supplied product facts.", "INVALID_INPUT");
       }
-      const seeds = deriveKeywordIdeaSeeds(evidence);
+      const seeds = deriveKeywordIdeaSeeds(evidence, { maximum: 2 });
       if (!seeds.length) throw new DataForSeoProviderError("No deterministic product-fact seeds were available.", "INVALID_INPUT");
       const request = {
         schema_version: SCHEMA_VERSION,
@@ -224,8 +224,8 @@ export function createDataForSeoKeywordIdeasProvider({ client, maxCostUsd } = {}
         endpoint: DATAFORSEO_KEYWORD_IDEAS_ENDPOINT,
         seeds,
         parameters: {
-          location_code: 2840,
-          language_code: "en",
+          location_code: scope?.location_code ?? locationCode,
+          language_code: scope?.language_code ?? languageCode,
           closely_variants: false,
           ignore_synonyms: false,
           include_serp_info: false,

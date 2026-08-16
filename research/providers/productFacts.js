@@ -196,7 +196,7 @@ export function createProductFactsProvider() {
           provenance: {
             provider_id: PROVIDER_ID,
             provider_version: PROVIDER_VERSION,
-            source_owner: "Street Kingz",
+            source_owner: facts.source_owner || facts.business_name || "product_owner",
             source_url: fact.provenance.source_url,
             source_record_id: fieldPath,
             query_seed: null,

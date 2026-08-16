@@ -14,7 +14,8 @@ export const SUFFICIENCY_STATES = Object.freeze(["sufficient", "partial", "insuf
 export const OBJECTIVE_TYPES = Object.freeze([
   "improve_existing_product_page",
   "create_supporting_content",
-  "identify_content_opportunities"
+  "identify_content_opportunities",
+  "create_seo_article"
 ]);
 
 export const providerRequestSchema = Object.freeze({
