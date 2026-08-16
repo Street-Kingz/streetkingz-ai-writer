@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "create_seo_article_m2_url_to_evidence_proof",
+  "status": "PASS",
+  "objective": "create_seo_article",
+  "canonical_product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm",
+  "workflow_run_id": "workflow_run_e10ef667f971020b5695cd73",
+  "product_intelligence": {
+    "reference": "artifacts/product-intelligence-founder-validation/heavy-duty-drying-towel-1200gsm/2026-08-14T06-35-19-842Z/product-intelligence-corrected.json",
+    "artifact_sha256": "bdb16a2996e56e029c26aa074919a526b92ae7a804e76e0613c0bbe1aac016a2",
+    "object_id": "pio_85791f2e3a45fa3f36a4a632",
+    "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+    "source_fingerprint": "b65262ff4a723a7565b46c648ebf25cb4d1ac2d47314cff885795a8acbbbdcc0",
+    "validation_status": "validated"
+  },
+  "business_intelligence": {
+    "reference": "artifacts/business-intelligence/streetkingz-co-uk/2026-08-15T06-44-34-338Z/founder-validation/business-intelligence-validated.json",
+    "artifact_sha256": "c31d78f4313d229f000d6abcdb08d1420e37bfd1c03572b4661822fd23cb9f68",
+    "object_id": "bio-multipass_56ff25439055282a683a0196",
+    "business_id": "business_c7adba04ebb538f70d960038",
+    "primary_domain": "https://streetkingz.co.uk/",
+    "source_fingerprint": "760ebad63fa39ed04405378290d41a4516961537a8a37173f7ac9b10ded1020b",
+    "validation_status": "validated"
+  },
+  "editorial_intelligence_context": {
+    "reference": "eic_1a472e767123d750f3f22e2b",
+    "artifact_sha256": "d9411d37d15b9200053c9f0aa669e38fa4d382b2abe4767f4514622c3893ed9a",
+    "context_id": "eic_1a472e767123d750f3f22e2b",
+    "business_id": "business_c7adba04ebb538f70d960038",
+    "product_object_id": "pio_85791f2e3a45fa3f36a4a632",
+    "schema_version": "1.0.0",
+    "validation_status": "validated"
+  },
+  "stage_transitions": [
+    {
+      "stage_id": "product_understanding",
+      "state": "complete",
+      "result": {
+        "artifact_id": "pio_85791f2e3a45fa3f36a4a632",
+        "artifact_sha256": "bdb16a2996e56e029c26aa074919a526b92ae7a804e76e0613c0bbe1aac016a2",
+        "provenance": {
+          "product": {
+            "reference": "artifacts/product-intelligence-founder-validation/heavy-duty-drying-towel-1200gsm/2026-08-14T06-35-19-842Z/product-intelligence-corrected.json",
+            "artifact_sha256": "bdb16a2996e56e029c26aa074919a526b92ae7a804e76e0613c0bbe1aac016a2",
+            "object_id": "pio_85791f2e3a45fa3f36a4a632",
+            "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "source_fingerprint": "b65262ff4a723a7565b46c648ebf25cb4d1ac2d47314cff885795a8acbbbdcc0",
+            "validation_status": "validated"
+          }
+        }
+      }
+    },
+    {
+      "stage_id": "business_understanding",
+      "state": "complete",
+      "result": {
+        "artifact_id": "bio-multipass_56ff25439055282a683a0196",
+        "artifact_sha256": "c31d78f4313d229f000d6abcdb08d1420e37bfd1c03572b4661822fd23cb9f68",
+        "provenance": {
+          "business": {
+            "reference": "artifacts/business-intelligence/streetkingz-co-uk/2026-08-15T06-44-34-338Z/founder-validation/business-intelligence-validated.json",
+            "artifact_sha256": "c31d78f4313d229f000d6abcdb08d1420e37bfd1c03572b4661822fd23cb9f68",
+            "object_id": "bio-multipass_56ff25439055282a683a0196",
+            "business_id": "business_c7adba04ebb538f70d960038",
+            "primary_domain": "https://streetkingz.co.uk/",
+            "source_fingerprint": "760ebad63fa39ed04405378290d41a4516961537a8a37173f7ac9b10ded1020b",
+            "validation_status": "validated"
+          },
+          "context": {
+            "reference": "eic_1a472e767123d750f3f22e2b",
+            "artifact_sha256": "d9411d37d15b9200053c9f0aa669e38fa4d382b2abe4767f4514622c3893ed9a",
+            "context_id": "eic_1a472e767123d750f3f22e2b",
+            "business_id": "business_c7adba04ebb538f70d960038",
+            "product_object_id": "pio_85791f2e3a45fa3f36a4a632",
+            "schema_version": "1.0.0",
+            "validation_status": "validated"
+          }
+        }
+      }
+    },
+    {
+      "stage_id": "research",
+      "state": "ready",
+      "result": null
+    },
+    {
+      "stage_id": "opportunity_decision",
+      "state": "pending",
+      "result": null
+    },
+    {
+      "stage_id": "article_brief",
+      "state": "pending",
+      "result": null
+    },
+    {
+      "stage_id": "article_generation",
+      "state": "pending",
+      "result": null
+    },
+    {
+      "stage_id": "validation",
+      "state": "pending",
+      "result": null
+    },
+    {
+      "stage_id": "human_review",
+      "state": "pending",
+      "result": null
+    }
+  ],
+  "final_active_stage": "research",
+  "research_status": "READY_NOT_EXECUTED",
+  "merchant_inputs_received": [
+    "product_url"
+  ],
+  "ai_calls": 0,
+  "external_calls": 0,
+  "wordpress_calls": 0,
+  "wordpress_writes": 0,
+  "publishing_attempts": 0
+}

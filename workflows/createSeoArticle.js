@@ -18,7 +18,7 @@ export const CREATE_SEO_ARTICLE_STAGES = Object.freeze([
 const TERMINAL_STAGE_STATES = new Set(["complete", "failed", "blocked"]);
 const clone = (value) => structuredClone(value);
 
-function canonicalProductUrl(value) {
+export function canonicalCreateSeoArticleProductUrl(value) {
   if (typeof value !== "string" || !value.trim()) throw new Error("product_url is required.");
   let url;
   try { url = new URL(value.trim()); }
@@ -28,6 +28,10 @@ function canonicalProductUrl(value) {
   url.hostname = url.hostname.toLowerCase();
   url.pathname = url.pathname.replace(/\/{2,}/g, "/").replace(/\/$/, "") || "/";
   return url.toString();
+}
+
+function canonicalProductUrl(value) {
+  return canonicalCreateSeoArticleProductUrl(value);
 }
 
 export function validateCreateSeoArticleInput(input) {
@@ -141,6 +145,39 @@ export function bindCreateSeoArticleStageResult(run, result) {
     next.stages[stageIndex + 1].state = "ready";
     next.current_stage = next.stages[stageIndex + 1].stage_id;
   }
+  return next;
+}
+
+export function pauseCreateSeoArticleRun(run, { reason = "awaiting_validation", requiredStage, message, nextAction }) {
+  const errors = validateCreateSeoArticleRun(run);
+  const stageIndex = run?.stages?.findIndex((stage) => stage.stage_id === requiredStage) ?? -1;
+  if (errors.length || run?.state !== "ready" || stageIndex < 0 || run.current_stage !== requiredStage) throw Object.assign(new Error("Workflow run cannot be paused at the requested stage."), { code: "INVALID_WORKFLOW_RUN", errors });
+  const next = clone(run);
+  next.state = "paused";
+  next.current_stage = requiredStage;
+  next.pause = { reason, required_stage: requiredStage, message, next_action: nextAction };
+  for (let index = stageIndex + 1; index < next.stages.length; index += 1) {
+    next.stages[index].state = "blocked";
+    next.stages[index].failure = { code: "UPSTREAM_STAGE_PAUSED", upstream_stage_id: requiredStage };
+  }
+  return next;
+}
+
+export function resumeCreateSeoArticleRun(run) {
+  const errors = validateCreateSeoArticleRun(run);
+  if (errors.length || run?.state !== "paused" || !run.pause?.required_stage) throw Object.assign(new Error("Workflow run is not eligible for resume."), { code: "INVALID_WORKFLOW_RUN", errors });
+  const next = clone(run);
+  const index = next.stages.findIndex((stage) => stage.stage_id === next.pause.required_stage);
+  if (index < 0) throw Object.assign(new Error("Workflow pause references an unknown stage."), { code: "INVALID_WORKFLOW_RUN", errors: [{ code: "INVALID_PAUSE_STAGE" }] });
+  next.state = "ready";
+  next.current_stage = next.pause.required_stage;
+  next.stages[index].state = "ready";
+  next.stages[index].failure = null;
+  for (let cursor = index + 1; cursor < next.stages.length; cursor += 1) {
+    next.stages[cursor].state = "pending";
+    next.stages[cursor].failure = null;
+  }
+  delete next.pause;
   return next;
 }
 

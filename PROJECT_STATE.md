@@ -1,8 +1,8 @@
 # Street Kingz AI Ecommerce Assistant — Canonical Project State
 
-**Document status:** M0 and M1 complete; M2 ready for review, not started
+**Document status:** M0, M1 and M2 complete; M3 ready to begin
 **Last updated:** 2026-08-15  
-**Repository checkpoint:** `b12d16f4ad255c0286445893c9b43f661e6d2ff3`
+**Repository checkpoint:** `b12d16f4ad255c0286445893c9b43f661e6d2ff3` plus the uncommitted M2 working tree
 
 ## What we are building
 
@@ -28,6 +28,8 @@ The user chooses the objective. AI makes decisions within that objective. A disc
 ## Current Path Lock
 
 **Current objective: CREATE SEO ARTICLE v1**
+
+**Current milestone: M3 — Article Opportunity Decision**
 
 **Goal:** Starting from a product URL, produce a researched, commercially worthwhile SEO article and finished draft without requiring the merchant to provide a topic, keyword, title, search intent, structure or prompt.
 
@@ -58,10 +60,10 @@ Statuses below describe actual reusable capability, not file presence.
 
 | Capability | Status | Evidence and current limitation |
 |---|---|---|
-| Workflow orchestration | M1 COMPLETE | `workflows/createSeoArticle.js` defines the generic `create_seo_article` contract and deterministic fail-closed orchestrator; `POST /workflows/create-seo-article` accepts a product URL alone. The legacy `/generate-article` remains isolated and operational. URL-to-evidence execution is intentionally deferred to M2. |
-| Product Understanding | SUBSTANTIAL | `product-intelligence/`, `scripts/runProductIntelligence*`; validated PIO and human correction exist for the towel. Product URL-to-orchestration is not connected. |
-| Business Understanding | SUBSTANTIAL | `business-intelligence/`, multi-pass interpretation and founder validation artifacts. No generic workflow entry point. |
-| Editorial Intelligence Context | COMPLETE | `editorial-intelligence/context.js`; deterministic validated PIO+BIO projection. |
+| Workflow orchestration | M2 COMPLETE | `workflows/createSeoArticle.js` defines the generic `create_seo_article` contract and deterministic fail-closed orchestrator; `workflows/createSeoArticleIntelligence.js` resolves trusted validated PIO/BIO and deterministic EIC with lineage-bound hashes; `POST /workflows/create-seo-article` accepts a product URL alone and reaches `research` READY without executing research. The legacy `/generate-article` remains isolated and operational. |
+| Product Understanding | SUBSTANTIAL / CONNECTED FOR M2 SLICE | `product-intelligence/`, `scripts/runProductIntelligence*`; validated PIO and human correction exist for the towel. M2 resolves exact validated product intelligence from the canonical URL boundary and pauses when validation is unavailable. |
+| Business Understanding | SUBSTANTIAL / CONNECTED FOR M2 SLICE | `business-intelligence/`, multi-pass interpretation and founder validation artifacts. M2 resolves exact validated business intelligence by domain and pauses when validation is unavailable. |
+| Editorial Intelligence Context | COMPLETE / CONNECTED FOR M2 SLICE | `editorial-intelligence/context.js`; deterministic validated PIO+BIO projection is generated/reused and provenance-bound to the workflow. |
 | Research aggregation | SUBSTANTIAL | `research/evidenceEngine.js`, `research/aggregation/researchState.js`; artifact-driven and objective contracts exist. |
 | Product Facts research | SUBSTANTIAL | `research/providers/productFacts.js`; reusable provider and evidence contracts. |
 | DataForSEO Keyword Ideas | SUBSTANTIAL | `research/providers/dataForSeoKeywordIdeas.js`, `scripts/buildKeywordIdeasEvidence.js`; approval/cache preconditions exist. |
@@ -94,11 +96,12 @@ Statuses below describe actual reusable capability, not file presence.
 
 ### M1 — Create SEO Article workflow contract and orchestrator
 
-**Status:** COMPLETE — 2026-08-15. **Objective:** expose a direct workflow whose only required merchant input is a product URL. `workflows/createSeoArticle.js` now provides the explicit input, ordered-stage, output, lineage and transition contract. `POST /workflows/create-seo-article` creates a validated deterministic run plan without a keyword, topic or prompt. Invalid, failed, foreign-lineage, out-of-order or objective-changing stage results fail closed and block downstream stages. The contract performs no AI, external API or WordPress calls and cannot publish. Deterministic proof: `artifacts/workflows/create-seo-article/development-proof.json`. Tests: focused workflow/HTTP/legacy tests pass; full `npm test` passes 838/838. M2 integration was not started.
+**Status:** COMPLETE — 2026-08-15. **Objective:** expose a direct workflow whose only required merchant input is a product URL. `workflows/createSeoArticle.js` now provides the explicit input, ordered-stage, output, lineage and transition contract. `POST /workflows/create-seo-article` creates a validated deterministic run plan without a keyword, topic or prompt. Invalid, failed, foreign-lineage, out-of-order or objective-changing stage results fail closed and block downstream stages. The contract performs no AI, external API or WordPress calls and cannot publish. Deterministic proof: `artifacts/workflows/create-seo-article/development-proof.json`. Tests: focused workflow/HTTP/legacy tests pass; full `npm test` passes 838/838. M2 later connected this contract to validated intelligence without changing the M1 contract.
 
 ### M2 — URL-to-evidence integration
 
-**Status:** CURRENT — READY FOR REVIEW, NOT STARTED. **Objective:** connect product URL extraction/PIO and relevant business context to the research pipeline. Reuse `product-intelligence/ingestion.js`, `business-intelligence/ingestion.js`, `research/evidenceEngine.js` and cached provider clients. **Done when:** a run produces validated product/business/research artifacts from the URL with no manual path selection.
+**Status:** COMPLETE — 2026-08-15. **Objective:** connect product URL extraction/PIO and relevant business context to the research pipeline. M2 adds the thin `workflows/createSeoArticleIntelligence.js` boundary, which resolves exact validated PIO/BIO artifacts, verifies actual SHA-256 content hashes and identity, creates or validates deterministic EIC, and binds provenance to the existing M1 stages. Missing validation pauses with an actionable required stage; malformed, ambiguous, mismatched, unsupported or tampered artifacts fail closed. The Street Kingz proof reaches `product_understanding` COMPLETE → `business_understanding` COMPLETE → `research` READY; research itself is not executed. No durable persistence, AI, external API, WordPress or publishing path was added.
+**Tests:** focused M1/M2 workflow and HTTP tests pass; full `npm test` passes 845/845. **Development proof:** `artifacts/workflows/create-seo-article/m2-url-to-evidence-proof.json`.
 
 ### M3 — Article opportunity decision
 
@@ -211,6 +214,17 @@ without ever producing the user-visible outcome.
 **Entry point:** `POST /workflows/create-seo-article` returns the deterministic plan. It is additive and isolated from the operational legacy `POST /generate-article` route.
 **Tests:** 5 focused contract/orchestrator tests pass; 11 focused workflow and legacy HTTP tests pass; full `npm test` passes 838/838.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
-**Scope:** M2 URL-to-evidence integration was not started; Product Page work was untouched; legacy cleanup was not started.
+**Scope:** M2 URL-to-evidence integration was completed in the subsequent M2 milestone; Product Page work was untouched; legacy cleanup was not started.
 **Legacy cleanup:** not started.
-**Next milestone:** M2 — URL-to-Evidence Integration, ready for review only.
+**Next milestone:** M2 — URL-to-Evidence Integration, completed; M3 is now current.
+
+### M2 — URL-to-Evidence Integration
+
+**Status:** COMPLETE
+**Date:** 2026-08-15
+**Files changed:** `workflows/createSeoArticle.js`, `workflows/createSeoArticleIntelligence.js`, `routes/createSeoArticleWorkflow.js`, `scripts/proveCreateSeoArticleM2.js`, `test/create-seo-article-m2.test.js`, `test/http-create-seo-article-m2.test.js`, `artifacts/workflows/create-seo-article/m2-url-to-evidence-proof.json`, `PROJECT_STATE.md`.
+**Integration:** URL-only Create SEO Article runs resolve exact validated PIO and BIO candidates through an injected resolver, verify structural validators, identity and actual artifact hashes, then create or reuse and validate deterministic EIC. Product and business stage results bind artifact identifiers, hashes, object/business IDs and source fingerprints to the M1 workflow lineage. Missing validation pauses safely; invalid, corrupt, ambiguous, mismatched or untrusted artifacts fail closed. The workflow stops at `research` READY; research is not implemented or executed.
+**Tests:** focused M1/M2 workflow and HTTP tests pass; full `npm test` passes 845/845; `git diff --check` passes.
+**External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, publishing attempts 0.
+**Scope:** no durable workflow persistence, research implementation, legacy cleanup or Product Page work was started.
+**Next milestone:** M3 — Article Opportunity Decision.
