@@ -1,0 +1,1045 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "article_editorial_evidence_pack",
+  "pack_version": "1.0.0",
+  "status": "VALIDATED",
+  "freshness_status": "FROZEN_RESEARCH_REVIEW_REQUIRED",
+  "created_at": "2026-08-16T16:00:00.000Z",
+  "retrieved_at": "2026-08-16T16:00:00.000Z",
+  "lineage": {
+    "objective": "create_seo_article",
+    "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "primary_query": "best microfibre car drying towel",
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation",
+    "research_state_id": "research_state_0ef3dcd58f516e7613081439",
+    "research_evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+    "product_id": "product_20fcada95c00204601928709",
+    "product_facts_evidence_ids": [
+      "ev_0070937601532c2a501db22b",
+      "ev_03eaf1f2b6bd5f09a0c4da51",
+      "ev_0c7c1182cd5a1dace3ee51ca",
+      "ev_0c92d49374a7d66714028fbc",
+      "ev_118c38dfbf7820614c40a985",
+      "ev_11b63816ad955ca330a8ece7",
+      "ev_14fe44650b1384b36bebb4e2",
+      "ev_156e61dd68f7233c191afb30",
+      "ev_1f19b6123547f898e270cfd7",
+      "ev_2a11cf44ec88f39019337bab",
+      "ev_2bc48197465b65346af179ed",
+      "ev_32a92e55f005a53ac7bdf55f",
+      "ev_33f10080286279cf93006b05",
+      "ev_35800b8db2b3b4d929fc7b4b",
+      "ev_367c867c2f1568b2e9f79903",
+      "ev_3a54e781a2603ee4bb883414",
+      "ev_3bb78e5c67db6cd015977f6b",
+      "ev_40936f5cfc99132392553647",
+      "ev_46f4fdd27000093c56fda5bb",
+      "ev_4d9b21d63307c78e3bf26b2b",
+      "ev_549b5d29c9922c68d39651fd",
+      "ev_5ac381162714adb7db3c0ecc",
+      "ev_5c06c311f77674f9e23f5909",
+      "ev_6480ef536c6606f8e8a06cf2"
+    ]
+  },
+  "bounds": {
+    "max_questions": 10,
+    "max_ranking_sources": 5,
+    "max_total_sources": 40,
+    "max_product_facts": 24,
+    "ai_synthesis_calls": 0
+  },
+  "research_questions": [
+    {
+      "question_id": "article_research_question_bdb372821bb478e5559aa0a0",
+      "question": "Which options and characteristics are relevant when evaluating best microfibre car drying towel?",
+      "priority": "high",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+      "question": "What trade-offs should a reader understand before choosing between the main options for best microfibre car drying towel?",
+      "priority": "high",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_2af10aa37f339976e5c4fbb3",
+      "question": "Which practical use cases and reader concerns are associated with best microfibre car drying towel?",
+      "priority": "high",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_db8f0a06097252068fcd3608",
+      "question": "What terminology and product types appear in the current search landscape for best microfibre car drying towel?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_dffbc8ea58b62197471c1345",
+      "question": "What information would help a reader make a confident purchase decision for best microfibre car drying towel?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_baa7f1989f7ba64aa1529832",
+      "question": "Do car drying towels really work?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_e979e6f25f809fab727b8347",
+      "question": "What do professional detailers use to dry cars?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_c5e680311f0e189d9872a527",
+      "question": "What is the best cloth for drying cars?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_f9bcada41eee1e5b2f83cfe2",
+      "question": "What towels do you use to dry cars?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    },
+    {
+      "question_id": "article_research_question_e89dbb42bf82992d3052593d",
+      "question": "Which validated product facts provide useful, relevant examples for the selected reader decision?",
+      "priority": "normal",
+      "status": "bounded_fixture_scope"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "article_source_4fef92f9d068f7999bbe7b2a",
+      "source_url": "https://theragcompany.com/collections/drying-towels?srsltid=AfmBOoo9fksf4kfyIi6sFtqUG1Ri3E_aWi2LlJ7u7NydrCD7PK4Gzxh5",
+      "publisher_domain": "theragcompany.com",
+      "source_class": "MANUFACTURER_BRAND",
+      "provenance_status": "FROZEN",
+      "page_type": "commercial_listing",
+      "title": "Microfiber Car Drying Towels",
+      "retrieved_at": "2026-08-16T16:00:00.000Z",
+      "source_content_hash": "0950b7e434f9b4b256526004f032ea98b51539aa4f4318ddfcb2434760036c40",
+      "evidence_ids": [
+        "ev_26bfe55c1dfaf57a44348d94"
+      ],
+      "limitation": "SERP title/snippet metadata only; page body and headings were not fetched."
+    },
+    {
+      "source_id": "article_source_0cfb971cbdf329d23dc25150",
+      "source_url": "https://www.reddit.com/r/AutoDetailing/comments/z5h863/best_drying_towel/",
+      "publisher_domain": "www.reddit.com",
+      "source_class": "COMMUNITY_CUSTOMER",
+      "provenance_status": "FROZEN",
+      "page_type": "discussion",
+      "title": "Best drying towel? : r/AutoDetailing",
+      "retrieved_at": "2026-08-16T16:00:00.000Z",
+      "source_content_hash": "8fb9f809be07a54daaac3956624d803fad7d27adb217f0ddf64b3fb71596e26f",
+      "evidence_ids": [
+        "ev_b647e2d73618df545a60e54e"
+      ],
+      "limitation": "SERP title/snippet metadata only; page body and headings were not fetched."
+    },
+    {
+      "source_id": "article_source_8585b03a6c3e3ed9d55a27a3",
+      "source_url": "https://www.chemicalguys.com/collections/drying-towels?srsltid=AfmBOopJkAMwtV-RhFKC5LWW23Rz07gv325lqVGpEAQxF5mVFARDf5IP",
+      "publisher_domain": "www.chemicalguys.com",
+      "source_class": "MANUFACTURER_BRAND",
+      "provenance_status": "FROZEN",
+      "page_type": "commercial_listing",
+      "title": "Car Drying Towels",
+      "retrieved_at": "2026-08-16T16:00:00.000Z",
+      "source_content_hash": "c9172bfe8b6cb4ea21888e57192c83f097577f8f566ae4415e8a772fa4607109",
+      "evidence_ids": [
+        "ev_f286838d0df9ad613d11c33a"
+      ],
+      "limitation": "SERP title/snippet metadata only; page body and headings were not fetched."
+    },
+    {
+      "source_id": "article_source_10b0b1ea4e77650e122d2e22",
+      "source_url": "https://carwashwiz.com/car-wash/best-microfiber-towel/",
+      "publisher_domain": "carwashwiz.com",
+      "source_class": "INDEPENDENT_EXPERT",
+      "provenance_status": "FROZEN",
+      "page_type": "editorial_guide",
+      "title": "Best Microfiber Towel For Your Car In 2026",
+      "retrieved_at": "2026-08-16T16:00:00.000Z",
+      "source_content_hash": "b810438156a05c5670e8d2300a224e08489f81e0a21d82b768e8783d7bb10d95",
+      "evidence_ids": [
+        "ev_454919bf91a89c2cb83a7640"
+      ],
+      "limitation": "SERP title/snippet metadata only; page body and headings were not fetched."
+    },
+    {
+      "source_id": "article_source_27696964d50d591b5309a723",
+      "source_url": "https://www.amazon.com/car-drying-towel/s?k=car+drying+towel",
+      "publisher_domain": "www.amazon.com",
+      "source_class": "SERP_COMPETITOR",
+      "provenance_status": "FROZEN",
+      "page_type": "unclassified_page",
+      "title": "Car Drying Towel",
+      "retrieved_at": "2026-08-16T16:00:00.000Z",
+      "source_content_hash": "4f4cc28079cdacfc416561de575e04626bcdc893f72904217472ea5a1db06cfd",
+      "evidence_ids": [
+        "ev_92d35d004d3da59946df24b9"
+      ],
+      "limitation": "SERP title/snippet metadata only; page body and headings were not fetched."
+    },
+    {
+      "source_id": "article_source_63f18e8f9816a42b369f7eff",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.name",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "46da1a64bf6ab5f1394cde126faa6f14b38a09443412705da14991a6aecfd623",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_c46d0d7a2ece105aa2da0b0d",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.limitations[2]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "a6899569b7f5c9d8c890f0d84653fffd7f7de55a7821a4c1ae7cd8cb9847200f",
+      "evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_b006716aa3bbc5ca2cfe167e",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.features[1]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "d6f858564d10738d562f6c674df121efd2fbe81209696c2825319bd891e70ab0",
+      "evidence_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_8f56f085e169e28f6db59f6e",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.objections_or_buying_questions[4]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "3008dbe6bf748ae17689e0929a1cd47ceae2f7a1cdcf6b367c86c501305f69a3",
+      "evidence_ids": [
+        "ev_0c92d49374a7d66714028fbc"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_2c33260ffa4e0f7f828aa977",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.faqs[4].answer",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "d177acc1ebf73875f399f4a48f1b80975b7e7e88e1efcae42c0327dc42740e6b",
+      "evidence_ids": [
+        "ev_118c38dfbf7820614c40a985"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_e76ec336d4fbedafcde5d347",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.faqs[2].question",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "8c03c83d7bcd716ea49c49232fc2580a10d38384fb573673d25153849ece117e",
+      "evidence_ids": [
+        "ev_11b63816ad955ca330a8ece7"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_202b13a8c1d02d43176ef45b",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.price",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "7bdde6d148f2704deff5952e7b178fb89893104d73269146453a2891fe9dae82",
+      "evidence_ids": [
+        "ev_14fe44650b1384b36bebb4e2"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_59001372290ce6a5d776257e",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.faqs[5].answer",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "2cb164de3a380b340ee6c7a162be78bfedc62d9050e3471441e5189731d86175",
+      "evidence_ids": [
+        "ev_156e61dd68f7233c191afb30"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_bf7deab997e3c67d76d2d53f",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.benefits[0]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "8ceaafd679ef2db5d032bd894ed8435e433e26a91e9cd8fe2bd71ef6a74752fb",
+      "evidence_ids": [
+        "ev_1f19b6123547f898e270cfd7"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_754b73f99e4caa43a7504bfb",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.how_to_use[2].instruction",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "cfb7f035bba7186eb8342d14da5a6883360702daa10ac8360e5add52cad17072",
+      "evidence_ids": [
+        "ev_2a11cf44ec88f39019337bab"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_6370f324f476d70b0ba4b12f",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.faqs[0].answer",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "55e961540370fcfb56f114679014a6ae842c0e2d9ae38a7a09077d24fd767c53",
+      "evidence_ids": [
+        "ev_2bc48197465b65346af179ed"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_354e8b91ccd95d720fe475ed",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.objections_or_buying_questions[3]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "60e947e1994137d3615ac214a6e152c87490118c23fed862f4a1233a6c85f4fb",
+      "evidence_ids": [
+        "ev_32a92e55f005a53ac7bdf55f"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_43cdcde948da2d5f5d63ea81",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.benefits[1]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "3aef1ecaa2238c4374ab264384c8d02dbfa7e82f46ca4118baba55359a83e050",
+      "evidence_ids": [
+        "ev_33f10080286279cf93006b05"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_ad4d9e637153081d689699c5",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.care_instructions[1].instruction",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "acfd20ce64faa4c11a5b861c87bf315ad97e52a601bea027fdc2a9843cde372d",
+      "evidence_ids": [
+        "ev_35800b8db2b3b4d929fc7b4b"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_8dcbf1d41b9e3bb0cf91b83a",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.objections_or_buying_questions[1]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "a90e9c8f47380bf7515d074a00ed381969cf7ef8c6caf9da8d68d61317c4c6a7",
+      "evidence_ids": [
+        "ev_367c867c2f1568b2e9f79903"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_fd661f5bd30423b331ce1163",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.objections_or_buying_questions[5]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "b072a586cf8ae29412f70d94e14c75f70cc559d0f42505b9dbb360e9a59180e3",
+      "evidence_ids": [
+        "ev_3a54e781a2603ee4bb883414"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_dd19e77e7380280c75684ecf",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.features[0]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "6d4b93d18293a052a180c9760ed9a0976e1d3fe5162faa2064cffc016700f89d",
+      "evidence_ids": [
+        "ev_3bb78e5c67db6cd015977f6b"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_ab41b9e5833931648f0e0c77",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.faqs[1].answer",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "a6ea3705978dc9fd82e7d5c3e687793ac526d1cbc94b70a0f1ee2f9676de126a",
+      "evidence_ids": [
+        "ev_40936f5cfc99132392553647"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_e4f37d1e28d3a88625788dbc",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.specifications[2].name",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "16e73c21cb3237197cf9a6c851f27fa05484843343ef01db7a288032ff336b3c",
+      "evidence_ids": [
+        "ev_46f4fdd27000093c56fda5bb"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_c48108b8ccfc8b59a39b0ea2",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.how_to_use[0].instruction",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "80fcba59d4759c31e78d75aa1e3dadea4eceb3c5ac0d5292d20979358e17c4db",
+      "evidence_ids": [
+        "ev_4d9b21d63307c78e3bf26b2b"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_98e34d37e73152b5051f5a22",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.faqs[2].answer",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "e557e66f69c0332e125cbc8cf3f69f6f193996dfb2f5be6956936b388b191d1e",
+      "evidence_ids": [
+        "ev_549b5d29c9922c68d39651fd"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_ba07a29b1d2d6be57ad4decb",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.internal_links[0].label",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "62f6674e084952b804450b9a69cbfc5503c6d1c179b70fa8983450f01e4be264",
+      "evidence_ids": [
+        "ev_5ac381162714adb7db3c0ecc"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_5e1e5a6a932ae1c2d845f169",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.intended_use[0]",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "a0f9ee871d7cf427eda057e44bca266aac943f78cd99687d3a19b68e4231824f",
+      "evidence_ids": [
+        "ev_5c06c311f77674f9e23f5909"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    },
+    {
+      "source_id": "article_source_731112e70eb4a5250c5e5d26",
+      "source_url": "product-intelligence://validated-product-facts",
+      "publisher_domain": "merchant_first_party",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE",
+      "provenance_status": "FROZEN",
+      "page_type": "validated_product_fact",
+      "title": "product.specifications[1].value",
+      "retrieved_at": "2026-08-06T17:03:47.007Z",
+      "source_content_hash": "936269b3c552c424ee5df8e106f81dbf672d4c92d760e87102f11e56eb437f64",
+      "evidence_ids": [
+        "ev_6480ef536c6606f8e8a06cf2"
+      ],
+      "limitation": "Authoritative for the merchant product only; not general category proof."
+    }
+  ],
+  "market_terminology": [
+    "best car dryer",
+    "best car drying blower",
+    "best car drying towel",
+    "best leaf blower for car drying",
+    "best leaf blower for drying car",
+    "chamois for car drying",
+    "microfiber towel for car drying",
+    "microfiber towel for drying car",
+    "waffle weave car drying towel",
+    "towels",
+    "microfiber",
+    "absorbent",
+    "vehicles"
+  ],
+  "category_options": [
+    "commercial_listing",
+    "discussion",
+    "editorial_guide",
+    "unclassified_page"
+  ],
+  "decision_dimensions": [
+    "capacity",
+    "coverage",
+    "handling",
+    "surface/use-case fit"
+  ],
+  "tradeoffs": [
+    {
+      "concept": "capacity and handling",
+      "statement": "Higher-capacity approaches may involve greater saturated weight.",
+      "support_status": "corroborated_with_first_party_product_context",
+      "source_evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_1f19b6123547f898e270cfd7",
+        "ev_2bc48197465b65346af179ed",
+        "ev_3bb78e5c67db6cd015977f6b",
+        "ev_40936f5cfc99132392553647",
+        "ev_549b5d29c9922c68d39651fd"
+      ]
+    },
+    {
+      "concept": "coverage and control",
+      "statement": "Larger coverage can help broad vehicle panels while smaller formats may be easier around details.",
+      "support_status": "category_inference_requires_qualification",
+      "source_evidence_ids": [
+        "ev_118c38dfbf7820614c40a985",
+        "ev_2bc48197465b65346af179ed",
+        "ev_4d9b21d63307c78e3bf26b2b",
+        "ev_549b5d29c9922c68d39651fd"
+      ]
+    }
+  ],
+  "customer_questions": [
+    {
+      "question": "Do car drying towels really work?",
+      "source_evidence_ids": [
+        "ev_9011b332294a36321b5dc453"
+      ],
+      "source_class": "COMMUNITY_CUSTOMER",
+      "support_status": "observed_question_not_answer"
+    },
+    {
+      "question": "What do professional detailers use to dry cars?",
+      "source_evidence_ids": [
+        "ev_fd01b717f5a2715ff8dba619"
+      ],
+      "source_class": "COMMUNITY_CUSTOMER",
+      "support_status": "observed_question_not_answer"
+    },
+    {
+      "question": "What is the best cloth for drying cars?",
+      "source_evidence_ids": [
+        "ev_8ee7c6172f08a1260f6548ed"
+      ],
+      "source_class": "COMMUNITY_CUSTOMER",
+      "support_status": "observed_question_not_answer"
+    },
+    {
+      "question": "What towels do you use to dry cars?",
+      "source_evidence_ids": [
+        "ev_0ecff79f83c96838259bb05e"
+      ],
+      "source_class": "COMMUNITY_CUSTOMER",
+      "support_status": "observed_question_not_answer"
+    }
+  ],
+  "customer_concerns": [
+    "Observed questions are retained as questions; no community answer is promoted to fact."
+  ],
+  "repeated_claims": [
+    {
+      "observation_id": "article_observation_a3a098f451b199767a53b462",
+      "observation": "commercial_listing: Microfiber Car Drying Towels — 3 days ago — Find the best microfiber drying towel for cars — absorbent, lint-free, scratch-free options for unprotected, ceramic-coated and waxed vehicles. Read more",
+      "source_id": "article_source_4fef92f9d068f7999bbe7b2a",
+      "source_class": "MANUFACTURER_BRAND",
+      "observation_kind": "SERP_CONTENT_OBSERVATION",
+      "support_status": "observed_snippet_only"
+    },
+    {
+      "observation_id": "article_observation_c2679ab2ef03e818906b7c00",
+      "observation": "discussion: Best drying towel? : r/AutoDetailing — What is the best drying towel currently?",
+      "source_id": "article_source_0cfb971cbdf329d23dc25150",
+      "source_class": "COMMUNITY_CUSTOMER",
+      "observation_kind": "SERP_CONTENT_OBSERVATION",
+      "support_status": "observed_snippet_only"
+    },
+    {
+      "observation_id": "article_observation_064db94ebcd741cf346a61cc",
+      "observation": "commercial_listing: Car Drying Towels — At 36\" x 25\" x 1\" thick and rated to hold close to a gallon of water, our Woolly Mammoth is the best towel to dry a car for anyone who wants serious absorbency ... Read more",
+      "source_id": "article_source_8585b03a6c3e3ed9d55a27a3",
+      "source_class": "MANUFACTURER_BRAND",
+      "observation_kind": "SERP_CONTENT_OBSERVATION",
+      "support_status": "observed_snippet_only"
+    },
+    {
+      "observation_id": "article_observation_f0c7f1aa3496822798bd3dd2",
+      "observation": "editorial_guide: Best Microfiber Towel For Your Car In 2026 — Discover the best microfiber towels for drying your car. If you want to dry in style, get the Liquid8r. If you want to dry your car, get the Miracle Dryer.",
+      "source_id": "article_source_10b0b1ea4e77650e122d2e22",
+      "source_class": "INDEPENDENT_EXPERT",
+      "observation_kind": "SERP_CONTENT_OBSERVATION",
+      "support_status": "observed_snippet_only"
+    },
+    {
+      "observation_id": "article_observation_f2eb6d06e542e40c2a5359fa",
+      "observation": "unclassified_page: Car Drying Towel — Discover ultra-absorbent microfiber car drying towels that dry vehicles quickly without streaks or scratches. Holds Up to 9 lbs, No Streaks, Scratches, or ...",
+      "source_id": "article_source_27696964d50d591b5309a723",
+      "source_class": "SERP_COMPETITOR",
+      "observation_kind": "SERP_CONTENT_OBSERVATION",
+      "support_status": "observed_snippet_only"
+    }
+  ],
+  "corroborated_findings": [
+    {
+      "finding": "The SERP contains commercial listings, editorial content and discussion results, indicating mixed commercial-investigation context.",
+      "source_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22",
+        "article_source_27696964d50d591b5309a723"
+      ],
+      "support_status": "observed_serp_shape"
+    },
+    {
+      "finding": "Validated first-party Product Facts provide concrete dimensions, construction and use limitations for the merchant product.",
+      "source_ids": [
+        "article_source_63f18e8f9816a42b369f7eff",
+        "article_source_c46d0d7a2ece105aa2da0b0d",
+        "article_source_b006716aa3bbc5ca2cfe167e",
+        "article_source_8f56f085e169e28f6db59f6e",
+        "article_source_2c33260ffa4e0f7f828aa977",
+        "article_source_e76ec336d4fbedafcde5d347",
+        "article_source_202b13a8c1d02d43176ef45b",
+        "article_source_59001372290ce6a5d776257e",
+        "article_source_bf7deab997e3c67d76d2d53f",
+        "article_source_754b73f99e4caa43a7504bfb",
+        "article_source_6370f324f476d70b0ba4b12f",
+        "article_source_354e8b91ccd95d720fe475ed",
+        "article_source_43cdcde948da2d5f5d63ea81",
+        "article_source_ad4d9e637153081d689699c5",
+        "article_source_8dcbf1d41b9e3bb0cf91b83a",
+        "article_source_fd661f5bd30423b331ce1163",
+        "article_source_dd19e77e7380280c75684ecf",
+        "article_source_ab41b9e5833931648f0e0c77",
+        "article_source_e4f37d1e28d3a88625788dbc",
+        "article_source_c48108b8ccfc8b59a39b0ea2",
+        "article_source_98e34d37e73152b5051f5a22",
+        "article_source_ba07a29b1d2d6be57ad4decb",
+        "article_source_5e1e5a6a932ae1c2d845f169",
+        "article_source_731112e70eb4a5250c5e5d26"
+      ],
+      "support_status": "first_party_product_evidence"
+    }
+  ],
+  "conflicting_findings": [],
+  "unknowns": [
+    "Ranking-page body content, headings and omissions were not fetched in this frozen proof.",
+    "Manufacturer and independent technical claims require page-level retrieval before being treated as category facts.",
+    "Community questions indicate concerns but do not establish technical truth."
+  ],
+  "competitor_coverage": {
+    "pages_selected": 5,
+    "pages_fetched": 0,
+    "coverage_status": "SERP_METADATA_ONLY",
+    "source_ids": [
+      "article_source_4fef92f9d068f7999bbe7b2a",
+      "article_source_0cfb971cbdf329d23dc25150",
+      "article_source_8585b03a6c3e3ed9d55a27a3",
+      "article_source_10b0b1ea4e77650e122d2e22",
+      "article_source_27696964d50d591b5309a723"
+    ]
+  },
+  "content_gaps": [
+    "Page-level comparison dimensions and unanswered questions remain unverified until bounded page retrieval is approved."
+  ],
+  "relevant_product_facts": [
+    {
+      "evidence_id": "ev_0070937601532c2a501db22b",
+      "field_path": "product.name",
+      "value": "Heavy Duty Drying Towel – 1200gsm",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_03eaf1f2b6bd5f09a0c4da51",
+      "field_path": "product.limitations[2]",
+      "value": "Feels heavier when fully saturated with water",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+      "field_path": "product.features[1]",
+      "value": "Double-sided plush microfibre construction",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_0c92d49374a7d66714028fbc",
+      "field_path": "product.objections_or_buying_questions[4]",
+      "value": "How many towels do I need to dry a whole car?",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_118c38dfbf7820614c40a985",
+      "field_path": "product.faqs[4].answer",
+      "value": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_11b63816ad955ca330a8ece7",
+      "field_path": "product.faqs[2].question",
+      "value": "Is it too heavy when it’s wet?",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_14fe44650b1384b36bebb4e2",
+      "field_path": "product.price",
+      "value": "£18.99",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_156e61dd68f7233c191afb30",
+      "field_path": "product.faqs[5].answer",
+      "value": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_1f19b6123547f898e270cfd7",
+      "field_path": "product.benefits[0]",
+      "value": "Designed to pull water off paint with almost no effort",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_2a11cf44ec88f39019337bab",
+      "field_path": "product.how_to_use[2].instruction",
+      "value": "Lay the towel flat on the panel.",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_2bc48197465b65346af179ed",
+      "field_path": "product.faqs[0].answer",
+      "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_32a92e55f005a53ac7bdf55f",
+      "field_path": "product.objections_or_buying_questions[3]",
+      "value": "Can I use it on ceramic-coated or waxed cars?",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_33f10080286279cf93006b05",
+      "field_path": "product.benefits[1]",
+      "value": "Fewer passes and faster drying",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_35800b8db2b3b4d929fc7b4b",
+      "field_path": "product.care_instructions[1].instruction",
+      "value": "Do not use fabric softener or bleach",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_367c867c2f1568b2e9f79903",
+      "field_path": "product.objections_or_buying_questions[1]",
+      "value": "Will this towel scratch my paint?",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_3a54e781a2603ee4bb883414",
+      "field_path": "product.objections_or_buying_questions[5]",
+      "value": "How should I wash and store it?",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+      "field_path": "product.features[0]",
+      "value": "1200GSM dual-layer construction",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_40936f5cfc99132392553647",
+      "field_path": "product.faqs[1].answer",
+      "value": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_46f4fdd27000093c56fda5bb",
+      "field_path": "product.specifications[2].name",
+      "value": "Material",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_4d9b21d63307c78e3bf26b2b",
+      "field_path": "product.how_to_use[0].instruction",
+      "value": "Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo .",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_549b5d29c9922c68d39651fd",
+      "field_path": "product.faqs[2].answer",
+      "value": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_5ac381162714adb7db3c0ecc",
+      "field_path": "product.internal_links[0].label",
+      "value": "Origin Shampoo",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_5c06c311f77674f9e23f5909",
+      "field_path": "product.intended_use[0]",
+      "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_6480ef536c6606f8e8a06cf2",
+      "field_path": "product.specifications[1].value",
+      "value": "90 × 60 cm",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    }
+  ],
+  "evidence_index": [
+    {
+      "evidence_id": "ev_26bfe55c1dfaf57a44348d94",
+      "source_id": "article_source_4fef92f9d068f7999bbe7b2a",
+      "source_class": "MANUFACTURER_BRAND"
+    },
+    {
+      "evidence_id": "ev_b647e2d73618df545a60e54e",
+      "source_id": "article_source_0cfb971cbdf329d23dc25150",
+      "source_class": "COMMUNITY_CUSTOMER"
+    },
+    {
+      "evidence_id": "ev_f286838d0df9ad613d11c33a",
+      "source_id": "article_source_8585b03a6c3e3ed9d55a27a3",
+      "source_class": "MANUFACTURER_BRAND"
+    },
+    {
+      "evidence_id": "ev_454919bf91a89c2cb83a7640",
+      "source_id": "article_source_10b0b1ea4e77650e122d2e22",
+      "source_class": "INDEPENDENT_EXPERT"
+    },
+    {
+      "evidence_id": "ev_92d35d004d3da59946df24b9",
+      "source_id": "article_source_27696964d50d591b5309a723",
+      "source_class": "SERP_COMPETITOR"
+    },
+    {
+      "evidence_id": "ev_0070937601532c2a501db22b",
+      "source_id": "article_source_63f18e8f9816a42b369f7eff",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_03eaf1f2b6bd5f09a0c4da51",
+      "source_id": "article_source_c46d0d7a2ece105aa2da0b0d",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+      "source_id": "article_source_b006716aa3bbc5ca2cfe167e",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_0c92d49374a7d66714028fbc",
+      "source_id": "article_source_8f56f085e169e28f6db59f6e",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_118c38dfbf7820614c40a985",
+      "source_id": "article_source_2c33260ffa4e0f7f828aa977",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_11b63816ad955ca330a8ece7",
+      "source_id": "article_source_e76ec336d4fbedafcde5d347",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_14fe44650b1384b36bebb4e2",
+      "source_id": "article_source_202b13a8c1d02d43176ef45b",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_156e61dd68f7233c191afb30",
+      "source_id": "article_source_59001372290ce6a5d776257e",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_1f19b6123547f898e270cfd7",
+      "source_id": "article_source_bf7deab997e3c67d76d2d53f",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_2a11cf44ec88f39019337bab",
+      "source_id": "article_source_754b73f99e4caa43a7504bfb",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_2bc48197465b65346af179ed",
+      "source_id": "article_source_6370f324f476d70b0ba4b12f",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_32a92e55f005a53ac7bdf55f",
+      "source_id": "article_source_354e8b91ccd95d720fe475ed",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_33f10080286279cf93006b05",
+      "source_id": "article_source_43cdcde948da2d5f5d63ea81",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_35800b8db2b3b4d929fc7b4b",
+      "source_id": "article_source_ad4d9e637153081d689699c5",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_367c867c2f1568b2e9f79903",
+      "source_id": "article_source_8dcbf1d41b9e3bb0cf91b83a",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_3a54e781a2603ee4bb883414",
+      "source_id": "article_source_fd661f5bd30423b331ce1163",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+      "source_id": "article_source_dd19e77e7380280c75684ecf",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_40936f5cfc99132392553647",
+      "source_id": "article_source_ab41b9e5833931648f0e0c77",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_46f4fdd27000093c56fda5bb",
+      "source_id": "article_source_e4f37d1e28d3a88625788dbc",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_4d9b21d63307c78e3bf26b2b",
+      "source_id": "article_source_c48108b8ccfc8b59a39b0ea2",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_549b5d29c9922c68d39651fd",
+      "source_id": "article_source_98e34d37e73152b5051f5a22",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_5ac381162714adb7db3c0ecc",
+      "source_id": "article_source_ba07a29b1d2d6be57ad4decb",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_5c06c311f77674f9e23f5909",
+      "source_id": "article_source_5e1e5a6a932ae1c2d845f169",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    },
+    {
+      "evidence_id": "ev_6480ef536c6606f8e8a06cf2",
+      "source_id": "article_source_731112e70eb4a5250c5e5d26",
+      "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    }
+  ],
+  "evidence_pack_id": "article_evidence_pack_956d3d513d627b508db1769d",
+  "evidence_pack_sha256": "956d3d513d627b508db1769d36c918074d9ca255e0cd1967f09dcd58ac63dbcf"
+}

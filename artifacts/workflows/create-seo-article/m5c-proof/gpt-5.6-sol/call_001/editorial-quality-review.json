@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_quality_review",
+  "status": "PASS",
+  "accepted_for_human_review": true,
+  "editorial_sufficiency": {
+    "status": "PASS",
+    "dimensions": {
+      "intent_fulfilment": "PASS",
+      "decision_usefulness": "PASS",
+      "concrete_explanation": "PASS",
+      "comparison_usefulness": "PASS",
+      "plan_depth": "PASS",
+      "methodology_leakage": "PASS",
+      "commercial_naturalness": "PASS",
+      "product_intelligence_utilisation": "PASS"
+    },
+    "issues": []
+  },
+  "product_intelligence_utilisation": {
+    "status": "PASS",
+    "facts_available": 24,
+    "facts_used": 7,
+    "used_evidence_ids": [
+      "ev_76b3fc2ba72f0b68b8a0edb6",
+      "ev_6480ef536c6606f8e8a06cf2",
+      "ev_0c7c1182cd5a1dace3ee51ca",
+      "ev_03eaf1f2b6bd5f09a0c4da51",
+      "ev_d071b25d86399af8a71dfce7",
+      "ev_5c06c311f77674f9e23f5909",
+      "ev_6c5743cebf9b844617d8e794"
+    ]
+  },
+  "dimensions": {
+    "useful_beyond_schema": true,
+    "generic_seo_filler_absent": true,
+    "forced_commercialisation_absent": true,
+    "invented_experience_absent": true
+  },
+  "issues": [],
+  "human_review_issues": [
+    "Confirm tone and usefulness component by component.",
+    "Confirm every product statement against the cited Product Facts.",
+    "Supply or approve the required hero lifestyle image before rendering."
+  ]
+}

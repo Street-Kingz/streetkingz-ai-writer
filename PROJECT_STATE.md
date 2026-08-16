@@ -1,8 +1,8 @@
 # Street Kingz AI Ecommerce Assistant — Canonical Project State
 
-**Document status:** M0, M1, M2, M3, M3A and M4 complete; M5 ready to begin
+**Document status:** M0, M1, M2, M3, M3A and M4 complete; M4A frozen architecture preserved; M4A.1 initial live research complete but insufficient; M4A.2 adaptive gap-directed research complete locally with subject-depth WARN; M4A.2A WARN policy handoff complete; M5/M5B/M5C preserved locally; M6 not started
 **Last updated:** 2026-08-16
-**Repository checkpoint:** `7e74acc5484d06ac47ad22ed39138f3ff462ebca` plus the uncommitted M4 working tree
+**Repository checkpoint:** `a083e009959271dee291a8ee135f5343fb878d16`
 
 ## What we are building
 
@@ -29,7 +29,7 @@ The user chooses the objective. AI makes decisions within that objective. A disc
 
 **Current objective: CREATE SEO ARTICLE v1**
 
-**Current milestone: M4 — Structured Article Brief + Page Plan**
+**Current milestone: M4B — Evidence-Grounded Structured Article Brief + Page Plan**
 
 **Goal:** Starting from a product URL, produce a researched, commercially worthwhile SEO article and finished draft without requiring the merchant to provide a topic, keyword, title, search intent, structure or prompt.
 
@@ -77,7 +77,7 @@ Statuses below describe actual reusable capability, not file presence.
 | Cornerstone strategy/brief | SUBSTANTIAL / REUSE BASIS | `cornerstone/`; strategy, allowlists and validation remain fixture-oriented, while M4 adapts the bounded strategy concepts without making them the generic runtime entry point. |
 | Page planning | COMPLETE / CONNECTED FOR M4 SLICE | `workflows/createSeoArticlePlanning.js` adapts the validated editorial component contract into a generic, lineage-bound article brief and page plan. |
 | Semantic editorial components | SUBSTANTIAL | `editorial/contracts.js`, `editorial/plan.js`, renderers and validators. |
-| Controlled drafting | SUBSTANTIAL / FIXTURE-BOUND | `editorial/draft-run.js` and provider; requires approved fixture plan and explicit approval artifact. |
+| Controlled drafting | COMPLETE / CONNECTED FOR M5 SLICE | `workflows/createSeoArticleM5.js` adapts the canonical M4 brief/page plan into one bounded semantic drafting call with exact founder approval, deterministic validation, quality review and safe previews. |
 | Editorial validation | SUBSTANTIAL | structured page, founder revision, concept ownership and quality validators. |
 | Brand/voice handling | SUBSTANTIAL | `brand/`, `editorial/founder-voice.js`, revision validation; some legacy Street Kingz-specific paths remain. |
 | Human review | SUBSTANTIAL | founder review/correction artifacts and revision contracts; no unified SaaS review UI. |
@@ -128,9 +128,33 @@ Statuses below describe actual reusable capability, not file presence.
 **External activity:** one injected controlled `gpt-5.6-sol` planning call in the offline proof; external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
 **Scope:** no M5 generation, article drafting, competitor crawler, site crawler, legacy cleanup or Product Page work was started.
 
+### M4A — Article research and editorial evidence pack
+
+**Status:** IMPLEMENTED LOCALLY / RESEARCH DEPTH INSUFFICIENT — 2026-08-16. M4A adds a bounded post-opportunity evidence-pack contract with automatic research questions, source classes, frozen SERP observations, first-party Product Facts crossover, claim/support status, unknowns, hashes and human-readable review. The canonical proof is `artifacts/workflows/create-seo-article/m4a-proof/` with pack ID `article_evidence_pack_956d3d513d627b508db1769d` and SHA-256 `956d3d513d627b508db1769d36c918074d9ca255e0cd1967f09dcd58ac63dbcf`. It uses five frozen SERP metadata sources and 24 frozen Product Facts records; no live calls and no AI synthesis. Manual review confirms the architecture is bounded and lineage-safe, but page-level competitor/manufacturer evidence is not yet present, so M4A is not marked complete and no M4 successor is created.
+
+### M4A.1 — Bounded live page research and subject-depth validation
+
+**Status:** BLOCKED / RESEARCH DEPTH INSUFFICIENT — 2026-08-16. The bounded live proof preserves the frozen M4A pack and creates a new immutable candidate at `artifacts/workflows/create-seo-article/m4a1-proof-v3/`, pack ID `article_evidence_pack_3558af95ddd58c2b30b2f0a6`, SHA-256 `3558af95ddd58c2b30b2f0a6b369566b1301be74136cbf244530ff4133374b66`, freshness `CURRENT`. It attempted five approved pages (maximum 10), successfully normalized three and recorded two `RESPONSE_TOO_LARGE` failures, across manufacturer, independent, community and SERP classes. The pack contains page hashes, headings, bounded observations, source classifications, Product Intelligence crossover and a founder-readable review at `artifacts/workflows/create-seo-article/m4a1-proof-v3/m4a1-live-research-review.md`; the comparison with frozen M4A is at `artifacts/workflows/create-seo-article/m4a1-proof-v3/m4a-vs-m4a1-comparison.json`. Technical validation and freshness pass, but the strengthened subject-depth gate fails: only 3 of 10 research questions are substantively answered, community extraction is limited, and the live evidence does not yet explain enough category trade-offs to support a materially stronger M4 plan without unsupported model priors. No M4 successor, article regeneration or M6 work is started. Live calls: 5 bounded HTML fetches; DataForSEO, Search Console and AI synthesis calls: 0.
+
+### M4A.2 — Gap-directed adaptive research
+
+**Status:** COMPLETE LOCALLY / SUBJECT DEPTH WARN — 2026-08-16. M4A.2 adds generic gap derivation, priority selection, bounded targeted-query generation, one additional wave limit, source-type targeting metadata, gap resolution states and a second subject-depth evaluation. The canonical proof inherits M4A.1 without mutation and writes `artifacts/workflows/create-seo-article/m4a2-proof-v4/`, pack ID `article_evidence_pack_17d493f2d0f9c3f9a3b11acd`, SHA-256 `17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c`, freshness `CURRENT`. Wave 2 used eight new page fetches (the hard maximum), after one bounded targeted discovery call with four derived queries; DataForSEO and Search Console calls were 0. Technical concepts, construction formats, buying criteria and community/practitioner evidence improved, but independent technical corroboration remains insufficient, so subject depth is `WARN`, not `PASS`; research stops with no third wave or automatic budget expansion. Adaptive review: `artifacts/workflows/create-seo-article/m4a2-proof-v4/adaptive-research-review.md`; comparison: `artifacts/workflows/create-seo-article/m4a2-proof-v4/m4a1-vs-m4a2-comparison.json`. No M4 successor, article generation or M6 work is started.
+
+### M4A.2A — Production WARN semantics and claim-restriction handoff
+
+**Status:** COMPLETE LOCALLY — 2026-08-16. M4A.2A formalizes `PASS` (normal progression), `WARN` (qualified progression) and `FAIL` (blocked progression). The canonical M4A.2 `WARN` result produces an immutable restriction policy at `artifacts/workflows/create-seo-article/m4a2a-proof-v3/`, policy ID `article_claim_restriction_policy_72ad07aadb355db6273d85b6`, SHA-256 `72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866`, with four evidence-derived restrictions and a `READY_FOR_M4B` qualified handoff. The founder-readable policy review is `artifacts/workflows/create-seo-article/m4a2a-proof-v3/research-confidence-claim-policy-review.md`. WARN cannot proceed without matching policy and SEO-guidance lineage; FAIL cannot proceed even with a policy; WARN cannot be upgraded to PASS without a new validated evidence pack. No research, article generation, M4B execution or M6 work is started. Next milestone: M4B — Evidence-Grounded Structured Article Brief + Page Plan (NOT STARTED).
+
 ### M5 — Controlled generation and validation
 
-**Objective:** connect the existing semantic draft provider and validators to the generic brief/plan. Reuse `editorial/draft-run.js`, `editorial/validation.js`, brand/voice checks and deterministic artifact lineage. **Done when:** one controlled draft is produced, validated and marked awaiting human review with no automatic retry beyond the existing bounded policy.
+**Status:** COMPLETE — 2026-08-16. **Objective:** connect the existing semantic draft provider and validators to the generic brief/plan. M5 adds a thin M4→semantic drafting adapter, exact founder approval binding, one zero-retry controlled call, deterministic semantic validation and plan-aware quality review. The canonical article remains `structured_semantic_editorial_page`; Markdown and offline HTML are derived previews. The offline proof uses `product_url` plus explicit approval for the exact M4 brief/page plan, generates a founder-readable article, records `ARTICLE GENERATED — NOT APPROVED` and exposes an immutable M6 review candidate. No WordPress call or publication authority exists.
+**Proof:** `artifacts/workflows/create-seo-article/m5-generation-proof.json`; founder review `artifacts/workflows/create-seo-article/m5-proof/gpt-5.6-sol/call_001/m5-review.md`; semantic article `semantic-page.json` with ID `semantic_article_733101fab83133a9d758511a` and SHA-256 `733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77`.
+**Tests:** focused M5 tests pass 2/2; full `npm test` passes 866/866 with localhost permission; `git diff --check` passes. One injected offline fixture call labelled `gpt-5.6-sol`, zero retries, zero external provider calls.
+
+**M5B quality hardening:** The first article remained technically valid but failed founder/editorial acceptance because it was thin, checklist-like and exposed methodology language. Without changing the immutable M4 strategy, M5 now applies intent-specific editorial sufficiency checks for commercial-investigation content, requires meaningful comparison trade-offs and consequence-focused criteria explanations, blocks methodology leakage and strengthens the drafting boundary to explain decisions naturally. The original M5 proof remains preserved as the baseline. One bounded offline regeneration produced a 458-word successor with the same opportunity, brief, page-plan and evidence lineage; deterministic validation and editorial sufficiency both pass. Comparison: `artifacts/workflows/create-seo-article/m5b-baseline-vs-hardened.json`; founder review: `artifacts/workflows/create-seo-article/m5b-proof/gpt-5.6-sol/call_001/m5b-review.md`; semantic article ID `semantic_article_15c4b689ae732db71d1aa15d`. Founder acceptance remains pending; no publication authority exists.
+
+### M5C — Product Intelligence utilisation and natural editorial voice
+
+**Status:** COMPLETE LOCALLY / READY FOR FOUNDER COMPARISON — 2026-08-16. M5C preserved the immutable M4 strategy and corrected a generic M5 evidence-projection gap: validated Product Facts were available upstream but were not supplied as bounded editorial evidence to drafting. The M5 adapter now selects a bounded relevant Product Facts projection (maximum 24 records), adds those evidence IDs to component scopes, and quality review reports product-intelligence utilisation separately from factual and structural validity. The drafting boundary also rejects system/editorial-policy narration while preserving M5B commercial-investigation sufficiency and trade-off checks. One offline controlled fixture regeneration produced the third immutable candidate (490 words, semantic article `semantic_article_e1640765fbd6c2abda58b05f`, SHA `e1640765fbd6c2abda58b05f80b7b9d3ef85bc4377c2853ed1af3c35059098f0`) with seven validated product facts used, PASS validation, PASS editorial sufficiency and PASS product-intelligence utilisation. Three-way comparison: `artifacts/workflows/create-seo-article/m5c-three-way-comparison.json`; founder review: `artifacts/workflows/create-seo-article/m5c-proof/gpt-5.6-sol/call_001/m5c-review.md`. Article remains generated but not approved; no publication authority exists.
 
 ### M6 — Human article review/correction
 
@@ -154,7 +178,7 @@ Compare bounded system recommendations against independent human SEO practitione
 
 ### Current SEO Guidance — COMPLETE / M3A
 
-The repository now has a bounded, validated and versioned trusted-source guidance snapshot capability. M3A is complete; M4 remains NOT STARTED.
+The repository now has a bounded, validated and versioned trusted-source guidance snapshot capability. M3A is complete; M4 is complete; M4A evidence-pack architecture is under review.
 
 Latest corrected proposal SHA: `ab196b959b5ee2be2b39cc9599e471a53030409cc305ba20fee3265ab7a0fab9`  
 Latest candidate identifier: `ef308cbe2a79be9a4196e89e125bde5c135c9e52e329d1a89b9ac6734a2d95af`
@@ -245,7 +269,7 @@ without ever producing the user-visible outcome.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
 **Scope:** M2 URL-to-evidence integration was completed in the subsequent M2 milestone; Product Page work was untouched; legacy cleanup was not started.
 **Legacy cleanup:** not started.
-**Next milestone:** M5 — Controlled Generation + Validation; M5 is current and NOT STARTED.
+**Next milestone:** M4A — Article Research + Editorial Evidence Pack; M4A is current and research-depth review is pending.
 
 ### M2 — URL-to-Evidence Integration
 
@@ -275,4 +299,4 @@ without ever producing the user-visible outcome.
 **Files changed:** `workflows/createSeoArticlePlanning.js`, `workflows/createSeoArticleM4.js`, `scripts/proveCreateSeoArticleM4.js`, `test/create-seo-article-m4.test.js`, `artifacts/workflows/create-seo-article/m4-brief-page-plan-proof.json` and immutable M4 proof artifacts.
 **Proof:** product URL only → canonical validated M3 opportunity (`best microfibre car drying towel`) → validated article brief → validated semantic page plan → founder-readable review → `ARTICLE_GENERATION READY`; article brief generation, article generation and publishing did not execute. M4 now verifies opportunity decision ID, SHA-256, stage artifact identity and immutable primary query/type/intent lineage before planning.
 **Tests:** focused M4 8/8; full `npm test` 864/864; `git diff --check` passed.
-**Next milestone:** M5 — Controlled Generation + Validation, NOT STARTED.
+**Next milestone:** M4A — Article Research + Editorial Evidence Pack, research depth insufficient pending bounded page-level evidence.

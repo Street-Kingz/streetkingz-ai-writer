@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_quality_review",
+  "status": "PASS",
+  "accepted_for_human_review": true,
+  "editorial_sufficiency": {
+    "status": "PASS",
+    "dimensions": {
+      "intent_fulfilment": "PASS",
+      "decision_usefulness": "PASS",
+      "concrete_explanation": "PASS",
+      "comparison_usefulness": "PASS",
+      "plan_depth": "PASS",
+      "methodology_leakage": "PASS",
+      "commercial_naturalness": "PASS"
+    },
+    "issues": []
+  },
+  "dimensions": {
+    "useful_beyond_schema": true,
+    "generic_seo_filler_absent": true,
+    "forced_commercialisation_absent": true,
+    "invented_experience_absent": true
+  },
+  "issues": [],
+  "human_review_issues": [
+    "Confirm tone and usefulness component by component.",
+    "Confirm every product statement against the cited Product Facts.",
+    "Supply or approve the required hero lifestyle image before rendering."
+  ]
+}

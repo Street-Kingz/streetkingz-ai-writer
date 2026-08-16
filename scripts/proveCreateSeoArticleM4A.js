@@ -1,0 +1,21 @@
+import { readFile, mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { buildArticleEvidencePack, renderArticleEvidenceReview, validateArticleEvidencePack } from "../research/articleEvidence.js";
+import { sha256 } from "../research/core/canonical.js";
+
+const root = path.resolve("artifacts/workflows/create-seo-article/m4a-proof");
+const m4Root = path.resolve("artifacts/workflows/create-seo-article/m4-proof-v5/gpt-5.6-sol/call_001");
+const m3 = JSON.parse(await readFile(path.resolve("artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json"), "utf8"));
+const m4Input = JSON.parse(await readFile(path.join(m4Root, "m4-input.json"), "utf8"));
+const serpPacket = JSON.parse(await readFile(path.resolve("artifacts/cornerstone/best-car-drying-towel/fixture-v1/research-packet.json"), "utf8"));
+const productFacts = JSON.parse(await readFile(path.resolve("artifacts/evidence/cache/product_facts/cb8ad78af1c615b3187325d08932c20799603ddb695b81373a11ffde4b2a572b/normalised.json"), "utf8")).records;
+const opportunity = { ...m3.decision, outcome: m3.decision.outcome || "ARTICLE_RECOMMENDED" };
+const pack = buildArticleEvidencePack({ opportunity, m4Input, researchState: { serp_feature_observations: serpPacket.serp.recurring_questions.map((x) => ({ questions: [x] })) }, serpPacket, productFacts, now: new Date("2026-08-16T16:00:00.000Z") });
+const errors = validateArticleEvidencePack(pack, { opportunity, m4Input });
+if (errors.length) throw new Error(JSON.stringify(errors));
+await mkdir(root, { recursive: true });
+await writeFile(path.join(root, "article-editorial-evidence-pack.json"), `${JSON.stringify(pack, null, 2)}\n`, { flag: "wx" });
+await writeFile(path.join(root, "m4a-research-review.md"), renderArticleEvidenceReview(pack), { flag: "wx" });
+const proof = { artifact_type: "m4a_proof_metadata", evidence_pack_id: pack.evidence_pack_id, evidence_pack_sha256: pack.evidence_pack_sha256, validation: "PASS", source_counts: { total: pack.sources.length, serp: pack.sources.filter((x) => x.source_class !== "FIRST_PARTY_PRODUCT_INTELLIGENCE").length, product_intelligence: pack.sources.filter((x) => x.source_class === "FIRST_PARTY_PRODUCT_INTELLIGENCE").length }, live_sources: 0, fixture_sources: pack.sources.length, ai_calls: 0, product_facts: pack.relevant_product_facts.length, input_sha256: sha256({ opportunity, m4Input }) };
+await writeFile(path.join(root, "proof-metadata.json"), `${JSON.stringify(proof, null, 2)}\n`, { flag: "wx" });
+console.log(JSON.stringify(proof, null, 2));

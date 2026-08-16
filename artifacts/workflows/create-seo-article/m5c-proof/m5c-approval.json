@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "create_seo_article_generation_approval",
+  "objective": "create_seo_article",
+  "workflow_run_id": "workflow_run_e10ef667f971020b5695cd73",
+  "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+  "opportunity_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+  "brief_id": "article_brief_248d2d96feff88a83be38999",
+  "brief_sha256": "248d2d96feff88a83be38999247dea1f72cf319e73ffcf92f8173118d5ee53da",
+  "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+  "page_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233",
+  "purpose": "controlled_m5_generation_for_founder_review",
+  "approval_source": "founder_instruction",
+  "approved_at": "2026-08-16T14:00:00.000Z",
+  "scope": "Generate one semantic article for human review from the exact approved M4 brief and page plan.",
+  "publication_authorized": false,
+  "wordpress_mutation": false,
+  "publication_attempts": 0,
+  "approval_id": "m5_generation_approval_ac8a00cad5faf4c3c2069b0c"
+}

@@ -48,7 +48,7 @@ function renderComponent(component, context) {
   if (type === "faq") body.push(`<div class="${cls(theme, "faq-list")}">${d.items.map((item) => `<details><summary>${esc(item.question)}</summary>${p(item.answer)}</details>`).join("")}</div>`);
   if (type === "related_guides") body.push(`<nav aria-label="Related guides"><ul>${d.links.map((item) => `<li>${internalLink(item.internal_link_id, links, products, theme)} — ${esc(item.context)}</li>`).join("")}</ul></nav>`);
   if (type === "conclusion") body.push(p(d.summary), p(d.next_step));
-  if (type === "call_to_action") body.push(`<div class="${cls(theme, "cta-block")}">${p(d.body)}${d.product_id ? productLink(d.product_id, products, theme) : d.internal_link_id ? internalLink(d.internal_link_id, links, theme) : ""}</div>`);
+  if (type === "call_to_action") body.push(`<div class="${cls(theme, "cta-block")}">${p(d.body)}${d.product_id ? productLink(d.product_id, products, theme) : d.internal_link_id ? internalLink(d.internal_link_id, links, products, theme) : ""}</div>`);
   if (component.internal_link_ids?.length && type !== "related_guides" && !d.links) {
     const productUrls = new Set((component.product_ids || []).map((id) => products.get(id)?.url).filter(Boolean));
     const linksToRender = component.internal_link_ids.filter((id) => !productUrls.has(links.get(id)?.destination_url));

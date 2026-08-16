@@ -1,0 +1,45 @@
+import { readFile, mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { sha256, stableId } from "../research/core/canonical.js";
+import { evaluateSubjectDepthV2, renderAdaptiveResearchReview } from "../research/articleAdaptiveEvidence.js";
+import { validateArticleEvidencePack } from "../research/articleEvidence.js";
+
+const inputRoot = path.resolve("artifacts/workflows/create-seo-article/m4a2-proof");
+const outputRoot = path.resolve(process.env.M4A2_REVALIDATED_ROOT || "artifacts/workflows/create-seo-article/m4a2-proof-v2");
+const pack = JSON.parse(await readFile(path.join(inputRoot, "article-editorial-evidence-pack.json"), "utf8"));
+const m4Input = JSON.parse(await readFile(path.resolve("artifacts/workflows/create-seo-article/m4-proof-v5/gpt-5.6-sol/call_001/m4-input.json"), "utf8"));
+const m3 = JSON.parse(await readFile(path.resolve("artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json"), "utf8"));
+const opportunity = { ...m3.decision, outcome: "ARTICLE_RECOMMENDED" };
+const classes = new Map(pack.sources.map((source) => [source.source_id, source.source_class]));
+const corrected = structuredClone(pack);
+corrected.technical_findings = (corrected.technical_findings || []).map((finding) => ({ ...finding, claim_class: classes.get(finding.source_id) === "MANUFACTURER_BRAND" ? "MANUFACTURER_CLAIM" : classes.get(finding.source_id) === "INDEPENDENT_EXPERT" ? "INDEPENDENT_EXPERT_CLAIM" : classes.get(finding.source_id) === "COMMUNITY_CUSTOMER" ? "COMMUNITY_EXPERIENCE" : "FACTUAL_OBSERVATION" }));
+corrected.independent_findings = [...(corrected.independent_findings || []), ...corrected.technical_findings.filter((finding) => finding.claim_class === "INDEPENDENT_EXPERT_CLAIM").map((finding) => ({ finding: finding.finding, source_id: finding.source_id, claim_class: finding.claim_class, support_status: finding.support_status }))];
+corrected.community_findings = [...(corrected.community_findings || []), ...corrected.technical_findings.filter((finding) => finding.claim_class === "COMMUNITY_EXPERIENCE").map((finding) => ({ finding: finding.finding, source_id: finding.source_id, claim_class: finding.claim_class, support_status: finding.support_status }))];
+corrected.research_gaps = (corrected.research_gaps || []).map((gap) => {
+  const refs = new Set(gap.evidence_refs || []);
+  const findings = corrected.technical_findings.filter((finding) => refs.has(finding.source_id));
+  const independent = findings.filter((finding) => finding.claim_class === "INDEPENDENT_EXPERT_CLAIM").length;
+  const community = findings.filter((finding) => finding.claim_class === "COMMUNITY_EXPERIENCE").length;
+  const status = gap.type === "technical_depth" ? independent >= 2 ? "RESOLVED" : findings.length ? "PARTIALLY_RESOLVED" : "UNRESOLVED" : gap.type === "customer_evidence" ? community >= 2 ? "RESOLVED" : community ? "PARTIALLY_RESOLVED" : "UNRESOLVED" : gap.status;
+  return { ...gap, status, resolution: status === "RESOLVED" ? "Targeted sources supplied evidence meeting the gap stop condition." : status === "PARTIALLY_RESOLVED" ? "Targeted sources improved coverage but the required source diversity or corroboration remains incomplete." : "No sufficient targeted evidence was retrieved." };
+});
+corrected.question_coverage = (corrected.question_coverage || []).map((coverage) => {
+  const related = corrected.research_gaps.filter((gap) => (gap.originating_question_ids || []).includes(coverage.question_id));
+  const refs = [...new Set([...(coverage.evidence_source_ids || []), ...related.flatMap((gap) => gap.evidence_refs || [])])];
+  const status = related.some((gap) => gap.status === "UNRESOLVED" || gap.status === "PARTIALLY_RESOLVED") ? "PARTIALLY_ANSWERED" : related.length ? "ANSWERED" : coverage.status;
+  return { ...coverage, status, evidence_source_ids: refs, limitation: status === "ANSWERED" ? null : "Important qualification or source-diversity limitation remains." };
+});
+corrected.subject_depth = evaluateSubjectDepthV2(corrected);
+corrected.pack_version = "1.1.1";
+const { evidence_pack_id: _id, evidence_pack_sha256: _hash, ...core } = corrected;
+const output = { ...corrected, evidence_pack_id: stableId("article_evidence_pack", core), evidence_pack_sha256: sha256(core) };
+const errors = validateArticleEvidencePack(output, { opportunity, m4Input });
+if (errors.length) throw new Error(JSON.stringify(errors));
+await mkdir(outputRoot, { recursive: true });
+await writeFile(path.join(outputRoot, "article-editorial-evidence-pack.json"), `${JSON.stringify(output, null, 2)}\n`, { flag: "wx" });
+await writeFile(path.join(outputRoot, "adaptive-research-review.md"), renderAdaptiveResearchReview(output), { flag: "wx" });
+await writeFile(path.join(outputRoot, "wave-2-fetch-manifest.json"), await readFile(path.join(inputRoot, "wave-2-fetch-manifest.json")), { flag: "wx" });
+await writeFile(path.join(outputRoot, "targeted-discovery.json"), await readFile(path.join(inputRoot, "targeted-discovery.json")), { flag: "wx" });
+const comparison = { artifact_type: "m4a1_vs_m4a2_comparison", m4a1: { id: "article_evidence_pack_3558af95ddd58c2b30b2f0a6", sha256: "3558af95ddd58c2b30b2f0a6b369566b1301be74136cbf244530ff4133374b66", subject_depth: "FAIL", pages_attempted: 5, pages_successful: 3 }, m4a2: { id: output.evidence_pack_id, sha256: output.evidence_pack_sha256, subject_depth: output.subject_depth, pages_attempted: output.research_waves.wave_2.pages_attempted, pages_successful: output.research_waves.wave_2.pages_successful, gaps: output.research_gaps }, budget: output.research_waves, calls: { dataforseo: 0, targeted_search: 1, html_fetches: 8 } };
+await writeFile(path.join(outputRoot, "m4a1-vs-m4a2-comparison.json"), `${JSON.stringify(comparison, null, 2)}\n`, { flag: "wx" });
+console.log(JSON.stringify({ evidence_pack_id: output.evidence_pack_id, evidence_pack_sha256: output.evidence_pack_sha256, subject_depth: output.subject_depth }, null, 2));

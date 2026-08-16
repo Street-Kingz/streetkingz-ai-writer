@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "structured_semantic_editorial_page",
+  "page_type": "evergreen_guide",
+  "topic": "best microfibre car drying towel",
+  "search_intent": {
+    "primary": "commercial_investigation",
+    "secondary": null
+  },
+  "title": "How to Choose a Microfibre Car Drying Towel",
+  "h1": "How to Choose a Microfibre Car Drying Towel",
+  "introduction_deck": "Choosing a car drying towel is less about chasing one headline specification and more about matching absorbency, handling and finish to the way you wash your vehicle.",
+  "components": [
+    {
+      "component_id": "01_8618b695",
+      "component_type": "criteria_cards",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "data": {
+        "heading": "What matters when choosing a car drying towel",
+        "cards": [
+          {
+            "title": "Absorbency and coverage",
+            "explanation": "Look for a towel that can take on water efficiently while covering a useful area of the vehicle. That helps reduce the number of passes without asking you to drag a saturated cloth across the paint.",
+            "evidence_ids": [
+              "ev_ecc2c1bd4e72d712f2eda7d7",
+              "ev_ed08924f3394b29222b9b9b0"
+            ]
+          },
+          {
+            "title": "Handling and size",
+            "explanation": "A towel needs to be large enough to make progress but manageable around mirrors, edges and smaller panels. The right balance depends on the vehicle and how you prefer to work.",
+            "evidence_ids": [
+              "ev_ed08924f3394b29222b9b9b0",
+              "ev_6da945a33cb44149b7d8ddb9"
+            ]
+          },
+          {
+            "title": "Construction and finish",
+            "explanation": "Pile, edge treatment and overall construction affect how confidently the towel can be used on delicate painted surfaces. Treat these as part of the decision rather than relying on GSM alone.",
+            "evidence_ids": [
+              "ev_6da945a33cb44149b7d8ddb9",
+              "ev_23a73f980b3182e3935f21e9"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "component_id": "02_59929740",
+      "component_type": "comparison_table",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "data": {
+        "heading": "Compare the main towel options",
+        "columns": [
+          "Criterion",
+          "What to look for",
+          "Why it matters"
+        ],
+        "rows": [
+          {
+            "label": "Water handling",
+            "cells": [
+              "A useful absorbent surface",
+              "Fewer repeated passes"
+            ],
+            "evidence_ids": [
+              "ev_ecc2c1bd4e72d712f2eda7d7",
+              "ev_ed08924f3394b29222b9b9b0"
+            ]
+          },
+          {
+            "label": "Coverage",
+            "cells": [
+              "A size you can control",
+              "Efficient work on larger panels"
+            ],
+            "evidence_ids": [
+              "ev_ed08924f3394b29222b9b9b0",
+              "ev_6da945a33cb44149b7d8ddb9"
+            ]
+          },
+          {
+            "label": "Finish",
+            "cells": [
+              "A construction suited to paintwork",
+              "More confidence around the vehicle"
+            ],
+            "evidence_ids": [
+              "ev_6da945a33cb44149b7d8ddb9",
+              "ev_23a73f980b3182e3935f21e9"
+            ]
+          }
+        ],
+        "limitations": [
+          "Search evidence describes the decision landscape; it does not replace checking a towel's own validated product information."
+        ]
+      }
+    },
+    {
+      "component_id": "03_a86e9c83",
+      "component_type": "product_recommendation",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "product_discovery",
+      "data": {
+        "heading": "A practical next step",
+        "product_id": "product_20fcada95c00204601928709",
+        "recommendation_context": "Once you know which balance of coverage, handling and construction suits your wash routine, you can assess a towel against those criteria rather than buying on a single number.",
+        "relevance_reason": "The validated Heavy Duty Drying Towel is a relevant example for a reader looking for a dedicated car-drying product; it is presented after the decision guidance, not as a substitute for it.",
+        "cta_direction": "Invite the reader to review the product details against the criteria above.",
+        "cta_label": "View the Heavy Duty Drying Towel"
+      }
+    }
+  ],
+  "conclusion": "The best microfibre car drying towel is the one whose absorbency, coverage and handling fit your vehicle and routine. Use those criteria first, then check the product evidence before deciding.",
+  "validation_metadata": {
+    "packet_id": "evidence_59280487edd25c3ab9eff88a",
+    "strategy_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "page_plan_hash": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233"
+  }
+}

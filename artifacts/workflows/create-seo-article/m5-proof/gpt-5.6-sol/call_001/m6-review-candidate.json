@@ -1,0 +1,25 @@
+{
+  "artifact_type": "m6_review_candidate",
+  "state": "awaiting_human_review",
+  "semantic_article_id": "semantic_article_733101fab83133a9d758511a",
+  "semantic_article_sha256": "733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77",
+  "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+  "opportunity_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+  "brief_id": "article_brief_248d2d96feff88a83be38999",
+  "brief_sha256": "248d2d96feff88a83be38999247dea1f72cf319e73ffcf92f8173118d5ee53da",
+  "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+  "page_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233",
+  "approval_id": "m5_generation_approval_423f29769ed755e6abc0076c",
+  "seo_guidance_snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+  "seo_guidance_snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+  "validation_status": "PASS",
+  "quality_status": "PASS",
+  "previews": [
+    "semantic-page.md",
+    "semantic-page.html"
+  ],
+  "known_unknowns": [
+    "Page-level competitor content was not fetched.",
+    "Search Console coverage may be unavailable."
+  ]
+}

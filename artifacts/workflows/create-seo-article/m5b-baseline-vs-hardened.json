@@ -1,0 +1,48 @@
+{
+  "artifact_type": "m5b_baseline_vs_hardened_comparison",
+  "baseline": {
+    "semantic_article_id": "semantic_article_733101fab83133a9d758511a",
+    "semantic_article_sha256": "733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77",
+    "word_count": 318,
+    "component_count": 3,
+    "validation": "PASS",
+    "quality": "PASS",
+    "founder_acceptance": "FAIL",
+    "findings": [
+      "Thin decision coverage",
+      "Checklist-style comparison",
+      "Methodology leakage",
+      "Unnatural product recommendation"
+    ]
+  },
+  "hardened": {
+    "semantic_article_id": "semantic_article_15c4b689ae732db71d1aa15d",
+    "semantic_article_sha256": "15c4b689ae732db71d1aa15dd0a4ae7fdfa5f374cc2671483410d7f73d2beec2",
+    "word_count": 458,
+    "component_count": 3,
+    "validation": "PASS",
+    "quality": "PASS",
+    "editorial_sufficiency": {
+      "status": "PASS",
+      "dimensions": {
+        "intent_fulfilment": "PASS",
+        "decision_usefulness": "PASS",
+        "concrete_explanation": "PASS",
+        "comparison_usefulness": "PASS",
+        "plan_depth": "PASS",
+        "methodology_leakage": "PASS",
+        "commercial_naturalness": "PASS"
+      },
+      "issues": []
+    },
+    "founder_acceptance": "PENDING"
+  },
+  "lineage": {
+    "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "opportunity_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "brief_id": "article_brief_248d2d96feff88a83be38999",
+    "brief_sha256": "248d2d96feff88a83be38999247dea1f72cf319e73ffcf92f8173118d5ee53da",
+    "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "page_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233"
+  }
+}

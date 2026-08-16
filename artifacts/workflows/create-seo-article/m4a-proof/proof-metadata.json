@@ -1,0 +1,16 @@
+{
+  "artifact_type": "m4a_proof_metadata",
+  "evidence_pack_id": "article_evidence_pack_956d3d513d627b508db1769d",
+  "evidence_pack_sha256": "956d3d513d627b508db1769d36c918074d9ca255e0cd1967f09dcd58ac63dbcf",
+  "validation": "PASS",
+  "source_counts": {
+    "total": 29,
+    "serp": 5,
+    "product_intelligence": 24
+  },
+  "live_sources": 0,
+  "fixture_sources": 29,
+  "ai_calls": 0,
+  "product_facts": 24,
+  "input_sha256": "84b8298ac08c6697963f62efac4143b5c57874f840e52a61dae419b845fabad9"
+}

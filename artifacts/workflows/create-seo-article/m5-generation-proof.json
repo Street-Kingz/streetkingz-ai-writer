@@ -1,0 +1,104 @@
+{
+  "artifact_type": "create_seo_article_m5_proof",
+  "merchant_input": {
+    "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm"
+  },
+  "approval_id": "m5_generation_approval_423f29769ed755e6abc0076c",
+  "approval_sha256": "391aab675f225b80753c5cfb7020e75a7cf681c02f5b360e56079dbfa760105a",
+  "accepted": true,
+  "validation": {
+    "artifact_type": "editorial_draft_validation",
+    "status": "PASS",
+    "downstream_eligible": true,
+    "errors": []
+  },
+  "quality": {
+    "schema_version": "1.0.0",
+    "artifact_type": "editorial_quality_review",
+    "status": "PASS",
+    "accepted_for_human_review": true,
+    "dimensions": {
+      "useful_beyond_schema": true,
+      "generic_seo_filler_absent": true,
+      "forced_commercialisation_absent": true,
+      "invented_experience_absent": true
+    },
+    "issues": [],
+    "human_review_issues": [
+      "Confirm tone and usefulness component by component.",
+      "Confirm every product statement against the cited Product Facts.",
+      "Supply or approve the required hero lifestyle image before rendering."
+    ]
+  },
+  "metadata": {
+    "artifact_type": "m5_generation_metadata",
+    "model": "gpt-5.6-sol",
+    "provider": "offline-fixture",
+    "calls": 1,
+    "retries": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "semantic_article_id": "semantic_article_733101fab83133a9d758511a",
+    "semantic_article_sha256": "733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77",
+    "status": "PASS",
+    "wordpress_writes": 0,
+    "publication_attempts": 0
+  },
+  "callDirectory": "m5-proof/gpt-5.6-sol/call_001",
+  "response": {
+    "provider": "offline-fixture",
+    "model": "gpt-5.6-sol",
+    "response_id": "offline-m5-proof",
+    "rawText": "{\"schema_version\":\"1.0.0\",\"artifact_type\":\"structured_semantic_editorial_page\",\"page_type\":\"evergreen_guide\",\"topic\":\"best microfibre car drying towel\",\"search_intent\":{\"primary\":\"commercial_investigation\",\"secondary\":null},\"title\":\"How to Choose a Microfibre Car Drying Towel\",\"h1\":\"How to Choose a Microfibre Car Drying Towel\",\"introduction_deck\":\"Choosing a car drying towel is less about chasing one headline specification and more about matching absorbency, handling and finish to the way you wash your vehicle.\",\"components\":[{\"component_id\":\"01_8618b695\",\"component_type\":\"criteria_cards\",\"evidence_ids\":[\"ev_ecc2c1bd4e72d712f2eda7d7\",\"ev_ed08924f3394b29222b9b9b0\",\"ev_6da945a33cb44149b7d8ddb9\",\"ev_23a73f980b3182e3935f21e9\"],\"product_ids\":[],\"internal_link_ids\":[],\"media_requirements\":[],\"conversion_role\":\"education\",\"data\":{\"heading\":\"What matters when choosing a car drying towel\",\"cards\":[{\"title\":\"Absorbency and coverage\",\"explanation\":\"Look for a towel that can take on water efficiently while covering a useful area of the vehicle. That helps reduce the number of passes without asking you to drag a saturated cloth across the paint.\",\"evidence_ids\":[\"ev_ecc2c1bd4e72d712f2eda7d7\",\"ev_ed08924f3394b29222b9b9b0\"]},{\"title\":\"Handling and size\",\"explanation\":\"A towel needs to be large enough to make progress but manageable around mirrors, edges and smaller panels. The right balance depends on the vehicle and how you prefer to work.\",\"evidence_ids\":[\"ev_ed08924f3394b29222b9b9b0\",\"ev_6da945a33cb44149b7d8ddb9\"]},{\"title\":\"Construction and finish\",\"explanation\":\"Pile, edge treatment and overall construction affect how confidently the towel can be used on delicate painted surfaces. Treat these as part of the decision rather than relying on GSM alone.\",\"evidence_ids\":[\"ev_6da945a33cb44149b7d8ddb9\",\"ev_23a73f980b3182e3935f21e9\"]}]}},{\"component_id\":\"02_59929740\",\"component_type\":\"comparison_table\",\"evidence_ids\":[\"ev_ecc2c1bd4e72d712f2eda7d7\",\"ev_ed08924f3394b29222b9b9b0\",\"ev_6da945a33cb44149b7d8ddb9\",\"ev_23a73f980b3182e3935f21e9\"],\"product_ids\":[],\"internal_link_ids\":[],\"media_requirements\":[],\"conversion_role\":\"education\",\"data\":{\"heading\":\"Compare the main towel options\",\"columns\":[\"Criterion\",\"What to look for\",\"Why it matters\"],\"rows\":[{\"label\":\"Water handling\",\"cells\":[\"A useful absorbent surface\",\"Fewer repeated passes\"],\"evidence_ids\":[\"ev_ecc2c1bd4e72d712f2eda7d7\",\"ev_ed08924f3394b29222b9b9b0\"]},{\"label\":\"Coverage\",\"cells\":[\"A size you can control\",\"Efficient work on larger panels\"],\"evidence_ids\":[\"ev_ed08924f3394b29222b9b9b0\",\"ev_6da945a33cb44149b7d8ddb9\"]},{\"label\":\"Finish\",\"cells\":[\"A construction suited to paintwork\",\"More confidence around the vehicle\"],\"evidence_ids\":[\"ev_6da945a33cb44149b7d8ddb9\",\"ev_23a73f980b3182e3935f21e9\"]}],\"limitations\":[\"Search evidence describes the decision landscape; it does not replace checking a towel's own validated product information.\"]}},{\"component_id\":\"03_a86e9c83\",\"component_type\":\"product_recommendation\",\"evidence_ids\":[\"ev_ecc2c1bd4e72d712f2eda7d7\",\"ev_ed08924f3394b29222b9b9b0\",\"ev_6da945a33cb44149b7d8ddb9\",\"ev_23a73f980b3182e3935f21e9\"],\"product_ids\":[\"product_20fcada95c00204601928709\"],\"internal_link_ids\":[],\"media_requirements\":[],\"conversion_role\":\"product_discovery\",\"data\":{\"heading\":\"A practical next step\",\"product_id\":\"product_20fcada95c00204601928709\",\"recommendation_context\":\"Once you know which balance of coverage, handling and construction suits your wash routine, you can assess a towel against those criteria rather than buying on a single number.\",\"relevance_reason\":\"The validated Heavy Duty Drying Towel is a relevant example for a reader looking for a dedicated car-drying product; it is presented after the decision guidance, not as a substitute for it.\",\"cta_direction\":\"Invite the reader to review the product details against the criteria above.\",\"cta_label\":\"View the Heavy Duty Drying Towel\"}}],\"conclusion\":\"The best microfibre car drying towel is the one whose absorbency, coverage and handling fit your vehicle and routine. Use those criteria first, then check the product evidence before deciding.\",\"validation_metadata\":{\"packet_id\":\"evidence_59280487edd25c3ab9eff88a\",\"strategy_id\":\"article_opportunity_0f6047a7b1f249db7979f259\",\"page_plan_id\":\"editorial_page_plan_109d5a7553798979dc21fbb3\",\"page_plan_hash\":\"109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233\"}}",
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "reviewCandidate": {
+    "artifact_type": "m6_review_candidate",
+    "state": "awaiting_human_review",
+    "semantic_article_id": "semantic_article_733101fab83133a9d758511a",
+    "semantic_article_sha256": "733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77",
+    "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "opportunity_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "brief_id": "article_brief_248d2d96feff88a83be38999",
+    "brief_sha256": "248d2d96feff88a83be38999247dea1f72cf319e73ffcf92f8173118d5ee53da",
+    "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "page_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233",
+    "approval_id": "m5_generation_approval_423f29769ed755e6abc0076c",
+    "seo_guidance_snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "seo_guidance_snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "validation_status": "PASS",
+    "quality_status": "PASS",
+    "previews": [
+      "semantic-page.md",
+      "semantic-page.html"
+    ],
+    "known_unknowns": [
+      "Page-level competitor content was not fetched.",
+      "Search Console coverage may be unavailable."
+    ]
+  },
+  "lifecycle": {
+    "call_id": "0f54064d-b71c-4a6d-8a61-033584ab3d4a",
+    "model_label": "gpt-5.6-sol",
+    "ordinal": 1,
+    "configured_max_calls": 1,
+    "retries": 0,
+    "requested_calls": 1,
+    "started_calls": 1,
+    "completed_calls": 1,
+    "failed_calls": 0,
+    "aborted_calls": 0,
+    "state": "completed",
+    "started_at": "2026-08-16T09:47:54.830Z",
+    "completed_at": "2026-08-16T09:47:54.844Z"
+  },
+  "status": "HUMAN_REVIEW_READY",
+    "call_directory": "m5-proof/gpt-5.6-sol/call_001"
+}

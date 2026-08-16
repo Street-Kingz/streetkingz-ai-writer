@@ -1,0 +1,17 @@
+{
+  "artifact_type": "m5_generation_metadata",
+  "model": "gpt-5.6-sol",
+  "provider": "offline-fixture",
+  "calls": 1,
+  "retries": 0,
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "reasoning_tokens": 0
+  },
+  "semantic_article_id": "semantic_article_733101fab83133a9d758511a",
+  "semantic_article_sha256": "733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77",
+  "status": "PASS",
+  "wordpress_writes": 0,
+  "publication_attempts": 0
+}

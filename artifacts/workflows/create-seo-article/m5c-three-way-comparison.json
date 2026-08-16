@@ -1,0 +1,42 @@
+{
+  "artifact_type": "m5c_three_way_comparison",
+  "lineage": {
+    "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "opportunity_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "brief_id": "article_brief_248d2d96feff88a83be38999",
+    "brief_sha256": "248d2d96feff88a83be38999247dea1f72cf319e73ffcf92f8173118d5ee53da",
+    "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "page_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233"
+  },
+  "baseline": {
+    "article_id": "semantic_article_733101fab83133a9d758511a",
+    "sha256": "733101fab83133a9d758511af41824b673cd4765b712fd475f1f4e9fabdd0f77",
+    "words": 318,
+    "facts_available_to_generation": 0,
+    "facts_used": 0,
+    "validation": "PASS",
+    "sufficiency": "NOT_IMPLEMENTED",
+    "founder_acceptance": "FAIL"
+  },
+  "m5b": {
+    "article_id": "semantic_article_15c4b689ae732db71d1aa15d",
+    "sha256": "15c4b689ae732db71d1aa15dd0a4ae7fdfa5f374cc2671483410d7f73d2beec2",
+    "words": 458,
+    "facts_available_to_generation": 0,
+    "facts_used": 0,
+    "validation": "PASS",
+    "sufficiency": "PASS",
+    "founder_acceptance": "FAIL"
+  },
+  "m5c": {
+    "article_id": "semantic_article_e1640765fbd6c2abda58b05f",
+    "sha256": "e1640765fbd6c2abda58b05f80b7b9d3ef85bc4377c2853ed1af3c35059098f0",
+    "words": 490,
+    "facts_available_to_generation": 24,
+    "facts_used": 7,
+    "validation": "PASS",
+    "sufficiency": "PASS",
+    "product_intelligence_utilisation": "PASS",
+    "founder_acceptance": "PENDING"
+  }
+}

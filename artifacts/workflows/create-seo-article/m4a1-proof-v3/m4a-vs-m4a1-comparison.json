@@ -1,0 +1,32 @@
+{
+  "artifact_type": "m4a_vs_m4a1_comparison",
+  "old": {
+    "id": "article_evidence_pack_956d3d513d627b508db1769d",
+    "sha256": "956d3d513d627b508db1769d36c918074d9ca255e0cd1967f09dcd58ac63dbcf",
+    "freshness": "FROZEN_RESEARCH_REVIEW_REQUIRED",
+    "sources": 29,
+    "page_level_sources": 0,
+    "terminology": 13,
+    "questions": 10,
+    "subject_depth": "INSUFFICIENT"
+  },
+  "live": {
+    "id": "article_evidence_pack_3558af95ddd58c2b30b2f0a6",
+    "sha256": "3558af95ddd58c2b30b2f0a6b369566b1301be74136cbf244530ff4133374b66",
+    "freshness": "CURRENT",
+    "sources": 34,
+    "live_pages_attempted": 5,
+    "live_pages_successful": 3,
+    "live_pages_failed": 2,
+    "terminology": 13,
+    "questions": 10,
+    "partially_answered": 7,
+    "unanswered": 0,
+    "subject_depth": "FAIL"
+  },
+  "calls": {
+    "dataforseo": 0,
+    "search_console": 0,
+    "other_live_web": 5
+  }
+}
