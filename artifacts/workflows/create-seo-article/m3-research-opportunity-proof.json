@@ -319,90 +319,173 @@
   ],
   "search_console": "OPTIONAL / NOT REQUIRED",
   "research_sufficiency": "sufficient",
+  "seo_guidance": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "freshness_status": "CURRENT",
+    "sources": [
+      {
+        "id": "google-search-essentials",
+        "url": "https://developers.google.com/search/docs/essentials",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "content_hash": "ba41ef87dfbe7b2ae4fbad39a9bb452b506489836a48dd22e887bb3f49fcb60d"
+      },
+      {
+        "id": "google-spam-policies",
+        "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "content_hash": "099c0aa186980a9b698618757f2dcc1f4f3e9e4de7189b945946d44c81585001"
+      },
+      {
+        "id": "google-helpful-content",
+        "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "content_hash": "eb8611d0f9d32b9c76fb23f06a63a18e08a61b39c7b3c38b1a93326982101cd9"
+      },
+      {
+        "id": "google-generative-ai",
+        "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "content_hash": "ed252d6e611be42aff7630bbb220ddc48847c283872cba3b272cf97928a564ad"
+      },
+      {
+        "id": "google-ai-features",
+        "url": "https://developers.google.com/search/docs/appearance/ai-features",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_ai_search",
+        "content_hash": "60654f6771e553321e3306efdb95e0099b0a2be3e7f124641957ccb151c43a30"
+      },
+      {
+        "id": "google-ranking-systems",
+        "url": "https://developers.google.com/search/docs/appearance/ranking-systems-guide",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_ranking_systems",
+        "content_hash": "239bbbe9207ecca2c2b13942b299e43562b12dbc13f11cd3045818f7212551da"
+      },
+      {
+        "id": "google-how-search-works",
+        "url": "https://developers.google.com/search/docs/fundamentals/how-search-works",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search_foundations",
+        "content_hash": "f993bcf24db662cf84be4808362dbc791b030389b1b5f1e899fb485511337fbe"
+      },
+      {
+        "id": "google-structured-data",
+        "url": "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "content_hash": "ad80139fcde7ecb5d5f5735c2b4461345d4db54fabadb9b38dd8e9f4be0d5a59"
+      },
+      {
+        "id": "bing-webmaster-guidelines",
+        "url": "https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a",
+        "authority_class": "SEARCH_ENGINE_SECONDARY",
+        "category": "bing_search",
+        "content_hash": "cee01fffcd253bdd7b6ccf71b89e8337126886b61307f7a780ee8ef7df0f53c0"
+      },
+      {
+        "id": "schema-org-docs",
+        "url": "https://schema.org/docs/documents.html",
+        "authority_class": "WEB_STANDARD",
+        "category": "schema",
+        "content_hash": "d2ac7cfad0d78cdaf638498f7399de46f470d4578e0a634bed200c17a56293a6"
+      },
+      {
+        "id": "w3c-wai-standards",
+        "url": "https://www.w3.org/WAI/standards-guidelines/",
+        "authority_class": "WEB_STANDARD",
+        "category": "w3c_wai",
+        "content_hash": "e589e06751eceb78830d1d7e35ad551eedc488791f3caf95d595eb546e8b3b06"
+      }
+    ]
+  },
   "decision": {
     "outcome": "ARTICLE_RECOMMENDED",
     "article_type": "supporting_article",
-    "primary_query": "microfiber towel for drying car",
+    "search_intent": "commercial_investigation",
+    "primary_query": "best microfibre car drying towel",
     "supporting_queries": [
+      "microfiber towel for drying car",
+      "best car drying towel",
+      "microfiber towel for car drying"
+    ],
+    "reader_problem": "Readers need practical guidance choosing a suitable car-drying towel.",
+    "proposed_angle": "Compare reader-relevant drying criteria and constructions using the observed mixed SERP intent.",
+    "rationale": "This candidate combines strong observed demand with a clear product-relevant reader problem and an article-suitable SERP; volume is considered alongside intent, usefulness and fit.",
+    "evidence_ids": [
+      "ev_cba0ce84881afaeaca79cb93"
+    ],
+    "alternatives_considered": [
+      {
+        "query": "microfiber towel for drying car",
+        "reason": "Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence."
+      },
       {
         "query": "best car drying towel",
-        "evidence_ids": [
-          "ev_ed08924f3394b29222b9b9b0"
-        ]
+        "reason": "Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence."
       },
       {
         "query": "microfiber towel for car drying",
-        "evidence_ids": [
-          "ev_6da945a33cb44149b7d8ddb9"
-        ]
-      },
-      {
-        "query": "waffle weave car drying towel",
-        "evidence_ids": [
-          "ev_23a73f980b3182e3935f21e9"
-        ]
-      },
-      {
-        "query": "best automotive drying towel",
-        "evidence_ids": [
-          "ev_0e9ab51ff78e7a40531e77be"
-        ]
-      },
-      {
-        "query": "large drying towel for car",
-        "evidence_ids": [
-          "ev_f9a601dc1f920ec8da2df28d"
-        ]
+        "reason": "Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence."
       }
-    ],
-    "search_intent": "mixed",
-    "reader_problem": "Help readers decide about microfiber towel for drying car.",
-    "product_relevance": "The candidate is derived from validated product facts and product-seeded demand evidence.",
-    "commercial_relevance": "The product is relevant to the selected search opportunity; no unsupported performance or ranking claim is made.",
-    "rationale": "The candidate has the strongest retained demand signal among product-relevant queries and has supporting SERP evidence.",
-    "evidence_ids": [
-      "ev_ecc2c1bd4e72d712f2eda7d7",
-      "ev_2402e4bb0c1bf2a17431c9f5",
-      "ev_268a5e6d930e2f3fd8ae0648",
-      "ev_35fc4936af8e40572505f795",
-      "ev_4cf0bed2c8389d97ec6b3cc2",
-      "ev_63e9847e4f5d4ec36ee46364",
-      "ev_6c54dd3f6805aeb1508681cd",
-      "ev_7eda71ccb9ee9698937a82ac",
-      "ev_990abd99717f4fc6f8121cd0",
-      "ev_ac6a726711be444d1302cf43",
-      "ev_acb651e5ab3753ee5bbd5149",
-      "ev_b8e4c363cfbf1ce8832f4cef",
-      "ev_bc2e6588860f8c1b5b22593c",
-      "ev_bd4cd1e3fbb3ff6fceff8df0",
-      "ev_bd6c0b36a0d57ab94aa4fd95",
-      "ev_bfc17c2a768137474c39d02e",
-      "ev_c5295da08e5f38c6f9285bfa",
-      "ev_c6907b8bb5a85f446b74c0a8",
-      "ev_ceb245dd6013ad58fc508a9b",
-      "ev_d38c09edc1bac57d8d212458",
-      "ev_d857da42979e79e286625355",
-      "ev_e612e72dd7fb06dcd3f12d80",
-      "ev_ee0b3e8c23ff9d8ec47a9953",
-      "ev_fd9d1f8eb0803e26a6f935ce",
-      "ev_fdc0ec3e296ae87f675c25d2",
-      "ev_ff3486d7e265b886bf2c605f",
-      "ev_0070937601532c2a501db22b",
-      "ev_b77f17bcbbd291179ba662ee"
-    ],
-    "alternatives_considered": [
-      "best car drying towel",
-      "microfiber towel for car drying",
-      "waffle weave car drying towel"
     ],
     "risks": [
       "Page-level competitor coverage was not fetched."
     ],
+    "unknowns": [
+      "Search Console coverage is optional and was not required for this decision."
+    ],
     "confidence": "medium",
-    "research_state_id": "research_state_0ef3dcd58f516e7613081439",
-    "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a"
+    "objective": "create_seo_article",
+    "decision_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "source_input_sha256": "e14e9d4cbf950427213f883b98b41b4d52a2ad27b5ce10eae322eff953f0989c",
+    "model": "gpt-5.6-sol",
+    "metadata": {
+      "artifact_type": "article_opportunity_run_metadata",
+      "model": "gpt-5.6-sol",
+      "provider": "fixture-controlled-provider",
+      "api": "responses",
+      "reasoning": {
+        "effort": "high"
+      },
+      "usage": {
+        "input_tokens": 1200,
+        "output_tokens": 220
+      },
+      "evidence_count": 16,
+      "input_sha256": "e14e9d4cbf950427213f883b98b41b4d52a2ad27b5ce10eae322eff953f0989c",
+      "validation_status": "PASS",
+      "ai_calls": 1
+    },
+    "seo_guidance_provenance": {
+      "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+      "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+      "source_manifest_version": "1.0.0",
+      "freshness_status": "CURRENT"
+    }
+  },
+  "ai_decision": {
+    "model": "gpt-5.6-sol",
+    "api": "responses",
+    "reasoning": {
+      "effort": "high"
+    },
+    "calls": 1,
+    "usage": {
+      "input_tokens": 1200,
+      "output_tokens": 220
+    },
+    "evidence_candidate_count": 16,
+    "validation": "PASS",
+    "technical_artifact_directory": "artifacts/workflows/create-seo-article/m3-opportunity-proof-v7/gpt-5.6-sol/call_001",
+    "human_review_artifact": "artifacts/workflows/create-seo-article/m3-opportunity-proof-v7/gpt-5.6-sol/call_001/opportunity-review.md"
   },
   "next_stage": "ARTICLE_BRIEF READY",
+  "failure": null,
   "ai_calls": 0,
   "external_provider_calls": 0,
   "wordpress_calls": 0,

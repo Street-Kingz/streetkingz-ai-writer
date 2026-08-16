@@ -1,0 +1,65 @@
+{
+  "outcome": "ARTICLE_RECOMMENDED",
+  "article_type": "supporting_article",
+  "search_intent": "commercial_investigation",
+  "primary_query": "best microfibre car drying towel",
+  "supporting_queries": [
+    "microfiber towel for drying car",
+    "best car drying towel",
+    "microfiber towel for car drying"
+  ],
+  "reader_problem": "Readers need practical guidance choosing a suitable car-drying towel.",
+  "proposed_angle": "Compare reader-relevant drying criteria and constructions using the observed mixed SERP intent.",
+  "rationale": "This candidate combines strong observed demand with a clear product-relevant reader problem and an article-suitable SERP; volume is considered alongside intent, usefulness and fit.",
+  "evidence_ids": [
+    "ev_cba0ce84881afaeaca79cb93"
+  ],
+  "alternatives_considered": [
+    {
+      "query": "microfiber towel for drying car",
+      "reason": "Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence."
+    },
+    {
+      "query": "best car drying towel",
+      "reason": "Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence."
+    },
+    {
+      "query": "microfiber towel for car drying",
+      "reason": "Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence."
+    }
+  ],
+  "risks": [
+    "Page-level competitor coverage was not fetched."
+  ],
+  "unknowns": [
+    "Search Console coverage is optional and was not required for this decision."
+  ],
+  "confidence": "medium",
+  "objective": "create_seo_article",
+  "decision_id": "article_opportunity_0f6047a7b1f249db7979f259",
+  "source_input_sha256": "e14e9d4cbf950427213f883b98b41b4d52a2ad27b5ce10eae322eff953f0989c",
+  "model": "gpt-5.6-sol",
+  "metadata": {
+    "artifact_type": "article_opportunity_run_metadata",
+    "model": "gpt-5.6-sol",
+    "provider": "fixture-controlled-provider",
+    "api": "responses",
+    "reasoning": {
+      "effort": "high"
+    },
+    "usage": {
+      "input_tokens": 1200,
+      "output_tokens": 220
+    },
+    "evidence_count": 16,
+    "input_sha256": "e14e9d4cbf950427213f883b98b41b4d52a2ad27b5ce10eae322eff953f0989c",
+    "validation_status": "PASS",
+    "ai_calls": 1
+  },
+  "seo_guidance_provenance": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT"
+  }
+}

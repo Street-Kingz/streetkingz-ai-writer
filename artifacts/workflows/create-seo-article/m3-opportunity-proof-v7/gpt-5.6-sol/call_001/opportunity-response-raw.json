@@ -1,0 +1,10 @@
+{
+  "provider": "fixture-controlled-provider",
+  "model": "gpt-5.6-sol",
+  "response_id": "fixture-response-001",
+  "raw_text": "{\"outcome\":\"ARTICLE_RECOMMENDED\",\"article_type\":\"supporting_article\",\"search_intent\":\"commercial_investigation\",\"primary_query\":\"best microfibre car drying towel\",\"supporting_queries\":[\"microfiber towel for drying car\",\"best car drying towel\",\"microfiber towel for car drying\"],\"reader_problem\":\"Readers need practical guidance choosing a suitable car-drying towel.\",\"proposed_angle\":\"Compare reader-relevant drying criteria and constructions using the observed mixed SERP intent.\",\"rationale\":\"This candidate combines strong observed demand with a clear product-relevant reader problem and an article-suitable SERP; volume is considered alongside intent, usefulness and fit.\",\"evidence_ids\":[\"ev_cba0ce84881afaeaca79cb93\"],\"alternatives_considered\":[{\"query\":\"microfiber towel for drying car\",\"reason\":\"Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence.\"},{\"query\":\"best car drying towel\",\"reason\":\"Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence.\"},{\"query\":\"microfiber towel for car drying\",\"reason\":\"Retained as an alternative; the selected direction had stronger combined intent, usefulness and fit evidence.\"}],\"risks\":[\"Page-level competitor coverage was not fetched.\"],\"unknowns\":[\"Search Console coverage is optional and was not required for this decision.\"],\"confidence\":\"medium\"}",
+  "usage": {
+    "input_tokens": 1200,
+    "output_tokens": 220
+  }
+}

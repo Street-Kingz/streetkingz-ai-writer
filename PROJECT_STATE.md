@@ -1,7 +1,7 @@
 # Street Kingz AI Ecommerce Assistant — Canonical Project State
 
-**Document status:** M0, M1 and M2 complete; M3 ready to begin
-**Last updated:** 2026-08-15  
+**Document status:** M0, M1, M2, M3 and M3A complete; M4 ready to begin
+**Last updated:** 2026-08-16
 **Repository checkpoint:** `87acf1722de22c20eb867a1d1064bf4719363614` plus the uncommitted M3 working tree
 
 ## What we are building
@@ -72,7 +72,8 @@ Statuses below describe actual reusable capability, not file presence.
 | Competitor research | PARTIAL | SERP evidence can expose ranking pages; no dedicated competitor-analysis decision workflow. |
 | Research sufficiency | SUBSTANTIAL | evidence coverage and research-state validators; not yet wired to Create SEO Article selection. |
 | Opportunity discovery | COMPLETE / CONNECTED FOR M3 SLICE | `workflows/createSeoArticleOpportunity.js` derives bounded candidates and validates article outcomes from evidence. |
-| Decision making | COMPLETE / CONNECTED FOR M3 SLICE | Create SEO Article now produces validated article opportunity outcomes without switching objectives or generating content. |
+| Decision making | COMPLETE / CONNECTED FOR M3 SLICE | Create SEO Article now uses a bounded controlled opportunity interpretation with strict evidence validation and no volume-only fallback; it produces validated article outcomes without switching objectives or generating content. |
+| Current SEO Guidance | COMPLETE / CONNECTED FOR M3A | Allowlisted first-party Google, Bing, Schema.org and W3C/WAI guidance is represented by validated immutable snapshots with hashes, freshness and workflow lineage; guidance remains separate from search evidence and intelligence. |
 | Cornerstone strategy/brief | SUBSTANTIAL / FIXTURE-BOUND | `cornerstone/`; strategy, allowlists and validation work against `artifacts/cornerstone/...` fixtures, not arbitrary merchant input. |
 | Page planning | SUBSTANTIAL / FIXTURE-BOUND | `editorial/plan.js`, `scripts/buildEditorialPagePlan.js`; deterministic and validated, but script defaults are hardcoded fixture paths. |
 | Semantic editorial components | SUBSTANTIAL | `editorial/contracts.js`, `editorial/plan.js`, renderers and validators. |
@@ -107,8 +108,17 @@ Statuses below describe actual reusable capability, not file presence.
 
 **Status:** COMPLETE — 2026-08-16. **Objective:** execute bounded product-led research and make article opportunity selection explicit within the direct Create SEO Article objective. M3 adds deterministic validated-PIO → Product Facts projection, automatic product-derived research seeds, an article-specific research objective, bounded candidate selection and validated `ARTICLE_RECOMMENDED`, `NO_ARTICLE_RECOMMENDED` and `RESEARCH_INSUFFICIENT` outcomes. The offline Street Kingz proof starts with `product_url` only, selects `microfiber towel for drying car` as a `supporting_article`, treats Search Console as optional and preserves unknown page-level competitor coverage. The workflow reaches `article_brief READY`; no brief is generated, no article is generated and nothing publishes.
 **Tests:** focused M3 tests pass 4/4; full `npm test` passes 849/849 with localhost permission. **Development proof:** `artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json`.
-**External activity:** AI calls 0, external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
+**External activity:** one bounded injected AI decision call in the offline proof; external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
 **Scope:** no durable persistence, competitor crawler, research expansion, article brief generation, article generation, legacy cleanup or Product Page work was started.
+
+**Decision-quality hardening:** advisor review identified that the initial deterministic volume-ordered fallback was not strategically sufficient. The bounded correction now sends only a filtered candidate/evidence packet through the existing controlled structured-output pattern, validates article type, intent, candidate queries and evidence references, performs one no-retry controlled decision call, and pauses as `decision_unavailable` rather than pretending highest volume is the strategy when interpretation is unavailable. The offline proof uses an injected `gpt-5.6-sol`-labelled fixture provider with one controlled call, selects `microfiber towel for drying car` from supplied candidates, records `supporting_article` and `commercial_investigation`, and generates a founder-readable review without generating a brief or article. External provider/API calls: 0.
+
+### M3A — Current SEO Guidance & Search Standards
+
+**Status:** COMPLETE — 2026-08-16. A bounded trusted-source manifest and retrieval boundary now accepts only explicitly allowlisted HTTPS authorities, normalizes content deterministically, records source hashes and creates immutable validated snapshots with configurable freshness. Google Search guidance is primary for Google-specific questions and now explicitly covers Search Essentials, spam policies, helpful/people-first content, generative-AI content, AI Features (AI Overviews/AI Mode), ranking systems, structured data and How Search Works. Bing remains secondary, Schema.org/W3C remain standards evidence, and no third-party SEO commentary enters the authoritative snapshot. The M3 opportunity packet receives compact guidance records as a distinct evidence class, validates current snapshot provenance, and carries snapshot ID/hash into the opportunity stage lineage and technical decision artifact. Stale, invalid or absent guidance does not silently fall back to model memory. The offline proof uses a new immutable frozen snapshot and product URL only; no brief, article or publishing is performed.
+**Proof:** `artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json`; current snapshot: `artifacts/workflows/create-seo-article/m3-seo-guidance-snapshot-v2.json`; prior snapshot preserved at `artifacts/workflows/create-seo-article/m3-seo-guidance-snapshot.json`.
+**Tests:** focused guidance/M3 tests pass 11/11; full `npm test` passes 856/856; `git diff --check` passes.
+**External activity:** official source verification only; no DataForSEO, Search Console, WordPress or publishing calls. The offline proof uses one injected controlled AI decision call.
 
 ### M4 — Structured article brief and page plan
 
@@ -129,6 +139,18 @@ Statuses below describe actual reusable capability, not file presence.
 ## Deferred work
 
 **Product Page Optimisation: PAUSED / DEFERRED — NOT ABANDONED.** Current state: Product Page workflow, PIO/BIO integration, founder correction lineage, proposal validation, protected-substructure guard and fresh-state candidate preparation exist. The current Guarded Writer dry-run is blocked because required `rendered_page` guard data is not supplied through the current integration path. Validation was not weakened; no approval mutation, execution or WordPress write occurred.
+
+### Outcome Measurement & Learning Loop — DEFERRED
+
+Freeze a pre-implementation baseline tied to page identity, proposal/recommendation identity and hash, target queries, rankings, impressions, clicks, CTR, landing-page traffic, conversions, revenue where available, Search Console/GA4 metrics, relevant page state and known confounders. Compare workflow-appropriate post-change periods and distinguish measured change from attribution confidence. Future outcomes may be positive, neutral, negative or inconclusive, creating a recommendation → baseline → implementation → measurement → outcome → learning history. No measurement or learning-loop implementation has started.
+
+### Expert Benchmarking & Product Validation — DEFERRED
+
+Compare bounded system recommendations against independent human SEO practitioners through the same-task, blinded, structured-assessment process, followed by disagreement analysis and eventual real-world outcome comparison. Assess factual accuracy, SEO reasoning, commercial relevance, prioritisation, practicality, evidence quality, unnecessary work, expected impact, time and cost. Expert disagreement must be classified by the appropriate layer—knowledge, research, decision, interpretation/prompt, validation or subjective preference—before any system change; one disagreement must not trigger fine-tuning. Repeated findings and measured outcomes may later support evaluation or fine-tuning datasets and credible SaaS case-study evidence. No benchmarking or marketing claim has been implemented.
+
+### Current SEO Guidance — COMPLETE / M3A
+
+The repository now has a bounded, validated and versioned trusted-source guidance snapshot capability. M3A is complete; M4 remains NOT STARTED.
 
 Latest corrected proposal SHA: `ab196b959b5ee2be2b39cc9599e471a53030409cc305ba20fee3265ab7a0fab9`  
 Latest candidate identifier: `ef308cbe2a79be9a4196e89e125bde5c135c9e52e329d1a89b9ac6734a2d95af`
@@ -239,6 +261,6 @@ without ever producing the user-visible outcome.
 **Files changed:** `package.json`, `research/contracts/schemas.js`, `research/aggregation/researchState.js`, `research/providers/productFacts.js`, `research/providers/dataForSeoKeywordIdeas.js`, `research/providers/dataForSeoSerpAdvanced.js`, `research/productFactsProjection.js`, `workflows/createSeoArticleM3.js`, `workflows/createSeoArticleOpportunity.js`, `routes/createSeoArticleWorkflow.js`, `scripts/proveCreateSeoArticleM3.js`, `test/create-seo-article-m3.test.js`, `artifacts/workflows/create-seo-article/m3-research-opportunity-proof.json`, `PROJECT_STATE.md`.
 **Integration:** validated PIO/BIO/EIC now feed bounded product-led research through a deterministic PIO → Product Facts adapter. Research seeds are automatic and capped at two; keyword candidates are capped at 25; SERP inspection is capped at five; Search Console remains optional. The article-specific research objective produces a validated sufficient state, then a bounded evidence-backed opportunity decision. `ARTICLE_RECOMMENDED` advances `article_brief` to READY without generating a brief. `NO_ARTICLE_RECOMMENDED` and `RESEARCH_INSUFFICIENT` remain distinct and do not advance.
 **Tests:** focused M3 tests pass 4/4; full `npm test` passes 849/849 with localhost test binding permission; `git diff --check` passes.
-**External activity:** AI calls 0, external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
+**External activity:** one bounded injected AI decision call in the offline proof; external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
 **Scope:** no durable persistence, research platform expansion, article brief generation, article generation, legacy cleanup or Product Page work was started.
 **Next milestone:** M4 — Structured Article Brief + Page Plan, NOT STARTED.

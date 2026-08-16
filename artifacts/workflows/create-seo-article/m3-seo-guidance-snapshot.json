@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "seo_guidance_snapshot",
+  "snapshot_id": "seo_guidance_snapshot_609c3e71fb465723657f92bc",
+  "status": "validated",
+  "created_at": "2026-08-16T00:00:00.000Z",
+  "retrieved_at": "2026-08-16T00:00:00.000Z",
+  "source_manifest_version": "1.0.0",
+  "sources": [
+    {
+      "id": "google-search-essentials",
+      "url": "https://developers.google.com/search/docs/essentials",
+      "source_title": "Google Search Essentials",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "ba41ef87dfbe7b2ae4fbad39a9bb452b506489836a48dd22e887bb3f49fcb60d"
+    },
+    {
+      "id": "google-spam-policies",
+      "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+      "source_title": "Spam Policies for Google Web Search",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "099c0aa186980a9b698618757f2dcc1f4f3e9e4de7189b945946d44c81585001"
+    },
+    {
+      "id": "google-helpful-content",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "source_title": "Creating Helpful, Reliable, People-First Content",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "eb8611d0f9d32b9c76fb23f06a63a18e08a61b39c7b3c38b1a93326982101cd9"
+    },
+    {
+      "id": "google-generative-ai",
+      "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content",
+      "source_title": "Google Search Guidance on Generative AI Content",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "ed252d6e611be42aff7630bbb220ddc48847c283872cba3b272cf97928a564ad"
+    },
+    {
+      "id": "google-structured-data",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+      "source_title": "Intro to Structured Data Markup",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "ad80139fcde7ecb5d5f5735c2b4461345d4db54fabadb9b38dd8e9f4be0d5a59"
+    },
+    {
+      "id": "bing-webmaster-guidelines",
+      "url": "https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a",
+      "source_title": "Bing Webmaster Guidelines",
+      "authority_class": "SEARCH_ENGINE_SECONDARY",
+      "category": "bing_search",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "cee01fffcd253bdd7b6ccf71b89e8337126886b61307f7a780ee8ef7df0f53c0"
+    },
+    {
+      "id": "schema-org-docs",
+      "url": "https://schema.org/docs/documents.html",
+      "source_title": "Schema.org Documentation",
+      "authority_class": "WEB_STANDARD",
+      "category": "schema",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "d2ac7cfad0d78cdaf638498f7399de46f470d4578e0a634bed200c17a56293a6"
+    },
+    {
+      "id": "w3c-wai-standards",
+      "url": "https://www.w3.org/WAI/standards-guidelines/",
+      "source_title": "W3C WAI Standards and Guidelines",
+      "authority_class": "WEB_STANDARD",
+      "category": "w3c_wai",
+      "retrieved_at": "2026-08-16T00:00:00.000Z",
+      "publication_or_update_date": null,
+      "content_hash": "e589e06751eceb78830d1d7e35ad551eedc488791f3caf95d595eb546e8b3b06"
+    }
+  ],
+  "records": [
+    {
+      "guidance_id": "guidance_ac0637a370efe317fec97cfb",
+      "source_ref": "google-search-essentials",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "statement": "Google Search Essentials describes technical requirements, spam policies and key best practices. Eligibility is not a guarantee of crawling, indexing or serving. Create helpful, reliable, people-first content and follow structured-data guidance.",
+      "applicability": "Google Search policy and documented principles",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_b7b95e0110e8b57604be5d03",
+      "source_ref": "google-spam-policies",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "statement": "Google spam policies describe behaviors that can lead to lower ranking or omission from Search. Content should provide the best experience for people and uphold the principles of Search.",
+      "applicability": "Google Search policy and documented principles",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_33ec523dad4e19d4af0fbfd1",
+      "source_ref": "google-helpful-content",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "statement": "Google guidance describes helpful, reliable, people-first content and asks whether content is created primarily to help people rather than manipulate Search.",
+      "applicability": "Google Search policy and documented principles",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_d4ce0e8fceab883935041642",
+      "source_ref": "google-generative-ai",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "statement": "Google Search guidance on generative AI focuses on using automation responsibly and ensuring content is helpful, accurate, relevant and not created primarily to manipulate rankings.",
+      "applicability": "Google Search policy and documented principles",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_29bae651f3d5d95e2f8f2456",
+      "source_ref": "google-structured-data",
+      "authority_class": "SEARCH_ENGINE_PRIMARY",
+      "category": "google_search",
+      "statement": "Google structured-data documentation explains how markup helps Search understand page content. Eligibility for a supported feature must be established from Google's feature documentation; vocabulary alone is not a guarantee of a rich result.",
+      "applicability": "Google Search policy and documented principles",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_21afd48c9d4f0058084e32ea",
+      "source_ref": "bing-webmaster-guidelines",
+      "authority_class": "SEARCH_ENGINE_SECONDARY",
+      "category": "bing_search",
+      "statement": "Bing Webmaster guidance is a secondary search-engine perspective. It may corroborate durable search practices but cannot override Google-specific policy.",
+      "applicability": "Bing Search perspective; not Google policy",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_ce7cacbbee40cf096afda48b",
+      "source_ref": "schema-org-docs",
+      "authority_class": "WEB_STANDARD",
+      "category": "schema",
+      "statement": "Schema.org defines shared vocabulary types and properties for structured data. Vocabulary semantics do not establish support by a particular search engine.",
+      "applicability": "Applicable standard or vocabulary; not a ranking claim",
+      "section": null
+    },
+    {
+      "guidance_id": "guidance_0cd3b2bd9fa6445d2848a812",
+      "source_ref": "w3c-wai-standards",
+      "authority_class": "WEB_STANDARD",
+      "category": "w3c_wai",
+      "statement": "W3C WAI publishes accessibility standards and guidance for accessible web content. Accessibility guidance is a web standard and must not be represented as a direct Google ranking-factor claim.",
+      "applicability": "Applicable standard or vocabulary; not a ranking claim",
+      "section": null
+    }
+  ],
+  "freshness_state": "CURRENT",
+  "snapshot_sha256": "6453e0409d4843989bab1611110273a593f404fb80e09c67e5405e2b852c0f5e"
+}

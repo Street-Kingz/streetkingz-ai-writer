@@ -1,8 +1,10 @@
 import { sha256, stableId } from "../research/core/canonical.js";
 import { assertValid, validateEvidenceArtifact, validateResearchState } from "../research/validation/evidence.js";
+import { guidanceContextForAi } from "../seo-guidance/guidance.js";
 
 export const ARTICLE_OPPORTUNITY_OUTCOMES = Object.freeze(["ARTICLE_RECOMMENDED", "NO_ARTICLE_RECOMMENDED", "RESEARCH_INSUFFICIENT"]);
 export const ARTICLE_TYPES = Object.freeze(["cornerstone_guide", "supporting_article", "how_to", "comparison", "problem_solution"]);
+export const ARTICLE_SEARCH_INTENTS = Object.freeze(["informational", "commercial_investigation", "transactional", "navigational", "mixed"]);
 
 const normalise = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const overlap = (a, b) => { const x = new Set(normalise(a).split(" ").filter(Boolean)); const y = new Set(normalise(b).split(" ").filter(Boolean)); return x.size && y.size ? [...x].filter((item) => y.has(item)).length / Math.max(x.size, y.size) : 0; };
@@ -55,6 +57,29 @@ export function decideArticleOpportunity({ packet, researchState, decision = nul
   };
 }
 
+export function buildArticleOpportunityAiInput({ packet, researchState, intelligence = null, market = "GB", language = "en-GB", guidanceSnapshot = null }) {
+  if (!packet || !researchState) throw new Error("A candidate packet and research state are required.");
+  return {
+    schema_version: "1.0.0", artifact_type: "create_seo_article_opportunity_ai_input", objective: "create_seo_article",
+    market, language,
+    product: { subject_id: packet.product.subject_id, product_name: packet.product.product_name, product_url: packet.product.product_url, evidence_ids: packet.product.evidence_ids },
+    business_context: intelligence?.context ? { context_id: intelligence.context.context_id, business_id: intelligence.context.business_id, product_object_id: intelligence.context.product_object_id, validation_status: intelligence.context.validation_status } : { status: "not_supplied" },
+    authoritative_seo_guidance: guidanceSnapshot ? guidanceContextForAi(guidanceSnapshot) : { status: "not_supplied" },
+    web_structured_data_standards: guidanceSnapshot ? guidanceContextForAi(guidanceSnapshot).records.filter((record) => record.authority_class === "WEB_STANDARD") : [],
+    empirical_search_evidence: { evidence_artifact_id: packet.evidence_artifact_id || null, candidate_evidence_ids: packet.candidates.flatMap((candidate) => candidate.evidence_ids), serp_evidence_ids: packet.serp.map((item) => item.evidence_id) },
+    candidates: packet.candidates.slice(0, 25).map((candidate) => ({ query: candidate.query, metrics: candidate.metrics, product_term_matches: candidate.product_term_matches, evidence_ids: candidate.evidence_ids, serp: packet.serp.filter((item) => normalise(item.query) === normalise(candidate.query)).slice(0, 30) })),
+    search_console: packet.search_console,
+    research_sufficiency: researchState.sufficiency,
+    boundaries: { facts_are_immutable: true, browsing_allowed: false, drafting_allowed: false, publishing_allowed: false, highest_volume_is_not_a_decision_rule: true, guidance_is_context_not_keyword_selection: true }
+  };
+}
+
+export function articleOpportunityJsonSchema(evidenceIds = [], candidateQueries = []) {
+  return { type: "object", additionalProperties: false, required: ["outcome", "article_type", "search_intent", "primary_query", "supporting_queries", "reader_problem", "proposed_angle", "rationale", "evidence_ids", "alternatives_considered", "risks", "unknowns", "confidence"], properties: {
+    outcome: { type: "string", enum: [...ARTICLE_OPPORTUNITY_OUTCOMES] }, article_type: { type: "string", enum: [...ARTICLE_TYPES] }, search_intent: { type: "string", enum: [...ARTICLE_SEARCH_INTENTS] }, primary_query: { type: "string", enum: candidateQueries }, supporting_queries: { type: "array", items: { type: "string", enum: candidateQueries }, maxItems: 5 }, reader_problem: { type: "string" }, proposed_angle: { type: "string" }, rationale: { type: "string" }, evidence_ids: { type: "array", items: { type: "string", enum: evidenceIds } }, alternatives_considered: { type: "array", items: { type: "object", additionalProperties: false, required: ["query", "reason"], properties: { query: { type: "string", enum: candidateQueries }, reason: { type: "string" } } }, maxItems: 5 }, risks: { type: "array", items: { type: "string" } }, unknowns: { type: "array", items: { type: "string" } }, confidence: { type: "string", enum: ["low", "medium", "high"] }
+  } };
+}
+
 export function validateArticleOpportunityDecision(decision, { evidenceIds = [] } = {}) {
   const errors = [];
   if (!ARTICLE_OPPORTUNITY_OUTCOMES.includes(decision?.outcome)) errors.push("Unsupported article opportunity outcome.");
@@ -63,6 +88,8 @@ export function validateArticleOpportunityDecision(decision, { evidenceIds = [] 
     if (typeof decision.primary_query !== "string" || !decision.primary_query) errors.push("primary_query is required.");
     for (const id of decision.evidence_ids || []) if (!evidenceIds.includes(id)) errors.push(`Decision references unavailable evidence: ${id}.`);
   }
+  if (decision?.outcome === "NO_ARTICLE_RECOMMENDED" && !decision?.rationale) errors.push("NO_ARTICLE_RECOMMENDED requires a rationale.");
+  if (decision?.outcome === "RESEARCH_INSUFFICIENT" && !decision?.rationale) errors.push("RESEARCH_INSUFFICIENT requires a rationale.");
   if (!Array.isArray(decision?.evidence_ids)) errors.push("evidence_ids must be an array.");
   return errors;
 }
