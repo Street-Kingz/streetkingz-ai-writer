@@ -1,0 +1,73 @@
+import { sha256, stableId } from "../research/core/canonical.js";
+import { guidanceContextForAi } from "../seo-guidance/guidance.js";
+import { COMPONENT_TYPES, EDITORIAL_PAGE_TYPES } from "../editorial/contracts.js";
+
+export const M4_SCHEMA_VERSION = "1.0.0";
+export const ARTICLE_BRIEF_TYPES = Object.freeze(["cornerstone_guide", "supporting_article", "how_to", "comparison", "problem_solution"]);
+const intents = ["informational", "commercial_investigation", "transactional", "navigational", "mixed"];
+const noProse = (value) => typeof value === "string" && (/<\/?[a-z][^>]*>|\n#{1,6}\s|\b(lorem ipsum)\b/i.test(value) || value.split(/\s+/).length > 120);
+
+export function buildCreateSeoArticleM4Input({ m3Result, evidence, guidanceSnapshot }) {
+  if (!m3Result?.plan || m3Result.status !== "article_brief_ready" || m3Result.decision?.outcome !== "ARTICLE_RECOMMENDED") throw new Error("A successful ARTICLE_RECOMMENDED M3 result is required.");
+  if (!evidence?.records || !guidanceSnapshot) throw new Error("M4 requires evidence and the inherited SEO guidance snapshot.");
+  const plan = m3Result.plan;
+  const stage = plan.stages.find((item) => item.stage_id === "opportunity_decision");
+  const provenance = stage?.result?.provenance || {};
+  const decisionHash = sha256(m3Result.decision);
+  const expectedArtifactId = `article_opportunity_${decisionHash.slice(0, 16)}`;
+  if (provenance.decision_id !== m3Result.decision.decision_id || provenance.decision_sha256 !== decisionHash || stage?.result?.artifact_id !== expectedArtifactId || stage?.result?.artifact_sha256 !== decisionHash) throw new Error("M4 opportunity decision lineage does not match the validated M3 artifact.");
+  if (provenance.seo_guidance_snapshot_id !== guidanceSnapshot.snapshot_id || provenance.seo_guidance_snapshot_sha256 !== guidanceSnapshot.snapshot_sha256 || provenance.freshness_status !== "CURRENT") throw new Error("M4 guidance lineage does not match M3.");
+  const decision = m3Result.decision;
+  const evidenceById = new Map(evidence.records.filter((record) => record.status === "active").map((record) => [record.evidence_id, record]));
+  const candidateEvidence = new Set((m3Result.packet?.candidates || []).flatMap((candidate) => candidate.evidence_ids));
+  const serpEvidence = new Set((m3Result.packet?.serp || []).map((record) => record.evidence_id));
+  const productEvidence = new Set(m3Result.packet?.product?.evidence_ids || []);
+  const relevant = [...new Set([...candidateEvidence, ...serpEvidence, ...productEvidence])].filter((id) => evidenceById.has(id));
+  const productId = m3Result.intelligence?.product?.product_intelligence_object?.product_identity?.product_object_id || m3Result.packet?.product?.subject_id || null;
+  const productUrl = plan.workflow_input.product_url;
+  const input = {
+    schema_version: M4_SCHEMA_VERSION, artifact_type: "create_seo_article_m4_input", objective: "create_seo_article",
+    workflow: { workflow_run_id: plan.workflow_run_id, workflow_input_sha256: plan.workflow_input_sha256, current_stage: plan.current_stage, opportunity_stage_id: stage?.result?.artifact_id || null, opportunity_stage_sha256: stage?.result?.artifact_sha256 || null },
+    opportunity: { decision_id: decision.decision_id || stableId("article_opportunity", decision), decision_sha256: sha256(decision), outcome: decision.outcome, primary_query: decision.primary_query, supporting_queries: (decision.supporting_queries || []).map((item) => typeof item === "string" ? item : item.query), article_type: decision.article_type, search_intent: decision.search_intent, rationale: decision.rationale },
+    intelligence: { product: { product_id: productId, product_url: productUrl, evidence_ids: [...productEvidence] }, business: m3Result.intelligence?.business ? { business_id: m3Result.intelligence.business.business_intelligence_object?.business_identity?.business_id || m3Result.intelligence.business.business_id || null } : { status: "validated_reference_only" }, eic: m3Result.intelligence?.context ? { context_id: m3Result.intelligence.context.context_id, business_id: m3Result.intelligence.context.business_id, product_object_id: m3Result.intelligence.context.product_object_id, validation_status: m3Result.intelligence.context.validation_status } : null },
+    research: { research_state_id: m3Result.researchState?.research_state_id || null, research_state_sha256: m3Result.researchState ? sha256(m3Result.researchState) : null, evidence_artifact_id: evidence.evidence_artifact_id || null, evidence_artifact_sha256: sha256(evidence), relevant_evidence_ids: relevant, unknowns: ["Page-level competitor content was not fetched.", "Search Console coverage may be unavailable."] },
+    seo_guidance: guidanceContextForAi(guidanceSnapshot),
+    registries: { products: productId ? [{ product_id: productId, product_url: productUrl, product_name: m3Result.packet?.product?.product_name || null }] : [], internal_links: [], internal_link_coverage: "partial" },
+    boundaries: { keyword_research_complete: true, primary_query_immutable: true, article_copy_forbidden: true, browsing_allowed: false, publishing_allowed: false }
+  };
+  return { ...input, input_sha256: sha256(input) };
+}
+
+export const articleBriefJsonSchema = (input) => ({ type: "object", additionalProperties: false, required: ["primary_query", "article_type", "search_intent", "working_title", "article_purpose", "target_reader", "reader_problem", "reader_outcome", "commercial_objective", "product_role", "supporting_queries", "questions", "sections", "cta", "faq", "media", "structured_data", "target_length", "unknowns", "evidence_ids"], properties: {
+  primary_query: { type: "string", enum: [input.opportunity.primary_query] }, article_type: { type: "string", enum: [input.opportunity.article_type] }, search_intent: { type: "string", enum: [input.opportunity.search_intent] }, working_title: { type: "string" }, article_purpose: { type: "string" }, target_reader: { type: "string" }, reader_problem: { type: "string" }, reader_outcome: { type: "string" }, commercial_objective: { type: "string" }, product_role: { type: "string" }, supporting_queries: { type: "array", items: { type: "string", enum: input.opportunity.supporting_queries } }, questions: { type: "array", items: { type: "object", additionalProperties: false, required: ["question", "evidence_ids"], properties: { question: { type: "string" }, evidence_ids: { type: "array", items: { type: "string" } } } } }, sections: { type: "array", minItems: 3, maxItems: 12, items: { type: "object", additionalProperties: false, required: ["heading", "level", "purpose", "evidence_ids", "component_type"], properties: { heading: { type: "string" }, level: { type: "string", enum: ["h2", "h3"] }, purpose: { type: "string" }, evidence_ids: { type: "array", items: { type: "string" } }, component_type: { type: "string", enum: [...COMPONENT_TYPES] } } } }, cta: { type: "object", additionalProperties: false, required: ["purpose", "placement", "product_id", "rationale"], properties: { purpose: { type: "string" }, placement: { type: "string" }, product_id: { anyOf: [{ type: "string" }, { type: "null" }] }, rationale: { type: "string" } } }, faq: { type: "array", items: { type: "object", additionalProperties: false, required: ["question", "evidence_ids"], properties: { question: { type: "string" }, evidence_ids: { type: "array", items: { type: "string" } } } } }, media: { type: "array", items: { type: "object", additionalProperties: false, required: ["kind", "purpose", "status", "alt_text_direction"], properties: { kind: { type: "string" }, purpose: { type: "string" }, status: { type: "string", enum: ["required_missing", "optional_missing"] }, alt_text_direction: { type: "string" } } } }, structured_data: { type: "object", additionalProperties: false, required: ["recommendation", "rationale"], properties: { recommendation: { type: "string" }, rationale: { type: "string" } } }, target_length: { type: "object", additionalProperties: false, required: ["mode", "rationale"], properties: { mode: { type: "string" }, rationale: { type: "string" } } }, unknowns: { type: "array", items: { type: "string" } }, evidence_ids: { type: "array", items: { type: "string" } }
+}});
+
+export function validateCreateSeoArticleM4Output(output, input) {
+  const errors = [];
+  if (!output || typeof output !== "object") return ["M4 output must be an object."];
+  for (const field of ["working_title", "article_purpose", "target_reader", "reader_problem", "reader_outcome", "commercial_objective", "product_role", "supporting_queries", "questions", "sections", "cta", "faq", "media", "structured_data", "target_length", "unknowns", "evidence_ids"]) if (!(field in output)) errors.push(`Required M4 field missing: ${field}.`);
+  if (output.primary_query !== input.opportunity.primary_query) errors.push("Primary query changed from M3.");
+  if (output.article_type !== input.opportunity.article_type) errors.push("Article type changed from M3.");
+  if (output.search_intent !== input.opportunity.search_intent) errors.push("Search intent changed from M3.");
+  const evidence = new Set(input.research.relevant_evidence_ids); const products = new Set(input.registries.products.map((item) => item.product_id));
+  for (const id of output.evidence_ids || []) if (!evidence.has(id)) errors.push(`Unknown evidence ID: ${id}.`);
+  for (const section of output.sections || []) for (const id of section.evidence_ids || []) if (!evidence.has(id)) errors.push(`Unknown section evidence ID: ${id}.`);
+  for (const question of [...(output.questions || []), ...(output.faq || [])]) for (const id of question.evidence_ids || []) if (!evidence.has(id)) errors.push(`Unknown question evidence ID: ${id}.`);
+  if (output.cta?.product_id && !products.has(output.cta.product_id)) errors.push("CTA references an unknown product.");
+  if (output.cta && /https?:\/\//i.test(JSON.stringify(output))) errors.push("M4 output may not invent URLs.");
+  if (output.sections?.some((section) => noProse(section.heading) || noProse(section.purpose))) errors.push("M4 sections must remain planning structure, not article prose.");
+  if (output.structured_data && /guarantee|ranking factor|rank higher/i.test(`${output.structured_data.recommendation} ${output.structured_data.rationale}`)) errors.push("Structured-data planning cannot make unsupported ranking claims.");
+  if (output.sections && (output.sections.length < 3 || output.sections.length > 12)) errors.push("M4 sections must contain between 3 and 12 planning components.");
+  return [...new Set(errors)];
+}
+
+function componentFor(section, index, productId) { return { component_id: `${String(index + 1).padStart(2, "0")}_${stableId("m4_component", { index, heading: section.heading }, 8).slice(-8)}`, component_type: section.component_type, purpose: section.purpose, evidence_ids: [...new Set(section.evidence_ids || [])], product_ids: section.component_type === "product_recommendation" && productId ? [productId] : [], internal_link_ids: [], media_requirements: [], conversion_role: section.component_type === "product_recommendation" ? "product_discovery" : "education", required_content: [section.heading] }; }
+
+export function buildArticleBriefAndPagePlan({ output, input }) {
+  const briefCore = { schema_version: M4_SCHEMA_VERSION, artifact_type: "article_brief", brief_version: "1.0.0", objective: "create_seo_article", primary_query: output.primary_query, article_type: output.article_type, search_intent: output.search_intent, working_title: output.working_title, article_purpose: output.article_purpose, target_reader: output.target_reader, reader_problem: output.reader_problem, reader_outcome: output.reader_outcome, commercial_objective: output.commercial_objective, product_role: output.product_role, supporting_queries: output.supporting_queries, questions: output.questions, sections: output.sections, cta: output.cta, internal_link_plan: { coverage: input.registries.internal_link_coverage, links: [], unknowns: ["No validated internal-link inventory was supplied to this proof."] }, faq: output.faq, media: output.media, structured_data: output.structured_data, target_length: output.target_length, unknowns: output.unknowns, evidence_ids: output.evidence_ids, factual_inputs: { pio_id: input.intelligence.product.product_id, bio_id: input.intelligence.business.business_id, eic_id: input.intelligence.eic?.context_id || null, research_state_id: input.research.research_state_id, evidence_artifact_id: input.research.evidence_artifact_id }, strategic_decisions: { title: output.working_title, purpose: output.article_purpose, sections: output.sections.map((section) => section.heading), product_role: output.product_role, cta: output.cta }, provenance: { opportunity_decision_id: input.opportunity.decision_id, opportunity_decision_sha256: input.opportunity.decision_sha256, seo_guidance_snapshot_id: input.seo_guidance.snapshot_id, seo_guidance_snapshot_sha256: input.seo_guidance.snapshot_sha256, source_manifest_version: input.seo_guidance.source_manifest_version, freshness_status: input.seo_guidance.freshness_status, m4_input_sha256: input.input_sha256 } };
+  const brief = { ...briefCore, brief_id: stableId("article_brief", briefCore), brief_sha256: sha256(briefCore) };
+  const components = output.sections.map((section, index) => componentFor(section, index, input.registries.products[0]?.product_id));
+  const planCore = { schema_version: "1.0.0", artifact_type: "editorial_page_plan", plan_version: "m4.0.0", page_type: input.opportunity.article_type === "supporting_article" ? "evergreen_guide" : "product_guide", topic: output.primary_query, primary_query: output.primary_query, search_intent: { primary: output.search_intent, secondary: null }, title_direction: output.working_title, h1_direction: output.working_title, introduction_objective: output.article_purpose, packet_id: input.research.evidence_artifact_id, strategy_id: input.opportunity.decision_id, brief_id: brief.brief_id, brief_sha256: brief.brief_sha256, cta_strategy: output.cta, media_plan: output.media, internal_link_plan: brief.internal_link_plan, components, component_sequence: components.map((item) => item.component_id), component_requirements: { policy_id: "create_seo_article_m4_v1", required_component_types: components.slice(0, 1).map((item) => item.component_type), ordering_rules: [] }, allowed_component_types: [...COMPONENT_TYPES], human_review_state: "awaiting_page_plan_approval", drafting_authorised: false, publication_authorised: false, provenance: brief.provenance };
+  const plan = { ...planCore, plan_id: stableId("editorial_page_plan", planCore), deterministic_content_sha256: sha256(planCore) };
+  return { brief, plan };
+}

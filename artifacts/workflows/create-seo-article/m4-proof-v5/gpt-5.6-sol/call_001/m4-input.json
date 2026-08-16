@@ -1,0 +1,300 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "create_seo_article_m4_input",
+  "objective": "create_seo_article",
+  "workflow": {
+    "workflow_run_id": "workflow_run_e10ef667f971020b5695cd73",
+    "workflow_input_sha256": "e2c64d8f44a1559907cec214f2d62840377d2f80346b71a48598fce48955d0ec",
+    "current_stage": "article_brief",
+    "opportunity_stage_id": "article_opportunity_36bd8a8d8510fb32",
+    "opportunity_stage_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db"
+  },
+  "opportunity": {
+    "decision_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "decision_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "outcome": "ARTICLE_RECOMMENDED",
+    "primary_query": "best microfibre car drying towel",
+    "supporting_queries": [
+      "microfiber towel for drying car",
+      "best car drying towel",
+      "microfiber towel for car drying"
+    ],
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation",
+    "rationale": "This candidate combines strong observed demand with a clear product-relevant reader problem and an article-suitable SERP; volume is considered alongside intent, usefulness and fit."
+  },
+  "intelligence": {
+    "product": {
+      "product_id": "product_20fcada95c00204601928709",
+      "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm",
+      "evidence_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_b77f17bcbbd291179ba662ee"
+      ]
+    },
+    "business": {
+      "business_id": "business_c7adba04ebb538f70d960038"
+    },
+    "eic": {
+      "context_id": "eic_c24154928e8e5b17e8c47056",
+      "business_id": "business_c7adba04ebb538f70d960038",
+      "product_object_id": "pio_85791f2e3a45fa3f36a4a632",
+      "validation_status": "validated"
+    }
+  },
+  "research": {
+    "research_state_id": "research_state_0ef3dcd58f516e7613081439",
+    "research_state_sha256": "73821d83647555a340ee363411d9add24667fb4f19accb9f0413086875ad99fd",
+    "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a",
+    "evidence_artifact_sha256": "4a8d46817137dd2905059a40e16670e7fce3638df4caeb056aa39982925f5cf9",
+    "relevant_evidence_ids": [
+      "ev_ecc2c1bd4e72d712f2eda7d7",
+      "ev_ed08924f3394b29222b9b9b0",
+      "ev_6da945a33cb44149b7d8ddb9",
+      "ev_23a73f980b3182e3935f21e9",
+      "ev_0e9ab51ff78e7a40531e77be",
+      "ev_f9a601dc1f920ec8da2df28d",
+      "ev_cc557efe9ccdae309b441bba",
+      "ev_cba0ce84881afaeaca79cb93",
+      "ev_174031aa18df54db5a3e97dc",
+      "ev_17d785499de1982598293438",
+      "ev_69f308706fffd7919ef41938",
+      "ev_b3fe7e9f5e9a8cfd6a672823",
+      "ev_076de111e0f19a4434ae30c1",
+      "ev_d454e99969098eb6c4f0c269",
+      "ev_480475e0e49937fcb23e38a8",
+      "ev_8baf0a7f9bee2d286442c273",
+      "ev_00074e51369b2db9ccd7185c",
+      "ev_04714acf2358fc4c7a246de8",
+      "ev_08af81940d29cd3b696eafab",
+      "ev_097b23c54f3e2377ab861b00",
+      "ev_0a666660e95688156a3043c1",
+      "ev_0ecff79f83c96838259bb05e",
+      "ev_1376b33fe222bd42d6c7f4b1",
+      "ev_181c9962532c11f0396ee33b",
+      "ev_1d4c8f88263e70b7fe308496",
+      "ev_211daba071aadd72b583c0c1",
+      "ev_21e78c22054daf608c7fb5dd",
+      "ev_2402e4bb0c1bf2a17431c9f5",
+      "ev_2447b7dbee5947adf5772322",
+      "ev_25ade3392231ee8548adc54e",
+      "ev_268a5e6d930e2f3fd8ae0648",
+      "ev_26bfe55c1dfaf57a44348d94",
+      "ev_289a55908f25cb87221b79dd",
+      "ev_2b1eff657b2778a63773fa6c",
+      "ev_2c914bb5258803a7ee8cddaa",
+      "ev_34cccbe34dcbd02c306f1e99",
+      "ev_355b4220d56bc5781283cc9a",
+      "ev_35fc4936af8e40572505f795",
+      "ev_3e9ab67bcfce3e2d05d95ad0",
+      "ev_43be349e183d593fc2f57fbf",
+      "ev_44fb7875cd1e5f269ca58321",
+      "ev_454919bf91a89c2cb83a7640",
+      "ev_48bbe77ec1a3ab1b23b15fb0",
+      "ev_4b5ea1794819e80ae0a305f7",
+      "ev_4b61254fe69e8afce103f878",
+      "ev_4c0ac29a274db854d59cc9c8",
+      "ev_4cf0bed2c8389d97ec6b3cc2",
+      "ev_4d6487fdd8439102dd17f92f",
+      "ev_515a17bbcf1596847f98702f",
+      "ev_5ea246017fc2691e9da7789d",
+      "ev_63e9847e4f5d4ec36ee46364",
+      "ev_6c54dd3f6805aeb1508681cd",
+      "ev_6cbefe8bfb2333a7521015b3",
+      "ev_6f2a8ede5dbea488f42fd518",
+      "ev_73e885cc45785a1f6676c6c9",
+      "ev_7d0db3f2355af401192dcf66",
+      "ev_7eda71ccb9ee9698937a82ac",
+      "ev_8335593fc8780e3ec0125ba7",
+      "ev_8aea6e85199629f6bd7e5458",
+      "ev_8ee7c6172f08a1260f6548ed",
+      "ev_9011b332294a36321b5dc453",
+      "ev_92d35d004d3da59946df24b9",
+      "ev_94042d16a210f9cdc8cbcc15",
+      "ev_990abd99717f4fc6f8121cd0",
+      "ev_9b97bd8c92bad808aa61b854",
+      "ev_9cba6e8fe1c0263e020ce5ea",
+      "ev_a55b952eb10f41862378c6fe",
+      "ev_a574994468921d042560c8fc",
+      "ev_a579a185979e7bddb23a5973",
+      "ev_aacd656c1552e0bf71ebd7c4",
+      "ev_ac6a726711be444d1302cf43",
+      "ev_acb651e5ab3753ee5bbd5149",
+      "ev_ae06552907b2b10f4f82cd14",
+      "ev_b3e003e186feb53ca0cbbd94",
+      "ev_b4e82d69d1392bb4a7ecbb2d",
+      "ev_b647e2d73618df545a60e54e",
+      "ev_b8e4c363cfbf1ce8832f4cef",
+      "ev_bc2e6588860f8c1b5b22593c",
+      "ev_bd4cd1e3fbb3ff6fceff8df0",
+      "ev_bd6c0b36a0d57ab94aa4fd95",
+      "ev_bfc17c2a768137474c39d02e",
+      "ev_c2301a46de6af97ea24a44f1",
+      "ev_c23aaa76f8e443b118875b5e",
+      "ev_c4fa96c5b2ed251dde4e5215",
+      "ev_c5295da08e5f38c6f9285bfa",
+      "ev_c6853ec9cbb46d171707ed08",
+      "ev_c6907b8bb5a85f446b74c0a8",
+      "ev_c6e77cd59d6c179b22ceae82",
+      "ev_ca2a1c5e4079490dffb53b94",
+      "ev_ca9bc342dd0bf11edb85551d",
+      "ev_ceb245dd6013ad58fc508a9b",
+      "ev_d23d0c22bcd2aedcb863a23a",
+      "ev_d26876dafd4405f5805291c1",
+      "ev_d38c09edc1bac57d8d212458",
+      "ev_d6d3c8867efb7ae194462997",
+      "ev_d857da42979e79e286625355",
+      "ev_db93f93425c062baf2c1dc98",
+      "ev_df0c1fdaee926254bd4a5117",
+      "ev_df29d0ba389b50070824b720",
+      "ev_e1b336ff3425dba2b31556e3",
+      "ev_e612e72dd7fb06dcd3f12d80",
+      "ev_e7f7d6fe16e7606c7fc2d65a",
+      "ev_ee0b3e8c23ff9d8ec47a9953",
+      "ev_eef479b8e108a412ec741a0b",
+      "ev_f0187835d2572ae990823fb0",
+      "ev_f286838d0df9ad613d11c33a",
+      "ev_f2e1abccd060f8d9aed0c66b",
+      "ev_f40fafbdfa1eac939a767523",
+      "ev_fd01b717f5a2715ff8dba619",
+      "ev_fd9d1f8eb0803e26a6f935ce",
+      "ev_fdc0ec3e296ae87f675c25d2",
+      "ev_fe73918a649b0a424f0edeae",
+      "ev_ff3486d7e265b886bf2c605f",
+      "ev_ff38f975fa78e4969701022a",
+      "ev_0070937601532c2a501db22b",
+      "ev_b77f17bcbbd291179ba662ee"
+    ],
+    "unknowns": [
+      "Page-level competitor content was not fetched.",
+      "Search Console coverage may be unavailable."
+    ]
+  },
+  "seo_guidance": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT",
+    "records": [
+      {
+        "guidance_id": "guidance_ac0637a370efe317fec97cfb",
+        "source_ref": "google-search-essentials",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "statement": "Google Search Essentials describes technical requirements, spam policies and key best practices. Eligibility is not a guarantee of crawling, indexing or serving. Create helpful, reliable, people-first content and follow structured-data guidance.",
+        "applicability": "Google Search policy and documented principles",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_b7b95e0110e8b57604be5d03",
+        "source_ref": "google-spam-policies",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "statement": "Google spam policies describe behaviors that can lead to lower ranking or omission from Search. Content should provide the best experience for people and uphold the principles of Search.",
+        "applicability": "Google Search policy and documented principles",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_33ec523dad4e19d4af0fbfd1",
+        "source_ref": "google-helpful-content",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "statement": "Google guidance describes helpful, reliable, people-first content and asks whether content is created primarily to help people rather than manipulate Search.",
+        "applicability": "Google Search policy and documented principles",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_d4ce0e8fceab883935041642",
+        "source_ref": "google-generative-ai",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "statement": "Google Search guidance on generative AI focuses on using automation responsibly and ensuring content is helpful, accurate, relevant and not created primarily to manipulate rankings.",
+        "applicability": "Google Search policy and documented principles",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_7a01618ce0717bf1f573cdd0",
+        "source_ref": "google-ai-features",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_ai_search",
+        "statement": "Google AI Overviews and AI Mode use the same foundational SEO best practices as Google Search. There are no additional technical requirements or special optimizations required for inclusion; pages must be indexed and eligible for a Search snippet.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_aa8b5c3ea6a242e10cb03967",
+        "source_ref": "google-ranking-systems",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_ranking_systems",
+        "statement": "Google ranking systems use automated systems and many signals to present relevant useful results. The guide describes notable systems and explains that systems and updates evolve; it is documentation of systems, not a promise of a ranking outcome.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_1356b83276e875e47bcbfc4f",
+        "source_ref": "google-how-search-works",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search_foundations",
+        "statement": "Google Search works through crawling, indexing and serving results. Google does not guarantee crawling, indexing or serving even when Search Essentials are followed.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_29bae651f3d5d95e2f8f2456",
+        "source_ref": "google-structured-data",
+        "authority_class": "SEARCH_ENGINE_PRIMARY",
+        "category": "google_search",
+        "statement": "Google structured-data documentation explains how markup helps Search understand page content. Eligibility for a supported feature must be established from Google's feature documentation; vocabulary alone is not a guarantee of a rich result.",
+        "applicability": "Google Search policy and documented principles",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_21afd48c9d4f0058084e32ea",
+        "source_ref": "bing-webmaster-guidelines",
+        "authority_class": "SEARCH_ENGINE_SECONDARY",
+        "category": "bing_search",
+        "statement": "Bing Webmaster guidance is a secondary search-engine perspective. It may corroborate durable search practices but cannot override Google-specific policy.",
+        "applicability": "Bing Search perspective; not Google policy",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_ce7cacbbee40cf096afda48b",
+        "source_ref": "schema-org-docs",
+        "authority_class": "WEB_STANDARD",
+        "category": "schema",
+        "statement": "Schema.org defines shared vocabulary types and properties for structured data. Vocabulary semantics do not establish support by a particular search engine.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim",
+        "section": null
+      },
+      {
+        "guidance_id": "guidance_0cd3b2bd9fa6445d2848a812",
+        "source_ref": "w3c-wai-standards",
+        "authority_class": "WEB_STANDARD",
+        "category": "w3c_wai",
+        "statement": "W3C WAI publishes accessibility standards and guidance for accessible web content. Accessibility guidance is a web standard and must not be represented as a direct Google ranking-factor claim.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim",
+        "section": null
+      }
+    ]
+  },
+  "registries": {
+    "products": [
+      {
+        "product_id": "product_20fcada95c00204601928709",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm",
+        "product_name": "Heavy Duty Drying Towel – 1200gsm"
+      }
+    ],
+    "internal_links": [],
+    "internal_link_coverage": "partial"
+  },
+  "boundaries": {
+    "keyword_research_complete": true,
+    "primary_query_immutable": true,
+    "article_copy_forbidden": true,
+    "browsing_allowed": false,
+    "publishing_allowed": false
+  },
+  "input_sha256": "5e668bf96b5a5fc47c8025389aad5f073056069e12f27399cf771cd35902537c",
+  "request": null
+}

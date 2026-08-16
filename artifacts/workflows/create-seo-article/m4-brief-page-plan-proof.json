@@ -1,0 +1,51 @@
+{
+  "objective": "create_seo_article",
+  "merchant_inputs_received": [
+    "product_url"
+  ],
+  "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+  "inherited_opportunity": {
+    "primary_query": "best microfibre car drying towel",
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation",
+    "decision_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "decision_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db"
+  },
+  "m4": {
+    "status": "article_generation_ready",
+    "failure": null,
+    "brief_id": "article_brief_248d2d96feff88a83be38999",
+    "brief_sha256": "248d2d96feff88a83be38999247dea1f72cf319e73ffcf92f8173118d5ee53da",
+    "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "page_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233",
+    "component_types": [
+      "criteria_cards",
+      "comparison_table",
+      "product_recommendation"
+    ],
+    "human_review_state": "awaiting_page_plan_approval",
+    "technical_artifact_directory": "artifacts/workflows/create-seo-article/m4-proof-v5/gpt-5.6-sol/call_001"
+  },
+  "guidance_snapshot": {
+    "id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "freshness": "CURRENT"
+  },
+  "ai": {
+    "model": "gpt-5.6-sol",
+    "api": "responses",
+    "reasoning": {
+      "effort": "high"
+    },
+    "calls": 1,
+    "usage": {
+      "input_tokens": 1600,
+      "output_tokens": 500
+    },
+    "context_evidence_count": 116
+  },
+  "article_generated": false,
+  "wordpress_calls": 0,
+  "wordpress_writes": 0,
+  "publishing_attempts": 0
+}

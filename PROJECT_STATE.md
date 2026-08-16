@@ -1,8 +1,8 @@
 # Street Kingz AI Ecommerce Assistant — Canonical Project State
 
-**Document status:** M0, M1, M2, M3 and M3A complete; M4 ready to begin
+**Document status:** M0, M1, M2, M3, M3A and M4 complete; M5 ready to begin
 **Last updated:** 2026-08-16
-**Repository checkpoint:** `87acf1722de22c20eb867a1d1064bf4719363614` plus the uncommitted M3 working tree
+**Repository checkpoint:** `7e74acc5484d06ac47ad22ed39138f3ff462ebca` plus the uncommitted M4 working tree
 
 ## What we are building
 
@@ -74,8 +74,8 @@ Statuses below describe actual reusable capability, not file presence.
 | Opportunity discovery | COMPLETE / CONNECTED FOR M3 SLICE | `workflows/createSeoArticleOpportunity.js` derives bounded candidates and validates article outcomes from evidence. |
 | Decision making | COMPLETE / CONNECTED FOR M3 SLICE | Create SEO Article now uses a bounded controlled opportunity interpretation with strict evidence validation and no volume-only fallback; it produces validated article outcomes without switching objectives or generating content. |
 | Current SEO Guidance | COMPLETE / CONNECTED FOR M3A | Allowlisted first-party Google, Bing, Schema.org and W3C/WAI guidance is represented by validated immutable snapshots with hashes, freshness and workflow lineage; guidance remains separate from search evidence and intelligence. |
-| Cornerstone strategy/brief | SUBSTANTIAL / FIXTURE-BOUND | `cornerstone/`; strategy, allowlists and validation work against `artifacts/cornerstone/...` fixtures, not arbitrary merchant input. |
-| Page planning | SUBSTANTIAL / FIXTURE-BOUND | `editorial/plan.js`, `scripts/buildEditorialPagePlan.js`; deterministic and validated, but script defaults are hardcoded fixture paths. |
+| Cornerstone strategy/brief | SUBSTANTIAL / REUSE BASIS | `cornerstone/`; strategy, allowlists and validation remain fixture-oriented, while M4 adapts the bounded strategy concepts without making them the generic runtime entry point. |
+| Page planning | COMPLETE / CONNECTED FOR M4 SLICE | `workflows/createSeoArticlePlanning.js` adapts the validated editorial component contract into a generic, lineage-bound article brief and page plan. |
 | Semantic editorial components | SUBSTANTIAL | `editorial/contracts.js`, `editorial/plan.js`, renderers and validators. |
 | Controlled drafting | SUBSTANTIAL / FIXTURE-BOUND | `editorial/draft-run.js` and provider; requires approved fixture plan and explicit approval artifact. |
 | Editorial validation | SUBSTANTIAL | structured page, founder revision, concept ownership and quality validators. |
@@ -120,9 +120,13 @@ Statuses below describe actual reusable capability, not file presence.
 **Tests:** focused guidance/M3 tests pass 11/11; full `npm test` passes 856/856; `git diff --check` passes.
 **External activity:** official source verification only; no DataForSEO, Search Console, WordPress or publishing calls. The offline proof uses one injected controlled AI decision call.
 
-### M4 — Structured article brief and page plan
+### M4 — Structured Article Brief + Page Plan
 
-**Status:** NOT STARTED. **Objective:** connect a selected article opportunity to a reusable brief and semantic page plan. Reuse `generation/brief.js`, `editorial/plan.js`, cornerstone allowlists and rendering contracts. **Done when:** an approved opportunity produces a validated, provenance-bound brief and plan without fixture-only paths.
+**Status:** COMPLETE — 2026-08-16. **Objective:** connect a validated M3 article opportunity to a reusable structured article brief, semantic editorial page plan and founder-readable review without reopening research or generating copy. M4 adds `workflows/createSeoArticlePlanning.js` and `workflows/createSeoArticleM4.js`, adapting the existing editorial component contracts, validators, controlled-call infrastructure and immutable artifacts. The product URL remains the only merchant input; primary query, article type and intent are inherited immutably from M3. The proof creates separate validated `article_brief` and `editorial_page_plan` artifacts, preserves PIO/BIO/EIC, research and current SEO-guidance lineage, records partial internal-link coverage and unknown cannibalisation/competitor-page coverage, and marks `ARTICLE_GENERATION READY` with drafting and publication unauthorised. No article brief prose, article, WordPress call or publication is produced.
+**Proof:** `artifacts/workflows/create-seo-article/m4-brief-page-plan-proof.json`; corrected technical artifacts under `artifacts/workflows/create-seo-article/m4-proof-v5/gpt-5.6-sol/call_001/`; human review `m4-review.md` in the same call directory. The proof now consumes the canonical M3/M3A opportunity artifact lineage (`best microfibre car drying towel`) rather than an earlier frozen candidate decision.
+**Tests:** focused M4 tests pass 8/8; full `npm test` passes 864/864; `git diff --check` passes.
+**External activity:** one injected controlled `gpt-5.6-sol` planning call in the offline proof; external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
+**Scope:** no M5 generation, article drafting, competitor crawler, site crawler, legacy cleanup or Product Page work was started.
 
 ### M5 — Controlled generation and validation
 
@@ -241,7 +245,7 @@ without ever producing the user-visible outcome.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
 **Scope:** M2 URL-to-evidence integration was completed in the subsequent M2 milestone; Product Page work was untouched; legacy cleanup was not started.
 **Legacy cleanup:** not started.
-**Next milestone:** M4 — Structured Article Brief + Page Plan; M4 is current and NOT STARTED.
+**Next milestone:** M5 — Controlled Generation + Validation; M5 is current and NOT STARTED.
 
 ### M2 — URL-to-Evidence Integration
 
@@ -264,3 +268,11 @@ without ever producing the user-visible outcome.
 **External activity:** one bounded injected AI decision call in the offline proof; external provider/API calls 0, WordPress calls/writes 0, publishing attempts 0.
 **Scope:** no durable persistence, research platform expansion, article brief generation, article generation, legacy cleanup or Product Page work was started.
 **Next milestone:** M4 — Structured Article Brief + Page Plan, NOT STARTED.
+
+### M4 — Structured Article Brief + Page Plan
+
+**Status:** COMPLETE — 2026-08-16
+**Files changed:** `workflows/createSeoArticlePlanning.js`, `workflows/createSeoArticleM4.js`, `scripts/proveCreateSeoArticleM4.js`, `test/create-seo-article-m4.test.js`, `artifacts/workflows/create-seo-article/m4-brief-page-plan-proof.json` and immutable M4 proof artifacts.
+**Proof:** product URL only → canonical validated M3 opportunity (`best microfibre car drying towel`) → validated article brief → validated semantic page plan → founder-readable review → `ARTICLE_GENERATION READY`; article brief generation, article generation and publishing did not execute. M4 now verifies opportunity decision ID, SHA-256, stage artifact identity and immutable primary query/type/intent lineage before planning.
+**Tests:** focused M4 8/8; full `npm test` 864/864; `git diff --check` passed.
+**Next milestone:** M5 — Controlled Generation + Validation, NOT STARTED.
