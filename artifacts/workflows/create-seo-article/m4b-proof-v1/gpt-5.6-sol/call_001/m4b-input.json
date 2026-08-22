@@ -1,0 +1,750 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_grounded_m4b_planning_input",
+  "objective": "create_seo_article",
+  "merchant_inputs_received": [
+    "product_url"
+  ],
+  "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm",
+  "opportunity": {
+    "decision_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "decision_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "primary_query": "best microfibre car drying towel",
+    "supporting_queries": [
+      "microfiber towel for drying car",
+      "best car drying towel",
+      "microfiber towel for car drying"
+    ],
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation",
+    "rationale": "This candidate combines strong observed demand with a clear product-relevant reader problem and an article-suitable SERP; volume is considered alongside intent, usefulness and fit."
+  },
+  "evidence_pack": {
+    "id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c",
+    "freshness_status": "CURRENT",
+    "subject_depth": {
+      "status": "WARN",
+      "dimensions": {
+        "choice_set": true,
+        "decision_criteria": true,
+        "trade_offs": true,
+        "customer_concerns": true,
+        "technical_depth": false,
+        "source_diversity": true,
+        "product_crossover": true,
+        "competitor_coverage": true,
+        "uncertainty_explicit": true
+      },
+      "passed": 7,
+      "required": 8,
+      "reason": "Gap-directed evidence improved coverage but one or more core subject dimensions remain insufficient."
+    },
+    "research_budget": {
+      "wave_1": {
+        "pages_attempted": 5,
+        "pages_successful": 3
+      },
+      "wave_2": {
+        "pages_attempted": 8,
+        "pages_successful": 8,
+        "page_budget": 8
+      },
+      "total_page_budget": 18,
+      "total_pages_attempted": 13
+    },
+    "questions": [
+      {
+        "question_id": "article_research_question_bdb372821bb478e5559aa0a0",
+        "status": "PARTIALLY_ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518",
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904"
+        ]
+      },
+      {
+        "question_id": "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+        "status": "PARTIALLY_ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518",
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904"
+        ]
+      },
+      {
+        "question_id": "article_research_question_2af10aa37f339976e5c4fbb3",
+        "status": "ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66",
+          "live_article_source_6381699e99a585d10899da80"
+        ]
+      },
+      {
+        "question_id": "article_research_question_db8f0a06097252068fcd3608",
+        "status": "PARTIALLY_ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518",
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904"
+        ]
+      },
+      {
+        "question_id": "article_research_question_dffbc8ea58b62197471c1345",
+        "status": "PARTIALLY_ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518"
+        ]
+      },
+      {
+        "question_id": "article_research_question_baa7f1989f7ba64aa1529832",
+        "status": "PARTIALLY_ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226"
+        ]
+      },
+      {
+        "question_id": "article_research_question_e979e6f25f809fab727b8347",
+        "status": "ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66",
+          "live_article_source_6381699e99a585d10899da80"
+        ]
+      },
+      {
+        "question_id": "article_research_question_c5e680311f0e189d9872a527",
+        "status": "ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66",
+          "live_article_source_6381699e99a585d10899da80"
+        ]
+      },
+      {
+        "question_id": "article_research_question_f9bcada41eee1e5b2f83cfe2",
+        "status": "ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66",
+          "live_article_source_6381699e99a585d10899da80"
+        ]
+      },
+      {
+        "question_id": "article_research_question_e89dbb42bf82992d3052593d",
+        "status": "ANSWERED",
+        "evidence_source_ids": [
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66",
+          "live_article_source_6381699e99a585d10899da80"
+        ]
+      }
+    ],
+    "category_options": [
+      "twisted loop",
+      "waffle weave",
+      "plush",
+      "microfiber"
+    ],
+    "terminology": [
+      "best car dryer",
+      "best car drying blower",
+      "best car drying towel",
+      "best leaf blower for car drying",
+      "best leaf blower for drying car",
+      "chamois for car drying",
+      "microfiber towel for car drying",
+      "microfiber towel for drying car",
+      "waffle weave car drying towel",
+      "towels",
+      "microfiber",
+      "absorbent",
+      "vehicles"
+    ],
+    "decision_dimensions": [
+      "capacity",
+      "coverage",
+      "handling",
+      "surface/use-case fit"
+    ],
+    "tradeoffs": [
+      {
+        "concept": "capacity and handling",
+        "statement": "Higher-capacity approaches may involve greater saturated weight.",
+        "support_status": "corroborated_with_first_party_product_context",
+        "source_evidence_ids": [
+          "ev_0070937601532c2a501db22b",
+          "ev_03eaf1f2b6bd5f09a0c4da51",
+          "ev_118c38dfbf7820614c40a985",
+          "ev_11b63816ad955ca330a8ece7",
+          "ev_1f19b6123547f898e270cfd7",
+          "ev_2bc48197465b65346af179ed",
+          "ev_3bb78e5c67db6cd015977f6b",
+          "ev_40936f5cfc99132392553647",
+          "ev_549b5d29c9922c68d39651fd"
+        ]
+      },
+      {
+        "concept": "coverage and control",
+        "statement": "Larger coverage can help broad vehicle panels while smaller formats may be easier around details.",
+        "support_status": "category_inference_requires_qualification",
+        "source_evidence_ids": [
+          "ev_118c38dfbf7820614c40a985",
+          "ev_2bc48197465b65346af179ed",
+          "ev_4d9b21d63307c78e3bf26b2b",
+          "ev_549b5d29c9922c68d39651fd"
+        ]
+      }
+    ],
+    "customer_questions": [
+      {
+        "question": "Do car drying towels really work?",
+        "source_evidence_ids": [
+          "ev_9011b332294a36321b5dc453"
+        ],
+        "source_class": "COMMUNITY_CUSTOMER",
+        "support_status": "observed_question_not_answer"
+      },
+      {
+        "question": "What do professional detailers use to dry cars?",
+        "source_evidence_ids": [
+          "ev_fd01b717f5a2715ff8dba619"
+        ],
+        "source_class": "COMMUNITY_CUSTOMER",
+        "support_status": "observed_question_not_answer"
+      },
+      {
+        "question": "What is the best cloth for drying cars?",
+        "source_evidence_ids": [
+          "ev_8ee7c6172f08a1260f6548ed"
+        ],
+        "source_class": "COMMUNITY_CUSTOMER",
+        "support_status": "observed_question_not_answer"
+      },
+      {
+        "question": "What towels do you use to dry cars?",
+        "source_evidence_ids": [
+          "ev_0ecff79f83c96838259bb05e"
+        ],
+        "source_class": "COMMUNITY_CUSTOMER",
+        "support_status": "observed_question_not_answer"
+      }
+    ],
+    "customer_concerns": [
+      "Observed questions are retained as questions; no community answer is promoted to fact."
+    ],
+    "corroborated_findings": [
+      {
+        "finding": "The SERP contains commercial listings, editorial content and discussion results, indicating mixed commercial-investigation context.",
+        "source_ids": [
+          "article_source_4fef92f9d068f7999bbe7b2a",
+          "article_source_0cfb971cbdf329d23dc25150",
+          "article_source_8585b03a6c3e3ed9d55a27a3",
+          "article_source_10b0b1ea4e77650e122d2e22",
+          "article_source_27696964d50d591b5309a723"
+        ],
+        "support_status": "observed_serp_shape"
+      },
+      {
+        "finding": "Validated first-party Product Facts provide concrete dimensions, construction and use limitations for the merchant product.",
+        "source_ids": [
+          "article_source_63f18e8f9816a42b369f7eff",
+          "article_source_c46d0d7a2ece105aa2da0b0d",
+          "article_source_b006716aa3bbc5ca2cfe167e",
+          "article_source_8f56f085e169e28f6db59f6e",
+          "article_source_2c33260ffa4e0f7f828aa977",
+          "article_source_e76ec336d4fbedafcde5d347",
+          "article_source_202b13a8c1d02d43176ef45b",
+          "article_source_59001372290ce6a5d776257e",
+          "article_source_bf7deab997e3c67d76d2d53f",
+          "article_source_754b73f99e4caa43a7504bfb",
+          "article_source_6370f324f476d70b0ba4b12f",
+          "article_source_354e8b91ccd95d720fe475ed",
+          "article_source_43cdcde948da2d5f5d63ea81",
+          "article_source_ad4d9e637153081d689699c5",
+          "article_source_8dcbf1d41b9e3bb0cf91b83a",
+          "article_source_fd661f5bd30423b331ce1163",
+          "article_source_dd19e77e7380280c75684ecf",
+          "article_source_ab41b9e5833931648f0e0c77",
+          "article_source_e4f37d1e28d3a88625788dbc",
+          "article_source_c48108b8ccfc8b59a39b0ea2",
+          "article_source_98e34d37e73152b5051f5a22",
+          "article_source_ba07a29b1d2d6be57ad4decb",
+          "article_source_5e1e5a6a932ae1c2d845f169",
+          "article_source_731112e70eb4a5250c5e5d26"
+        ],
+        "support_status": "first_party_product_evidence"
+      },
+      {
+        "finding": "Live manufacturer page headings and product listings expose twisted-loop, waffle-weave and plush drying-towel designs as current market terminology.",
+        "source_ids": [
+          "live_article_source_366edf61d84d5a7406141226"
+        ],
+        "support_status": "CORROBORATED_MARKET_OBSERVATION"
+      },
+      {
+        "finding": "The independent page describes comparative testing using absorbency, size and vehicle suitability as decision dimensions.",
+        "source_ids": [
+          "live_article_source_abba290fb5f9fb0ee057222c"
+        ],
+        "support_status": "INDEPENDENT_PAGE_OBSERVATION"
+      }
+    ],
+    "conflicting_findings": [],
+    "unknowns": [
+      "Community questions indicate concerns but do not establish technical truth.",
+      "Two selected pages exceeded the response bound and were not retried; community extraction remained limited."
+    ],
+    "competitor_coverage": {
+      "pages_selected": 5,
+      "pages_fetched": 11,
+      "coverage_status": "LIVE_GAP_DIRECTED_PAGE_EXTRACTION",
+      "source_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22",
+        "article_source_27696964d50d591b5309a723"
+      ]
+    },
+    "content_gaps": [
+      "The live wave identifies constructions and criteria but does not establish universal technical superiority or a complete market taxonomy.",
+      "Gap-directed research still cannot establish universal superiority for any construction or GSM range.",
+      "The Rag Company and Amazon pages exceeded the bounded response limit and were recorded as failed rather than retried.",
+      "Community extraction was limited; recurring concerns require additional approved sources in a later run."
+    ],
+    "source_classes": [
+      "MANUFACTURER_BRAND",
+      "COMMUNITY_CUSTOMER",
+      "INDEPENDENT_EXPERT",
+      "SERP_COMPETITOR",
+      "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+    ],
+    "evidence_ids": [
+      "article_source_4fef92f9d068f7999bbe7b2a",
+      "article_source_0cfb971cbdf329d23dc25150",
+      "article_source_8585b03a6c3e3ed9d55a27a3",
+      "article_source_10b0b1ea4e77650e122d2e22",
+      "article_source_27696964d50d591b5309a723",
+      "article_source_63f18e8f9816a42b369f7eff",
+      "article_source_c46d0d7a2ece105aa2da0b0d",
+      "article_source_b006716aa3bbc5ca2cfe167e",
+      "article_source_8f56f085e169e28f6db59f6e",
+      "article_source_2c33260ffa4e0f7f828aa977",
+      "article_source_e76ec336d4fbedafcde5d347",
+      "article_source_202b13a8c1d02d43176ef45b",
+      "article_source_59001372290ce6a5d776257e",
+      "article_source_bf7deab997e3c67d76d2d53f",
+      "article_source_754b73f99e4caa43a7504bfb",
+      "article_source_6370f324f476d70b0ba4b12f",
+      "article_source_354e8b91ccd95d720fe475ed",
+      "article_source_43cdcde948da2d5f5d63ea81",
+      "article_source_ad4d9e637153081d689699c5",
+      "article_source_8dcbf1d41b9e3bb0cf91b83a",
+      "article_source_fd661f5bd30423b331ce1163",
+      "article_source_dd19e77e7380280c75684ecf",
+      "article_source_ab41b9e5833931648f0e0c77",
+      "article_source_e4f37d1e28d3a88625788dbc",
+      "article_source_c48108b8ccfc8b59a39b0ea2",
+      "article_source_98e34d37e73152b5051f5a22",
+      "article_source_ba07a29b1d2d6be57ad4decb",
+      "article_source_5e1e5a6a932ae1c2d845f169",
+      "article_source_731112e70eb4a5250c5e5d26",
+      "live_article_source_561657374d361fbacd0541e5",
+      "live_article_source_7dc531c77c4a3206bbd112ac",
+      "live_article_source_366edf61d84d5a7406141226",
+      "live_article_source_abba290fb5f9fb0ee057222c",
+      "live_article_source_567bc9d68c0d6d49d045ec7b",
+      "live_article_source_509796f587de1d19e74f879f",
+      "live_article_source_0dc358a27ebc1845069440e1",
+      "live_article_source_16e6b543de1f04ce46096547",
+      "live_article_source_38b7bfb07b1649ca0710d904",
+      "live_article_source_a5614621efe7a6976c8c5518",
+      "live_article_source_55f00af76b36b1784abf222f",
+      "live_article_source_3312c49760d192d882b46e66",
+      "live_article_source_6381699e99a585d10899da80"
+    ]
+  },
+  "claim_policy": {
+    "id": "article_claim_restriction_policy_72ad07aadb355db6273d85b6",
+    "sha256": "72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866",
+    "confidence": {
+      "status": "WARN",
+      "can_proceed": true,
+      "planning_allowed": true,
+      "generation_allowed": true,
+      "restriction_mode": "QUALIFIED"
+    },
+    "restrictions": [
+      {
+        "restriction_id": "article_claim_restriction_6039518be1d75be67972ff83",
+        "subject": "technical GSM, absorbency and construction-performance relationships",
+        "restriction_type": "TECHNICAL_CLAIM_UNRESOLVED",
+        "treatment": "QUALIFY",
+        "reason": "The evidence pack marks technical depth WARN and lacks sufficient independent corroboration.",
+        "evidence_refs": [
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518",
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_6381699e99a585d10899da80"
+        ],
+        "permitted_treatment": "Explain the measurement or construction as an observed/qualified consideration and preserve source limitations.",
+        "prohibited_treatment": "Do not state a universal technical relationship or imply that one metric determines performance."
+      },
+      {
+        "restriction_id": "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+        "subject": "manufacturer descriptions of towel designs and benefits",
+        "restriction_type": "MANUFACTURER_CLAIM_ONLY",
+        "treatment": "ATTRIBUTE",
+        "reason": "These records are manufacturer-owned observations or marketing claims.",
+        "evidence_refs": [
+          "article_source_4fef92f9d068f7999bbe7b2a",
+          "article_source_8585b03a6c3e3ed9d55a27a3",
+          "live_article_source_561657374d361fbacd0541e5",
+          "live_article_source_366edf61d84d5a7406141226",
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904",
+          "live_article_source_a5614621efe7a6976c8c5518",
+          "live_article_source_6381699e99a585d10899da80"
+        ],
+        "permitted_treatment": "Attribute the description to the manufacturer or present it as a market example.",
+        "prohibited_treatment": "Do not promote manufacturer claims to objective category facts."
+      },
+      {
+        "restriction_id": "article_claim_restriction_83ebebee3c421d84802220fb",
+        "subject": "customer and practitioner experiences",
+        "restriction_type": "ANECDOTAL_ONLY",
+        "treatment": "ATTRIBUTE",
+        "reason": "Community evidence records experience and concerns, not technical consensus.",
+        "evidence_refs": [
+          "article_source_0cfb971cbdf329d23dc25150",
+          "live_article_source_7dc531c77c4a3206bbd112ac",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66"
+        ],
+        "permitted_treatment": "Use as attributed concerns, questions or examples of user experience.",
+        "prohibited_treatment": "Do not state anecdotes as universal practice, preference or performance proof."
+      },
+      {
+        "restriction_id": "article_claim_restriction_f647b861f111ae59dd74f372",
+        "subject": "universal superiority and best-in-market claims",
+        "restriction_type": "UNIVERSAL_CLAIM_PROHIBITED",
+        "treatment": "AVOID",
+        "reason": "The pack contains no evidence establishing universal superiority and explicitly preserves uncertainty.",
+        "evidence_refs": [
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518",
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904",
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_6381699e99a585d10899da80",
+          "article_source_4fef92f9d068f7999bbe7b2a",
+          "article_source_8585b03a6c3e3ed9d55a27a3",
+          "live_article_source_561657374d361fbacd0541e5",
+          "live_article_source_366edf61d84d5a7406141226"
+        ],
+        "permitted_treatment": "Describe the available options and qualified decision criteria.",
+        "prohibited_treatment": "Do not claim that any construction, GSM range or product is universally best."
+      }
+    ],
+    "safe_claim_categories": [
+      "observed category terminology",
+      "validated first-party Product Facts",
+      "bounded buyer considerations",
+      "qualified existence of multiple formats"
+    ],
+    "evidence_limitations": [
+      "Community questions indicate concerns but do not establish technical truth.",
+      "Two selected pages exceeded the response bound and were not retried; community extraction remained limited."
+    ],
+    "research_budget_status": "EXHAUSTED"
+  },
+  "product_intelligence": {
+    "product_id": "product_20fcada95c00204601928709",
+    "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm",
+    "pio_id": "pio_85791f2e3a45fa3f36a4a632",
+    "fact_evidence_ids": [
+      "ev_0070937601532c2a501db22b",
+      "ev_03eaf1f2b6bd5f09a0c4da51",
+      "ev_0c7c1182cd5a1dace3ee51ca",
+      "ev_0c92d49374a7d66714028fbc",
+      "ev_118c38dfbf7820614c40a985",
+      "ev_11b63816ad955ca330a8ece7",
+      "ev_14fe44650b1384b36bebb4e2",
+      "ev_156e61dd68f7233c191afb30",
+      "ev_1f19b6123547f898e270cfd7",
+      "ev_2a11cf44ec88f39019337bab",
+      "ev_2bc48197465b65346af179ed",
+      "ev_32a92e55f005a53ac7bdf55f",
+      "ev_33f10080286279cf93006b05",
+      "ev_35800b8db2b3b4d929fc7b4b",
+      "ev_367c867c2f1568b2e9f79903",
+      "ev_3a54e781a2603ee4bb883414",
+      "ev_3bb78e5c67db6cd015977f6b",
+      "ev_40936f5cfc99132392553647",
+      "ev_46f4fdd27000093c56fda5bb",
+      "ev_4d9b21d63307c78e3bf26b2b",
+      "ev_549b5d29c9922c68d39651fd",
+      "ev_5ac381162714adb7db3c0ecc",
+      "ev_5c06c311f77674f9e23f5909",
+      "ev_6480ef536c6606f8e8a06cf2"
+    ],
+    "facts": [
+      {
+        "evidence_id": "ev_0070937601532c2a501db22b",
+        "field_path": "product.name",
+        "value": "Heavy Duty Drying Towel – 1200gsm",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_03eaf1f2b6bd5f09a0c4da51",
+        "field_path": "product.limitations[2]",
+        "value": "Feels heavier when fully saturated with water",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_0c7c1182cd5a1dace3ee51ca",
+        "field_path": "product.features[1]",
+        "value": "Double-sided plush microfibre construction",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_0c92d49374a7d66714028fbc",
+        "field_path": "product.objections_or_buying_questions[4]",
+        "value": "How many towels do I need to dry a whole car?",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_118c38dfbf7820614c40a985",
+        "field_path": "product.faqs[4].answer",
+        "value": "One Heavy Duty towel is enough for most cars and SUVs. For larger vans or if you like to swap towels halfway through, two makes the job even easier.",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_11b63816ad955ca330a8ece7",
+        "field_path": "product.faqs[2].question",
+        "value": "Is it too heavy when it’s wet?",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_14fe44650b1384b36bebb4e2",
+        "field_path": "product.price",
+        "value": "£18.99",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_156e61dd68f7233c191afb30",
+        "field_path": "product.faqs[5].answer",
+        "value": "Wash it on a cold, gentle cycle with microfibre-safe or non-bio detergent. Skip the fabric softener and air dry it flat or on a line. Store it dry, folded, and away from dirt and dust, ideally in the storage bag it came in.",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_1f19b6123547f898e270cfd7",
+        "field_path": "product.benefits[0]",
+        "value": "Designed to pull water off paint with almost no effort",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_2a11cf44ec88f39019337bab",
+        "field_path": "product.how_to_use[2].instruction",
+        "value": "Lay the towel flat on the panel.",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_2bc48197465b65346af179ed",
+        "field_path": "product.faqs[0].answer",
+        "value": "The Heavy Duty towel is thicker at 1200GSM and double-sided, so it holds more water and feels more substantial in the hand. The XL 800GSM towel is larger in size but lighter in feel, so it glides a bit easier. It mainly comes down to whether you prefer a lighter, larger towel or a smaller, heavier one.",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_32a92e55f005a53ac7bdf55f",
+        "field_path": "product.objections_or_buying_questions[3]",
+        "value": "Can I use it on ceramic-coated or waxed cars?",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_33f10080286279cf93006b05",
+        "field_path": "product.benefits[1]",
+        "value": "Fewer passes and faster drying",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_35800b8db2b3b4d929fc7b4b",
+        "field_path": "product.care_instructions[1].instruction",
+        "value": "Do not use fabric softener or bleach",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_367c867c2f1568b2e9f79903",
+        "field_path": "product.objections_or_buying_questions[1]",
+        "value": "Will this towel scratch my paint?",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_3a54e781a2603ee4bb883414",
+        "field_path": "product.objections_or_buying_questions[5]",
+        "value": "How should I wash and store it?",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_3bb78e5c67db6cd015977f6b",
+        "field_path": "product.features[0]",
+        "value": "1200GSM dual-layer construction",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_40936f5cfc99132392553647",
+        "field_path": "product.faqs[1].answer",
+        "value": "No, not when used correctly. The plush 1200GSM fibres are very soft and are designed to glide over the surface with minimal pressure. As always, only use it on clean, shampooed paint.",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_46f4fdd27000093c56fda5bb",
+        "field_path": "product.specifications[2].name",
+        "value": "Material",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_4d9b21d63307c78e3bf26b2b",
+        "field_path": "product.how_to_use[0].instruction",
+        "value": "Gently wash the vehicle using a pH-safe shampoo such as the Origin Shampoo .",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_549b5d29c9922c68d39651fd",
+        "field_path": "product.faqs[2].answer",
+        "value": "It will feel heavier than a lighter towel once it’s fully loaded with water, but that’s the trade-off for the extra absorbency. The 90 × 60 cm size keeps it manageable so it doesn’t feel like you’re wrestling it.",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_5ac381162714adb7db3c0ecc",
+        "field_path": "product.internal_links[0].label",
+        "value": "Origin Shampoo",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_5c06c311f77674f9e23f5909",
+        "field_path": "product.intended_use[0]",
+        "value": "Cars, SUVs, vans, paintwork, glass and exterior plastics",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      },
+      {
+        "evidence_id": "ev_6480ef536c6606f8e8a06cf2",
+        "field_path": "product.specifications[1].value",
+        "value": "90 × 60 cm",
+        "source_class": "FIRST_PARTY_PRODUCT_INTELLIGENCE"
+      }
+    ]
+  },
+  "business_intelligence": {
+    "business_id": "business_c7adba04ebb538f70d960038"
+  },
+  "editorial_intelligence_context": {
+    "context_id": "eic_c24154928e8e5b17e8c47056",
+    "business_id": "business_c7adba04ebb538f70d960038",
+    "product_object_id": "pio_85791f2e3a45fa3f36a4a632",
+    "validation_status": "validated"
+  },
+  "seo_guidance": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT",
+    "relevant_constraints": [
+      {
+        "guidance_id": "guidance_ac0637a370efe317fec97cfb",
+        "statement": "Google Search Essentials describes technical requirements, spam policies and key best practices. Eligibility is not a guarantee of crawling, indexing or serving. Create helpful, reliable, people-first content and follow structured-data guidance.",
+        "applicability": "Google Search policy and documented principles"
+      },
+      {
+        "guidance_id": "guidance_b7b95e0110e8b57604be5d03",
+        "statement": "Google spam policies describe behaviors that can lead to lower ranking or omission from Search. Content should provide the best experience for people and uphold the principles of Search.",
+        "applicability": "Google Search policy and documented principles"
+      },
+      {
+        "guidance_id": "guidance_33ec523dad4e19d4af0fbfd1",
+        "statement": "Google guidance describes helpful, reliable, people-first content and asks whether content is created primarily to help people rather than manipulate Search.",
+        "applicability": "Google Search policy and documented principles"
+      },
+      {
+        "guidance_id": "guidance_d4ce0e8fceab883935041642",
+        "statement": "Google Search guidance on generative AI focuses on using automation responsibly and ensuring content is helpful, accurate, relevant and not created primarily to manipulate rankings.",
+        "applicability": "Google Search policy and documented principles"
+      },
+      {
+        "guidance_id": "guidance_7a01618ce0717bf1f573cdd0",
+        "statement": "Google AI Overviews and AI Mode use the same foundational SEO best practices as Google Search. There are no additional technical requirements or special optimizations required for inclusion; pages must be indexed and eligible for a Search snippet.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim"
+      },
+      {
+        "guidance_id": "guidance_aa8b5c3ea6a242e10cb03967",
+        "statement": "Google ranking systems use automated systems and many signals to present relevant useful results. The guide describes notable systems and explains that systems and updates evolve; it is documentation of systems, not a promise of a ranking outcome.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim"
+      },
+      {
+        "guidance_id": "guidance_1356b83276e875e47bcbfc4f",
+        "statement": "Google Search works through crawling, indexing and serving results. Google does not guarantee crawling, indexing or serving even when Search Essentials are followed.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim"
+      },
+      {
+        "guidance_id": "guidance_29bae651f3d5d95e2f8f2456",
+        "statement": "Google structured-data documentation explains how markup helps Search understand page content. Eligibility for a supported feature must be established from Google's feature documentation; vocabulary alone is not a guarantee of a rich result.",
+        "applicability": "Google Search policy and documented principles"
+      },
+      {
+        "guidance_id": "guidance_ce7cacbbee40cf096afda48b",
+        "statement": "Schema.org defines shared vocabulary types and properties for structured data. Vocabulary semantics do not establish support by a particular search engine.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim"
+      },
+      {
+        "guidance_id": "guidance_0cd3b2bd9fa6445d2848a812",
+        "statement": "W3C WAI publishes accessibility standards and guidance for accessible web content. Accessibility guidance is a web standard and must not be represented as a direct Google ranking-factor claim.",
+        "applicability": "Applicable standard or vocabulary; not a ranking claim"
+      }
+    ]
+  },
+  "registries": {
+    "products": [
+      {
+        "product_id": "product_20fcada95c00204601928709",
+        "product_url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm"
+      }
+    ],
+    "internal_links": [],
+    "internal_link_coverage": "partial"
+  },
+  "planning_constraints": {
+    "keyword_research_complete": true,
+    "opportunity_immutable": true,
+    "research_calls_forbidden": true,
+    "article_prose_forbidden": true,
+    "browsing_allowed": false,
+    "publication_allowed": false,
+    "restriction_mode": "QUALIFIED"
+  },
+  "input_sha256": "43d3801855b44bbd0c366a3da1cc2812d8bb16b110404f6a3cd1841513d425be"
+}

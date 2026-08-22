@@ -1,0 +1,96 @@
+{
+  "provider": "bounded_targeted_search_development_proof",
+  "dataforseo_calls": 0,
+  "search_calls": 1,
+  "queries": [
+    {
+      "query_id": "article_targeted_query_3109626da2dd23ab127162fc",
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4",
+      "query": "best microfibre car drying towel technical meaning trade-offs",
+      "source_classes": [
+        "INDEPENDENT_EXPERT",
+        "MANUFACTURER_BRAND"
+      ],
+      "purpose": "Technical concepts and measurable trade-offs"
+    },
+    {
+      "query_id": "article_targeted_query_0f971f1df22d6718f610a673",
+      "gap_id": "article_research_gap_609de5685326d004e700a611",
+      "query": "best microfibre car drying towel construction comparison practical differences",
+      "source_classes": [
+        "MANUFACTURER_BRAND",
+        "INDEPENDENT_EXPERT"
+      ],
+      "purpose": "Construction and format differences"
+    },
+    {
+      "query_id": "article_targeted_query_43ea431fc195e87fa8d1c2c7",
+      "gap_id": "article_research_gap_c4a9d1de1cd86182bcb9c3d8",
+      "query": "best microfibre car drying towel customer concerns user experience",
+      "source_classes": [
+        "COMMUNITY_CUSTOMER"
+      ],
+      "purpose": "Customer and practitioner concerns"
+    },
+    {
+      "query_id": "article_targeted_query_6108b8587fccf2ee931ca569",
+      "gap_id": "article_research_gap_5af4a09405771c0ec4fbab8d",
+      "query": "best microfibre car drying towel professional practice user guide",
+      "source_classes": [
+        "INDEPENDENT_EXPERT",
+        "COMMUNITY_CUSTOMER"
+      ],
+      "purpose": "Professional and practical use patterns"
+    }
+  ],
+  "candidates": [
+    {
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4",
+      "url": "https://microfibertech.com/pages/what-is-gsm",
+      "source_class": "MANUFACTURER_BRAND",
+      "gap_type": "technical_depth"
+    },
+    {
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4",
+      "url": "https://www.aosehometex.com/are-higher-gsm-microfiber-towels-always-better/",
+      "source_class": "MANUFACTURER_BRAND",
+      "gap_type": "technical_depth"
+    },
+    {
+      "gap_id": "article_research_gap_609de5685326d004e700a611",
+      "url": "https://www.feynlab.com/product/feynlab-twisted-logic-korean-microfiber-drying-towel-v2/",
+      "source_class": "MANUFACTURER_BRAND",
+      "gap_type": "construction_tradeoffs"
+    },
+    {
+      "gap_id": "article_research_gap_609de5685326d004e700a611",
+      "url": "https://www.lumacotextile.com/blog/articles/rag-company-drying-towel-benchmark-oem.html",
+      "source_class": "MANUFACTURER_BRAND",
+      "gap_type": "construction_tradeoffs"
+    },
+    {
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4",
+      "url": "https://paragonmicrofibre.com/collections/microfibre-towels",
+      "source_class": "MANUFACTURER_BRAND",
+      "gap_type": "market_taxonomy"
+    },
+    {
+      "gap_id": "article_research_gap_c4a9d1de1cd86182bcb9c3d8",
+      "url": "https://carproforum.com/threads/review-carpro-dhydrate-drying-towel.5478/",
+      "source_class": "COMMUNITY_CUSTOMER",
+      "gap_type": "customer_evidence"
+    },
+    {
+      "gap_id": "article_research_gap_c4a9d1de1cd86182bcb9c3d8",
+      "url": "https://www.reddit.com/r/AutoDetailing/comments/1penr51/drying_towel_advice_i_just_got_some_that_seem_way/",
+      "source_class": "COMMUNITY_CUSTOMER",
+      "gap_type": "customer_evidence"
+    },
+    {
+      "gap_id": "article_research_gap_5af4a09405771c0ec4fbab8d",
+      "url": "https://superceramiccoating.com/product/microfiber-twisted-loop-drying-towel-1200-gsm/",
+      "source_class": "MANUFACTURER_BRAND",
+      "gap_type": "professional_practice"
+    }
+  ]
+}

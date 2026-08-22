@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "article_generation_approval",
+  "objective": "create_seo_article",
+  "purpose": "ARTICLE_GENERATION_FOR_HUMAN_REVIEW_ONLY",
+  "approval_source": "founder_instruction",
+  "approved_at": "2026-08-16T12:00:00.000Z",
+  "opportunity": {
+    "id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "primary_query": "best microfibre car drying towel",
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation"
+  },
+  "brief": {
+    "id": "article_brief_55a162120af6e322cf1a1832",
+    "sha256": "55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5"
+  },
+  "page_plan": {
+    "id": "editorial_page_plan_cea873d04ab1869fdf850edf",
+    "sha256": "cea873d04ab1869fdf850edfafe97d0afa97ae5fa94b29d5a18ac3a120507b86"
+  },
+  "evidence_pack": {
+    "id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c"
+  },
+  "restriction_policy": {
+    "id": "article_claim_restriction_policy_72ad07aadb355db6273d85b6",
+    "sha256": "72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866"
+  },
+  "seo_guidance": {
+    "id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e"
+  },
+  "product_intelligence": {
+    "product_id": "product_20fcada95c00204601928709",
+    "pio_id": "pio_85791f2e3a45fa3f36a4a632"
+  },
+  "publication_authorized": false,
+  "wordpress_mutation": false,
+  "correction_authorized": false,
+  "scope": "One controlled semantic article for founder review; no publication or automatic correction.",
+  "approval_id": "article_generation_approval_7318bc5999238f6126ee8471"
+}

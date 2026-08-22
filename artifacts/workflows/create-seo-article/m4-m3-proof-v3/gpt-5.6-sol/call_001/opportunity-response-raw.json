@@ -1,0 +1,10 @@
+{
+  "provider": "fixture-m3",
+  "model": "gpt-5.6-sol",
+  "response_id": null,
+  "raw_text": "{\"outcome\":\"ARTICLE_RECOMMENDED\",\"article_type\":\"supporting_article\",\"search_intent\":\"commercial_investigation\",\"primary_query\":\"microfiber towel for drying car\",\"supporting_queries\":[\"best car drying towel\",\"microfiber towel for car drying\"],\"reader_problem\":\"Readers need practical guidance choosing a suitable car-drying towel.\",\"proposed_angle\":\"A useful evidence-bounded comparison of drying criteria and towel choices.\",\"rationale\":\"The opportunity combines product relevance, observed demand and article-suitable SERP evidence.\",\"evidence_ids\":[\"ev_ecc2c1bd4e72d712f2eda7d7\",\"ev_2402e4bb0c1bf2a17431c9f5\",\"ev_268a5e6d930e2f3fd8ae0648\"],\"alternatives_considered\":[],\"risks\":[\"Page-level competitor coverage was not fetched.\"],\"unknowns\":[\"Search Console coverage is optional.\"],\"confidence\":\"medium\"}",
+  "usage": {
+    "input_tokens": 1200,
+    "output_tokens": 220
+  }
+}

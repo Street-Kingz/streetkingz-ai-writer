@@ -1,0 +1,17 @@
+{
+  "artifact_type": "corrected_semantic_article_lineage",
+  "parent_article_id": "semantic_article_6c73c0160dc56a7cd1e2473a",
+  "parent_article_sha256": "6c73c0160dc56a7cd1e2473acec3bda2fdf8594fd7282b411bbcbb8a6a13215d",
+  "corrected_article_id": "semantic_article_c3c23128fd38ca0d759a969a",
+  "corrected_article_sha256": "c3c23128fd38ca0d759a969aa021fa7398c6e3124cf42ab2588ef3299599fa36",
+  "founder_review_id": "founder_article_review_e14f5f61e93d174000a595b2",
+  "correction_approval_id": "founder_correction_approval_973927bd7bc7d97b208f7c44",
+  "correction_plan_sha256": "bc9873deac18cafb07b5dae0bc5de61a52e95ea809fa3358f4abbc6a41590a31",
+  "brief_id": "article_brief_55a162120af6e322cf1a1832",
+  "page_plan_id": "editorial_page_plan_cea873d04ab1869fdf850edf",
+  "evidence_pack_id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+  "restriction_policy_id": "article_claim_restriction_policy_72ad07aadb355db6273d85b6",
+  "seo_guidance_snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+  "product_intelligence_id": "product_20fcada95c00204601928709",
+  "publication_authorized": false
+}

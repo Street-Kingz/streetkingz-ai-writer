@@ -1,0 +1,15 @@
+{
+  "artifact_type": "old_m4_weaknesses",
+  "historical_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+  "historical_plan_sha256": "109d5a7553798979dc21fbb3d452a2eaba3e092932910543b043f5da3da0b233",
+  "weaknesses": [
+    "Only three generic components",
+    "No research-question coverage",
+    "Checklist-style comparison rather than evidenced trade-offs",
+    "No machine-readable claim restrictions",
+    "Generic product placement",
+    "No customer-concern treatment",
+    "No Product Intelligence crossover at section level"
+  ],
+  "immutable": true
+}

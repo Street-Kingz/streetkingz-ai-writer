@@ -1,0 +1,38 @@
+{
+  "artifact_type": "m4_vs_m4b_comparison",
+  "historical_m4": {
+    "brief_id": "article_brief_248d2d96feff88a83be38999",
+    "page_plan_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "components": 3,
+    "evidence_granularity": "global/component-shared",
+    "restrictions": 0,
+    "customer_concerns": 0,
+    "product_fact_crossover": 0,
+    "weaknesses": [
+      "Only three generic components",
+      "No research-question coverage",
+      "Checklist-style comparison rather than evidenced trade-offs",
+      "No machine-readable claim restrictions",
+      "Generic product placement",
+      "No customer-concern treatment",
+      "No Product Intelligence crossover at section level"
+    ]
+  },
+  "m4b": {
+    "brief_id": "article_brief_55a162120af6e322cf1a1832",
+    "brief_sha256": "55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5",
+    "page_plan_id": "editorial_page_plan_ff2eb20da511dbe1fe3328f0",
+    "page_plan_sha256": "ff2eb20da511dbe1fe3328f05da9426e15c0047b25e3a11d7695529b2264bc53",
+    "components": 7,
+    "evidence_granularity": "section-level",
+    "restrictions": 4,
+    "product_fact_crossover": 24,
+    "quality": "PASS"
+  },
+  "lineage": {
+    "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "opportunity_sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "evidence_pack_id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "evidence_pack_sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c"
+  }
+}

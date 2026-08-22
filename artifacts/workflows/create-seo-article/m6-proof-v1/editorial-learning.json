@@ -1,0 +1,52 @@
+{
+  "artifact_type": "editorial_learning",
+  "lesson_set_id": "editorial_learning_214b8d52d9a29e0485f9629d",
+  "source_review_id": "founder_article_review_e14f5f61e93d174000a595b2",
+  "lessons": [
+    {
+      "lesson_id": "editorial_lesson_direct_practical_explanation",
+      "feedback_id": "founder_feedback_natural_voice_01",
+      "rejected_pattern": "abstract decision language",
+      "reason": "It makes a practical choice sound like system narration.",
+      "principle": "State the concrete decision and consequence directly.",
+      "scope": "GLOBAL",
+      "approved_for_future_generation_guidance": true
+    },
+    {
+      "lesson_id": "editorial_lesson_product_fit_without_meta",
+      "feedback_id": "founder_feedback_natural_voice_01",
+      "rejected_pattern": "narrating product-selection logic",
+      "reason": "Readers need product fit, not an explanation of why the article included it.",
+      "principle": "Explain which validated needs a product suits without discussing editorial selection.",
+      "scope": "GLOBAL",
+      "approved_for_future_generation_guidance": true
+    },
+    {
+      "lesson_id": "editorial_lesson_explain_difference",
+      "feedback_id": "founder_feedback_category_depth_01",
+      "rejected_pattern": "naming options without consequences",
+      "reason": "A list of formats does not support a purchase decision.",
+      "principle": "When evidence permits, explain the practical consequence; otherwise state the limit briefly.",
+      "scope": "GLOBAL",
+      "approved_for_future_generation_guidance": true
+    },
+    {
+      "lesson_id": "editorial_lesson_plain_practical_voice",
+      "feedback_id": "founder_feedback_natural_voice_01",
+      "rejected_pattern": "over-qualified brand prose",
+      "reason": "Street Kingz voice favours straightforward practical guidance.",
+      "principle": "Use clear, useful ecommerce language with proportionate qualification.",
+      "scope": "BRAND_SPECIFIC",
+      "approved_for_future_generation_guidance": true
+    },
+    {
+      "lesson_id": "editorial_lesson_saturated_fact_article_specific",
+      "feedback_id": "founder_feedback_saturated_weight_01",
+      "rejected_pattern": "product-specific saturated implication",
+      "reason": "Only this article's validated Product Fact licenses the statement.",
+      "principle": "Keep the exact product claim tied to its Product Fact; do not generalise it.",
+      "scope": "ARTICLE_SPECIFIC",
+      "approved_for_future_generation_guidance": false
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_page_plan",
+  "plan_version": "m4.0.0",
+  "page_type": "evergreen_guide",
+  "topic": "microfiber towel for drying car",
+  "primary_query": "microfiber towel for drying car",
+  "search_intent": {
+    "primary": "commercial_investigation",
+    "secondary": null
+  },
+  "title_direction": "How to Choose a Microfibre Car Drying Towel",
+  "h1_direction": "How to Choose a Microfibre Car Drying Towel",
+  "introduction_objective": "Help car owners choose a suitable drying towel using clear, evidence-bounded criteria.",
+  "brief_id": "article_brief_07c5c0a434362ed5623d8340",
+  "brief_sha256": "07c5c0a434362ed5623d8340a741e424963c67e9d70c5a9a69ba48c388ad0607",
+  "components": [
+    {
+      "component_id": "01_8618b695",
+      "component_type": "criteria_cards",
+      "purpose": "Explain the observed decision criteria before product presentation.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "What matters when choosing a car drying towel"
+      ]
+    },
+    {
+      "component_id": "02_59929740",
+      "component_type": "comparison_table",
+      "purpose": "Make the evidence-bounded comparison useful and easy to scan.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Compare the main towel options"
+      ]
+    },
+    {
+      "component_id": "03_a86e9c83",
+      "component_type": "product_recommendation",
+      "purpose": "Summarise the decision and offer a proportionate product next step.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "product_discovery",
+      "required_content": [
+        "A practical next step"
+      ]
+    }
+  ],
+  "component_sequence": [
+    "01_8618b695",
+    "02_59929740",
+    "03_a86e9c83"
+  ],
+  "component_requirements": {
+    "policy_id": "create_seo_article_m4_v1",
+    "required_component_types": [
+      "criteria_cards"
+    ],
+    "ordering_rules": []
+  },
+  "allowed_component_types": [
+    "hero",
+    "quick_answer",
+    "rich_text_section",
+    "key_takeaway",
+    "comparison_table",
+    "criteria_cards",
+    "image_text",
+    "product_recommendation",
+    "product_comparison",
+    "pros_tradeoffs",
+    "founder_note",
+    "faq",
+    "related_guides",
+    "conclusion",
+    "call_to_action"
+  ],
+  "human_review_state": "awaiting_page_plan_approval",
+  "drafting_authorised": false,
+  "publication_authorised": false,
+  "provenance": {
+    "opportunity_decision_id": "article_opportunity_b39358c60ae1fc5e17a0c77d",
+    "opportunity_decision_sha256": "11a1812990e2bbae52907c05348817f4519914f59ce42d84de58bf032df6723b",
+    "seo_guidance_snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "seo_guidance_snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT",
+    "m4_input_sha256": "65ce2e7d652e6f1e4fa71986b9ba3672179707a7e18c446a28be1441326f030a"
+  },
+  "plan_id": "editorial_page_plan_02d9e1ae925503dfe20f844a",
+  "deterministic_content_sha256": "02d9e1ae925503dfe20f844a653ce23079513d730d06f5b77bc1e0419d7bbf47"
+}

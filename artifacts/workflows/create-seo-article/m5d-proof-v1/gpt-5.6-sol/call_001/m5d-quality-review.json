@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "m5d_editorial_quality_review",
+  "status": "PASS",
+  "accepted_for_human_review": true,
+  "dimensions": {
+    "reader_usefulness": "PASS",
+    "query_satisfaction": "PASS",
+    "category_knowledge": "PASS",
+    "buying_decision_support": "PASS",
+    "trade_off_explanation": "PASS",
+    "customer_relevance": "PASS",
+    "claim_discipline": "PASS",
+    "product_integration": "PASS",
+    "brand_fit": "PASS",
+    "structural_coherence": "PASS",
+    "non_genericity": "PASS",
+    "evidence_usage": "PASS"
+  },
+  "product_facts_available": 24,
+  "manual_review_required": true,
+  "warnings": [
+    "Technical relationships remain intentionally qualified under WARN evidence policy.",
+    "Founder must confirm tone and product claims before publication."
+  ]
+}

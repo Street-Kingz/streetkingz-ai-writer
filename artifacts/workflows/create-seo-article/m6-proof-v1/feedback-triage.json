@@ -1,0 +1,53 @@
+{
+  "artifact_type": "m6_feedback_triage",
+  "review_id": "founder_article_review_e14f5f61e93d174000a595b2",
+  "feedback": [
+    {
+      "feedback_id": "founder_feedback_natural_voice_01",
+      "class": "STYLE",
+      "classification": "VALID",
+      "concern": "Some prose is abstract or sounds like an evidence report.",
+      "locations": [
+        "m4b_quick_answer",
+        "m4b_criteria",
+        "m4b_product_fit",
+        "m4b_conclusion"
+      ],
+      "research_required": false,
+      "evidence_refs": [],
+      "restriction_refs": [],
+      "action": "bounded expression correction"
+    },
+    {
+      "feedback_id": "founder_feedback_category_depth_01",
+      "class": "USEFULNESS",
+      "classification": "PARTIALLY_VALID",
+      "concern": "Formats are named without always explaining why a buyer might choose one.",
+      "locations": [
+        "m4b_criteria",
+        "m4b_comparison"
+      ],
+      "research_required": false,
+      "evidence_refs": [],
+      "restriction_refs": [],
+      "action": "bounded expression correction"
+    },
+    {
+      "feedback_id": "founder_feedback_saturated_weight_01",
+      "class": "CLAIM_AUDIT",
+      "classification": "VALID_QUALIFICATION_REQUIRED",
+      "concern": "Audit the product-specific saturated-weight implication.",
+      "locations": [
+        "m4b_product_fit"
+      ],
+      "research_required": false,
+      "evidence_refs": [
+        "ev_03eaf1f2b6bd5f09a0c4da51"
+      ],
+      "restriction_refs": [
+        "article_claim_restriction_6039518be1d75be67972ff83"
+      ],
+      "action": "bounded expression correction"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "call_id": "639801a9-6aed-477d-a13b-9a3ee5737ba7",
+  "model_label": "gpt-5.6-sol",
+  "ordinal": 1,
+  "configured_max_calls": 1,
+  "retries": 0,
+  "requested_calls": 1,
+  "started_calls": 1,
+  "completed_calls": 1,
+  "failed_calls": 0,
+  "aborted_calls": 0,
+  "state": "completed",
+  "started_at": "2026-08-16T19:21:26.276Z",
+  "completed_at": "2026-08-16T19:21:26.290Z"
+}

@@ -1,0 +1,75 @@
+{
+  "handoff_status": "READY_FOR_M4B",
+  "planning_allowed": true,
+  "restriction_mode": "QUALIFIED",
+  "opportunity_lineage": {
+    "id": "article_opportunity_0f6047a7b1f249db7979f259"
+  },
+  "evidence_pack_lineage": {
+    "id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c"
+  },
+  "subject_depth": {
+    "status": "WARN",
+    "dimensions": {
+      "choice_set": true,
+      "decision_criteria": true,
+      "trade_offs": true,
+      "customer_concerns": true,
+      "technical_depth": false,
+      "source_diversity": true,
+      "product_crossover": true,
+      "competitor_coverage": true,
+      "uncertainty_explicit": true
+    },
+    "passed": 7,
+    "required": 8,
+    "reason": "Gap-directed evidence improved coverage but one or more core subject dimensions remain insufficient."
+  },
+  "restriction_policy_lineage": {
+    "id": "article_claim_restriction_policy_83ccdce317fd837262b93a52",
+    "sha256": "83ccdce317fd837262b93a52a9e461eca65f53c4c9832b8bdced3ef2b7ed9c07"
+  },
+  "seo_guidance_lineage": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT"
+  },
+  "product_intelligence_lineage": {
+    "evidence_ids": [
+      "ev_0070937601532c2a501db22b",
+      "ev_03eaf1f2b6bd5f09a0c4da51",
+      "ev_0c7c1182cd5a1dace3ee51ca",
+      "ev_0c92d49374a7d66714028fbc",
+      "ev_118c38dfbf7820614c40a985",
+      "ev_11b63816ad955ca330a8ece7",
+      "ev_14fe44650b1384b36bebb4e2",
+      "ev_156e61dd68f7233c191afb30",
+      "ev_1f19b6123547f898e270cfd7",
+      "ev_2a11cf44ec88f39019337bab",
+      "ev_2bc48197465b65346af179ed",
+      "ev_32a92e55f005a53ac7bdf55f",
+      "ev_33f10080286279cf93006b05",
+      "ev_35800b8db2b3b4d929fc7b4b",
+      "ev_367c867c2f1568b2e9f79903",
+      "ev_3a54e781a2603ee4bb883414",
+      "ev_3bb78e5c67db6cd015977f6b",
+      "ev_40936f5cfc99132392553647",
+      "ev_46f4fdd27000093c56fda5bb",
+      "ev_4d9b21d63307c78e3bf26b2b",
+      "ev_549b5d29c9922c68d39651fd",
+      "ev_5ac381162714adb7db3c0ecc",
+      "ev_5c06c311f77674f9e23f5909",
+      "ev_6480ef536c6606f8e8a06cf2"
+    ]
+  },
+  "required_inheritance": [
+    "evidence_pack_id",
+    "evidence_pack_sha256",
+    "subject_depth",
+    "restriction_policy_id",
+    "restriction_policy_sha256",
+    "evidence_refs"
+  ]
+}

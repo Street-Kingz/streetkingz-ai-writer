@@ -1,0 +1,428 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_grounded_editorial_page_plan",
+  "plan_version": "m4b.1.0.0",
+  "page_type": "evergreen_guide",
+  "topic": "best microfibre car drying towel",
+  "primary_query": "best microfibre car drying towel",
+  "search_intent": {
+    "primary": "commercial_investigation",
+    "secondary": null
+  },
+  "title_direction": "How to Choose the Best Microfibre Car Drying Towel for Your Vehicle",
+  "h1_direction": "How to Choose the Best Microfibre Car Drying Towel for Your Vehicle",
+  "introduction_objective": "The useful answer to a best-towel search is a decision framework: compare the towel formats and handling trade-offs that matter for your vehicle, then judge any product against those needs rather than treating one specification as a universal winner.",
+  "packet_id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+  "strategy_id": "article_opportunity_0f6047a7b1f249db7979f259",
+  "brief_id": "article_brief_55a162120af6e322cf1a1832",
+  "brief_sha256": "55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5",
+  "opportunity_lineage": {
+    "id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "primary_query": "best microfibre car drying towel",
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation"
+  },
+  "evidence_pack_lineage": {
+    "id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c",
+    "subject_depth": {
+      "status": "WARN",
+      "dimensions": {
+        "choice_set": true,
+        "decision_criteria": true,
+        "trade_offs": true,
+        "customer_concerns": true,
+        "technical_depth": false,
+        "source_diversity": true,
+        "product_crossover": true,
+        "competitor_coverage": true,
+        "uncertainty_explicit": true
+      },
+      "passed": 7,
+      "required": 8,
+      "reason": "Gap-directed evidence improved coverage but one or more core subject dimensions remain insufficient."
+    }
+  },
+  "restriction_policy_lineage": {
+    "id": "article_claim_restriction_policy_72ad07aadb355db6273d85b6",
+    "sha256": "72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866",
+    "restriction_ids": [
+      "article_claim_restriction_6039518be1d75be67972ff83",
+      "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+      "article_claim_restriction_83ebebee3c421d84802220fb",
+      "article_claim_restriction_f647b861f111ae59dd74f372"
+    ]
+  },
+  "seo_guidance_lineage": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT"
+  },
+  "product_intelligence_lineage": {
+    "product_id": "product_20fcada95c00204601928709",
+    "fact_evidence_ids": [
+      "ev_0070937601532c2a501db22b",
+      "ev_03eaf1f2b6bd5f09a0c4da51",
+      "ev_0c7c1182cd5a1dace3ee51ca",
+      "ev_0c92d49374a7d66714028fbc",
+      "ev_118c38dfbf7820614c40a985",
+      "ev_11b63816ad955ca330a8ece7",
+      "ev_14fe44650b1384b36bebb4e2",
+      "ev_156e61dd68f7233c191afb30",
+      "ev_1f19b6123547f898e270cfd7",
+      "ev_2a11cf44ec88f39019337bab",
+      "ev_2bc48197465b65346af179ed",
+      "ev_32a92e55f005a53ac7bdf55f",
+      "ev_33f10080286279cf93006b05",
+      "ev_35800b8db2b3b4d929fc7b4b",
+      "ev_367c867c2f1568b2e9f79903",
+      "ev_3a54e781a2603ee4bb883414",
+      "ev_3bb78e5c67db6cd015977f6b",
+      "ev_40936f5cfc99132392553647",
+      "ev_46f4fdd27000093c56fda5bb",
+      "ev_4d9b21d63307c78e3bf26b2b",
+      "ev_549b5d29c9922c68d39651fd",
+      "ev_5ac381162714adb7db3c0ecc",
+      "ev_5c06c311f77674f9e23f5909",
+      "ev_6480ef536c6606f8e8a06cf2"
+    ]
+  },
+  "components": [
+    {
+      "component_id": "m4b_quick_answer",
+      "component_type": "quick_answer",
+      "purpose": "Answer the commercial question quickly and frame best as criteria-dependent.",
+      "reader_question": "What should I compare before buying?",
+      "evidence_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22",
+        "article_source_27696964d50d591b5309a723"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_03eaf1f2b6bd5f09a0c4da51"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "State that no single specification establishes a universal best towel.",
+        "Name vehicle coverage, construction, handling and wet weight as decision dimensions."
+      ],
+      "prohibited_claims": [],
+      "product_role": "none"
+    },
+    {
+      "component_id": "m4b_criteria",
+      "component_type": "criteria_cards",
+      "purpose": "Turn researched criteria into practical buyer consequences.",
+      "reader_question": "Which characteristics will I notice during drying?",
+      "evidence_ids": [
+        "article_source_27696964d50d591b5309a723",
+        "article_source_63f18e8f9816a42b369f7eff",
+        "article_source_c46d0d7a2ece105aa2da0b0d",
+        "article_source_b006716aa3bbc5ca2cfe167e",
+        "article_source_8f56f085e169e28f6db59f6e",
+        "article_source_2c33260ffa4e0f7f828aa977"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_d21e4dbbe44af1c075943c7e"
+      ],
+      "product_fact_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2bc48197465b65346af179ed",
+        "ev_5ac381162714adb7db3c0ecc"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Explain size/coverage and saturated handling.",
+        "Explain GSM as a fabric-weight measure without treating it as a standalone performance guarantee.",
+        "Separate validated product specifications from category-level inference."
+      ],
+      "prohibited_claims": [],
+      "product_role": "none"
+    },
+    {
+      "component_id": "m4b_comparison",
+      "component_type": "comparison_table",
+      "purpose": "Expose category-level options and qualified trade-offs without naming unsupported winners.",
+      "reader_question": "How do the formats differ, and who might each suit?",
+      "evidence_ids": [
+        "article_source_8f56f085e169e28f6db59f6e",
+        "article_source_2c33260ffa4e0f7f828aa977",
+        "article_source_e76ec336d4fbedafcde5d347",
+        "article_source_202b13a8c1d02d43176ef45b",
+        "article_source_59001372290ce6a5d776257e",
+        "article_source_bf7deab997e3c67d76d2d53f",
+        "article_source_754b73f99e4caa43a7504bfb"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2bc48197465b65346af179ed",
+        "ev_5ac381162714adb7db3c0ecc"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Compare observed twisted-loop, waffle-weave and plush/double-sided formats only as evidenced market options.",
+        "Show coverage versus control and capacity versus wet handling as qualified trade-offs.",
+        "Do not convert repeated marketing language into objective superiority."
+      ],
+      "prohibited_claims": [],
+      "product_role": "none"
+    },
+    {
+      "component_id": "m4b_use_cases",
+      "component_type": "rich_text_section",
+      "purpose": "Connect researched buyer concerns and use cases to a practical choice.",
+      "reader_question": "What suits a car, SUV or larger vehicle?",
+      "evidence_ids": [
+        "article_source_6370f324f476d70b0ba4b12f",
+        "article_source_354e8b91ccd95d720fe475ed",
+        "article_source_43cdcde948da2d5f5d63ea81",
+        "article_source_ad4d9e637153081d689699c5",
+        "article_source_8dcbf1d41b9e3bb0cf91b83a",
+        "article_source_fd661f5bd30423b331ce1163"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_83ebebee3c421d84802220fb",
+        "article_claim_restriction_6039518be1d75be67972ff83"
+      ],
+      "product_fact_ids": [
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_5c06c311f77674f9e23f5909"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Address whole-vehicle coverage, swapping towels and heavier saturated handling.",
+        "Use community/practitioner material as recurring concerns, not universal practice.",
+        "Use first-party intended-use facts for the Street Kingz example only."
+      ],
+      "prohibited_claims": [],
+      "product_role": "none"
+    },
+    {
+      "component_id": "m4b_customer_questions",
+      "component_type": "faq",
+      "purpose": "Answer genuine product/category questions selected from research and Product Intelligence.",
+      "reader_question": "Will a towel feel heavy, and how should I think about care and coverage?",
+      "evidence_ids": [
+        "article_source_fd661f5bd30423b331ce1163",
+        "article_source_dd19e77e7380280c75684ecf",
+        "article_source_ab41b9e5833931648f0e0c77",
+        "article_source_e4f37d1e28d3a88625788dbc",
+        "article_source_c48108b8ccfc8b59a39b0ea2"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_83ebebee3c421d84802220fb"
+      ],
+      "product_fact_ids": [
+        "ev_0c92d49374a7d66714028fbc",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_3a54e781a2603ee4bb883414",
+        "ev_3bb78e5c67db6cd015977f6b"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Answer only approved questions with bounded evidence.",
+        "Keep care and coverage practical; avoid invented guarantees or consensus claims."
+      ],
+      "prohibited_claims": [],
+      "product_role": "none"
+    },
+    {
+      "component_id": "m4b_product_fit",
+      "component_type": "product_recommendation",
+      "purpose": "Use validated product facts as a concrete example after the reader has the decision framework.",
+      "reader_question": "Would this validated product profile suit my priorities?",
+      "evidence_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22",
+        "article_source_27696964d50d591b5309a723"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2bc48197465b65346af179ed",
+        "ev_5ac381162714adb7db3c0ecc",
+        "ev_5c06c311f77674f9e23f5909"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "product_discovery",
+      "required_content": [
+        "Present the 1200GSM dual-layer/double-sided profile, dimensions and heavier saturated feel as validated facts.",
+        "Explain which reader priorities the profile may suit without claiming it is universally best.",
+        "Keep the recommendation proportionate and evidence-bound."
+      ],
+      "prohibited_claims": [],
+      "product_role": "qualified_product_example"
+    },
+    {
+      "component_id": "m4b_conclusion",
+      "component_type": "conclusion",
+      "purpose": "Close with a useful decision summary and proportionate next step.",
+      "reader_question": "What should I do next?",
+      "evidence_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0070937601532c2a501db22b"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "product_discovery",
+      "required_content": [
+        "Reinforce criteria-dependent choice.",
+        "Offer the validated product as an optional next step, not an objective winner.",
+        "Do not restate the introduction mechanically."
+      ],
+      "prohibited_claims": [],
+      "product_role": "qualified_next_step"
+    }
+  ],
+  "component_sequence": [
+    "m4b_quick_answer",
+    "m4b_criteria",
+    "m4b_comparison",
+    "m4b_use_cases",
+    "m4b_customer_questions",
+    "m4b_product_fit",
+    "m4b_conclusion"
+  ],
+  "component_requirements": {
+    "policy_id": "create_seo_article_m4b_v1",
+    "required_component_types": [
+      "quick_answer",
+      "criteria_cards",
+      "comparison_table",
+      "rich_text_section",
+      "faq",
+      "product_recommendation",
+      "conclusion"
+    ],
+    "ordering_rules": [
+      {
+        "rule": "component_after",
+        "component_type": "product_recommendation",
+        "after_component_type": "criteria_cards"
+      }
+    ]
+  },
+  "allowed_component_types": [
+    "quick_answer",
+    "criteria_cards",
+    "comparison_table",
+    "rich_text_section",
+    "faq",
+    "product_recommendation",
+    "conclusion"
+  ],
+  "cta_strategy": {
+    "role": "qualified_product_consideration",
+    "placement": "after criteria, comparison and product-fit explanation",
+    "pressure": "proportionate"
+  },
+  "faq_plan": [
+    {
+      "question": "How should I think about a towel feeling heavier when wet?",
+      "evidence_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_5ac381162714adb7db3c0ecc"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83"
+      ]
+    }
+  ],
+  "media_plan": [
+    {
+      "kind": "comparison_visual",
+      "purpose": "Show towel formats or drying coverage without implying unsupported performance superiority.",
+      "status": "optional_missing",
+      "alt_text_direction": "Describe the visible towel format and drying context accurately."
+    }
+  ],
+  "internal_link_plan": {
+    "coverage": "partial",
+    "links": [],
+    "unknowns": [
+      "No validated internal-link registry was available in the canonical research packet."
+    ]
+  },
+  "structured_data": {
+    "recommendation": "Defer production schema selection to rendering/handoff review; do not add FAQ schema automatically.",
+    "rationale": "Inherited SEO guidance distinguishes vocabulary from search-feature eligibility."
+  },
+  "human_review_state": "awaiting_m4b_founder_review",
+  "drafting_authorised": false,
+  "publication_authorised": false,
+  "provenance": {
+    "brief_id": "article_brief_55a162120af6e322cf1a1832",
+    "brief_sha256": "55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5",
+    "evidence_pack_id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "evidence_pack_sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c",
+    "restriction_policy_id": "article_claim_restriction_policy_72ad07aadb355db6273d85b6",
+    "restriction_policy_sha256": "72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866"
+  },
+  "plan_id": "editorial_page_plan_ff2eb20da511dbe1fe3328f0",
+  "deterministic_content_sha256": "ff2eb20da511dbe1fe3328f05da9426e15c0047b25e3a11d7695529b2264bc53"
+}

@@ -1,0 +1,53 @@
+{
+  "outcome": "ARTICLE_RECOMMENDED",
+  "article_type": "supporting_article",
+  "search_intent": "commercial_investigation",
+  "primary_query": "microfiber towel for drying car",
+  "supporting_queries": [
+    "best car drying towel",
+    "microfiber towel for car drying"
+  ],
+  "reader_problem": "Readers need practical guidance choosing a suitable car-drying towel.",
+  "proposed_angle": "A useful evidence-bounded comparison of drying criteria and towel choices.",
+  "rationale": "The opportunity combines product relevance, observed demand and article-suitable SERP evidence.",
+  "evidence_ids": [
+    "ev_ecc2c1bd4e72d712f2eda7d7",
+    "ev_2402e4bb0c1bf2a17431c9f5",
+    "ev_268a5e6d930e2f3fd8ae0648"
+  ],
+  "alternatives_considered": [],
+  "risks": [
+    "Page-level competitor coverage was not fetched."
+  ],
+  "unknowns": [
+    "Search Console coverage is optional."
+  ],
+  "confidence": "medium",
+  "objective": "create_seo_article",
+  "decision_id": "article_opportunity_b39358c60ae1fc5e17a0c77d",
+  "source_input_sha256": "c7e7bfd2ec5fd14436fc5b36ad250f0194750cc4e9e658e5b988dcb0e67c2cbd",
+  "model": "gpt-5.6-sol",
+  "metadata": {
+    "artifact_type": "article_opportunity_run_metadata",
+    "model": "gpt-5.6-sol",
+    "provider": "fixture-m3",
+    "api": "responses",
+    "reasoning": {
+      "effort": "high"
+    },
+    "usage": {
+      "input_tokens": 1200,
+      "output_tokens": 220
+    },
+    "evidence_count": 16,
+    "input_sha256": "c7e7bfd2ec5fd14436fc5b36ad250f0194750cc4e9e658e5b988dcb0e67c2cbd",
+    "validation_status": "PASS",
+    "ai_calls": 1
+  },
+  "seo_guidance_provenance": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT"
+  }
+}

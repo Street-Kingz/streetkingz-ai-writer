@@ -1,0 +1,31 @@
+{
+  "outcome": "ARTICLE_RECOMMENDED",
+  "article_type": "supporting_article",
+  "search_intent": "commercial_investigation",
+  "primary_query": "best microfibre car drying towel",
+  "supporting_queries": [],
+  "reader_problem": "x",
+  "proposed_angle": "x",
+  "rationale": "x",
+  "evidence_ids": [],
+  "alternatives_considered": [],
+  "risks": [],
+  "unknowns": [],
+  "confidence": "medium",
+  "objective": "create_seo_article",
+  "decision_id": "article_opportunity_a5e748101efe977d8c8b0bc6",
+  "source_input_sha256": "f4bd712db3c9a118fdf857d7855049dd5ea4568fc2a2fa0eaa4690d4a4991d65",
+  "model": "gpt-5.6-sol",
+  "metadata": {
+    "artifact_type": "article_opportunity_run_metadata",
+    "model": "gpt-5.6-sol",
+    "provider": "x",
+    "api": "responses",
+    "reasoning": null,
+    "usage": {},
+    "evidence_count": 16,
+    "input_sha256": "f4bd712db3c9a118fdf857d7855049dd5ea4568fc2a2fa0eaa4690d4a4991d65",
+    "validation_status": "PASS",
+    "ai_calls": 1
+  }
+}

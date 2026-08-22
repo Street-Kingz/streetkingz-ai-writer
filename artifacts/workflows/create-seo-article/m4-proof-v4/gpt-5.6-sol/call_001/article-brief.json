@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "article_brief",
+  "brief_version": "1.0.0",
+  "objective": "create_seo_article",
+  "primary_query": "microfiber towel for drying car",
+  "article_type": "supporting_article",
+  "search_intent": "commercial_investigation",
+  "working_title": "How to Choose a Microfibre Car Drying Towel",
+  "article_purpose": "Help car owners choose a suitable drying towel using clear, evidence-bounded criteria.",
+  "target_reader": "Car owners who want a practical, low-fuss way to dry their vehicle.",
+  "reader_problem": "The reader needs to understand the trade-offs behind towel choice without relying on unsupported superlatives.",
+  "reader_outcome": "The reader can compare relevant criteria and choose a suitable next step.",
+  "commercial_objective": "Support informed product consideration after the reader's problem is answered.",
+  "product_role": "Present the validated product as an optional example after the selection criteria.",
+  "supporting_queries": [
+    "best car drying towel",
+    "microfiber towel for car drying"
+  ],
+  "questions": [],
+  "sections": [
+    {
+      "heading": "What matters when choosing a car drying towel",
+      "level": "h2",
+      "purpose": "Explain the observed decision criteria before product presentation.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "component_type": "criteria_cards"
+    },
+    {
+      "heading": "Compare the main towel options",
+      "level": "h2",
+      "purpose": "Make the evidence-bounded comparison useful and easy to scan.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "component_type": "comparison_table"
+    },
+    {
+      "heading": "A practical next step",
+      "level": "h2",
+      "purpose": "Summarise the decision and offer a proportionate product next step.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "component_type": "product_recommendation"
+    }
+  ],
+  "cta": {
+    "purpose": "Invite informed product consideration",
+    "placement": "After criteria and comparison",
+    "product_id": "product_20fcada95c00204601928709",
+    "rationale": "The product follows the reader-helpful explanation."
+  },
+  "internal_link_plan": {
+    "coverage": "partial",
+    "links": [],
+    "unknowns": [
+      "No validated internal-link inventory was supplied to this proof."
+    ]
+  },
+  "faq": [],
+  "media": [
+    {
+      "kind": "demonstration_image",
+      "purpose": "Show the drying task in context.",
+      "status": "optional_missing",
+      "alt_text_direction": "Describe the demonstrated drying action accurately."
+    }
+  ],
+  "structured_data": {
+    "recommendation": "Review applicable Google-supported structured-data guidance before implementation.",
+    "rationale": "Schema vocabulary alone does not establish Google Search support."
+  },
+  "target_length": {
+    "mode": "coverage-led",
+    "rationale": "Use enough length to answer the selected criteria and observed questions without padding."
+  },
+  "unknowns": [
+    "Page-level competitor content was not fetched.",
+    "Search Console coverage may be unavailable."
+  ],
+  "evidence_ids": [
+    "ev_ecc2c1bd4e72d712f2eda7d7",
+    "ev_ed08924f3394b29222b9b9b0",
+    "ev_6da945a33cb44149b7d8ddb9",
+    "ev_23a73f980b3182e3935f21e9"
+  ],
+  "factual_inputs": {
+    "pio_id": "product_20fcada95c00204601928709",
+    "bio_id": "business_c7adba04ebb538f70d960038",
+    "eic_id": "eic_cfa60fbb72233743b57bde8c",
+    "research_state_id": "research_state_0ef3dcd58f516e7613081439",
+    "evidence_artifact_id": "evidence_59280487edd25c3ab9eff88a"
+  },
+  "strategic_decisions": {
+    "title": "How to Choose a Microfibre Car Drying Towel",
+    "purpose": "Help car owners choose a suitable drying towel using clear, evidence-bounded criteria.",
+    "sections": [
+      "What matters when choosing a car drying towel",
+      "Compare the main towel options",
+      "A practical next step"
+    ],
+    "product_role": "Present the validated product as an optional example after the selection criteria.",
+    "cta": {
+      "purpose": "Invite informed product consideration",
+      "placement": "After criteria and comparison",
+      "product_id": "product_20fcada95c00204601928709",
+      "rationale": "The product follows the reader-helpful explanation."
+    }
+  },
+  "provenance": {
+    "opportunity_decision_id": "article_opportunity_75fbdc0c54a2bea5278d31fb",
+    "opportunity_decision_sha256": "668ae44d33c1a63e5ea9eadde086d78c83df0d6bca47ae1e80b87a4d6ea2db67",
+    "seo_guidance_snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "seo_guidance_snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT",
+    "m4_input_sha256": "a225bd2188fc51e0c46d1327870ac7b7b7a0d7f30a6bbeadd97ae26af7cb2bd4"
+  },
+  "brief_id": "article_brief_0dd28a227dd14c1b1cd61296",
+  "brief_sha256": "0dd28a227dd14c1b1cd61296b799c53452412b7ee7a7433ad8b027e1e74f2d74"
+}

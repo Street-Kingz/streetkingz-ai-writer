@@ -29,7 +29,7 @@ The user chooses the objective. AI makes decisions within that objective. A disc
 
 **Current objective: CREATE SEO ARTICLE v1**
 
-**Current milestone: M4B — Evidence-Grounded Structured Article Brief + Page Plan**
+**Current milestone: M5D — Evidence-Grounded Researched Generation + Validation**
 
 **Goal:** Starting from a product URL, produce a researched, commercially worthwhile SEO article and finished draft without requiring the merchant to provide a topic, keyword, title, search intent, structure or prompt.
 
@@ -142,7 +142,11 @@ Statuses below describe actual reusable capability, not file presence.
 
 ### M4A.2A — Production WARN semantics and claim-restriction handoff
 
-**Status:** COMPLETE LOCALLY — 2026-08-16. M4A.2A formalizes `PASS` (normal progression), `WARN` (qualified progression) and `FAIL` (blocked progression). The canonical M4A.2 `WARN` result produces an immutable restriction policy at `artifacts/workflows/create-seo-article/m4a2a-proof-v3/`, policy ID `article_claim_restriction_policy_72ad07aadb355db6273d85b6`, SHA-256 `72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866`, with four evidence-derived restrictions and a `READY_FOR_M4B` qualified handoff. The founder-readable policy review is `artifacts/workflows/create-seo-article/m4a2a-proof-v3/research-confidence-claim-policy-review.md`. WARN cannot proceed without matching policy and SEO-guidance lineage; FAIL cannot proceed even with a policy; WARN cannot be upgraded to PASS without a new validated evidence pack. No research, article generation, M4B execution or M6 work is started. Next milestone: M4B — Evidence-Grounded Structured Article Brief + Page Plan (NOT STARTED).
+**Status:** COMPLETE LOCALLY — 2026-08-16. M4A.2A formalizes `PASS` (normal progression), `WARN` (qualified progression) and `FAIL` (blocked progression). The canonical M4A.2 `WARN` result produces an immutable restriction policy at `artifacts/workflows/create-seo-article/m4a2a-proof-v3/`, policy ID `article_claim_restriction_policy_72ad07aadb355db6273d85b6`, SHA-256 `72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866`, with four evidence-derived restrictions and a `READY_FOR_M4B` qualified handoff. The founder-readable policy review is `artifacts/workflows/create-seo-article/m4a2a-proof-v3/research-confidence-claim-policy-review.md`. WARN cannot proceed without matching policy and SEO-guidance lineage; FAIL cannot proceed even with a policy; WARN cannot be upgraded to PASS without a new validated evidence pack. No research, article generation or M6 work is started. M4B is now complete locally and awaiting founder review.
+
+### M4B — Evidence-Grounded Structured Article Brief + Page Plan
+
+**Status:** COMPLETE LOCALLY / READY FOR FOUNDER REVIEW — 2026-08-16. M4B consumes the immutable M3 opportunity, current SEO-guidance snapshot, canonical M4A.2 evidence pack, WARN restriction policy, Product Intelligence lineage, BIO and EIC references without additional research. The canonical proof is `artifacts/workflows/create-seo-article/m4b-proof-v5/`; founder review is `artifacts/workflows/create-seo-article/m4b-proof-v5/gpt-5.6-sol/call_001/m4b-review.md`; historical comparison is `artifacts/workflows/create-seo-article/m4b-proof-v5/old-m4-vs-m4b-comparison.json`; old-plan diagnostic is `artifacts/workflows/create-seo-article/m4b-proof-v5/old-m4-weaknesses.json`. New brief ID `article_brief_55a162120af6e322cf1a1832`, SHA-256 `55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5`; new page-plan ID `editorial_page_plan_cea873d04ab1869fdf850edf`, SHA-256 `cea873d04ab1869fdf850edfafe97d0afa97ae5fa94b29d5a18ac3a120507b86`. Technical validation and editorial-plan quality both PASS. The plan contains seven section-level evidence/restriction-bound components, qualified Product Intelligence crossover and no publication/drafting authority. One injected planning call was used with zero retries; no article was generated. M5D is not started; explicit founder approval remains required before generation.
 
 ### M5 — Controlled generation and validation
 
@@ -269,7 +273,7 @@ without ever producing the user-visible outcome.
 **External activity:** AI calls 0, external API calls 0, WordPress calls/writes 0, legacy files deleted 0.
 **Scope:** M2 URL-to-evidence integration was completed in the subsequent M2 milestone; Product Page work was untouched; legacy cleanup was not started.
 **Legacy cleanup:** not started.
-**Next milestone:** M4A — Article Research + Editorial Evidence Pack; M4A is current and research-depth review is pending.
+**Next milestone:** M5D — Researched Generation Ready; M5D is not started and requires founder approval of the M4B brief/page plan before generation.
 
 ### M2 — URL-to-Evidence Integration
 
@@ -299,4 +303,18 @@ without ever producing the user-visible outcome.
 **Files changed:** `workflows/createSeoArticlePlanning.js`, `workflows/createSeoArticleM4.js`, `scripts/proveCreateSeoArticleM4.js`, `test/create-seo-article-m4.test.js`, `artifacts/workflows/create-seo-article/m4-brief-page-plan-proof.json` and immutable M4 proof artifacts.
 **Proof:** product URL only → canonical validated M3 opportunity (`best microfibre car drying towel`) → validated article brief → validated semantic page plan → founder-readable review → `ARTICLE_GENERATION READY`; article brief generation, article generation and publishing did not execute. M4 now verifies opportunity decision ID, SHA-256, stage artifact identity and immutable primary query/type/intent lineage before planning.
 **Tests:** focused M4 8/8; full `npm test` 864/864; `git diff --check` passed.
-**Next milestone:** M4A — Article Research + Editorial Evidence Pack, research depth insufficient pending bounded page-level evidence.
+**Next milestone:** M5D — Researched Generation Ready, with M4B complete locally and generation still awaiting explicit founder approval.
+
+### M5D — Evidence-Grounded Researched Generation + Validation
+
+**Status:** COMPLETE LOCALLY — ARTICLE GENERATED / NOT APPROVED — 2026-08-16
+**Proof:** `artifacts/workflows/create-seo-article/m5d-proof-v1/` consumes only the exact M4B brief `article_brief_55a162120af6e322cf1a1832` and page plan `editorial_page_plan_cea873d04ab1869fdf850edf`; historical M4/M5 are comparison-only. One injected offline `gpt-5.6-sol` high-reasoning drafting call ran with zero retries. Semantic article `semantic_article_6c73c0160dc56a7cd1e2473a` (SHA-256 `6c73c0160dc56a7cd1e2473acec3bda2fdf8594fd7282b411bbcbb8a6a13215d`) passed deterministic lineage, claim-policy and rendering validation and received deterministic quality PASS. Publication remains unauthorized; founder review is required.
+**Comparison:** `historical-m5-vs-m5d-review.md` records a material NEW_BETTER result across query satisfaction, category knowledge, trade-offs, decision support and evidence-grounded depth, while retaining WARN-era technical qualifications.
+**Next milestone:** M6 — Human Review + Correction, NOT STARTED.
+
+### M6 — Founder Review + Evidence-Preserving Article Correction
+
+**Status:** COMPLETE LOCALLY — ARTICLE CORRECTED / AWAITING FINAL FOUNDER APPROVAL — 2026-08-17
+**Proof:** `artifacts/workflows/create-seo-article/m6-proof-v1/` preserves M5D as the parent and performs one bounded offline correction call. Corrected semantic article `semantic_article_c3c23128fd38ca0d759a969a` (SHA-256 `c3c23128fd38ca0d759a969aa021fa7398c6e3124cf42ab2588ef3299599fa36`) passed lineage, claim-policy and rendering validation. Founder feedback A was resolved; B was partially resolved within the WARN evidence boundary; C was resolved as qualification-required using Product Fact `ev_03eaf1f2b6bd5f09a0c4da51`. Founder intervention is LIGHT. Publication remains unauthorized.
+**Editorial bottleneck:** Primary `WEAK_EDITORIAL_WRITING_INSTRUCTIONS`; secondary `BRAND_VOICE_CONTEXT` and `MODEL_CAPABILITY`. Three global editorial lessons and one brand-specific lesson were preserved in `editorial-learning.json`; the saturated-weight fact remains article-specific.
+**Next milestone:** M7 — Guarded WordPress Draft Handoff, NOT STARTED.

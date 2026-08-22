@@ -1,0 +1,229 @@
+{
+  "artifact_type": "m4a1_vs_m4a2_comparison",
+  "m4a1": {
+    "id": "article_evidence_pack_3558af95ddd58c2b30b2f0a6",
+    "sha256": "3558af95ddd58c2b30b2f0a6b369566b1301be74136cbf244530ff4133374b66",
+    "subject_depth": "FAIL",
+    "pages_attempted": 5,
+    "pages_successful": 3
+  },
+  "m4a2": {
+    "id": "article_evidence_pack_7234e53081c06dd311828b6c",
+    "sha256": "7234e53081c06dd311828b6c82f044c59c5162b4da2ae7be64e721b463e4995f",
+    "subject_depth": {
+      "status": "WARN",
+      "dimensions": {
+        "choice_set": true,
+        "decision_criteria": true,
+        "trade_offs": true,
+        "customer_concerns": false,
+        "technical_depth": false,
+        "source_diversity": true,
+        "product_crossover": true,
+        "competitor_coverage": true,
+        "uncertainty_explicit": true
+      },
+      "passed": 7,
+      "required": 8,
+      "reason": "Gap-directed evidence improved coverage but one or more core subject dimensions remain insufficient."
+    },
+    "pages_attempted": 8,
+    "pages_successful": 8,
+    "gaps": [
+      {
+        "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4",
+        "type": "technical_depth",
+        "title": "Technical concepts and measurable trade-offs",
+        "importance": "high",
+        "priority": 100,
+        "originating_question_ids": [
+          "article_research_question_bdb372821bb478e5559aa0a0",
+          "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+          "article_research_question_db8f0a06097252068fcd3608",
+          "article_research_question_dffbc8ea58b62197471c1345"
+        ],
+        "current_evidence": {
+          "source_ids": [
+            "live_article_source_561657374d361fbacd0541e5",
+            "live_article_source_7dc531c77c4a3206bbd112ac",
+            "live_article_source_366edf61d84d5a7406141226",
+            "live_article_source_abba290fb5f9fb0ee057222c",
+            "live_article_source_567bc9d68c0d6d49d045ec7b"
+          ],
+          "statuses": [
+            "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+            "article_research_question_2af10aa37f339976e5c4fbb3",
+            "article_research_question_dffbc8ea58b62197471c1345",
+            "article_research_question_baa7f1989f7ba64aa1529832",
+            "article_research_question_e979e6f25f809fab727b8347",
+            "article_research_question_c5e680311f0e189d9872a527",
+            "article_research_question_f9bcada41eee1e5b2f83cfe2"
+          ]
+        },
+        "why_insufficient": "Current pages name criteria but do not explain the technical meaning or consequences sufficiently.",
+        "desired_evidence_type": "INDEPENDENT_EXPERT",
+        "preferred_source_classes": [
+          "INDEPENDENT_EXPERT",
+          "MANUFACTURER_BRAND"
+        ],
+        "stop_condition": "At least two independently sourced technical explanations with explicit limitations",
+        "status": "RESOLVED",
+        "evidence_refs": [
+          "live_article_source_509796f587de1d19e74f879f",
+          "live_article_source_0dc358a27ebc1845069440e1",
+          "live_article_source_a5614621efe7a6976c8c5518"
+        ],
+        "resolution": "Targeted sources supplied multiple bounded observations."
+      },
+      {
+        "gap_id": "article_research_gap_609de5685326d004e700a611",
+        "type": "construction_tradeoffs",
+        "title": "Construction and format differences",
+        "importance": "high",
+        "priority": 95,
+        "originating_question_ids": [
+          "article_research_question_bdb372821bb478e5559aa0a0",
+          "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+          "article_research_question_db8f0a06097252068fcd3608"
+        ],
+        "current_evidence": {
+          "source_ids": [
+            "live_article_source_561657374d361fbacd0541e5",
+            "live_article_source_7dc531c77c4a3206bbd112ac",
+            "live_article_source_366edf61d84d5a7406141226",
+            "live_article_source_abba290fb5f9fb0ee057222c",
+            "live_article_source_567bc9d68c0d6d49d045ec7b"
+          ],
+          "statuses": [
+            "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+            "article_research_question_2af10aa37f339976e5c4fbb3",
+            "article_research_question_dffbc8ea58b62197471c1345",
+            "article_research_question_baa7f1989f7ba64aa1529832",
+            "article_research_question_e979e6f25f809fab727b8347",
+            "article_research_question_c5e680311f0e189d9872a527",
+            "article_research_question_f9bcada41eee1e5b2f83cfe2"
+          ]
+        },
+        "why_insufficient": "Construction names are present, but their practical differences are not adequately evidenced.",
+        "desired_evidence_type": "MANUFACTURER_BRAND",
+        "preferred_source_classes": [
+          "MANUFACTURER_BRAND",
+          "INDEPENDENT_EXPERT"
+        ],
+        "stop_condition": "At least three construction/format observations and one qualified contrast",
+        "status": "RESOLVED",
+        "evidence_refs": [
+          "live_article_source_16e6b543de1f04ce46096547",
+          "live_article_source_38b7bfb07b1649ca0710d904"
+        ],
+        "resolution": "Targeted sources supplied multiple bounded observations."
+      },
+      {
+        "gap_id": "article_research_gap_c4a9d1de1cd86182bcb9c3d8",
+        "type": "customer_evidence",
+        "title": "Customer and practitioner concerns",
+        "importance": "high",
+        "priority": 90,
+        "originating_question_ids": [
+          "article_research_question_2af10aa37f339976e5c4fbb3",
+          "article_research_question_e979e6f25f809fab727b8347",
+          "article_research_question_c5e680311f0e189d9872a527",
+          "article_research_question_f9bcada41eee1e5b2f83cfe2",
+          "article_research_question_e89dbb42bf82992d3052593d"
+        ],
+        "current_evidence": {
+          "source_ids": [
+            "live_article_source_561657374d361fbacd0541e5",
+            "live_article_source_7dc531c77c4a3206bbd112ac",
+            "live_article_source_366edf61d84d5a7406141226",
+            "live_article_source_abba290fb5f9fb0ee057222c",
+            "live_article_source_567bc9d68c0d6d49d045ec7b"
+          ],
+          "statuses": [
+            "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+            "article_research_question_2af10aa37f339976e5c4fbb3",
+            "article_research_question_dffbc8ea58b62197471c1345",
+            "article_research_question_baa7f1989f7ba64aa1529832",
+            "article_research_question_e979e6f25f809fab727b8347",
+            "article_research_question_c5e680311f0e189d9872a527",
+            "article_research_question_f9bcada41eee1e5b2f83cfe2"
+          ]
+        },
+        "why_insufficient": "The initial community extraction did not establish recurring concerns or practitioner practice.",
+        "desired_evidence_type": "COMMUNITY_CUSTOMER",
+        "preferred_source_classes": [
+          "COMMUNITY_CUSTOMER"
+        ],
+        "stop_condition": "At least two distinct recurring concerns or practices from bounded community evidence",
+        "status": "RESOLVED",
+        "evidence_refs": [
+          "live_article_source_55f00af76b36b1784abf222f",
+          "live_article_source_3312c49760d192d882b46e66"
+        ],
+        "resolution": "Targeted sources supplied multiple bounded observations."
+      },
+      {
+        "gap_id": "article_research_gap_5af4a09405771c0ec4fbab8d",
+        "type": "professional_practice",
+        "title": "Professional and practical use patterns",
+        "importance": "medium",
+        "priority": 70,
+        "originating_question_ids": [
+          "article_research_question_2af10aa37f339976e5c4fbb3",
+          "article_research_question_e979e6f25f809fab727b8347",
+          "article_research_question_c5e680311f0e189d9872a527",
+          "article_research_question_f9bcada41eee1e5b2f83cfe2",
+          "article_research_question_e89dbb42bf82992d3052593d"
+        ],
+        "current_evidence": {
+          "source_ids": [
+            "live_article_source_561657374d361fbacd0541e5",
+            "live_article_source_7dc531c77c4a3206bbd112ac",
+            "live_article_source_366edf61d84d5a7406141226",
+            "live_article_source_abba290fb5f9fb0ee057222c",
+            "live_article_source_567bc9d68c0d6d49d045ec7b"
+          ],
+          "statuses": [
+            "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+            "article_research_question_2af10aa37f339976e5c4fbb3",
+            "article_research_question_dffbc8ea58b62197471c1345",
+            "article_research_question_baa7f1989f7ba64aa1529832",
+            "article_research_question_e979e6f25f809fab727b8347",
+            "article_research_question_c5e680311f0e189d9872a527",
+            "article_research_question_f9bcada41eee1e5b2f83cfe2"
+          ]
+        },
+        "why_insufficient": "Professional/user practice questions remain only partially answered.",
+        "desired_evidence_type": "INDEPENDENT_EXPERT",
+        "preferred_source_classes": [
+          "INDEPENDENT_EXPERT",
+          "COMMUNITY_CUSTOMER"
+        ],
+        "stop_condition": "At least one practitioner source plus one bounded user source, or explicit unknown",
+        "status": "RESOLVED",
+        "evidence_refs": [
+          "live_article_source_6381699e99a585d10899da80"
+        ],
+        "resolution": "Targeted sources supplied multiple bounded observations."
+      }
+    ]
+  },
+  "budget": {
+    "wave_1": {
+      "pages_attempted": 5,
+      "pages_successful": 3
+    },
+    "wave_2": {
+      "pages_attempted": 8,
+      "pages_successful": 8,
+      "page_budget": 8
+    },
+    "total_page_budget": 18,
+    "total_pages_attempted": 13
+  },
+  "calls": {
+    "dataforseo": 0,
+    "targeted_search": 1,
+    "html_fetches": 8
+  }
+}

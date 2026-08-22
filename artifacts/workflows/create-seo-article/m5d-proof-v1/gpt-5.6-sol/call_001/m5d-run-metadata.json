@@ -1,0 +1,15 @@
+{
+  "artifact_type": "m5d_generation_metadata",
+  "model": "gpt-5.6-sol",
+  "provider": "fixture-m5d",
+  "reasoning": "high",
+  "calls": 1,
+  "retries": 0,
+  "input_tokens": 5200,
+  "output_tokens": 1700,
+  "semantic_article_id": "semantic_article_6c73c0160dc56a7cd1e2473a",
+  "semantic_article_sha256": "6c73c0160dc56a7cd1e2473acec3bda2fdf8594fd7282b411bbcbb8a6a13215d",
+  "publication_authorized": false,
+  "wordpress_calls": 0,
+  "status": "PASS"
+}

@@ -1,0 +1,5 @@
+{
+  "response_id": null,
+  "raw_text": "{\"outcome\":\"ARTICLE_RECOMMENDED\",\"article_type\":\"supporting_article\",\"search_intent\":\"commercial_investigation\",\"primary_query\":\"best microfibre car drying towel\",\"supporting_queries\":[],\"reader_problem\":\"x\",\"proposed_angle\":\"x\",\"rationale\":\"x\",\"evidence_ids\":[],\"alternatives_considered\":[],\"risks\":[],\"unknowns\":[],\"confidence\":\"medium\"}",
+  "usage": null
+}

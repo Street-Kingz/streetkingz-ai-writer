@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "editorial_page_plan",
+  "plan_version": "m4.0.0",
+  "page_type": "evergreen_guide",
+  "topic": "microfiber towel for drying car",
+  "primary_query": "microfiber towel for drying car",
+  "search_intent": {
+    "primary": "commercial_investigation",
+    "secondary": null
+  },
+  "title_direction": "How to Choose a Microfibre Car Drying Towel",
+  "h1_direction": "How to Choose a Microfibre Car Drying Towel",
+  "introduction_objective": "Help car owners choose a suitable drying towel using clear, evidence-bounded criteria.",
+  "packet_id": "evidence_59280487edd25c3ab9eff88a",
+  "strategy_id": "article_opportunity_75fbdc0c54a2bea5278d31fb",
+  "brief_id": "article_brief_0dd28a227dd14c1b1cd61296",
+  "brief_sha256": "0dd28a227dd14c1b1cd61296b799c53452412b7ee7a7433ad8b027e1e74f2d74",
+  "cta_strategy": {
+    "purpose": "Invite informed product consideration",
+    "placement": "After criteria and comparison",
+    "product_id": "product_20fcada95c00204601928709",
+    "rationale": "The product follows the reader-helpful explanation."
+  },
+  "media_plan": [
+    {
+      "kind": "demonstration_image",
+      "purpose": "Show the drying task in context.",
+      "status": "optional_missing",
+      "alt_text_direction": "Describe the demonstrated drying action accurately."
+    }
+  ],
+  "internal_link_plan": {
+    "coverage": "partial",
+    "links": [],
+    "unknowns": [
+      "No validated internal-link inventory was supplied to this proof."
+    ]
+  },
+  "components": [
+    {
+      "component_id": "01_8618b695",
+      "component_type": "criteria_cards",
+      "purpose": "Explain the observed decision criteria before product presentation.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "What matters when choosing a car drying towel"
+      ]
+    },
+    {
+      "component_id": "02_59929740",
+      "component_type": "comparison_table",
+      "purpose": "Make the evidence-bounded comparison useful and easy to scan.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "education",
+      "required_content": [
+        "Compare the main towel options"
+      ]
+    },
+    {
+      "component_id": "03_a86e9c83",
+      "component_type": "product_recommendation",
+      "purpose": "Summarise the decision and offer a proportionate product next step.",
+      "evidence_ids": [
+        "ev_ecc2c1bd4e72d712f2eda7d7",
+        "ev_ed08924f3394b29222b9b9b0",
+        "ev_6da945a33cb44149b7d8ddb9",
+        "ev_23a73f980b3182e3935f21e9"
+      ],
+      "product_ids": [
+        "product_20fcada95c00204601928709"
+      ],
+      "internal_link_ids": [],
+      "media_requirements": [],
+      "conversion_role": "product_discovery",
+      "required_content": [
+        "A practical next step"
+      ]
+    }
+  ],
+  "component_sequence": [
+    "01_8618b695",
+    "02_59929740",
+    "03_a86e9c83"
+  ],
+  "component_requirements": {
+    "policy_id": "create_seo_article_m4_v1",
+    "required_component_types": [
+      "criteria_cards"
+    ],
+    "ordering_rules": []
+  },
+  "allowed_component_types": [
+    "hero",
+    "quick_answer",
+    "rich_text_section",
+    "key_takeaway",
+    "comparison_table",
+    "criteria_cards",
+    "image_text",
+    "product_recommendation",
+    "product_comparison",
+    "pros_tradeoffs",
+    "founder_note",
+    "faq",
+    "related_guides",
+    "conclusion",
+    "call_to_action"
+  ],
+  "human_review_state": "awaiting_page_plan_approval",
+  "drafting_authorised": false,
+  "publication_authorised": false,
+  "provenance": {
+    "opportunity_decision_id": "article_opportunity_75fbdc0c54a2bea5278d31fb",
+    "opportunity_decision_sha256": "668ae44d33c1a63e5ea9eadde086d78c83df0d6bca47ae1e80b87a4d6ea2db67",
+    "seo_guidance_snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "seo_guidance_snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT",
+    "m4_input_sha256": "a225bd2188fc51e0c46d1327870ac7b7b7a0d7f30a6bbeadd97ae26af7cb2bd4"
+  },
+  "plan_id": "editorial_page_plan_665de3736514b59baa20f80b",
+  "deterministic_content_sha256": "665de3736514b59baa20f80bf7f512265e10872ec854ed206b31243e11a33d92"
+}

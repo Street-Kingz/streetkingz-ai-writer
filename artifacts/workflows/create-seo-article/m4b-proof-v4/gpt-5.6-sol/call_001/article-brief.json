@@ -1,0 +1,418 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "evidence_grounded_article_brief",
+  "brief_version": "1.0.0",
+  "objective": "create_seo_article",
+  "opportunity_lineage": {
+    "id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "sha256": "36bd8a8d8510fb32e3fd8734323df96b86529a64a7be855873bfa62ebd51b4db",
+    "primary_query": "best microfibre car drying towel",
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation"
+  },
+  "evidence_pack_lineage": {
+    "id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c",
+    "subject_depth": {
+      "status": "WARN",
+      "dimensions": {
+        "choice_set": true,
+        "decision_criteria": true,
+        "trade_offs": true,
+        "customer_concerns": true,
+        "technical_depth": false,
+        "source_diversity": true,
+        "product_crossover": true,
+        "competitor_coverage": true,
+        "uncertainty_explicit": true
+      },
+      "passed": 7,
+      "required": 8,
+      "reason": "Gap-directed evidence improved coverage but one or more core subject dimensions remain insufficient."
+    }
+  },
+  "restriction_policy_lineage": {
+    "id": "article_claim_restriction_policy_72ad07aadb355db6273d85b6",
+    "sha256": "72ad07aadb355db6273d85b68fdbfd3a2ce97e5d4c7e5ebac6fa1d4ce9ff5866",
+    "restriction_ids": [
+      "article_claim_restriction_6039518be1d75be67972ff83",
+      "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+      "article_claim_restriction_83ebebee3c421d84802220fb",
+      "article_claim_restriction_f647b861f111ae59dd74f372"
+    ]
+  },
+  "seo_guidance_lineage": {
+    "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+    "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+    "source_manifest_version": "1.0.0",
+    "freshness_status": "CURRENT"
+  },
+  "product_intelligence_lineage": {
+    "product_id": "product_20fcada95c00204601928709",
+    "fact_evidence_ids": [
+      "ev_0070937601532c2a501db22b",
+      "ev_03eaf1f2b6bd5f09a0c4da51",
+      "ev_0c7c1182cd5a1dace3ee51ca",
+      "ev_0c92d49374a7d66714028fbc",
+      "ev_118c38dfbf7820614c40a985",
+      "ev_11b63816ad955ca330a8ece7",
+      "ev_14fe44650b1384b36bebb4e2",
+      "ev_156e61dd68f7233c191afb30",
+      "ev_1f19b6123547f898e270cfd7",
+      "ev_2a11cf44ec88f39019337bab",
+      "ev_2bc48197465b65346af179ed",
+      "ev_32a92e55f005a53ac7bdf55f",
+      "ev_33f10080286279cf93006b05",
+      "ev_35800b8db2b3b4d929fc7b4b",
+      "ev_367c867c2f1568b2e9f79903",
+      "ev_3a54e781a2603ee4bb883414",
+      "ev_3bb78e5c67db6cd015977f6b",
+      "ev_40936f5cfc99132392553647",
+      "ev_46f4fdd27000093c56fda5bb",
+      "ev_4d9b21d63307c78e3bf26b2b",
+      "ev_549b5d29c9922c68d39651fd",
+      "ev_5ac381162714adb7db3c0ecc",
+      "ev_5c06c311f77674f9e23f5909",
+      "ev_6480ef536c6606f8e8a06cf2"
+    ]
+  },
+  "business_intelligence_lineage": {
+    "business_id": "business_c7adba04ebb538f70d960038"
+  },
+  "editorial_intelligence_lineage": {
+    "context_id": "eic_c24154928e8e5b17e8c47056",
+    "business_id": "business_c7adba04ebb538f70d960038",
+    "product_object_id": "pio_85791f2e3a45fa3f36a4a632",
+    "validation_status": "validated"
+  },
+  "working_title": "How to Choose the Best Microfibre Car Drying Towel for Your Vehicle",
+  "thesis": "The useful answer to a best-towel search is a decision framework: compare the towel formats and handling trade-offs that matter for your vehicle, then judge any product against those needs rather than treating one specification as a universal winner.",
+  "reader_decision": "Which towel format, size and handling profile best fits my vehicle, drying routine and tolerance for a heavier wet towel?",
+  "article_type": "supporting_article",
+  "search_intent": "commercial_investigation",
+  "primary_query": "best microfibre car drying towel",
+  "supporting_queries": [
+    "microfiber towel for drying car",
+    "best car drying towel",
+    "microfiber towel for car drying"
+  ],
+  "audience": "Car owners comparing practical drying-towel options after washing a car, SUV or van.",
+  "decision_framework": [
+    "Start with vehicle coverage and handling needs.",
+    "Compare construction and format as market options, not automatic winners.",
+    "Treat GSM and performance relationships as qualified rather than universal.",
+    "Use validated product facts as a concrete fit example after the decision criteria."
+  ],
+  "key_coverage": [
+    {
+      "component_id": "m4b_quick_answer",
+      "heading": "The short answer: match the towel to the job",
+      "purpose": "Answer the commercial question quickly and frame best as criteria-dependent.",
+      "reader_question": "What should I compare before buying?",
+      "evidence_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22",
+        "article_source_27696964d50d591b5309a723"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_03eaf1f2b6bd5f09a0c4da51"
+      ]
+    },
+    {
+      "component_id": "m4b_criteria",
+      "heading": "The buying criteria that change the decision",
+      "purpose": "Turn researched criteria into practical buyer consequences.",
+      "reader_question": "Which characteristics will I notice during drying?",
+      "evidence_ids": [
+        "article_source_27696964d50d591b5309a723",
+        "article_source_63f18e8f9816a42b369f7eff",
+        "article_source_c46d0d7a2ece105aa2da0b0d",
+        "article_source_b006716aa3bbc5ca2cfe167e",
+        "article_source_8f56f085e169e28f6db59f6e",
+        "article_source_2c33260ffa4e0f7f828aa977"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_d21e4dbbe44af1c075943c7e"
+      ],
+      "product_fact_ids": [
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2bc48197465b65346af179ed",
+        "ev_5ac381162714adb7db3c0ecc"
+      ]
+    },
+    {
+      "component_id": "m4b_comparison",
+      "heading": "Compare the main towel approaches",
+      "purpose": "Expose category-level options and qualified trade-offs without naming unsupported winners.",
+      "reader_question": "How do the formats differ, and who might each suit?",
+      "evidence_ids": [
+        "article_source_8f56f085e169e28f6db59f6e",
+        "article_source_2c33260ffa4e0f7f828aa977",
+        "article_source_e76ec336d4fbedafcde5d347",
+        "article_source_202b13a8c1d02d43176ef45b",
+        "article_source_59001372290ce6a5d776257e",
+        "article_source_bf7deab997e3c67d76d2d53f",
+        "article_source_754b73f99e4caa43a7504bfb"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2bc48197465b65346af179ed",
+        "ev_5ac381162714adb7db3c0ecc"
+      ]
+    },
+    {
+      "component_id": "m4b_use_cases",
+      "heading": "Choose for your vehicle and drying routine",
+      "purpose": "Connect researched buyer concerns and use cases to a practical choice.",
+      "reader_question": "What suits a car, SUV or larger vehicle?",
+      "evidence_ids": [
+        "article_source_6370f324f476d70b0ba4b12f",
+        "article_source_354e8b91ccd95d720fe475ed",
+        "article_source_43cdcde948da2d5f5d63ea81",
+        "article_source_ad4d9e637153081d689699c5",
+        "article_source_8dcbf1d41b9e3bb0cf91b83a",
+        "article_source_fd661f5bd30423b331ce1163"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_83ebebee3c421d84802220fb",
+        "article_claim_restriction_6039518be1d75be67972ff83"
+      ],
+      "product_fact_ids": [
+        "ev_118c38dfbf7820614c40a985",
+        "ev_11b63816ad955ca330a8ece7",
+        "ev_5c06c311f77674f9e23f5909"
+      ]
+    },
+    {
+      "component_id": "m4b_customer_questions",
+      "heading": "Questions buyers commonly ask",
+      "purpose": "Answer genuine product/category questions selected from research and Product Intelligence.",
+      "reader_question": "Will a towel feel heavy, and how should I think about care and coverage?",
+      "evidence_ids": [
+        "article_source_fd661f5bd30423b331ce1163",
+        "article_source_dd19e77e7380280c75684ecf",
+        "article_source_ab41b9e5833931648f0e0c77",
+        "article_source_e4f37d1e28d3a88625788dbc",
+        "article_source_c48108b8ccfc8b59a39b0ea2"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_83ebebee3c421d84802220fb"
+      ],
+      "product_fact_ids": [
+        "ev_0c92d49374a7d66714028fbc",
+        "ev_156e61dd68f7233c191afb30",
+        "ev_3a54e781a2603ee4bb883414",
+        "ev_3bb78e5c67db6cd015977f6b"
+      ]
+    },
+    {
+      "component_id": "m4b_product_fit",
+      "heading": "Where the Heavy Duty Drying Towel may fit",
+      "purpose": "Use validated product facts as a concrete example after the reader has the decision framework.",
+      "reader_question": "Would this validated product profile suit my priorities?",
+      "evidence_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22",
+        "article_source_27696964d50d591b5309a723"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_6039518be1d75be67972ff83",
+        "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0070937601532c2a501db22b",
+        "ev_03eaf1f2b6bd5f09a0c4da51",
+        "ev_0c7c1182cd5a1dace3ee51ca",
+        "ev_2bc48197465b65346af179ed",
+        "ev_5ac381162714adb7db3c0ecc",
+        "ev_5c06c311f77674f9e23f5909"
+      ]
+    },
+    {
+      "component_id": "m4b_conclusion",
+      "heading": "Make the choice against your own priorities",
+      "purpose": "Close with a useful decision summary and proportionate next step.",
+      "reader_question": "What should I do next?",
+      "evidence_ids": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_0cfb971cbdf329d23dc25150",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "article_source_10b0b1ea4e77650e122d2e22"
+      ],
+      "restriction_ids": [
+        "article_claim_restriction_f647b861f111ae59dd74f372"
+      ],
+      "product_fact_ids": [
+        "ev_0070937601532c2a501db22b"
+      ]
+    }
+  ],
+  "explicit_exclusions": [
+    "No competitor superiority claims",
+    "No universal GSM or construction-performance claim",
+    "No new keyword research",
+    "No arbitrary internal URLs",
+    "No article prose in the plan"
+  ],
+  "claim_boundaries": {
+    "safe": [
+      "observed category terminology",
+      "validated first-party product specifications",
+      "bounded buyer questions"
+    ],
+    "qualify": [
+      "GSM, absorbency and construction-performance relationships",
+      "coverage and wet-handling consequences"
+    ],
+    "attribute": [
+      "manufacturer descriptions",
+      "community/practitioner experience"
+    ],
+    "avoid": [
+      "universal best, superiority or guaranteed performance"
+    ]
+  },
+  "product_role": "Use the Heavy Duty Drying Towel as a qualified concrete example after category guidance, connecting validated dimensions, construction, intended uses and wet-handling limitation to reader priorities without forced repetition.",
+  "coverage_depth": {
+    "mode": "STANDARD",
+    "rationale": "The plan must explain the researched decision dimensions and trade-offs fully enough to support commercial investigation, then stop when coverage is complete."
+  },
+  "old_m4_weaknesses": [
+    "Only three generic components",
+    "No research-question coverage",
+    "Checklist-style comparison rather than evidenced trade-offs",
+    "No machine-readable claim restrictions",
+    "Generic product placement",
+    "No customer-concern treatment",
+    "No Product Intelligence crossover at section level"
+  ],
+  "unknowns": [
+    "Community questions indicate concerns but do not establish technical truth.",
+    "Two selected pages exceeded the response bound and were not retried; community extraction remained limited."
+  ],
+  "evidence_question_coverage": [
+    {
+      "question_id": "article_research_question_bdb372821bb478e5559aa0a0",
+      "status": "PARTIALLY_ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_a5614621efe7a6976c8c5518",
+        "live_article_source_16e6b543de1f04ce46096547",
+        "live_article_source_38b7bfb07b1649ca0710d904"
+      ]
+    },
+    {
+      "question_id": "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+      "status": "PARTIALLY_ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_a5614621efe7a6976c8c5518",
+        "live_article_source_16e6b543de1f04ce46096547",
+        "live_article_source_38b7bfb07b1649ca0710d904"
+      ]
+    },
+    {
+      "question_id": "article_research_question_2af10aa37f339976e5c4fbb3",
+      "status": "ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_3312c49760d192d882b46e66",
+        "live_article_source_6381699e99a585d10899da80"
+      ]
+    },
+    {
+      "question_id": "article_research_question_db8f0a06097252068fcd3608",
+      "status": "PARTIALLY_ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_a5614621efe7a6976c8c5518",
+        "live_article_source_16e6b543de1f04ce46096547",
+        "live_article_source_38b7bfb07b1649ca0710d904"
+      ]
+    },
+    {
+      "question_id": "article_research_question_dffbc8ea58b62197471c1345",
+      "status": "PARTIALLY_ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_a5614621efe7a6976c8c5518"
+      ]
+    },
+    {
+      "question_id": "article_research_question_baa7f1989f7ba64aa1529832",
+      "status": "PARTIALLY_ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226"
+      ]
+    },
+    {
+      "question_id": "article_research_question_e979e6f25f809fab727b8347",
+      "status": "ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_3312c49760d192d882b46e66",
+        "live_article_source_6381699e99a585d10899da80"
+      ]
+    },
+    {
+      "question_id": "article_research_question_c5e680311f0e189d9872a527",
+      "status": "ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_3312c49760d192d882b46e66",
+        "live_article_source_6381699e99a585d10899da80"
+      ]
+    },
+    {
+      "question_id": "article_research_question_f9bcada41eee1e5b2f83cfe2",
+      "status": "ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_3312c49760d192d882b46e66",
+        "live_article_source_6381699e99a585d10899da80"
+      ]
+    },
+    {
+      "question_id": "article_research_question_e89dbb42bf82992d3052593d",
+      "status": "ANSWERED",
+      "evidence_source_ids": [
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_3312c49760d192d882b46e66",
+        "live_article_source_6381699e99a585d10899da80"
+      ]
+    }
+  ],
+  "commercial_objective": "Move the reader from uncertainty to an evidence-bounded product consideration without claiming universal superiority.",
+  "brief_id": "article_brief_55a162120af6e322cf1a1832",
+  "brief_sha256": "55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5"
+}

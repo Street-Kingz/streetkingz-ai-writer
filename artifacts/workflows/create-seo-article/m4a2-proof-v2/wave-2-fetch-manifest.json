@@ -1,0 +1,349 @@
+{
+  "page_budget": 8,
+  "pages": [
+    {
+      "source_id": "live_article_source_509796f587de1d19e74f879f",
+      "requested_url": "https://microfibertech.com/pages/what-is-gsm",
+      "final_url": "https://microfibertech.com/pages/what-is-gsm",
+      "source_class": "MANUFACTURER_BRAND",
+      "discovery_reason": "Targeted gap-directed query for technical_depth.",
+      "research_question_ids": [
+        "article_research_question_bdb372821bb478e5559aa0a0",
+        "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+        "article_research_question_db8f0a06097252068fcd3608",
+        "article_research_question_dffbc8ea58b62197471c1345"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:32.185Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "655bc90a98dae429266dbc89cddda68e40435a756b725239d7afacc7d09936a7",
+      "title": "What does GSM mean? | GSM Stands For | GSM Meaning",
+      "meta_description": "Wondering what GSM measures and how it impacts your towel&#39;s cleaning ability? Read here to find out what GSM stands for and how you can calculate it.",
+      "h1": [
+        "What is GSM?"
+      ],
+      "h2": [
+        "Newsletter",
+        "Login to my account",
+        "Recover password",
+        "Newsletter"
+      ],
+      "h3": [],
+      "content_hash": "fa0493c8de377aa8b84afb4d71d9320e96bbe77dcc087122740b4c93b7ce09d6",
+      "normalized_hash": "f488e5abada58b37d839c4927589d3eb7f60991e21eed6289aed5c1b6c53adaa",
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4"
+    },
+    {
+      "source_id": "live_article_source_0dc358a27ebc1845069440e1",
+      "requested_url": "https://www.aosehometex.com/are-higher-gsm-microfiber-towels-always-better/",
+      "final_url": "https://www.aosehometex.com/are-higher-gsm-microfiber-towels-always-better/",
+      "source_class": "MANUFACTURER_BRAND",
+      "discovery_reason": "Targeted gap-directed query for technical_depth.",
+      "research_question_ids": [
+        "article_research_question_bdb372821bb478e5559aa0a0",
+        "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+        "article_research_question_db8f0a06097252068fcd3608",
+        "article_research_question_dffbc8ea58b62197471c1345"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:32.680Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "e9b019bd439fcdf6c22aa90acbe52b531eb0b338a0d0d0346e0d1b7a8738381e",
+      "title": "Are higher GSM microfiber towels always better? - AOSE CLEAN - Microfiber Cloth Manufacturer",
+      "meta_description": "The Complete Guide to Microfiber Towel GSM: Why Higher Isn&#039;t Always Better  🔍 Quick GSM Guide: Choose the Right Microfiber",
+      "h1": [
+        "Are higher GSM microfiber towels always better?",
+        "Are higher GSM microfiber towels always better?"
+      ],
+      "h2": [
+        "The Complete Guide to Microfiber Towel GSM: Why Higher Isn&#8217;t Always Better",
+        "What Does GSM Mean in Microfiber Towels?",
+        "The Complete Microfiber Towel GSM Breakdown",
+        "Why Higher GSM Isn&#8217;t Always Better",
+        "Choosing the Right Microfiber Towel GSM for Your Needs",
+        "Microfiber Towel Care Tips for All GSM Ranges",
+        "Frequently Asked Questions About Microfiber Towel GSM",
+        "Making Smart Microfiber Towel GSM Choices"
+      ],
+      "h3": [
+        "🔍 Quick GSM Guide: Choose the Right Microfiber Towel",
+        "How Microfiber Towel GSM Affects Cleaning Performance",
+        "Low GSM Microfiber Towels (200-350 GSM)",
+        "Medium GSM Microfiber Towels (350-500 GSM)",
+        "High GSM Microfiber Towels (500-900 GSM)",
+        "The Problems with Using Wrong GSM",
+        "Car Detailing GSM Guide",
+        "Home Cleaning GSM Recommendations",
+        "What GSM is best for glass cleaning?",
+        "Should I buy the highest GSM towel available?",
+        "How long do different GSM microfiber towels last?",
+        "💡 Smart Shopping Tips:",
+        "Some Related Articles",
+        "Creditable Manufacturer Of Microfiber Cloth",
+        "Quick Links",
+        "Products",
+        "Contact Us"
+      ],
+      "content_hash": "6a0a37e6a0400aa839a7937ce3925d4f8e9f4176d0ff9a36591ada1928d47aee",
+      "normalized_hash": "1c829bb71973c69b043f9d1ce0e9b62a766d4779c61414f889296f53b27c0ac2",
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4"
+    },
+    {
+      "source_id": "live_article_source_16e6b543de1f04ce46096547",
+      "requested_url": "https://www.feynlab.com/product/feynlab-twisted-logic-korean-microfiber-drying-towel-v2/",
+      "final_url": "https://www.feynlab.com/product/feynlab-twisted-logic-korean-microfiber-drying-towel-v2/",
+      "source_class": "MANUFACTURER_BRAND",
+      "discovery_reason": "Targeted gap-directed query for construction_tradeoffs.",
+      "research_question_ids": [
+        "article_research_question_bdb372821bb478e5559aa0a0",
+        "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+        "article_research_question_db8f0a06097252068fcd3608"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:33.758Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "22bad0b64500fe2d550f3a94fa55859f0cdcf05a3711c8f49ab760d4656e8296",
+      "title": "Twisted Loop Drying Towel – Double-Sided Korean | FEYNLAB®",
+      "meta_description": "Double-sided twisted loop microfiber towel absorbs more water per pass. Korean microfiber drying towel delivers streak-free results. Shop now.",
+      "h1": [
+        "Shop Details",
+        "Feynlab® Twisted Logic Korean Microfiber Drying Towel V2"
+      ],
+      "h2": [
+        "Description",
+        "Additional information",
+        "Reviews",
+        "Related products"
+      ],
+      "h3": [
+        "Frequently Asked Questions",
+        "Q1. What is a twisted loop drying towel?",
+        "Q2. How does a twist loop drying towel compare to regular microfiber?",
+        "Q3. What surfaces can loopy towels be used on?",
+        "Q4. How long does a towel loop construction last?",
+        "Q5. Are korean microfiber towels safe for paint?",
+        "Q6. What finish does an autofiber drying towel provide?",
+        "Q7. Where should I use a twisty towel on my car?",
+        "Q8. How do I maintain a twisted towel?",
+        "Contact Us",
+        "E-SHOP",
+        "SOLUTIONS",
+        "POLICIES",
+        "PROGRAMS",
+        "ESSENTIALS LINKS",
+        "QUICK LINKS",
+        "CALL / TEXT",
+        "Cookie Preferences"
+      ],
+      "content_hash": "b70840fa94f56c24bb1bd425797f176b57478954a6f5db04ffa5301abcbeb526",
+      "normalized_hash": "6e1282e4133f711b04a0a18b4b5b16d5640b7e8b70937c89b90769609e9ccac6",
+      "gap_id": "article_research_gap_609de5685326d004e700a611"
+    },
+    {
+      "source_id": "live_article_source_38b7bfb07b1649ca0710d904",
+      "requested_url": "https://www.lumacotextile.com/blog/articles/rag-company-drying-towel-benchmark-oem.html",
+      "final_url": "https://www.lumacotextile.com/blog/articles/rag-company-drying-towel-benchmark-oem.html",
+      "source_class": "MANUFACTURER_BRAND",
+      "discovery_reason": "Targeted gap-directed query for construction_tradeoffs.",
+      "research_question_ids": [
+        "article_research_question_bdb372821bb478e5559aa0a0",
+        "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+        "article_research_question_db8f0a06097252068fcd3608"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:34.554Z",
+      "http_status": 200,
+      "content_type": "text/html",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "982f6214f38bf251bfe601f082cd528491ea313c229f06cb00d7a4e3a53757ff",
+      "title": "Benchmarking The Rag Company Drying Towel | LUMA & CO.",
+      "meta_description": "A mill-side benchmark of the rag company drying towel for car wash brands sourcing OEM microfiber drying towels at scale.",
+      "h1": [
+        "Benchmarking The Rag Company Drying Towel"
+      ],
+      "h2": [
+        "Why The Rag Company Drying Towel Gets Used As A Benchmark",
+        "The OEM Spec Behind The Rag Company Drying Towel Alternatives",
+        "GSM, Size, And Weight: Where Cost Really Moves",
+        "Twisted Loop, Plush, Or Waffle: Choosing The Surface",
+        "Edge Finish, Label, And Color Are Not Small Details",
+        "Pricing Bands For Private-Label Drying Towels",
+        "Compliance, Testing, And Factory Controls",
+        "Sampling And Production Timeline",
+        "How We Build A Better Brief From A Retail Benchmark"
+      ],
+      "h3": [
+        "Build An OEM Drying Towel Spec",
+        "Continue reading"
+      ],
+      "content_hash": "be54c688852a907276f5ed53bc1c8a5572f32bb584107c856e76b9223320f400",
+      "normalized_hash": "1932df1a654ffdb832d961c0bc8b3d8c1531404a05c946e9ebd1a959815d8706",
+      "gap_id": "article_research_gap_609de5685326d004e700a611"
+    },
+    {
+      "source_id": "live_article_source_a5614621efe7a6976c8c5518",
+      "requested_url": "https://paragonmicrofibre.com/collections/microfibre-towels",
+      "final_url": "https://paragonmicrofibre.com/collections/microfibre-towels",
+      "source_class": "MANUFACTURER_BRAND",
+      "discovery_reason": "Targeted gap-directed query for market_taxonomy.",
+      "research_question_ids": [
+        "article_research_question_bdb372821bb478e5559aa0a0",
+        "article_research_question_9c6b68d94ed9d2f04ceb4d53",
+        "article_research_question_db8f0a06097252068fcd3608",
+        "article_research_question_dffbc8ea58b62197471c1345"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:35.248Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "1622753bec99e00bd027e7e34d9cbbe39bd22f36e35b58e4bf5b5fbe39ae7662",
+      "title": "Microfibre Towels | Paragon Microfibre",
+      "meta_description": "Explore our range of high-quality microfibre towels. We are leaders in developing the best microfibre cloths and towels in the UK. Ultimate drying performance.",
+      "h1": [
+        "Microfibre Towels"
+      ],
+      "h2": [
+        "Microfibre Towel FAQs",
+        "Understanding GSM",
+        "What does GSM stand for?",
+        "How do I choose the right GSM microfibre towels?",
+        "Microfibre Towel Buyer's Guide",
+        "The three most important considerations when choosing microfibre towels"
+      ],
+      "h3": [
+        "Understanding GSM ratings in microfibre towels",
+        "GSM (Grams per Square Metre)",
+        "Size",
+        "Weave"
+      ],
+      "content_hash": "b1c6bf19a374a85538c47ec6288243f380d600024e10392bd4133268b9664e90",
+      "normalized_hash": "6bffe386986d8b4c1e631d1857f923a91053e26825202529b79ec37ce2d854d6",
+      "gap_id": "article_research_gap_3f7378d6bbb3bbc6c05f4cb4"
+    },
+    {
+      "source_id": "live_article_source_55f00af76b36b1784abf222f",
+      "requested_url": "https://carproforum.com/threads/review-carpro-dhydrate-drying-towel.5478/",
+      "final_url": "https://carproforum.com/threads/review-carpro-dhydrate-drying-towel.5478/",
+      "source_class": "COMMUNITY_CUSTOMER",
+      "discovery_reason": "Targeted gap-directed query for customer_evidence.",
+      "research_question_ids": [
+        "article_research_question_2af10aa37f339976e5c4fbb3",
+        "article_research_question_e979e6f25f809fab727b8347",
+        "article_research_question_c5e680311f0e189d9872a527",
+        "article_research_question_f9bcada41eee1e5b2f83cfe2",
+        "article_research_question_e89dbb42bf82992d3052593d"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:35.538Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "d5ae9b5cadb2967f0710c033c7559c54ff6140830f5809d93e54e74842f977d2",
+      "title": "Review - CarPro DHydrate Drying Towel | Sky&#039;s the Limit Auto Detailing Discussion Forum",
+      "meta_description": "Thank you Avi for sending this product along with a few other CarPro goodies for review. \n \nProducts: \n\nCarPro DHydrate Drying Towel\n\nCost: \n\n$24.99...",
+      "h1": [
+        "Review - CarPro DHydrate Drying Towel"
+      ],
+      "h2": [],
+      "h3": [
+        "Sky’s the Limit Care Car",
+        "What's new",
+        "Forum statistics",
+        "Online statistics"
+      ],
+      "content_hash": "10544477495a9b9d53f81b7763546218257e1c5bbc9edbad6b6a9f5d76f96228",
+      "normalized_hash": "d78509d4d67cf80a0bb707dfbcfa7049f0fe213dd79c35c4e0f8de835dd6b08f",
+      "gap_id": "article_research_gap_c4a9d1de1cd86182bcb9c3d8"
+    },
+    {
+      "source_id": "live_article_source_3312c49760d192d882b46e66",
+      "requested_url": "https://www.reddit.com/r/AutoDetailing/comments/1penr51/drying_towel_advice_i_just_got_some_that_seem_way/",
+      "final_url": "https://www.reddit.com/r/AutoDetailing/comments/1penr51/drying_towel_advice_i_just_got_some_that_seem_way/",
+      "source_class": "COMMUNITY_CUSTOMER",
+      "discovery_reason": "Targeted gap-directed query for customer_evidence.",
+      "research_question_ids": [
+        "article_research_question_2af10aa37f339976e5c4fbb3",
+        "article_research_question_e979e6f25f809fab727b8347",
+        "article_research_question_c5e680311f0e189d9872a527",
+        "article_research_question_f9bcada41eee1e5b2f83cfe2",
+        "article_research_question_e89dbb42bf82992d3052593d"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:35.636Z",
+      "http_status": 200,
+      "content_type": "text/html",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "9ee72fb38371b53a6b171eab6b0fe5706442523a6651b5696758085b974e4847",
+      "title": "Reddit",
+      "meta_description": "",
+      "h1": [],
+      "h2": [],
+      "h3": [],
+      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalized_hash": "828ce0f8904f3077e541ff9f1177a1dff367a4fe3530dfa06cb05bbb951c20a0",
+      "gap_id": "article_research_gap_c4a9d1de1cd86182bcb9c3d8"
+    },
+    {
+      "source_id": "live_article_source_6381699e99a585d10899da80",
+      "requested_url": "https://superceramiccoating.com/product/microfiber-twisted-loop-drying-towel-1200-gsm/",
+      "final_url": "https://superceramiccoating.com/product/microfiber-twisted-loop-drying-towel-1200-gsm/",
+      "source_class": "MANUFACTURER_BRAND",
+      "discovery_reason": "Targeted gap-directed query for professional_practice.",
+      "research_question_ids": [
+        "article_research_question_2af10aa37f339976e5c4fbb3",
+        "article_research_question_e979e6f25f809fab727b8347",
+        "article_research_question_c5e680311f0e189d9872a527",
+        "article_research_question_f9bcada41eee1e5b2f83cfe2",
+        "article_research_question_e89dbb42bf82992d3052593d"
+      ],
+      "provenance_mode": "LIVE",
+      "retrieved_at": "2026-08-16T17:23:35.772Z",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction_status": "EXTRACTED",
+      "failure_reason": null,
+      "raw_content_hash": "9933e2ab17788e64c27ee4f7cff8cfc1fb2308a1855dba5fd4751a905d7aa608",
+      "title": "1200 GSM Drying Towel | Super Ceramic Coating",
+      "meta_description": "Premium 1200 GSM twisted loop microfiber drying towel. Ultra-absorbent, scratch-free drying for cars after wash. ₹350. Free shipping.",
+      "h1": [
+        "Microfiber Twisted Loop Drying Towel (1200 GSM)"
+      ],
+      "h2": [
+        "Why owners choose Microfiber Twisted Loop Drying Towel (1200 GSM).",
+        "9 reviews for Microfiber Twisted Loop Drying Towel (1200 GSM)",
+        "Microfiber Twisted Loop Drying Towel",
+        "Pairs well with Microfiber Twisted Loop Drying Towel (1200 GSM)."
+      ],
+      "h3": [
+        "What a proper microfiber changes.",
+        "Get years from every cloth.",
+        "Buy it without guessing.",
+        "A dedicated drying towel for post-wash work",
+        "Twisted loop microfiber pulls water fast",
+        "Dry with light pressure after a clean wash",
+        "Fast drying after wash, rinse, or foam sessions",
+        "High-GSM microfiber built for water pickup",
+        "Keep the fibers clean and absorbent",
+        "Frequently asked questions",
+        "Add the 1200 GSM Twisted Loop Drying Towel to your detailing shelf."
+      ],
+      "content_hash": "f0d21e40f6402b8a5dec9f9a5ac9c60e4a22d0375c494da27d8bb9d076a5bf73",
+      "normalized_hash": "d734ee3675437cfa307311c758d0649ff398c7baf26868cb64fbc92b1e7e61e4",
+      "gap_id": "article_research_gap_5af4a09405771c0ec4fbab8d"
+    }
+  ]
+}

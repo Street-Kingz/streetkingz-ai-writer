@@ -1,0 +1,145 @@
+{
+  "artifact_type": "article_claim_restriction_policy",
+  "schema_version": 1,
+  "policy_version": "1.0.0",
+  "status": "VALIDATED",
+  "confidence": {
+    "status": "WARN",
+    "can_proceed": true,
+    "planning_allowed": true,
+    "generation_allowed": true,
+    "restriction_mode": "QUALIFIED"
+  },
+  "lineage": {
+    "objective": "create_seo_article",
+    "opportunity_id": "article_opportunity_0f6047a7b1f249db7979f259",
+    "primary_query": "best microfibre car drying towel",
+    "article_type": "supporting_article",
+    "search_intent": "commercial_investigation",
+    "evidence_pack_id": "article_evidence_pack_17d493f2d0f9c3f9a3b11acd",
+    "evidence_pack_sha256": "17d493f2d0f9c3f9a3b11acd00f89c98c8a9077c466dbc31feca064ceed0853c",
+    "subject_depth": {
+      "status": "WARN",
+      "dimensions": {
+        "choice_set": true,
+        "decision_criteria": true,
+        "trade_offs": true,
+        "customer_concerns": true,
+        "technical_depth": false,
+        "source_diversity": true,
+        "product_crossover": true,
+        "competitor_coverage": true,
+        "uncertainty_explicit": true
+      },
+      "passed": 7,
+      "required": 8,
+      "reason": "Gap-directed evidence improved coverage but one or more core subject dimensions remain insufficient."
+    },
+    "seo_guidance": {
+      "snapshot_id": "seo_guidance_snapshot_b666a37ce2e2d286ba41d527",
+      "snapshot_sha256": "db27fc67e8082f9676b1be45739a51b53c6fda03511eb1fad82c8cc42cc6178e",
+      "source_manifest_version": "1.0.0",
+      "freshness_status": "CURRENT"
+    }
+  },
+  "restrictions": [
+    {
+      "restriction_id": "article_claim_restriction_6039518be1d75be67972ff83",
+      "subject": "technical GSM, absorbency and construction-performance relationships",
+      "restriction_type": "TECHNICAL_CLAIM_UNRESOLVED",
+      "treatment": "QUALIFY",
+      "reason": "The evidence pack marks technical depth WARN and lacks sufficient independent corroboration.",
+      "evidence_refs": [
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_a5614621efe7a6976c8c5518",
+        "live_article_source_16e6b543de1f04ce46096547",
+        "live_article_source_38b7bfb07b1649ca0710d904",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_6381699e99a585d10899da80"
+      ],
+      "permitted_treatment": "Explain the measurement or construction as an observed/qualified consideration and preserve source limitations.",
+      "prohibited_treatment": "Do not state a universal technical relationship or imply that one metric determines performance."
+    },
+    {
+      "restriction_id": "article_claim_restriction_d21e4dbbe44af1c075943c7e",
+      "subject": "manufacturer descriptions of towel designs and benefits",
+      "restriction_type": "MANUFACTURER_CLAIM_ONLY",
+      "treatment": "ATTRIBUTE",
+      "reason": "These records are manufacturer-owned observations or marketing claims.",
+      "evidence_refs": [
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "live_article_source_561657374d361fbacd0541e5",
+        "live_article_source_366edf61d84d5a7406141226",
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_16e6b543de1f04ce46096547",
+        "live_article_source_38b7bfb07b1649ca0710d904",
+        "live_article_source_a5614621efe7a6976c8c5518",
+        "live_article_source_6381699e99a585d10899da80"
+      ],
+      "permitted_treatment": "Attribute the description to the manufacturer or present it as a market example.",
+      "prohibited_treatment": "Do not promote manufacturer claims to objective category facts."
+    },
+    {
+      "restriction_id": "article_claim_restriction_83ebebee3c421d84802220fb",
+      "subject": "customer and practitioner experiences",
+      "restriction_type": "ANECDOTAL_ONLY",
+      "treatment": "ATTRIBUTE",
+      "reason": "Community evidence records experience and concerns, not technical consensus.",
+      "evidence_refs": [
+        "article_source_0cfb971cbdf329d23dc25150",
+        "live_article_source_7dc531c77c4a3206bbd112ac",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_3312c49760d192d882b46e66"
+      ],
+      "permitted_treatment": "Use as attributed concerns, questions or examples of user experience.",
+      "prohibited_treatment": "Do not state anecdotes as universal practice, preference or performance proof."
+    },
+    {
+      "restriction_id": "article_claim_restriction_f647b861f111ae59dd74f372",
+      "subject": "universal superiority and best-in-market claims",
+      "restriction_type": "UNIVERSAL_CLAIM_PROHIBITED",
+      "treatment": "AVOID",
+      "reason": "The pack contains no evidence establishing universal superiority and explicitly preserves uncertainty.",
+      "evidence_refs": [
+        "live_article_source_509796f587de1d19e74f879f",
+        "live_article_source_0dc358a27ebc1845069440e1",
+        "live_article_source_a5614621efe7a6976c8c5518",
+        "live_article_source_16e6b543de1f04ce46096547",
+        "live_article_source_38b7bfb07b1649ca0710d904",
+        "live_article_source_55f00af76b36b1784abf222f",
+        "live_article_source_6381699e99a585d10899da80",
+        "article_source_4fef92f9d068f7999bbe7b2a",
+        "article_source_8585b03a6c3e3ed9d55a27a3",
+        "live_article_source_561657374d361fbacd0541e5",
+        "live_article_source_366edf61d84d5a7406141226"
+      ],
+      "permitted_treatment": "Describe the available options and qualified decision criteria.",
+      "prohibited_treatment": "Do not claim that any construction, GSM range or product is universally best."
+    }
+  ],
+  "safe_claim_categories": [
+    "observed category terminology",
+    "validated first-party Product Facts",
+    "bounded buyer considerations",
+    "qualified existence of multiple formats"
+  ],
+  "evidence_limitations": [
+    "Community questions indicate concerns but do not establish technical truth.",
+    "Two selected pages exceeded the response bound and were not retried; community extraction remained limited."
+  ],
+  "research_budget_status": "EXHAUSTED",
+  "upgrade_rule": "WARN may become PASS only through a new validated evidence pack and reassessment; founder or model preference cannot upgrade it.",
+  "handoff_requirements": [
+    "evidence_pack_id",
+    "evidence_pack_sha256",
+    "subject_depth",
+    "restriction_policy_id",
+    "restriction_policy_sha256",
+    "evidence_refs"
+  ],
+  "policy_id": "article_claim_restriction_policy_83ccdce317fd837262b93a52",
+  "policy_sha256": "83ccdce317fd837262b93a52a9e461eca65f53c4c9832b8bdced3ef2b7ed9c07"
+}

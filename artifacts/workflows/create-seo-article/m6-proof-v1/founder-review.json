@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "founder_article_review",
+  "review_purpose": "M6_CORRECTION_TRIAGE",
+  "reviewed_at": "2026-08-17T12:00:00.000Z",
+  "reviewed_article": {
+    "id": "semantic_article_6c73c0160dc56a7cd1e2473a",
+    "sha256": "6c73c0160dc56a7cd1e2473acec3bda2fdf8594fd7282b411bbcbb8a6a13215d"
+  },
+  "brief": {
+    "id": "article_brief_55a162120af6e322cf1a1832",
+    "sha256": "55a162120af6e322cf1a1832de1afb80f9f7ff342431c49d3469210cfe94fef5"
+  },
+  "page_plan": {
+    "id": "editorial_page_plan_cea873d04ab1869fdf850edf",
+    "sha256": "cea873d04ab1869fdf850edfafe97d0afa97ae5fa94b29d5a18ac3a120507b86"
+  },
+  "feedback": [
+    {
+      "feedback_id": "founder_feedback_natural_voice_01",
+      "class": "STYLE",
+      "classification": "VALID",
+      "concern": "Some prose is abstract or sounds like an evidence report.",
+      "locations": [
+        "m4b_quick_answer",
+        "m4b_criteria",
+        "m4b_product_fit",
+        "m4b_conclusion"
+      ],
+      "research_required": false
+    },
+    {
+      "feedback_id": "founder_feedback_category_depth_01",
+      "class": "USEFULNESS",
+      "classification": "PARTIALLY_VALID",
+      "concern": "Formats are named without always explaining why a buyer might choose one.",
+      "locations": [
+        "m4b_criteria",
+        "m4b_comparison"
+      ],
+      "research_required": false
+    },
+    {
+      "feedback_id": "founder_feedback_saturated_weight_01",
+      "class": "CLAIM_AUDIT",
+      "classification": "VALID_QUALIFICATION_REQUIRED",
+      "concern": "Audit the product-specific saturated-weight implication.",
+      "locations": [
+        "m4b_product_fit"
+      ],
+      "research_required": false
+    }
+  ],
+  "publication_authorized": false,
+  "review_id": "founder_article_review_e14f5f61e93d174000a595b2"
+}

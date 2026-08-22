@@ -1,0 +1,38 @@
+{
+  "artifact_type": "historical_m5_vs_researched_m5d",
+  "old": {
+    "article_id": "editorial_page_plan_109d5a7553798979dc21fbb3",
+    "word_count": 318
+  },
+  "new": {
+    "article_id": "semantic_article_6c73c0160dc56a7cd1e2473a",
+    "sha256": "6c73c0160dc56a7cd1e2473acec3bda2fdf8594fd7282b411bbcbb8a6a13215d",
+    "word_count": 874
+  },
+  "dimensions": {
+    "query_satisfaction": "NEW_BETTER",
+    "category_knowledge": "NEW_BETTER",
+    "specificity": "NEW_BETTER",
+    "buyer_decision_support": "NEW_BETTER",
+    "trade_off_explanation": "NEW_BETTER",
+    "customer_concerns": "NEW_BETTER",
+    "technical_honesty": "NEW_BETTER",
+    "product_integration": "NEW_BETTER",
+    "commercial_usefulness": "NEW_BETTER",
+    "readability": "NEW_BETTER",
+    "genericity": "NEW_BETTER",
+    "unsupported_assumptions": "NEW_BETTER",
+    "evidence_grounded_depth": "NEW_BETTER"
+  },
+  "overall": "NEW_BETTER",
+  "meaningful_difference": true,
+  "cause": [
+    "M4B section-level decision framework",
+    "live evidence and customer concerns",
+    "machine-readable claim restrictions",
+    "validated Product Intelligence crossover"
+  ],
+  "regressions": [
+    "Technical explanation remains qualified because evidence depth is WARN."
+  ]
+}

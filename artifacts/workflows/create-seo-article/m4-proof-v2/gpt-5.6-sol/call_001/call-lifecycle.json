@@ -1,0 +1,19 @@
+{
+  "call_id": "f25aec22-2537-415d-85ee-2d388e4b8343",
+  "model_label": "gpt-5.6-sol",
+  "ordinal": 1,
+  "configured_max_calls": 1,
+  "retries": 0,
+  "requested_calls": 1,
+  "started_calls": 1,
+  "completed_calls": 0,
+  "failed_calls": 1,
+  "aborted_calls": 0,
+  "state": "failed",
+  "started_at": "2026-08-16T09:09:16.668Z",
+  "completed_at": "2026-08-16T09:09:16.674Z",
+  "error": {
+    "code": "INVALID_M4_PAGE_PLAN",
+    "message": "M4 editorial page plan failed validation."
+  }
+}

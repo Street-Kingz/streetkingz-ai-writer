@@ -1,0 +1,12 @@
+{
+  "artifact_type": "m5d_vs_m6_comparison",
+  "feedback_resolution": {
+    "A": "RESOLVED",
+    "B": "PARTIALLY_RESOLVED",
+    "C": "RESOLVED"
+  },
+  "original_word_count": 874,
+  "corrected_word_count": 878,
+  "primary_bottleneck": "WEAK_EDITORIAL_WRITING_INSTRUCTIONS",
+  "intervention": "LIGHT"
+}
