@@ -341,7 +341,7 @@ Progressive Evidence Decision Gate
 
 Prove or reject that commercial context materially improves organic-growth decisions
 
-Current
+Done
 
 V1-02
 
@@ -349,7 +349,7 @@ Single-Business Product Kernel
 
 Secure account, tenant, durable state, audit and connection foundation
 
-Not started
+Current
 
 V1-03
 
@@ -511,7 +511,7 @@ When accepted, governance rebaseline is complete and V1-01 becomes the only auth
 
 9. V1-01 — Progressive Evidence Decision Gate
 
-Status: Current
+Status: Done
 
 Objective
 
@@ -682,6 +682,12 @@ Independent established-store validation remains governed by V1-07 and later mil
 PASS authorises V1-02.
 
 FAIL triggers Product-level review rather than automatic iteration.
+
+Accepted Outcome
+
+The sparse/low-traffic recommendation journey was proven across the complete 27-product catalogue using live site, fresh SERP and Search Console evidence. Missing commercial data remained explicit; misleading and off-intent evidence was filtered; deterministic evidence preparation preceded strategic reasoning; exact page-level attribution corrected the earlier cluster-level targeting defect; distinct interventions and complete DIY guidance were produced; and no article-by-default behaviour or live write occurred.
+
+The accepted opportunity was optimisation of the Stubby Gun + Foam Lance Bundle page within the pre-wash and pressure-washer customer job. This is validation evidence only; it was not automatically implemented.
 
 10. V1-02 — Single-Business Product Kernel
 
@@ -2373,15 +2379,17 @@ A milestone is not “mostly done.”
 
 V1-00 Governance Activation is Done.
 
-V1-01 Progressive Evidence Decision Gate is Current.
+V1-01 Progressive Evidence Decision Gate is Done.
+
+V1-02 Single-Business Product Kernel is Current.
 
 The canonical PROJECT_STATE.md, ROADMAP.md and BACKLOG.md are present, the required Roadmap resolutions are recorded in DECISIONS.md, and the approved V1-01 contract is present at `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The former commercial-context contract is preserved under `milestones/superseded/`.
 
 The next approved action is:
 
-Execute automated progressive-evidence acquisition and generate the first bounded recommendation set.
+Create and approve the bounded V1-02 Single-Business Product Kernel milestone contract.
 
-Product implementation is authorised only within the approved V1-01 milestone contract. No other Product milestone or executor work is authorised.
+V1-02 is the sole authorised Product milestone. V1-02 Product code is not authorised until its milestone contract is created and approved. No V1-03 or executor work is authorised.
 
 29. Final Roadmap Rule
 

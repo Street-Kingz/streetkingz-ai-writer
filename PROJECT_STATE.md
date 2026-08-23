@@ -194,11 +194,13 @@ Product phase
 
 Governance rebaseline and Product-state establishment
 
-Current milestone: V1-01 Progressive Evidence Decision Gate
+Current milestone: V1-02 Single-Business Product Kernel
 
 V1-00 Governance Activation: Done
 
-V1-01 Progressive Evidence Decision Gate: Current
+V1-01 Progressive Evidence Decision Gate: Done
+
+V1-02 Single-Business Product Kernel: Current
 
 Governance completed
 
@@ -228,25 +230,37 @@ The canonical ROADMAP.md and BACKLOG.md now exist locally and are included in th
 
 V1-00 Governance Activation is Done.
 
-V1-01 Progressive Evidence Decision Gate is the current milestone.
+V1-01 Progressive Evidence Decision Gate is Done.
+
+V1-02 Single-Business Product Kernel is the current milestone.
 
 Product implementation status
 
 Paused
 
-Product implementation is authorised only within the approved V1-01 milestone contract.
+V1-01 implementation is complete only within its approved validation contract. V1-02 is now the sole authorised Product milestone, but V1-02 Product code is not authorised until its milestone contract is created and approved.
 
-No other Product milestone or executor work is authorised.
+No V1-03 or executor work is authorised.
 
 The old article-first roadmap is not active.
 
 The previous Phase B attempt is preserved at `artifacts/validation/v1-01/attempts/phase-b-001-blocked/` with its original hash and reports. It was blocked because it used only the legacy catalogue, acquired no live external organic evidence and had no valid commercial package; that result reflects an incorrect evidence assumption, not a Product failure. Its candidate universe is not the final V1-01 universe.
 
+Accepted V1-01 proof
+
+The accepted final proof is preserved at `artifacts/validation/v1-01/attempts/progressive-007-target-attribution/`, with earlier progressive-001 through progressive-006 attempts retained as historical lineage. The complete catalogue was considered; progressive/sparse evidence operation was demonstrated; fresh external evidence, Search Console and live-site evidence were acquired; off-intent evidence was filtered; strategic reasoning followed deterministic evidence preparation; exact catalogue entity names and page-level target attribution were preserved; distinct interventions and complete DIY guidance were generated; and no live execution occurred.
+
+Accepted Street Kingz validation recommendation
+
+“Improve the existing Stubby Gun + Foam Lance Bundle page for combined stubby-gun / foam-lance intent, while keeping Stubby Gun & Nozzle Set and Snow Foam Lance as distinct component destinations.”
+
+This is Product validation evidence, not the next Product milestone. Implementing the Street Kingz recommendation is a separate test-store side task and must not block V1-02.
+
 The next approved action is:
 
-Execute automated progressive-evidence acquisition and generate the first bounded recommendation set under the active V1-01 contract.
+Create and approve the bounded V1-02 Single-Business Product Kernel milestone contract.
 
-No Product code should proceed outside the approved V1-01 milestone contract. The active contract is `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The superseded commercial-context contract is preserved at `milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The contract is governed by:
+No V1-02 Product code should proceed until its milestone contract is created and approved. No V1-03 or executor work is authorised. The completed V1-01 contract is `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The superseded commercial-context contract is preserved at `milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The contract is governed by:
 
 Product Vision;
 
@@ -2179,15 +2193,17 @@ Part VII — Next Approved Action
 
 V1-00 Governance Activation is Done.
 
-V1-01 Progressive Evidence Decision Gate is Current.
+V1-01 Progressive Evidence Decision Gate is Done.
 
 The previous Phase B attempt is preserved but superseded; its blocked result was caused by an incorrect evidence assumption, not a Product failure.
 
+V1-02 Single-Business Product Kernel is Current.
+
 The next approved action is:
 
-Execute automated progressive-evidence acquisition and generate the first bounded recommendation set.
+Create and approve the bounded V1-02 Single-Business Product Kernel milestone contract.
 
-Product implementation is authorised only within the approved V1-01 milestone contract. No other Product milestone or executor work is authorised.
+V1-02 is the sole authorised Product milestone. V1-02 Product code is not authorised until its milestone contract is created and approved. No V1-03 or executor work is authorised.
 
 35. Backlog State
 
@@ -2273,14 +2289,14 @@ Create SEO Article is a reusable intervention primitive, not the Product;
 
 the old article-first roadmap is superseded and archived;
 
-Product development is paused outside the approved V1-01 milestone contract;
+Product development is paused outside the approved V1-02 milestone contract;
 
 V1-00 Governance Activation is Done;
 
-V1-01 Progressive Evidence Decision Gate is Current;
+V1-01 Progressive Evidence Decision Gate is Done;
 
-Product implementation is authorised only within the approved V1-01 milestone contract;
+V1-02 Single-Business Product Kernel is Current, but its implementation is not yet authorised because its milestone contract has not been created and approved;
 
-no other Product milestone or executor work is authorised.
+no V1-03 or executor work is authorised.
 
 The repository is a strong foundation. It is not yet the Product.
