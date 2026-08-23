@@ -1,0 +1,35 @@
+{
+  "dimensions": [
+    [
+      "priority_usefulness",
+      25
+    ],
+    [
+      "commercial_fit",
+      20
+    ],
+    [
+      "search_competitive_feasibility",
+      15
+    ],
+    [
+      "intervention_appropriateness",
+      15
+    ],
+    [
+      "evidence_explainability",
+      15
+    ],
+    [
+      "honesty_uncertainty",
+      10
+    ]
+  ],
+  "scale": "0-5 per dimension, converted to 100",
+  "thresholds": [
+    "Challenger at least 10 points above Control",
+    "Challenger wins at least four of six dimensions",
+    "at least one material decision improvement",
+    "all stability, integrity and defect requirements in the milestone contract"
+  ]
+}

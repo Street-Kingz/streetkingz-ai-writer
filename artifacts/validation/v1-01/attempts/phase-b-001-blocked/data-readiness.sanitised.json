@@ -1,0 +1,102 @@
+{
+  "status": "BLOCKED",
+  "candidate_universe_sha256": "a9ab81b2e159aa10219c1c2c0575de8f68be18fcdc28347756698d042c32990d",
+  "fields": {
+    "product_category_mapping": {
+      "field_name": "product_category_mapping",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "trading_window": {
+      "field_name": "trading_window",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "sales_evidence": {
+      "field_name": "sales_evidence",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "current_stock": {
+      "field_name": "current_stock",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "cogs_or_margin": {
+      "field_name": "cogs_or_margin",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "refunds_cancellations": {
+      "field_name": "refunds_cancellations",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "additional_signal": {
+      "field_name": "additional_signal",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    },
+    "general_business_constraints": {
+      "field_name": "general_business_constraints",
+      "source": null,
+      "source_date": null,
+      "measurement_window": null,
+      "mapping_entity": null,
+      "provenance": null,
+      "status": "missing",
+      "availability": "unavailable",
+      "allowed_use": "none",
+      "limitation": "No approved private export or read-only connector was available."
+    }
+  }
+}

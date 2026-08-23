@@ -1,0 +1,11 @@
+{
+  "phase": "B",
+  "status": "BLOCKED",
+  "candidate_universe_status": "FROZEN",
+  "candidate_universe_sha256": "a9ab81b2e159aa10219c1c2c0575de8f68be18fcdc28347756698d042c32990d",
+  "commercial_snapshot_sha256": "8cbeab2f6cffeff2b6dac388ad0729dade344954dd27db3617b3a59a5d3872ff",
+  "control_run": false,
+  "challenger_run": false,
+  "package_a": false,
+  "package_b": false
+}

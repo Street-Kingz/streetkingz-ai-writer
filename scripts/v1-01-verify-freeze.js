@@ -1,0 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
+import { PUBLIC_DIR, PRIVATE_DIR, readJson, sha256, validateCandidates, assertNoDecisionArtifacts } from "../validation/v1-01/index.js";
+const expected = fs.readFileSync(path.join(PUBLIC_DIR, "candidate-universe-hash.txt"), "utf8").trim();
+const candidates = readJson(path.join(PRIVATE_DIR, "candidate-universe.json"));
+validateCandidates(candidates);
+if (sha256(candidates) !== expected) throw new Error("candidate universe changed after freeze");
+const publicBundle = readJson(path.join(PUBLIC_DIR, "candidate-universe.sanitised.json"));
+if (publicBundle.candidate_count !== candidates.length) throw new Error("public/private candidate counts differ");
+assertNoDecisionArtifacts();
+console.log(JSON.stringify({ status: "VERIFIED", candidate_universe_sha256: expected, candidate_count: candidates.length }));

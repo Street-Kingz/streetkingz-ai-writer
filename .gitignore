@@ -8,4 +8,5 @@ google-oauth*.json
 .DS_Store
 artifacts/deployment/*.zip
 artifacts/implementation/
+artifacts/private/v1-01/
 artifacts/implementation/

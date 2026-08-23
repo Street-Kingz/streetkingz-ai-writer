@@ -1,0 +1,10 @@
+import fs from "node:fs";
+import path from "node:path";
+import { PRIVATE_DIR, PUBLIC_DIR, readJson, captureCommercialSnapshot, writeJson, sha256 } from "../validation/v1-01/index.js";
+const publicHash = fs.readFileSync(path.join(PUBLIC_DIR, "candidate-universe-hash.txt"), "utf8").trim();
+const candidates = readJson(path.join(PRIVATE_DIR, "candidate-universe.json"));
+const snapshot = captureCommercialSnapshot({ candidateHash: publicHash, candidates });
+writeJson(path.join(PRIVATE_DIR, "commercial-snapshot.json"), snapshot);
+writeJson(path.join(PUBLIC_DIR, "data-readiness.sanitised.json"), { status: snapshot.status, candidate_universe_sha256: publicHash, fields: Object.fromEntries(Object.entries(snapshot.fields).map(([k, v]) => [k, { field_name: v.field_name, source: v.source, source_date: v.source_date, measurement_window: v.measurement_window, mapping_entity: v.mapping_entity, provenance: v.provenance, status: v.status, availability: v.availability, allowed_use: v.allowed_use, limitation: v.limitation }])) });
+writeJson(path.join(PUBLIC_DIR, "phase-b-freeze-record.json"), { phase: "B", status: snapshot.status, candidate_universe_status: "FROZEN", candidate_universe_sha256: publicHash, commercial_snapshot_sha256: sha256(snapshot), control_run: false, challenger_run: false, package_a: false, package_b: false });
+console.log(JSON.stringify({ status: snapshot.status, candidate_universe_sha256: publicHash }));

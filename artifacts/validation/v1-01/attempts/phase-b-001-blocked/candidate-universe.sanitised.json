@@ -1,0 +1,870 @@
+{
+  "status": "FROZEN",
+  "candidate_count": 27,
+  "candidates": [
+    {
+      "candidate_id": "v1-01-candidate-001",
+      "target_entity": {
+        "type": "product",
+        "name": "XL DRYING TOWEL – 800GSM"
+      },
+      "url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "intent_cluster": "drying towel purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#0",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-002",
+      "target_entity": {
+        "type": "product",
+        "name": "Heavy Duty Drying Towel – 1200gsm"
+      },
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "intent_cluster": "drying towel purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#1",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-003",
+      "target_entity": {
+        "type": "product",
+        "name": "Paint Protection Cloth"
+      },
+      "url": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+      "intent_cluster": "microfibre cloth purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#2",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-004",
+      "target_entity": {
+        "type": "product",
+        "name": "CORAL FLEECE CLOTHS – 2 PACK"
+      },
+      "url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "intent_cluster": "microfibre cloth purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#3",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-005",
+      "target_entity": {
+        "type": "product",
+        "name": "Waffle Glass Cloth"
+      },
+      "url": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "intent_cluster": "glass cloth purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#4",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-006",
+      "target_entity": {
+        "type": "product",
+        "name": "Microfibre Wash Mitt"
+      },
+      "url": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "intent_cluster": "wash mitt purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#5",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-007",
+      "target_entity": {
+        "type": "product",
+        "name": "Microfibre Scrub Pads"
+      },
+      "url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+      "intent_cluster": "scrub pads purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#6",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-008",
+      "target_entity": {
+        "type": "product",
+        "name": "Wheel Belt Flosser"
+      },
+      "url": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "intent_cluster": "wheel cleaning tool purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#7",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-009",
+      "target_entity": {
+        "type": "product",
+        "name": "The XL Barrel Brush"
+      },
+      "url": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+      "intent_cluster": "wheel brush purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#8",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-010",
+      "target_entity": {
+        "type": "product",
+        "name": "Slim Barrel Brush"
+      },
+      "url": "https://streetkingz.co.uk/product/slim-barrel-brush/",
+      "intent_cluster": "wheel brush purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#9",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-011",
+      "target_entity": {
+        "type": "product",
+        "name": "Wheel Hose Guides"
+      },
+      "url": "https://streetkingz.co.uk/product/wheel-hose-guides/",
+      "intent_cluster": "accessory purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#10",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-012",
+      "target_entity": {
+        "type": "product",
+        "name": "Stubby Gun & Nozzle Set"
+      },
+      "url": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "intent_cluster": "pressure washer tool purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#11",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-013",
+      "target_entity": {
+        "type": "product",
+        "name": "Snow Foam Lance"
+      },
+      "url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+      "intent_cluster": "foam lance purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#12",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-014",
+      "target_entity": {
+        "type": "product",
+        "name": "Stubby Gun + Foam Lance Bundle"
+      },
+      "url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#13",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-015",
+      "target_entity": {
+        "type": "product",
+        "name": "The Origin Shampoo – Ultra Concentrated & pH Safe"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-shampoo/",
+      "intent_cluster": "shampoo purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#14",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-016",
+      "target_entity": {
+        "type": "product",
+        "name": "Origin MultiClean – Interior & Exterior Cleaner"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-multiclean/",
+      "intent_cluster": "multi-purpose cleaner purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#15",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-017",
+      "target_entity": {
+        "type": "product",
+        "name": "Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-glass-cleaner/",
+      "intent_cluster": "glass cleaner purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#16",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-018",
+      "target_entity": {
+        "type": "product",
+        "name": "The Origin Ultra Wash & Dry Kit"
+      },
+      "url": "https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#17",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-019",
+      "target_entity": {
+        "type": "product",
+        "name": "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)"
+      },
+      "url": "https://streetkingz.co.uk/product/wheel-cleaning-power-pack/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#18",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-020",
+      "target_entity": {
+        "type": "product",
+        "name": "Origin Wash Kit"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-wash-kit/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#19",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-021",
+      "target_entity": {
+        "type": "product",
+        "name": "Origin Interior Deep Clean Kit"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#20",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-022",
+      "target_entity": {
+        "type": "product",
+        "name": "Origin Glass Clarity Kit"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#21",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-023",
+      "target_entity": {
+        "type": "product",
+        "name": "Origin XL Wash Kit"
+      },
+      "url": "https://streetkingz.co.uk/product/origin-xl-wash-kit/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#22",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-024",
+      "target_entity": {
+        "type": "product",
+        "name": "XL Wash & Dry Set"
+      },
+      "url": "https://streetkingz.co.uk/product/xl-wash-dry-set/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#23",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-025",
+      "target_entity": {
+        "type": "product",
+        "name": "The Origin Trilogy"
+      },
+      "url": "https://streetkingz.co.uk/product/the-origin-trilogy/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#24",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-026",
+      "target_entity": {
+        "type": "product",
+        "name": "Twisted Loop Power Pack"
+      },
+      "url": "https://streetkingz.co.uk/product/twisted-loop-power-pack/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#25",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    },
+    {
+      "candidate_id": "v1-01-candidate-027",
+      "target_entity": {
+        "type": "product",
+        "name": "Ultra Wash and Dry Set"
+      },
+      "url": "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/",
+      "intent_cluster": "bundle purchase and use",
+      "current_state": "Existing catalogue product with a public product URL.",
+      "candidate_source": "public catalogue snapshot",
+      "public_evidence_refs": [
+        {
+          "ref": "catalogue/products.js#26",
+          "kind": "public_catalogue"
+        }
+      ],
+      "possible_intervention_classes": [
+        "improve_existing_product_or_category_page",
+        "improve_internal_linking_or_structure",
+        "monitor",
+        "defer"
+      ],
+      "missing_evidence": [
+        "Search Console opportunity evidence for this entity",
+        "commercial fit and supply reliability"
+      ],
+      "provenance": {
+        "source": "public catalogue snapshot",
+        "captured_at": "2026-08-23",
+        "commercial_data_loaded": false
+      }
+    }
+  ]
+}
