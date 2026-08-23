@@ -62,6 +62,16 @@ The product is not intended to manage every aspect of ecommerce growth.
 
 Its approved core domain is organic search and the commercially informed decisions surrounding it.
 
+### Progressive Evidence Operation
+
+The Product operates across three evidence levels:
+
+1. **Foundation evidence:** business description and objectives; catalogue; public website; product economics where available; external search demand; SERPs; competitors; and site structure.
+2. **Performance evidence:** Search Console; sales history; stock movement; margin/COGS; and existing organic visibility.
+3. **Behavioural evidence:** conversion and analytics evidence where reliable and later approved.
+
+The customer does not manually choose a separate mode. The Product detects available evidence. Missing evidence lowers confidence rather than blocking all analysis, and every recommendation must show its evidence maturity. Sparse-data recommendations must not pretend to have established-store certainty. TikTok or social demand is optional supporting evidence, never a requirement.
+
 Part I — Customer-Facing Product
 
 3. Account and Business Connection

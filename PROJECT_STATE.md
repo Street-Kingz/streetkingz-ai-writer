@@ -194,11 +194,11 @@ Product phase
 
 Governance rebaseline and Product-state establishment
 
-Current milestone: V1-01 Commercial Decision Hypothesis Gate
+Current milestone: V1-01 Progressive Evidence Decision Gate
 
 V1-00 Governance Activation: Done
 
-V1-01 Commercial Decision Hypothesis Gate: Current
+V1-01 Progressive Evidence Decision Gate: Current
 
 Governance completed
 
@@ -228,7 +228,7 @@ The canonical ROADMAP.md and BACKLOG.md now exist locally and are included in th
 
 V1-00 Governance Activation is Done.
 
-V1-01 Commercial Decision Hypothesis Gate is the current milestone.
+V1-01 Progressive Evidence Decision Gate is the current milestone.
 
 Product implementation status
 
@@ -240,11 +240,13 @@ No other Product milestone or executor work is authorised.
 
 The old article-first roadmap is not active.
 
+The previous Phase B attempt is preserved at `artifacts/validation/v1-01/attempts/phase-b-001-blocked/` with its original hash and reports. It was blocked because it used only the legacy catalogue, acquired no live external organic evidence and had no valid commercial package; that result reflects an incorrect evidence assumption, not a Product failure. Its candidate universe is not the final V1-01 universe.
+
 The next approved action is:
 
-Create and execute the bounded V1-01 method-and-data-freeze task.
+Execute automated progressive-evidence acquisition and generate the first bounded recommendation set under the active V1-01 contract.
 
-No Product code should proceed outside the approved V1-01 milestone contract. The contract is governed by:
+No Product code should proceed outside the approved V1-01 milestone contract. The active contract is `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The superseded commercial-context contract is preserved at `milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The contract is governed by:
 
 Product Vision;
 
@@ -2177,11 +2179,13 @@ Part VII — Next Approved Action
 
 V1-00 Governance Activation is Done.
 
-V1-01 Commercial Decision Hypothesis Gate is Current.
+V1-01 Progressive Evidence Decision Gate is Current.
+
+The previous Phase B attempt is preserved but superseded; its blocked result was caused by an incorrect evidence assumption, not a Product failure.
 
 The next approved action is:
 
-Create and execute the bounded V1-01 method-and-data-freeze task.
+Execute automated progressive-evidence acquisition and generate the first bounded recommendation set.
 
 Product implementation is authorised only within the approved V1-01 milestone contract. No other Product milestone or executor work is authorised.
 
@@ -2273,7 +2277,7 @@ Product development is paused outside the approved V1-01 milestone contract;
 
 V1-00 Governance Activation is Done;
 
-V1-01 Commercial Decision Hypothesis Gate is Current;
+V1-01 Progressive Evidence Decision Gate is Current;
 
 Product implementation is authorised only within the approved V1-01 milestone contract;
 

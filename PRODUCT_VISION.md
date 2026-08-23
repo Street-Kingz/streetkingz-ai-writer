@@ -290,14 +290,27 @@ We do not create recommendations in order to manufacture execution revenue.
 
 ## 10. Customer
 
-The initial target customer is an ecommerce business that:
+The primary marketed customer is an established or growing small ecommerce business without strong in-house SEO expertise.
 
-* wants meaningful organic growth;
-* has a real trading history;
-* has sufficient website, product and search data for useful analysis;
-* lacks strong in-house SEO expertise;
-* is willing to invest time or money into organic growth;
-* and wants clearer guidance about where that effort should be spent.
+The Product must also provide useful guidance to newer or low-traffic ecommerce businesses.
+
+The Product should become more precise as richer reliable first-party data becomes available.
+
+### Progressive Evidence
+
+The Product must remain useful across different levels of evidence maturity.
+
+A newer or low-traffic store may have a catalogue, website, product economics, business constraints and external-market evidence but little Search Console, analytics or sales history.
+
+The system should still provide useful recommendations where the available evidence supports them, clearly showing lower confidence and missing information.
+
+An established store may provide richer search performance, sales, stock, margin, conversion and supply evidence. The same decision system should use that evidence to improve prioritisation, confidence and explanation.
+
+These are not separate products, plans or engines.
+
+The Product should use the best reliable evidence available and explain how additional or missing evidence affects its decision.
+
+Social, marketplace or other channel demand may be used as supporting evidence when reliably available, but none is required.
 
 The product is platform-independent in its long-term purpose.
 

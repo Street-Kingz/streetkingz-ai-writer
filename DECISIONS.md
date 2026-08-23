@@ -165,15 +165,9 @@ Real customer testing shows that the decision-and-execution job is not valued or
 
 ### Decision
 
-The initial target customer is a growing ecommerce business that:
+The primary marketed customer remains an established or growing small ecommerce business without strong in-house ecommerce SEO expertise.
 
-* has real trading history;
-* has enough product, site and search data for useful analysis;
-* wants to invest time or money in organic growth;
-* lacks strong in-house ecommerce SEO expertise;
-* and needs clearer guidance about where that effort should be spent.
-
-The Product is not initially designed for every website, every startup, every local business or every ecommerce store regardless of data maturity.
+Newer and low-traffic stores are also a supported Product state. The Product is one decision system across evidence maturity, not two separate products.
 
 ### Rationale
 
@@ -181,7 +175,7 @@ Very small or inactive stores may lack enough evidence to support useful decisio
 
 ### Consequences
 
-Onboarding, validation and marketing should qualify the business rather than pretending every connected store will receive equally strong recommendations.
+Onboarding, validation and marketing should distinguish evidence maturity and confidence rather than pretending every connected store will receive equally strong recommendations.
 
 ### Reopen Only If
 
@@ -1086,7 +1080,7 @@ Never as a general competitive principle.
 
 ### Decision
 
-Commercial ecommerce context should be used where reliable to improve organic-growth decisions.
+Commercial ecommerce context remains a quality hypothesis when available and should be used where reliable to improve organic-growth decisions. It is not the sole purpose of V1-01; the milestone must first prove useful progressive-evidence recommendations, then assess how richer commercial context refines them.
 
 The project does not claim that combining commercial and SEO evidence is new, proprietary or automatically better.
 
@@ -1101,6 +1095,34 @@ The Product must prove through controlled testing that commercial context change
 ### Reopen Only If
 
 Testing shows commercial evidence does not materially improve the target decision job. Scope and positioning must then be reviewed.
+
+### D-035 — One Product With Progressive Evidence
+
+**Status:** Accepted
+
+### Decision
+
+The Product uses one decision system across different evidence maturity levels.
+
+It must be capable of producing honest, useful recommendations from sparse but reliable business, site and external-market evidence.
+
+As first-party search and commercial evidence becomes available, the Product should refine priority, confidence and explanation.
+
+Missing evidence must remain missing and must not become zero.
+
+TikTok, social or marketplace demand may strengthen evidence but is never required.
+
+### D-036 — Validation Responsibilities
+
+**Status:** Accepted
+
+### Decision
+
+Street Kingz validates the sparse-evidence and low-traffic journey.
+
+Independent established ecommerce businesses validate the richer-evidence journey and the primary target-market proposition.
+
+Success on Street Kingz alone does not prove established-store performance.
 
 ---
 
@@ -1895,6 +1917,8 @@ This remains prohibited from implementation until privacy, consent, security, go
 | D-030 | Street Kingz and Product are distinct identities                 | Accepted |
 | D-031 | Free is a strategic boundary, not the moat by itself             | Accepted |
 | D-032 | Commercial context is a quality hypothesis, not novelty          | Accepted |
+| D-035 | One Product With Progressive Evidence                            | Accepted |
+| D-036 | Validation Responsibilities                                     | Accepted |
 | D-033 | Initial domain is organic search                                 | Accepted |
 | D-034 | Initial account scope is one business, not agency infrastructure | Accepted |
 | G-001 | Pause Product code until governance and audit                    | Accepted |

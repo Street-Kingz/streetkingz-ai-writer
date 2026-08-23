@@ -1,6 +1,10 @@
+Superseded Contract
+
+Reason: The contract assumed the first validation store had sufficient established-store traffic and first-party performance data. The clarified Product must support progressive evidence, including low-traffic stores.
+
 Milestone V1-01 — Commercial Decision Hypothesis Gate
 
-Status: Approved — Current
+Status: Superseded
 Roadmap milestone: V1-01
 Milestone type: Product hypothesis validation
 Product code status: Authorised only within this approved V1-01 contract

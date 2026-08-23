@@ -337,7 +337,7 @@ Done
 
 V1-01
 
-Commercial Decision Hypothesis Gate
+Progressive Evidence Decision Gate
 
 Prove or reject that commercial context materially improves organic-growth decisions
 
@@ -509,29 +509,23 @@ Completion Decision
 
 When accepted, governance rebaseline is complete and V1-01 becomes the only authorised Product milestone.
 
-9. V1-01 — Commercial Decision Hypothesis Gate
+9. V1-01 — Progressive Evidence Decision Gate
 
 Status: Current
 
 Objective
 
-Determine whether adding real ecommerce commercial context produces materially better organic-growth decisions than a strong SEO-only analysis.
+Prove that the Product can generate a useful, evidence-backed organic-growth plan for a low-traffic ecommerce store using sparse but reliable evidence, and that richer first-party commercial or search evidence can refine the recommendation without requiring a separate Product.
 
 Customer Capability Enabled
 
 None directly.
 
-This milestone decides whether the Product's proposed intelligence advantage deserves further investment.
+This milestone validates progressive evidence operation before further Product investment.
 
 Why This Comes First
 
-The most dangerous unresolved assumption is not account infrastructure or UI.
-
-It is:
-
-Does commercial context materially improve the decision?
-
-If the answer is no, building customer accounts, dashboards and execution infrastructure would waste months.
+The most dangerous unresolved assumption is not account infrastructure or UI. It is whether useful recommendations can be produced honestly from sparse evidence and then refined as richer evidence becomes available.
 
 Existing Foundations to Reuse
 
@@ -553,35 +547,33 @@ controlled calls;
 
 article-opportunity proof patterns.
 
+progressive evidence maturity and confidence handling.
+
 Deliverables
 
-a generic internal representation for:
+automated read-only acquisition where available;
 
-business snapshot;
+current site and catalogue understanding;
 
-organic evidence snapshot;
+real external search-demand and SERP evidence;
 
-opportunity candidate;
+available WooCommerce sales, stock and margin evidence;
 
-recommendation;
+Search Console evidence when available, with no minimum traffic requirement;
 
-a reproducible read-only test-store data package;
+explicit evidence-maturity status and missing-data semantics;
 
-one fixed opportunity universe evaluated in two modes:
+three to five prioritised recommendations;
 
-Control: search, site and SEO evidence without commercial weighting;
+intervention selection that does not default to articles;
 
-Challenger: the same evidence plus reliable commercial context;
+complete DIY guidance for the top recommendation;
 
-a predeclared blind evaluation rubric;
+a comparison showing what changed or became more confident after richer evidence was added;
 
-frozen Control and Challenger outputs;
+honest no-action and insufficient-evidence states;
 
-a signed Product-owner assessment;
-
-a go, revise or stop decision record;
-
-evidence of what commercial facts actually changed the result.
+frozen evidence, inputs and outputs.
 
 Required Commercial Context
 
@@ -619,39 +611,33 @@ Output labels are hidden during Product-owner review where practical.
 
 The Challenger does not merely repeat obvious facts such as “high stock means prioritise this.”
 
-At least one top-priority decision is materially improved or correctly rejected because of commercial evidence unavailable to the Control.
+The sparse-evidence output is useful and actionable by itself.
 
-The Challenger is judged clearly more useful overall under the predeclared rubric—not merely different.
+External search and SERP evidence is real and current.
 
-The recommendation remains explainable.
+Recommendations are not simply one per catalogue product.
 
-Missing data lowers confidence rather than becoming a false score.
+Missing traffic data does not block analysis.
 
-The system can return no action.
+At least one recommendation is credible enough that Ben would genuinely consider implementing it.
 
-The system does not default every opportunity to a new article.
+Richer available evidence either changes priority or intervention, or materially strengthens, weakens or qualifies the reasoning and confidence for a valid reason.
 
-No Critical or High factual or evidence defect remains.
+The result clearly explains why.
 
-All outputs, evidence and evaluation are frozen.
+No article-by-default behaviour occurs.
+
+The system can return no action or insufficient evidence honestly.
+
+No hidden founder target exists.
+
+No Critical or High defect remains.
+
+All evidence, inputs and outputs are frozen.
 
 Failure Outcome
 
-If the Challenger:
-
-ties the Control;
-
-differs only cosmetically;
-
-produces worse priorities;
-
-requires hidden founder judgement;
-
-relies on invented commercial values;
-
-or cannot explain its advantage;
-
-the milestone fails.
+If the sparse-evidence output is not useful, the external evidence is not real/current, recommendations default to catalogue products or articles, richer evidence cannot be explained, or the workflow relies on invented values or hidden founder targets, the milestone fails.
 
 On failure:
 
@@ -659,7 +645,7 @@ Product implementation stops;
 
 PROJECT_STATE.md is updated;
 
-D-032 and the Product thesis are deliberately reviewed;
+the progressive-evidence Product thesis is deliberately reviewed;
 
 no customer-platform milestone begins until a new decision is approved.
 
@@ -681,11 +667,17 @@ completing Create SEO Article;
 
 GA4;
 
+six-run Control/Challenger experiment;
+
+10-point blind-scoring requirement;
+
 second test store;
 
 public competitive claim.
 
 Completion Decision
+
+Independent established-store validation remains governed by V1-07 and later milestones.
 
 PASS authorises V1-02.
 
@@ -1410,6 +1402,12 @@ Before testing begins, the milestone contract must define participant selection.
 Minimum validation:
 
 Street Kingz as the known test environment;
+
+validation must include sparse-evidence/newer stores;
+
+validation must include established stores with richer first-party data;
+
+the same Product must work across both evidence states without separate engines;
 
 at least three independent WooCommerce ecommerce businesses;
 
@@ -2375,13 +2373,13 @@ A milestone is not “mostly done.”
 
 V1-00 Governance Activation is Done.
 
-V1-01 Commercial Decision Hypothesis Gate is Current.
+V1-01 Progressive Evidence Decision Gate is Current.
 
-The canonical PROJECT_STATE.md, ROADMAP.md and BACKLOG.md are present, the required Roadmap resolutions are recorded in DECISIONS.md, and the approved V1-01 contract is present at `milestones/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`.
+The canonical PROJECT_STATE.md, ROADMAP.md and BACKLOG.md are present, the required Roadmap resolutions are recorded in DECISIONS.md, and the approved V1-01 contract is present at `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The former commercial-context contract is preserved under `milestones/superseded/`.
 
 The next approved action is:
 
-Create and execute the bounded V1-01 method-and-data-freeze task.
+Execute automated progressive-evidence acquisition and generate the first bounded recommendation set.
 
 Product implementation is authorised only within the approved V1-01 milestone contract. No other Product milestone or executor work is authorised.
 

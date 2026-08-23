@@ -13,6 +13,7 @@ export const RUBRIC = {
   thresholds: ["Challenger at least 10 points above Control", "Challenger wins at least four of six dimensions", "at least one material decision improvement", "all stability, integrity and defect requirements in the milestone contract"]
 };
 export const PUBLIC_DIR = path.resolve("artifacts/validation/v1-01");
+export const ATTEMPT_DIR = path.resolve("artifacts/validation/v1-01/attempts/phase-b-001-blocked");
 export const PRIVATE_DIR = path.resolve("artifacts/private/v1-01");
 
 export function canonical(value) {
