@@ -1,0 +1,1 @@
+Evidence-hygiene checks cover rejected keyword/GSC evidence, non-overlapping windows, branded separation, exact entity names, internal-cluster labels, evidence-specific DIY guidance, previous-attempt immutability and no-write boundaries.

@@ -1,0 +1,19 @@
+{
+  "call_id": "57ed6b7c-f6f3-4f2a-b2f9-ef20f1e3ecc0",
+  "model_label": "gpt-5.6-sol",
+  "ordinal": 1,
+  "configured_max_calls": 1,
+  "retries": 0,
+  "requested_calls": 1,
+  "started_calls": 1,
+  "completed_calls": 0,
+  "failed_calls": 1,
+  "aborted_calls": 0,
+  "state": "failed",
+  "started_at": "2026-08-23T20:39:54.078Z",
+  "completed_at": "2026-08-23T20:39:54.182Z",
+  "error": {
+    "code": "CALL_FAILED",
+    "message": "fetch failed"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "run_id": "progressive-006-evidence-hygiene",
+  "status": "COMPLETE FOR OWNER REVIEW",
+  "product_count": 27,
+  "accepted_keyword_items": 0,
+  "rejected_keyword_items": 100,
+  "accepted_gsc_baseline_rows": 421,
+  "rejected_gsc_baseline_rows": 410,
+  "recommendation_count": 4,
+  "winner": "opportunity-prewash_pressure",
+  "strategic_calls": 1,
+  "previous_attempt_preserved": true,
+  "wordpress_writes": 0,
+  "input_hash": "9b6c6792dcd45329940a2f92a8f0d06315bb19393ac5a30f9dd7717270f83d8c",
+  "output_hash": "e9f80e9ab91495d2c0263d7d4663030869af39788aeeb76a46bf0abf0023c6d8"
+}

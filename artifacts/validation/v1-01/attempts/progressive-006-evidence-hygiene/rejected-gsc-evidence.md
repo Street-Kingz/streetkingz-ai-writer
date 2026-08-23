@@ -1,0 +1,370 @@
+# Rejected Search Console evidence
+
+## 365d
+Accepted: 421; rejected: 410
+- street kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1273.
+- streetkingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 287.
+- street kings car → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 210.
+- heavy duty towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 17.
+- kingz detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- microfiber flosser → https://streetkingz.co.uk/product/wheel-belt-flosser/ — does not match a supported catalogue customer job and destination; impressions excluded: 16.
+- street kings auto → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 62.
+- street kings car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- street kingz → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 86.
+- street kingz → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 141.
+- street kingz → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 50.
+- streetkingz → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 32.
+- stubby lance → https://streetkingz.co.uk/product-category/foam-lances/ — does not match a supported catalogue customer job and destination; impressions excluded: 79.
+- "128 city road" → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- "128 city road" → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- "128 city road" → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- ("128 city road")and(ec1v 2nx)and(london) → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- 1200 gsm → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- 1200 gsm towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- 1200gsm → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- 1200gsm meaning → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 10.
+- 1200gsm towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- 800 gsm microfiber cloth → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — query intent does not match the landing product cluster; impressions excluded: 1.
+- air kingz → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- all sudz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- auto detail king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- auto drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- automotive towels → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- bathroom drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best car cleaner kit → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 16.
+- best car cleaning kit → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best car cleaning kit uk → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- best car cleaning set → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best car valet kit → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best dry towel for car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best mitt for washing car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- best mitt to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best products for washing car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best products to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 18.
+- best stuff to wash your car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- best thing to use to wash your car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best thing to wash a car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best thing to wash car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best thing to wash your car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- best towel for drying car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- big barrel hair brush → https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brush barrel → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- brush car cleaner → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brush for car → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- brush for cleaning car interior → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- brush to clean car wheels → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 6.
+- brushed wheel → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brushes to clean alloy wheels → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- brushes to clean alloy wheels → https://streetkingz.co.uk/product/wheel-belt-flosser/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- can you recommend any → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car brushes for washing → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaner brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning brush interior → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning bundles → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 12.
+- car cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- car cleaning mitts → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning pad → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car detailing products wholesale uk → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car dusting brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car paint and fabric protection → https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1181 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cheap car cleaning brushes → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 12.
+- cleaning mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 10.
+- cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cleaning mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- clearz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cloth for drying car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- complete → https://streetkingz.co.uk/product/stubby-gun-bundle/ — navigational, brand, location or accidental query; impressions excluded: 1.
+- coral cloths → https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- deep dirt → https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- detail king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 27.
+- detail kings → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 8.
+- detail kings high wycombe → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detail kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailing bundles → https://streetkingz.co.uk/product-category/bundle-deals/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailing king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 11.
+- detailing kings → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- detailing kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- detailing towel → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailing towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailking → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- detailz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 10.
+- detailz london → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- detailz ltd → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- drizzle mobile detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- dry cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry cloth for cars → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry cloth for cars → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry kit → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry loop → https://streetkingz.co.uk/product/twisted-loop-power-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- dry towel car → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- dry towel car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- dry towel car → https://streetkingz.co.uk/product/single-sided-drying-towel/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry towel car → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry wash kit → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — query intent does not match the landing product cluster; impressions excluded: 6.
+- dry xl → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dryer towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- drying car cloth → https://streetkingz.co.uk/product/twisted-loop-drying-towel/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 9.
+- drying cloth car → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth for car → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth for car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- drying cloth for cars → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloths → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- drying rag for car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying rags → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- dryset → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- duster mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+
+## latest90
+Accepted: 225; rejected: 240
+- street kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 608.
+- streetkingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 155.
+- heavy duty towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 12.
+- kingz detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- street kings auto → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 50.
+- street kingz → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 25.
+- 1200 gsm → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- 1200 gsm towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- 1200gsm → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- 1200gsm meaning → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 6.
+- air kingz → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- all sudz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- auto drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- automotive towels → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- bathroom drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best car cleaning kit → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best products for washing car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best products to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 18.
+- best stuff to wash your car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- best thing to use to wash your car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best thing to wash a car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best thing to wash car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best thing to wash your car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- big barrel hair brush → https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brushed wheel → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- can you recommend any → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 6.
+- car cleaning pad → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car paint and fabric protection → https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1181 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cleaning mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 10.
+- cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cleaning mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- clearz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cloth for drying car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- complete → https://streetkingz.co.uk/product/stubby-gun-bundle/ — navigational, brand, location or accidental query; impressions excluded: 1.
+- coral cloths → https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- deep dirt → https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detail king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 13.
+- detail kings → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- detail kings high wycombe → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detail kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailing king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- detailing kings → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailing towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detailking → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- detailz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 10.
+- detailz london → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- detailz ltd → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- drizzle mobile detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- dry cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry cloth for cars → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry kit → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry loop → https://streetkingz.co.uk/product/twisted-loop-power-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry towel car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry wash kit → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — query intent does not match the landing product cluster; impressions excluded: 4.
+- dry xl → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dryer towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- drying cloth for car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- drying cloths → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- drying rags → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- fiber king → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- fiber kings → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- fibre king → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- fibre king cloths → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- fibreking → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- fibreking cloths → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- fleece microfiber → https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- foam gun cleaner → https://streetkingz.co.uk/product/stubby-gun-bundle/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- give me a link → https://streetkingz.co.uk/product/stubby-gun-bundle/ — navigational, brand, location or accidental query; impressions excluded: 1.
+- graffiti stubby gun → https://streetkingz.co.uk/product/stubby-gun-bundle/ — navigational, brand, location or accidental query; impressions excluded: 1.
+- grizzly detail → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- halfords advanced drying towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — navigational, brand, location or accidental query; impressions excluded: 1.
+- halfords stubby gun → https://streetkingz.co.uk/product/stubby-gun-bundle/ — navigational, brand, location or accidental query; impressions excluded: 3.
+- i want same → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- in range → https://streetkingz.co.uk/product-category/origin-range/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- keystone towel review → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- king detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- king studios detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- king towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz carwash → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz detail → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz return policy → https://streetkingz.co.uk/refund-policy/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz returns → https://streetkingz.co.uk/returns-policy/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- large barrel hair brush → https://streetkingz.co.uk/product/the-xl-barrel-brush/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- leather towel to dry car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber hand mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber mit → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- microfiber mitt for car → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 22.
+- microfiber mitt for car → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- microfiber mitt for car → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70 — does not match a supported catalogue customer job and destination; impressions excluded: 8.
+- microfiber mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber wash glove → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber washing mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfibre cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- microfibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 43.
+- microfibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 8.
+- microfibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70 — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- microfibre mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- microfibre mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- more images → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- new york foam kings → https://streetkingz.co.uk/ — navigational, brand, location or accidental query; impressions excluded: 1.
+- origin cleaner → https://streetkingz.co.uk/product-category/origin-range/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- origin detailing → https://streetkingz.co.uk/product-category/origin-range/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- origin kit → https://streetkingz.co.uk/product-tag/origin-xl-wash-kit/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- paint & fabric protection → https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917 — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- rapid dry towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- rapid dry towels → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- rinse towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- road skinz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- salt and pepper premium m/fibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- salt and pepper premium m/fibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 11.
+- salt and pepper premium m/fibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=68 — does not match a supported catalogue customer job and destination; impressions excluded: 11.
+- salt and pepper premium m/fibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=70 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- speedmaster brush → https://streetkingz.co.uk/product-category/wheels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+
+## prior90
+Accepted: 234; rejected: 189
+- street kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 428.
+- streetkingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 82.
+- street kings car → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 50.
+- microfiber flosser → https://streetkingz.co.uk/product/wheel-belt-flosser/ — does not match a supported catalogue customer job and destination; impressions excluded: 16.
+- street kings car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street kingz → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 73.
+- street kingz → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 82.
+- streetkingz → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 22.
+- stubby lance → https://streetkingz.co.uk/product-category/foam-lances/ — does not match a supported catalogue customer job and destination; impressions excluded: 77.
+- "128 city road" → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- "128 city road" → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- "128 city road" → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- ("128 city road")and(ec1v 2nx)and(london) → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- 1200 gsm → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- 1200gsm → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- 1200gsm meaning → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 4.
+- 1200gsm towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- 800 gsm microfiber cloth → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — query intent does not match the landing product cluster; impressions excluded: 1.
+- all sudz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- auto detail king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best car cleaner kit → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- best car cleaning kit uk → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- best car valet kit → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best mitt for washing car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- best mitt to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best stuff to wash your car with → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- best to wash car → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brush barrel → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- brush car cleaner → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brush for car → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- brush for cleaning car interior → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- brush to clean car wheels → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brushes to clean alloy wheels → https://streetkingz.co.uk/product/the-xl-barrel-brush/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- brushes to clean alloy wheels → https://streetkingz.co.uk/product/wheel-belt-flosser/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- car brushes for washing → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaner brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning brush interior → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning bundles → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car cleaning mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 6.
+- car cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- car cleaning mitts → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car detailing products wholesale uk → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car dusting brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- car kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- cheap car cleaning brushes → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 9.
+- cloth for drying car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- detail king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 9.
+- detail kings → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- detailing king → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 6.
+- detailing kings → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- detailing kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- detailing towel → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- dry cloth for cars → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dry towel car → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- dry wash kit → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — query intent does not match the landing product cluster; impressions excluded: 1.
+- drying car cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- drying cloth car → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth for car → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying cloth for cars → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- drying rag for car → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- dryset → https://streetkingz.co.uk/product/ultra-wash-and-dry-set/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- duster mitt → https://streetkingz.co.uk/product-category/wash-prep/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- fibre king → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- fibreking cloths → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- fleece cleaning cloth → https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 7.
+- gsm 1200 → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- heavy duty towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- hose down the wheels → https://streetkingz.co.uk/product/wheel-hose-guides/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- inurl:product-category "car care products" → https://streetkingz.co.uk/product-category/origin-range/ — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- king of detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- king studios detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 9.
+- king's detail → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz car → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- kingz cars → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 30.
+- kingz kar wash → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz of car care → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kingz return policy → https://streetkingz.co.uk/refund-policy/ — does not match a supported catalogue customer job and destination; impressions excluded: 5.
+- kit kingz → https://streetkingz.co.uk/product-category/bundles/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- kitglass → https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber coral fleece → https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=68 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber mitt for car → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfiber mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=68 — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- microfibre cleaning mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 15.
+- microfibre flosser → https://streetkingz.co.uk/product/wheel-belt-flosser/ — does not match a supported catalogue customer job and destination; impressions excluded: 22.
+- microfibre glove → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfibre mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- microfibre mitts → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=68 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- mitt on a stick pro plus → https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- origin glass → https://streetkingz.co.uk/product-category/origin-range/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- origin glass → https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- paint and fabric protection for car → https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917 — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- paintwork protection → https://streetkingz.co.uk/product/paint-protection-cloth/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- phsafe → https://streetkingz.co.uk/product/origin-shampoo/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- protective cloth → https://streetkingz.co.uk/product/paint-protection-cloth/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- pull off towel → https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- rapid dry towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- road kingz → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 6.
+- salt and pepper premium m/fibre mitt → https://streetkingz.co.uk/product/microfibre-wash-mitt/?add-to-cart=67 — does not match a supported catalogue customer job and destination; impressions excluded: 3.
+- sam's detailing towel → https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street brush → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street cleaning car → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street king detailing → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 2.
+- street kings auto → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 8.
+- street kings car → https://streetkingz.co.uk/#reviews — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street kings car → https://streetkingz.co.uk/about-us/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street kings car → https://streetkingz.co.uk/contact-us/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street kings car → https://streetkingz.co.uk/shop/ — does not match a supported catalogue customer job and destination; impressions excluded: 1.
+- street kings official website → https://streetkingz.co.uk/ — does not match a supported catalogue customer job and destination; impressions excluded: 8.
+- street kingz → https://streetkingz.co.uk/#reviews — does not match a supported catalogue customer job and destination; impressions excluded: 87.
+- street kingz → https://streetkingz.co.uk/about-us/ — does not match a supported catalogue customer job and destination; impressions excluded: 87.
+- street kingz → https://streetkingz.co.uk/contact-us/ — does not match a supported catalogue customer job and destination; impressions excluded: 97.
+- street kingz → https://streetkingz.co.uk/product-category/brushes-tools/ — does not match a supported catalogue customer job and destination; impressions excluded: 49.
+- street kingz → https://streetkingz.co.uk/product-category/drying-towels/ — does not match a supported catalogue customer job and destination; impressions excluded: 24.
+- street kingz → https://streetkingz.co.uk/product-category/drying-towels/page/2/ — does not match a supported catalogue customer job and destination; impressions excluded: 21.
+- street kingz → https://streetkingz.co.uk/product-category/foam-lances/ — does not match a supported catalogue customer job and destination; impressions excluded: 28.

@@ -1,0 +1,104 @@
+# Rejected Keyword Ideas evidence
+
+Task returned 100 items; 0 passed relevance; 100 were rejected.
+
+- halfords alloy wheel paint — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 210.
+- alloy wheel protectors — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 1900.
+- alloy wheel paint — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 1900.
+- alloy wheel filler — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- alloy wheel rim protectors — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 480.
+- autoglym vinyl and rubber care — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 880.
+- foam floor mats — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 1900.
+- autoglym tyre dressing — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 720.
+- wheel rim protectors — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 720.
+- windscreen glass coating — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: missing.
+- windscreen glass polish — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 90.
+- rubber car mats — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 4400.
+- halfords floor mats — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 880.
+- autoglym wheel sealant — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 40.
+- car vinyl wrap — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 2400.
+- mic windscreen foam — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 70.
+- alloy wheel silver spray paint — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- chrome alloy wheel paint — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 50.
+- windscreen polish uk — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: missing.
+- car boot liners — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- alloy wheel wrap — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 110.
+- tyre foam — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 880.
+- fix alloy wheel scratches — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 260.
+- autoglym paint renovator — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 320.
+- alloy rim protectors — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 320.
+- windscreen polish — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 320.
+- alloy wheel cover — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- car paint protection — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 1300.
+- car window tint film — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 720.
+- alloy wheel touch-up paint halfords — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 140.
+- alloy wheel repair filler — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 40.
+- windscreen water repellent — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 320.
+- windscreen coating — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 50.
+- car windscreen sealant — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 320.
+- windscreen protection film — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 260.
+- car windscreen water repellent — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 70.
+- waterproof car cover — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 1600.
+- alloy wheel lacquer halfords — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 40.
+- autoglym sealant — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 110.
+- car glass water repellent — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 90.
+- polycarbonate windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 50.
+- alloy scuff repair kit — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 40.
+- car rain repellent — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- autoglym wheel foam — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 10.
+- stone chip windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 480.
+- halfords alloy wheel filler — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 30.
+- glass scratch repair kit — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 260.
+- paintless dent removal kit — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- wheel protectors — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 480.
+- autoglym coat it — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 170.
+- spray paint for alloy wheels — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- wheel ceramic coating — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 210.
+- alloy wheel sealant — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 170.
+- wax on windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 40.
+- chipped windscreen mot — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 720.
+- fitted car mats — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- ceramic coating car wash — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 110.
+- windscreen foam — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 50.
+- alloy spray paint — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- windscreen polishing kit — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 110.
+- vinyl wrap for car interior — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 260.
+- windscreen adhesive halfords — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 50.
+- tinted film for windows uk — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: missing.
+- 3m car wrap — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- alloy wheel scuffs — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 140.
+- mobile glass replacement — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 30.
+- tyre repair foam — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- bricklink windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 10.
+- wheel liners — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 70.
+- halfords tyre foam — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 90.
+- refinish alloy wheels — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 20.
+- professional car polishing pads — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: missing.
+- autoglym resin polish — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 320.
+- windscreen stone chip — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 70.
+- crack on car windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 210.
+- interior car protection film — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 10.
+- autoglym polishing kit — navigational, brand, location or accidental query; cluster candidate none; volume excluded: 70.
+- windshield vs windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 40.
+- car putty filler — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 110.
+- car window seal — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 480.
+- alloy wheel touch up — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 140.
+- car polisher pads — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 880.
+- car protection film — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- glass windscreen — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 20.
+- car trim adhesive — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 320.
+- cheap tyre foam — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: missing.
+- car plastic trim restorer — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 390.
+- tyre filling foam — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 260.
+- glass sunroof repair — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 20.
+- bike wheel covers — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 320.
+- hard spare wheel cover — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 20.
+- car wrap film — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 210.
+- car tint film — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 210.
+- types of windscreen chips — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 30.
+- ppf car wrap — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 170.
+- car mat protectors — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 210.
+- car screen protector — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 590.
+- extra thick rubber foam weatherstrip — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: missing.
+- windscreen glue kit — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 70.
+- windscreen adhesive kit — does not match a supported catalogue customer job and destination; cluster candidate none; volume excluded: 70.

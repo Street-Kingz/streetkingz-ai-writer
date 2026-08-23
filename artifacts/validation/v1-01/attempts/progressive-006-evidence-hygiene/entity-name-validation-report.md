@@ -1,0 +1,110 @@
+# Entity-name validation
+
+- Canonical catalogue product name: **XL DRYING TOWEL – 800GSM**
+  - Live page title: XL Drying Towel 800GSM | Premium Car Drying Towel UK | Street Kingz
+  - Internal customer-job cluster: car_drying
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Heavy Duty Drying Towel – 1200gsm**
+  - Live page title: Heavy Duty Drying Towel | Premium Car Care Tools UK | Street Kingz1
+  - Internal customer-job cluster: car_drying
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Paint Protection Cloth**
+  - Live page title: Street Kingz | Made For Detailing | Paint Protection Cloth
+  - Internal customer-job cluster: microfibre_application
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **CORAL FLEECE CLOTHS – 2 PACK**
+  - Live page title: Coral Fleece Cloths | Plush Microfibre Cloth | Street Kingz
+  - Internal customer-job cluster: interior_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Waffle Glass Cloth**
+  - Live page title: Waffle Glass Cloth | Microfibre Waffle Weave | Street Kingz
+  - Internal customer-job cluster: glass_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Microfibre Wash Mitt**
+  - Live page title: Microfibre Wash Mitt | Scratch-Safe Car Wash | Street Kingz UK
+  - Internal customer-job cluster: contact_washing
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Microfibre Scrub Pads**
+  - Live page title: Scrub Pads | Dual Sided | Street Kingz UK
+  - Internal customer-job cluster: interior_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Wheel Belt Flosser**
+  - Live page title: Wheel Flosser | Scratch-Safe Wheel Clean | Street Kingz UK
+  - Internal customer-job cluster: wheel_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **The XL Barrel Brush**
+  - Live page title: XL Barrel Brush | Scratch-Safe Wheel Cleaner | Street Kingz UK
+  - Internal customer-job cluster: wheel_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Slim Barrel Brush**
+  - Live page title: Small Barrel Brush | Alloy Paint Safe | Street Kingz
+  - Internal customer-job cluster: wheel_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Wheel Hose Guides**
+  - Live page title: Wheel Hose Guides | Prevent Hose Snagging | Street Kingz
+  - Internal customer-job cluster: wheel_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Stubby Gun & Nozzle Set**
+  - Live page title: Stubby Gun and Nozzle Set | Premium Build Quality | Street Kingz
+  - Internal customer-job cluster: prewash_pressure
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Snow Foam Lance**
+  - Live page title: Snow Foam Lance | High Quality &amp; Durable | Street Kingz
+  - Internal customer-job cluster: prewash_pressure
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Stubby Gun + Foam Lance Bundle**
+  - Live page title: Stubby Gun &amp; Snow Foam Lance Bundle | Street Kingz
+  - Internal customer-job cluster: prewash_pressure
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **The Origin Shampoo – Ultra Concentrated & pH Safe**
+  - Live page title: Origin Shampoo | Ultra-Concentrated &amp; pH Safe | Street Kingz
+  - Internal customer-job cluster: contact_washing
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Origin MultiClean – Interior & Exterior Cleaner**
+  - Live page title: Origin MultiClean | All-Purpose Car Cleaner | Street Kingz
+  - Internal customer-job cluster: interior_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner**
+  - Live page title: Origin Glass Cleaner | Streak-Free Window Cleaner | Street Kingz
+  - Internal customer-job cluster: glass_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **The Origin Ultra Wash & Dry Kit**
+  - Live page title: Origin Ultra Kit | Drying Towel, Shampoo &amp; Wash Mitt | Street Kingz
+  - Internal customer-job cluster: contact_washing
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)**
+  - Live page title: Wheel Cleaning Kit | Brushes &amp; Wheel Flosser | Street Kingz
+  - Internal customer-job cluster: wheel_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Origin Wash Kit**
+  - Live page title: Origin Wash Kit | Safe Car Washing | Street Kingz
+  - Internal customer-job cluster: contact_washing
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Origin Interior Deep Clean Kit**
+  - Live page title: Origin Interior Deep Clean Kit | Easily Cleans Dirt | Street Kingz
+  - Internal customer-job cluster: interior_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Origin Glass Clarity Kit**
+  - Live page title: The Origin Clarity Kit | Streak Free Glass Cleaning | Street Kingz
+  - Internal customer-job cluster: glass_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Origin XL Wash Kit**
+  - Live page title: Origin XL Wash &amp; Dry Kit | Full Wash System | Street Kingz
+  - Internal customer-job cluster: car_drying
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **XL Wash & Dry Set**
+  - Live page title: XL Wash &amp; Dry Bundle | XL Towel + Wash Mitt | Street Kingz
+  - Internal customer-job cluster: contact_washing
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **The Origin Trilogy**
+  - Live page title: The Origin Trilogy | Shampoo, Glass &amp; Interior | Street Kingz
+  - Internal customer-job cluster: glass_cleaning
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Twisted Loop Power Pack**
+  - Live page title: Street Kingz | Made For Detailing | Twisted Loop Power Pack
+  - Internal customer-job cluster: car_drying
+  - Customer-facing name valid: YES
+- Canonical catalogue product name: **Ultra Wash and Dry Set**
+  - Live page title: Ultra Wash &amp; Dry Bundle | Car Cleaning Kit UK | Street Kingz
+  - Internal customer-job cluster: car_drying
+  - Customer-facing name valid: YES
