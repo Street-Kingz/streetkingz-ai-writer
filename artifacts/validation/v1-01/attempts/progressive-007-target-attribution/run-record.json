@@ -1,0 +1,41 @@
+{
+  "artifact_type": "v1_01_progressive_007_target_attribution",
+  "status": "COMPLETE FOR OWNER REVIEW",
+  "source_attempt": "progressive-006-evidence-hygiene",
+  "new_external_evidence": false,
+  "windows": [
+    "365d",
+    "latest90",
+    "prior90"
+  ],
+  "target": {
+    "name": "Stubby Gun + Foam Lance Bundle",
+    "url": "https://streetkingz.co.uk/product/stubby-gun-bundle/"
+  },
+  "target_changed_from_progressive_006": true,
+  "selection_basis": "Selected from exact-page accepted 365-day evidence; catalogue order and cluster totals are not used.",
+  "products_reviewed": [
+    {
+      "name": "Stubby Gun & Nozzle Set",
+      "url": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "baseline_clicks": 0,
+      "baseline_impressions": 0,
+      "exact_page_evidence": false
+    },
+    {
+      "name": "Snow Foam Lance",
+      "url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+      "baseline_clicks": 0,
+      "baseline_impressions": 0,
+      "exact_page_evidence": false
+    },
+    {
+      "name": "Stubby Gun + Foam Lance Bundle",
+      "url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+      "baseline_clicks": 6,
+      "baseline_impressions": 176,
+      "exact_page_evidence": true
+    }
+  ],
+  "publication_authorized": false
+}
