@@ -1724,6 +1724,8 @@ A temporary generic internal identifier may be adopted if necessary, but no rena
 
 **Status:** Deferred
 
+**Resolution point:** V1-08.
+
 The current Create SEO Article workflow is the leading candidate because substantial work already exists.
 
 It is not confirmed until the repository audit establishes:
@@ -1733,6 +1735,8 @@ It is not confirmed until the repository audit establishes:
 * alignment with the new execution contract;
 * required refactoring;
 * whether finishing it is the best first milestone.
+
+The first paid executor remains deferred until V1-08 selects exactly one executor from observed Product evidence. The historical article-first roadmap does not authorise continuing Create SEO Article work before that decision.
 
 ---
 
@@ -1777,7 +1781,7 @@ Pricing must not alter the free intelligence doctrine or influence recommendatio
 
 **Status:** Deferred
 
-Analytics intelligence is within Product Scope, but its V1 necessity depends on whether it materially improves the first decision job relative to its connector, tracking-quality and support burden.
+Analytics intelligence is within Product Scope, but GA4 is not V1 Required unless V1-01 or V1-05 proves that the decision job cannot work without it, relative to its connector, tracking-quality and support burden.
 
 ---
 
@@ -1795,7 +1799,7 @@ Product Scope requirements do not prescribe a framework, database, hosting provi
 
 **Status:** Deferred
 
-The number, selection criteria and access method for independent test businesses will be defined in the Roadmap and relevant milestone contracts.
+The number, selection criteria and access method for independent test businesses will be defined in the Roadmap and relevant milestone contracts. Validation minimums are governed by ROADMAP.md milestones V1-07, V1-10 and V1-11.
 
 ---
 
