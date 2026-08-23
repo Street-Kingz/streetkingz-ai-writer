@@ -1,0 +1,29 @@
+# Destination gap analysis
+
+- https://streetkingz.co.uk/product/xl-drying-towel-800gsm/: status 200; title “XL Drying Towel 800GSM | Premium Car Drying Towel UK | Street Kingz”; H1-H3 count 20; internal links 28; thin-content flag false.
+- https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/: status 200; title “Heavy Duty Drying Towel | Premium Car Care Tools UK | Street Kingz1”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/paint-protection-cloth/: status 200; title “Street Kingz | Made For Detailing | Paint Protection Cloth”; H1-H3 count 17; internal links 35; thin-content flag false.
+- https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/: status 200; title “Coral Fleece Cloths | Plush Microfibre Cloth | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/waffle-glass-cloth/: status 200; title “Waffle Glass Cloth | Microfibre Waffle Weave | Street Kingz”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/microfibre-wash-mitt/: status 200; title “Microfibre Wash Mitt | Scratch-Safe Car Wash | Street Kingz UK”; H1-H3 count 20; internal links 28; thin-content flag false.
+- https://streetkingz.co.uk/product/microfibre-scrub-pads/: status 200; title “Scrub Pads | Dual Sided | Street Kingz UK”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/wheel-belt-flosser/: status 200; title “Wheel Flosser | Scratch-Safe Wheel Clean | Street Kingz UK”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/the-xl-barrel-brush/: status 200; title “XL Barrel Brush | Scratch-Safe Wheel Cleaner | Street Kingz UK”; H1-H3 count 20; internal links 28; thin-content flag false.
+- https://streetkingz.co.uk/product/slim-barrel-brush/: status 200; title “Small Barrel Brush | Alloy Paint Safe | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/wheel-hose-guides/: status 200; title “Wheel Hose Guides | Prevent Hose Snagging | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/: status 200; title “Stubby Gun and Nozzle Set | Premium Build Quality | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/snow-foam-lance/: status 200; title “Snow Foam Lance | High Quality &amp; Durable | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/stubby-gun-bundle/: status 200; title “Stubby Gun &amp; Snow Foam Lance Bundle | Street Kingz”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-shampoo/: status 200; title “Origin Shampoo | Ultra-Concentrated &amp; pH Safe | Street Kingz”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-multiclean/: status 200; title “Origin MultiClean | All-Purpose Car Cleaner | Street Kingz”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-glass-cleaner/: status 200; title “Origin Glass Cleaner | Streak-Free Window Cleaner | Street Kingz”; H1-H3 count 20; internal links 28; thin-content flag false.
+- https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/: status 200; title “Origin Ultra Kit | Drying Towel, Shampoo &amp; Wash Mitt | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/wheel-cleaning-power-pack/: status 200; title “Wheel Cleaning Kit | Brushes &amp; Wheel Flosser | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-wash-kit/: status 200; title “Origin Wash Kit | Safe Car Washing | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/: status 200; title “Origin Interior Deep Clean Kit | Easily Cleans Dirt | Street Kingz”; H1-H3 count 20; internal links 25; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/: status 200; title “The Origin Clarity Kit | Streak Free Glass Cleaning | Street Kingz”; H1-H3 count 20; internal links 25; thin-content flag false.
+- https://streetkingz.co.uk/product/origin-xl-wash-kit/: status 200; title “Origin XL Wash &amp; Dry Kit | Full Wash System | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/xl-wash-dry-set/: status 200; title “XL Wash &amp; Dry Bundle | XL Towel + Wash Mitt | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/the-origin-trilogy/: status 200; title “The Origin Trilogy | Shampoo, Glass &amp; Interior | Street Kingz”; H1-H3 count 20; internal links 27; thin-content flag false.
+- https://streetkingz.co.uk/product/twisted-loop-power-pack/: status 200; title “Street Kingz | Made For Detailing | Twisted Loop Power Pack”; H1-H3 count 20; internal links 26; thin-content flag false.
+- https://streetkingz.co.uk/product/ultra-wash-and-dry-set/: status 200; title “Ultra Wash &amp; Dry Bundle | Car Cleaning Kit UK | Street Kingz”; H1-H3 count 20; internal links 26; thin-content flag false.

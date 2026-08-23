@@ -1,0 +1,13 @@
+{
+  "run_id": "progressive-005-decision-quality",
+  "status": "COMPLETE FOR OWNER REVIEW",
+  "product_count": 27,
+  "opportunity_count": 8,
+  "recommendation_count": 4,
+  "winner": "opportunity-prewash_pressure",
+  "input_hash": "891469bab2f70c177e0b2f562a55e0072afe9af94816fa689582a83460dce9fd",
+  "output_hash": "36f7c53a501b904b55b609bac226e79c74f8b3f3979e6121d11a38e7b95d5fda",
+  "strategic_calls": 1,
+  "previous_attempt_preserved": true,
+  "wordpress_writes": 0
+}

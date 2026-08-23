@@ -1,0 +1,1 @@
+Decision-quality checks: 27-product mapping, actual keyword item parsing, GSC row mapping, live page extraction, evidence-cited recommendations, intervention diversity, three-alternative comparison, evidence-specific DIY plan, no-write boundary and previous-attempt immutability.

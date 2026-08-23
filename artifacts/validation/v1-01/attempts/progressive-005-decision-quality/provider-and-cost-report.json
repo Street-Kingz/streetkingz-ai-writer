@@ -1,0 +1,29 @@
+{
+  "dataforseo": {
+    "reused_from": "progressive-004-fresh-evidence",
+    "new_calls": 0,
+    "cost_usd": 0
+  },
+  "website": {
+    "pages": 27,
+    "successful": 27,
+    "cost_usd": 0
+  },
+  "search_console": {
+    "reused_from": "progressive-004-fresh-evidence",
+    "rows": 1719,
+    "cost_usd": 0
+  },
+  "strategic_call": {
+    "model": "gpt-5.6-sol",
+    "input_hash": "891469bab2f70c177e0b2f562a55e0072afe9af94816fa689582a83460dce9fd",
+    "output_hash": "36f7c53a501b904b55b609bac226e79c74f8b3f3979e6121d11a38e7b95d5fda",
+    "usage": {
+      "input_tokens": 168135,
+      "output_tokens": 4300
+    },
+    "cost_usd": null,
+    "cost_status": "unknown"
+  },
+  "retries": 0
+}

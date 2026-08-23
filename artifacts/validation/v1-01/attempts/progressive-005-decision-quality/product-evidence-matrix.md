@@ -1,0 +1,29 @@
+# Product evidence matrix
+
+- product-001: XL DRYING TOWEL – 800GSM; car_drying; SUPPORT THROUGH SHARED DESTINATION; GSC rows 125.
+- product-002: Heavy Duty Drying Towel – 1200gsm; car_drying; SUPPORT THROUGH SHARED DESTINATION; GSC rows 399.
+- product-003: Paint Protection Cloth; microfibre_application; SUPPORT THROUGH SHARED DESTINATION; GSC rows 5.
+- product-004: CORAL FLEECE CLOTHS – 2 PACK; interior_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 8.
+- product-005: Waffle Glass Cloth; glass_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 1.
+- product-006: Microfibre Wash Mitt; contact_washing; SUPPORT THROUGH SHARED DESTINATION; GSC rows 104.
+- product-007: Microfibre Scrub Pads; interior_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 1.
+- product-008: Wheel Belt Flosser; wheel_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 13.
+- product-009: The XL Barrel Brush; wheel_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 76.
+- product-010: Slim Barrel Brush; wheel_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-011: Wheel Hose Guides; wheel_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 4.
+- product-012: Stubby Gun & Nozzle Set; prewash_pressure; RETAIN FOR COMPARISON; GSC rows 0.
+- product-013: Snow Foam Lance; prewash_pressure; RETAIN FOR COMPARISON; GSC rows 0.
+- product-014: Stubby Gun + Foam Lance Bundle; prewash_pressure; RETAIN FOR COMPARISON; GSC rows 38.
+- product-015: The Origin Shampoo – Ultra Concentrated & pH Safe; contact_washing; SUPPORT THROUGH SHARED DESTINATION; GSC rows 2.
+- product-016: Origin MultiClean – Interior & Exterior Cleaner; interior_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-017: Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner; glass_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-018: The Origin Ultra Wash & Dry Kit; contact_washing; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-019: Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser); wheel_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-020: Origin Wash Kit; contact_washing; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-021: Origin Interior Deep Clean Kit; interior_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 2.
+- product-022: Origin Glass Clarity Kit; glass_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 5.
+- product-023: Origin XL Wash Kit; car_drying; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-024: XL Wash & Dry Set; contact_washing; SUPPORT THROUGH SHARED DESTINATION; GSC rows 8.
+- product-025: The Origin Trilogy; glass_cleaning; SUPPORT THROUGH SHARED DESTINATION; GSC rows 0.
+- product-026: Twisted Loop Power Pack; car_drying; SUPPORT THROUGH SHARED DESTINATION; GSC rows 9.
+- product-027: Ultra Wash and Dry Set; car_drying; SUPPORT THROUGH SHARED DESTINATION; GSC rows 21.

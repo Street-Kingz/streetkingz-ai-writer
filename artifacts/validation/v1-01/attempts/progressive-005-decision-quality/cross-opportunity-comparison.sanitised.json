@@ -1,0 +1,4225 @@
+{
+  "opportunities": [
+    {
+      "opportunity_id": "opportunity-car_drying",
+      "cluster": "car_drying",
+      "name": "Car drying",
+      "affected_products": [
+        "product-001",
+        "product-002",
+        "product-023",
+        "product-026",
+        "product-027"
+      ],
+      "destination": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "demand_evidence": [],
+      "keyword_query_count": 0,
+      "serp_evidence": {
+        "keyword": "car drying towel",
+        "retrieved_at": "2026-08-23 18:06:08 +00:00",
+        "item_types": [
+          "popular_products",
+          "organic",
+          "people_also_ask",
+          "video",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "popular_products",
+            "rank": 1,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Halfords Drying Towel",
+              "Hydro Drying Towel",
+              "Chemical Guys Speed Mammoth Ultimate Super Plush Drying Towel",
+              "Amazon Basics Microfiber Car Drying Towel",
+              "Martin Cox Blue Giant Drying Towel MOGG67",
+              "Finish Grey Cleaning Drying towel",
+              "Meguiar's Supreme Drying Towel XL",
+              "Autoglym Instadry Microfibre Cloth"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 2,
+            "title": "Drying Towel",
+            "url": "https://www.samsdetailing.co.uk/products/drying-towel?srsltid=AfmBOorS01OuASCn6EWvreGKYZWNLMcfJ7Sgttzb9UodZOKBZax3Jhxs",
+            "domain": "www.samsdetailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 3,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "What is the best type of towel to dry a car?",
+              "What's the best car drying towel?",
+              "Are drying towels for cars worth it?",
+              "What are people saying about the Autoglym drying towel?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 4,
+            "title": "Ultra-Soft Drying Towel",
+            "url": "https://www.autoglym.com/ultra-soft-drying-towel.html",
+            "domain": "www.autoglym.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 5,
+            "title": "HYDRO DRYING TOWEL",
+            "url": "https://hydrouk.co/products/hydro-drying-towel?srsltid=AfmBOorVwQBd8Kv43fX_jq0x7rg7F95MBOz45_veMwkUrLBw0NTDha_W",
+            "domain": "hydrouk.co",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 6,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Lakeland Car Drying Cloth",
+              "Premium XL 1000GSM Microfibre Car Drying Towel",
+              "Gtechniq MF2 Microfiber Drying Towel",
+              "Auto Finesse Aqua Deluxe Drying Towel",
+              "Armor All Microfibre Drying Towel XL",
+              "Turtle Wax Ultimate Microfibre Drying Towel",
+              "GreyDrying Car Drying Towel",
+              "Chemical Guys Miracle Dryer Microfiber Drying Towel"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 7,
+            "title": "Best car drying towels? : r/CarTalkUK",
+            "url": "https://www.reddit.com/r/CarTalkUK/comments/1uo1ruy/best_car_drying_towels/",
+            "domain": "www.reddit.com",
+            "questions": []
+          },
+          {
+            "type": "video",
+            "rank": 8,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Stop Using The Wrong Drying Towel – Here's What Actually ...",
+              "Best Car Drying Towels for Every Surface",
+              "What Is The Best Drying Towel For Your Car?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 9,
+            "title": "Best car drying cloths 2026",
+            "url": "https://www.autoexpress.co.uk/car-care/357935/best-car-drying-cloths",
+            "domain": "www.autoexpress.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "Best Car Drying Towel: Not What You Think!",
+            "url": "https://allthatgleams.co.uk/car-care-reviews/best-car-drying-towel/",
+            "domain": "allthatgleams.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "Microfibre Car Drying Towels",
+            "url": "https://paragonmicrofibre.com/collections/microfibre-drying-towels",
+            "domain": "paragonmicrofibre.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 12,
+            "title": "Halfords Drying Towel",
+            "url": "https://www.halfords.com/motoring/car-cleaning/sponges-brushes-and-buckets/halfords-drying-towel-300222.html",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 13,
+            "title": "Drying Towels",
+            "url": "https://www.in2detailing.co.uk/collections/drying-towels?srsltid=AfmBOoo4rssMLT-mEKxB86NiJLHp60jr8pYyogA7lr3ysSOjL9MOCJpq",
+            "domain": "www.in2detailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 14,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 713,
+        "queries": [
+          {
+            "query": "heavy duty towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 1,
+            "impressions": 17,
+            "ctr": 0.058823529411764705,
+            "position": 8.294117647058822,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "sahara xl microfibre drying towel",
+            "page": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+            "cluster": "car_drying",
+            "clicks": 1,
+            "impressions": 23,
+            "ctr": 0.043478260869565216,
+            "position": 10.91304347826087,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "street kings car",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 1,
+            "impressions": 2,
+            "ctr": 0.5,
+            "position": 3,
+            "branded": true,
+            "window": "365d"
+          },
+          {
+            "query": "street kingz",
+            "page": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+            "cluster": "car_drying",
+            "clicks": 1,
+            "impressions": 50,
+            "ctr": 0.02,
+            "position": 1.8399999999999999,
+            "branded": true,
+            "window": "365d"
+          },
+          {
+            "query": "xl microfiber drying towel",
+            "page": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+            "cluster": "car_drying",
+            "clicks": 1,
+            "impressions": 12,
+            "ctr": 0.08333333333333333,
+            "position": 12.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200 gsm",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 4,
+            "ctr": 0,
+            "position": 12,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200 gsm car drying towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 6,
+            "ctr": 0,
+            "position": 15.666666666666666,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200 gsm drying towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 6,
+            "ctr": 0,
+            "position": 12.333333333333334,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200 gsm microfiber drying towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 12,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200 gsm microfiber towels",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 12,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200 gsm towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 7,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200gsm",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 5,
+            "ctr": 0,
+            "position": 9,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200gsm drying towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 3,
+            "ctr": 0,
+            "position": 6.333333333333333,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200gsm meaning",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 10,
+            "ctr": 0,
+            "position": 4.6,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200gsm microfiber towels",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 11,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "1200gsm towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 1,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "800 gsm microfiber cloth",
+            "page": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 9,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "armor all extra large drying towel",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 44,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "auto drying cloth",
+            "page": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 48,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "auto drying towels",
+            "page": "https://streetkingz.co.uk/product-category/drying-towels/",
+            "cluster": "car_drying",
+            "clicks": 0,
+            "impressions": 101,
+            "ctr": 0,
+            "position": 58.95049504950495,
+            "branded": false,
+            "window": "365d"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+        "title": "XL Drying Towel 800GSM | Premium Car Drying Towel UK | Street Kingz",
+        "description": "Ultra-absorbent 800GSM drying towel designed to dry your car safely and quickly. Built for everyday UK drivers. Fast UK delivery.",
+        "headings": [
+          "XL Drying Towel – 800GSM",
+          "Why this product works so well",
+          "About this product",
+          "How to use it",
+          "Tech Specs",
+          "Complete the Kit",
+          "Customer Reviews",
+          "You May Also Like",
+          "FAQ’s",
+          "30-DAY SATISFACTION GUARANTEE",
+          "FAST UK SHIPPING",
+          "Premium Materials, No Gimmicks",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/the-origin-shampoo/",
+            "text": "Origin Shampoo"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+            "text": "Add to Cart"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+            "text": "Waffle Glass Cloth"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 273380,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 20,
+          "internal_link_count": 28,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+        "elapsed_ms": 290
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:car_drying",
+        "serp:car_drying",
+        "gsc:car_drying",
+        "destination:car_drying"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "low",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-contact_washing",
+      "cluster": "contact_washing",
+      "name": "Contact washing",
+      "affected_products": [
+        "product-006",
+        "product-015",
+        "product-018",
+        "product-020",
+        "product-024"
+      ],
+      "destination": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "demand_evidence": [
+        {
+          "keyword": "ceramic coating car wash",
+          "search_volume": 110,
+          "cpc": 0.81,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-20 13:47:09 +00:00"
+        }
+      ],
+      "keyword_query_count": 1,
+      "serp_evidence": {
+        "keyword": "car wash mitt",
+        "retrieved_at": "2026-08-23 18:06:15 +00:00",
+        "item_types": [
+          "popular_products",
+          "people_also_ask",
+          "organic",
+          "images",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "popular_products",
+            "rank": 1,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Halfords Car care microfibre wash mitt with mesh backing New",
+              "AutoGlym Microfiber Wash Mitt",
+              "Hilka Soft Fibre Wash Mitt",
+              "Autoglym Polar Car Wash Mitt with Storage and Washbag Included",
+              "Meguiars Microfiber Wash Mitt X3002",
+              "Clean Grey Multi-Surface Car Wash Mitt",
+              "Auto Finesse Plush Wash Mitt",
+              "Armor All Podium Series Car Wash Mitt"
+            ]
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 2,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Are car wash mitts good?",
+              "What's the best car wash mitt?",
+              "Is it better to wash a car with a sponge or mitt?",
+              "Is it legal to wash your car at home in the UK?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 3,
+            "title": "Microfibre Wash Mitt",
+            "url": "https://www.autoglym.com/mwmitt-microfibre-wash-mitt.html",
+            "domain": "www.autoglym.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 4,
+            "title": "Car Wash Mitts",
+            "url": "https://www.slimsdetailing.co.uk/collections/wash-mitts",
+            "domain": "www.slimsdetailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 5,
+            "title": "Best wash mitts 2026",
+            "url": "https://www.autoexpress.co.uk/product-group-tests/85240/best-car-wash-mitts",
+            "domain": "www.autoexpress.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 6,
+            "title": "Microfibre, Lambswool Wash Mitt & Pad",
+            "url": "https://www.autofinesse.com/collections/car-detailing-wash-mitts?srsltid=AfmBOophnEB6yY66tdoBGfCYQzopY1Q3Wz2mdQI8_Csd1yZORFUnL-RK",
+            "domain": "www.autofinesse.com",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 7,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Turtle Wax Plush Microfibre Wash Mitt",
+              "GreenThumb Co Microfibre Car Wash Mitt",
+              "Simoniz Microfibre Wash Mitt",
+              "Carkit Microfibre Noodle Wash Mitt",
+              "Carkit Premium Wash Mitt",
+              "Aselected 4Pcs Car Wash Mitt",
+              "Premium Professional Car Wash Mitts",
+              "Streetwize Monkey Mitt"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 8,
+            "title": "Wash Mitts",
+            "url": "https://www.in2detailing.co.uk/collections/wash-mitts?srsltid=AfmBOooIhsKFjLwoWkr_NoTFbZBFcoHIcvxqOIEu7f026zZb6WkHht1j",
+            "domain": "www.in2detailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 9,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Lakeland Chenille Car Wash Mitt",
+              "Kent 2-in-1 Microfibre Noodle Wash Mitt",
+              "Gtechniq Microfibre Wash Mitt",
+              "Chemical Guys The Stranger Helpful Handy Car Wash Mitt",
+              "Armor All Shield Extra Soft Wash Mitt",
+              "Goodyear Chenille Car Wash Mitt",
+              "Chemical Guys Chenille Scratch Free Wash Mitt Microfiber",
+              "Meguiar's Hybrid Microfibre Wash Mitt"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "Amazon.co.uk: Wash Mitt",
+            "url": "https://www.amazon.co.uk/wash-mitt/s?k=wash+mitt",
+            "domain": "www.amazon.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "Halfords Wash Mitt",
+            "url": "https://www.halfords.com/motoring/car-cleaning/sponges-brushes-and-buckets/halfords-wash-mitt-223532.html",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 12,
+            "title": "Q: What Mitts, Towels & Techniques Should I Wash My Car ...",
+            "url": "https://www.youtube.com/watch?v=zWNkNeBDRzo",
+            "domain": "www.youtube.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 13,
+            "title": "EZ Microfibre Wash Mitt",
+            "url": "https://www.ezcarcare.co.uk/products/ez-microfibre-wash-mitt?srsltid=AfmBOor8Dj9SaCOTJViP5sM1bk44nuP68uRBxhdHM2gw9HE5nL-oEIW7",
+            "domain": "www.ezcarcare.co.uk",
+            "questions": []
+          },
+          {
+            "type": "images",
+            "rank": 14,
+            "title": "Images",
+            "url": "https://www.google.com/search?sca_esv=8f599edb7244e5d7&hl=en&gl=GB&q=car+wash+mitt&udm=2&source=univ&fir=jFyElsWr3T8RXM%252CJHDg5CUVobZBNM%252C_%253BCsSYfH41oVZM2M%252CwcPgfy0L9BX5oM%252C_%253B87wvF-n4tEOAEM%252CeOCBPRdYneZyYM%252C_%253BTmI7WTz_FExciM%252C2AzjBFpi9IiU4M%252C_%253BEgZlNM283r1lMM%252CIcZD3SQE2JafiM%252C_%253BFyoxw6cpJ-unKM%252CxRt-mxUemvc1aM%252C_%253BAvc7VOQQAPHcQM%252CeOCBPRdYneZyYM%252C_%253ByOkIOtIUPJIvVM%252ChaoccOg2RvQ2GM%252C_&usg=AI4_-kTTGTonBFYVdESsNbT_t10ILu8axw&sa=X&ved=2ahUKEwjw9LzNq7eWAxXoSfEDHShBK_AQ7Al6BAhqEAU",
+            "domain": null,
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 15,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 455,
+        "queries": [
+          {
+            "query": "street kings car wash",
+            "page": "https://streetkingz.co.uk/",
+            "cluster": "contact_washing",
+            "clicks": 5,
+            "impressions": 660,
+            "ctr": 0.007575757575757576,
+            "position": 11.06969696969697,
+            "branded": true,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash setup",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 1,
+            "impressions": 2,
+            "ctr": 0.5,
+            "position": 1,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "basic car wash equipment",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 20,
+            "ctr": 0,
+            "position": 32.9,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best auto wash mitt",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 1,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car pre wash",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 16,
+            "ctr": 0,
+            "position": 41.9375,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash accessories",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 51,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash cleaning kit",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 3,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash equipment",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 7,
+            "ctr": 0,
+            "position": 36.857142857142854,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash gadgets",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 22.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash items",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 3,
+            "ctr": 0,
+            "position": 50,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash kit",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 515,
+            "ctr": 0,
+            "position": 34.671844660194175,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash kits",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 16.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash mit",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 2.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash mitt",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 30,
+            "ctr": 0,
+            "position": 2.1,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash mitt uk",
+            "page": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 3,
+            "ctr": 0,
+            "position": 24.333333333333332,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash mitts",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 3,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash products",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 6,
+            "ctr": 0,
+            "position": 34.833333333333336,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash stuff",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 46,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash supplies",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 5,
+            "ctr": 0,
+            "position": 44.6,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best car wash system",
+            "page": "https://streetkingz.co.uk/the-best-car-wash-kit-uk-essential-gear-for-a-spotless-clean/",
+            "cluster": "contact_washing",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 38,
+            "branded": false,
+            "window": "365d"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+        "title": "Microfibre Wash Mitt | Scratch-Safe Car Wash | Street Kingz UK",
+        "description": "Soft microfibre wash mitt designed to safely lift dirt without scratching. Ideal for regular car washing at home.",
+        "headings": [
+          "Microfibre Wash Mitt",
+          "Why this product works so well",
+          "About this product",
+          "How to use it",
+          "Tech Specs",
+          "Complete the Kit",
+          "Customer Reviews",
+          "You May Also Like",
+          "FAQ’s",
+          "30-DAY SATISFACTION GUARANTEE",
+          "FAST UK SHIPPING",
+          "Premium Materials, No Gimmicks",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/origin-shampoo-ultra-concentrated-ph-safe/",
+            "text": "Origin Shampoo."
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+            "text": "Add to Cart"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "text": "barrel brush"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 276254,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 20,
+          "internal_link_count": 28,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+        "elapsed_ms": 52
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:contact_washing",
+        "serp:contact_washing",
+        "gsc:contact_washing",
+        "destination:contact_washing"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-wheel_cleaning",
+      "cluster": "wheel_cleaning",
+      "name": "Wheel cleaning",
+      "affected_products": [
+        "product-008",
+        "product-009",
+        "product-010",
+        "product-011",
+        "product-019"
+      ],
+      "destination": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "demand_evidence": [
+        {
+          "keyword": "alloy wheel protectors",
+          "search_volume": 1900,
+          "cpc": 0.32,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-21 17:25:59 +00:00"
+        },
+        {
+          "keyword": "alloy wheel paint",
+          "search_volume": 1900,
+          "cpc": 0.36,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-20 19:24:19 +00:00"
+        },
+        {
+          "keyword": "wheel rim protectors",
+          "search_volume": 720,
+          "cpc": 0.33,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-15 12:09:12 +00:00"
+        },
+        {
+          "keyword": "alloy wheel filler",
+          "search_volume": 590,
+          "cpc": 0.22,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-18 04:39:52 +00:00"
+        },
+        {
+          "keyword": "spray paint for alloy wheels",
+          "search_volume": 590,
+          "cpc": 0.24,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-13 12:17:47 +00:00"
+        },
+        {
+          "keyword": "alloy wheel rim protectors",
+          "search_volume": 480,
+          "cpc": 0.36,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-21 19:25:38 +00:00"
+        },
+        {
+          "keyword": "wheel protectors",
+          "search_volume": 480,
+          "cpc": 0.42,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-14 02:46:55 +00:00"
+        },
+        {
+          "keyword": "alloy wheel silver spray paint",
+          "search_volume": 390,
+          "cpc": 0.38,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-16 08:11:41 +00:00"
+        }
+      ],
+      "keyword_query_count": 20,
+      "serp_evidence": {
+        "keyword": "wheel cleaning brush",
+        "retrieved_at": "2026-08-23 18:06:16 +00:00",
+        "item_types": [
+          "organic",
+          "popular_products",
+          "people_also_ask",
+          "video",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "organic",
+            "rank": 1,
+            "title": "Wheel Woolies - Wheel Cleaning Brushes",
+            "url": "https://www.slimsdetailing.co.uk/collections/wheel-woolies",
+            "domain": "www.slimsdetailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 2,
+            "title": "Popular products",
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Halfords Alloy Wheel Brush",
+              "Simoniz Microfibre Wheel Brush",
+              "CA Detailing Car Wheel Cleaning Brush",
+              "Amtech Alloy Wheel Cleaning Brush",
+              "Amazon Basics Microfiber Wheel Cleaner Brush",
+              "Armor All Luxury Alloy Wheel Brush",
+              "Goodyear Wheel And Tyre Cleaning Brush",
+              "Amazon Basics Wheel Brush for Car Detailing"
+            ]
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 3,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "What is the best brush for cleaning wheels?",
+              "What is the best car wheel cleaning brush?",
+              "What is the best brush for tire cleaning?",
+              "What is the best thing to clean rims with?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 4,
+            "title": "Wheel Brushes, Mitts + Applicators",
+            "url": "https://www.cleanandshiny.co.uk/collections/wheel-brushes-and-applicators",
+            "domain": "www.cleanandshiny.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 5,
+            "title": "Alloy Wheel Cleaning Brushes",
+            "url": "https://www.theultimatefinish.co.uk/accessories/brushes/wheel.aspx",
+            "domain": "www.theultimatefinish.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 6,
+            "title": "Top 5 Best Alloy Wheel Brushes | Car Care Reviews",
+            "url": "https://allthatgleams.co.uk/car-care-reviews/best-alloy-wheel-brushes/",
+            "domain": "allthatgleams.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 7,
+            "title": "EZ Detail Wheel Brush | Effective, Safe Wheel Cleaning Tool",
+            "url": "https://www.cleanyourcar.co.uk/ez-detail-brush?srsltid=AfmBOop9ar-JdhXbZNYqQoqcLZt3pFaLslrLPm3RDlTrvARzdpR1YU4K",
+            "domain": "www.cleanyourcar.co.uk",
+            "questions": []
+          },
+          {
+            "type": "video",
+            "rank": 8,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "EZ Detail Wheel Brushes | Review After 3+ Years",
+              "Meguiar's Wheel Brush Review - Worth buying?",
+              "The Best Wheel Brushes In The World? Let's Look At Original ..."
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 9,
+            "title": "Car Wheel Cleaning Brushes | Multiple Sizes",
+            "url": "https://www.halfords.com/motoring/car-cleaning/sponges-brushes-and-buckets/wheel-brushes/",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "Cleaning wheels ...what brush you recommended?",
+            "url": "https://www.reddit.com/r/DetailingUK/comments/1hui6ti/cleaning_wheels_what_brush_you_recommended/",
+            "domain": "www.reddit.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "Wheel Brush",
+            "url": "https://autosmart.co.uk/shop/wheel-brush",
+            "domain": "autosmart.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 12,
+            "title": "ALLOY WHEEL BRUSH",
+            "url": "https://www.duelautocare.co.uk/collections/wheel-brushes",
+            "domain": "www.duelautocare.co.uk",
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 13,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 101,
+        "queries": [
+          {
+            "query": "microfiber flosser",
+            "page": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+            "cluster": "wheel_cleaning",
+            "clicks": 1,
+            "impressions": 16,
+            "ctr": 0.0625,
+            "position": 3.0625,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "wheel barrel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 1,
+            "impressions": 71,
+            "ctr": 0.014084507042253521,
+            "position": 15.971830985915492,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "air kingz",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 10,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "alloy wheel barrel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 4,
+            "ctr": 0,
+            "position": 13.25,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "alloy wheel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 31,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "barrel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 12,
+            "ctr": 0,
+            "position": 29.583333333333332,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "barrel brush car",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 4,
+            "ctr": 0,
+            "position": 61,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "barrel brushes",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 34,
+            "ctr": 0,
+            "position": 62.6764705882353,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "barrel wheel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 13,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best barrel brush for wheels",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 12.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best wheel barrel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 18,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "best wheel brush for tight spaces",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 7,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brush barrel",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 58,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brush for wheel cleaning",
+            "page": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 39,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brush to clean car wheels",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 6,
+            "ctr": 0,
+            "position": 91.33333333333333,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brush wheel cleaner",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 53,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brushed wheel",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 62,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brushes to clean alloy wheels",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 4,
+            "ctr": 0,
+            "position": 70.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "brushes to clean alloy wheels",
+            "page": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 4,
+            "ctr": 0,
+            "position": 69.25,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "car wheel barrel brush",
+            "page": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+            "cluster": "wheel_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 54,
+            "branded": false,
+            "window": "365d"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+        "title": "Wheel Flosser | Scratch-Safe Wheel Clean | Street Kingz UK",
+        "description": "Soft microfibre wheel flosser designed to safely lift dirt without scratching. Ideal for regular car washing at home.",
+        "headings": [
+          "Wheel Belt Flosser",
+          "Why this product works so well",
+          "About this product",
+          "How to use it",
+          "Tech Specs",
+          "Complete the Kit",
+          "Customer Reviews",
+          "You May Also Like",
+          "FAQ’s",
+          "30-DAY SATISFACTION GUARANTEE",
+          "FAST UK SHIPPING",
+          "Premium Materials, No Gimmicks",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/wheel-hose-guides/",
+            "text": "Add to Cart"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 274015,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 20,
+          "internal_link_count": 26,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+        "elapsed_ms": 48
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:wheel_cleaning",
+        "serp:wheel_cleaning",
+        "gsc:wheel_cleaning",
+        "destination:wheel_cleaning"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-glass_cleaning",
+      "cluster": "glass_cleaning",
+      "name": "Glass cleaning",
+      "affected_products": [
+        "product-005",
+        "product-017",
+        "product-022",
+        "product-025"
+      ],
+      "destination": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "demand_evidence": [
+        {
+          "keyword": "glass scratch repair kit",
+          "search_volume": 260,
+          "cpc": 0.33,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-15 23:45:56 +00:00"
+        },
+        {
+          "keyword": "windscreen glass polish",
+          "search_volume": 90,
+          "cpc": 0.3,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-20 16:12:26 +00:00"
+        },
+        {
+          "keyword": "car glass water repellent",
+          "search_volume": 90,
+          "cpc": 0.44,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-18 14:51:30 +00:00"
+        },
+        {
+          "keyword": "mobile glass replacement",
+          "search_volume": 30,
+          "cpc": 4.44,
+          "competition": 0.67,
+          "intent": "transactional",
+          "last_updated": "2026-08-17 12:23:54 +00:00"
+        },
+        {
+          "keyword": "glass windscreen",
+          "search_volume": 20,
+          "cpc": 2.16,
+          "competition": 0.77,
+          "intent": "transactional",
+          "last_updated": "2026-07-14 13:18:00 +00:00"
+        },
+        {
+          "keyword": "glass sunroof repair",
+          "search_volume": 20,
+          "cpc": 2.49,
+          "competition": 0.74,
+          "intent": "commercial",
+          "last_updated": "2026-07-16 08:50:23 +00:00"
+        }
+      ],
+      "keyword_query_count": 7,
+      "serp_evidence": {
+        "keyword": "car glass cleaner",
+        "retrieved_at": "2026-08-23 18:06:19 +00:00",
+        "item_types": [
+          "ai_overview",
+          "organic",
+          "people_also_ask",
+          "popular_products",
+          "video",
+          "images",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "ai_overview",
+            "rank": 1,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 2,
+            "title": "Car Glass Cleaner | Hydrophobic & Antibacterial",
+            "url": "https://www.halfords.com/motoring/motoring-products/car-cleaning/glass-cleaner/",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 3,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "What is best for cleaning car glass?",
+              "What is the best way to clean the glass in my car?",
+              "How do I get the haze off my windshield?",
+              "How to get a crystal clear windscreen?"
+            ]
+          },
+          {
+            "type": "popular_products",
+            "rank": 4,
+            "title": "Popular products",
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Carplan Demon Anti Mist Glass Cleaner",
+              "Auto Extreme Glass Cleaner",
+              "Armor All Glass Cleaner 500ml",
+              "HG Glass & Mirror Spray",
+              "Karcher Car Glass Cleaner",
+              "Simoniz Clear Vision Glass Cleaner",
+              "Fast Glass 500ml Streak-Free Car Cleaner",
+              "Karcher Glass Cleaning Concentrate 500ml"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 5,
+            "title": "The Best Car Glass & Windscreen Cleaner",
+            "url": "https://www.theultimatefinish.co.uk/exterior/glass/cleaners.aspx",
+            "domain": "www.theultimatefinish.co.uk",
+            "questions": []
+          },
+          {
+            "type": "video",
+            "rank": 6,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "How to Remove INSIDE Windshield Haze FOREVER!",
+              "How to Clean & Stop INSIDE Windshield Haze FOREVER!",
+              "The Best Glass Cleaner Isn't a Glass Cleaner - Here's The ..."
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 7,
+            "title": "Fast Glass 500ml",
+            "url": "https://www.autoglym.com/fg500-fast-glass.html",
+            "domain": "www.autoglym.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 8,
+            "title": "Which car glass cleaner is best?",
+            "url": "https://www.autocar.co.uk/car-news/new-product-tests/which-car-glass-cleaner-best",
+            "domain": "www.autocar.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 9,
+            "title": "Tested: the best car glass cleaner to clear your windscreen ...",
+            "url": "https://www.parkers.co.uk/car-advice/car-care/best-car-glass-cleaner/",
+            "domain": "www.parkers.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "Amazon.co.uk: Auto Glass Cleaner",
+            "url": "https://www.amazon.co.uk/Auto-Glass-Cleaner/s?k=Auto+Glass+Cleaner",
+            "domain": "www.amazon.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "The best glass cleaners tested 2026",
+            "url": "https://www.carmagazine.co.uk/car-advice/maintenance/best-car-glass-cleaners/",
+            "domain": "www.carmagazine.co.uk",
+            "questions": []
+          },
+          {
+            "type": "images",
+            "rank": 12,
+            "title": "Images",
+            "url": "https://www.google.com/search?sca_esv=8f599edb7244e5d7&hl=en&gl=GB&q=car+glass+cleaner&udm=2&source=univ&fir=XnK6-E1x1rF-SM%252CFKBtBRI-83CZ6M%252C_%253BMxEAmyuE__Pm_M%252CPi7gvkJR7rtzeM%252C_%253BrGY0_6CUgai4pM%252Ch3Vu2EtDNOOXDM%252C_%253BqDn0fCUeFmduPM%252C-smgGwPw1uWOxM%252C_%253Bv80XlF_wu5ZNPM%252C2HRLzx3BCB2HZM%252C_%253Ba9M_BLi4BunrhM%252C3yUg74Q1NWpPlM%252C_%253BaBxEJ_-tvKVuMM%252C9Qnwbl93Ouxh_M%252C_%253BZBlztbBWXon4cM%252CaeaANVO92HJjHM%252C_&usg=AI4_-kRMbEPPfHDtlIgASc93TG6Ao76Nvw&sa=X&ved=2ahUKEwiAtYnPq7eWAxXp_skDHQnoAOUQ7Al6BAhAEAU",
+            "domain": null,
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 13,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 13,
+        "queries": [
+          {
+            "query": "glass clarity",
+            "page": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 34,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "glass cleaning mitt",
+            "page": "https://streetkingz.co.uk/product-category/wash-prep/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 17,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "glass cleaning shampoo",
+            "page": "https://streetkingz.co.uk/product-category/origin-range/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 13.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "kitglass",
+            "page": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 10,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "origin glass",
+            "page": "https://streetkingz.co.uk/product-category/origin-range/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 11,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "origin glass",
+            "page": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 92.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "waffle microfiber cloth",
+            "page": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 52,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "glass cleaning shampoo",
+            "page": "https://streetkingz.co.uk/product-category/origin-range/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 15,
+            "branded": false,
+            "window": "latest90"
+          },
+          {
+            "query": "glass cleaning mitt",
+            "page": "https://streetkingz.co.uk/product-category/wash-prep/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 17,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "glass cleaning shampoo",
+            "page": "https://streetkingz.co.uk/product-category/origin-range/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 12,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "kitglass",
+            "page": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 10,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "origin glass",
+            "page": "https://streetkingz.co.uk/product-category/origin-range/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 11,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "origin glass",
+            "page": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+            "cluster": "glass_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 92.5,
+            "branded": false,
+            "window": "prior90"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+        "title": "Waffle Glass Cloth | Microfibre Waffle Weave | Street Kingz",
+        "description": "Waffle weave microfibre cloth designed for streak free glass and mirror cleaning. Lint free and perfect for all automotive glass.",
+        "headings": [
+          "Waffle Glass Cloth",
+          "Why this product works so well",
+          "About this product",
+          "How to use it",
+          "Tech Specs",
+          "Complete the Kit",
+          "Customer Reviews",
+          "You May Also Like",
+          "FAQ’s",
+          "30-DAY SATISFACTION GUARANTEE",
+          "FAST UK SHIPPING",
+          "Premium Materials, No Gimmicks",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+            "text": "Add to Cart"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/origin-glass-cleaner/",
+            "text": "Origin Glass Cleaner"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 274434,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 20,
+          "internal_link_count": 27,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+        "elapsed_ms": 57
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:glass_cleaning",
+        "serp:glass_cleaning",
+        "gsc:glass_cleaning",
+        "destination:glass_cleaning"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-interior_cleaning",
+      "cluster": "interior_cleaning",
+      "name": "Interior cleaning",
+      "affected_products": [
+        "product-004",
+        "product-007",
+        "product-016",
+        "product-021"
+      ],
+      "destination": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "demand_evidence": [
+        {
+          "keyword": "vinyl wrap for car interior",
+          "search_volume": 260,
+          "cpc": 0.38,
+          "competition": 0.99,
+          "intent": "transactional",
+          "last_updated": "2026-08-18 09:35:37 +00:00"
+        },
+        {
+          "keyword": "interior car protection film",
+          "search_volume": 10,
+          "cpc": 0.29,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-14 09:37:42 +00:00"
+        }
+      ],
+      "keyword_query_count": 2,
+      "serp_evidence": {
+        "keyword": "car interior cleaner",
+        "retrieved_at": "2026-08-23 18:06:26 +00:00",
+        "item_types": [
+          "organic",
+          "people_also_ask",
+          "popular_products",
+          "short_videos",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "organic",
+            "rank": 1,
+            "title": "Car Interior Cleaning Products",
+            "url": "https://www.autoglym.com/products/interior.html",
+            "domain": "www.autoglym.com",
+            "questions": []
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 2,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "What is the best thing to clean a car interior?",
+              "What's the best way to clean fabric car seats?",
+              "What is the best car interior cleaner?",
+              "What is best for cleaning car dashboards?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 3,
+            "title": "Car Interior Detailers | Turtle Wax",
+            "url": "https://www.turtlewax.co.uk/collections/interior-detailers",
+            "domain": "www.turtlewax.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 4,
+            "title": "Amazon.co.uk: Interior Car Cleaner",
+            "url": "https://www.amazon.co.uk/interior-car-cleaner/s?k=interior+car+cleaner",
+            "domain": "www.amazon.co.uk",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 5,
+            "title": "Popular products",
+            "url": null,
+            "domain": null,
+            "questions": [
+              "ArmorAll Multipurpose Cleaner 500ml",
+              "Turtle Wax Dash & Glass Interior Cleaner 500ml",
+              "AUTOGLYM Interior Shampoo",
+              "Bactador Microbiological Car Interior Cleaner",
+              "Autoglym Interior Cleaner & Sanitiser",
+              "Meguiar's Quik Interior Detailer Cleaner",
+              "Autoglym Perfect Interiors Car Cleaning Kit",
+              "Turtle Wax Hybrid Solutions Ceramic + Graphene Inside Job 500ml"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 6,
+            "title": "Interior Cleaners",
+            "url": "https://chemicalguys.co.uk/collections/interior-cleaners?srsltid=AfmBOorPzpBMxV5FirLLg3gKFab-kBvt12q7JwTzMQ20muChEAXm2wY9",
+            "domain": "chemicalguys.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 7,
+            "title": "Best car interior trim cleaners 2026",
+            "url": "https://www.whatcar.com/news/best-car-interior-trim-cleaners/n25628",
+            "domain": "www.whatcar.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 8,
+            "title": "Car Interior Cleaning & Seat Cleaner Products",
+            "url": "https://www.halfords.com/motoring/car-cleaning/interior-cleaning/",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 9,
+            "title": "Car Interior Cleaning! Interior Cleaner & UV Protection: QUIVR ...",
+            "url": "https://www.youtube.com/watch?v=BH5t3x7CBNo",
+            "domain": "www.youtube.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "Car Interior Cleaners | Quality Products",
+            "url": "https://www.slimsdetailing.co.uk/collections/interior",
+            "domain": "www.slimsdetailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "3M Foaming Car Interior Cleaner In-depth Review, How to ...",
+            "url": "https://www.youtube.com/watch?v=3qwFQ7Kg0z0",
+            "domain": "www.youtube.com",
+            "questions": []
+          },
+          {
+            "type": "short_videos",
+            "rank": 12,
+            "title": "Short videos",
+            "url": null,
+            "domain": null,
+            "questions": [
+              "How to Clean Your Car Interior FASTER",
+              "5 Interior Cleaning Essentials For Your Car!",
+              "Interior Detailer - one of the easiest ways to refresh the whole ...",
+              "Not sure what to use to clean your car's interior? If you're not a ...",
+              "Bring back that showroom shine with Halfords Advanced car ...",
+              "Fresh in 15 ⏱️ Get an immaculate interior in minutes with ...",
+              "Cleaning your cars interior is this easy. An all purpose cleaner ...",
+              "The BEST Car Interior Cleaner Is BACK in Lidl"
+            ]
+          },
+          {
+            "type": "related_searches",
+            "rank": 13,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 17,
+        "queries": [
+          {
+            "query": "brush for cleaning car interior",
+            "page": "https://streetkingz.co.uk/product-category/brushes-tools/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 39,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "car cleaning brush interior",
+            "page": "https://streetkingz.co.uk/product-category/brushes-tools/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 47,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "coral cloths",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 10,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "deep dirt",
+            "page": "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 38,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "fleece cleaning cloth",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 7,
+            "ctr": 0,
+            "position": 9.857142857142858,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "fleece microfiber",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 27,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "interior cleaning tools",
+            "page": "https://streetkingz.co.uk/product-category/brushes-tools/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 8,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "interior scrub pad",
+            "page": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 59,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "microfiber coral fleece",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 8,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "coral cloths",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 10,
+            "branded": false,
+            "window": "latest90"
+          },
+          {
+            "query": "deep dirt",
+            "page": "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 49,
+            "branded": false,
+            "window": "latest90"
+          },
+          {
+            "query": "fleece microfiber",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 27,
+            "branded": false,
+            "window": "latest90"
+          },
+          {
+            "query": "brush for cleaning car interior",
+            "page": "https://streetkingz.co.uk/product-category/brushes-tools/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 39,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "car cleaning brush interior",
+            "page": "https://streetkingz.co.uk/product-category/brushes-tools/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 47,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "fleece cleaning cloth",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 7,
+            "ctr": 0,
+            "position": 9.857142857142858,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "interior cleaning tools",
+            "page": "https://streetkingz.co.uk/product-category/brushes-tools/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 8,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "microfiber coral fleece",
+            "page": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+            "cluster": "interior_cleaning",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 8,
+            "branded": false,
+            "window": "prior90"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+        "title": "Coral Fleece Cloths | Plush Microfibre Cloth | Street Kingz",
+        "description": "Soft and plush coral fleece microfibre cloths for interior plastics, trims and general wipe downs. Lint free and safe on all surfaces.",
+        "headings": [
+          "CORAL FLEECE CLOTHS – 2 PACK",
+          "Why this product works so well",
+          "About this product",
+          "How to use it",
+          "Tech Specs",
+          "Complete the Kit",
+          "Customer Reviews",
+          "You May Also Like",
+          "FAQ’s",
+          "30-DAY SATISFACTION GUARANTEE",
+          "FAST UK SHIPPING",
+          "Premium Materials, No Gimmicks",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/wheel-hose-guides/",
+            "text": "Add to Cart"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 277132,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 20,
+          "internal_link_count": 26,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+        "elapsed_ms": 58
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:interior_cleaning",
+        "serp:interior_cleaning",
+        "gsc:interior_cleaning",
+        "destination:interior_cleaning"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-prewash_pressure",
+      "cluster": "prewash_pressure",
+      "name": "Pre-wash and pressure-washer equipment",
+      "affected_products": [
+        "product-012",
+        "product-013",
+        "product-014"
+      ],
+      "destination": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "demand_evidence": [
+        {
+          "keyword": "foam floor mats",
+          "search_volume": 1900,
+          "cpc": 0.36,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-18 10:08:39 +00:00"
+        },
+        {
+          "keyword": "tyre foam",
+          "search_volume": 880,
+          "cpc": 0.38,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-14 17:50:50 +00:00"
+        },
+        {
+          "keyword": "tyre repair foam",
+          "search_volume": 590,
+          "cpc": 0.25,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-21 14:55:58 +00:00"
+        },
+        {
+          "keyword": "tyre filling foam",
+          "search_volume": 260,
+          "cpc": 0.32,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-19 06:28:32 +00:00"
+        },
+        {
+          "keyword": "halfords tyre foam",
+          "search_volume": 90,
+          "cpc": 0.16,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-15 10:14:55 +00:00"
+        },
+        {
+          "keyword": "mic windscreen foam",
+          "search_volume": 70,
+          "cpc": 0.41,
+          "competition": 0.97,
+          "intent": "transactional",
+          "last_updated": "2026-08-22 08:46:40 +00:00"
+        },
+        {
+          "keyword": "windscreen foam",
+          "search_volume": 50,
+          "cpc": 0.24,
+          "competition": 0.78,
+          "intent": "transactional",
+          "last_updated": "2026-07-15 20:21:14 +00:00"
+        },
+        {
+          "keyword": "autoglym wheel foam",
+          "search_volume": 10,
+          "cpc": 0.38,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-23 09:52:42 +00:00"
+        }
+      ],
+      "keyword_query_count": 10,
+      "serp_evidence": {
+        "keyword": "snow foam lance",
+        "retrieved_at": "2026-08-23 18:06:27 +00:00",
+        "item_types": [
+          "popular_products",
+          "people_also_ask",
+          "organic",
+          "video",
+          "images",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "popular_products",
+            "rank": 1,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "LKEVREG Snow Foam Lance Car Wash Gun",
+              "AmazonBasics Foam Cannon with Quick Connector",
+              "Top Tech Snow Foam Lance for Karcher Pressure Washers, 1 Litre Capacity",
+              "Snow Foam Lance Auto Pressure Washer Jet Quick Release Foam Blaster Compatible with Karcher K2-K7 Pukkr",
+              "Pro-Kleen Snow Foam Lance Compatible with Karcher HD Pressure Washer",
+              "Trintion 1000ml Snow Foam Gun Snow Foam Lance Car Wash Car Foam Cleaner High Pressure Nozzle Snow Foam Cannon Kit 2 In 1 Snow Foam Lance Car Washing",
+              "Draper Pressure Washer Snow Foam Lance 01827",
+              "Snow Foam Lance"
+            ]
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 2,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Is a snow foam lance worth buying?",
+              "Is snow foam really worth it?",
+              "Do you need a snow foam lance?",
+              "Which snow foam lance is best?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 3,
+            "title": "EZ Advanced Snow Foam Lance",
+            "url": "https://www.ezcarcare.co.uk/products/ez-advanced-snow-foam-lance?srsltid=AfmBOoqE9y1SAOeZ06RNQzIp6IPcl9Z9XUW3sRJ22XpsuhX3zvpplFJR",
+            "domain": "www.ezcarcare.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 4,
+            "title": "Pro-Kleen Snow Foam Lances For Any Pressure Washer",
+            "url": "https://www.prokleen.co.uk/snow-foam-lances?srsltid=AfmBOopRG9iI-3onSgVUaSIejW5GMphEhUnMzKxJ_-cq8ssE07KpqZ04",
+            "domain": "www.prokleen.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 5,
+            "title": "We've tested the best snow foam lances for better car ...",
+            "url": "https://www.parkers.co.uk/car-advice/car-care/best-snow-foam-lances/",
+            "domain": "www.parkers.co.uk",
+            "questions": []
+          },
+          {
+            "type": "video",
+            "rank": 6,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "The Best Snow Foam Lance 2026 | Premium Lances Top Money",
+              "This Temu Snow Foam Lance Cost £7! Is It Actually Any Good ...",
+              "Snow Foam Lances from Amazon Tested!, Watch This Before ..."
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 7,
+            "title": "Snow Foam Lances",
+            "url": "https://www.jennychem.com/collections/snow-foam-lances",
+            "domain": "www.jennychem.com",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 8,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "High Pressure Snow Foam Lance Washer",
+              "Pro-Kleen Quick Release Snow Foam Lance",
+              "Carbon Collective Ultimate HD Snow Foam Lance",
+              "Pro-Kleen Snow Pro Snow Foam Lance",
+              "EZ Advanced Snow Foam Lance",
+              "Karcher K Series Auto Finesse Foam Lance",
+              "Lance Nilfisk Gerni Compatible Hydro Easy Fill Snow Foam",
+              "Draper Pressure Washer Snow Foam Lance"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 9,
+            "title": "Best snow-foam cannons 2026 - lances reviewed and rated",
+            "url": "https://www.whatcar.com/news/best-snow-foam-lances/n26765",
+            "domain": "www.whatcar.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "Snow Foam Lances",
+            "url": "https://www.gspen.co.uk/foam-equipment-chemical-injectors-accessories/snow-foam-lances.html",
+            "domain": "www.gspen.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "Foam Lances – Page 2",
+            "url": "https://www.in2detailing.co.uk/collections/foam-lances?page=2&srsltid=AfmBOoqRli0IBCO88xJw38X5LT4-RWcx2zgybhBBiglTh8Se6knnqmA8",
+            "domain": "www.in2detailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 12,
+            "title": "Snow Foam Buyer's Guide",
+            "url": "https://www.halfords.com/motoring/buying-guides/snow-foam-buyers-guide.html",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "images",
+            "rank": 13,
+            "title": "Images",
+            "url": "https://www.google.com/search?sca_esv=8f599edb7244e5d7&hl=en&gl=GB&q=snow+foam+lance&udm=2&source=univ&fir=jB5TVd5VW0ZbWM%252CRImshsSvq86GbM%252C_%253BeVzAS2XiUwCO9M%252C5_4KQ9j6bIZYwM%252C_%253BZ431KYcDvHOo1M%252CWgML46kw4AwZ3M%252C_%253BtPNNcJhP2me6qM%252CKcq56SYOYv_V0M%252C_%253BozbtheGiU4D9kM%252CgCr4aD7Ibq8pJM%252C_%253BWeDTCnFu6PkSfM%252CMPZFICDORAsQEM%252C_%253B32rd6sgBojJpsM%252C8Sw_nG6xHJe9lM%252C_%253B72LPS_97-QwnXM%252C5TCvXC2HKwFN6M%252C_&usg=AI4_-kRpyMZ4JdrrTETOGEKZBbmCVVzTrw&sa=X&ved=2ahUKEwi7tabTq7eWAxXDQUEAHQFZCkoQ7Al6BAhvEAU",
+            "domain": null,
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 14,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 56,
+        "queries": [
+          {
+            "query": "stubby pressure washer gun with foam cannon",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 5,
+            "impressions": 81,
+            "ctr": 0.06172839506172839,
+            "position": 10.061728395061728,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun lance",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 2,
+            "impressions": 13,
+            "ctr": 0.15384615384615385,
+            "position": 11.307692307692308,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 1,
+            "impressions": 30,
+            "ctr": 0.03333333333333333,
+            "position": 14.9,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby lance",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 1,
+            "impressions": 79,
+            "ctr": 0.012658227848101266,
+            "position": 9.683544303797468,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "complete",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 3,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "foam gun cleaner",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 1,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "foam lances",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 29.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "give me a link",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 3,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "graffiti stubby gun",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 18,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "halfords stubby gun",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 3,
+            "ctr": 0,
+            "position": 30,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "new york foam kings",
+            "page": "https://streetkingz.co.uk/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 47,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "snow foam",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 1,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "snow foam lances",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 59,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 13,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun and foam cannon",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 6,
+            "ctr": 0,
+            "position": 9.166666666666666,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun and snow foam lance",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun and snow foam lance",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 35,
+            "ctr": 0,
+            "position": 8.714285714285715,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun for pressure washer",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 27,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun nozzles",
+            "page": "https://streetkingz.co.uk/product-category/foam-lances/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 42,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "stubby gun pressure washer",
+            "page": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+            "cluster": "prewash_pressure",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 42.5,
+            "branded": false,
+            "window": "365d"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+        "title": "Stubby Gun and Nozzle Set | Premium Build Quality | Street Kingz",
+        "description": "The Stubby Gun is made to be durable, easy to use and is made from the highest quality material. Ergonomic grip and multiple nozzle attachments.",
+        "headings": [
+          "Stubby Gun and Nozzle Set",
+          "Why this product works so well",
+          "About this product",
+          "How to use it",
+          "Tech Specs",
+          "Complete the Kit",
+          "Customer Reviews",
+          "You May Also Like",
+          "FAQ’s",
+          "30-DAY SATISFACTION GUARANTEE",
+          "FAST UK SHIPPING",
+          "Premium Materials, No Gimmicks",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/wheel-hose-guides/",
+            "text": "Add to Cart"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 274192,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 20,
+          "internal_link_count": 26,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+        "elapsed_ms": 53
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:prewash_pressure",
+        "serp:prewash_pressure",
+        "gsc:prewash_pressure",
+        "destination:prewash_pressure"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-microfibre_application",
+      "cluster": "microfibre_application",
+      "name": "Microfibre application and paint protection",
+      "affected_products": [
+        "product-003"
+      ],
+      "destination": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+      "demand_evidence": [
+        {
+          "keyword": "alloy wheel paint",
+          "search_volume": 1900,
+          "cpc": 0.36,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-20 19:24:19 +00:00"
+        },
+        {
+          "keyword": "car paint protection",
+          "search_volume": 1300,
+          "cpc": 2.68,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-16 07:40:39 +00:00"
+        },
+        {
+          "keyword": "paintless dent removal kit",
+          "search_volume": 590,
+          "cpc": 0.42,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-08-14 15:47:03 +00:00"
+        },
+        {
+          "keyword": "spray paint for alloy wheels",
+          "search_volume": 590,
+          "cpc": 0.24,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-13 12:17:47 +00:00"
+        },
+        {
+          "keyword": "alloy wheel silver spray paint",
+          "search_volume": 390,
+          "cpc": 0.38,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-16 08:11:41 +00:00"
+        },
+        {
+          "keyword": "alloy spray paint",
+          "search_volume": 390,
+          "cpc": 0.32,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-11 21:21:01 +00:00"
+        },
+        {
+          "keyword": "car protection film",
+          "search_volume": 390,
+          "cpc": 2.56,
+          "competition": 1,
+          "intent": "transactional",
+          "last_updated": "2026-07-14 00:25:32 +00:00"
+        },
+        {
+          "keyword": "autoglym paint renovator",
+          "search_volume": 320,
+          "cpc": 0.2,
+          "competition": 1,
+          "intent": "commercial",
+          "last_updated": "2026-07-15 23:05:06 +00:00"
+        }
+      ],
+      "keyword_query_count": 13,
+      "serp_evidence": {
+        "keyword": "paint protection cloth",
+        "retrieved_at": "2026-08-23 18:06:36 +00:00",
+        "item_types": [
+          "popular_products",
+          "organic",
+          "people_also_ask",
+          "video",
+          "images",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "popular_products",
+            "rank": 1,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Kip Drop Cloth 33m",
+              "2 x Heavy Duty Canvas Dust Sheets",
+              "LickTools Paper Tape & Drape",
+              "JMS Bridge Heavy Duty Canvas Dust Sheet",
+              "Heavy Duty Cotton Dust Sheet",
+              "Fortress Trade Cotton Pro Poly-Backed Dust Sheet",
+              "GoodHome Large Protector Roll",
+              "JMS Bridge 3 Extra Large Dust Sheets"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 2,
+            "title": "Paint Protection Sheet",
+            "url": "https://www.amazon.co.uk/paint-protection-sheet/s?k=paint+protection+sheet",
+            "domain": "www.amazon.co.uk",
+            "questions": []
+          },
+          {
+            "type": "popular_products",
+            "rank": 3,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Cotton Canvas Dust Sheets",
+              "Lick Tools Tape & Drape",
+              "Harris Paint Guard",
+              "Axus Decor Blue Series Paint Barrier Sheet",
+              "Laminated Cotton Dust Sheets for Decorating & Painting Size 12ft X 9ft | Paint Cover Sheets Backed with Plastic Polythene Sheeting | Drop Cloth for",
+              "Jms Bridge Cotton Dust Sheets",
+              "2x Clear Plastic Protection Sheets Disposable Drop Painting Paint Cloth Cover",
+              "Shurtape FrogTape Drop Cloth Pads"
+            ]
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 4,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "What do car dealers use for paint protection?",
+              "What is painter cloth used for?",
+              "What is the best way to protect my car's paintwork?",
+              "Which paint protection film is best?"
+            ]
+          },
+          {
+            "type": "popular_products",
+            "rank": 5,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Paint Protection Paper - Automotive Masking Roll, Car Spray Paint Cover, Adhesive Paper Roll, Vehicle Exterior Guard | Professional Auto Refinishing",
+              "3M Hand-Masker Advanced Masking Film",
+              "Craftsman Protector Dust Sheet",
+              "Heavy Duty Cotton Dust Sheets for Decorating Painting",
+              "Paint Protection Paper - Spray Masking Roll, Auto Wrap Sheet, Car Guard | Durable Coating Layer For Paint Jobs And Body Coverage On SUVs, Trucks,",
+              "Cotton Dust Sheet",
+              "GoodHome Cotton Surface Cover",
+              "Dekton 1M X 3M Absorbent Dust Sheet For Painting"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 6,
+            "title": "Made For Detailing | Paint Protection Cloth - Street Kingz",
+            "url": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+            "domain": "streetkingz.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 7,
+            "title": "Paint drop cloth - Professional quality",
+            "url": "https://www.baches-direct.com/en/paint-drop-cloth?srsltid=AfmBOop7QtSPheo88i5AOA-CNbLFPyDTFA0uxfsWJvZxhhCs82o4j3te",
+            "domain": "www.baches-direct.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 8,
+            "title": "Drop Cloth | Interior Paint & Surface Preparation",
+            "url": "https://www.screwfix.com/c/painting-decorating/drop-cloth/cat16340010",
+            "domain": "www.screwfix.com",
+            "questions": []
+          },
+          {
+            "type": "video",
+            "rank": 9,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "DIY Paint Protection that's PERFECT for Road Trips, Track ...",
+              "PROS and CONS of Paint Protection Film",
+              "How To Maintain Paint Protection Film. Protect Your Car For ..."
+            ]
+          },
+          {
+            "type": "images",
+            "rank": 10,
+            "title": "Images",
+            "url": "https://www.google.com/search?sca_esv=8f599edb7244e5d7&hl=en&gl=GB&sxsrf=APpeQnvD2zIb8uYTNatzyS-iQTTxrTCh-w:1787508395103&q=paint+protection+cloth&udm=2&source=univ&fir=IVbE-0NNkcs2KM%252C77LLxFEybZUZ0M%252C_%253B_eg4G3_GG_igzM%252C77LLxFEybZUZ0M%252C_%253BD0Q7tzlgEs0eXM%252C77LLxFEybZUZ0M%252C_%253BVZQnlaWnIIL2JM%252C77LLxFEybZUZ0M%252C_%253B2-kRidxC3erKyM%252C77LLxFEybZUZ0M%252C_%253Bdew0ThF2EVNAhM%252C77LLxFEybZUZ0M%252C_%253BzmU6L9z9QtJrZM%252C77LLxFEybZUZ0M%252C_%253BaJHmx8Uy2mmQDM%252C77LLxFEybZUZ0M%252C_&usg=AI4_-kRJ4ghITWT5uatto6Opb5tG62AqBw&sa=X&ved=2ahUKEwiw5rDXq7eWAxVRWUEAHQ37IEEQ7Al6BAhqEAU",
+            "domain": null,
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "The Right Drop Cloth 101. Stop Paint Spills With the Right Gear.",
+            "url": "https://www.youtube.com/watch?v=8ZG76pvQN6Y",
+            "domain": "www.youtube.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 12,
+            "title": "Dust Sheets and Paint Protection Film",
+            "url": "https://nebulapaintproducts.uk/collections/dust-sheets-paint-protection?srsltid=AfmBOooEe8tiaP3N45kUGq6efemd4F53vD8o3NKKOUb0ALO-d64I3Ml4",
+            "domain": "nebulapaintproducts.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 13,
+            "title": "Paint Protection | Painting & Decorating",
+            "url": "https://www.selcobw.com/products/painting-decorating/protection?srsltid=AfmBOooFotBOGmgwIDizPCN9GSTMIbQCOq7h66kYRlaKAAdhHKrivIu1",
+            "domain": "www.selcobw.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 14,
+            "title": "Plastic Plastic, Sheeting & Drop Cloth for Painter for sale",
+            "url": "https://www.ebay.co.uk/b/bn_7116025211",
+            "domain": "www.ebay.co.uk",
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 15,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 17,
+        "queries": [
+          {
+            "query": "car dry cloth",
+            "page": "https://streetkingz.co.uk/product-category/drying-towels/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 50,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "car paint and fabric protection",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1181",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 90,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "dry cloth for cars",
+            "page": "https://streetkingz.co.uk/product-category/drying-towels/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 52,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "fibreking cloths",
+            "page": "https://streetkingz.co.uk/product/deep-pile-microfibre-cloth/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 71,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "paint & fabric protection",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 95.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "paint and fabric protection for car",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 76,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "paint protection cloth",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 12,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "paint protection cloth",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1486",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 12,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "paintwork protection",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 65.5,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "protective cloth",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 11,
+            "branded": false,
+            "window": "365d"
+          },
+          {
+            "query": "car paint and fabric protection",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1181",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 90,
+            "branded": false,
+            "window": "latest90"
+          },
+          {
+            "query": "paint & fabric protection",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 95.5,
+            "branded": false,
+            "window": "latest90"
+          },
+          {
+            "query": "car dry cloth",
+            "page": "https://streetkingz.co.uk/product-category/drying-towels/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 50,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "dry cloth for cars",
+            "page": "https://streetkingz.co.uk/product-category/drying-towels/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 52,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "paint and fabric protection for car",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/?add-to-cart=1917",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 76,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "paintwork protection",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 2,
+            "ctr": 0,
+            "position": 65.5,
+            "branded": false,
+            "window": "prior90"
+          },
+          {
+            "query": "protective cloth",
+            "page": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+            "cluster": "microfibre_application",
+            "clicks": 0,
+            "impressions": 1,
+            "ctr": 0,
+            "position": 11,
+            "branded": false,
+            "window": "prior90"
+          }
+        ],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": {
+        "url": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+        "title": "Street Kingz | Made For Detailing | Paint Protection Cloth",
+        "description": "Protect your car’s paintwork during maintenance with our ultra-soft Microfibre Paint Protection Cloth. Scratch-free, reusable, and durable—shop now!",
+        "headings": [
+          "Paint Protection Cloth",
+          "Description",
+          "Reviews",
+          "Related products",
+          "Stubby Gun and Nozzle Set",
+          "Origin MultiClean – Interior &#038; Exterior Cleaner",
+          "Origin Wash Kit &#8211; Shampoo &#038; Wash Mitt",
+          "Origin Interior Deep Clean Kit",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "SK Detailing Ltd",
+          "Navigate",
+          "Important Links",
+          "Navigate",
+          "Important Links",
+          "Review Cart"
+        ],
+        "internal_links": [
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start HereExpand"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/",
+            "text": "Home"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wash-prep/",
+            "text": "Wash &amp; Prep"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wash-prep/",
+            "text": "Wash &amp; Prep"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+            "text": "Stubby Gun and Nozzle Set"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/origin-multiclean/",
+            "text": "Origin MultiClean – Interior &#038; Exterior Cleaner"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/origin-wash-kit/",
+            "text": "Origin Wash Kit &#8211; Shampoo &#038; Wash Mitt"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/",
+            "text": "Origin Interior Deep Clean Kit"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/shop/",
+            "text": "Shop Now"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          },
+          {
+            "href": "https://streetkingz.co.uk/start",
+            "text": "Start Here"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/exterior/",
+            "text": "Exterior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/interior/",
+            "text": "Interior"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/wheels/",
+            "text": "Wheels"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/accessories/",
+            "text": "Accessories"
+          },
+          {
+            "href": "https://streetkingz.co.uk/product-category/bundles/",
+            "text": "Bundles"
+          },
+          {
+            "href": "https://streetkingz.co.uk/about-us/",
+            "text": "About"
+          },
+          {
+            "href": "https://streetkingz.co.uk/#reviews",
+            "text": "Reviews"
+          },
+          {
+            "href": "https://streetkingz.co.uk/contact-us/",
+            "text": "Contact Us"
+          },
+          {
+            "href": "https://streetkingz.co.uk/my-account/",
+            "text": "My Account"
+          }
+        ],
+        "content_bytes": 235952,
+        "gap_flags": {
+          "has_title": true,
+          "has_description": true,
+          "heading_count": 17,
+          "internal_link_count": 35,
+          "likely_thin_content": false
+        },
+        "status": 200,
+        "final_url": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+        "elapsed_ms": 49
+      },
+      "intent": "commercial investigation / product research",
+      "intervention": "monitor",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:microfibre_application",
+        "serp:microfibre_application",
+        "gsc:microfibre_application",
+        "destination:microfibre_application"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    },
+    {
+      "opportunity_id": "opportunity-accessories",
+      "cluster": "accessories",
+      "name": "Cleaning accessories",
+      "affected_products": [],
+      "destination": null,
+      "demand_evidence": [],
+      "keyword_query_count": 0,
+      "serp_evidence": {
+        "keyword": "car cleaning accessories",
+        "retrieved_at": "2026-08-23 18:06:43 +00:00",
+        "item_types": [
+          "organic",
+          "compare_sites",
+          "popular_products",
+          "people_also_ask",
+          "related_searches"
+        ],
+        "results": [
+          {
+            "type": "organic",
+            "rank": 1,
+            "title": "My Car Cleaning | UK's Largest Range of Car Care ...",
+            "url": "https://www.mycarcleaning.co.uk/",
+            "domain": "www.mycarcleaning.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 2,
+            "title": "Car Detailing Accessories | Brushes, Bottles, Buckets & More",
+            "url": "https://www.autofinesse.com/collections/car-detailing-accessories?srsltid=AfmBOoq1mXcvGXwWiCDgPJJfFlvmCCYpPl7dDpCsXg5oUKoDCZL6lT4p",
+            "domain": "www.autofinesse.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 3,
+            "title": "Amazon.co.uk: Car Cleaning Accessories",
+            "url": "https://www.amazon.co.uk/car-cleaning-accessories/s?k=car+cleaning+accessories",
+            "domain": "www.amazon.co.uk",
+            "questions": []
+          },
+          {
+            "type": "compare_sites",
+            "rank": 4,
+            "title": "Product sites",
+            "url": null,
+            "domain": null,
+            "questions": [
+              "Car cleaning accessories – Find the best price",
+              "Interior car cleaning products – Find the best price",
+              "Car detailing products – Find the best price"
+            ]
+          },
+          {
+            "type": "popular_products",
+            "rank": 5,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "CarPlan Demon Gift Pack",
+              "Goodyear Complete Car Cleaning Kit",
+              "URAQT 5 PCS Car Detailing Brush Set, Car Brush Interior, Car Detailing Brushes Duster with Soft Bristles, Car Cleaning Brush Dust Removal Brushes Tool",
+              "AA Car Cleaning Kit 8-Piece Set",
+              "Autojack Automotive Detailing 6 Pc Brush Set",
+              "18.5inch Car Windscreen Cleaner Brush",
+              "Robert Dyas Hilka 4 Pce Wash Set",
+              "AUTODECO 22Pcs Car Wash Cleaning Tools Kit Car Detailing Set Canvas Bag Collapsible Bucket Wash Mitt Sponge Towels Tire Brush Window"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 6,
+            "title": "Ultimate Finish: Car Detailing, Car Care and Cleaning Products",
+            "url": "https://www.theultimatefinish.co.uk/",
+            "domain": "www.theultimatefinish.co.uk",
+            "questions": []
+          },
+          {
+            "type": "people_also_ask",
+            "rank": 7,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": [
+              "What are some good accessories to keep my car clean?",
+              "What's the best stuff to clean your car with?",
+              "Is it better to wash your car with a sponge or cloth?",
+              "What do professional detailers use to clean cars?"
+            ]
+          },
+          {
+            "type": "organic",
+            "rank": 8,
+            "title": "Car Cleaning, Car Care & Detailing Products",
+            "url": "https://www.halfords.com/motoring/car-cleaning/",
+            "domain": "www.halfords.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 9,
+            "title": "EZ Car Care - Detailing Products Professional, Enthusiasts ...",
+            "url": "https://www.ezcarcare.co.uk/?srsltid=AfmBOorj4tNmXq8TAuiCKGwKFbSMWgu7udMb-1lUviLirWC4tsBD0Y-U",
+            "domain": "www.ezcarcare.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 10,
+            "title": "The best car cleaning kits for 2026",
+            "url": "https://www.carmagazine.co.uk/car-advice/maintenance/the-best-car-cleaning-kits/",
+            "domain": "www.carmagazine.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 11,
+            "title": "I Found B&Q's Most Underrated Car Cleaning Products",
+            "url": "https://www.youtube.com/watch?v=6I1lGC1bdDg&vl=en-GB",
+            "domain": "www.youtube.com",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 12,
+            "title": "CleanYourCar | Car Care, Cleaning & Detailing Products",
+            "url": "https://www.cleanyourcar.co.uk/?srsltid=AfmBOoq65ZqfPLaNpExeCvjeRWhzwFRvtZBQ1b2FZteoUOhYI5yiS3vk",
+            "domain": "www.cleanyourcar.co.uk",
+            "questions": []
+          },
+          {
+            "type": "organic",
+            "rank": 13,
+            "title": "Car Cleaning Accessories, Kits and Tools",
+            "url": "https://www.slimsdetailing.co.uk/collections/accessories-kits-and-tools",
+            "domain": "www.slimsdetailing.co.uk",
+            "questions": []
+          },
+          {
+            "type": "related_searches",
+            "rank": 14,
+            "title": null,
+            "url": null,
+            "domain": null,
+            "questions": []
+          }
+        ]
+      },
+      "gsc_evidence": {
+        "rows": 0,
+        "queries": [],
+        "latest_direction": "available in acquired windows; no causal trend inferred"
+      },
+      "destination_analysis": null,
+      "intent": "commercial investigation / product research",
+      "intervention": "no action",
+      "destination_gap": "Evidence does not yet justify a material destination change.",
+      "feasibility": "plausible ecommerce destination; competition varies by SERP",
+      "evidence_ids": [
+        "keyword:accessories",
+        "serp:accessories",
+        "gsc:accessories",
+        "destination:accessories"
+      ],
+      "missing_evidence": [
+        "product-level sales",
+        "stock movement",
+        "margin/COGS",
+        "conversion"
+      ],
+      "confidence": "low",
+      "what_could_make_it_wrong": "Reliable commercial constraints, changing SERPs or better first-party page evidence could alter priority."
+    }
+  ]
+}
