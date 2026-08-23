@@ -7,7 +7,7 @@ Decision owner: Ben
 Governance baseline: 42c4c5933d71b87f471334d4cde3de8aa3a19194 (42c4c59)
 Implementation audit baseline: 1c8d0f343f9482ea1eed3434831240de47888b0a (1c8d0f3)
 Project State basis: PROJECT_STATE.md, dated 2026-08-23
-Current Product implementation status: Paused until the V1-01 milestone contract is approved
+Current Product implementation status: Authorised only within the approved V1-01 milestone contract
 
 1. Purpose of This Document
 
@@ -333,7 +333,7 @@ Governance Activation
 
 Current governance, Project State, Roadmap and Backlog become the clean repository operating system
 
-Current
+Done
 
 V1-01
 
@@ -341,7 +341,7 @@ Commercial Decision Hypothesis Gate
 
 Prove or reject that commercial context materially improves organic-growth decisions
 
-Not started
+Current
 
 V1-02
 
@@ -429,7 +429,7 @@ Part II — Detailed Milestones
 
 8. V1-00 — Governance Activation
 
-Status: Current
+Status: Done
 
 Objective
 
@@ -485,7 +485,7 @@ npm test passes under the documented localhost-permitted environment.
 
 The worktree is clean after commit and push.
 
-PROJECT_STATE.md identifies V1-01 as the next approved milestone.
+PROJECT_STATE.md identifies V1-01 as the current approved milestone.
 
 A bounded V1-01 milestone contract is approved before implementation begins.
 
@@ -510,6 +510,8 @@ Completion Decision
 When accepted, governance rebaseline is complete and V1-01 becomes the only authorised Product milestone.
 
 9. V1-01 — Commercial Decision Hypothesis Gate
+
+Status: Current
 
 Objective
 
@@ -2371,15 +2373,17 @@ A milestone is not “mostly done.”
 
 28. Current Authorised Action
 
-V1-00 Governance Activation is the current milestone.
+V1-00 Governance Activation is Done.
 
-V1-01 Commercial Decision Hypothesis Gate is the next Product milestone and remains not started.
+V1-01 Commercial Decision Hypothesis Gate is Current.
 
-The canonical PROJECT_STATE.md, ROADMAP.md and BACKLOG.md are now present, and the required Roadmap resolutions are recorded in DECISIONS.md.
+The canonical PROJECT_STATE.md, ROADMAP.md and BACKLOG.md are present, the required Roadmap resolutions are recorded in DECISIONS.md, and the approved V1-01 contract is present at `milestones/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`.
 
-Before Product code resumes, create and approve the bounded V1-01 milestone contract and give Cody only that contract.
+The next approved action is:
 
-No other Product implementation is authorised.
+Create and execute the bounded V1-01 method-and-data-freeze task.
+
+Product implementation is authorised only within the approved V1-01 milestone contract. No other Product milestone or executor work is authorised.
 
 29. Final Roadmap Rule
 

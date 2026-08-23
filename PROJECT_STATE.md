@@ -194,9 +194,11 @@ Product phase
 
 Governance rebaseline and Product-state establishment
 
-Current milestone: V1-00 Governance Activation
+Current milestone: V1-01 Commercial Decision Hypothesis Gate
 
-Next Product milestone: V1-01 Commercial Decision Hypothesis Gate — Not started
+V1-00 Governance Activation: Done
+
+V1-01 Commercial Decision Hypothesis Gate: Current
 
 Governance completed
 
@@ -224,19 +226,25 @@ none for the V1-00 governance activation boundary.
 
 The canonical ROADMAP.md and BACKLOG.md now exist locally and are included in this governed activation baseline.
 
-V1-00 Governance Activation is the current milestone.
+V1-00 Governance Activation is Done.
 
-V1-01 Commercial Decision Hypothesis Gate is the next Product milestone and is not started.
+V1-01 Commercial Decision Hypothesis Gate is the current milestone.
 
 Product implementation status
 
 Paused
 
-No Product implementation milestone is currently authorised.
+Product implementation is authorised only within the approved V1-01 milestone contract.
+
+No other Product milestone or executor work is authorised.
 
 The old article-first roadmap is not active.
 
-No Product code should resume until the bounded V1-01 milestone contract is created and approved from:
+The next approved action is:
+
+Create and execute the bounded V1-01 method-and-data-freeze task.
+
+No Product code should proceed outside the approved V1-01 milestone contract. The contract is governed by:
 
 Product Vision;
 
@@ -2167,13 +2175,15 @@ Part VII — Next Approved Action
 
 34. Current Approved Planning Action
 
-V1-00 is the current governance activation milestone.
+V1-00 Governance Activation is Done.
 
-V1-01 Commercial Decision Hypothesis Gate is the next Product milestone and remains not started.
+V1-01 Commercial Decision Hypothesis Gate is Current.
 
-Before Product code resumes, a bounded V1-01 milestone contract must be created and approved.
+The next approved action is:
 
-No Product implementation task is authorised before that contract is approved.
+Create and execute the bounded V1-01 method-and-data-freeze task.
+
+Product implementation is authorised only within the approved V1-01 milestone contract. No other Product milestone or executor work is authorised.
 
 35. Backlog State
 
@@ -2259,12 +2269,14 @@ Create SEO Article is a reusable intervention primitive, not the Product;
 
 the old article-first roadmap is superseded and archived;
 
-Product development is paused;
+Product development is paused outside the approved V1-01 milestone contract;
 
-V1-00 Governance Activation is the current milestone;
+V1-00 Governance Activation is Done;
 
-V1-01 Commercial Decision Hypothesis Gate is next and not started;
+V1-01 Commercial Decision Hypothesis Gate is Current;
 
-Product implementation remains paused until the V1-01 milestone contract is approved.
+Product implementation is authorised only within the approved V1-01 milestone contract;
+
+no other Product milestone or executor work is authorised.
 
 The repository is a strong foundation. It is not yet the Product.
