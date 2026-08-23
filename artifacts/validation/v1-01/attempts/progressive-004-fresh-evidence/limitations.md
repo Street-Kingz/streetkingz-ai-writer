@@ -1,0 +1,1 @@
+Product-level sales, stock movement, margin/COGS, refunds and conversion evidence remain unavailable. Search Console rows are available but do not establish product-level commercial enrichment. Recommendation ranking is therefore Sparse/Foundation only.

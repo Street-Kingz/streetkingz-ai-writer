@@ -1,0 +1,36 @@
+{
+  "calls": [
+    {
+      "provider": "DataForSEO keyword ideas (fresh competing-cluster attempt)",
+      "count": 1,
+      "status": "failed_fetch",
+      "retrieval_date": "2026-08-23",
+      "cost_usd": 0
+    },
+    {
+      "provider": "DataForSEO keyword/SERP (cached reuse)",
+      "count": 1,
+      "status": "cached_reuse",
+      "retrieval_date": "2026-08-08",
+      "cost_usd": 0.034
+    },
+    {
+      "provider": "website",
+      "count": 1,
+      "status": "failed_fetch",
+      "cost_usd": 0
+    },
+    {
+      "provider": "Search Console",
+      "count": 1,
+      "status": "failed_fetch",
+      "cost_usd": 0
+    },
+    {
+      "provider": "AI",
+      "count": 0,
+      "cost_usd": 0
+    }
+  ],
+  "retries": 0
+}

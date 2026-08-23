@@ -1,0 +1,12 @@
+{
+  "product_count": 27,
+  "product_coverage_percent": 100,
+  "cluster_count": 8,
+  "fresh_keyword_clusters": 8,
+  "fresh_serp_clusters": 8,
+  "website_destination_clusters": 8,
+  "search_console_windows": 3,
+  "commercial_product_coverage": 0,
+  "missing_or_stale_external": 0,
+  "gate": "PASS"
+}

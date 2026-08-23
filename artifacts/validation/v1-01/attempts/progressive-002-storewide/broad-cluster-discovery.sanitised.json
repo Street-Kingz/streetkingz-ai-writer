@@ -1,0 +1,290 @@
+{
+  "cluster_count": 9,
+  "clusters": [
+    {
+      "cluster": "car_drying",
+      "name": "Car drying",
+      "products": [
+        "XL DRYING TOWEL – 800GSM",
+        "Heavy Duty Drying Towel – 1200gsm",
+        "Origin XL Wash Kit",
+        "Twisted Loop Power Pack",
+        "Ultra Wash and Dry Set"
+      ],
+      "product_count": 5,
+      "representative_search_themes": [
+        "best drying towel",
+        "best chamois",
+        "best car dryer"
+      ],
+      "external_keyword_matches": [
+        "best car drying towel 2022",
+        "best automotive drying towel",
+        "best car drying towel 2016",
+        "chamois for car drying",
+        "best car dryer",
+        "waffle weave car drying towel",
+        "best chamois for drying car",
+        "best drying towel autogeek",
+        "chamois for drying car",
+        "best car drying towel 2017",
+        "best auto detailing drying towel",
+        "best car drying towel 2018"
+      ],
+      "relevant_demand_signal": "observed_related_external_terms",
+      "existing_destination": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "retain for comparison"
+    },
+    {
+      "cluster": "contact_washing",
+      "name": "Contact washing",
+      "products": [
+        "Microfibre Wash Mitt",
+        "The Origin Ultra Wash & Dry Kit",
+        "Origin Wash Kit",
+        "XL Wash & Dry Set"
+      ],
+      "product_count": 4,
+      "representative_search_themes": [
+        "best wash mitt",
+        "best car washing",
+        "best wash kit"
+      ],
+      "external_keyword_matches": [
+        "best psi for car washing",
+        "best car washing mitt",
+        "best power washer for car washing",
+        "home car wash kit",
+        "autozone car wash kit",
+        "best car washing wand",
+        "best car washing kit"
+      ],
+      "relevant_demand_signal": "observed_related_external_terms",
+      "existing_destination": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "retain for comparison"
+    },
+    {
+      "cluster": "wheel_cleaning",
+      "name": "Wheel cleaning",
+      "products": [
+        "Wheel Belt Flosser",
+        "The XL Barrel Brush",
+        "Slim Barrel Brush",
+        "Wheel Hose Guides",
+        "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)"
+      ],
+      "product_count": 5,
+      "representative_search_themes": [
+        "best wheel brush",
+        "best wheel cleaning",
+        "best wheel belt"
+      ],
+      "external_keyword_matches": [],
+      "relevant_demand_signal": "not_observed_in_cached_sample",
+      "existing_destination": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "defer unless catalogue fit is unusually strong"
+    },
+    {
+      "cluster": "glass_cleaning",
+      "name": "Glass cleaning",
+      "products": [
+        "Waffle Glass Cloth",
+        "Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner",
+        "Origin Glass Clarity Kit",
+        "The Origin Trilogy"
+      ],
+      "product_count": 4,
+      "representative_search_themes": [
+        "best glass cloth",
+        "best glass cleaner",
+        "best window"
+      ],
+      "external_keyword_matches": [
+        "car window cleaning wand",
+        "car inside window cleaner"
+      ],
+      "relevant_demand_signal": "observed_related_external_terms",
+      "existing_destination": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "retain for comparison"
+    },
+    {
+      "cluster": "interior_cleaning",
+      "name": "Interior cleaning",
+      "products": [
+        "CORAL FLEECE CLOTHS – 2 PACK",
+        "Microfibre Scrub Pads",
+        "Origin MultiClean – Interior & Exterior Cleaner",
+        "Origin Interior Deep Clean Kit"
+      ],
+      "product_count": 4,
+      "representative_search_themes": [
+        "best interior",
+        "best multi-clean",
+        "best coral fleece"
+      ],
+      "external_keyword_matches": [],
+      "relevant_demand_signal": "not_observed_in_cached_sample",
+      "existing_destination": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "defer unless catalogue fit is unusually strong"
+    },
+    {
+      "cluster": "prewash_pressure",
+      "name": "Pre-wash and pressure-washer equipment",
+      "products": [
+        "Stubby Gun & Nozzle Set",
+        "Snow Foam Lance",
+        "Stubby Gun + Foam Lance Bundle"
+      ],
+      "product_count": 3,
+      "representative_search_themes": [
+        "best foam lance",
+        "best pressure washer",
+        "best snow foam",
+        "best stubby gun"
+      ],
+      "external_keyword_matches": [
+        "best pressure washer for car detailing",
+        "best car wash pressure washer"
+      ],
+      "relevant_demand_signal": "observed_related_external_terms",
+      "existing_destination": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "retain for comparison"
+    },
+    {
+      "cluster": "microfibre_application",
+      "name": "Microfibre application and protection",
+      "products": [
+        "XL DRYING TOWEL – 800GSM",
+        "Heavy Duty Drying Towel – 1200gsm",
+        "Paint Protection Cloth",
+        "CORAL FLEECE CLOTHS – 2 PACK",
+        "Waffle Glass Cloth",
+        "Microfibre Wash Mitt",
+        "Microfibre Scrub Pads"
+      ],
+      "product_count": 7,
+      "representative_search_themes": [
+        "best paint protection",
+        "best scrub pad",
+        "best microfibre cloth"
+      ],
+      "external_keyword_matches": [],
+      "relevant_demand_signal": "not_observed_in_cached_sample",
+      "existing_destination": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "defer unless catalogue fit is unusually strong"
+    },
+    {
+      "cluster": "kits_bundles",
+      "name": "Kits and bundles",
+      "products": [
+        "CORAL FLEECE CLOTHS – 2 PACK",
+        "Stubby Gun & Nozzle Set",
+        "Stubby Gun + Foam Lance Bundle",
+        "The Origin Ultra Wash & Dry Kit",
+        "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)",
+        "Origin Wash Kit",
+        "Origin Interior Deep Clean Kit",
+        "Origin Glass Clarity Kit",
+        "Origin XL Wash Kit",
+        "XL Wash & Dry Set",
+        "The Origin Trilogy",
+        "Twisted Loop Power Pack",
+        "Ultra Wash and Dry Set"
+      ],
+      "product_count": 13,
+      "representative_search_themes": [
+        "best kit",
+        "best bundle",
+        "best set",
+        "best pack"
+      ],
+      "external_keyword_matches": [
+        "home car wash kit",
+        "autozone car wash kit",
+        "best car washing kit"
+      ],
+      "relevant_demand_signal": "observed_related_external_terms",
+      "existing_destination": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "retain for comparison"
+    },
+    {
+      "cluster": "accessories",
+      "name": "Cleaning accessories",
+      "products": [
+        "The Origin Shampoo – Ultra Concentrated & pH Safe"
+      ],
+      "product_count": 1,
+      "representative_search_themes": [
+        "best hose guide",
+        "best accessory"
+      ],
+      "external_keyword_matches": [],
+      "relevant_demand_signal": "not_observed_in_cached_sample",
+      "existing_destination": "https://streetkingz.co.uk/product/origin-shampoo/",
+      "current_state": "catalogue-covered",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific SERP",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "noise_rule": "defer unless catalogue fit is unusually strong"
+    }
+  ]
+}

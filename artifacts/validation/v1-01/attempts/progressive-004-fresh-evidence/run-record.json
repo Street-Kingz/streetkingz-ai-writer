@@ -1,0 +1,11 @@
+{
+  "run_id": "progressive-004-fresh-evidence",
+  "captured_at": "2026-08-23T18:05:57.472Z",
+  "status": "COMPLETE WITH SPARSE FIRST-PARTY EVIDENCE",
+  "product_count": 27,
+  "cluster_count": 8,
+  "ranking_count": 4,
+  "ai_calls": 0,
+  "wordpress_writes": 0,
+  "previous_attempts_preserved": true
+}

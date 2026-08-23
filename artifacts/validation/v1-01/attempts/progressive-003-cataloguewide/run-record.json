@@ -1,0 +1,25 @@
+{
+  "run_id": "progressive-003-cataloguewide",
+  "captured_at": "2026-08-23",
+  "status": "BLOCKED — UNEQUAL EVIDENCE COVERAGE",
+  "product_count": 27,
+  "cluster_count": 8,
+  "coverage": {
+    "product_count": 27,
+    "product_coverage_percent": 100,
+    "cluster_count": 8,
+    "comparable_external_clusters": 1,
+    "comparable_external_coverage_percent": 12.5,
+    "commercial_evidence_products": 0,
+    "commercial_evidence_coverage_percent": 0,
+    "search_console_products": 0,
+    "search_console_coverage_percent": 0,
+    "stale_external_cluster_count": 1,
+    "missing_external_cluster_count": 7,
+    "decision_gate": "BLOCKED — UNEQUAL EVIDENCE COVERAGE",
+    "gate_passed": false,
+    "reason": "Only the drying cluster has cluster-specific cached demand/SERP evidence; competing catalogue jobs lack the required comparable external evidence class."
+  },
+  "final_ranking": false,
+  "previous_attempts_preserved": true
+}

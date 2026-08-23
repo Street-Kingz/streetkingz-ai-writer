@@ -1,0 +1,27 @@
+- XL DRYING TOWEL – 800GSM: RETAIN FOR COMPARISON; car_drying; medium.
+- Heavy Duty Drying Towel – 1200gsm: RETAIN FOR COMPARISON; car_drying; medium.
+- Paint Protection Cloth: RETAIN FOR COMPARISON; microfibre_application; medium.
+- CORAL FLEECE CLOTHS – 2 PACK: SUPPORT THROUGH SHARED DESTINATION; interior_cleaning; medium.
+- Waffle Glass Cloth: RETAIN FOR COMPARISON; glass_cleaning; medium.
+- Microfibre Wash Mitt: RETAIN FOR COMPARISON; contact_washing; medium.
+- Microfibre Scrub Pads: RETAIN FOR COMPARISON; interior_cleaning; medium.
+- Wheel Belt Flosser: RETAIN FOR COMPARISON; wheel_cleaning; medium.
+- The XL Barrel Brush: RETAIN FOR COMPARISON; wheel_cleaning; medium.
+- Slim Barrel Brush: RETAIN FOR COMPARISON; wheel_cleaning; medium.
+- Wheel Hose Guides: RETAIN FOR COMPARISON; wheel_cleaning; medium.
+- Stubby Gun & Nozzle Set: SUPPORT THROUGH SHARED DESTINATION; prewash_pressure; medium.
+- Snow Foam Lance: RETAIN FOR COMPARISON; prewash_pressure; medium.
+- Stubby Gun + Foam Lance Bundle: SUPPORT THROUGH SHARED DESTINATION; prewash_pressure; medium.
+- The Origin Shampoo – Ultra Concentrated & pH Safe: RETAIN FOR COMPARISON; accessories; medium.
+- Origin MultiClean – Interior & Exterior Cleaner: RETAIN FOR COMPARISON; interior_cleaning; medium.
+- Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner: RETAIN FOR COMPARISON; glass_cleaning; medium.
+- The Origin Ultra Wash & Dry Kit: SUPPORT THROUGH SHARED DESTINATION; contact_washing; medium.
+- Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser): SUPPORT THROUGH SHARED DESTINATION; wheel_cleaning; medium.
+- Origin Wash Kit: SUPPORT THROUGH SHARED DESTINATION; contact_washing; medium.
+- Origin Interior Deep Clean Kit: SUPPORT THROUGH SHARED DESTINATION; interior_cleaning; medium.
+- Origin Glass Clarity Kit: SUPPORT THROUGH SHARED DESTINATION; glass_cleaning; medium.
+- Origin XL Wash Kit: SUPPORT THROUGH SHARED DESTINATION; car_drying; medium.
+- XL Wash & Dry Set: SUPPORT THROUGH SHARED DESTINATION; contact_washing; medium.
+- The Origin Trilogy: SUPPORT THROUGH SHARED DESTINATION; glass_cleaning; medium.
+- Twisted Loop Power Pack: SUPPORT THROUGH SHARED DESTINATION; car_drying; medium.
+- Ultra Wash and Dry Set: SUPPORT THROUGH SHARED DESTINATION; car_drying; medium.

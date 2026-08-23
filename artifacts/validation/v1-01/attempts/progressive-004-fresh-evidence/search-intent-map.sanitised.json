@@ -1,0 +1,259 @@
+{
+  "clusters": [
+    {
+      "cluster": "car_drying",
+      "name": "Car drying",
+      "seed": "car drying towel",
+      "products": [
+        "product-001",
+        "product-002",
+        "product-023",
+        "product-026",
+        "product-027"
+      ],
+      "external": {
+        "seed": "car drying towel",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 14,
+        "organic_count": 9,
+        "paa_count": 1,
+        "result_types": [
+          "popular_products",
+          "organic",
+          "people_also_ask",
+          "video",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 9943
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "contact_washing",
+      "name": "Contact washing",
+      "seed": "car wash mitt",
+      "products": [
+        "product-006",
+        "product-018",
+        "product-020",
+        "product-024"
+      ],
+      "external": {
+        "seed": "car wash mitt",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 15,
+        "organic_count": 9,
+        "paa_count": 1,
+        "result_types": [
+          "popular_products",
+          "people_also_ask",
+          "organic",
+          "images",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 6981
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "wheel_cleaning",
+      "name": "Wheel cleaning",
+      "seed": "wheel cleaning brush",
+      "products": [
+        "product-008",
+        "product-009",
+        "product-010",
+        "product-011",
+        "product-019"
+      ],
+      "external": {
+        "seed": "wheel cleaning brush",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 13,
+        "organic_count": 9,
+        "paa_count": 1,
+        "result_types": [
+          "organic",
+          "popular_products",
+          "people_also_ask",
+          "video",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 1148
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "glass_cleaning",
+      "name": "Glass cleaning",
+      "seed": "car glass cleaner",
+      "products": [
+        "product-005",
+        "product-017",
+        "product-022",
+        "product-025"
+      ],
+      "external": {
+        "seed": "car glass cleaner",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 13,
+        "organic_count": 7,
+        "paa_count": 1,
+        "result_types": [
+          "ai_overview",
+          "organic",
+          "people_also_ask",
+          "popular_products",
+          "video",
+          "images",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 2891
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "interior_cleaning",
+      "name": "Interior cleaning",
+      "seed": "car interior cleaner",
+      "products": [
+        "product-004",
+        "product-007",
+        "product-016",
+        "product-021"
+      ],
+      "external": {
+        "seed": "car interior cleaner",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 13,
+        "organic_count": 9,
+        "paa_count": 1,
+        "result_types": [
+          "organic",
+          "people_also_ask",
+          "popular_products",
+          "short_videos",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 6758
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "prewash_pressure",
+      "name": "Pre-wash and pressure-washer equipment",
+      "seed": "snow foam lance",
+      "products": [
+        "product-012",
+        "product-013",
+        "product-014"
+      ],
+      "external": {
+        "seed": "snow foam lance",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 14,
+        "organic_count": 8,
+        "paa_count": 1,
+        "result_types": [
+          "popular_products",
+          "people_also_ask",
+          "organic",
+          "video",
+          "images",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 1434
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "microfibre_application",
+      "name": "Microfibre application and protection",
+      "seed": "paint protection cloth",
+      "products": [
+        "product-003"
+      ],
+      "external": {
+        "seed": "paint protection cloth",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 15,
+        "organic_count": 8,
+        "paa_count": 1,
+        "result_types": [
+          "popular_products",
+          "organic",
+          "people_also_ask",
+          "video",
+          "images",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 8806
+      },
+      "destination_coverage": true
+    },
+    {
+      "cluster": "accessories",
+      "name": "Cleaning accessories",
+      "seed": "car cleaning accessories",
+      "products": [
+        "product-015"
+      ],
+      "external": {
+        "seed": "car cleaning accessories",
+        "keyword_status": "observed_fresh",
+        "keyword_seed_observed": true,
+        "keyword_count": null,
+        "serp_status": "observed_fresh",
+        "serp_items": 14,
+        "organic_count": 10,
+        "paa_count": 1,
+        "result_types": [
+          "organic",
+          "compare_sites",
+          "popular_products",
+          "people_also_ask",
+          "related_searches"
+        ],
+        "retrieval_date": "2026-08-23T18:05:57.472Z",
+        "cost_usd": 0.002,
+        "elapsed_ms": 7415
+      },
+      "destination_coverage": true
+    }
+  ]
+}

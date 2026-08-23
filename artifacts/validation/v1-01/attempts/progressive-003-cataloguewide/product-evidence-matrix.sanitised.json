@@ -1,0 +1,1751 @@
+{
+  "product_count": 27,
+  "products": [
+    {
+      "stable_product_id": "product-001",
+      "product_name": "XL DRYING TOWEL – 800GSM",
+      "product_type": "drying towel",
+      "url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "primary_customer_job_cluster": "car_drying",
+      "secondary_cluster": "microfibre_application",
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "car_drying:Car drying"
+      ],
+      "external_demand_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "themes": [
+          "drying towel choice",
+          "microfibre car drying",
+          "waffle weave car drying towel"
+        ]
+      },
+      "serp_result_type_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "types": [
+          "product/category",
+          "People Also Ask",
+          "community/forum"
+        ]
+      },
+      "relevant_competitors": {
+        "status": "observed_cached",
+        "count": "bounded sample"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Choice intent may not be fully answered by the existing destination.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "confidence": "medium",
+      "opportunity_status": "RETAIN FOR COMPARISON"
+    },
+    {
+      "stable_product_id": "product-002",
+      "product_name": "Heavy Duty Drying Towel – 1200gsm",
+      "product_type": "drying towel",
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "primary_customer_job_cluster": "car_drying",
+      "secondary_cluster": "microfibre_application",
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "car_drying:Car drying"
+      ],
+      "external_demand_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "themes": [
+          "drying towel choice",
+          "microfibre car drying",
+          "waffle weave car drying towel"
+        ]
+      },
+      "serp_result_type_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "types": [
+          "product/category",
+          "People Also Ask",
+          "community/forum"
+        ]
+      },
+      "relevant_competitors": {
+        "status": "observed_cached",
+        "count": "bounded sample"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Choice intent may not be fully answered by the existing destination.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "confidence": "medium",
+      "opportunity_status": "RETAIN FOR COMPARISON"
+    },
+    {
+      "stable_product_id": "product-003",
+      "product_name": "Paint Protection Cloth",
+      "product_type": "microfibre cloth",
+      "url": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+      "primary_customer_job_cluster": "microfibre_application",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "microfibre_application:Microfibre application and protection"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-004",
+      "product_name": "CORAL FLEECE CLOTHS – 2 PACK",
+      "product_type": "microfibre cloth",
+      "url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "primary_customer_job_cluster": "interior_cleaning",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "interior_cleaning:Interior cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-005",
+      "product_name": "Waffle Glass Cloth",
+      "product_type": "glass cloth",
+      "url": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "primary_customer_job_cluster": "glass_cleaning",
+      "secondary_cluster": "microfibre_application",
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "glass_cleaning:Glass cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-006",
+      "product_name": "Microfibre Wash Mitt",
+      "product_type": "wash mitt",
+      "url": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "primary_customer_job_cluster": "contact_washing",
+      "secondary_cluster": "microfibre_application",
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "contact_washing:Contact washing"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-007",
+      "product_name": "Microfibre Scrub Pads",
+      "product_type": "scrub pads",
+      "url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+      "primary_customer_job_cluster": "interior_cleaning",
+      "secondary_cluster": "microfibre_application",
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "interior_cleaning:Interior cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-008",
+      "product_name": "Wheel Belt Flosser",
+      "product_type": "wheel cleaning tool",
+      "url": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "primary_customer_job_cluster": "wheel_cleaning",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "wheel_cleaning:Wheel cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-009",
+      "product_name": "The XL Barrel Brush",
+      "product_type": "wheel brush",
+      "url": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+      "primary_customer_job_cluster": "wheel_cleaning",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "wheel_cleaning:Wheel cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-010",
+      "product_name": "Slim Barrel Brush",
+      "product_type": "wheel brush",
+      "url": "https://streetkingz.co.uk/product/slim-barrel-brush/",
+      "primary_customer_job_cluster": "wheel_cleaning",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "wheel_cleaning:Wheel cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-011",
+      "product_name": "Wheel Hose Guides",
+      "product_type": "accessory",
+      "url": "https://streetkingz.co.uk/product/wheel-hose-guides/",
+      "primary_customer_job_cluster": "wheel_cleaning",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "wheel_cleaning:Wheel cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-012",
+      "product_name": "Stubby Gun & Nozzle Set",
+      "product_type": "pressure washer tool",
+      "url": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "primary_customer_job_cluster": "prewash_pressure",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "prewash_pressure:Pre-wash and pressure-washer equipment"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-013",
+      "product_name": "Snow Foam Lance",
+      "product_type": "foam lance",
+      "url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+      "primary_customer_job_cluster": "prewash_pressure",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "prewash_pressure:Pre-wash and pressure-washer equipment"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-014",
+      "product_name": "Stubby Gun + Foam Lance Bundle",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+      "primary_customer_job_cluster": "prewash_pressure",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "prewash_pressure:Pre-wash and pressure-washer equipment"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-015",
+      "product_name": "The Origin Shampoo – Ultra Concentrated & pH Safe",
+      "product_type": "shampoo",
+      "url": "https://streetkingz.co.uk/product/origin-shampoo/",
+      "primary_customer_job_cluster": "accessories",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "accessories:Cleaning accessories"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "DEFER"
+    },
+    {
+      "stable_product_id": "product-016",
+      "product_name": "Origin MultiClean – Interior & Exterior Cleaner",
+      "product_type": "multi-purpose cleaner",
+      "url": "https://streetkingz.co.uk/product/origin-multiclean/",
+      "primary_customer_job_cluster": "interior_cleaning",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "interior_cleaning:Interior cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-017",
+      "product_name": "Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner",
+      "product_type": "glass cleaner",
+      "url": "https://streetkingz.co.uk/product/origin-glass-cleaner/",
+      "primary_customer_job_cluster": "glass_cleaning",
+      "secondary_cluster": null,
+      "bundle_component_relationship": null,
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "glass_cleaning:Glass cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-018",
+      "product_name": "The Origin Ultra Wash & Dry Kit",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/",
+      "primary_customer_job_cluster": "contact_washing",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "contact_washing:Contact washing"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-019",
+      "product_name": "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/wheel-cleaning-power-pack/",
+      "primary_customer_job_cluster": "wheel_cleaning",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "wheel_cleaning:Wheel cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-020",
+      "product_name": "Origin Wash Kit",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-wash-kit/",
+      "primary_customer_job_cluster": "contact_washing",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "contact_washing:Contact washing"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-021",
+      "product_name": "Origin Interior Deep Clean Kit",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/",
+      "primary_customer_job_cluster": "interior_cleaning",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "interior_cleaning:Interior cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-022",
+      "product_name": "Origin Glass Clarity Kit",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+      "primary_customer_job_cluster": "glass_cleaning",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "glass_cleaning:Glass cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-023",
+      "product_name": "Origin XL Wash Kit",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-xl-wash-kit/",
+      "primary_customer_job_cluster": "car_drying",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "car_drying:Car drying"
+      ],
+      "external_demand_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "themes": [
+          "drying towel choice",
+          "microfibre car drying",
+          "waffle weave car drying towel"
+        ]
+      },
+      "serp_result_type_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "types": [
+          "product/category",
+          "People Also Ask",
+          "community/forum"
+        ]
+      },
+      "relevant_competitors": {
+        "status": "observed_cached",
+        "count": "bounded sample"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Choice intent may not be fully answered by the existing destination.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "confidence": "medium",
+      "opportunity_status": "RETAIN FOR COMPARISON"
+    },
+    {
+      "stable_product_id": "product-024",
+      "product_name": "XL Wash & Dry Set",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/xl-wash-dry-set/",
+      "primary_customer_job_cluster": "contact_washing",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "contact_washing:Contact washing"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-025",
+      "product_name": "The Origin Trilogy",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/the-origin-trilogy/",
+      "primary_customer_job_cluster": "glass_cleaning",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "glass_cleaning:Glass cleaning"
+      ],
+      "external_demand_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "themes": []
+      },
+      "serp_result_type_evidence": {
+        "status": "missing_comparable_cluster_evidence",
+        "retrieval_date": null,
+        "types": []
+      },
+      "relevant_competitors": {
+        "status": "missing"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Cannot establish without comparable external evidence.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "confidence": "low",
+      "opportunity_status": "INSUFFICIENT EVIDENCE"
+    },
+    {
+      "stable_product_id": "product-026",
+      "product_name": "Twisted Loop Power Pack",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/twisted-loop-power-pack/",
+      "primary_customer_job_cluster": "car_drying",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "car_drying:Car drying"
+      ],
+      "external_demand_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "themes": [
+          "drying towel choice",
+          "microfibre car drying",
+          "waffle weave car drying towel"
+        ]
+      },
+      "serp_result_type_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "types": [
+          "product/category",
+          "People Also Ask",
+          "community/forum"
+        ]
+      },
+      "relevant_competitors": {
+        "status": "observed_cached",
+        "count": "bounded sample"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Choice intent may not be fully answered by the existing destination.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "confidence": "medium",
+      "opportunity_status": "RETAIN FOR COMPARISON"
+    },
+    {
+      "stable_product_id": "product-027",
+      "product_name": "Ultra Wash and Dry Set",
+      "product_type": "bundle",
+      "url": "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/",
+      "primary_customer_job_cluster": "car_drying",
+      "secondary_cluster": "kits_bundles",
+      "bundle_component_relationship": "Underlying job retained; bundle is not an independent market by default.",
+      "current_destination_type": "public product destination",
+      "current_destination_status": "URL known; fresh fetch unavailable; cached site evidence only",
+      "current_page_content_evidence": "CACHE_REUSED_OR_UNAVAILABLE",
+      "public_price": {
+        "status": "missing",
+        "source": null
+      },
+      "current_stock_status": {
+        "status": "missing",
+        "source": null
+      },
+      "sales_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "margin_cogs_evidence": {
+        "status": "missing",
+        "source": null
+      },
+      "search_intent_clusters": [
+        "car_drying:Car drying"
+      ],
+      "external_demand_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "themes": [
+          "drying towel choice",
+          "microfibre car drying",
+          "waffle weave car drying towel"
+        ]
+      },
+      "serp_result_type_evidence": {
+        "status": "observed_cached",
+        "retrieval_date": "2026-08-08",
+        "types": [
+          "product/category",
+          "People Also Ask",
+          "community/forum"
+        ]
+      },
+      "relevant_competitors": {
+        "status": "observed_cached",
+        "count": "bounded sample"
+      },
+      "current_visibility_evidence": {
+        "status": "missing",
+        "source": "Search Console transport unavailable"
+      },
+      "destination_gap": "Choice intent may not be fully answered by the existing destination.",
+      "possible_intervention_classes": [
+        "improve existing destination",
+        "improve internal linking",
+        "monitor",
+        "defer"
+      ],
+      "main_uncertainty": [
+        "fresh demand/SERP evidence",
+        "Search Console",
+        "sales/stock/margin"
+      ],
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "confidence": "medium",
+      "opportunity_status": "RETAIN FOR COMPARISON"
+    }
+  ]
+}

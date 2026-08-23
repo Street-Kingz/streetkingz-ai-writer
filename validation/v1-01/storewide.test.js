@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import test from "node:test";
+import { STREET_KINGZ_PRODUCTS } from "../../catalogue/products.js";
+import { createRun, RUN_DIR } from "./storewide.js";
+const r=createRun();
+test("full catalogue is mapped exactly once",()=>{assert.equal(STREET_KINGZ_PRODUCTS.length,27);assert.equal(r.map.length,27);assert.equal(new Set(r.map.map(x=>x.product_name)).size,27);});
+test("broad discovery precedes deep research across multiple clusters",()=>{assert.ok(r.broad.length>=8);assert.ok(r.retained.length>=5);assert.ok(r.deep.length>=5);assert.ok(r.deep.some(x=>x.cluster!=="car_drying"));});
+test("no preferred seed is hard-coded into catalogue mapping",()=>{assert.ok(r.map.some(x=>x.primary_cluster!=="car_drying"));assert.ok(r.deep.length>1);});
+test("bundles remain relationships rather than separate products",()=>{assert.ok(r.map.some(x=>x.secondary_clusters.includes("kits_bundles")));assert.equal(r.opps.some(x=>x.cluster==="kits_bundles"),false);});
+test("opportunities support non-article interventions and relative priority",()=>{assert.ok(r.opps.some(x=>x.intervention.includes("internal")));assert.equal(r.ranked.length,4);assert.ok(r.ranked.every(x=>x.why_above_alternatives));});
+test("public artefacts contain no sensitive values and previous run remains present",()=>{assert.ok(fs.existsSync("artifacts/validation/v1-01/attempts/progressive-001/run-record.json"));const files=fs.readdirSync(RUN_DIR);assert.ok(files.includes("cross-cluster-comparison.md"));const text=files.map(f=>fs.readFileSync(`${RUN_DIR}/${f}`)).join("\n");assert.doesNotMatch(text,/BEGIN (RSA|OPENSSH) PRIVATE KEY|api[_-]?key|authorization:|£\s*\d|\$\s*\d/i);});

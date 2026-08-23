@@ -1,0 +1,13 @@
+{
+  "status": "MISSING",
+  "products_with_reliable_commercial_evidence": 0,
+  "required_fields": [
+    "price",
+    "stock",
+    "sales",
+    "revenue",
+    "refunds",
+    "cogs_or_margin"
+  ],
+  "reason": "No approved read-only commercial package was available."
+}

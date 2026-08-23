@@ -1,0 +1,285 @@
+{
+  "product_count": 27,
+  "products": [
+    {
+      "product_index": 0,
+      "product_name": "XL DRYING TOWEL – 800GSM",
+      "type": "drying towel",
+      "url": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "primary_cluster": "car_drying",
+      "secondary_clusters": [
+        "microfibre_application"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Car drying."
+    },
+    {
+      "product_index": 1,
+      "product_name": "Heavy Duty Drying Towel – 1200gsm",
+      "type": "drying towel",
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "primary_cluster": "car_drying",
+      "secondary_clusters": [
+        "microfibre_application"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Car drying."
+    },
+    {
+      "product_index": 2,
+      "product_name": "Paint Protection Cloth",
+      "type": "microfibre cloth",
+      "url": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+      "primary_cluster": "microfibre_application",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Microfibre application and protection."
+    },
+    {
+      "product_index": 3,
+      "product_name": "CORAL FLEECE CLOTHS – 2 PACK",
+      "type": "microfibre cloth",
+      "url": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "primary_cluster": "interior_cleaning",
+      "secondary_clusters": [
+        "kits_bundles",
+        "microfibre_application"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Interior cleaning."
+    },
+    {
+      "product_index": 4,
+      "product_name": "Waffle Glass Cloth",
+      "type": "glass cloth",
+      "url": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "primary_cluster": "glass_cleaning",
+      "secondary_clusters": [
+        "microfibre_application"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Glass cleaning."
+    },
+    {
+      "product_index": 5,
+      "product_name": "Microfibre Wash Mitt",
+      "type": "wash mitt",
+      "url": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "primary_cluster": "contact_washing",
+      "secondary_clusters": [
+        "microfibre_application"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Contact washing."
+    },
+    {
+      "product_index": 6,
+      "product_name": "Microfibre Scrub Pads",
+      "type": "scrub pads",
+      "url": "https://streetkingz.co.uk/product/microfibre-scrub-pads/",
+      "primary_cluster": "interior_cleaning",
+      "secondary_clusters": [
+        "microfibre_application"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Interior cleaning."
+    },
+    {
+      "product_index": 7,
+      "product_name": "Wheel Belt Flosser",
+      "type": "wheel cleaning tool",
+      "url": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "primary_cluster": "wheel_cleaning",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Wheel cleaning."
+    },
+    {
+      "product_index": 8,
+      "product_name": "The XL Barrel Brush",
+      "type": "wheel brush",
+      "url": "https://streetkingz.co.uk/product/the-xl-barrel-brush/",
+      "primary_cluster": "wheel_cleaning",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Wheel cleaning."
+    },
+    {
+      "product_index": 9,
+      "product_name": "Slim Barrel Brush",
+      "type": "wheel brush",
+      "url": "https://streetkingz.co.uk/product/slim-barrel-brush/",
+      "primary_cluster": "wheel_cleaning",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Wheel cleaning."
+    },
+    {
+      "product_index": 10,
+      "product_name": "Wheel Hose Guides",
+      "type": "accessory",
+      "url": "https://streetkingz.co.uk/product/wheel-hose-guides/",
+      "primary_cluster": "wheel_cleaning",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Wheel cleaning."
+    },
+    {
+      "product_index": 11,
+      "product_name": "Stubby Gun & Nozzle Set",
+      "type": "pressure washer tool",
+      "url": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "primary_cluster": "prewash_pressure",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Pre-wash and pressure-washer equipment."
+    },
+    {
+      "product_index": 12,
+      "product_name": "Snow Foam Lance",
+      "type": "foam lance",
+      "url": "https://streetkingz.co.uk/product/snow-foam-lance/",
+      "primary_cluster": "prewash_pressure",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Pre-wash and pressure-washer equipment."
+    },
+    {
+      "product_index": 13,
+      "product_name": "Stubby Gun + Foam Lance Bundle",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/stubby-gun-bundle/",
+      "primary_cluster": "prewash_pressure",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Pre-wash and pressure-washer equipment."
+    },
+    {
+      "product_index": 14,
+      "product_name": "The Origin Shampoo – Ultra Concentrated & pH Safe",
+      "type": "shampoo",
+      "url": "https://streetkingz.co.uk/product/origin-shampoo/",
+      "primary_cluster": "accessories",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Cleaning accessories."
+    },
+    {
+      "product_index": 15,
+      "product_name": "Origin MultiClean – Interior & Exterior Cleaner",
+      "type": "multi-purpose cleaner",
+      "url": "https://streetkingz.co.uk/product/origin-multiclean/",
+      "primary_cluster": "interior_cleaning",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Interior cleaning."
+    },
+    {
+      "product_index": 16,
+      "product_name": "Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner",
+      "type": "glass cleaner",
+      "url": "https://streetkingz.co.uk/product/origin-glass-cleaner/",
+      "primary_cluster": "glass_cleaning",
+      "secondary_clusters": [],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Glass cleaning."
+    },
+    {
+      "product_index": 17,
+      "product_name": "The Origin Ultra Wash & Dry Kit",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/the-origin-ultra-wash-dry-kit/",
+      "primary_cluster": "contact_washing",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Contact washing."
+    },
+    {
+      "product_index": 18,
+      "product_name": "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/wheel-cleaning-power-pack/",
+      "primary_cluster": "wheel_cleaning",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Wheel cleaning."
+    },
+    {
+      "product_index": 19,
+      "product_name": "Origin Wash Kit",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-wash-kit/",
+      "primary_cluster": "contact_washing",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Contact washing."
+    },
+    {
+      "product_index": 20,
+      "product_name": "Origin Interior Deep Clean Kit",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-interior-deep-clean-kit/",
+      "primary_cluster": "interior_cleaning",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Interior cleaning."
+    },
+    {
+      "product_index": 21,
+      "product_name": "Origin Glass Clarity Kit",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-glass-clarity-kit-glass-cleaner-waffle-cloth/",
+      "primary_cluster": "glass_cleaning",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Glass cleaning."
+    },
+    {
+      "product_index": 22,
+      "product_name": "Origin XL Wash Kit",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/origin-xl-wash-kit/",
+      "primary_cluster": "car_drying",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Car drying."
+    },
+    {
+      "product_index": 23,
+      "product_name": "XL Wash & Dry Set",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/xl-wash-dry-set/",
+      "primary_cluster": "contact_washing",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Contact washing."
+    },
+    {
+      "product_index": 24,
+      "product_name": "The Origin Trilogy",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/the-origin-trilogy/",
+      "primary_cluster": "glass_cleaning",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Glass cleaning."
+    },
+    {
+      "product_index": 25,
+      "product_name": "Twisted Loop Power Pack",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/twisted-loop-power-pack/",
+      "primary_cluster": "car_drying",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Car drying."
+    },
+    {
+      "product_index": 26,
+      "product_name": "Ultra Wash and Dry Set",
+      "type": "bundle",
+      "url": "https://streetkingz.co.uk/product/ultra-wash-and-dry-set/",
+      "primary_cluster": "car_drying",
+      "secondary_clusters": [
+        "kits_bundles"
+      ],
+      "mapping_reason": "Derived from product name, type, details and ideal use; primary customer job is Car drying."
+    }
+  ]
+}

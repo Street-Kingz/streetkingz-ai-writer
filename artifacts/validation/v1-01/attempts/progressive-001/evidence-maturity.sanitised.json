@@ -1,0 +1,33 @@
+{
+  "sparse": {
+    "level": "FOUNDATION_SPARSE",
+    "available": [
+      "catalogue",
+      "website_cache",
+      "external_search",
+      "SERP",
+      "business_description"
+    ],
+    "missing": [
+      "Search Console",
+      "sales history",
+      "stock movement",
+      "margin/COGS",
+      "conversion analytics"
+    ]
+  },
+  "enriched": {
+    "level": "ENRICHED_LIMITED",
+    "added": [
+      "validated Product Facts",
+      "cached Business Intelligence"
+    ],
+    "still_missing": [
+      "Search Console",
+      "sales history",
+      "stock movement",
+      "margin/COGS",
+      "conversion analytics"
+    ]
+  }
+}

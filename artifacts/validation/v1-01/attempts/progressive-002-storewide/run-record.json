@@ -1,0 +1,13 @@
+{
+  "run_id": "progressive-002-storewide",
+  "captured_at": "2026-08-23",
+  "status": "COMPLETE_FOR_OWNER_REVIEW",
+  "catalogue_count": 27,
+  "broad_cluster_count": 9,
+  "retained_cluster_count": 7,
+  "deep_cluster_count": 7,
+  "final_recommendation_count": 4,
+  "strategic_ai_calls": 0,
+  "wordpress_writes": 0,
+  "previous_run_preserved": true
+}

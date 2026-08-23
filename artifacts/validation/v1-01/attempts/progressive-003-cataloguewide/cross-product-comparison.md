@@ -1,0 +1,29 @@
+# Cross-product comparison
+
+- XL DRYING TOWEL – 800GSM: RETAIN FOR COMPARISON; cluster car_drying; confidence medium.
+- Heavy Duty Drying Towel – 1200gsm: RETAIN FOR COMPARISON; cluster car_drying; confidence medium.
+- Paint Protection Cloth: INSUFFICIENT EVIDENCE; cluster microfibre_application; confidence low.
+- CORAL FLEECE CLOTHS – 2 PACK: INSUFFICIENT EVIDENCE; cluster interior_cleaning; confidence low.
+- Waffle Glass Cloth: INSUFFICIENT EVIDENCE; cluster glass_cleaning; confidence low.
+- Microfibre Wash Mitt: INSUFFICIENT EVIDENCE; cluster contact_washing; confidence low.
+- Microfibre Scrub Pads: INSUFFICIENT EVIDENCE; cluster interior_cleaning; confidence low.
+- Wheel Belt Flosser: INSUFFICIENT EVIDENCE; cluster wheel_cleaning; confidence low.
+- The XL Barrel Brush: INSUFFICIENT EVIDENCE; cluster wheel_cleaning; confidence low.
+- Slim Barrel Brush: INSUFFICIENT EVIDENCE; cluster wheel_cleaning; confidence low.
+- Wheel Hose Guides: INSUFFICIENT EVIDENCE; cluster wheel_cleaning; confidence low.
+- Stubby Gun & Nozzle Set: INSUFFICIENT EVIDENCE; cluster prewash_pressure; confidence low.
+- Snow Foam Lance: INSUFFICIENT EVIDENCE; cluster prewash_pressure; confidence low.
+- Stubby Gun + Foam Lance Bundle: INSUFFICIENT EVIDENCE; cluster prewash_pressure; confidence low.
+- The Origin Shampoo – Ultra Concentrated & pH Safe: DEFER; cluster accessories; confidence low.
+- Origin MultiClean – Interior & Exterior Cleaner: INSUFFICIENT EVIDENCE; cluster interior_cleaning; confidence low.
+- Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner: INSUFFICIENT EVIDENCE; cluster glass_cleaning; confidence low.
+- The Origin Ultra Wash & Dry Kit: INSUFFICIENT EVIDENCE; cluster contact_washing; confidence low.
+- Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser): INSUFFICIENT EVIDENCE; cluster wheel_cleaning; confidence low.
+- Origin Wash Kit: INSUFFICIENT EVIDENCE; cluster contact_washing; confidence low.
+- Origin Interior Deep Clean Kit: INSUFFICIENT EVIDENCE; cluster interior_cleaning; confidence low.
+- Origin Glass Clarity Kit: INSUFFICIENT EVIDENCE; cluster glass_cleaning; confidence low.
+- Origin XL Wash Kit: RETAIN FOR COMPARISON; cluster car_drying; confidence medium.
+- XL Wash & Dry Set: INSUFFICIENT EVIDENCE; cluster contact_washing; confidence low.
+- The Origin Trilogy: INSUFFICIENT EVIDENCE; cluster glass_cleaning; confidence low.
+- Twisted Loop Power Pack: RETAIN FOR COMPARISON; cluster car_drying; confidence medium.
+- Ultra Wash and Dry Set: RETAIN FOR COMPARISON; cluster car_drying; confidence medium.

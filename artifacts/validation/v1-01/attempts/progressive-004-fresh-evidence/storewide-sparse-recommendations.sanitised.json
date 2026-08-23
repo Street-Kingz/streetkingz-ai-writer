@@ -1,0 +1,142 @@
+{
+  "recommendations": [
+    {
+      "opportunity_id": "opportunity-001",
+      "cluster": "car_drying",
+      "affected_products": [
+        "product-001",
+        "product-002",
+        "product-023",
+        "product-026",
+        "product-027"
+      ],
+      "destination": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "search_intent": "commercial_investigation",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 14,
+      "result_types": [
+        "popular_products",
+        "organic",
+        "people_also_ask",
+        "video",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority.",
+      "priority_score": 24,
+      "priority": 1,
+      "why_above_alternatives": "Fresh SERP coverage (14 items; 9 organic results) and a live destination support this cluster. The same evidence class was acquired for every competing cluster; no historical cache advantage is used."
+    },
+    {
+      "opportunity_id": "opportunity-003",
+      "cluster": "wheel_cleaning",
+      "affected_products": [
+        "product-008",
+        "product-009",
+        "product-010",
+        "product-011",
+        "product-019"
+      ],
+      "destination": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 13,
+      "result_types": [
+        "organic",
+        "popular_products",
+        "people_also_ask",
+        "video",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority.",
+      "priority_score": 24,
+      "priority": 2,
+      "why_above_alternatives": "Fresh SERP coverage (13 items; 9 organic results) and a live destination support this cluster. The same evidence class was acquired for every competing cluster; no historical cache advantage is used."
+    },
+    {
+      "opportunity_id": "opportunity-002",
+      "cluster": "contact_washing",
+      "affected_products": [
+        "product-006",
+        "product-018",
+        "product-020",
+        "product-024"
+      ],
+      "destination": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 15,
+      "result_types": [
+        "popular_products",
+        "people_also_ask",
+        "organic",
+        "images",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority.",
+      "priority_score": 23,
+      "priority": 3,
+      "why_above_alternatives": "Fresh SERP coverage (15 items; 9 organic results) and a live destination support this cluster. The same evidence class was acquired for every competing cluster; no historical cache advantage is used."
+    },
+    {
+      "opportunity_id": "opportunity-005",
+      "cluster": "interior_cleaning",
+      "affected_products": [
+        "product-004",
+        "product-007",
+        "product-016",
+        "product-021"
+      ],
+      "destination": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 13,
+      "result_types": [
+        "organic",
+        "people_also_ask",
+        "popular_products",
+        "short_videos",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority.",
+      "priority_score": 23,
+      "priority": 4,
+      "why_above_alternatives": "Fresh SERP coverage (13 items; 9 organic results) and a live destination support this cluster. The same evidence class was acquired for every competing cluster; no historical cache advantage is used."
+    }
+  ]
+}

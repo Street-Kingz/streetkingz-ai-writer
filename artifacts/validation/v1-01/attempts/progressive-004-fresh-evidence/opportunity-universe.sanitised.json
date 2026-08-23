@@ -1,0 +1,251 @@
+{
+  "opportunities": [
+    {
+      "opportunity_id": "opportunity-001",
+      "cluster": "car_drying",
+      "affected_products": [
+        "product-001",
+        "product-002",
+        "product-023",
+        "product-026",
+        "product-027"
+      ],
+      "destination": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "search_intent": "commercial_investigation",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 14,
+      "result_types": [
+        "popular_products",
+        "organic",
+        "people_also_ask",
+        "video",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-002",
+      "cluster": "contact_washing",
+      "affected_products": [
+        "product-006",
+        "product-018",
+        "product-020",
+        "product-024"
+      ],
+      "destination": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 15,
+      "result_types": [
+        "popular_products",
+        "people_also_ask",
+        "organic",
+        "images",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-003",
+      "cluster": "wheel_cleaning",
+      "affected_products": [
+        "product-008",
+        "product-009",
+        "product-010",
+        "product-011",
+        "product-019"
+      ],
+      "destination": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 13,
+      "result_types": [
+        "organic",
+        "popular_products",
+        "people_also_ask",
+        "video",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-004",
+      "cluster": "glass_cleaning",
+      "affected_products": [
+        "product-005",
+        "product-017",
+        "product-022",
+        "product-025"
+      ],
+      "destination": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 13,
+      "result_types": [
+        "ai_overview",
+        "organic",
+        "people_also_ask",
+        "popular_products",
+        "video",
+        "images",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-005",
+      "cluster": "interior_cleaning",
+      "affected_products": [
+        "product-004",
+        "product-007",
+        "product-016",
+        "product-021"
+      ],
+      "destination": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 13,
+      "result_types": [
+        "organic",
+        "people_also_ask",
+        "popular_products",
+        "short_videos",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-006",
+      "cluster": "prewash_pressure",
+      "affected_products": [
+        "product-012",
+        "product-013",
+        "product-014"
+      ],
+      "destination": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 14,
+      "result_types": [
+        "popular_products",
+        "people_also_ask",
+        "organic",
+        "video",
+        "images",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-007",
+      "cluster": "microfibre_application",
+      "affected_products": [
+        "product-003"
+      ],
+      "destination": "https://streetkingz.co.uk/product/paint-protection-cloth/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 15,
+      "result_types": [
+        "popular_products",
+        "organic",
+        "people_also_ask",
+        "video",
+        "images",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    },
+    {
+      "opportunity_id": "opportunity-008",
+      "cluster": "accessories",
+      "affected_products": [
+        "product-015"
+      ],
+      "destination": "https://streetkingz.co.uk/product/origin-shampoo/",
+      "search_intent": "commercial_investigation_or_product_research",
+      "relevant_demand": "fresh seed query observed; volume not naively attributed",
+      "serp_items": 14,
+      "result_types": [
+        "organic",
+        "compare_sites",
+        "popular_products",
+        "people_also_ask",
+        "related_searches"
+      ],
+      "intervention": "improve existing destination and internal links before creating a new resource",
+      "evidence_maturity": "SPARSE_FOUNDATION",
+      "confidence": "medium",
+      "missing_evidence": [
+        "cluster-attributed keyword volume",
+        "product-level sales",
+        "stock/margin",
+        "cluster-attributed Search Console"
+      ],
+      "what_could_make_it_wrong": "A reliable commercial or site-level constraint may change effort or priority."
+    }
+  ]
+}

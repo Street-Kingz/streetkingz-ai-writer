@@ -1,0 +1,50 @@
+{
+  "count": 4,
+  "clustering": "intent and intervention clusters; not one candidate per product",
+  "candidates": [
+    {
+      "id": "rec-001",
+      "target": "Heavy Duty Drying Towel – 1200gsm product page",
+      "archetype": "improve_existing_product_page",
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "evidence_refs": [
+        "product_facts:heavy-duty-drying-towel",
+        "serp_people_also_ask:waffle-weave",
+        "serp_people_also_ask:professional-detailers",
+        "website_cache:product-page-inventory"
+      ]
+    },
+    {
+      "id": "rec-002",
+      "target": "Drying and wash-product cluster",
+      "archetype": "improve_internal_linking_or_structure",
+      "url": "https://streetkingz.co.uk/",
+      "evidence_refs": [
+        "catalogue:products.js",
+        "website_cache:navigation-and-products",
+        "serp_organic_result:car-drying-towel-cluster"
+      ]
+    },
+    {
+      "id": "rec-003",
+      "target": "Car drying towel choice resource",
+      "archetype": "create_justified_new_resource",
+      "url": null,
+      "evidence_refs": [
+        "serp_people_also_ask:waffle-weave",
+        "serp_organic_result:community-choice",
+        "serp_organic_result:microfibre-category"
+      ]
+    },
+    {
+      "id": "rec-004",
+      "target": "Drying-towel demand and landing-page performance",
+      "archetype": "monitor",
+      "url": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "evidence_refs": [
+        "search_console:failed-fetch",
+        "serp:drying-towel-cluster"
+      ]
+    }
+  ]
+}

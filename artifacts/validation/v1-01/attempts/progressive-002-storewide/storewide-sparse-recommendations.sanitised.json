@@ -1,0 +1,121 @@
+{
+  "recommendations": [
+    {
+      "opportunity_id": "storewide-opp-001",
+      "cluster": "car_drying",
+      "affected_products": [
+        "XL DRYING TOWEL – 800GSM",
+        "Heavy Duty Drying Towel – 1200gsm",
+        "Origin XL Wash Kit",
+        "Twisted Loop Power Pack",
+        "Ultra Wash and Dry Set"
+      ],
+      "destination": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "search_intent": "commercial_investigation",
+      "current_state": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "evidence": [
+        "catalogue:car_drying",
+        "broad-discovery:car_drying",
+        "deep-research:car_drying"
+      ],
+      "intervention": "improve existing product/category destination",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific search demand",
+        "Search Console",
+        "commercial constraints"
+      ],
+      "confidence": "medium",
+      "what_could_make_it_wrong": "Fresh current evidence may show a different destination, demand pattern or commercial constraint.",
+      "priority": 1,
+      "why_above_alternatives": "It has the strongest observed external choice evidence and a directly relevant existing destination; other retained clusters lack equivalent cluster-specific SERP evidence in the available cache."
+    },
+    {
+      "opportunity_id": "storewide-opp-002",
+      "cluster": "contact_washing",
+      "affected_products": [
+        "Microfibre Wash Mitt",
+        "The Origin Ultra Wash & Dry Kit",
+        "Origin Wash Kit",
+        "XL Wash & Dry Set"
+      ],
+      "destination": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "search_intent": "mixed commercial/informational; requires fresh validation",
+      "current_state": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "evidence": [
+        "catalogue:contact_washing",
+        "broad-discovery:contact_washing",
+        "deep-research:contact_washing"
+      ],
+      "intervention": "improve category/kit structure and internal links",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific search demand",
+        "Search Console",
+        "commercial constraints"
+      ],
+      "confidence": "low",
+      "what_could_make_it_wrong": "Fresh current evidence may show a different destination, demand pattern or commercial constraint.",
+      "priority": 2,
+      "why_above_alternatives": "It is a distinct customer job with catalogue fit, but ranks below drying because current external evidence is thinner."
+    },
+    {
+      "opportunity_id": "storewide-opp-003",
+      "cluster": "wheel_cleaning",
+      "affected_products": [
+        "Wheel Belt Flosser",
+        "The XL Barrel Brush",
+        "Slim Barrel Brush",
+        "Wheel Hose Guides",
+        "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)"
+      ],
+      "destination": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "search_intent": "mixed commercial/informational; requires fresh validation",
+      "current_state": "FOUNDATION_CATALOGUE_ONLY",
+      "evidence": [
+        "catalogue:wheel_cleaning",
+        "broad-discovery:wheel_cleaning",
+        "deep-research:wheel_cleaning"
+      ],
+      "intervention": "improve wheel category/kit structure",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific search demand",
+        "Search Console",
+        "commercial constraints"
+      ],
+      "confidence": "low",
+      "what_could_make_it_wrong": "Fresh current evidence may show a different destination, demand pattern or commercial constraint.",
+      "priority": 3,
+      "why_above_alternatives": "It is a distinct customer job with catalogue fit, but ranks below drying because current external evidence is thinner."
+    },
+    {
+      "opportunity_id": "storewide-opp-006",
+      "cluster": "prewash_pressure",
+      "affected_products": [
+        "Stubby Gun & Nozzle Set",
+        "Snow Foam Lance",
+        "Stubby Gun + Foam Lance Bundle"
+      ],
+      "destination": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "search_intent": "mixed commercial/informational; requires fresh validation",
+      "current_state": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "evidence": [
+        "catalogue:prewash_pressure",
+        "broad-discovery:prewash_pressure",
+        "deep-research:prewash_pressure"
+      ],
+      "intervention": "improve equipment/category structure",
+      "feasibility": "plausible",
+      "missing_evidence": [
+        "fresh cluster-specific search demand",
+        "Search Console",
+        "commercial constraints"
+      ],
+      "confidence": "low",
+      "what_could_make_it_wrong": "Fresh current evidence may show a different destination, demand pattern or commercial constraint.",
+      "priority": 4,
+      "why_above_alternatives": "It is a distinct customer job with catalogue fit, but ranks below drying because current external evidence is thinner."
+    }
+  ]
+}

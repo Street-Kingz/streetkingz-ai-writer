@@ -1,0 +1,11 @@
+# Cross-cluster comparison
+
+| Cluster | Products | Demand | Intent | Destination | Feasibility | Maturity | Intervention | Decision |
+|---|---|---|---|---|---|---|---|---|
+| car_drying | 5 | related cached demand observed | commercial_investigation | https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/ | plausible | FOUNDATION_WITH_CACHED_EXTERNAL | improve existing product/category destination | RETAIN |
+| contact_washing | 4 | related cached demand observed | mixed commercial/informational; requires fresh validation | https://streetkingz.co.uk/product/microfibre-wash-mitt/ | plausible | FOUNDATION_WITH_CACHED_EXTERNAL | improve category/kit structure and internal links | RETAIN |
+| wheel_cleaning | 5 | no cluster-specific cached demand observed | mixed commercial/informational; requires fresh validation | https://streetkingz.co.uk/product/wheel-belt-flosser/ | plausible | FOUNDATION_CATALOGUE_ONLY | improve wheel category/kit structure | RETAIN |
+| glass_cleaning | 4 | related cached demand observed | mixed commercial/informational; requires fresh validation | https://streetkingz.co.uk/product/waffle-glass-cloth/ | plausible | FOUNDATION_WITH_CACHED_EXTERNAL | improve existing glass destination | RETAIN |
+| interior_cleaning | 4 | no cluster-specific cached demand observed | mixed commercial/informational; requires fresh validation | https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/ | plausible | FOUNDATION_CATALOGUE_ONLY | improve existing interior-cleaner destination | RETAIN |
+| prewash_pressure | 3 | related cached demand observed | mixed commercial/informational; requires fresh validation | https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/ | plausible | FOUNDATION_WITH_CACHED_EXTERNAL | improve equipment/category structure | RETAIN |
+| microfibre_application | 7 | no cluster-specific cached demand observed | mixed commercial/informational; requires fresh validation | https://streetkingz.co.uk/product/xl-drying-towel-800gsm/ | plausible | FOUNDATION_CATALOGUE_ONLY | improve existing cloth/protection destination | RETAIN |

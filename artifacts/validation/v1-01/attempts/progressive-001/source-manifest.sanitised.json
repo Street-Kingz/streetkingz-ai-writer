@@ -1,0 +1,41 @@
+{
+  "captured_at": "2026-08-23",
+  "sources": [
+    {
+      "id": "catalogue",
+      "source": "catalogue/products.js",
+      "status": "ACQUIRED_OR_REUSED",
+      "evidence_date": null
+    },
+    {
+      "id": "website_cache",
+      "source": "artifacts/business-intelligence/streetkingz-co-uk/2026-08-14T20-30-28-585Z/raw-business-evidence.json",
+      "status": "CACHE_REUSED",
+      "evidence_date": "2026-08-14"
+    },
+    {
+      "id": "business_intelligence",
+      "source": "artifacts/business-intelligence/streetkingz-co-uk/2026-08-15T06-44-34-338Z/business-intelligence.json",
+      "status": "CACHE_REUSED",
+      "evidence_date": "2026-08-15"
+    },
+    {
+      "id": "product_facts",
+      "source": "artifacts/product-extraction/heavy-duty-drying-towel-1200gsm/2026-08-06T16-37-16-159Z/facts.json",
+      "status": "ACQUIRED_OR_REUSED",
+      "evidence_date": "2026-08-06"
+    },
+    {
+      "id": "search_evidence",
+      "source": "artifacts/live-validation/dataforseo-keyword-ideas-2026-08-08/heavy-duty-drying-towel-1200gsm/run_2026-08-08T07-21-54-125Z_b9eff88a/evidence.json",
+      "status": "ACQUIRED_OR_REUSED",
+      "evidence_date": "2026-08-08"
+    },
+    {
+      "id": "search_console_attempt",
+      "source": "artifacts/private/v1-01/progressive-001/search-console",
+      "status": "FAILED_FETCH",
+      "evidence_date": null
+    }
+  ]
+}

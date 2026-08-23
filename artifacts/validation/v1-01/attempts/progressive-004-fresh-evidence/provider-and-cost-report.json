@@ -1,0 +1,25 @@
+{
+  "dataforseo_keyword_ideas": {
+    "calls": 1,
+    "cost_usd": 0.024
+  },
+  "dataforseo_serp": {
+    "calls": 8,
+    "successful_clusters": 8,
+    "cost_usd": 0.016
+  },
+  "website": {
+    "pages": 28,
+    "successful": 28,
+    "cost_usd": 0
+  },
+  "search_console": {
+    "windows": 3,
+    "rows": 1719,
+    "cost_usd": 0
+  },
+  "ai": {
+    "calls": 0,
+    "cost_usd": 0
+  }
+}

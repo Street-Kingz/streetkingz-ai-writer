@@ -1,0 +1,8 @@
+- Car drying: 5 products; seed “car drying towel”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Contact washing: 4 products; seed “car wash mitt”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Wheel cleaning: 5 products; seed “wheel cleaning brush”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Glass cleaning: 4 products; seed “car glass cleaner”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Interior cleaning: 4 products; seed “car interior cleaner”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Pre-wash and pressure-washer equipment: 3 products; seed “snow foam lance”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Microfibre application and protection: 1 products; seed “paint protection cloth”; fresh keyword observed_fresh; fresh SERP observed_fresh.
+- Cleaning accessories: 1 products; seed “car cleaning accessories”; fresh keyword observed_fresh; fresh SERP observed_fresh.

@@ -1,0 +1,11 @@
+{
+  "run_id": "progressive-001",
+  "captured_at": "2026-08-23",
+  "status": "COMPLETE_WITH_LIMITED_ENRICHMENT",
+  "sparse_recommendation_count": 4,
+  "enriched_recommendation_count": 4,
+  "comparison_hash": "c58759951e13a420134b017a7ea9931f4a957eb31c2802215dcd1fa2d7cd01b0",
+  "strategic_ai_calls": 0,
+  "wordpress_writes": 0,
+  "private_input_dir": "/Users/ben/Documents/GitHub/streetkingz-ai-writer/artifacts/private/v1-01/progressive-001"
+}

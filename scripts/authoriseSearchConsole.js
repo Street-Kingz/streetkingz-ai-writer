@@ -3,6 +3,11 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import http from "node:http";
 
+// This helper is commonly invoked directly (`node scripts/...`), unlike the
+// package scripts that pass `--env-file=.env`. Load the repository-local
+// environment explicitly so direct invocation uses the same convention.
+process.loadEnvFile(new URL("../.env", import.meta.url));
+
 const SCOPE = "https://www.googleapis.com/auth/webmasters.readonly";
 const AUTHORISATION_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth";
 const TOKEN_ENDPOINT = "https://oauth2.googleapis.com/token";

@@ -1,0 +1,1 @@
+The prior runner hard-coded a drying-only evidence set and unconditional blocked gate. This run uses the complete data-driven cluster list, fresh per-cluster evidence and a coverage gate derived from acquired records.

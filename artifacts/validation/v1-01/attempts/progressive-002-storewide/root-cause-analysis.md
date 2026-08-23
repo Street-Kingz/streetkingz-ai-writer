@@ -1,0 +1,3 @@
+# Root-cause analysis
+
+The previous run did not perform catalogue discovery. In validation/v1-01/progressive.js, the exported RECOMMENDATIONS constant is a fixed four-item array whose first target is Heavy Duty Drying Towel – 1200gsm product page. buildRun() copies that array into both sparse and enriched outputs, and writeRun() serialises it without reading STREET_KINGZ_PRODUCTS, generating clusters, or invoking a decision stage. The previous DataForSEO evidence was also seeded from the Heavy Duty towel research artefact, so alternatives were never generated or compared. The correction adds a full catalogue map, broad cluster pass, transparent pre-filter and cross-cluster comparison in a separate module; the historical progressive-001 artefacts remain untouched.

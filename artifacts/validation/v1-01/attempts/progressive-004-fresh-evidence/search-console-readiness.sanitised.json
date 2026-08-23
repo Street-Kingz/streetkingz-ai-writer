@@ -1,0 +1,29 @@
+{
+  "site": "streetkingz.co.uk",
+  "windows": [
+    {
+      "name": "365d",
+      "startDate": "2025-08-01",
+      "endDate": "2026-07-31",
+      "status": 200,
+      "rows": 831,
+      "elapsed_ms": 318
+    },
+    {
+      "name": "latest90",
+      "startDate": "2026-05-01",
+      "endDate": "2026-07-31",
+      "status": 200,
+      "rows": 465,
+      "elapsed_ms": 147
+    },
+    {
+      "name": "prior90",
+      "startDate": "2026-02-01",
+      "endDate": "2026-04-30",
+      "status": 200,
+      "rows": 423,
+      "elapsed_ms": 180
+    }
+  ]
+}

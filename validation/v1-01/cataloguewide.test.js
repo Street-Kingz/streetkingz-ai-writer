@@ -1,0 +1,15 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import test from "node:test";
+import { STREET_KINGZ_PRODUCTS } from "../../catalogue/products.js";
+import { buildMatrix, buildCoverage, createPackage, RUN_DIR } from "./cataloguewide.js";
+const FRESH_RUN_DIR = "artifacts/validation/v1-01/attempts/progressive-004-fresh-evidence";
+const FRESH_SCRIPT = fs.readFileSync("scripts/v1-01-progressive-004-fresh-run.js", "utf8");
+const p=createPackage();
+test("all 27 products appear in the matrix",()=>{assert.equal(STREET_KINGZ_PRODUCTS.length,27);assert.equal(p.matrix.length,27);assert.equal(new Set(p.matrix.map(x=>x.stable_product_id)).size,27);});
+test("every product has a customer job and bundles are not double-counted",()=>{assert.ok(p.matrix.every(x=>x.primary_customer_job_cluster));assert.ok(p.matrix.some(x=>x.bundle_component_relationship));assert.equal(p.products.some(x=>x.cluster==='kits_bundles'),false);});
+test("unequal external evidence blocks final ranking",()=>{assert.ok(p.coverage.comparable_external_coverage_percent<100);assert.equal(p.coverage.gate_passed,false);assert.equal(p.coverage.decision_gate,"BLOCKED — UNEQUAL EVIDENCE COVERAGE");});
+test("evidence status is data-driven and missing by default without an input package",()=>{assert.ok(p.matrix.every(x=>x.external_demand_evidence.status==='missing_comparable_cluster_evidence'));const fresh=buildMatrix(STREET_KINGZ_PRODUCTS,Object.fromEntries(["car_drying","contact_washing","wheel_cleaning","glass_cleaning","interior_cleaning","prewash_pressure","microfibre_application","accessories"].map(cluster=>[cluster,{status:'observed_fresh'}])));assert.ok(fresh.every(x=>x.external_demand_evidence.status==='observed_cached'));});
+test("public blocked package contains no sensitive values and no ranking",()=>{const text=fs.readdirSync(RUN_DIR).map(f=>fs.readFileSync(`${RUN_DIR}/${f}`)).join('\n');assert.doesNotMatch(text,/BEGIN (RSA|OPENSSH) PRIVATE KEY|api[_-]?key|authorization:|£\s*\d|\$\s*\d/i);assert.match(fs.readFileSync(`${RUN_DIR}/opportunity-universe.sanitised.json`,'utf8'),/BLOCKED_UNEQUAL_EVIDENCE/);});
+test("fresh runner has no drying-only hard-code or unconditional blocked gate",()=>{assert.doesNotMatch(FRESH_SCRIPT,/SEARCH_CLUSTERS\s*=\s*new Set\(\[\s*["']car_drying/);assert.match(FRESH_SCRIPT,/Object\.keys\(SEEDS\)/);assert.match(FRESH_SCRIPT,/coverage\.gate === "PASS"/);});
+test("fresh evidence package passes equal external coverage with sparse first-party data",()=>{const coverage=JSON.parse(fs.readFileSync(`${FRESH_RUN_DIR}/evidence-coverage-report.sanitised.json`));assert.equal(coverage.product_count,27);assert.equal(coverage.fresh_keyword_clusters,8);assert.equal(coverage.fresh_serp_clusters,8);assert.equal(coverage.missing_or_stale_external,0);assert.equal(coverage.gate,"PASS");const run=JSON.parse(fs.readFileSync(`${FRESH_RUN_DIR}/run-record.json`));assert.equal(run.ranking_count,4);});

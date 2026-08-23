@@ -1,0 +1,141 @@
+{
+  "clusters": [
+    {
+      "cluster": "car_drying",
+      "representative_products": [
+        "XL DRYING TOWEL – 800GSM",
+        "Heavy Duty Drying Towel – 1200gsm",
+        "Origin XL Wash Kit",
+        "Twisted Loop Power Pack",
+        "Ultra Wash and Dry Set"
+      ],
+      "relevant_demand": "related cached demand observed",
+      "dominant_intent": "commercial_investigation",
+      "current_destination": "https://streetkingz.co.uk/product/heavy-duty-drying-towel-1200gsm/",
+      "destination_gap": "improve existing product/category destination",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "recommended_intervention": "improve existing product/category destination",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Strongest comparative external evidence in the available bounded cache."
+    },
+    {
+      "cluster": "contact_washing",
+      "representative_products": [
+        "Microfibre Wash Mitt",
+        "The Origin Ultra Wash & Dry Kit",
+        "Origin Wash Kit",
+        "XL Wash & Dry Set"
+      ],
+      "relevant_demand": "related cached demand observed",
+      "dominant_intent": "mixed commercial/informational; requires fresh validation",
+      "current_destination": "https://streetkingz.co.uk/product/microfibre-wash-mitt/",
+      "destination_gap": "improve category/kit structure and internal links",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "recommended_intervention": "improve category/kit structure and internal links",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Retained as a credible alternative, but lower confidence until cluster-specific fresh evidence is available."
+    },
+    {
+      "cluster": "wheel_cleaning",
+      "representative_products": [
+        "Wheel Belt Flosser",
+        "The XL Barrel Brush",
+        "Slim Barrel Brush",
+        "Wheel Hose Guides",
+        "Wheel Cleaning Kit (XL Brush + Slim Brush + Belt Flosser)"
+      ],
+      "relevant_demand": "no cluster-specific cached demand observed",
+      "dominant_intent": "mixed commercial/informational; requires fresh validation",
+      "current_destination": "https://streetkingz.co.uk/product/wheel-belt-flosser/",
+      "destination_gap": "improve wheel category/kit structure",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "recommended_intervention": "improve wheel category/kit structure",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Retained as a credible alternative, but lower confidence until cluster-specific fresh evidence is available."
+    },
+    {
+      "cluster": "glass_cleaning",
+      "representative_products": [
+        "Waffle Glass Cloth",
+        "Origin Glass Cleaner – Streak-Free Window & Mirror Cleaner",
+        "Origin Glass Clarity Kit",
+        "The Origin Trilogy"
+      ],
+      "relevant_demand": "related cached demand observed",
+      "dominant_intent": "mixed commercial/informational; requires fresh validation",
+      "current_destination": "https://streetkingz.co.uk/product/waffle-glass-cloth/",
+      "destination_gap": "improve existing glass destination",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "recommended_intervention": "improve existing glass destination",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Retained as a credible alternative, but lower confidence until cluster-specific fresh evidence is available."
+    },
+    {
+      "cluster": "interior_cleaning",
+      "representative_products": [
+        "CORAL FLEECE CLOTHS – 2 PACK",
+        "Microfibre Scrub Pads",
+        "Origin MultiClean – Interior & Exterior Cleaner",
+        "Origin Interior Deep Clean Kit"
+      ],
+      "relevant_demand": "no cluster-specific cached demand observed",
+      "dominant_intent": "mixed commercial/informational; requires fresh validation",
+      "current_destination": "https://streetkingz.co.uk/product/coral-fleece-cloths-2-pack/",
+      "destination_gap": "improve existing interior-cleaner destination",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "recommended_intervention": "improve existing interior-cleaner destination",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Retained as a credible alternative, but lower confidence until cluster-specific fresh evidence is available."
+    },
+    {
+      "cluster": "prewash_pressure",
+      "representative_products": [
+        "Stubby Gun & Nozzle Set",
+        "Snow Foam Lance",
+        "Stubby Gun + Foam Lance Bundle"
+      ],
+      "relevant_demand": "related cached demand observed",
+      "dominant_intent": "mixed commercial/informational; requires fresh validation",
+      "current_destination": "https://streetkingz.co.uk/product/stubby-gun-and-nozzle-set/",
+      "destination_gap": "improve equipment/category structure",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_WITH_CACHED_EXTERNAL",
+      "recommended_intervention": "improve equipment/category structure",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Retained as a credible alternative, but lower confidence until cluster-specific fresh evidence is available."
+    },
+    {
+      "cluster": "microfibre_application",
+      "representative_products": [
+        "XL DRYING TOWEL – 800GSM",
+        "Heavy Duty Drying Towel – 1200gsm",
+        "Paint Protection Cloth",
+        "CORAL FLEECE CLOTHS – 2 PACK",
+        "Waffle Glass Cloth",
+        "Microfibre Wash Mitt",
+        "Microfibre Scrub Pads"
+      ],
+      "relevant_demand": "no cluster-specific cached demand observed",
+      "dominant_intent": "mixed commercial/informational; requires fresh validation",
+      "current_destination": "https://streetkingz.co.uk/product/xl-drying-towel-800gsm/",
+      "destination_gap": "improve existing cloth/protection destination",
+      "competitive_feasibility": "plausible",
+      "evidence_maturity": "FOUNDATION_CATALOGUE_ONLY",
+      "recommended_intervention": "improve existing cloth/protection destination",
+      "main_uncertainty": "fresh cluster-specific search demand, Search Console, commercial constraints",
+      "decision": "RETAIN",
+      "reason": "Retained as a credible alternative, but lower confidence until cluster-specific fresh evidence is available."
+    }
+  ]
+}

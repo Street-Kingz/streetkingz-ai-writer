@@ -1,0 +1,35 @@
+{
+  "runtime": "bounded single run",
+  "calls": [
+    {
+      "provider": "website_fetch",
+      "attempts": 1,
+      "status": "failed_fetch",
+      "cost": 0
+    },
+    {
+      "provider": "dataforseo_keyword_ideas",
+      "attempts": 1,
+      "status": "complete_cache_or_approved",
+      "cost_usd": 0.024
+    },
+    {
+      "provider": "dataforseo_google_organic_serp_advanced",
+      "attempts": 1,
+      "status": "complete_cache_or_approved",
+      "cost_usd": 0.01
+    },
+    {
+      "provider": "google_search_console",
+      "attempts": 1,
+      "status": "failed_fetch",
+      "cost": 0
+    },
+    {
+      "provider": "AI",
+      "attempts": 0,
+      "status": "not_used",
+      "cost": 0
+    }
+  ]
+}
