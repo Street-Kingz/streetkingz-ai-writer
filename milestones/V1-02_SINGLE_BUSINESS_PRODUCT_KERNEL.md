@@ -1,10 +1,10 @@
 # Milestone V1-02 — Single-Business Product Kernel
 
-Status: Proposed — Owner Review Required
+Status: Approved — Current
 Roadmap milestone: V1-02
 Milestone type: Product foundation
 Decision owner: Ben
-Implementation status: Not authorised until this contract and the V1-02 architecture decision are approved
+Implementation status: Authorised within this approved V1-02 contract only
 
 ## Objective
 

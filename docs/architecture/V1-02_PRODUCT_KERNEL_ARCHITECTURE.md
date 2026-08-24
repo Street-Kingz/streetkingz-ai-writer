@@ -1,10 +1,10 @@
 # V1-02 Product Kernel Architecture Decision
 
-Status: Proposed — Owner Review Required
+Status: Accepted
 Decision register item: O-008 — Technical Architecture and Deployment Stack
 Question: What is the minimum production-credible architecture required to support the V1 single-account / single-business Product kernel while preserving the existing useful Node foundations and avoiding speculative infrastructure?
 
-This is a bounded proposal for owner review. O-008 remains formally unresolved until Ben/ChatGPT approve this document and a separate governance task records the decision.
+This is the accepted bounded architecture for V1. O-008 is resolved by this decision; it may be reopened only under the stated reopen conditions.
 
 ## Existing-code assessment
 
@@ -44,9 +44,9 @@ Only three realistic approaches were considered.
 | Migration from current repo | Additive Node routes and SQL schema; no framework rewrite | Additive Node routes and SQL schema | Additive routes but new document model and rule model |
 | Node/Express compatibility | Direct | Direct | Direct through server SDK |
 | Later connectors/jobs | Relational connection/job state fits | Relational connection/job state fits | Possible, but relational reporting/tenant joins require more modelling |
-| Least privilege | Server-side service role, tenant checks/RLS, no browser database access | Server-side DB and auth verification, separate privilege boundaries | Rules plus server SDK; misconfigured rules are high risk |
+| Least privilege | Caller-scoped authenticated access through Express using the user access token and RLS, plus server ownership checks; privileged secret/admin access only for explicitly bounded administrative operations | Server-side DB and auth verification, separate privilege boundaries | Rules plus server SDK; misconfigured rules are high risk |
 
-Provider names are a proposal, not an owner-approved commitment. Pricing, regional availability, exact encryption facilities, backup retention and contractual terms require verification before implementation.
+Provider names and the selected architecture are now accepted for V1. Pricing, regional availability, exact encryption facilities, backup retention and contractual terms remain implementation verification items.
 
 ## Recommendation
 
@@ -121,10 +121,10 @@ Local development uses Node 22 conventions and a local Postgres-compatible datab
 - disconnect/deletion revokes access before deleting references and records the safe state transition;
 - database policies/constraints provide defence in depth but do not replace server authorization tests.
 
-## Proposed O-008 resolution
+## O-008 resolution
 
-Proposed status after owner approval: **Accepted — select Approach A**. The consequence is incremental Node/Express evolution around managed Auth/Postgres, Supabase Vault for future customer connector secrets and a small managed deployment, with no current connector, executor, queue or multi-tenant expansion. Reopen O-008 only if the selected managed services cannot satisfy verified regional/security/backup requirements, Vault cannot satisfy the bounded secret lifecycle, materially conflict with the approved Product, become economically or contractually unsuitable, or require a framework/distributed rewrite to meet the V1-02 acceptance gates.
+Status: **Accepted — select Approach A**. The selected architecture is authoritative for V1: incremental Node/Express evolution around managed Auth/Postgres, Supabase Vault for future customer connector secrets and a small managed deployment, with no current connector, executor, queue or multi-tenant expansion. Hosting vendor selection remains an operational implementation choice and does not reopen O-008. Reopen O-008 only if the selected managed services cannot satisfy verified regional/security/backup requirements, Vault cannot satisfy the bounded secret lifecycle, materially conflict with the approved Product, become economically or contractually unsuitable, or require a framework/distributed rewrite to meet the V1-02 acceptance gates.
 
 ## Owner decisions required
 
-Before implementation, Ben/ChatGPT must approve or reject: the V1-02 contract; the Approach A provider choice; the managed secret facility; deployment provider; regional/retention requirements; and the migration/testing boundary. Approval is a separate governance action that may update DECISIONS.md, mark the milestone contract Approved and authorise V1-02 Product code.
+The V1-02 contract and this architecture are approved for implementation. The deployment vendor, regional/retention details and migration/testing boundary remain bounded implementation choices within this decision.

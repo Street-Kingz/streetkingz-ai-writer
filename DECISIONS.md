@@ -1809,11 +1809,30 @@ Analytics intelligence is within Product Scope, but GA4 is not V1 Required unles
 
 ## O-008 — Technical Architecture and Deployment Stack
 
-**Status:** Deferred
+**Status:** Accepted
 
-The existing repository and Cody audit must be assessed before approving architecture changes.
+### Decision
 
-Product Scope requirements do not prescribe a framework, database, hosting provider or service decomposition.
+V1 continues the existing Node 22 / Express application and adds Supabase Auth, Supabase managed Postgres, SQL migrations, caller-scoped authenticated database access, mandatory RLS plus application ownership validation, Supabase Vault for customer connector secrets and one managed Node web deployment. No queue is introduced until a later milestone demonstrates need.
+
+Normal customer CRUD must not use an unrestricted privileged Supabase client. Privileged/server secret access is permitted only for bounded administrative operations such as managed Auth deletion, Vault secret lifecycle, migrations/maintenance or other explicitly approved system operations.
+
+### Rationale
+
+This is the minimum production-credible SaaS foundation with the lowest sensible operational burden while preserving useful existing Node/Express code.
+
+### Consequences
+
+- no framework rewrite;
+- no bespoke auth or cryptography;
+- no generic RBAC;
+- no microservices;
+- no queue in V1-02;
+- Supabase-specific infrastructure is an implementation dependency, not Product identity.
+
+### Reopen only if
+
+The selected managed services cannot satisfy verified regional, security or backup requirements; Supabase Vault cannot satisfy the bounded secret lifecycle; the architecture materially conflicts with the approved Product; it becomes economically or contractually unsuitable; or meeting V1-02 acceptance gates would require a framework or distributed rewrite.
 
 ---
 
@@ -1921,6 +1940,7 @@ This remains prohibited from implementation until privacy, consent, security, go
 | D-036 | Validation Responsibilities                                     | Accepted |
 | D-033 | Initial domain is organic search                                 | Accepted |
 | D-034 | Initial account scope is one business, not agency infrastructure | Accepted |
+| O-008 | Technical architecture and deployment stack                  | Accepted |
 | G-001 | Pause Product code until governance and audit                    | Accepted |
 | G-002 | Repository is long-term memory                                   | Accepted |
 | G-003 | Owner/guide/engine role separation                               | Accepted |

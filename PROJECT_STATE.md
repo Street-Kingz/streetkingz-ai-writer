@@ -236,9 +236,9 @@ V1-02 Single-Business Product Kernel is the current milestone.
 
 Product implementation status
 
-Paused
+V1-02 implementation authorised within the approved contract
 
-V1-01 implementation is complete only within its approved validation contract. V1-02 is now the sole authorised Product milestone, but V1-02 Product code is not authorised until its milestone contract is created and approved.
+V1-01 implementation is complete only within its approved validation contract. V1-02 is now the sole authorised Product milestone under the approved Single-Business Product Kernel contract and accepted O-008 architecture.
 
 No V1-03 or executor work is authorised.
 
@@ -258,9 +258,9 @@ This is Product validation evidence, not the next Product milestone. Implementin
 
 The next approved action is:
 
-Create and approve the bounded V1-02 Single-Business Product Kernel milestone contract.
+Implement and verify the V1-02 Single-Business Product Kernel.
 
-No V1-02 Product code should proceed until its milestone contract is created and approved. No V1-03 or executor work is authorised. The completed V1-01 contract is `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The superseded commercial-context contract is preserved at `milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The contract is governed by:
+No V1-03 or executor work is authorised. The completed V1-01 contract is `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The approved V1-02 contract is `milestones/V1-02_SINGLE_BUSINESS_PRODUCT_KERNEL.md`; its accepted architecture is `docs/architecture/V1-02_PRODUCT_KERNEL_ARCHITECTURE.md`. The superseded commercial-context contract is preserved at `milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The contract is governed by:
 
 Product Vision;
 
@@ -2201,9 +2201,9 @@ V1-02 Single-Business Product Kernel is Current.
 
 The next approved action is:
 
-Create and approve the bounded V1-02 Single-Business Product Kernel milestone contract.
+Implement and verify the V1-02 Single-Business Product Kernel.
 
-V1-02 is the sole authorised Product milestone. V1-02 Product code is not authorised until its milestone contract is created and approved. No V1-03 or executor work is authorised.
+V1-02 is the sole authorised Product milestone and is authorised only within its approved contract. No V1-03 or executor work is authorised.
 
 35. Backlog State
 
@@ -2295,7 +2295,7 @@ V1-00 Governance Activation is Done;
 
 V1-01 Progressive Evidence Decision Gate is Done;
 
-V1-02 Single-Business Product Kernel is Current, but its implementation is not yet authorised because its milestone contract has not been created and approved;
+V1-02 Single-Business Product Kernel is Current and implementation is authorised only within its approved contract;
 
 no V1-03 or executor work is authorised.
 
