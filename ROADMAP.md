@@ -7,7 +7,7 @@ Decision owner: Ben
 Governance baseline: 42c4c5933d71b87f471334d4cde3de8aa3a19194 (42c4c59)
 Implementation audit baseline: 1c8d0f343f9482ea1eed3434831240de47888b0a (1c8d0f3)
 Project State basis: PROJECT_STATE.md, dated 2026-08-23
-Current Product implementation status: Authorised only within the approved V1-01 milestone contract
+Current Product implementation status: V1-02 is Current, but Product implementation is not yet authorised; authorisation begins only after the V1-02 milestone contract and architecture decision are approved
 
 1. Purpose of This Document
 
