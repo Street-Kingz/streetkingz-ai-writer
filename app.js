@@ -12,9 +12,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use((error, req, res, next) => {
-  if (!req.path.startsWith("/api/product/") || error?.type !== "entity.parse.failed") return next(error);
+  if (!req.path.startsWith("/api/product/")) return next(error);
   const correlationId = randomUUID();
-  res.set("x-correlation-id", correlationId).status(400).json({ error: { code: "INVALID_REQUEST", message: "Malformed JSON request.", correlation_id: correlationId } });
+  const responses = {
+    "entity.parse.failed": [400, "INVALID_REQUEST", "Malformed JSON request."],
+    "entity.too.large": [413, "PAYLOAD_TOO_LARGE", "Request body is too large."],
+    "encoding.unsupported": [415, "UNSUPPORTED_ENCODING", "Request encoding is not supported."],
+    "charset.unsupported": [415, "UNSUPPORTED_ENCODING", "Request encoding is not supported."]
+  };
+  const [status, code, message] = responses[error?.type] || [400, "INVALID_REQUEST", "Invalid request body."];
+  res.set("x-correlation-id", correlationId).status(status).json({ error: { code, message, correlation_id: correlationId } });
 });
 app.use(healthRoute);
 app.use(generateArticleRoute);

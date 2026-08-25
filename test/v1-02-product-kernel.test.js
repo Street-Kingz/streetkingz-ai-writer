@@ -41,6 +41,11 @@ test("V1-02 migration declares one-business, RLS and audit protections", () => {
   assert.match(sql, /grant select on public\.accounts, public\.businesses, public\.audit_events to authenticated/);
   assert.match(sql, /grant select \(id,business_id,provider_type,status,consent_state,[^)]+\) on public\.connections to authenticated/);
   assert.match(sql, /product_transition_connection[\s\S]*security definer set search_path = ''/);
+  assert.match(sql, /product_create_connection[\s\S]*returns jsonb/);
+  assert.match(sql, /product_transition_connection[\s\S]*returns jsonb/);
+  assert.doesNotMatch(sql.match(/product_transition_connection[\s\S]*?end \$\$;/)?.[0] || "", /to_jsonb\(v_row\)/);
+  assert.match(sql, /business_deletion_requested/);
+  assert.match(sql, /revoke all on function public\.set_product_updated_at\(\) from public, anon, authenticated/);
   assert.match(sql, /auth_user_id uuid not null unique/);
 });
 test("V1-02 privileged boundary is separate from caller-scoped auth", () => {

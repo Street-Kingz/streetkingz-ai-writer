@@ -2,7 +2,7 @@
 
 AuditEvent has tenant foreign keys, bounded JSON metadata and correlation IDs. Authenticated roles receive SELECT only; insert/update/delete are revoked. Server-side bounded audit creation is isolated behind the privileged module.
 
-Account, Business and Connection creation, state transition, disconnection and deletion-request/cleanup audits are inserted in the same PostgreSQL transaction as their Product mutation by fixed-purpose RPCs. A successful mutation therefore cannot commit without its required audit. Cross-system Auth deletion failure is recorded separately against the already-safe non-operational Account state.
+Account, Business and Connection creation, state transition, disconnection and deletion-request/cleanup audits are inserted in the same PostgreSQL transaction as their Product mutation by fixed-purpose RPCs. Account deletion request atomically marks an existing Business `deletion_requested` and records both `business_deletion_requested` (with Business ID) and `account_deletion_requested`; retry does not duplicate them. A successful mutation therefore cannot commit without its required audit. Cross-system Auth deletion failure is recorded separately against the already-safe non-operational Account state.
 
 Tenant-attributable failures persisted bounded `secret_operation_failed`, `connection_transition_failed`, `tenant_access_denied` and `account_deletion_failed` evidence. Unattributable authentication failure produced only a server-correlation diagnostic.
 

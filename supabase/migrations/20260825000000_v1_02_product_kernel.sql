@@ -49,6 +49,7 @@ begin new.updated_at = clock_timestamp(); return new; end; $$;
 create trigger accounts_updated_at before update on public.accounts for each row execute function public.set_product_updated_at();
 create trigger businesses_updated_at before update on public.businesses for each row execute function public.set_product_updated_at();
 create trigger connections_updated_at before update on public.connections for each row execute function public.set_product_updated_at();
+revoke all on function public.set_product_updated_at() from public, anon, authenticated;
 
 -- PostgREST-facing Vault operations are privileged, narrowly scoped wrappers.
 -- Customer roles cannot execute them or access Vault schemas/views directly.
@@ -113,7 +114,7 @@ begin
 end $$;
 
 create or replace function public.product_create_connection(p_provider_type text, p_correlation_id uuid)
-returns public.connections language plpgsql security definer set search_path = '' as $$
+returns jsonb language plpgsql security definer set search_path = '' as $$
 declare v_account public.accounts; v_business public.businesses; v_row public.connections;
 begin
   select * into v_account from public.accounts where auth_user_id=auth.uid() and status='active';
@@ -126,11 +127,17 @@ begin
   exception when unique_violation then raise exception 'CONNECTION_EXISTS'; end;
   update public.businesses set connection_status='pending' where id=v_business.id;
   insert into public.audit_events(account_id,business_id,event_type,correlation_id) values(v_account.id,v_business.id,'connection_created',p_correlation_id::text);
-  return v_row;
+  return jsonb_build_object(
+    'id',v_row.id,'business_id',v_row.business_id,'provider_type',v_row.provider_type,
+    'status',v_row.status,'consent_state',v_row.consent_state,'connected_at',v_row.connected_at,
+    'disconnected_at',v_row.disconnected_at,'last_success_at',v_row.last_success_at,
+    'safe_error_code',v_row.safe_error_code,'safe_error_message',v_row.safe_error_message,
+    'created_at',v_row.created_at,'updated_at',v_row.updated_at
+  );
 end $$;
 
 create or replace function public.product_transition_connection(p_connection_id uuid, p_status text, p_consent_state text, p_correlation_id uuid)
-returns public.connections language plpgsql security definer set search_path = '' as $$
+returns jsonb language plpgsql security definer set search_path = '' as $$
 declare v_account public.accounts; v_row public.connections; v_allowed boolean;
 begin
   select * into v_account from public.accounts where auth_user_id=auth.uid() and status='active';
@@ -151,17 +158,27 @@ begin
     where id=v_row.id returning * into v_row;
   update public.businesses set connection_status=p_status where id=v_row.business_id;
   insert into public.audit_events(account_id,business_id,event_type,correlation_id) values(v_account.id,v_row.business_id,case when p_status='disconnected' then 'connection_disconnected' else 'connection_status_changed' end,p_correlation_id::text);
-  return v_row;
+  return jsonb_build_object(
+    'id',v_row.id,'business_id',v_row.business_id,'provider_type',v_row.provider_type,
+    'status',v_row.status,'consent_state',v_row.consent_state,'connected_at',v_row.connected_at,
+    'disconnected_at',v_row.disconnected_at,'last_success_at',v_row.last_success_at,
+    'safe_error_code',v_row.safe_error_code,'safe_error_message',v_row.safe_error_message,
+    'created_at',v_row.created_at,'updated_at',v_row.updated_at
+  );
 end $$;
 
 create or replace function public.product_request_account_deletion(p_correlation_id uuid)
 returns public.accounts language plpgsql security definer set search_path = '' as $$
-declare v_row public.accounts;
+declare v_row public.accounts; v_business public.businesses;
 begin
   select * into v_row from public.accounts where auth_user_id=auth.uid() for update;
   if not found then raise exception 'TENANT_NOT_FOUND'; end if;
   if v_row.status='active' then
     update public.accounts set status='deletion_requested' where id=v_row.id returning * into v_row;
+    update public.businesses set status='deletion_requested' where account_id=v_row.id and status='active' returning * into v_business;
+    if found then
+      insert into public.audit_events(account_id,business_id,event_type,correlation_id) values(v_row.id,v_business.id,'business_deletion_requested',p_correlation_id::text);
+    end if;
     insert into public.audit_events(account_id,event_type,correlation_id) values(v_row.id,'account_deletion_requested',p_correlation_id::text);
   end if;
   return v_row;

@@ -21,7 +21,7 @@ test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
   const users = [];
   let server;
   let baseUrl;
-  const psql = sql => execFileAsync("docker", ["exec", "supabase_db_streetkingz-ai-writer", "psql", "-U", "supabase_admin", "-d", "postgres", "-v", "ON_ERROR_STOP=1", "-c", sql], { env: { ...process.env, DOCKER_HOST: "unix:///Users/ben/.colima/default/docker.sock" } });
+  const psql = sql => execFileAsync("docker", ["exec", "supabase_db_streetkingz-ai-writer", "psql", "-U", "supabase_admin", "-d", "postgres", "-v", "ON_ERROR_STOP=1", "-c", sql]);
   const startApi = async () => { server = app.listen(0, "127.0.0.1"); await new Promise((resolve, reject) => { server.once("listening", resolve); server.once("error", reject); }); baseUrl = `http://127.0.0.1:${server.address().port}`; };
   const stopApi = async () => { if (server) await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve())); server = undefined; };
   const request = async (token, method, path, body, headers = {}) => {
@@ -52,6 +52,8 @@ test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
   const badToken = await request("not-a-jwt", "GET", "/api/product/account"); assert.equal(badToken.status, 401); assert.equal(badToken.body.error.code, "AUTH_INVALID");
   const malformedResponse = await fetch(`${baseUrl}/api/product/business`, { method: "POST", headers: { authorization: `Bearer ${a.token}`, "content-type": "application/json", "x-correlation-id": "caller-controlled" }, body: "{" });
   const malformed = await malformedResponse.json(); assert.equal(malformedResponse.status, 400); assert.equal(malformed.error.code, "INVALID_REQUEST"); assert.match(malformed.error.correlation_id, /^[0-9a-f-]{36}$/i); assert.notEqual(malformed.error.correlation_id, "caller-controlled");
+  const oversizedResponse = await fetch(`${baseUrl}/api/product/business`, { method: "POST", headers: { authorization: `Bearer ${a.token}`, "content-type": "application/json" }, body: JSON.stringify({ name: "x".repeat(110 * 1024) }) });
+  const oversized = await oversizedResponse.json(); assert.equal(oversizedResponse.status, 413); assert.equal(oversized.error.code, "PAYLOAD_TOO_LARGE"); assert.match(oversized.error.correlation_id, /^[0-9a-f-]{36}$/i); assert.doesNotMatch(JSON.stringify(oversized), /node_modules|body-parser|\/Users\/|xxxxx/i);
 
   const racing = await Promise.all([request(a.token, "POST", "/api/product/account", {}), request(a.token, "POST", "/api/product/account", {})]);
   assert.deepEqual(racing.map(result => result.status).sort(), [200, 201], JSON.stringify(racing));
@@ -63,12 +65,25 @@ test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
     const business = await request(identity.token, "POST", "/api/product/business", { name: `Business ${identity.id.slice(0, 8)}`, ecommerce_platform: "woocommerce" }); assert.equal(business.status, 201, JSON.stringify(business.body)); identity.business = business.body.business;
     const connection = await request(identity.token, "POST", "/api/product/connections", { provider_type: "synthetic" }); assert.equal(connection.status, 201, JSON.stringify(connection.body)); assert.equal(Object.hasOwn(connection.body.connection, "secret_reference"), false); identity.connection = connection.body.connection;
   }
+  const directCreate = await a.caller.rpc("product_create_connection", { p_provider_type: "direct-safe-probe", p_correlation_id: crypto.randomUUID() }); assert.ifError(directCreate.error); assert.equal(Object.hasOwn(directCreate.data, "secret_reference"), false); assert.ifError((await admin.from("connections").delete().eq("id", directCreate.data.id)).error);
   assert.equal((await request(a.token, "POST", "/api/product/business", { name: "second" })).body.error.code, "BUSINESS_LIMIT_REACHED");
   assert.equal((await request(a.token, "POST", "/api/product/connections", { provider_type: "synthetic" })).body.error.code, "CONNECTION_EXISTS");
   for (const body of [{ name: "" }, { name: "x".repeat(201) }, { name: "ok", ecommerce_platform: {} }]) assert.equal((await request(a.token, "POST", "/api/product/business", body)).status, 400);
   for (const value of [{}, "", "x".repeat(65)]) assert.equal((await request(a.token, "POST", "/api/product/connections", { provider_type: value })).status, 400);
   assert.equal((await request(a.token, "PATCH", "/api/product/connections/not-a-uuid", { status: "connected", consent_state: "granted" })).status, 400);
   assert.equal((await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "connected", consent_state: "unsupported" })).status, 409);
+
+  const rpcProbePlaintext = `rpc-probe-${crypto.randomUUID()}`;
+  const rpcProbeSecret = await createVaultSecret(admin, rpcProbePlaintext, `rpc-probe-${stamp}`);
+  assert.ifError((await admin.from("connections").update({ secret_reference: rpcProbeSecret.secretReference }).eq("id", a.connection.id)).error);
+  const rpcProbe = await a.caller.rpc("product_transition_connection", { p_connection_id: a.connection.id, p_status: "connected", p_consent_state: "granted", p_correlation_id: crypto.randomUUID() });
+  assert.ifError(rpcProbe.error);
+  assert.equal(Object.hasOwn(rpcProbe.data, "secret_reference"), false);
+  assert.ok(!JSON.stringify(rpcProbe.data).includes(rpcProbeSecret.secretReference));
+  assert.ok(!JSON.stringify(rpcProbe.data).includes(rpcProbePlaintext));
+  assert.equal((await admin.rpc("vault_read_secret", { secret_id: rpcProbeSecret.secretReference })).data, rpcProbePlaintext);
+  assert.ifError((await a.caller.rpc("product_transition_connection", { p_connection_id: a.connection.id, p_status: "error", p_consent_state: "granted", p_correlation_id: crypto.randomUUID() })).error);
+  assert.ifError((await a.caller.rpc("product_transition_connection", { p_connection_id: a.connection.id, p_status: "pending", p_consent_state: "pending", p_correlation_id: crypto.randomUUID() })).error);
 
   const denied = [
     a.caller.from("businesses").delete().eq("id", a.business.id),
@@ -93,6 +108,8 @@ test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
   assert.equal((await request(a.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" })).status, 404);
   assert.ok((await a.caller.rpc("vault_read_secret", { secret_id: crypto.randomUUID() })).error);
 
+  const rpcProbeDisconnect = await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "disconnected", consent_state: "revoked" }); assert.equal(rpcProbeDisconnect.status, 200); assert.equal(Object.hasOwn(rpcProbeDisconnect.body.connection, "secret_reference"), false); assert.equal((await admin.rpc("vault_read_secret", { secret_id: rpcProbeSecret.secretReference })).data, null); assert.equal((await admin.from("connections").select("secret_reference").eq("id", a.connection.id).single()).data.secret_reference, null);
+
   const connected = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" }); assert.equal(connected.status, 200); assert.ok(connected.body.connection.connected_at); assert.notEqual(connected.body.connection.updated_at, b.connection.updated_at);
   const disconnectPlaintext = `disconnect-${crypto.randomUUID()}`; const disconnectSecret = await createVaultSecret(admin, disconnectPlaintext, `disconnect-${stamp}`); assert.ifError((await admin.from("connections").update({ secret_reference: disconnectSecret.secretReference }).eq("id", b.connection.id)).error);
   const disconnected = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "disconnected", consent_state: "revoked" }); assert.equal(disconnected.status, 200); assert.ok(disconnected.body.connection.disconnected_at); assert.equal(Object.hasOwn(disconnected.body.connection, "secret_reference"), false); assert.equal((await admin.rpc("vault_read_secret", { secret_id: disconnectSecret.secretReference })).data, null);
@@ -113,7 +130,7 @@ test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
 
   await psql("revoke select on public.connections from authenticated");
   let rawDbFailure;
-  try { rawDbFailure = await request(b.token, "GET", "/api/product/connections"); } finally { await psql("grant select on public.connections to authenticated"); }
+  try { rawDbFailure = await request(b.token, "GET", "/api/product/connections"); } finally { await psql("grant select (id,business_id,provider_type,status,consent_state,connected_at,disconnected_at,last_success_at,safe_error_code,safe_error_message,created_at,updated_at) on public.connections to authenticated"); }
   assert.equal(rawDbFailure.status, 500); assert.deepEqual(rawDbFailure.body.error.message, "An internal error occurred."); assert.doesNotMatch(JSON.stringify(rawDbFailure.body), /permission|table|postgres|grant/i);
 
   const auditA = await request(a.token, "GET", "/api/product/audit-events"); const auditB = await request(b.token, "GET", "/api/product/audit-events"); assert.equal(auditA.status, 200); assert.equal(auditB.status, 200);
@@ -124,6 +141,12 @@ test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
   await stopApi(); await startApi(); const durable = await request(b.token, "GET", "/api/product/business"); assert.equal(durable.status, 200); assert.equal(durable.body.business.id, b.business.id); assert.equal(durable.body.business.connection_status, "disconnected");
 
   const deletionSecret = await createVaultSecret(admin, `deletion-${crypto.randomUUID()}`, `delete-${stamp}`); assert.ifError((await admin.from("connections").update({ secret_reference: deletionSecret.secretReference }).eq("id", a.connection.id)).error);
+  const deletionRequest = await a.caller.rpc("product_request_account_deletion", { p_correlation_id: crypto.randomUUID() }); assert.ifError(deletionRequest.error); assert.equal(deletionRequest.data.status, "deletion_requested");
+  assert.equal((await admin.from("businesses").select("status").eq("id", a.business.id).single()).data.status, "deletion_requested");
+  const requestAudits = (await admin.from("audit_events").select("event_type,business_id").eq("account_id", a.account.id).in("event_type", ["account_deletion_requested", "business_deletion_requested"])).data; assert.equal(requestAudits.filter(event => event.event_type === "account_deletion_requested").length, 1); assert.equal(requestAudits.filter(event => event.event_type === "business_deletion_requested" && event.business_id === a.business.id).length, 1);
+  assert.ifError((await a.caller.rpc("product_request_account_deletion", { p_correlation_id: crypto.randomUUID() })).error);
+  const retriedRequestAudits = (await admin.from("audit_events").select("event_type").eq("account_id", a.account.id).in("event_type", ["account_deletion_requested", "business_deletion_requested"])).data; assert.equal(retriedRequestAudits.length, 2);
+  assert.equal((await request(a.token, "POST", "/api/product/connections", { provider_type: "blocked" })).body.error.code, "ACCOUNT_NOT_ACTIVE");
   await psql("create or replace function public.v102_block_auth_delete() returns trigger language plpgsql as $$ begin raise exception 'controlled auth deletion failure'; end $$; create trigger v102_block_auth_delete before delete on auth.users for each row when (old.id = '" + a.id + "'::uuid) execute function public.v102_block_auth_delete()");
   const partialDelete = await request(a.token, "DELETE", "/api/product/account"); assert.equal(partialDelete.status, 503); assert.equal(partialDelete.body.error.code, "ACCOUNT_DELETION_FAILED");
   const deletionState = (await admin.from("accounts").select("status").eq("id", a.account.id).single()).data; assert.equal(deletionState.status, "deleted"); assert.deepEqual((await admin.from("businesses").select("id").eq("account_id", a.account.id)).data, []); assert.equal((await admin.rpc("vault_read_secret", { secret_id: deletionSecret.secretReference })).data, null);
