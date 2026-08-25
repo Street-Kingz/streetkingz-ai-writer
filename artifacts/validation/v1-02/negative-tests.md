@@ -1,7 +1,7 @@
 # Negative Tests
 
-Unit coverage includes malformed auth, invalid transitions, missing configuration, bounded internal errors, Vault failure-closed behavior, disconnect ordering, response minimisation and failure-audit source checks. Real integration negatives include unauthenticated Product API denial, second-Business rejection, cross-tenant reads and mutation returning zero rows under RLS, anonymous table denial, authenticated Vault RPC denial, invalid state and foreign-key rejection, invalid Connection transition, foreign Connection access, arbitrary AuditEvent write denial and recoverable Vault deletion failure.
+Real negatives cover missing/malformed/invalid auth, malformed JSON, malformed UUID, invalid Business/platform/provider inputs, invalid status/consent, duplicate Business/Connection, raw PostgreSQL failure redaction, cross-tenant access, same-tenant raw table attacks, privileged RPC denial, AuditEvent forgery, genuine Vault operational failure and managed-Auth deletion failure.
 
-The Vault failure response did not claim disconnection, retained the opaque reference, and exposed no plaintext. Its tenant audit was bounded and Account A could not read Account B's failure events.
+Authenticated table insert/update/delete operations are denied even for the caller's own tenant. Fixed-purpose direct RPC attacks still derive `auth.uid()`, enforce ownership and state rules, and cannot access privileged cleanup/Vault functions.
 
 Status: PASS.

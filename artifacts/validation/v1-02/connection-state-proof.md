@@ -2,8 +2,8 @@
 
 Allowed connection and consent states and transitions are bounded in `product-kernel/constants.js`. No provider connector is implemented.
 
-The real Product API created one synthetic Connection per tenant, transitioned Account B's Connection from `pending` to `connected` with granted consent, attached an actual synthetic Vault secret, then disconnected it through `PATCH /api/product/connections/:id`. The API returned `disconnected` with revoked consent, the database reference was null, the Vault secret no longer existed, and customer Connection responses did not expose `secret_reference`. No provider connector was implemented.
+The real Product API created one synthetic Connection per tenant and used the caller-scoped transactional transition RPC. `connected_at` and `updated_at` changed on connection; `disconnected_at` changed on disconnect. Business `connection_status` provides the required durable connection summary. An attached synthetic Vault secret was atomically deleted with disconnection, reference clearing and audit insertion. Customer responses never exposed `secret_reference`.
 
-A deletion-failure proof attached a dangling opaque reference. The API returned `SECRET_OPERATION_FAILED`, retained the pending status, consent and reference for recovery, and persisted a bounded failure audit without plaintext.
+A genuine Vault operational failure rolled the transaction back, returned `SECRET_OPERATION_FAILED`, retained recoverable state/reference and persisted bounded failure evidence. A later retry succeeded. Invalid state/consent combinations were rejected by the RPC itself.
 
 Status: PASS — unit and real Product API transition proof.

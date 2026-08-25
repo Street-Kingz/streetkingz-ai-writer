@@ -1,18 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { promisify } from "node:util";
+import { execFile } from "node:child_process";
 import { createClient } from "@supabase/supabase-js";
 import app from "../app.js";
 import { verifyIdentity } from "../product-kernel/auth.js";
 import { createVaultSecret, deleteVaultSecret } from "../product-kernel/vault.js";
 
+const execFileAsync = promisify(execFile);
 const enabled = process.env.V1_02_INTEGRATION === "1";
-const required = name => {
-  const value = process.env[name];
-  if (!value) throw new Error(`${name} is required for the V1-02 integration proof.`);
-  return value;
-};
+const required = name => { const value = process.env[name]; if (!value) throw new Error(`${name} is required for the V1-02 integration proof.`); return value; };
 
-test("V1-02 real Supabase Auth, RLS, Vault, deletion and Product API proof", { skip: !enabled }, async t => {
+test("V1-02 hardened real Supabase boundary", { skip: !enabled }, async t => {
   const url = required("SUPABASE_URL");
   const publishableKey = required("SUPABASE_PUBLISHABLE_KEY");
   const serviceRoleKey = required("SUPABASE_SERVICE_ROLE_KEY");
@@ -22,185 +21,116 @@ test("V1-02 real Supabase Auth, RLS, Vault, deletion and Product API proof", { s
   const users = [];
   let server;
   let baseUrl;
-
-  const startApi = async () => {
-    server = app.listen(0, "127.0.0.1");
-    await new Promise((resolve, reject) => { server.once("listening", resolve); server.once("error", reject); });
-    baseUrl = `http://127.0.0.1:${server.address().port}`;
+  const psql = sql => execFileAsync("docker", ["exec", "supabase_db_streetkingz-ai-writer", "psql", "-U", "supabase_admin", "-d", "postgres", "-v", "ON_ERROR_STOP=1", "-c", sql], { env: { ...process.env, DOCKER_HOST: "unix:///Users/ben/.colima/default/docker.sock" } });
+  const startApi = async () => { server = app.listen(0, "127.0.0.1"); await new Promise((resolve, reject) => { server.once("listening", resolve); server.once("error", reject); }); baseUrl = `http://127.0.0.1:${server.address().port}`; };
+  const stopApi = async () => { if (server) await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve())); server = undefined; };
+  const request = async (token, method, path, body, headers = {}) => {
+    const response = await fetch(`${baseUrl}${path}`, { method, headers: { ...(token ? { authorization: `Bearer ${token}` } : {}), ...(body !== undefined ? { "content-type": "application/json" } : {}), ...headers }, body: body === undefined ? undefined : JSON.stringify(body) });
+    const text = await response.text(); return { status: response.status, headers: response.headers, body: text ? JSON.parse(text) : null };
   };
-  const stopApi = async () => {
-    if (server) await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
-    server = undefined;
-  };
-  const request = async (token, method, path, body) => {
-    const response = await fetch(`${baseUrl}${path}`, {
-      method,
-      headers: { ...(token ? { authorization: `Bearer ${token}` } : {}), ...(body ? { "content-type": "application/json" } : {}) },
-      body: body ? JSON.stringify(body) : undefined
-    });
-    const text = await response.text();
-    return { status: response.status, body: text ? JSON.parse(text) : null };
-  };
-
   await startApi();
-  t.after(async () => {
-    await stopApi();
-    for (const id of users) await admin.auth.admin.deleteUser(id);
-  });
+  t.after(async () => { await stopApi(); for (const id of users) await admin.auth.admin.deleteUser(id); });
 
   const identities = [];
   for (const label of ["a", "b"]) {
     const email = `v1-02-${label}-${stamp}@example.test`;
-    const { data: created, error: createError } = await admin.auth.admin.createUser({ email, password, email_confirm: true });
-    assert.ifError(createError);
-    users.push(created.user.id);
+    const { data: created, error: createError } = await admin.auth.admin.createUser({ email, password, email_confirm: true }); assert.ifError(createError); users.push(created.user.id);
     const caller = createClient(url, publishableKey, { auth: { autoRefreshToken: false, persistSession: false } });
-    const { data: signedIn, error: signInError } = await caller.auth.signInWithPassword({ email, password });
-    assert.ifError(signInError);
-    assert.ok(signedIn.session.access_token);
-    const verified = await verifyIdentity(signedIn.session.access_token);
-    assert.equal(verified.authUserId, created.user.id);
-    identities.push({ id: created.user.id, email, token: signedIn.session.access_token, caller });
+    const { data: signedIn, error: signInError } = await caller.auth.signInWithPassword({ email, password }); assert.ifError(signInError);
+    const verified = await verifyIdentity(signedIn.session.access_token); assert.equal(verified.authUserId, created.user.id);
+    identities.push({ id: created.user.id, email, token: signedIn.session.access_token, refreshToken: signedIn.session.refresh_token, caller });
   }
   const [a, b] = identities;
 
-  const unauthenticated = await request(null, "GET", "/api/product/account");
-  assert.equal(unauthenticated.status, 401);
-  assert.equal(unauthenticated.body.error.code, "AUTH_REQUIRED");
+  const { data: renewed, error: renewError } = await b.caller.auth.refreshSession({ refresh_token: b.refreshToken }); assert.ifError(renewError); assert.equal((await verifyIdentity(renewed.session.access_token)).authUserId, b.id); b.token = renewed.session.access_token;
+  assert.ifError((await b.caller.auth.signOut()).error);
+  assert.ok((await b.caller.auth.refreshSession({ refresh_token: renewed.session.refresh_token })).error);
+  assert.equal((await verifyIdentity(b.token)).authUserId, b.id); // Managed sign-out revokes refresh state; an issued JWT remains valid until expiry.
+
+  const noAuth = await request(null, "GET", "/api/product/account"); assert.equal(noAuth.status, 401); assert.equal(noAuth.body.error.code, "AUTH_REQUIRED");
+  const badBearer = await request(null, "GET", "/api/product/account", undefined, { authorization: "Basic unsafe" }); assert.equal(badBearer.status, 401); assert.equal(badBearer.body.error.code, "AUTH_INVALID");
+  const badToken = await request("not-a-jwt", "GET", "/api/product/account"); assert.equal(badToken.status, 401); assert.equal(badToken.body.error.code, "AUTH_INVALID");
+  const malformedResponse = await fetch(`${baseUrl}/api/product/business`, { method: "POST", headers: { authorization: `Bearer ${a.token}`, "content-type": "application/json", "x-correlation-id": "caller-controlled" }, body: "{" });
+  const malformed = await malformedResponse.json(); assert.equal(malformedResponse.status, 400); assert.equal(malformed.error.code, "INVALID_REQUEST"); assert.match(malformed.error.correlation_id, /^[0-9a-f-]{36}$/i); assert.notEqual(malformed.error.correlation_id, "caller-controlled");
+
+  const racing = await Promise.all([request(a.token, "POST", "/api/product/account", {}), request(a.token, "POST", "/api/product/account", {})]);
+  assert.deepEqual(racing.map(result => result.status).sort(), [200, 201], JSON.stringify(racing));
+  a.account = racing[0].body.account;
+  const repeatedAccount = await request(a.token, "POST", "/api/product/account", {}); assert.equal(repeatedAccount.status, 200); assert.equal(repeatedAccount.body.account.id, a.account.id);
+  const bAccount = await request(b.token, "POST", "/api/product/account", {}); assert.equal(bAccount.status, 201); b.account = bAccount.body.account;
 
   for (const identity of identities) {
-    const account = await request(identity.token, "POST", "/api/product/account");
-    assert.equal(account.status, 201, JSON.stringify(account.body));
-    identity.account = account.body.account;
-    assert.equal(identity.account.auth_user_id, identity.id);
-    const business = await request(identity.token, "POST", "/api/product/business", { name: `Business ${identity.id.slice(0, 8)}`, ecommerce_platform: "woocommerce" });
-    assert.equal(business.status, 201, JSON.stringify(business.body));
-    identity.business = business.body.business;
-    const connection = await request(identity.token, "POST", "/api/product/connections", { provider_type: "synthetic" });
-    assert.equal(connection.status, 201, JSON.stringify(connection.body));
-    identity.connection = connection.body.connection;
+    const business = await request(identity.token, "POST", "/api/product/business", { name: `Business ${identity.id.slice(0, 8)}`, ecommerce_platform: "woocommerce" }); assert.equal(business.status, 201, JSON.stringify(business.body)); identity.business = business.body.business;
+    const connection = await request(identity.token, "POST", "/api/product/connections", { provider_type: "synthetic" }); assert.equal(connection.status, 201, JSON.stringify(connection.body)); assert.equal(Object.hasOwn(connection.body.connection, "secret_reference"), false); identity.connection = connection.body.connection;
   }
+  assert.equal((await request(a.token, "POST", "/api/product/business", { name: "second" })).body.error.code, "BUSINESS_LIMIT_REACHED");
+  assert.equal((await request(a.token, "POST", "/api/product/connections", { provider_type: "synthetic" })).body.error.code, "CONNECTION_EXISTS");
+  for (const body of [{ name: "" }, { name: "x".repeat(201) }, { name: "ok", ecommerce_platform: {} }]) assert.equal((await request(a.token, "POST", "/api/product/business", body)).status, 400);
+  for (const value of [{}, "", "x".repeat(65)]) assert.equal((await request(a.token, "POST", "/api/product/connections", { provider_type: value })).status, 400);
+  assert.equal((await request(a.token, "PATCH", "/api/product/connections/not-a-uuid", { status: "connected", consent_state: "granted" })).status, 400);
+  assert.equal((await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "connected", consent_state: "unsupported" })).status, 409);
 
-  const secondBusiness = await request(a.token, "POST", "/api/product/business", { name: "Forbidden second business" });
-  assert.equal(secondBusiness.status, 409);
-  assert.equal(secondBusiness.body.error.code, "BUSINESS_LIMIT_REACHED");
+  const denied = [
+    a.caller.from("businesses").delete().eq("id", a.business.id),
+    a.caller.from("accounts").update({ status: "deleted" }).eq("id", a.account.id),
+    a.caller.from("accounts").delete().eq("id", a.account.id),
+    a.caller.from("connections").update({ status: "connected" }).eq("id", a.connection.id),
+    a.caller.from("connections").update({ consent_state: "granted", secret_reference: crypto.randomUUID(), safe_error_message: "unsafe" }).eq("id", a.connection.id),
+    a.caller.from("connections").insert({ business_id: a.business.id, provider_type: "bypass", status: "connected" }),
+    a.caller.from("connections").delete().eq("id", a.connection.id),
+    a.caller.from("audit_events").insert({ account_id: a.account.id, event_type: "forged", correlation_id: "forged" }),
+    a.caller.from("audit_events").update({ event_type: "forged" }).eq("account_id", a.account.id),
+    a.caller.from("audit_events").delete().eq("account_id", a.account.id)
+  ];
+  for (const operation of denied) assert.ok((await operation).error);
+  assert.ok((await a.caller.from("connections").select("secret_reference").eq("id", a.connection.id)).error);
+  assert.ok((await a.caller.rpc("product_transition_connection", { p_connection_id: a.connection.id, p_status: "connected", p_consent_state: "revoked", p_correlation_id: crypto.randomUUID() })).error);
+  assert.ok((await a.caller.rpc("product_transition_connection", { p_connection_id: b.connection.id, p_status: "connected", p_consent_state: "granted", p_correlation_id: crypto.randomUUID() })).error);
+  assert.ok((await a.caller.rpc("product_cleanup_account", { p_auth_user_id: a.id, p_correlation_id: crypto.randomUUID() })).error);
+  assert.deepEqual((await a.caller.from("businesses").select("id").eq("id", b.business.id)).data, []);
+  assert.deepEqual((await a.caller.from("connections").select("id").eq("id", b.connection.id)).data, []);
+  assert.deepEqual((await a.caller.from("audit_events").select("id").eq("account_id", b.account.id)).data, []);
+  assert.equal((await request(a.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" })).status, 404);
+  assert.ok((await a.caller.rpc("vault_read_secret", { secret_id: crypto.randomUUID() })).error);
 
-  const { data: crossBusinesses, error: crossBusinessError } = await a.caller.from("businesses").select("id").eq("id", b.business.id);
-  assert.ifError(crossBusinessError);
-  assert.deepEqual(crossBusinesses, []);
-  const { data: crossUpdate, error: crossUpdateError } = await a.caller.from("businesses").update({ name: "tenant escape" }).eq("id", b.business.id).select("id");
-  assert.ifError(crossUpdateError);
-  assert.deepEqual(crossUpdate, []);
-  const { data: crossConnections, error: crossConnectionError } = await a.caller.from("connections").select("id").eq("id", b.connection.id);
-  assert.ifError(crossConnectionError);
-  assert.deepEqual(crossConnections, []);
-  const { data: crossAudits, error: crossAuditError } = await a.caller.from("audit_events").select("id").eq("account_id", b.account.id);
-  assert.ifError(crossAuditError);
-  assert.deepEqual(crossAudits, []);
+  const connected = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" }); assert.equal(connected.status, 200); assert.ok(connected.body.connection.connected_at); assert.notEqual(connected.body.connection.updated_at, b.connection.updated_at);
+  const disconnectPlaintext = `disconnect-${crypto.randomUUID()}`; const disconnectSecret = await createVaultSecret(admin, disconnectPlaintext, `disconnect-${stamp}`); assert.ifError((await admin.from("connections").update({ secret_reference: disconnectSecret.secretReference }).eq("id", b.connection.id)).error);
+  const disconnected = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "disconnected", consent_state: "revoked" }); assert.equal(disconnected.status, 200); assert.ok(disconnected.body.connection.disconnected_at); assert.equal(Object.hasOwn(disconnected.body.connection, "secret_reference"), false); assert.equal((await admin.rpc("vault_read_secret", { secret_id: disconnectSecret.secretReference })).data, null);
+  const disconnectedDb = (await admin.from("connections").select("status,consent_state,secret_reference,connected_at,disconnected_at,updated_at").eq("id", b.connection.id).single()).data; assert.equal(disconnectedDb.secret_reference, null); assert.ok(disconnectedDb.connected_at); assert.ok(disconnectedDb.disconnected_at);
+  assert.equal((await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" })).status, 409);
 
-  const anon = createClient(url, publishableKey, { auth: { autoRefreshToken: false, persistSession: false } });
-  const { data: anonData, error: anonError } = await anon.from("accounts").select("id");
-  assert.ok(anonError || anonData.length === 0);
-  const { error: directVaultDenial } = await a.caller.rpc("vault_read_secret", { secret_id: crypto.randomUUID() });
-  assert.ok(directVaultDenial);
+  const absentSecret = await createVaultSecret(admin, `absent-${crypto.randomUUID()}`, `absent-${stamp}`); assert.ifError((await admin.from("connections").update({ secret_reference: absentSecret.secretReference }).eq("id", a.connection.id)).error); await deleteVaultSecret(admin, absentSecret.secretReference);
+  const absentRetry = await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "disconnected", consent_state: "revoked" }); assert.equal(absentRetry.status, 200); assert.equal((await admin.from("connections").select("secret_reference").eq("id", a.connection.id).single()).data.secret_reference, null);
 
-  const { error: invalidState } = await admin.from("connections").insert({ business_id: a.business.id, provider_type: "invalid-state-proof", status: "impossible" });
-  assert.equal(invalidState?.code, "23514");
-  const { error: invalidOwner } = await admin.from("businesses").insert({ account_id: crypto.randomUUID(), name: "invalid owner" });
-  assert.equal(invalidOwner?.code, "23503");
+  assert.equal((await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "pending", consent_state: "pending" })).status, 200);
+  const failurePlaintext = `failure-${crypto.randomUUID()}`; const failureSecret = await createVaultSecret(admin, failurePlaintext, `failure-${stamp}`); assert.ifError((await admin.from("connections").update({ secret_reference: failureSecret.secretReference }).eq("id", a.connection.id)).error);
+  await psql("alter table vault.secrets rename to secrets_v102_failure");
+  let failedDisconnect;
+  try { failedDisconnect = await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "disconnected", consent_state: "revoked" }); } finally { await psql("alter table vault.secrets_v102_failure rename to secrets"); }
+  assert.equal(failedDisconnect.status, 503); assert.equal(failedDisconnect.body.error.code, "SECRET_OPERATION_FAILED"); assert.doesNotMatch(JSON.stringify(failedDisconnect.body), /failure-|authorization|bearer|password/i);
+  const recoverable = (await admin.from("connections").select("status,consent_state,secret_reference").eq("id", a.connection.id).single()).data; assert.deepEqual(recoverable, { status: "pending", consent_state: "pending", secret_reference: failureSecret.secretReference });
+  assert.equal((await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "disconnected", consent_state: "revoked" })).status, 200); assert.equal((await admin.rpc("vault_read_secret", { secret_id: failureSecret.secretReference })).data, null);
 
-  const syntheticSecret = `synthetic-${crypto.randomUUID()}`;
-  const { secretReference } = await createVaultSecret(admin, syntheticSecret, `v1-02-${stamp}`);
-  assert.match(secretReference, /^[0-9a-f-]{36}$/i);
-  const { data: decrypted, error: decryptError } = await admin.rpc("vault_read_secret", { secret_id: secretReference });
-  assert.ifError(decryptError);
-  assert.equal(decrypted, syntheticSecret);
-  await deleteVaultSecret(admin, secretReference);
-  const { data: deletedSecret, error: deletedReadError } = await admin.rpc("vault_read_secret", { secret_id: secretReference });
-  assert.ifError(deletedReadError);
-  assert.equal(deletedSecret, null);
+  await psql("revoke select on public.connections from authenticated");
+  let rawDbFailure;
+  try { rawDbFailure = await request(b.token, "GET", "/api/product/connections"); } finally { await psql("grant select on public.connections to authenticated"); }
+  assert.equal(rawDbFailure.status, 500); assert.deepEqual(rawDbFailure.body.error.message, "An internal error occurred."); assert.doesNotMatch(JSON.stringify(rawDbFailure.body), /permission|table|postgres|grant/i);
 
-  const transition = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" });
-  assert.equal(transition.status, 200, JSON.stringify(transition.body));
-  assert.equal(transition.body.connection.status, "connected");
-  assert.equal(Object.hasOwn(transition.body.connection, "secret_reference"), false);
-  const apiDisconnectPlaintext = `api-disconnect-${crypto.randomUUID()}`;
-  const apiDisconnectSecret = await createVaultSecret(admin, apiDisconnectPlaintext, `v1-02-api-disconnect-${stamp}`);
-  const { error: attachDisconnectError } = await admin.from("connections").update({ secret_reference: apiDisconnectSecret.secretReference }).eq("id", b.connection.id);
-  assert.ifError(attachDisconnectError);
-  const customerConnections = await request(b.token, "GET", "/api/product/connections");
-  assert.equal(customerConnections.status, 200);
-  assert.equal(Object.hasOwn(customerConnections.body.connections[0], "secret_reference"), false);
-  const disconnect = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "disconnected", consent_state: "revoked" });
-  assert.equal(disconnect.status, 200, JSON.stringify(disconnect.body));
-  assert.equal(disconnect.body.connection.status, "disconnected");
-  assert.equal(disconnect.body.connection.consent_state, "revoked");
-  assert.equal(Object.hasOwn(disconnect.body.connection, "secret_reference"), false);
-  const { data: disconnectedRow, error: disconnectedRowError } = await admin.from("connections").select("status,consent_state,secret_reference").eq("id", b.connection.id).single();
-  assert.ifError(disconnectedRowError);
-  assert.deepEqual(disconnectedRow, { status: "disconnected", consent_state: "revoked", secret_reference: null });
-  const { data: secretAfterDisconnect, error: secretAfterDisconnectError } = await admin.rpc("vault_read_secret", { secret_id: apiDisconnectSecret.secretReference });
-  assert.ifError(secretAfterDisconnectError);
-  assert.equal(secretAfterDisconnect, null);
+  const auditA = await request(a.token, "GET", "/api/product/audit-events"); const auditB = await request(b.token, "GET", "/api/product/audit-events"); assert.equal(auditA.status, 200); assert.equal(auditB.status, 200);
+  const audits = JSON.stringify([...auditA.body.events, ...auditB.body.events]); assert.doesNotMatch(audits, /authorization|bearer|password|permission denied|postgres/i); assert.ok(!audits.includes(disconnectPlaintext)); assert.ok(!audits.includes(failurePlaintext));
+  assert.ok(auditA.body.events.some(event => event.event_type === "secret_operation_failed")); assert.ok(auditA.body.events.every(event => /^[0-9a-f-]{36}$/i.test(event.correlation_id)));
+  for (const requiredEvent of ["account_created", "business_created", "connection_created", "connection_status_changed", "connection_disconnected"]) assert.ok([...auditA.body.events, ...auditB.body.events].some(event => event.event_type === requiredEvent));
 
-  const danglingReference = crypto.randomUUID();
-  const { error: attachDanglingError } = await admin.from("connections").update({ secret_reference: danglingReference }).eq("id", a.connection.id);
-  assert.ifError(attachDanglingError);
-  const failedDisconnect = await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "disconnected", consent_state: "revoked" });
-  assert.equal(failedDisconnect.status, 503);
-  assert.equal(failedDisconnect.body.error.code, "SECRET_OPERATION_FAILED");
-  assert.doesNotMatch(JSON.stringify(failedDisconnect.body), /api-disconnect|synthetic-|password|authorization|bearer/i);
-  const { data: recoverableRow, error: recoverableRowError } = await admin.from("connections").select("status,consent_state,secret_reference").eq("id", a.connection.id).single();
-  assert.ifError(recoverableRowError);
-  assert.deepEqual(recoverableRow, { status: "pending", consent_state: "pending", secret_reference: danglingReference });
+  await stopApi(); await startApi(); const durable = await request(b.token, "GET", "/api/product/business"); assert.equal(durable.status, 200); assert.equal(durable.body.business.id, b.business.id); assert.equal(durable.body.business.connection_status, "disconnected");
 
-  const invalidTransition = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected" });
-  assert.equal(invalidTransition.status, 500);
-  assert.equal(invalidTransition.body.error.code, "INVALID_CONNECTION_TRANSITION");
-  const foreignConnection = await request(a.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "pending" });
-  assert.equal(foreignConnection.status, 404);
-  assert.equal(foreignConnection.body.error.code, "CONNECTION_NOT_FOUND");
-
-  const auditA = await request(a.token, "GET", "/api/product/audit-events");
-  const auditB = await request(b.token, "GET", "/api/product/audit-events");
-  assert.equal(auditA.status, 200);
-  assert.equal(auditB.status, 200);
-  assert.ok(auditA.body.events.length >= 3);
-  assert.ok(auditB.body.events.length >= 5);
-  assert.ok(auditA.body.events.some(event => event.event_type === "secret_operation_failed" && event.safe_metadata.operation === "disconnect"));
-  assert.ok(auditA.body.events.some(event => event.event_type === "tenant_access_denied"));
-  assert.ok(auditB.body.events.some(event => event.event_type === "connection_transition_failed"));
-  const serializedAudits = JSON.stringify([...auditA.body.events, ...auditB.body.events]);
-  assert.doesNotMatch(serializedAudits, /authorization|bearer|password/i);
-  assert.ok(!serializedAudits.includes(syntheticSecret));
-  assert.ok(!serializedAudits.includes(apiDisconnectPlaintext));
-  const { data: postFailureCrossAudits, error: postFailureCrossAuditError } = await a.caller.from("audit_events").select("id").eq("account_id", b.account.id);
-  assert.ifError(postFailureCrossAuditError);
-  assert.deepEqual(postFailureCrossAudits, []);
-  const arbitraryAudit = { account_id: a.account.id, event_type: "forged", correlation_id: "forged", safe_metadata: {} };
-  assert.ok((await a.caller.from("audit_events").insert(arbitraryAudit)).error);
-  assert.ok((await a.caller.from("audit_events").update({ event_type: "forged" }).eq("account_id", a.account.id)).error);
-  assert.ok((await a.caller.from("audit_events").delete().eq("account_id", a.account.id)).error);
-
-  await stopApi();
-  await startApi();
-  const durable = await request(b.token, "GET", "/api/product/business");
-  assert.equal(durable.status, 200, JSON.stringify(durable.body));
-  assert.equal(durable.body.business.id, b.business.id);
-
-  const deletionSecret = await createVaultSecret(admin, `deletion-${crypto.randomUUID()}`, `v1-02-delete-${stamp}`);
-  const { error: attachError } = await admin.from("connections").update({ secret_reference: deletionSecret.secretReference }).eq("id", a.connection.id);
-  assert.ifError(attachError);
-  const deletion = await request(a.token, "DELETE", "/api/product/account");
-  assert.equal(deletion.status, 204, JSON.stringify(deletion.body));
-  const { data: secretAfterDeletion, error: secretAfterDeletionError } = await admin.rpc("vault_read_secret", { secret_id: deletionSecret.secretReference });
-  assert.ifError(secretAfterDeletionError);
-  assert.equal(secretAfterDeletion, null);
-  const { data: authAfterDeletion } = await admin.auth.admin.getUserById(a.id);
-  assert.equal(authAfterDeletion.user, null);
-  const { data: accountAfterDeletion, error: accountAfterDeletionError } = await admin.from("accounts").select("id").eq("auth_user_id", a.id);
-  assert.ifError(accountAfterDeletionError);
-  assert.deepEqual(accountAfterDeletion, []);
-  const failedLogin = await a.caller.auth.signInWithPassword({ email: a.email, password });
-  assert.ok(failedLogin.error);
+  const deletionSecret = await createVaultSecret(admin, `deletion-${crypto.randomUUID()}`, `delete-${stamp}`); assert.ifError((await admin.from("connections").update({ secret_reference: deletionSecret.secretReference }).eq("id", a.connection.id)).error);
+  await psql("create or replace function public.v102_block_auth_delete() returns trigger language plpgsql as $$ begin raise exception 'controlled auth deletion failure'; end $$; create trigger v102_block_auth_delete before delete on auth.users for each row when (old.id = '" + a.id + "'::uuid) execute function public.v102_block_auth_delete()");
+  const partialDelete = await request(a.token, "DELETE", "/api/product/account"); assert.equal(partialDelete.status, 503); assert.equal(partialDelete.body.error.code, "ACCOUNT_DELETION_FAILED");
+  const deletionState = (await admin.from("accounts").select("status").eq("id", a.account.id).single()).data; assert.equal(deletionState.status, "deleted"); assert.deepEqual((await admin.from("businesses").select("id").eq("account_id", a.account.id)).data, []); assert.equal((await admin.rpc("vault_read_secret", { secret_id: deletionSecret.secretReference })).data, null);
+  assert.ok((await admin.from("audit_events").select("id").eq("account_id", a.account.id).eq("event_type", "account_deletion_failed")).data.length === 1);
+  assert.equal((await request(a.token, "POST", "/api/product/business", { name: "resurrection" })).body.error.code, "ACCOUNT_NOT_ACTIVE");
+  await psql("drop trigger v102_block_auth_delete on auth.users; drop function public.v102_block_auth_delete()");
+  const resumedDelete = await request(a.token, "DELETE", "/api/product/account"); assert.equal(resumedDelete.status, 204); assert.equal((await admin.auth.admin.getUserById(a.id)).data.user, null); assert.deepEqual((await admin.from("accounts").select("id").eq("auth_user_id", a.id)).data, []);
+  assert.ok((await a.caller.auth.signInWithPassword({ email: a.email, password })).error);
+  assert.ok((await a.caller.auth.refreshSession({ refresh_token: a.refreshToken })).error);
 });

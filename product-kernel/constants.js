@@ -8,16 +8,13 @@ const transitions = {
 };
 export function assertConnectionTransition(from, to) {
   if (!CONNECTION_STATUS.includes(from) || !CONNECTION_STATUS.includes(to) || !transitions[from].includes(to)) {
-    const error = new Error("Invalid connection status transition.");
-    error.code = "INVALID_CONNECTION_TRANSITION";
-    throw error;
+    throw new ProductError("INVALID_CONNECTION_TRANSITION", "Invalid connection status transition.", 409);
   }
   return true;
 }
 export function assertConsentState(value) {
   if (!CONSENT_STATE.includes(value)) {
-    const error = new Error("Invalid consent state.");
-    error.code = "INVALID_CONNECTION_TRANSITION";
-    throw error;
+    throw new ProductError("INVALID_CONNECTION_TRANSITION", "Invalid consent state.", 409);
   }
 }
+import { ProductError } from "./errors.js";

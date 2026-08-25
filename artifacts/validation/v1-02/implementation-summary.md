@@ -2,8 +2,8 @@
 
 Status: IN PROGRESS — integration verification passed; V1-02 is intentionally not marked Done.
 
-Implemented bounded foundations: Supabase configuration, verified bearer-identity boundary using `getClaims()`, caller-scoped client construction, isolated privileged-client module, Product API namespace, SQL schema/migrations, connection state validation, correlation IDs and safe errors.
+Implemented bounded foundations: verified managed identity, caller-scoped clients, SELECT-only RLS tables, fixed-purpose transactional mutation/audit RPCs, isolated Vault/Auth cleanup privilege, deletion lifecycle/retry, database timestamps, durable Business connection summary, server correlations and safe errors.
 
-Official local Supabase integration now verifies Auth, caller-scoped access, PostgreSQL constraints and RLS, direct Data API denial, Vault access/lifecycle, audit isolation, application restart durability, deletion and Product API behavior.
+Official local integration verifies renewal/logout, Express authorization, cross-tenant RLS, own-tenant Data API defence, atomic audits, Vault partial/genuine failure recovery, Auth deletion failure/retry, malformed/error redaction, timestamps and restart durability.
 
 No connector, recommendation logic, WordPress write, executor, queue, UI or V1-03 capability was implemented.

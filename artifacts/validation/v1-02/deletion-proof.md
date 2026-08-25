@@ -1,5 +1,7 @@
 # Deletion Proof
 
-The real deletion flow located the caller's Business and Connection, deleted an attached synthetic Vault secret, deleted Business-bound rows, marked the Account for deletion, and deleted the managed Supabase Auth user. Auth cascade then removed the Account and its minimally retained audit rows. Postconditions verified: Vault read returned null, Auth admin lookup returned no user, Account query returned no row, and password sign-in failed.
+Deletion first enters `deletion_requested` transactionally with an audit. Privileged bounded cleanup idempotently removes Vault/Business/Connection state, marks the Account `deleted`, and audits cleanup before managed Auth deletion. Non-active Accounts are rejected by ordinary Business, Connection and audit routes; only Account inspection and deletion retry remain available.
 
-Status: PASS — local credential, Product data and managed-identity deletion verified.
+A controlled real Auth deletion failure left the Product Account safely `deleted` and non-operational with Business/Connection/Vault cleanup complete and safe failure evidence. After restoring Auth deletion, the same endpoint retried already-completed cleanup, removed the managed user, and reached final cascade semantics. Sign-in and refresh then failed.
+
+Status: PASS — partial failure, non-active blocking, idempotent retry and final managed-identity deletion verified.

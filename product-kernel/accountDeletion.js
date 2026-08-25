@@ -1,20 +1,11 @@
 import { ProductError } from "./errors.js";
-import { deleteVaultSecret } from "./vault.js";
-
-export async function deleteAccountFoundation({ caller, admin, authUserId, account }) {
+export async function deleteAccountFoundation({ caller, admin, authUserId, account, correlationId }) {
   if (!account) throw new ProductError("TENANT_NOT_FOUND", "Product account is not provisioned.", 404);
-  const { data: business, error: businessError } = await caller.from("businesses").select("id").eq("account_id", account.id).maybeSingle();
-  if (businessError) throw businessError;
-  if (business) {
-    const { data: connections, error } = await caller.from("connections").select("id,secret_reference").eq("business_id", business.id);
-    if (error) throw error;
-    for (const connection of connections || []) await deleteVaultSecret(admin, connection.secret_reference);
-    const { error: deleteBusinessError } = await caller.from("businesses").delete().eq("id", business.id);
-    if (deleteBusinessError) throw deleteBusinessError;
-  }
-  const { error: accountError } = await caller.from("accounts").update({ status: "deleted", deleted_at: new Date().toISOString() }).eq("id", account.id);
-  if (accountError) throw accountError;
+  const { error: requestError } = await caller.rpc("product_request_account_deletion", { p_correlation_id: correlationId });
+  if (requestError) throw new ProductError("ACCOUNT_DELETION_FAILED", "Account deletion could not be started.", 503);
+  const { error: cleanupError } = await admin.rpc("product_cleanup_account", { p_auth_user_id: authUserId, p_correlation_id: correlationId });
+  if (cleanupError) throw new ProductError(cleanupError.message?.includes("SECRET_OPERATION_FAILED") ? "SECRET_OPERATION_FAILED" : "ACCOUNT_DELETION_FAILED", "Account deletion could not be completed.", 503);
   const { error: authError } = await admin.auth.admin.deleteUser(authUserId);
-  if (authError) throw new ProductError("SECRET_OPERATION_FAILED", "Managed identity deletion failed.", 503);
+  if (authError) throw new ProductError("ACCOUNT_DELETION_FAILED", "Managed identity deletion failed.", 503);
   return { deleted: true };
 }

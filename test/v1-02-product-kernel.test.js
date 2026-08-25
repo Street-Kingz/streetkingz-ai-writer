@@ -22,8 +22,10 @@ test("V1-02 safe errors expose bounded diagnostics only", () => {
   const result = safeError(new ProductError("AUTH_INVALID", "bad token", 401), "corr");
   assert.deepEqual(result.body, { error: { code: "AUTH_INVALID", message: "bad token", correlation_id: "corr" } });
   const internal = safeError(new Error("password=secret"), "corr");
+  const database = safeError(Object.assign(new Error("permission denied for table connections"), { code: "42501", details: "secret detail" }), "corr");
   assert.equal(internal.body.error.message, "An internal error occurred.");
   assert.doesNotMatch(JSON.stringify(internal), /secret/);
+  assert.deepEqual(database, { status: 500, body: { error: { code: "INTERNAL_ERROR", message: "An internal error occurred.", correlation_id: "corr" } } });
 });
 test("V1-02 configuration requires Supabase values without printing them", () => {
   assert.throws(() => productKernelConfig({}), /SUPABASE_URL/);
@@ -35,7 +37,10 @@ test("V1-02 migration declares one-business, RLS and audit protections", () => {
   const sql = fs.readFileSync(new URL("../supabase/migrations/20260825000000_v1_02_product_kernel.sql", import.meta.url), "utf8");
   assert.match(sql, /account_id uuid not null unique references public\.accounts/);
   assert.match(sql, /enable row level security/);
-  assert.match(sql, /revoke insert, update, delete on public\.audit_events/);
+  assert.match(sql, /revoke all on public\.accounts, public\.businesses, public\.connections, public\.audit_events from authenticated/);
+  assert.match(sql, /grant select on public\.accounts, public\.businesses, public\.audit_events to authenticated/);
+  assert.match(sql, /grant select \(id,business_id,provider_type,status,consent_state,[^)]+\) on public\.connections to authenticated/);
+  assert.match(sql, /product_transition_connection[\s\S]*security definer set search_path = ''/);
   assert.match(sql, /auth_user_id uuid not null unique/);
 });
 test("V1-02 privileged boundary is separate from caller-scoped auth", () => {
@@ -50,17 +55,15 @@ test("V1-02 Vault deletion fails closed and never exposes secret material", asyn
   const created = await createVaultSecret({ rpc: async (_name, args) => ({ data: { id: "opaque-id" }, args }) }, "synthetic-secret");
   assert.deepEqual(created, { secretReference: "opaque-id" });
   assert.deepEqual(await deleteVaultSecret({ rpc: async () => ({ data: true }) }, "opaque-ref"), { deleted: true });
-  await assert.rejects(() => deleteVaultSecret({ rpc: async () => ({ data: false }) }, "missing-ref"), /secret removal failed/);
+  assert.deepEqual(await deleteVaultSecret({ rpc: async () => ({ data: null }) }, "missing-ref"), { deleted: true });
   await assert.rejects(() => deleteVaultSecret({ rpc: async () => ({ error: new Error("provider failure") }) }, "opaque-ref"), /secret removal failed/);
 });
-test("V1-02 disconnect deletes Vault material before caller-scoped reference clearing and audits failures", () => {
+test("V1-02 disconnect is an atomic caller-scoped RPC and audits failures", () => {
   const route = fs.readFileSync(new URL("../routes/productKernel.js", import.meta.url), "utf8");
-  const disconnectStart = route.indexOf("if (next === \"disconnected\" && current.secret_reference)");
-  const vaultDelete = route.indexOf("await deleteVaultSecret", disconnectStart);
-  const referenceClear = route.indexOf("secret_reference: null", disconnectStart);
-  assert.ok(disconnectStart >= 0 && vaultDelete > disconnectStart && referenceClear > vaultDelete);
-  assert.match(route, /eventType: "secret_operation_failed"/);
-  assert.match(route, /eventType: "connection_transition_failed"/);
-  assert.match(route, /eventType: "tenant_access_denied"/);
-  assert.doesNotMatch(route, /select\("id,business_id,provider_type,status,consent_state,secret_reference,connected_at/);
+  const sql = fs.readFileSync(new URL("../supabase/migrations/20260825000000_v1_02_product_kernel.sql", import.meta.url), "utf8");
+  assert.match(route, /client\.rpc\("product_transition_connection"/);
+  assert.match(sql, /delete from vault\.secrets where id=v_row\.secret_reference/);
+  assert.match(sql, /secret_reference=case when p_status='disconnected' then null/);
+  assert.match(sql, /insert into public\.audit_events[\s\S]*connection_disconnected/);
+  assert.doesNotMatch(route, /\.from\("connections"\)\.update/);
 });
