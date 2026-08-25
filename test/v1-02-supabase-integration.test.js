@@ -123,9 +123,43 @@ test("V1-02 real Supabase Auth, RLS, Vault, deletion and Product API proof", { s
   const transition = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected", consent_state: "granted" });
   assert.equal(transition.status, 200, JSON.stringify(transition.body));
   assert.equal(transition.body.connection.status, "connected");
+  assert.equal(Object.hasOwn(transition.body.connection, "secret_reference"), false);
+  const apiDisconnectPlaintext = `api-disconnect-${crypto.randomUUID()}`;
+  const apiDisconnectSecret = await createVaultSecret(admin, apiDisconnectPlaintext, `v1-02-api-disconnect-${stamp}`);
+  const { error: attachDisconnectError } = await admin.from("connections").update({ secret_reference: apiDisconnectSecret.secretReference }).eq("id", b.connection.id);
+  assert.ifError(attachDisconnectError);
+  const customerConnections = await request(b.token, "GET", "/api/product/connections");
+  assert.equal(customerConnections.status, 200);
+  assert.equal(Object.hasOwn(customerConnections.body.connections[0], "secret_reference"), false);
   const disconnect = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "disconnected", consent_state: "revoked" });
   assert.equal(disconnect.status, 200, JSON.stringify(disconnect.body));
-  assert.equal(disconnect.body.connection.secret_reference, null);
+  assert.equal(disconnect.body.connection.status, "disconnected");
+  assert.equal(disconnect.body.connection.consent_state, "revoked");
+  assert.equal(Object.hasOwn(disconnect.body.connection, "secret_reference"), false);
+  const { data: disconnectedRow, error: disconnectedRowError } = await admin.from("connections").select("status,consent_state,secret_reference").eq("id", b.connection.id).single();
+  assert.ifError(disconnectedRowError);
+  assert.deepEqual(disconnectedRow, { status: "disconnected", consent_state: "revoked", secret_reference: null });
+  const { data: secretAfterDisconnect, error: secretAfterDisconnectError } = await admin.rpc("vault_read_secret", { secret_id: apiDisconnectSecret.secretReference });
+  assert.ifError(secretAfterDisconnectError);
+  assert.equal(secretAfterDisconnect, null);
+
+  const danglingReference = crypto.randomUUID();
+  const { error: attachDanglingError } = await admin.from("connections").update({ secret_reference: danglingReference }).eq("id", a.connection.id);
+  assert.ifError(attachDanglingError);
+  const failedDisconnect = await request(a.token, "PATCH", `/api/product/connections/${a.connection.id}`, { status: "disconnected", consent_state: "revoked" });
+  assert.equal(failedDisconnect.status, 503);
+  assert.equal(failedDisconnect.body.error.code, "SECRET_OPERATION_FAILED");
+  assert.doesNotMatch(JSON.stringify(failedDisconnect.body), /api-disconnect|synthetic-|password|authorization|bearer/i);
+  const { data: recoverableRow, error: recoverableRowError } = await admin.from("connections").select("status,consent_state,secret_reference").eq("id", a.connection.id).single();
+  assert.ifError(recoverableRowError);
+  assert.deepEqual(recoverableRow, { status: "pending", consent_state: "pending", secret_reference: danglingReference });
+
+  const invalidTransition = await request(b.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "connected" });
+  assert.equal(invalidTransition.status, 500);
+  assert.equal(invalidTransition.body.error.code, "INVALID_CONNECTION_TRANSITION");
+  const foreignConnection = await request(a.token, "PATCH", `/api/product/connections/${b.connection.id}`, { status: "pending" });
+  assert.equal(foreignConnection.status, 404);
+  assert.equal(foreignConnection.body.error.code, "CONNECTION_NOT_FOUND");
 
   const auditA = await request(a.token, "GET", "/api/product/audit-events");
   const auditB = await request(b.token, "GET", "/api/product/audit-events");
@@ -133,7 +167,20 @@ test("V1-02 real Supabase Auth, RLS, Vault, deletion and Product API proof", { s
   assert.equal(auditB.status, 200);
   assert.ok(auditA.body.events.length >= 3);
   assert.ok(auditB.body.events.length >= 5);
-  assert.ok(auditA.body.events.every(event => !JSON.stringify(event).includes(syntheticSecret)));
+  assert.ok(auditA.body.events.some(event => event.event_type === "secret_operation_failed" && event.safe_metadata.operation === "disconnect"));
+  assert.ok(auditA.body.events.some(event => event.event_type === "tenant_access_denied"));
+  assert.ok(auditB.body.events.some(event => event.event_type === "connection_transition_failed"));
+  const serializedAudits = JSON.stringify([...auditA.body.events, ...auditB.body.events]);
+  assert.doesNotMatch(serializedAudits, /authorization|bearer|password/i);
+  assert.ok(!serializedAudits.includes(syntheticSecret));
+  assert.ok(!serializedAudits.includes(apiDisconnectPlaintext));
+  const { data: postFailureCrossAudits, error: postFailureCrossAuditError } = await a.caller.from("audit_events").select("id").eq("account_id", b.account.id);
+  assert.ifError(postFailureCrossAuditError);
+  assert.deepEqual(postFailureCrossAudits, []);
+  const arbitraryAudit = { account_id: a.account.id, event_type: "forged", correlation_id: "forged", safe_metadata: {} };
+  assert.ok((await a.caller.from("audit_events").insert(arbitraryAudit)).error);
+  assert.ok((await a.caller.from("audit_events").update({ event_type: "forged" }).eq("account_id", a.account.id)).error);
+  assert.ok((await a.caller.from("audit_events").delete().eq("account_id", a.account.id)).error);
 
   await stopApi();
   await startApi();

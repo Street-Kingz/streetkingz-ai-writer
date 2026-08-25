@@ -49,5 +49,18 @@ test("V1-02 privileged boundary is separate from caller-scoped auth", () => {
 test("V1-02 Vault deletion fails closed and never exposes secret material", async () => {
   const created = await createVaultSecret({ rpc: async (_name, args) => ({ data: { id: "opaque-id" }, args }) }, "synthetic-secret");
   assert.deepEqual(created, { secretReference: "opaque-id" });
+  assert.deepEqual(await deleteVaultSecret({ rpc: async () => ({ data: true }) }, "opaque-ref"), { deleted: true });
+  await assert.rejects(() => deleteVaultSecret({ rpc: async () => ({ data: false }) }, "missing-ref"), /secret removal failed/);
   await assert.rejects(() => deleteVaultSecret({ rpc: async () => ({ error: new Error("provider failure") }) }, "opaque-ref"), /secret removal failed/);
+});
+test("V1-02 disconnect deletes Vault material before caller-scoped reference clearing and audits failures", () => {
+  const route = fs.readFileSync(new URL("../routes/productKernel.js", import.meta.url), "utf8");
+  const disconnectStart = route.indexOf("if (next === \"disconnected\" && current.secret_reference)");
+  const vaultDelete = route.indexOf("await deleteVaultSecret", disconnectStart);
+  const referenceClear = route.indexOf("secret_reference: null", disconnectStart);
+  assert.ok(disconnectStart >= 0 && vaultDelete > disconnectStart && referenceClear > vaultDelete);
+  assert.match(route, /eventType: "secret_operation_failed"/);
+  assert.match(route, /eventType: "connection_transition_failed"/);
+  assert.match(route, /eventType: "tenant_access_denied"/);
+  assert.doesNotMatch(route, /select\("id,business_id,provider_type,status,consent_state,secret_reference,connected_at/);
 });

@@ -12,7 +12,7 @@ export async function createVaultSecret(admin, secretValue, name = "v1-02-connec
 
 export async function deleteVaultSecret(admin, secretReference) {
   if (!secretReference) return { deleted: true };
-  const { error } = await admin.rpc("vault_delete_secret", { secret_id: secretReference });
-  if (error) throw new ProductError("SECRET_OPERATION_FAILED", "Connector secret removal failed.", 503);
+  const { data, error } = await admin.rpc("vault_delete_secret", { secret_id: secretReference });
+  if (error || data !== true) throw new ProductError("SECRET_OPERATION_FAILED", "Connector secret removal failed.", 503);
   return { deleted: true };
 }

@@ -54,11 +54,14 @@ set search_path = ''
 as $$ select vault.create_secret(secret_value, secret_name); $$;
 
 create or replace function public.vault_delete_secret(secret_id uuid)
-returns void
+returns boolean
 language sql
 security definer
 set search_path = ''
-as $$ delete from vault.secrets where id = secret_id; $$;
+as $$
+  with deleted as (delete from vault.secrets where id = secret_id returning id)
+  select exists(select 1 from deleted);
+$$;
 
 create or replace function public.vault_read_secret(secret_id uuid)
 returns text

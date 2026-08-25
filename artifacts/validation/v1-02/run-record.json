@@ -14,7 +14,11 @@
   "integration_status": "PASS",
   "migration_resets_passed": 2,
   "real_integration_tests_passed": 1,
-  "full_tests_passed": 907,
+  "disconnect_vault_lifecycle": "PASS",
+  "vault_failure_recovery": "PASS",
+  "security_failure_audit": "PASS",
+  "focused_tests_passed": 8,
+  "full_tests_passed": 908,
   "full_tests_failed": 0,
   "full_tests_skipped": 1,
   "private_values_persisted": false
