@@ -1,0 +1,21 @@
+{
+  "milestone": "V1-02",
+  "status": "IN_PROGRESS",
+  "product_code": true,
+  "connectors": 0,
+  "wordpress_writes": 0,
+  "recommendation_logic": false,
+  "verified_at": "2026-08-25",
+  "supabase_cli_version": "2.115.0",
+  "supabase_cli_available": true,
+  "docker_available": true,
+  "docker_runtime": "colima",
+  "architecture": "x86_64",
+  "integration_status": "PASS",
+  "migration_resets_passed": 2,
+  "real_integration_tests_passed": 1,
+  "full_tests_passed": 907,
+  "full_tests_failed": 0,
+  "full_tests_skipped": 1,
+  "private_values_persisted": false
+}

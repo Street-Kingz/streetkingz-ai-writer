@@ -9,4 +9,5 @@ google-oauth*.json
 artifacts/deployment/*.zip
 artifacts/implementation/
 artifacts/private/v1-01/
+artifacts/private/v1-02/
 artifacts/implementation/

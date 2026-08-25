@@ -39,8 +39,12 @@
     "cms:validate-authoritative-endpoint": "node --env-file=.env scripts/validateWordPressAuthoritativeEndpoint.js"
   },
   "dependencies": {
-    "express": "^4.19.0",
+    "@supabase/supabase-js": "^2.112.4",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "body-parser": "^1.20.2"
+    "express": "^4.19.0"
+  },
+  "devDependencies": {
+    "supabase": "^2.115.0"
   }
 }
