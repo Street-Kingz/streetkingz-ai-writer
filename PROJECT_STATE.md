@@ -194,7 +194,7 @@ Product phase
 
 Governance rebaseline and Product-state establishment
 
-Current milestone: V1-03 WooCommerce Commerce Connection (proposed; implementation not authorised)
+Current milestone: V1-03 WooCommerce Commerce Connection (authorised; In Progress)
 
 V1-00 Governance Activation: Done
 
@@ -240,7 +240,7 @@ V1-02 implementation authorised within the approved contract
 
 V1-01 implementation is complete only within its approved validation contract. V1-02 is now the sole authorised Product milestone under the approved Single-Business Product Kernel contract and accepted O-008 architecture.
 
-The next action is review and approval of the proposed V1-03 WooCommerce Commerce Connection milestone contract; implementation is not authorised.
+V1-03 implementation is authorised only within the approved contract baseline `90230e0ba478802bacd00d3023b56749af1f8001`.
 
 The old article-first roadmap is not active.
 

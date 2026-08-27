@@ -1,7 +1,9 @@
 # V1-03 — WooCommerce Commerce Connection
 
-**Status: Proposed — Awaiting Owner Approval**  
-**Implementation not authorised.**
+**Status: In Progress**  
+**Approved — Implementation Authorised**  
+**Owner approval date:** 2026-08-27  
+**Approved contract baseline:** `90230e0ba478802bacd00d3023b56749af1f8001`
 
 ## Objective and customer capability
 
@@ -73,55 +75,55 @@ Out of scope: Search Console, DataForSEO/external search, GA4, opportunities, re
 12. Product pagination over one page is proven.
 13. Order pagination over more than one page is proven and the full approved 365-day window reconciles.
 14. Simple products reconcile.
-14b. Variable products reconcile.
-15. Variations reconcile.
-16. Categories reconcile.
-17. Regular/current/sale prices reconcile.
-18. Stock-management state reconciles.
-19. Stock quantity/status reconcile where available.
-20. The 365-day order window is complete.
-21. Processing/completed recognition reconciles.
-22. Cancelled/failed exclusion reconciles.
-23. Full refunds reconcile using actual amounts.
-24. Partial refunds reconcile using actual amounts.
-25. Line-attributed refunds map only to attributable lines.
-26. Unattributed refunds remain order-level and are not allocated.
-27. Discounts reconcile.
-28. Tax/source-tax semantics reconcile.
-29. Shipping remains separate from Product sales.
-30. `product_net_sales_ex_tax` reconciles.
-31. Prohibited customer PII is not durably persisted.
-32. Missing COGS remains unknown.
-33. Missing values never become zero.
-34. Custom/unclassified statuses remain explicit/unknown.
-35. Repeated sync is idempotent.
-36. Incremental sync captures changed source data.
-37. Removed/unpublished entities are handled deliberately.
-38. Provider failure preserves last-known-good evidence.
-39. Partial sync is not presented as complete.
-40. Stale evidence is identifiable.
-41. Invalid credentials fail visibly.
-42. Revoked credentials fail visibly.
-43. Reconnection safely replaces Vault material.
-44. Disconnect deletes local credential/reference.
-45. Disconnected retained evidence is explicitly stale.
-46. Remote provider-revocation limitation is documented.
-47. O-016 recovery fails closed.
-48. Account A cannot access Account B commerce evidence.
-49. Same-tenant direct Data API cannot bypass security boundaries.
-50. Provenance is retained.
-51. Source, derived and customer-correction facts remain distinct.
-52. Synthetic test-store reconciliation passes.
-53. Owner-authorised Street Kingz read-only reconciliation passes.
-54. Full npm regression passes.
-55. Sensitive-data scan passes.
-56. Critical defects = 0.
-57. High defects = 0.
-58. No V1-04 capability is introduced.
-59. No recommendation logic is introduced.
-60. No WordPress/WooCommerce writes are introduced.
-61. Customer-controlled URLs cannot reach prohibited network targets, including through redirects or DNS changes.
-62. Authenticated WooCommerce home/site identity reconciles to the intended canonical Business/store origin before connection.
+15. Variable products reconcile.
+16. Variations reconcile.
+17. Categories reconcile.
+18. Regular/current/sale prices reconcile.
+19. Stock-management state reconciles.
+20. Stock quantity/status reconcile where available.
+21. The 365-day order window is complete.
+22. Processing/completed recognition reconciles.
+23. Cancelled/failed exclusion reconciles.
+24. Full refunds reconcile using actual amounts.
+25. Partial refunds reconcile using actual amounts.
+26. Line-attributed refunds map only to attributable lines.
+27. Unattributed refunds remain order-level and are not allocated.
+28. Discounts reconcile.
+29. Tax/source-tax semantics reconcile.
+30. Shipping remains separate from Product sales.
+31. `product_net_sales_ex_tax` reconciles.
+32. Prohibited customer PII is not durably persisted.
+33. Missing COGS remains unknown.
+34. Missing values never become zero.
+35. Custom/unclassified statuses remain explicit/unknown.
+36. Repeated sync is idempotent.
+37. Incremental sync captures changed source data.
+38. Removed/unpublished entities are handled deliberately.
+39. Provider failure preserves last-known-good evidence.
+40. Partial sync is not presented as complete.
+41. Stale evidence is identifiable.
+42. Invalid credentials fail visibly.
+43. Revoked credentials fail visibly.
+44. Reconnection safely replaces Vault material.
+45. Disconnect deletes local credential/reference.
+46. Disconnected retained evidence is explicitly stale.
+47. Remote provider-revocation limitation is documented.
+48. O-016 recovery fails closed.
+49. Account A cannot access Account B commerce evidence.
+50. Same-tenant direct Data API cannot bypass security boundaries.
+51. Provenance is retained.
+52. Source, derived and customer-correction facts remain distinct.
+53. Synthetic test-store reconciliation passes.
+54. Owner-authorised Street Kingz read-only reconciliation passes.
+55. Full npm regression passes.
+56. Sensitive-data scan passes.
+57. Critical defects = 0.
+58. High defects = 0.
+59. No V1-04 capability is introduced.
+60. No recommendation logic is introduced.
+61. No WordPress/WooCommerce writes are introduced.
+62. Customer-controlled URLs cannot reach prohibited network targets, including through redirects or DNS changes.
+63. Authenticated WooCommerce home/site identity reconciles to the intended canonical Business/store origin before connection.
 
 Required negative tests include merchant denial (`success=0`), unknown/expired/consumed/replayed/duplicate/wrong-tenant callbacks, `key_permissions != read`, malformed/missing callback credentials, return-without-callback and both callback/return arrival orders, callback credentials for another store, non-read permission, wrong/unreachable/non-WooCommerce URL, HTTP/localhost/loopback/private/link-local/metadata/userinfo URLs, public-to-private redirects and DNS-rebinding targets, malformed callback, pagination/timeout/malformed/rate-limit failure, duplicate/partial sync, removed entities, empty catalogue/no orders, missing SKU/stock/COGS, refunds/cancellation/failure, cross-tenant UUID attacks and post-valid-sync provider failure.
 

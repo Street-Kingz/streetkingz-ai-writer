@@ -357,7 +357,7 @@ WooCommerce Commerce Connection
 
 Read-only commerce ingestion and minimum commercial business model
 
-Not started — contract proposed / awaiting owner approval
+Current / In Progress
 
 V1-04
 
