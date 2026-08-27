@@ -3089,6 +3089,16 @@ Pricing and Willingness-to-Pay Research
 
 CAPTURED
 
+Bright Data — future external evidence/provider evaluation
+
+Status: Backlog / Evidence-Gated idea. Not approved for implementation.
+
+Potential future uses: resilient public competitor/site-page acquisition; fallback retrieval for blocked or JavaScript-rendered pages; possible external SERP/search evidence; alternative or complement to DataForSEO.
+
+Principle: use first-party/provider APIs where authoritative; use direct public retrieval first; evaluate Bright Data only as a fallback commodity layer when evidence justifies its cost and reliability. Compare direct retrieval, DataForSEO and Bright Data for quality, reliability, coverage, latency, variable cost, free-tier usefulness, provenance, terms/licensing, privacy and maintenance burden.
+
+Bright Data is not V1-03 WooCommerce work, does not replace WooCommerce REST, Search Console or DataForSEO, and no provider selection is made now. Do not build scraping/proxy/browser infrastructure or create credentials/calls. Revisit at V1-04 or the relevant external-evidence decision gate.
+
 17. Final Authority Rule
 
 If a contributor or AI sees something useful in this file:

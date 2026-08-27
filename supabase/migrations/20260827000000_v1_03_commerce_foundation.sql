@@ -58,3 +58,14 @@ create policy commerce_category_owner_select on public.commerce_categories for s
 create policy commerce_order_owner_select on public.commerce_orders for select to authenticated using (business_id in (select b.id from public.businesses b join public.accounts a on a.id=b.account_id where a.auth_user_id=auth.uid()));
 create policy commerce_line_owner_select on public.commerce_order_lines for select to authenticated using (order_id in (select o.id from public.commerce_orders o where o.business_id in (select b.id from public.businesses b join public.accounts a on a.id=b.account_id where a.auth_user_id=auth.uid())));
 create policy commerce_adjustment_owner_select on public.commerce_order_adjustments for select to authenticated using (order_id in (select o.id from public.commerce_orders o where o.business_id in (select b.id from public.businesses b join public.accounts a on a.id=b.account_id where a.auth_user_id=auth.uid())));
+create policy commerce_product_category_owner_select on public.commerce_product_categories for select to authenticated using (product_id in (select p.id from public.commerce_products p where p.business_id in (select b.id from public.businesses b join public.accounts a on a.id=b.account_id where a.auth_user_id=auth.uid())));
+alter table public.commerce_stores add constraint commerce_stores_sync_state_chk check (sync_state in ('never','pending','complete','partial','failed','stale'));
+alter table public.commerce_orders add constraint commerce_orders_recognition_chk check (recognition_state in ('recognised','excluded','unknown','unclassified'));
+alter table public.commerce_order_adjustments add constraint commerce_adjustment_type_chk check (adjustment_type in ('refund','discount','tax','shipping'));
+alter table public.commerce_products alter column generation_id set not null;
+alter table public.commerce_variations alter column generation_id set not null;
+alter table public.commerce_categories alter column generation_id set not null;
+alter table public.commerce_orders alter column generation_id set not null;
+alter table public.commerce_order_lines alter column source_line_id set not null;
+create unique index if not exists commerce_order_line_source_unique on public.commerce_order_lines(order_id, source_line_id);
+create unique index if not exists commerce_adjustment_provider_unique on public.commerce_order_adjustments(order_id, adjustment_type, product_source_id, variation_source_id);

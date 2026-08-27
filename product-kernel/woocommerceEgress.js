@@ -1,11 +1,11 @@
 import dns from "node:dns/promises";
 import net from "node:net";
+import ipaddr from "ipaddr.js";
 import { ProductError } from "./errors.js";
 
 function blockedAddress(address) {
   if (!net.isIP(address)) return true;
-  if (net.isIPv4(address)) { const p=address.split('.').map(Number); return p[0]===10 || p[0]===127 || p[0]===169&&p[1]===254 || p[0]===192&&p[1]===168 || p[0]>=224 || p[0]===0; }
-  const x=address.toLowerCase(); return x==='::1' || x.startsWith('fc') || x.startsWith('fd') || x.startsWith('fe80') || x.startsWith('ff');
+  try { const parsed=ipaddr.parse(address); if (parsed.kind()==='ipv4-mapped') return blockedAddress(parsed.toIPv4Address().toString()); return parsed.range() !== 'unicast'; } catch { return true; }
 }
 export async function validateWooOrigin(value) {
   let u; try { u=new URL(value); } catch { throw new ProductError('INVALID_STORE_URL','Store URL is invalid.',400); }
