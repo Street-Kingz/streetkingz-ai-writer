@@ -15,11 +15,17 @@ Reuse V1-02 identity, tenant RLS, Connection/Vault lifecycle, audit/correlation 
 
 ## Authentication and store ownership
 
-The primary journey is WooCommerce’s official Application Authentication Endpoint, `/wc-auth/v1/authorize`, over HTTPS. Product constructs the URL with `app_name`, `scope=read`, Product-controlled `user_id` and `state`, `return_url`, and HTTPS `callback_url`. The merchant authenticates and approves; WooCommerce returns `consumer_key`, `consumer_secret` and `key_permissions` to the Product callback. The callback must bind the expected pending Connection/tenant, require `key_permissions=read`, capture credentials directly into the server/Vault boundary, never return them to the browser, and retain only the opaque Vault reference. Denial, expiry, replay, duplicate or cross-tenant callbacks never create connected state.
+The primary journey is WooCommerce’s official Application Authentication Endpoint, `/wc-auth/v1/authorize`, over HTTPS. Product constructs the URL with `app_name`, `scope=read`, an opaque Product-controlled `user_id`, `return_url`, and HTTPS `callback_url`. This `user_id` is a cryptographically random, one-time, expiring server-stored attempt identifier bound internally to Account, Business, pending Connection and canonical store origin; it contains no UUID, email, identity or predictable ID. The merchant authenticates and approves; WooCommerce returns `consumer_key`, `consumer_secret`, `key_permissions` and `user_id` to the Product callback. The return URL is UX/navigation only: `success=1` never connects a Connection. Only a valid unconsumed attempt plus structurally valid callback, exact `read` permission, Vault capture, authenticated store identity match and successful connection/audit transaction can connect it; the attempt is then consumed exactly once. Callback-before-return and return-before-callback are both safe. Denial (`success=0`), expiry, replay, duplicate or cross-tenant callbacks never create connected state and cannot replace a valid credential.
 
 Manual key entry may be a documented fallback only if official evidence shows `/wc-auth/v1/authorize` cannot operate on a supported store. Permission that cannot be safely established is rejected closed. A dedicated WordPress user is optional, not mandatory; it is recommended as an operational best practice. Deleting the WordPress user associated with a key invalidates that key.
 
 Persist submitted URL, canonical HTTPS origin, authenticated store identity facts and source/version. Normalise redirects, www and trailing slash. A URL alone is not proof; a materially different authenticated host fails closed and requires correction.
+
+Before any request to a submitted or discovered URL, require HTTPS, reject userinfo, unsupported schemes, localhost, `.local`, loopback, RFC1918/private, IPv6 loopback/private/link-local, link-local, metadata, multicast, reserved and other non-routable targets, and unsafe IP literals. Resolve DNS before connecting and require every address to be publicly routable. Disable automatic redirects or validate every hop with the same checks; prevent DNS-rebinding/time-of-check/use bypass by pinning/validating the destination used for the connection. This is a bounded WooCommerce egress control, not a crawler platform.
+
+Verify identity through authenticated `GET /wp-json/wc/v3/system_status` (or an equally authoritative supported endpoint), requesting only needed fields where `_fields` is supported: `environment.home_url`, `environment.site_url`, WooCommerce version, timezone and currency. Reconcile authenticated home/site identity to the submitted canonical origin; a different host fails closed. Never persist or log the full system-status response.
+
+Use WordPress REST `_fields` to minimise provider responses, especially orders. Regardless of provider filtering, immediately transform through a strict allowlist and discard billing/shipping identity, email, phone, IP, user-agent, notes and unrelated metadata before persistence, logs or evidence.
 
 ## Read-only invariant
 
@@ -65,8 +71,9 @@ Out of scope: Search Console, DataForSEO/external search, GA4, opportunities, re
 10. Read credential cannot mutate WooCommerce.
 11. Complete agreed catalogue is ingested.
 12. Product pagination over one page is proven.
-13. Simple products reconcile.
-14. Variable products reconcile.
+13. Order pagination over more than one page is proven and the full approved 365-day window reconciles.
+14. Simple products reconcile.
+14b. Variable products reconcile.
 15. Variations reconcile.
 16. Categories reconcile.
 17. Regular/current/sale prices reconcile.
@@ -113,8 +120,10 @@ Out of scope: Search Console, DataForSEO/external search, GA4, opportunities, re
 58. No V1-04 capability is introduced.
 59. No recommendation logic is introduced.
 60. No WordPress/WooCommerce writes are introduced.
+61. Customer-controlled URLs cannot reach prohibited network targets, including through redirects or DNS changes.
+62. Authenticated WooCommerce home/site identity reconciles to the intended canonical Business/store origin before connection.
 
-Required negative tests include denied/expired/replayed/duplicate/wrong-tenant callbacks, non-read permission, wrong/unreachable/non-WooCommerce URL, malformed callback, pagination/timeout/malformed/rate-limit failure, duplicate/partial sync, removed entities, empty catalogue/no orders, missing SKU/stock/COGS, refunds/cancellation/failure, cross-tenant UUID attacks and post-valid-sync provider failure.
+Required negative tests include merchant denial (`success=0`), unknown/expired/consumed/replayed/duplicate/wrong-tenant callbacks, `key_permissions != read`, malformed/missing callback credentials, return-without-callback and both callback/return arrival orders, callback credentials for another store, non-read permission, wrong/unreachable/non-WooCommerce URL, HTTP/localhost/loopback/private/link-local/metadata/userinfo URLs, public-to-private redirects and DNS-rebinding targets, malformed callback, pagination/timeout/malformed/rate-limit failure, duplicate/partial sync, removed entities, empty catalogue/no orders, missing SKU/stock/COGS, refunds/cancellation/failure, cross-tenant UUID attacks and post-valid-sync provider failure.
 
 ## Failure and completion
 
