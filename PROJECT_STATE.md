@@ -2,7 +2,7 @@ Project State
 
 Status: Authoritative current-state baseline
 Effective when committed to main
-Last updated: 2026-08-23
+Last updated: 2026-08-27
 Product name: Not yet selected; referred to as the Product
 Decision owner: Ben
 Current branch: main
@@ -194,13 +194,13 @@ Product phase
 
 Governance rebaseline and Product-state establishment
 
-Current milestone: V1-02 Single-Business Product Kernel
+Current milestone: V1-03 WooCommerce Commerce Connection (proposed; implementation not authorised)
 
 V1-00 Governance Activation: Done
 
 V1-01 Progressive Evidence Decision Gate: Done
 
-V1-02 Single-Business Product Kernel: Current
+V1-02 Single-Business Product Kernel: Done / accepted
 
 Governance completed
 
@@ -232,7 +232,7 @@ V1-00 Governance Activation is Done.
 
 V1-01 Progressive Evidence Decision Gate is Done.
 
-V1-02 Single-Business Product Kernel is the current milestone.
+V1-02 Single-Business Product Kernel is Done and accepted; its boundary is frozen.
 
 Product implementation status
 
@@ -240,7 +240,7 @@ V1-02 implementation authorised within the approved contract
 
 V1-01 implementation is complete only within its approved validation contract. V1-02 is now the sole authorised Product milestone under the approved Single-Business Product Kernel contract and accepted O-008 architecture.
 
-No V1-03 or executor work is authorised.
+The next action is review and approval of the proposed V1-03 WooCommerce Commerce Connection milestone contract; implementation is not authorised.
 
 The old article-first roadmap is not active.
 

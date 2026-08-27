@@ -349,7 +349,7 @@ Single-Business Product Kernel
 
 Secure account, tenant, durable state, audit and connection foundation
 
-Current
+Done
 
 V1-03
 
@@ -357,7 +357,7 @@ WooCommerce Commerce Connection
 
 Read-only commerce ingestion and minimum commercial business model
 
-Not started
+Not started — contract proposed / awaiting owner approval
 
 V1-04
 
