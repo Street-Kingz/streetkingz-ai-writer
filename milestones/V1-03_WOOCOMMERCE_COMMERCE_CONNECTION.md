@@ -5,82 +5,121 @@
 
 ## Objective and customer capability
 
-Connect one authenticated Product customer’s single V1-02 Business to one WooCommerce store with a least-privilege read-only connection; ingest and normalise bounded, trustworthy commercial evidence; and expose connection, freshness, completeness and missing-data state. This is commerce evidence infrastructure, not recommendation generation or analytics.
+Connect one authenticated Product customer’s single V1-02 Business to one WooCommerce store using a least-privilege read-only connection; ingest and normalise the minimum trustworthy commercial evidence needed by later organic-growth intelligence; and expose connection, freshness, completeness, partial and missing-data state. This is commerce evidence infrastructure, not recommendation generation.
 
-V1-01 established that commercial context can improve prioritisation. V1-02 established the secure Account/Business/Connection/Vault/audit foundation. V1-03 is the first real commerce evidence source.
+V1-01 proved commercial context can improve prioritisation. V1-02 established the secure Account/Business/Connection/Vault/audit foundation. V1-03 turns WooCommerce into the first real customer commerce evidence source.
 
 ## Foundations and architecture boundary
 
-Reuse V1-02 caller identity, tenant RLS, Connection/Vault lifecycle, audit/correlation and safe errors; existing Product Intelligence/Product Facts, WooCommerce readers, provenance/evidence contracts, URL validation and bounded retry patterns. Adapt only where needed. Do not create a generic connector marketplace, OAuth platform, queue or framework. Initial sync remains a bounded Node service operation unless measured pagination/latency requires a separately approved managed job mechanism.
+Reuse V1-02 identity, tenant RLS, Connection/Vault lifecycle, audit/correlation and safe errors; existing Product Intelligence/Product Facts, WooCommerce readers, provenance/evidence contracts, URL validation and bounded retry patterns. Adapt only where required. Do not create a generic connector marketplace, OAuth platform, queue or speculative job framework. Initial sync runs in the bounded Node service unless measured evidence requires a separately approved managed mechanism.
 
-## Authentication and ownership
+## Authentication and store ownership
 
-Use WooCommerce REST API v3 over HTTPS with consumer key/secret created for a WordPress user and **Read** permission. WooCommerce documents Read as retrieval-only and v3 as the current API integration; private order data requires authenticated REST access. The setup is: customer submits a store URL; Product explains creation of a dedicated least-privilege integration user/key; credentials enter a server-only flow; Product verifies the store; material is stored only in Vault; Connection stores only the opaque reference. A supplied Write/ReadWrite key is rejected where permission cannot be proven safely; Product never performs writes regardless.
+The primary journey is WooCommerce’s official Application Authentication Endpoint, `/wc-auth/v1/authorize`, over HTTPS. Product constructs the URL with `app_name`, `scope=read`, Product-controlled `user_id` and `state`, `return_url`, and HTTPS `callback_url`. The merchant authenticates and approves; WooCommerce returns `consumer_key`, `consumer_secret` and `key_permissions` to the Product callback. The callback must bind the expected pending Connection/tenant, require `key_permissions=read`, capture credentials directly into the server/Vault boundary, never return them to the browser, and retain only the opaque Vault reference. Denial, expiry, replay, duplicate or cross-tenant callbacks never create connected state.
 
-Persist submitted URL, canonical HTTPS origin, authenticated store identity facts and source/version. Normalise redirects, www and trailing slashes. A URL alone is not proof; a materially different authenticated host fails closed and requires correction. The canonical origin must remain bound to the Business and Connection.
+Manual key entry may be a documented fallback only if official evidence shows `/wc-auth/v1/authorize` cannot operate on a supported store. Permission that cannot be safely established is rejected closed. A dedicated WordPress user is optional, not mandatory; it is recommended as an operational best practice. Deleting the WordPress user associated with a key invalidates that key.
+
+Persist submitted URL, canonical HTTPS origin, authenticated store identity facts and source/version. Normalise redirects, www and trailing slash. A URL alone is not proof; a materially different authenticated host fails closed and requires correction.
 
 ## Read-only invariant
 
-No WooCommerce POST/PUT/PATCH/DELETE operation, WordPress write, product/stock/price/order mutation or credential exposure exists. Validation must attempt a harmless provider mutation with a Read key and prove rejection. Remote key revocation remains the customer’s WooCommerce responsibility.
+Keys must be generated with `scope=read`; Product performs no WooCommerce POST/PUT/PATCH/DELETE, WordPress write, product/stock/price/order mutation or credential exposure. A Read-key mutation attempt must fail in validation. Remote key revocation remains the merchant’s WooCommerce responsibility.
 
-## Minimum commerce model
+## Minimum platform-neutral model
 
-Persist platform-neutral Store (canonical identity, platform, currency/timezone where needed, source version, sync/freshness state); Product (source ID, name/slug/URL, SKU, type/status, categories, regular/current/sale price, stock management/quantity/status, parent/variation links, timestamps); Variation (source ID, parent, SKU, identifying attributes, prices, stock, status, timestamps); Category (source ID, name/slug/parent).
+Persist Store (canonical identity, platform, currency/timezone where needed, source version and sync/freshness state); Product (source ID, name/slug/URL, SKU, type/status, categories, regular/current/sale price, stock management/quantity/status, parent/variation links and timestamps); Variation (source ID, parent, SKU, identifying attributes, prices, stock, status and timestamps); Category (source ID, name/slug/parent).
 
-Commercial facts retain only source order ID, relevant dates, status, currency, product/variation IDs, quantity, line subtotal/total/tax, discounts and refund amounts/links needed for reconciliation, plus bounded order aggregates. Never persist customer name/address/email/phone, IP, user-agent, payment metadata, notes or profiling fields; discard them before storage, logs or evidence. COGS/margin is optional: unavailable means unknown, never zero or inferred.
+Commercial facts retain bounded source order ID/dates/status/currency, product/variation IDs, quantity, line subtotal/total/tax, discounts and refund amounts/links needed for reconciliation, plus order totals. Never persist customer name/address/email/phone, IP, user-agent, payment metadata, notes or profiling fields; discard them before storage, logs and evidence. COGS/margin is optional: absent is unknown, never zero or inferred.
 
-Recognised sales are completed and processing orders; pending/on-hold are unrecognised until status changes; cancelled/failed are excluded; full refunds reduce recognised sales to zero and partial refunds reduce them proportionally. Gross order value and net recognised sales are separate facts. Discounts and tax are retained according to explicit inclusive/exclusive source flags; shipping/refunds are included only where required for reconciliation. Test orders are excluded when reliably identifiable. This is not accounting software.
+Recognised statuses are `processing` and `completed`. `pending` and `on-hold` are not recognised; `cancelled` and `failed` are excluded; `refunded` uses actual refund evidence. Custom statuses are retained as bounded source facts but classified unknown/unclassified and never counted automatically. Test orders are excluded only with an explicit approved source marker, never by heuristic.
 
-Initial sync ingests the complete agreed catalogue and the previous **365 days** of orders (owner may change this horizon). Older evidence is unavailable, not zero. Incremental sync uses modified/date watermarks where reliable. Every attempt/success, freshness, completeness and cursor is recorded. Collection endpoints iterate all pages within bounded provider limits, detect final pages, prevent loops and mark partial on interruption; tests must exceed one page for products and orders.
+Canonical `product_net_sales_ex_tax` is derived from actual line totals after source discounts, excluding line tax, minus actual attributable line-refund totals. Track product tax, quantities/refunds and order-level refund adjustments separately. Full and partial refunds use actual amounts; line-attributed refunds map only to exact attributable lines. Unattributed refunds remain order-level and are never proportionally allocated. Shipping, shipping tax, fees without product attribution and unattributed refunds are not Product sales. Retain order total, tax, shipping, discount and refund totals for reconciliation; preserve WooCommerce `prices_include_tax`/source tax semantics explicitly.
 
-Initial and incremental syncs are idempotent and do not duplicate entities. Removed/unpublished entities become inactive with provenance. New evidence is staged and promoted atomically only after a complete successful sync; failures preserve last-known-good evidence with stale/error/partial state.
+## Sync, freshness and retention
 
-## States, reconnection and recovery
+Initial sync ingests the complete agreed catalogue and the previous **365 days relative to sync start time** of orders—one seasonal cycle, bounded storage and no lifetime ingestion. Older evidence is unavailable outside the window, not zero. Incremental sync maintains a rolling bounded V1 model using reliable modified/date watermarks; expansion requires an explicit evidence decision.
 
-Expose connected-healthy, connected-stale, connected-error, disconnected, auth-invalid/revoked, store-unavailable, timeout, rate-limit, malformed-response, partial and unsupported-version states. Reconnection verifies the same store, safely replaces Vault material, removes the old secret, audits and resumes sync. Disconnect sets disconnected/revoked, deletes local Vault material, clears the reference, stops reads and documents evidence retention; provider-side key revocation is not claimed.
+Collection endpoints iterate every page within provider limits, detect final pages, prevent loops and mark partial on interruption; tests exceed one page for products and orders. Initial/incremental syncs are idempotent, stage new evidence and atomically promote only complete successful state. Failures preserve last-known-good data with visible stale/error/partial state. Removed/unpublished entities become inactive deliberately. Track attempt/success timestamps, freshness, completeness and cursor/watermark.
 
-Under O-016 portable recovery, credentials are not trusted or restored. Connections fail closed, references are cleared, and re-authorisation is required before reads resume; safely attributable historical commerce evidence may remain stale. No Vault plaintext or internal recovery detail is customer-visible.
+Reconnection verifies the same store, safely replaces Vault material, removes the old secret and audits. Disconnection deletes local Vault material, clears the reference, revokes consent, stops reads and preserves normalised privacy-minimised evidence as stale/disconnected until Account deletion; raw payloads and PII are not retained. Remote provider revocation is not claimed. Under O-016 portable recovery, credentials are not trusted/restored, Connections fail closed and re-authorisation is required before reads resume.
 
-Durable facts retain Account→Business ownership, provider/source IDs, source and retrieval timestamps, connection/source and transformation versions, freshness and state. Direct facts, derived metrics and customer corrections remain distinct; corrections never invisibly overwrite source truth.
+Durable facts retain Account→Business ownership, provider/source IDs, source and retrieval timestamps, connection/source and transformation versions, freshness and state. Direct, derived and customer-correction facts remain distinct; corrections never invisibly overwrite source truth. All records use server ownership checks and PostgreSQL RLS.
 
-## Scope, retention and validation
+## Validation, non-goals and evidence
 
-Retain current catalogue, approved 365-day commercial facts, provenance, sync and Connection/audit state only as needed. Account deletion follows V1-02; disconnection retention is explicit and privacy-minimised. All records require server ownership checks and PostgreSQL RLS; Account A cannot access B’s records or evidence, including via direct Data API.
+Use a controlled synthetic WooCommerce store with simple and variable products, multiple variations/categories, price/sale, stock states, >1 page products/orders, status/refund/discount/tax fixtures. After synthetic acceptance, perform one owner-authorised read-only Street Kingz reconciliation; its raw payloads and PII remain private and it is never required for implementation. Evidence belongs under `artifacts/validation/v1-03/`; private provider data remains ignored.
 
-Use a controlled synthetic WooCommerce store with simple and variable products, multiple variations/categories, price/sale, stock states, >1 page products/orders, completed/processing/cancelled/refunded examples, partial refund, discount and tax. Street Kingz is optional only with later owner authorisation and never required.
+Out of scope: Search Console, DataForSEO/external search, GA4, opportunities, recommendations, SEO logic, articles, UI, paid execution, all WordPress/WooCommerce writes, product/stock/price/order edits, customer communication, Shopify/other platforms, multi-business, teams, agency, generic connector/OAuth frameworks, advanced CLV/attribution/profiling, forecasting, purchasing, dashboards and broad background infrastructure.
 
-## Acceptance criteria
+## Independently reviewable acceptance criteria
 
-1. Real V1-02 Account/Business boundary and intended store identity are proven.
-2. Credentials are Read-only, Vault-only, and absent from APIs/logs/evidence; secret_reference is never exposed.
-3. Read-key mutation attempt fails; no unsupported writes exist.
-4. Catalogue, pagination, simple products, variable products/variations, categories, prices and stock reconcile completely.
-5. Approved order window and commercial facts reconcile, including refunds, cancellation/failure, discounts and tax; missing COGS/values remain unknown.
-6. No prohibited PII persists; repeated and incremental syncs are idempotent and capture changes.
-7. Provider, timeout, rate-limit, malformed, partial and stale failures preserve last-known-good state and are visible.
-8. Invalid/revoked credentials fail visibly; reconnect replaces secrets safely; disconnect cleans local material and documents remote revocation.
-9. O-016 recovery fails closed and requires re-authorisation.
-10. Tenant and direct-mutation boundaries hold; provenance and correction semantics are preserved.
-11. Real test-store evidence, full npm regression and sensitive-data scans pass.
-12. Critical defects = 0, High defects = 0, and no V1-04/recommendation/write capability is built.
+1. V1-02 Account/Business boundary is used.
+2. Intended store identity is proven.
+3. Official callback binds to the intended pending Connection/tenant.
+4. Generated key permission is confirmed `read`.
+5. Credential is stored only in Vault.
+6. Consumer key/secret is absent from customer APIs.
+7. `secret_reference` is absent from customer APIs.
+8. Secrets are absent from logs/public evidence.
+9. No WooCommerce write operation exists.
+10. Read credential cannot mutate WooCommerce.
+11. Complete agreed catalogue is ingested.
+12. Product pagination over one page is proven.
+13. Simple products reconcile.
+14. Variable products reconcile.
+15. Variations reconcile.
+16. Categories reconcile.
+17. Regular/current/sale prices reconcile.
+18. Stock-management state reconciles.
+19. Stock quantity/status reconcile where available.
+20. The 365-day order window is complete.
+21. Processing/completed recognition reconciles.
+22. Cancelled/failed exclusion reconciles.
+23. Full refunds reconcile using actual amounts.
+24. Partial refunds reconcile using actual amounts.
+25. Line-attributed refunds map only to attributable lines.
+26. Unattributed refunds remain order-level and are not allocated.
+27. Discounts reconcile.
+28. Tax/source-tax semantics reconcile.
+29. Shipping remains separate from Product sales.
+30. `product_net_sales_ex_tax` reconciles.
+31. Prohibited customer PII is not durably persisted.
+32. Missing COGS remains unknown.
+33. Missing values never become zero.
+34. Custom/unclassified statuses remain explicit/unknown.
+35. Repeated sync is idempotent.
+36. Incremental sync captures changed source data.
+37. Removed/unpublished entities are handled deliberately.
+38. Provider failure preserves last-known-good evidence.
+39. Partial sync is not presented as complete.
+40. Stale evidence is identifiable.
+41. Invalid credentials fail visibly.
+42. Revoked credentials fail visibly.
+43. Reconnection safely replaces Vault material.
+44. Disconnect deletes local credential/reference.
+45. Disconnected retained evidence is explicitly stale.
+46. Remote provider-revocation limitation is documented.
+47. O-016 recovery fails closed.
+48. Account A cannot access Account B commerce evidence.
+49. Same-tenant direct Data API cannot bypass security boundaries.
+50. Provenance is retained.
+51. Source, derived and customer-correction facts remain distinct.
+52. Synthetic test-store reconciliation passes.
+53. Owner-authorised Street Kingz read-only reconciliation passes.
+54. Full npm regression passes.
+55. Sensitive-data scan passes.
+56. Critical defects = 0.
+57. High defects = 0.
+58. No V1-04 capability is introduced.
+59. No recommendation logic is introduced.
+60. No WordPress/WooCommerce writes are introduced.
 
-## Required negative tests and evidence
+Required negative tests include denied/expired/replayed/duplicate/wrong-tenant callbacks, non-read permission, wrong/unreachable/non-WooCommerce URL, malformed callback, pagination/timeout/malformed/rate-limit failure, duplicate/partial sync, removed entities, empty catalogue/no orders, missing SKU/stock/COGS, refunds/cancellation/failure, cross-tenant UUID attacks and post-valid-sync provider failure.
 
-Test wrong/unreachable/non-WooCommerce URL, invalid/revoked/broader key, pagination/timeout/malformed/rate-limit failure, duplicate/partial sync, removed product/variation, empty catalogue/no orders, missing SKU/stock/COGS, unmanaged stock, refunds/cancellations/failures, cross-tenant UUID attacks, reconnect/disconnect and post-valid-sync provider failure. Evidence belongs under `artifacts/validation/v1-03/` with connection, identity, credential, schema, catalogue, variations, order/reconciliation, privacy, sync/failure, tenancy, recovery, test and limitations proofs; raw provider data remains private/ignored.
+## Failure and completion
 
-## Explicit non-goals
+FAIL/BLOCKED applies if ownership, read-only access, callback safety, reconciliation, privacy, pagination, tenancy, last-known-good preservation or approved architecture cannot be secured, or any Critical/High defect remains. V1-04 cannot begin. PASS means one WooCommerce Business is safely connected and maintains trustworthy evidence, followed by Cody evidence, ChatGPT PASS, Ben approval and state/roadmap closeout.
 
-Search Console, DataForSEO/external search, GA4, opportunities, recommendations, SEO logic, articles, UI, paid execution, WordPress/WooCommerce writes, product/stock/price/order edits, customer communication, Shopify/other platforms, multi-business, teams, agency, generic connector/OAuth frameworks, advanced CLV/attribution/profiling, forecasting, purchasing and broad job/analytics infrastructure.
+## Owner decisions recorded
 
-## Benchmark, failure and completion
-
-The benchmark is a boring, reliable, privacy-minimised read-only commerce evidence source a competent ecommerce SEO specialist can trust. Failure or BLOCKED status results if ownership, read-only access, reconciliation, privacy, pagination, tenancy, last-known-good preservation or approved architecture cannot be secured, or any Critical/High defect remains; V1-04 cannot begin. PASS means one WooCommerce Business is safely connected and maintains trustworthy evidence, followed by Cody evidence, ChatGPT PASS, Ben approval and state/roadmap closeout.
-
-## Owner decisions required
-
-- **Order horizon:** recommend 365 days; alternative 90/730 days; consequence is less/more historical prioritisation and sync cost.
-- **Integration user:** recommend a dedicated WordPress user with Read key; alternative existing least-privilege user; consequence is weaker isolation/rotation ownership.
-- **Street Kingz reconciliation:** recommend synthetic store only; alternative owner-authorised read-only Street Kingz check; consequence is stronger realism but credential/privacy handling.
-- **Disconnected evidence retention:** recommend retain bounded historical facts as stale; alternative purge on disconnect; consequence is continuity versus data minimisation.
-
-V1-02 remains Done and frozen under O-008/O-016. This proposal does not authorise implementation, credentials or a feature branch.
+The following are accepted for this proposal: 365-day initial order horizon; official Application Authentication Endpoint as primary flow; dedicated WordPress user optional; synthetic validation plus one owner-authorised Street Kingz read-only reconciliation; disconnected normalised evidence retained stale until Account deletion. No unresolved owner-level decision remains. This proposal still requires explicit owner approval before implementation, credentials or a feature branch.
