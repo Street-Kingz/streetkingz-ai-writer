@@ -46,6 +46,19 @@ create table if not exists public.commerce_order_adjustments (
 create table if not exists public.woocommerce_auth_attempts (
  id uuid primary key default gen_random_uuid(), user_id text not null unique, account_id uuid not null references public.accounts(id) on delete cascade, business_id uuid not null references public.businesses(id) on delete cascade, connection_id uuid not null references public.connections(id) on delete cascade, canonical_origin text not null, status text not null default 'pending' check(status in ('pending','completed','denied','expired','consumed')), expires_at timestamptz not null, consumed_at timestamptz
 );
+alter table public.connections add constraint connections_id_business_unique unique (id,business_id);
+alter table public.commerce_stores add column if not exists connection_id uuid;
+alter table public.commerce_stores add constraint commerce_store_connection_fk foreign key (connection_id,business_id) references public.connections(id,business_id);
+alter table public.commerce_stores add constraint commerce_store_provider_chk check (provider='woocommerce');
+alter table public.commerce_sync_generations add constraint commerce_generation_store_unique unique (id,store_id);
+alter table public.commerce_products add constraint commerce_product_store_fk foreign key (store_id) references public.commerce_stores(id);
+alter table public.commerce_variations add constraint commerce_variation_store_fk foreign key (store_id) references public.commerce_stores(id);
+alter table public.commerce_categories add constraint commerce_category_store_fk foreign key (store_id) references public.commerce_stores(id);
+alter table public.commerce_orders add constraint commerce_order_store_fk foreign key (store_id) references public.commerce_stores(id);
+alter table public.commerce_products add constraint commerce_product_generation_fk foreign key (generation_id) references public.commerce_sync_generations(id);
+alter table public.commerce_variations add constraint commerce_variation_generation_fk foreign key (generation_id) references public.commerce_sync_generations(id);
+alter table public.commerce_categories add constraint commerce_category_generation_fk foreign key (generation_id) references public.commerce_sync_generations(id);
+alter table public.commerce_orders add constraint commerce_order_generation_fk foreign key (generation_id) references public.commerce_sync_generations(id);
 alter table public.commerce_stores enable row level security; alter table public.commerce_sync_generations enable row level security; alter table public.commerce_products enable row level security; alter table public.commerce_variations enable row level security; alter table public.commerce_categories enable row level security; alter table public.commerce_product_categories enable row level security; alter table public.commerce_orders enable row level security; alter table public.commerce_order_lines enable row level security; alter table public.commerce_order_adjustments enable row level security; alter table public.woocommerce_auth_attempts enable row level security;
 revoke all on public.commerce_stores, public.commerce_sync_generations, public.commerce_products, public.commerce_variations, public.commerce_categories, public.commerce_product_categories, public.commerce_orders, public.commerce_order_lines, public.commerce_order_adjustments, public.woocommerce_auth_attempts from anon, authenticated;
 grant select on public.commerce_stores, public.commerce_sync_generations, public.commerce_products, public.commerce_variations, public.commerce_categories, public.commerce_product_categories, public.commerce_orders, public.commerce_order_lines, public.commerce_order_adjustments to authenticated;
