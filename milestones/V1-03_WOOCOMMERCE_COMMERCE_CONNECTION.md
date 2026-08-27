@@ -1,8 +1,8 @@
 # V1-03 — WooCommerce Commerce Connection
 
-**Status: In Progress**  
-**Approved — Implementation Authorised**  
-**Owner approval date:** 2026-08-27  
+**Status: In Progress**
+**Approved — Implementation Authorised**
+**Owner approval date:** 2026-08-27
 **Approved contract baseline:** `90230e0ba478802bacd00d3023b56749af1f8001`
 
 ## Objective and customer capability
