@@ -4,4 +4,4 @@ Using synthetic credential text only, hosted validation created a Vault secret t
 
 Supported API disconnect deleted the Vault secret, cleared the internal reference, revoked consent, returned a customer-safe response and wrote audit evidence. Synthetic secrets were cleaned up.
 
-Portable logical recovery is governed separately by O-011: connector credentials are not claimed as portable. Restored stale references are invalidated and require re-authorisation.
+Portable logical recovery is governed separately by O-016: connector credentials are not claimed as portable. Restored stale references are invalidated and require re-authorisation.

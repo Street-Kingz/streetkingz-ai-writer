@@ -36,7 +36,7 @@
   "hosted_render_status": "PASS",
   "hosted_portable_recovery": "PASS",
   "hosted_destructive_rerestore": "PASS",
-  "recovery_policy": "O-011_FAIL_CLOSED_REAUTHORISATION",
+  "recovery_policy": "O-016_FAIL_CLOSED_REAUTHORISATION",
   "render_bad_deploy_rollback": "PASS",
   "hosted_security_critical": 0,
   "hosted_security_high": 0,

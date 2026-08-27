@@ -1,7 +1,7 @@
 # DECISIONS.md
 
 **Status:** Authoritative decision register
-**Last updated:** 2026-08-22
+**Last updated:** 2026-08-27
 **Product name:** Not yet selected; referred to as **the Product**
 **Decision owner:** Ben
 
@@ -1844,7 +1844,7 @@ The number, selection criteria and access method for independent test businesses
 
 ---
 
-## O-011 — Connector Credentials in Disaster Recovery
+## O-016 — Connector Credentials in Disaster Recovery
 
 **Status:** Accepted
 **Date:** 2026-08-27
@@ -1970,7 +1970,7 @@ This remains prohibited from implementation until privacy, consent, security, go
 | D-033 | Initial domain is organic search                                 | Accepted |
 | D-034 | Initial account scope is one business, not agency infrastructure | Accepted |
 | O-008 | Technical architecture and deployment stack                  | Accepted |
-| O-011 | Connector credentials in disaster recovery                   | Accepted |
+| O-016 | Connector credentials in disaster recovery                   | Accepted |
 | G-001 | Pause Product code until governance and audit                    | Accepted |
 | G-002 | Repository is long-term memory                                   | Accepted |
 | G-003 | Owner/guide/engine role separation                               | Accepted |

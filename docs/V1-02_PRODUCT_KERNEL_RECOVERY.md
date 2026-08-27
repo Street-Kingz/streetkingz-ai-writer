@@ -2,7 +2,7 @@
 
 ## Recovery policy
 
-O-011 governs connector credentials during disaster recovery.
+O-016 governs connector credentials during disaster recovery.
 
 - A supported provider-managed physical restore may preserve Supabase Vault credentials when the selected plan explicitly provides that capability.
 - A portable/manual logical restore recovers Product, Auth, schema and audit state, but connector credentials are not portable recovery material.
@@ -37,4 +37,4 @@ Replace the affected secret in Render’s environment-secret store, redeploy/res
 
 ## Customer connector credential compromise
 
-Customer connector credentials are separate from platform credentials and live in Supabase Vault. Disconnect/deletion removes the local Vault secret and clears its Product reference. Provider-side revocation and re-authorisation belong to the later connector milestone. Under O-011, portable disaster recovery invalidates restored connector references and requires customer re-authorisation.
+Customer connector credentials are separate from platform credentials and live in Supabase Vault. Disconnect/deletion removes the local Vault secret and clears its Product reference. Provider-side revocation and re-authorisation belong to the later connector milestone. Under O-016, portable disaster recovery invalidates restored connector references and requires customer re-authorisation.

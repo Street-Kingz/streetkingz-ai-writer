@@ -10,7 +10,7 @@ The active source was logically backed up into ignored private storage, includin
 
 Product, Auth, schema, migration and audit state restored. Inserting the original encrypted Vault row through the supported hosted database boundary failed because provider-managed `vault.secrets` did not grant INSERT to hosted `postgres` or service roles. Unsupported ownership changes, `supabase_admin` escalation and fabricated Vault identity were rejected.
 
-Under O-011, the reviewed transactional sanitiser then:
+Under O-016, the reviewed transactional sanitiser then:
 
 - restored the exact V1-02 table/function grant model;
 - disconnected and revoked the credential-bearing Connection;
