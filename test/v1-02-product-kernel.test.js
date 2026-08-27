@@ -72,3 +72,21 @@ test("V1-02 disconnect is an atomic caller-scoped RPC and audits failures", () =
   assert.match(sql, /insert into public\.audit_events[\s\S]*connection_disconnected/);
   assert.doesNotMatch(route, /\.from\("connections"\)\.update/);
 });
+
+test("V1-02 portable recovery sanitisation fails stale credentials closed", () => {
+  const sql = fs.readFileSync(new URL("../scripts/v1-02-sanitise-logical-recovery.sql", import.meta.url), "utf8");
+  assert.match(sql, /^begin;/m);
+  assert.match(sql, /where c\.secret_reference is not null/);
+  assert.match(sql, /revoke all on public\.accounts, public\.businesses, public\.connections, public\.audit_events from anon, authenticated/);
+  assert.match(sql, /grant select \([\s\S]*updated_at[\s\S]*\) on public\.connections to authenticated/);
+  assert.match(sql, /product_create_account\(uuid\) to authenticated/);
+  assert.match(sql, /product_cleanup_account\(uuid, uuid\) to service_role/);
+  assert.match(sql, /status = 'disconnected'/);
+  assert.match(sql, /consent_state = 'revoked'/);
+  assert.match(sql, /secret_reference = null/);
+  assert.match(sql, /REAUTHORISATION_REQUIRED_AFTER_RECOVERY/);
+  assert.match(sql, /connection_status = 'disconnected'/);
+  assert.match(sql, /connection_invalidated_after_recovery/);
+  assert.match(sql, /^commit;/m);
+  assert.doesNotMatch(sql, /vault\./i);
+});

@@ -1844,6 +1844,35 @@ The number, selection criteria and access method for independent test businesses
 
 ---
 
+## O-011 — Connector Credentials in Disaster Recovery
+
+**Status:** Accepted
+**Date:** 2026-08-27
+
+### Decision
+
+Provider-managed physical recovery may preserve Supabase Vault credentials when the selected plan and supported provider restore mechanism provide that guarantee. Portable/manual logical disaster recovery does not treat connector credentials as portable recovery material.
+
+After a portable logical restore, every Connection carrying a restored `secret_reference` must fail closed through the reviewed administrative recovery procedure: set the Connection to `disconnected`, revoke consent, clear the stale reference, set bounded re-authorisation-required diagnostics, update its Business connection summary, and write tenant-bound audit evidence. The operation must be transactional, idempotent, secret-free and safe to rerun. The customer must reconnect and re-authorise the provider before the Connection may be used again.
+
+### Rationale
+
+Hosted Free-project validation proved that Product, Auth and schema data can be restored and that the Vault root key can be ported, but the supported hosted `postgres` and service roles cannot insert the original encrypted `vault.secrets` row owned by provider-managed `supabase_admin`. Unsupported privilege escalation or fabricated Vault identity would weaken security. Failing closed preserves durable Product state without claiming that unavailable credentials survived.
+
+### Consequences
+
+- portable logical backup/restore recovers Product, Auth, schema and audit state, but not usable connector credentials;
+- restored stale credential references are invalidated before the recovered Product is returned to service;
+- customer-facing recovery language requests reconnection without exposing Vault or database internals;
+- credential-preserving recovery requires a supported provider-managed restore capability and remains plan-dependent;
+- this decision does not reopen O-008 or change Supabase Vault as the live credential architecture.
+
+### Reopen only if
+
+Supabase introduces a supported least-privilege portable Vault-row restore path, the provider-managed restore guarantees change materially, or re-authorisation becomes impossible for an approved connector.
+
+---
+
 ## O-010 — Launch Timing and Public Availability
 
 **Status:** Deferred
@@ -1941,6 +1970,7 @@ This remains prohibited from implementation until privacy, consent, security, go
 | D-033 | Initial domain is organic search                                 | Accepted |
 | D-034 | Initial account scope is one business, not agency infrastructure | Accepted |
 | O-008 | Technical architecture and deployment stack                  | Accepted |
+| O-011 | Connector credentials in disaster recovery                   | Accepted |
 | G-001 | Pause Product code until governance and audit                    | Accepted |
 | G-002 | Repository is long-term memory                                   | Accepted |
 | G-003 | Owner/guide/engine role separation                               | Accepted |
