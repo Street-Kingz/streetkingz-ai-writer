@@ -1,3 +1,3 @@
 # V1-03 authorisation foundation
 
-Auth URL construction uses only WooCommerce-supported parameters and an opaque high-entropy `user_id`; callback lifecycle route wiring is intentionally deferred to the next approved slice.
+The service foundation implements a two-phase lifecycle. Phase 1 atomically claims the opaque attempt and atomically stores read-only credentials in Vault with durable `callback_received` state; no provider request occurs before acknowledgement. Phase 2 reads the stored credential, performs authenticated identity verification, and atomically establishes the Store/Connection, audits, and consumes the attempt. Invalid phase-two credentials delete Vault material and leave a safe unconnected error state. Public Express route wiring remains outside this foundation boundary.

@@ -1,4 +1,7 @@
 import crypto from "node:crypto";
-import { validateWooOrigin } from "./woocommerceEgress.js";
-export function createWooAuthUrl({ origin, appName, returnUrl, callbackUrl, userId }) { const base=new URL(origin); if(base.protocol!=='https:'||base.username||base.password) throw new Error('INVALID_STORE_URL'); const url=new URL('/wc-auth/v1/authorize',base); for(const [k,v] of Object.entries({app_name:appName,scope:'read',user_id:userId,return_url:returnUrl,callback_url:callbackUrl})) url.searchParams.set(k,v); return url.toString(); }
-export function newAttemptToken(){ return crypto.randomBytes(32).toString('base64url'); }
+import { appendStorePath,validateWooOrigin } from "./woocommerceEgress.js";
+import { ProductError } from "./errors.js";
+function trustedUrl(value,productOrigin){let u,p;try{u=new URL(value);p=new URL(productOrigin);}catch{throw new ProductError('INVALID_PRODUCT_URL','Product URL is invalid.',500);}if(u.protocol!=='https:'||u.username||u.password||u.origin!==p.origin)throw new ProductError('INVALID_PRODUCT_URL','Product URL is invalid.',500);return u.toString();}
+export function createWooAuthUrl({origin,appName,returnUrl,callbackUrl,productOrigin,userId}){const base=new URL(origin);if(base.protocol!=='https:'||base.username||base.password)throw new ProductError('INVALID_STORE_URL','Store URL is invalid.',400);const url=appendStorePath(base,'wc-auth/v1/authorize');for(const[k,v]of Object.entries({app_name:appName,scope:'read',user_id:userId,return_url:trustedUrl(returnUrl,productOrigin),callback_url:trustedUrl(callbackUrl,productOrigin)}))url.searchParams.set(k,v);return url.toString();}
+export async function createValidatedWooAuthUrl(options,deps){const checked=await validateWooOrigin(options.origin,deps);return createWooAuthUrl({...options,origin:checked.url.toString()});}
+export function newAttemptToken(){return crypto.randomBytes(32).toString('base64url');}

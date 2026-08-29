@@ -1,23 +1,25 @@
 import dns from "node:dns/promises";
 import net from "node:net";
-import ipaddr from "ipaddr.js";
 import https from "node:https";
+import ipaddr from "ipaddr.js";
 import { ProductError } from "./errors.js";
-
-function blockedAddress(address) {
-  if (!net.isIP(address)) return true;
-  try { const parsed=ipaddr.parse(address); if (parsed.kind()==='ipv4-mapped') return blockedAddress(parsed.toIPv4Address().toString()); return parsed.range() !== 'unicast'; } catch { return true; }
-}
-export async function validateWooOrigin(value) {
-  let u; try { u=new URL(value); } catch { throw new ProductError('INVALID_STORE_URL','Store URL is invalid.',400); }
-  if (u.protocol!=='https:' || u.username || u.password || !u.hostname || u.hostname==='localhost' || u.hostname.endsWith('.local')) throw new ProductError('INVALID_STORE_URL','Store URL is invalid.',400);
-  const addresses=await dns.lookup(u.hostname,{all:true}); if (!addresses.length || addresses.some(a=>blockedAddress(a.address))) throw new ProductError('INVALID_STORE_URL','Store URL is not allowed.',400);
-  u.hash=''; u.search=''; u.pathname=u.pathname.replace(/\/+$/,'')||'/'; return u;
-}
-export async function wooRequest(origin, path, { fields=[] }={}) {
-  const base=await validateWooOrigin(origin); const target=new URL(path,base); const checked=await validateWooOrigin(target.origin);
-  if (checked.origin!==base.origin) throw new ProductError('INVALID_STORE_URL','Store redirect is not allowed.',400);
-  const url=new URL(target.pathname+target.search,checked); if(fields.length) url.searchParams.set('_fields',fields.join(','));
-  const addresses=await dns.lookup(url.hostname,{all:true}); const address=addresses.find(a=>!blockedAddress(a.address)); if(!address) throw new ProductError('PROVIDER_REQUEST_FAILED','Store address is unavailable.',502);
-  return new Promise((resolve,reject)=>{ const req=https.request(url,{method:'GET',hostname:url.hostname,servername:url.hostname,headers:{accept:'application/json'},lookup:(_h,_o,cb)=>cb(null,address.address,address.family),timeout:10000,rejectUnauthorized:true},res=>{ let size=0; const chunks=[]; res.on('data',c=>{ size+=c.length; if(size>2_000_000){ req.destroy(new Error('RESPONSE_TOO_LARGE')); return; } chunks.push(c); }); res.on('end',()=>{ if(res.statusCode===401||res.statusCode===403) return reject(new ProductError('PROVIDER_AUTH_INVALID','WooCommerce credentials are invalid or revoked.',401)); if(res.statusCode===429) return reject(new ProductError('PROVIDER_RATE_LIMITED','WooCommerce rate limit reached.',429)); if(!res.headers['content-type']?.includes('json')) return reject(new ProductError('PROVIDER_MALFORMED_RESPONSE','WooCommerce returned an invalid response.',502)); try { if(res.statusCode<200||res.statusCode>=300) throw new Error('provider'); resolve(JSON.parse(Buffer.concat(chunks).toString('utf8'))); } catch { reject(new ProductError('PROVIDER_MALFORMED_RESPONSE','WooCommerce returned an invalid response.',502)); } }); }); req.on('timeout',()=>req.destroy(new ProductError('PROVIDER_TIMEOUT','WooCommerce request timed out.',504))); req.on('error',e=>reject(e instanceof ProductError?e:new ProductError('PROVIDER_UNAVAILABLE','WooCommerce is unavailable.',502))); req.end(); });
+const MAX_BYTES=2_000_000,TIMEOUT_MS=10_000,MAX_REDIRECTS=3;
+function blocked(address){if(!net.isIP(address))return true;try{const p=ipaddr.parse(address);if(p.kind()==='ipv4-mapped')return blocked(p.toIPv4Address().toString());return p.range()!=='unicast';}catch{return true;}}
+function invalid(){return new ProductError('INVALID_STORE_URL','Store URL is invalid.',400);}
+export async function validateWooOrigin(value,{lookup=dns.lookup}={}){let u;try{u=new URL(value);}catch{throw invalid();}if(u.protocol!=='https:'||u.username||u.password||!u.hostname||net.isIP(u.hostname)||u.hostname==='localhost'||u.hostname.endsWith('.local')||(u.port&&u.port!=='443'))throw invalid();const addresses=await lookup(u.hostname,{all:true});if(!addresses.length||addresses.some(a=>blocked(a.address)))throw new ProductError('INVALID_STORE_URL','Store URL is not allowed.',400);u.hash='';u.search='';u.pathname=u.pathname.replace(/\/+$/,'')||'/';return{url:u,addresses};}
+export function appendStorePath(base,path){const u=new URL(base);u.pathname=`${u.pathname.replace(/\/+$/,'')}/${path.replace(/^\/+/, '')}`;u.search='';u.hash='';return u;}
+const providerError=(code,message,status)=>new ProductError(code,message,status);
+const withinBase=(pathname,base)=>base==='/'||pathname===base||pathname.startsWith(`${base}/`);
+export async function wooRequest(origin,path,{fields=[],credentials,lookup=dns.lookup,request=https.request,timeoutMs=TIMEOUT_MS,maxBytes=MAX_BYTES,maxRedirects=MAX_REDIRECTS}={}){
+ if(typeof path!=='string'||/[?#]/.test(path))throw invalid();
+ if(!Array.isArray(fields)||fields.some(v=>typeof v!=='string'||!/^[-a-z0-9_.]+$/i.test(v)))throw invalid();
+ const first=await validateWooOrigin(origin,{lookup}),expected=first.url;let target=appendStorePath(expected,path),validation=first;if(fields.length)target.searchParams.set('_fields',fields.join(','));
+ for(const key of target.searchParams.keys())if(key!=='_fields')throw invalid();
+ for(let redirects=0;;redirects++){
+  const checked=validation;if(checked.url.hostname!==expected.hostname||!withinBase(checked.url.pathname,expected.pathname))throw invalid();for(const key of target.searchParams.keys())if(key!=='_fields')throw invalid();const pinned=checked.addresses[0];
+  const result=await new Promise((resolve,reject)=>{const auth=credentials?`Basic ${Buffer.from(`${credentials.consumerKey}:${credentials.consumerSecret}`,'utf8').toString('base64')}`:undefined;
+   const req=request(target,{method:'GET',hostname:target.hostname,port:443,servername:target.hostname,rejectUnauthorized:true,headers:{accept:'application/json',host:target.host,...(auth?{authorization:auth}:{})},lookup:(_h,_o,cb)=>cb(null,pinned.address,pinned.family),timeout:timeoutMs},res=>{let size=0;const chunks=[];res.on('error',()=>reject(providerError('PROVIDER_UNAVAILABLE','WooCommerce is unavailable.',502)));res.on('data',c=>{size+=c.length;if(size>maxBytes)req.destroy(providerError('PROVIDER_RESPONSE_TOO_LARGE','WooCommerce response exceeded the allowed size.',502));else chunks.push(c);});res.on('end',()=>resolve({status:res.statusCode,headers:res.headers,body:Buffer.concat(chunks).toString('utf8')}));});req.on('timeout',()=>req.destroy(providerError('PROVIDER_TIMEOUT','WooCommerce request timed out.',504)));req.on('error',e=>reject(e instanceof ProductError?e:providerError('PROVIDER_UNAVAILABLE','WooCommerce is unavailable.',502)));req.end();});
+  if([301,302,303,307,308].includes(result.status)){if(redirects>=maxRedirects)throw providerError('PROVIDER_REDIRECT_LIMIT','WooCommerce redirect limit exceeded.',502);if(!result.headers.location)throw providerError('PROVIDER_MALFORMED_RESPONSE','WooCommerce returned an invalid response.',502);const next=new URL(result.headers.location,target),nextChecked=await validateWooOrigin(next,{lookup});if(nextChecked.url.hostname!==expected.hostname||!withinBase(nextChecked.url.pathname,expected.pathname))throw invalid();target=next;validation=nextChecked;continue;}
+  if(result.status===401||result.status===403)throw providerError('PROVIDER_AUTH_INVALID','WooCommerce credentials are invalid or revoked.',401);if(result.status===429)throw providerError('PROVIDER_RATE_LIMITED','WooCommerce rate limit reached.',429);if(result.status<200||result.status>=300)throw providerError('PROVIDER_UNAVAILABLE','WooCommerce is unavailable.',502);if(!String(result.headers['content-type']||'').toLowerCase().includes('json'))throw providerError('PROVIDER_MALFORMED_RESPONSE','WooCommerce returned an invalid response.',502);try{return JSON.parse(result.body);}catch{throw providerError('PROVIDER_MALFORMED_RESPONSE','WooCommerce returned an invalid response.',502);}
+ }
 }
