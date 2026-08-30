@@ -42,3 +42,13 @@ export async function verifyWooConnection(admin, options, deps = {}) {
   const context = await loadWooVerificationContext(admin, options);
   return establishWooConnection(admin, { attempt: context.attempt, credentials: context.credentials, correlationId: options.correlationId }, deps);
 }
+
+export async function loadWooStoreContext(admin, connectionId) {
+  const connection = await admin.from("connections").select("id,business_id,provider_type,status,consent_state,secret_reference").eq("id", connectionId).maybeSingle();
+  if (connection.error || !connection.data || connection.data.provider_type !== "woocommerce" || connection.data.status !== "connected" || connection.data.consent_state !== "granted" || !connection.data.secret_reference) throw new ProductError("WOO_CONNECTION_NOT_ESTABLISHED", "WooCommerce connection is not established.", 409);
+  const store = await admin.from("commerce_stores").select("id,business_id,connection_id,canonical_base_url").eq("connection_id", connection.data.id).eq("provider", "woocommerce").maybeSingle();
+  if (store.error || !store.data || store.data.business_id !== connection.data.business_id) throw new ProductError("WOO_CONNECTION_NOT_ESTABLISHED", "WooCommerce Store is not established.", 409);
+  const secret = await admin.rpc("vault_read_secret", { secret_id: connection.data.secret_reference });
+  if (secret.error || secret.data === null || secret.data === undefined) throw new ProductError("WOO_CREDENTIAL_INVALID", "WooCommerce credentials are invalid.", 502);
+  return { connection: connection.data, store: store.data, credentials: parseCredential(secret.data) };
+}

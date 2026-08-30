@@ -7,8 +7,11 @@ import createSeoArticleWorkflowRoute from "./routes/createSeoArticleWorkflow.js"
 import productKernelRoute from "./routes/productKernel.js";
 import woocommerceRoute from "./routes/woocommerce.js";
 import { randomUUID } from "node:crypto";
+import { startWooMaintenance } from "./product-kernel/woocommerceMaintenance.js";
 
 const app = express();
+
+startWooMaintenance();
 
 app.use(cors());
 app.use(woocommerceRoute);
