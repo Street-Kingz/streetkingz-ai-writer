@@ -20,7 +20,8 @@ function addDecimal(left, right) {
   const value = signed(l) + signed(r), negative = value < 0n, magnitudeValue = negative ? -value : value, divisor = factor, integer = magnitudeValue / divisor, fraction = magnitudeValue % divisor;
   return negative ? `-${integer}${scale ? `.${String(fraction).padStart(scale, "0")}` : ""}` : `${integer}${scale ? `.${String(fraction).padStart(scale, "0")}` : ""}`;
 }
-function magnitude(value) { const d = decimal(value); return d ? d.replace(/^-/, "") : "0"; }
+function requiredMoney(value, label) { const d = decimal(value); if (!d) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", `WooCommerce ${label} was invalid.`, 502); return d.replace(/^-/, ""); }
+function optionalMoney(value, label) { if (value === undefined || value === null || value === "") return null; return requiredMoney(value, label); }
 function pageHeader(headers, name) {
   const value = headers?.[name] ?? headers?.[name.toLowerCase()];
   if (typeof value !== "string" || !/^(?:0|[1-9][0-9]{0,5})$/.test(value)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce pagination was invalid.", 502);
@@ -56,18 +57,21 @@ function recognition(status) { return status === "processing" || status === "com
 export function normalizeRefund(refund, orderId) {
   const id = positiveInt(refund.id);
   if (!id) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce refund was invalid.", 502);
+  const total = requiredMoney(refund.amount, "refund amount");
   const lines = [];
   for (const line of Array.isArray(refund.line_items) ? refund.line_items : []) {
     const meta = Array.isArray(line.meta_data) ? line.meta_data.find(item => item && item.key === "_refunded_item_id") : null;
     const sourceLine = positiveInt(Number(meta?.value));
-    if (sourceLine) lines.push({ source_line_id: sourceLine, refunded_quantity: typeof line.quantity === "number" ? String(Math.abs(line.quantity)) : "0", refund_total: magnitude(line.total), refund_tax: magnitude(line.total_tax) });
+    const lineTotal = requiredMoney(line.total, "refund line total");
+    const lineTax = requiredMoney(line.total_tax, "refund line tax");
+    if (sourceLine) lines.push({ source_line_id: sourceLine, refunded_quantity: typeof line.quantity === "number" ? String(Math.abs(line.quantity)) : null, refund_total: lineTotal, refund_tax: lineTax });
   }
   const exactGross = lines.reduce((sum, line) => addDecimal(sum, addDecimal(line.refund_total, line.refund_tax)), "0");
-  const otherGross = [...(Array.isArray(refund.shipping_lines) ? refund.shipping_lines : []), ...(Array.isArray(refund.fee_lines) ? refund.fee_lines : [])].reduce((sum, line) => addDecimal(sum, addDecimal(magnitude(line.total), magnitude(line.total_tax))), "0");
-  const total = magnitude(refund.amount);
+  const otherGross = [...(Array.isArray(refund.shipping_lines) ? refund.shipping_lines : []), ...(Array.isArray(refund.fee_lines) ? refund.fee_lines : [])].reduce((sum, line) => addDecimal(sum, addDecimal(requiredMoney(line.total, "refund component total"), optionalMoney(line.total_tax, "refund component tax") || "0")), "0");
   const used = addDecimal(exactGross, otherGross);
   const remainderCandidate = addDecimal(total, `-${used}`);
-  const remainder = remainderCandidate.startsWith("-") ? "0" : remainderCandidate;
+  if (remainderCandidate.startsWith("-")) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce refund components conflict with the provider total.", 502);
+  const remainder = remainderCandidate;
   return { order_source_id: orderId, provider_adjustment_id: String(id), amount: total, lines, unattributed_amount: addDecimal(otherGross, remainder) };
 }
 function normalizeOrder(row, refundTotal) { return { source_id: positiveInt(row.id), source_status: text(row.status) || "unknown", recognition_state: recognition(row.status), currency: text(row.currency), source_created_at: date(row.date_created_gmt), source_modified_at: date(row.date_modified_gmt), order_total: decimal(row.total), tax_total: decimal(row.total_tax), shipping_total: decimal(row.shipping_total), discount_total: decimal(row.discount_total), refund_total: refundTotal, prices_include_tax: typeof row.prices_include_tax === "boolean" ? row.prices_include_tax : null }; }
@@ -91,7 +95,12 @@ export async function collectInitialCommerce(provider, { syncStartedAt = new Dat
   const lines = [];
   const adjustments = [];
   for (const raw of ordersRaw) {
-    for (const line of Array.isArray(raw.line_items) ? raw.line_items : []) lines.push({ order_source_id: positiveInt(raw.id), source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : null, subtotal: decimal(line.subtotal), total: decimal(line.total), tax: decimal(line.total_tax), refunded_quantity: "0", refund_total: "0", refund_tax: "0" });
+    for (const line of Array.isArray(raw.line_items) ? raw.line_items : []) {
+      const total = decimal(line.total);
+      const tax = decimal(line.total_tax);
+      if (recognition(raw.status) === "recognised" && (!total || !tax)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce recognised order line money was invalid.", 502);
+      lines.push({ order_source_id: positiveInt(raw.id), source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : null, subtotal: decimal(line.subtotal), total, tax, refunded_quantity: "0", refund_total: "0", refund_tax: "0" });
+    }
     for (const refund of refunds.filter(item => item.order_source_id === positiveInt(raw.id))) {
       for (const refundLine of refund.lines) {
         const target = lines.find(line => line.order_source_id === refund.order_source_id && line.source_line_id === refundLine.source_line_id);

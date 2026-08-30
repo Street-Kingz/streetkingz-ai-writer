@@ -23,7 +23,10 @@ begin
   end if;
   if p_status='disconnected' and v_row.secret_reference is not null then begin delete from vault.secrets where id=v_row.secret_reference; exception when others then raise exception 'SECRET_OPERATION_FAILED'; end; end if;
   update public.connections set status=p_status, consent_state=p_consent_state, connected_at=case when p_status='connected' then coalesce(connected_at,clock_timestamp()) else connected_at end, disconnected_at=case when p_status='disconnected' then clock_timestamp() else disconnected_at end, secret_reference=case when p_status='disconnected' then null else secret_reference end where id=v_row.id returning * into v_row;
-  if p_status='disconnected' and v_row.provider_type='woocommerce' then update public.commerce_stores set sync_state='stale' where connection_id=v_row.id and business_id=v_row.business_id; end if;
+  if p_status='disconnected' and v_row.provider_type='woocommerce' then
+    update public.commerce_sync_generations set state='failed',error_code='SYNC_CANCELLED',completed_at=clock_timestamp() where id in(select active_generation from public.commerce_stores where connection_id=v_row.id and business_id=v_row.business_id) and state='pending';
+    update public.commerce_stores set active_generation=null,sync_state='stale' where connection_id=v_row.id and business_id=v_row.business_id;
+  end if;
   update public.businesses set connection_status=p_status where id=v_row.business_id;
   insert into public.audit_events(account_id,business_id,event_type,correlation_id) values(v_account.id,v_row.business_id,case when p_status='disconnected' then 'connection_disconnected' else 'connection_status_changed' end,p_correlation_id::text);
   return jsonb_build_object('id',v_row.id,'business_id',v_row.business_id,'provider_type',v_row.provider_type,'status',v_row.status,'consent_state',v_row.consent_state,'connected_at',v_row.connected_at,'disconnected_at',v_row.disconnected_at,'last_success_at',v_row.last_success_at,'safe_error_code',v_row.safe_error_code,'safe_error_message',v_row.safe_error_message,'created_at',v_row.created_at,'updated_at',v_row.updated_at);

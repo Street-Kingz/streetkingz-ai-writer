@@ -51,13 +51,46 @@ test("V1-03 initial snapshot RPC stages, promotes, derives sales, and preserves 
   assert.equal(derivedResult.data.length, 1);
   const derived = derivedResult.data[0];
   assert.equal(String(derived.product_net_sales_ex_tax), "8");
+  const staleA = await admin.rpc("commerce_begin_initial_sync", { p_store_id: store.id, p_correlation_id: crypto.randomUUID() }); assert.ifError(staleA.error);
+  assert.ifError((await admin.from("commerce_sync_generations").update({ started_at: new Date(Date.now() - 31 * 60 * 1000).toISOString() }).eq("id", staleA.data)).error);
+  const generationB = await admin.rpc("commerce_begin_initial_sync", { p_store_id: store.id, p_correlation_id: crypto.randomUUID() }); assert.ifError(generationB.error);
+  assert.ifError((await admin.rpc("commerce_mark_sync_failed", { p_store_id: store.id, p_generation_id: staleA.data, p_error_code: "SYNC_STALE_RECOVERED", p_partial: true })).error);
+  assert.deepEqual((await admin.from("commerce_stores").select("active_generation,sync_state,current_generation").eq("id", store.id).single()).data, { active_generation: generationB.data, sync_state: "pending", current_generation: generation.data });
+  assert.ifError((await admin.rpc("commerce_stage_initial_snapshot", { p_store_id: store.id, p_generation_id: generationB.data, p_products: [], p_variations: [], p_categories: [], p_links: [], p_orders: [], p_lines: [], p_adjustments: [] })).error);
+  assert.ifError((await admin.rpc("commerce_complete_initial_sync", { p_store_id: store.id, p_generation_id: generationB.data })).error);
+  assert.equal((await admin.from("commerce_stores").select("current_generation,sync_state,active_generation").eq("id", store.id).single()).data.current_generation, generationB.data);
   const failedGeneration = await admin.rpc("commerce_begin_initial_sync", { p_store_id: store.id, p_correlation_id: crypto.randomUUID() });
   assert.ifError(failedGeneration.error);
   assert.ifError((await admin.rpc("commerce_mark_sync_failed", { p_store_id: store.id, p_generation_id: failedGeneration.data, p_error_code: "PROVIDER_MALFORMED_RESPONSE", p_partial: true })).error);
   const lkg = (await admin.from("commerce_stores").select("current_generation,sync_state").eq("id", store.id).single()).data;
-  assert.equal(lkg.current_generation, generation.data);
+  assert.equal(lkg.current_generation, generationB.data);
   assert.equal(lkg.sync_state, "partial");
   assert.equal((await admin.from("commerce_products").select("source_id").eq("generation_id", generation.data)).data.length, 1);
   const aggregate = (await admin.from("commerce_product_net_sales_by_generation").select("product_source_id,product_net_sales_ex_tax").eq("generation_id", generation.data).single()).data;
   assert.equal(String(aggregate.product_net_sales_ex_tax), "8");
+});
+
+test("V1-03 completion/disconnect and active-generation ownership serialize in Postgres", { skip: !enabled }, async t => {
+  const url = required("SUPABASE_URL"), service = required("SUPABASE_SERVICE_ROLE_KEY"), publishable = required("SUPABASE_PUBLISHABLE_KEY");
+  const admin = createClient(url, service, { auth: { persistSession: false } });
+  const email = `v103-race-${crypto.randomUUID()}@example.test`, password = `V1-03-${crypto.randomUUID()}!Aa`;
+  const created = await admin.auth.admin.createUser({ email, password, email_confirm: true }); assert.ifError(created.error); t.after(() => admin.auth.admin.deleteUser(created.data.user.id));
+  const account = (await admin.from("accounts").insert({ auth_user_id: created.data.user.id }).select().single()).data;
+  const business = (await admin.from("businesses").insert({ account_id: account.id, name: "Race", ecommerce_platform: "woocommerce" }).select().single()).data;
+  const connection = (await admin.from("connections").insert({ business_id: business.id, provider_type: "woocommerce" }).select().single()).data;
+  const caller = createClient(url, publishable, { auth: { persistSession: false } }); assert.ifError((await caller.auth.signInWithPassword({ email, password })).error);
+  const attempt = await admin.rpc("woo_create_auth_attempt", { p_user_id: `race-${crypto.randomUUID()}`, p_account_id: account.id, p_business_id: business.id, p_connection_id: connection.id, p_canonical_base_url: "https://race.example/", p_expires_at: new Date(Date.now() + 60000).toISOString() }); assert.ifError(attempt.error);
+  assert.ifError((await admin.rpc("woo_claim_auth_attempt", { p_user_id: (await admin.from("woocommerce_auth_attempts").select("user_id").eq("id", attempt.data).single()).data.user_id })).error);
+  assert.ifError((await admin.rpc("woo_capture_callback", { p_attempt_id: attempt.data, p_consumer_key: "ck_race", p_consumer_secret: "cs_race", p_key_permissions: "read" })).error);
+  const established = await admin.rpc("woo_complete_connection", { p_attempt_id: attempt.data, p_home_url: "https://race.example/", p_site_url: "https://race.example/", p_version: "9", p_timezone: "UTC", p_currency: "GBP", p_correlation_id: crypto.randomUUID() }); assert.ifError(established.error);
+  const store = (await admin.from("commerce_stores").select().eq("id", established.data).single()).data; assert.ok(store);
+  const generation = await admin.rpc("commerce_begin_initial_sync", { p_store_id: store.id, p_correlation_id: crypto.randomUUID() }); assert.ifError(generation.error);
+  await t.test("completion and disconnect launched concurrently leave disconnected stale state", async () => {
+    await Promise.all([
+      admin.rpc("commerce_complete_initial_sync", { p_store_id: store.id, p_generation_id: generation.data }),
+      caller.rpc("product_transition_connection", { p_connection_id: connection.id, p_status: "disconnected", p_consent_state: "revoked", p_correlation_id: crypto.randomUUID() })
+    ]);
+    assert.deepEqual((await admin.from("connections").select("status,consent_state").eq("id", connection.id).single()).data, { status: "disconnected", consent_state: "revoked" });
+    assert.equal((await admin.from("commerce_stores").select("sync_state,active_generation,current_generation").eq("id", store.id).single()).data.sync_state, "stale");
+  });
 });

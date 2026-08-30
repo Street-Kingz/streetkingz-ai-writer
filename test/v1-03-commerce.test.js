@@ -71,9 +71,34 @@ test("V1-03 refund portions preserve exact attribution and order-level remainder
 
 test("V1-03 refunded orders remain recognised and retain source line evidence", async () => {
   const row = { id: 44, status: "refunded", currency: "GBP", date_created_gmt: "2026-01-01T00:00:00Z", date_modified_gmt: "2026-01-01T00:00:00Z", total: "10.00", total_tax: "2.00", shipping_total: "0", discount_total: "0", prices_include_tax: false, line_items: [{ id: 440, product_id: 1, variation_id: 0, quantity: 1, subtotal: "10.00", total: "10.00", total_tax: "2.00" }], refunds: [{ id: 441 }] };
-  const provider = { collection: async path => ({ data: path === "products" ? [{ id: 1, type: "simple", name: "P", slug: "p", permalink: "https://shop.example/p", status: "publish", price: "10", regular_price: "10", sale_price: "", manage_stock: false, stock_quantity: null, stock_status: "instock", categories: [] }] : path === "orders" ? [row] : [], headers: headers(path === "products" || path === "orders" ? 1 : 0, path === "products" || path === "orders" ? 1 : 0) }), get: async () => ({ id: 441, amount: "-10.00", line_items: [{ quantity: -1, total: "-10.00", total_tax: "-2.00", meta_data: [{ key: "_refunded_item_id", value: "440" }] }] }) };
+  const provider = { collection: async path => ({ data: path === "products" ? [{ id: 1, type: "simple", name: "P", slug: "p", permalink: "https://shop.example/p", status: "publish", price: "10", regular_price: "10", sale_price: "", manage_stock: false, stock_quantity: null, stock_status: "instock", categories: [] }] : path === "orders" ? [row] : [], headers: headers(path === "products" || path === "orders" ? 1 : 0, path === "products" || path === "orders" ? 1 : 0) }), get: async () => ({ id: 441, amount: "-12.00", line_items: [{ quantity: -1, total: "-10.00", total_tax: "-2.00", meta_data: [{ key: "_refunded_item_id", value: "440" }] }] }) };
   const snapshot = await collectInitialCommerce(provider, { syncStartedAt: "2026-02-01T00:00:00Z" });
   assert.equal(snapshot.orders[0].recognition_state, "recognised");
   assert.equal(snapshot.lines[0].refund_total, "10.00");
   assert.equal(snapshot.adjustments.length, 0);
+});
+
+test("V1-03 required money evidence fails closed instead of becoming zero", async () => {
+  const base = { id: 1, amount: "-1.00", line_items: [] };
+  for (const refund of [{ ...base, amount: undefined }, { ...base, amount: "bad" }, { ...base, line_items: [{ total: "bad", total_tax: "0" }] }, { ...base, amount: "-1.00", line_items: [{ total: "-2.00", total_tax: "0", meta_data: [{ key: "_refunded_item_id", value: "4" }] }] }]) {
+    assert.throws(() => normalizeRefund(refund, 2), error => error.code === "PROVIDER_MALFORMED_RESPONSE");
+  }
+});
+
+test("V1-03 recognised line missing or malformed total fails closed", async () => {
+  const product = { id: 1, type: "simple", name: "P", slug: "p", permalink: "https://shop.example/p", status: "publish", price: "1", regular_price: "1", sale_price: "", manage_stock: false, stock_quantity: null, stock_status: "instock", categories: [] };
+  for (const total of [undefined, "bad"]) {
+    const order = { id: 2, status: "completed", currency: "GBP", date_created_gmt: "2026-01-01T00:00:00Z", date_modified_gmt: "2026-01-01T00:00:00Z", total: "1", total_tax: "0", shipping_total: "0", discount_total: "0", prices_include_tax: false, line_items: [{ id: 3, product_id: 1, variation_id: 0, quantity: 1, subtotal: "1", total, total_tax: "0" }], refunds: [] };
+    const provider = { collection: async path => ({ data: path === "products" ? [product] : path === "orders" ? [order] : [], headers: headers(path === "products" || path === "orders" ? 1 : 0, path === "products" || path === "orders" ? 1 : 0) }), get: async () => { throw new Error("unexpected"); } };
+    await assert.rejects(collectInitialCommerce(provider, { syncStartedAt: "2026-02-01T00:00:00Z" }), error => error.code === "PROVIDER_MALFORMED_RESPONSE");
+  }
+});
+
+test("V1-03 valid zero money remains zero after complete no-refund collection", async () => {
+  const product = { id: 1, type: "simple", name: "P", slug: "p", permalink: "https://shop.example/p", status: "publish", price: "0", regular_price: "0", sale_price: "", manage_stock: false, stock_quantity: null, stock_status: "instock", categories: [] };
+  const order = { id: 2, status: "completed", currency: "GBP", date_created_gmt: "2026-01-01T00:00:00Z", date_modified_gmt: "2026-01-01T00:00:00Z", total: "0", total_tax: "0", shipping_total: "0", discount_total: "0", prices_include_tax: false, line_items: [{ id: 3, product_id: 1, variation_id: 0, quantity: 1, subtotal: "0", total: "0", total_tax: "0" }], refunds: [] };
+  const provider = { collection: async path => ({ data: path === "products" ? [product] : path === "orders" ? [order] : [], headers: headers(path === "products" || path === "orders" ? 1 : 0, path === "products" || path === "orders" ? 1 : 0) }), get: async () => { throw new Error("unexpected"); } };
+  const snapshot = await collectInitialCommerce(provider, { syncStartedAt: "2026-02-01T00:00:00Z" });
+  assert.equal(snapshot.orders[0].refund_total, "0");
+  assert.equal(snapshot.lines[0].total, "0");
 });
