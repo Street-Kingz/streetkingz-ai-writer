@@ -17,6 +17,6 @@ export function wooCommerceRouteConfig(env = process.env) {
   const appName = required("WOOCOMMERCE_APP_NAME", env.WOOCOMMERCE_APP_NAME).trim();
   let origin;
   try { origin = new URL(originValue); } catch { throw new Error("PRODUCT_PUBLIC_ORIGIN must be a valid HTTPS origin."); }
-  if (origin.protocol !== "https:" || origin.username || origin.password || origin.pathname !== "/" || origin.search || origin.hash || appName.length > 100) throw new Error("PRODUCT_PUBLIC_ORIGIN must be a valid HTTPS origin.");
+  if (origin.protocol !== "https:" || origin.username || origin.password || origin.pathname !== "/" || origin.search || origin.hash || appName.length < 1 || appName.length > 100) throw new Error("PRODUCT_PUBLIC_ORIGIN must be a valid HTTPS origin and WOOCOMMERCE_APP_NAME must contain 1–100 characters.");
   return { productOrigin: origin.origin, appName };
 }

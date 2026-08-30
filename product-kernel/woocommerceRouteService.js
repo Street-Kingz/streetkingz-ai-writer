@@ -12,7 +12,7 @@ function parseCredential(value) {
 }
 
 export async function loadWooVerificationContext(admin, { connectionId, attemptId } = {}) {
-  let query = admin.from("woocommerce_auth_attempts").select("id,connection_id,canonical_base_url,status,credential_reference").eq("status", "callback_received").not("credential_reference", "is", null);
+  let query = admin.from("woocommerce_auth_attempts").select("id,connection_id,canonical_base_url,status,credential_reference").eq("status", "callback_received").gt("expires_at", new Date().toISOString()).not("credential_reference", "is", null);
   query = attemptId ? query.eq("id", attemptId) : query.eq("connection_id", connectionId);
   const result = await query.maybeSingle();
   if (result.error) throw new ProductError("WOO_VERIFICATION_UNAVAILABLE", "WooCommerce verification is unavailable.", 503);
@@ -21,6 +21,14 @@ export async function loadWooVerificationContext(admin, { connectionId, attemptI
   const secret = await admin.rpc("vault_read_secret", { secret_id: attempt.credential_reference });
   if (secret.error || secret.data === null || secret.data === undefined) throw new ProductError("WOO_CREDENTIAL_INVALID", "WooCommerce credentials are invalid.", 502);
   return { attempt, credentials: parseCredential(secret.data) };
+}
+
+export async function assertEstablishedWooConnection(admin, connectionId) {
+  const connection = await admin.from("connections").select("id,business_id,provider_type,status,consent_state,secret_reference").eq("id", connectionId).maybeSingle();
+  if (connection.error || !connection.data || connection.data.provider_type !== "woocommerce" || connection.data.status !== "connected" || connection.data.consent_state !== "granted" || !connection.data.secret_reference) throw new ProductError("WOO_CONNECTION_STATE_MANAGED", "WooCommerce connection state is not established.", 409);
+  const store = await admin.from("commerce_stores").select("id,business_id,connection_id").eq("business_id", connection.data.business_id).eq("connection_id", connection.data.id).eq("provider", "woocommerce").maybeSingle();
+  if (store.error || !store.data) throw new ProductError("WOO_CONNECTION_STATE_MANAGED", "WooCommerce connection state is not established.", 409);
+  return store.data.id;
 }
 
 export async function verifyWooConnection(admin, options, deps = {}) {

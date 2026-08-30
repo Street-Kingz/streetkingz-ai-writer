@@ -34,7 +34,8 @@ function mapRpcError(error) {
     ["SECRET_OPERATION_FAILED", 503, "Connector secret removal failed."],
     ["INVALID_BUSINESS_NAME", 400, "Business name is invalid."],
     ["INVALID_PLATFORM", 400, "Ecommerce platform is invalid."],
-    ["INVALID_PROVIDER_TYPE", 400, "Provider type is invalid."]
+    ["INVALID_PROVIDER_TYPE", 400, "Provider type is invalid."],
+    ["WOO_CONNECTION_STATE_MANAGED", 409, "WooCommerce connection state is managed by the WooCommerce authorisation lifecycle."]
   ];
   for (const [code, status, safeMessage] of mappings) if (message.includes(code)) return new ProductError(code, safeMessage, status);
   return error;

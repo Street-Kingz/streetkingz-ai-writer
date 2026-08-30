@@ -8,7 +8,7 @@ import { ProductError, safeError } from "../product-kernel/errors.js";
 import { resolveAccount } from "../product-kernel/repository.js";
 import { createWooAuthUrl, newAttemptToken } from "../product-kernel/woocommerceAuth.js";
 import { captureWooCallback } from "../product-kernel/woocommerceCallback.js";
-import { verifyWooConnection } from "../product-kernel/woocommerceRouteService.js";
+import { assertEstablishedWooConnection, verifyWooConnection } from "../product-kernel/woocommerceRouteService.js";
 import { wooCommerceRouteConfig } from "../config/productKernel.js";
 import { validateWooOriginWithDeadline } from "../product-kernel/woocommerceEgress.js";
 
@@ -43,7 +43,8 @@ async function ownedWooConnection(client, accountId, connectionId) {
 function safeCallbackBody(body) {
   if (!body || typeof body !== "object" || Array.isArray(body)) throw new ProductError("INVALID_REQUEST", "Callback payload is invalid.", 400);
   if (Object.keys(body).some(key => !CALLBACK_KEYS.has(key))) throw new ProductError("INVALID_REQUEST", "Callback payload is invalid.", 400);
-  for (const [key, max] of [["user_id", 128], ["consumer_key", 512], ["consumer_secret", 512], ["key_permissions", 16], ["key_id", 256]]) if (body[key] !== undefined && (typeof body[key] !== "string" || !body[key] || body[key].length > max)) throw new ProductError("INVALID_REQUEST", "Callback payload is invalid.", 400);
+  if (body.key_id !== undefined && (!(Number.isSafeInteger(body.key_id) && body.key_id > 0) && !(typeof body.key_id === "string" && /^[1-9][0-9]{0,15}$/.test(body.key_id)))) throw new ProductError("INVALID_REQUEST", "Callback payload is invalid.", 400);
+  for (const [key, max] of [["user_id", 128], ["consumer_key", 512], ["consumer_secret", 512], ["key_permissions", 16]]) if (body[key] !== undefined && (typeof body[key] !== "string" || !body[key] || body[key].length > max)) throw new ProductError("INVALID_REQUEST", "Callback payload is invalid.", 400);
   for (const key of ["user_id", "consumer_key", "consumer_secret", "key_permissions"]) if (typeof body[key] !== "string" || !body[key]) throw new ProductError("INVALID_REQUEST", "Callback payload is incomplete.", 400);
   if (!USER_ID.test(body.user_id)) throw new ProductError("INVALID_REQUEST", "Callback payload is invalid.", 400);
   if (body.key_permissions !== "read") throw new ProductError("WOO_PERMISSION_INVALID", "WooCommerce read permission is required.", 400);
@@ -54,10 +55,11 @@ function statusFromError(error) { return ["PROVIDER_TIMEOUT", "PROVIDER_RATE_LIM
 function handle(next) { return (req, res) => Promise.resolve(next(req, res)).catch(error => { const safe = safeError(error, req.correlationId); res.status(safe.status).json(safe.body); }); }
 
 export function createWooCommerceRouter(overrides = {}) {
- const deps = { verifyIdentity, callerClient, privilegedClient, wooCommerceRouteConfig, validateWooOriginWithDeadline, createWooAuthUrl, newAttemptToken, captureWooCallback, verifyWooConnection, ...overrides };
+ const deps = { verifyIdentity, callerClient, privilegedClient, wooCommerceRouteConfig, validateWooOriginWithDeadline, createWooAuthUrl, newAttemptToken, captureWooCallback, verifyWooConnection, assertEstablishedWooConnection, ...overrides };
  const router = express.Router();
  const authContext = makeAuthContext(deps);
  router.use(correlationMiddleware);
+ router.use((req, res, next) => { res.set("Cache-Control", "no-store"); if (req.path.endsWith("/woocommerce/return")) res.set("Referrer-Policy", "no-referrer"); next(); });
  router.post("/api/product/woocommerce/authorize", REQUEST_PARSER, handle(async function (req, res) {
   const context = await authContext.call(req);
   const connection = await ownedWooConnection(context.client, context.account.id, req.body?.connection_id);
@@ -88,14 +90,14 @@ export function createWooCommerceRouter(overrides = {}) {
   if (success !== "0" && success !== "1") throw new ProductError("INVALID_REQUEST", "Return status is invalid.", 400);
   if (typeof userId !== "string" || !USER_ID.test(userId)) throw new ProductError("INVALID_REQUEST", "Return token is invalid.", 400);
   const admin = deps.privilegedClient();
-  if (success === "0") { const denied = await admin.rpc("woo_deny_auth_attempt", { p_user_id: userId, p_correlation_id: req.correlationId }); return res.json({ status: denied.error ? "failed" : denied.data ? "denied" : "processing" }); }
+  if (success === "0") { const denied = await admin.rpc("woo_deny_auth_attempt", { p_user_id: userId, p_correlation_id: req.correlationId }); if (denied.error) return res.json({ status: "failed" }); if (denied.data) return res.json({ status: "denied" }); const existing = await admin.from("woocommerce_auth_attempts").select("status").eq("user_id", userId).maybeSingle(); const state = existing.data?.status; return res.json({ status: state === "consumed" ? "connected" : ["failed", "expired", "superseded"].includes(state) ? "failed" : state === "denied" ? "denied" : "processing" }); }
   try { const row = await admin.from("woocommerce_auth_attempts").select("id,status,connection_id").eq("user_id", userId).maybeSingle(); if (row.error || !row.data) return res.json({ status: "processing" }); if (row.data.status === "consumed") return res.json({ status: "connected" }); if (row.data.status !== "callback_received") return res.json({ status: row.data.status === "denied" ? "denied" : row.data.status === "failed" ? "failed" : "processing" }); await deps.verifyWooConnection(admin, { attemptId: row.data.id, correlationId: req.correlationId }); return res.json({ status: "connected" }); } catch (error) { return res.json({ status: statusFromError(error) }); }
 }));
 
  router.post("/api/product/woocommerce/verify", REQUEST_PARSER, handle(async function (req, res) {
   const context = await authContext.call(req);
   const connection = await ownedWooConnection(context.client, context.account.id, req.body?.connection_id);
-  if (connection.status === "connected") return res.json({ status: "connected" });
+  if (connection.status === "connected") { await deps.assertEstablishedWooConnection(deps.privilegedClient(), connection.id); return res.json({ status: "connected" }); }
   try { await deps.verifyWooConnection(deps.privilegedClient(), { connectionId: connection.id, correlationId: req.correlationId }); return res.json({ status: "connected" }); } catch (error) { if (error.code === "WOO_VERIFICATION_NOT_READY" || ["PROVIDER_TIMEOUT", "PROVIDER_RATE_LIMITED", "PROVIDER_UNAVAILABLE", "PROVIDER_MALFORMED_RESPONSE", "PROVIDER_RESPONSE_TOO_LARGE", "PROVIDER_REDIRECT_LIMIT"].includes(error.code)) return res.json({ status: "processing" }); throw error; }
 }));
 
