@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
-import { appendStorePath,validateWooOrigin } from "./woocommerceEgress.js";
+import { appendStorePath,validateWooOriginWithDeadline } from "./woocommerceEgress.js";
 import { ProductError } from "./errors.js";
 function trustedUrl(value,productOrigin){let u,p;try{u=new URL(value);p=new URL(productOrigin);}catch{throw new ProductError('INVALID_PRODUCT_URL','Product URL is invalid.',500);}if(u.protocol!=='https:'||u.username||u.password||u.origin!==p.origin)throw new ProductError('INVALID_PRODUCT_URL','Product URL is invalid.',500);return u.toString();}
 export function createWooAuthUrl({origin,appName,returnUrl,callbackUrl,productOrigin,userId}={}){if(![appName,userId,returnUrl,callbackUrl,productOrigin].every(v=>typeof v==='string'&&v.trim()))throw new ProductError('INVALID_AUTH_CONFIGURATION','WooCommerce authorisation configuration is incomplete.',500);let base;try{base=new URL(origin);}catch{throw new ProductError('INVALID_STORE_URL','Store URL is invalid.',400);}if(base.protocol!=='https:'||base.username||base.password)throw new ProductError('INVALID_STORE_URL','Store URL is invalid.',400);const url=appendStorePath(base,'wc-auth/v1/authorize');for(const[k,v]of Object.entries({app_name:appName,scope:'read',user_id:userId,return_url:trustedUrl(returnUrl,productOrigin),callback_url:trustedUrl(callbackUrl,productOrigin)}))url.searchParams.set(k,v);return url.toString();}
-export async function createValidatedWooAuthUrl(options,deps){const checked=await validateWooOrigin(options.origin,deps);return createWooAuthUrl({...options,origin:checked.url.toString()});}
+export async function createValidatedWooAuthUrl(options,deps){const checked=await validateWooOriginWithDeadline(options.origin,deps);return createWooAuthUrl({...options,origin:checked.url.toString()});}
 export function newAttemptToken(){return crypto.randomBytes(32).toString('base64url');}
