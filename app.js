@@ -5,11 +5,13 @@ import healthRoute from "./routes/health.js";
 import generateArticleRoute from "./routes/generateArticle.js";
 import createSeoArticleWorkflowRoute from "./routes/createSeoArticleWorkflow.js";
 import productKernelRoute from "./routes/productKernel.js";
+import woocommerceRoute from "./routes/woocommerce.js";
 import { randomUUID } from "node:crypto";
 
 const app = express();
 
 app.use(cors());
+app.use(woocommerceRoute);
 app.use(bodyParser.json());
 app.use((error, req, res, next) => {
   if (!req.path.startsWith("/api/product/")) return next(error);

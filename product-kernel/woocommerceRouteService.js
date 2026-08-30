@@ -1,0 +1,29 @@
+import { ProductError } from "./errors.js";
+import { establishWooConnection } from "./woocommerceCallback.js";
+
+const CALLBACK_STATES = new Set(["callback_received"]);
+const exactCredentialKeys = ["consumerKey", "consumerSecret"];
+
+function parseCredential(value) {
+  let parsed;
+  try { parsed = typeof value === "string" ? JSON.parse(value) : value; } catch { throw new ProductError("WOO_CREDENTIAL_INVALID", "WooCommerce credentials are invalid.", 502); }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed) || Object.keys(parsed).sort().join(",") !== exactCredentialKeys.join(",") || exactCredentialKeys.some(key => typeof parsed[key] !== "string" || !parsed[key] || parsed[key].length > 512)) throw new ProductError("WOO_CREDENTIAL_INVALID", "WooCommerce credentials are invalid.", 502);
+  return { consumerKey: parsed.consumerKey, consumerSecret: parsed.consumerSecret };
+}
+
+export async function loadWooVerificationContext(admin, { connectionId, attemptId } = {}) {
+  let query = admin.from("woocommerce_auth_attempts").select("id,connection_id,canonical_base_url,status,credential_reference").eq("status", "callback_received").not("credential_reference", "is", null);
+  query = attemptId ? query.eq("id", attemptId) : query.eq("connection_id", connectionId);
+  const result = await query.maybeSingle();
+  if (result.error) throw new ProductError("WOO_VERIFICATION_UNAVAILABLE", "WooCommerce verification is unavailable.", 503);
+  const attempt = result.data;
+  if (!attempt || !CALLBACK_STATES.has(attempt.status) || !attempt.credential_reference) throw new ProductError("WOO_VERIFICATION_NOT_READY", "WooCommerce verification is not ready.", 409);
+  const secret = await admin.rpc("vault_read_secret", { secret_id: attempt.credential_reference });
+  if (secret.error || secret.data === null || secret.data === undefined) throw new ProductError("WOO_CREDENTIAL_INVALID", "WooCommerce credentials are invalid.", 502);
+  return { attempt, credentials: parseCredential(secret.data) };
+}
+
+export async function verifyWooConnection(admin, options, deps = {}) {
+  const context = await loadWooVerificationContext(admin, options);
+  return establishWooConnection(admin, { attempt: context.attempt, credentials: context.credentials, correlationId: options.correlationId }, deps);
+}
