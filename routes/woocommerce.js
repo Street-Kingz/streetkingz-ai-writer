@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { randomUUID } from "node:crypto";
 import { parseBearer, verifyIdentity, callerClient } from "../product-kernel/auth.js";
 import { privilegedClient } from "../product-kernel/privileged.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
@@ -8,7 +7,7 @@ import { ProductError, safeError } from "../product-kernel/errors.js";
 import { resolveAccount } from "../product-kernel/repository.js";
 import { createWooAuthUrl, newAttemptToken } from "../product-kernel/woocommerceAuth.js";
 import { captureWooCallback } from "../product-kernel/woocommerceCallback.js";
-import { assertEstablishedWooConnection, verifyWooConnection } from "../product-kernel/woocommerceRouteService.js";
+import { assertEstablishedWooConnection, establishedWooStatus, verifyWooConnection } from "../product-kernel/woocommerceRouteService.js";
 import { wooCommerceRouteConfig } from "../config/productKernel.js";
 import { validateWooOriginWithDeadline } from "../product-kernel/woocommerceEgress.js";
 
@@ -55,7 +54,7 @@ function statusFromError(error) { return ["PROVIDER_TIMEOUT", "PROVIDER_RATE_LIM
 function handle(next) { return (req, res) => Promise.resolve(next(req, res)).catch(error => { const safe = safeError(error, req.correlationId); res.status(safe.status).json(safe.body); }); }
 
 export function createWooCommerceRouter(overrides = {}) {
- const deps = { verifyIdentity, callerClient, privilegedClient, wooCommerceRouteConfig, validateWooOriginWithDeadline, createWooAuthUrl, newAttemptToken, captureWooCallback, verifyWooConnection, assertEstablishedWooConnection, ...overrides };
+ const deps = { verifyIdentity, callerClient, privilegedClient, wooCommerceRouteConfig, validateWooOriginWithDeadline, createWooAuthUrl, newAttemptToken, captureWooCallback, verifyWooConnection, assertEstablishedWooConnection, establishedWooStatus, ...overrides };
  const router = express.Router();
  const authContext = makeAuthContext(deps);
  router.use(correlationMiddleware);
@@ -80,7 +79,6 @@ export function createWooCommerceRouter(overrides = {}) {
   const callback = safeCallbackBody(req.body);
   const result = await deps.captureWooCallback(deps.privilegedClient(), callback);
   res.status(200).end();
-  setImmediate(async () => { try { await deps.verifyWooConnection(deps.privilegedClient(), { attemptId: result.attemptId, correlationId: randomUUID() }); } catch { /* Durable retry is exposed through return/verify routes. */ } });
  }));
  router.use((error, req, res, next) => { if (!req.path.endsWith("/woocommerce/callback")) return next(error); const mapping = { "entity.parse.failed": [400, "INVALID_REQUEST", "Malformed JSON request."], "entity.too.large": [413, "PAYLOAD_TOO_LARGE", "Request body is too large."], "encoding.unsupported": [415, "UNSUPPORTED_ENCODING", "Request encoding is not supported."], "charset.unsupported": [415, "UNSUPPORTED_ENCODING", "Request encoding is not supported."] }; const [status, code, message] = mapping[error?.type] || [400, "INVALID_REQUEST", "Invalid request body."]; res.status(status).json({ error: { code, message, correlation_id: req.correlationId } }); });
 
@@ -91,7 +89,7 @@ export function createWooCommerceRouter(overrides = {}) {
   if (typeof userId !== "string" || !USER_ID.test(userId)) throw new ProductError("INVALID_REQUEST", "Return token is invalid.", 400);
   const admin = deps.privilegedClient();
   if (success === "0") { const denied = await admin.rpc("woo_deny_auth_attempt", { p_user_id: userId, p_correlation_id: req.correlationId }); if (denied.error) return res.json({ status: "failed" }); if (denied.data) return res.json({ status: "denied" }); const existing = await admin.from("woocommerce_auth_attempts").select("status").eq("user_id", userId).maybeSingle(); const state = existing.data?.status; return res.json({ status: state === "consumed" ? "connected" : ["failed", "expired", "superseded"].includes(state) ? "failed" : state === "denied" ? "denied" : "processing" }); }
-  try { const row = await admin.from("woocommerce_auth_attempts").select("id,status,connection_id").eq("user_id", userId).maybeSingle(); if (row.error || !row.data) return res.json({ status: "processing" }); if (row.data.status === "consumed") return res.json({ status: "connected" }); if (row.data.status !== "callback_received") return res.json({ status: row.data.status === "denied" ? "denied" : row.data.status === "failed" ? "failed" : "processing" }); await deps.verifyWooConnection(admin, { attemptId: row.data.id, correlationId: req.correlationId }); return res.json({ status: "connected" }); } catch (error) { return res.json({ status: statusFromError(error) }); }
+  try { const row = await admin.from("woocommerce_auth_attempts").select("id,status,connection_id").eq("user_id", userId).maybeSingle(); if (row.error || !row.data) return res.json({ status: "processing" }); if (row.data.status === "consumed") return res.json({ status: await deps.establishedWooStatus(admin, row.data.connection_id) }); if (row.data.status !== "callback_received") return res.json({ status: ["failed", "expired", "superseded"].includes(row.data.status) ? "failed" : row.data.status === "denied" ? "denied" : "processing" }); await deps.verifyWooConnection(admin, { attemptId: row.data.id, correlationId: req.correlationId }); return res.json({ status: "connected" }); } catch (error) { return res.json({ status: error.code === "WOO_CONNECTION_DISCONNECTED" ? "disconnected" : statusFromError(error) }); }
 }));
 
  router.post("/api/product/woocommerce/verify", REQUEST_PARSER, handle(async function (req, res) {
