@@ -13,6 +13,8 @@ begin
  if auth.role()<>'service_role' then raise exception 'SERVICE_ROLE_REQUIRED';end if;
  select * into s from public.commerce_stores where id=p_store_id and provider='woocommerce' for update;
  if not found then raise exception 'STORE_NOT_FOUND';end if;
+ update public.commerce_sync_generations set state='failed',error_code='SYNC_STALE_RECOVERED',completed_at=clock_timestamp() where store_id=s.id and state='pending' and started_at < clock_timestamp()-interval '30 minutes';
+ if exists(select 1 from public.commerce_sync_generations where store_id=s.id and state='pending') then raise exception 'SYNC_ALREADY_RUNNING';end if;
  insert into public.commerce_sync_generations(store_id,state,snapshot_kind) values(s.id,'pending','complete') returning * into g;
  update public.commerce_stores set sync_state='pending',last_attempted_at=clock_timestamp() where id=s.id;
  return g.id;
@@ -64,6 +66,14 @@ select l.order_id,o.store_id,o.generation_id,l.product_source_id,l.variation_sou
  sum(case when o.recognition_state='recognised' then coalesce(l.tax,0)-coalesce(l.refund_tax,0) else 0 end) as product_tax
 from public.commerce_order_lines l join public.commerce_orders o on o.id=l.order_id group by l.order_id,o.store_id,o.generation_id,l.product_source_id,l.variation_source_id;
 
+create or replace view public.commerce_product_net_sales_by_generation as
+select store_id,generation_id,product_source_id,variation_source_id,
+ sum(product_net_sales_ex_tax) as product_net_sales_ex_tax,
+ sum(product_tax) as product_tax
+from public.commerce_product_net_sales
+group by store_id,generation_id,product_source_id,variation_source_id;
+
 revoke all on function public.commerce_begin_initial_sync(uuid,uuid),public.commerce_mark_sync_failed(uuid,bigint,text,boolean),public.commerce_stage_initial_snapshot(uuid,bigint,jsonb,jsonb,jsonb,jsonb,jsonb,jsonb,jsonb),public.commerce_complete_initial_sync(uuid,bigint) from public,anon,authenticated;
 grant execute on function public.commerce_begin_initial_sync(uuid,uuid),public.commerce_mark_sync_failed(uuid,bigint,text,boolean),public.commerce_stage_initial_snapshot(uuid,bigint,jsonb,jsonb,jsonb,jsonb,jsonb,jsonb,jsonb),public.commerce_complete_initial_sync(uuid,bigint) to service_role;
 grant select on public.commerce_product_net_sales to service_role;
+grant select on public.commerce_product_net_sales_by_generation to service_role;

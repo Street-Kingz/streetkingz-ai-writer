@@ -34,6 +34,8 @@ test("V1-03 initial snapshot RPC stages, promotes, derives sales, and preserves 
   const lines = [{ order_source_id: 30, source_line_id: 300, product_source_id: 10, variation_source_id: null, quantity: 1, subtotal: "10.00", total: "10.00", tax: "2.00", refunded_quantity: 1, refund_total: "2.00", refund_tax: "0.40" }];
   const generation = await admin.rpc("commerce_begin_initial_sync", { p_store_id: store.id, p_correlation_id: crypto.randomUUID() });
   assert.ifError(generation.error);
+  const concurrent = await admin.rpc("commerce_begin_initial_sync", { p_store_id: store.id, p_correlation_id: crypto.randomUUID() });
+  assert.ok(concurrent.error?.message.includes("SYNC_ALREADY_RUNNING"));
   assert.equal((await admin.from("commerce_stores").select("current_generation,sync_state").eq("id", store.id).single()).data.sync_state, "pending");
   const staged = await admin.rpc("commerce_stage_initial_snapshot", { p_store_id: store.id, p_generation_id: generation.data, p_products: products, p_variations: [], p_categories: categories, p_links: [{ product_source_id: 10, category_source_id: 20 }], p_orders: orders, p_lines: lines, p_adjustments: [] });
   assert.ifError(staged.error);
@@ -56,4 +58,6 @@ test("V1-03 initial snapshot RPC stages, promotes, derives sales, and preserves 
   assert.equal(lkg.current_generation, generation.data);
   assert.equal(lkg.sync_state, "partial");
   assert.equal((await admin.from("commerce_products").select("source_id").eq("generation_id", generation.data)).data.length, 1);
+  const aggregate = (await admin.from("commerce_product_net_sales_by_generation").select("product_source_id,product_net_sales_ex_tax").eq("generation_id", generation.data).single()).data;
+  assert.equal(String(aggregate.product_net_sales_ex_tax), "8");
 });

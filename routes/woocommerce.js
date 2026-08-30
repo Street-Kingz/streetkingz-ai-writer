@@ -7,7 +7,7 @@ import { ProductError, safeError } from "../product-kernel/errors.js";
 import { resolveAccount } from "../product-kernel/repository.js";
 import { createWooAuthUrl, newAttemptToken } from "../product-kernel/woocommerceAuth.js";
 import { captureWooCallback } from "../product-kernel/woocommerceCallback.js";
-import { assertEstablishedWooConnection, establishedWooStatus, verifyWooConnection, loadWooStoreContext } from "../product-kernel/woocommerceRouteService.js";
+import { assertEstablishedWooConnection, establishedWooStatus, verifyWooConnection, loadWooStoreContext, assertWooSyncActive } from "../product-kernel/woocommerceRouteService.js";
 import { collectInitialCommerce } from "../product-kernel/woocommerceCommerce.js";
 import { wooCollectionRequest, wooRequest } from "../product-kernel/woocommerceEgress.js";
 import { wooCommerceRouteConfig } from "../config/productKernel.js";
@@ -56,7 +56,7 @@ function statusFromError(error) { return ["PROVIDER_TIMEOUT", "PROVIDER_RATE_LIM
 function handle(next) { return (req, res) => Promise.resolve(next(req, res)).catch(error => { const safe = safeError(error, req.correlationId); res.status(safe.status).json(safe.body); }); }
 
 export function createWooCommerceRouter(overrides = {}) {
- const deps = { verifyIdentity, callerClient, privilegedClient, wooCommerceRouteConfig, validateWooOriginWithDeadline, createWooAuthUrl, newAttemptToken, captureWooCallback, verifyWooConnection, assertEstablishedWooConnection, establishedWooStatus, loadWooStoreContext, collectInitialCommerce, wooCollectionRequest, wooRequest, initialSyncPerPage: Math.min(100, Math.max(1, Number(process.env.WOO_SYNC_PAGE_SIZE || 100))), ...overrides };
+ const deps = { verifyIdentity, callerClient, privilegedClient, wooCommerceRouteConfig, validateWooOriginWithDeadline, createWooAuthUrl, newAttemptToken, captureWooCallback, verifyWooConnection, assertEstablishedWooConnection, establishedWooStatus, loadWooStoreContext, assertWooSyncActive, collectInitialCommerce, wooCollectionRequest, wooRequest, initialSyncPerPage: Math.min(100, Math.max(1, Number(process.env.WOO_SYNC_PAGE_SIZE || 100))), ...overrides };
  const router = express.Router();
  const authContext = makeAuthContext(deps);
  router.use(correlationMiddleware);
@@ -108,16 +108,18 @@ export function createWooCommerceRouter(overrides = {}) {
   const established = await deps.loadWooStoreContext(admin, connection.id);
   const startedAt = new Date();
   const generation = await admin.rpc("commerce_begin_initial_sync", { p_store_id: established.store.id, p_correlation_id: req.correlationId });
-  if (generation.error) throw generation.error;
+  if (generation.error) { if (generation.error.message?.includes("SYNC_ALREADY_RUNNING")) throw new ProductError("SYNC_ALREADY_RUNNING", "A WooCommerce evidence sync is already running.", 409); throw generation.error; }
   const generationId = generation.data;
   try {
-   const provider = { collection: (path, options) => deps.wooCollectionRequest(established.store.canonical_base_url, `wp-json/wc/v3/${path}`, { ...options, credentials: established.credentials }), get: (path, options) => deps.wooRequest(established.store.canonical_base_url, `wp-json/wc/v3/${path}`, { ...options, credentials: established.credentials }) };
+   const provider = { collection: async (path, options) => { await deps.assertWooSyncActive(admin, { connectionId: connection.id, storeId: established.store.id, generationId }); return deps.wooCollectionRequest(established.store.canonical_base_url, `wp-json/wc/v3/${path}`, { ...options, credentials: established.credentials }); }, get: async (path, options) => { await deps.assertWooSyncActive(admin, { connectionId: connection.id, storeId: established.store.id, generationId }); return deps.wooRequest(established.store.canonical_base_url, `wp-json/wc/v3/${path}`, { ...options, credentials: established.credentials }); } };
    const snapshot = await deps.collectInitialCommerce(provider, { syncStartedAt: startedAt, perPage: deps.initialSyncPerPage || 100 });
    const productIds = new Set(snapshot.products.map(row => row.source_id));
    const categoryIds = new Set(snapshot.categories.map(row => row.source_id));
    if ([...snapshot.products, ...snapshot.variations, ...snapshot.categories, ...snapshot.orders].some(row => !Number.isSafeInteger(row.source_id) || row.source_id <= 0) || snapshot.variations.some(row => !Number.isSafeInteger(row.parent_source_id) || row.parent_source_id <= 0 || !productIds.has(row.parent_source_id)) || snapshot.links.some(row => !productIds.has(row.product_source_id) || !categoryIds.has(row.category_source_id))) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce evidence could not be reconciled.", 502);
+   await deps.assertWooSyncActive(admin, { connectionId: connection.id, storeId: established.store.id, generationId });
    const staged = await admin.rpc("commerce_stage_initial_snapshot", { p_store_id: established.store.id, p_generation_id: generationId, p_products: snapshot.products, p_variations: snapshot.variations, p_categories: snapshot.categories, p_links: snapshot.links, p_orders: snapshot.orders, p_lines: snapshot.lines, p_adjustments: snapshot.adjustments });
    if (staged.error) throw staged.error;
+   await deps.assertWooSyncActive(admin, { connectionId: connection.id, storeId: established.store.id, generationId });
    const completed = await admin.rpc("commerce_complete_initial_sync", { p_store_id: established.store.id, p_generation_id: generationId });
    if (completed.error) throw completed.error;
    return res.status(201).json({ status: "complete", counts: { products: snapshot.products.length, variations: snapshot.variations.length, categories: snapshot.categories.length, links: snapshot.links.length, orders: snapshot.orders.length, lines: snapshot.lines.length, adjustments: snapshot.adjustments.length }, order_window: { start: snapshot.orderWindowStart, end: snapshot.orderWindowEnd } });

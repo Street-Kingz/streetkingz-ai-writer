@@ -1,24 +1,24 @@
 import { ProductError } from "./errors.js";
 
 const FIELDS = {
-  products: "id,name,slug,permalink,type,status,sku,price,regular_price,sale_price,manage_stock,stock_quantity,stock_status,date_created_gmt,date_modified_gmt,categories",
-  variations: "id,parent,sku,attributes,regular_price,price,sale_price,manage_stock,stock_quantity,stock_status,status,date_created_gmt,date_modified_gmt",
-  categories: "id,name,slug,parent",
-  orders: "id,status,currency,date_created_gmt,date_modified_gmt,discount_total,shipping_total,total,total_tax,prices_include_tax,line_items,refunds"
+  products: ["id","name","slug","permalink","type","status","sku","price","regular_price","sale_price","manage_stock","stock_quantity","stock_status","date_created_gmt","date_modified_gmt","categories"],
+  variations: ["id","parent_id","sku","attributes","regular_price","price","sale_price","manage_stock","stock_quantity","stock_status","status","date_created_gmt","date_modified_gmt"],
+  categories: ["id","name","slug","parent"],
+  orders: ["id","status","currency","date_created_gmt","date_modified_gmt","discount_total","shipping_total","total","total_tax","prices_include_tax","line_items","refunds"]
 };
+export { FIELDS };
 const MAX_PAGES = 10000;
 const positiveInt = value => Number.isSafeInteger(value) && value > 0 ? value : null;
 const text = value => typeof value === "string" && value.length ? value : null;
 const decimal = value => typeof value === "string" && /^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$/.test(value) ? value : null;
 const date = value => typeof value === "string" && !Number.isNaN(Date.parse(value)) ? new Date(value).toISOString() : null;
 
+function decimalPair(value) { const raw = String(value || "0"); const negative = raw.startsWith("-"); const [integer = "0", fraction = ""] = raw.replace(/^-/, "").split("."); return { negative, integer, fraction }; }
 function addDecimal(left, right) {
-  const [li = "0", lf = ""] = String(left || "0").replace(/^-/, "").split(".");
-  const [ri = "0", rf = ""] = String(right || "0").replace(/^-/, "").split(".");
-  const scale = Math.max(lf.length, rf.length);
-  const integer = BigInt(li) * (10n ** BigInt(scale)) + BigInt(ri) * (10n ** BigInt(scale)) + BigInt(lf.padEnd(scale, "0")) + BigInt(rf.padEnd(scale, "0"));
-  const divisor = 10n ** BigInt(scale);
-  return scale ? `${integer / divisor}.${String(integer % divisor).padStart(scale, "0")}` : String(integer);
+  const l = decimalPair(left), r = decimalPair(right), scale = Math.max(l.fraction.length, r.fraction.length), factor = 10n ** BigInt(scale);
+  const signed = (x) => (x.negative ? -1n : 1n) * (BigInt(x.integer) * factor + BigInt(x.fraction.padEnd(scale, "0") || "0"));
+  const value = signed(l) + signed(r), negative = value < 0n, magnitudeValue = negative ? -value : value, divisor = factor, integer = magnitudeValue / divisor, fraction = magnitudeValue % divisor;
+  return negative ? `-${integer}${scale ? `.${String(fraction).padStart(scale, "0")}` : ""}` : `${integer}${scale ? `.${String(fraction).padStart(scale, "0")}` : ""}`;
 }
 function magnitude(value) { const d = decimal(value); return d ? d.replace(/^-/, "") : "0"; }
 function pageHeader(headers, name) {
@@ -49,9 +49,9 @@ export async function paginateWooCollection(provider, path, { fields, query = {}
 }
 
 function normalizeProduct(row) { return { source_id: positiveInt(row.id), name: text(row.name), slug: text(row.slug), canonical_url: text(row.permalink), sku: text(row.sku), product_type: text(row.type), source_status: text(row.status), regular_price: decimal(row.regular_price), current_price: decimal(row.price), sale_price: decimal(row.sale_price), manage_stock: typeof row.manage_stock === "boolean" ? row.manage_stock : null, stock_quantity: typeof row.stock_quantity === "number" && Number.isFinite(row.stock_quantity) ? String(row.stock_quantity) : null, stock_status: text(row.stock_status), source_created_at: date(row.date_created_gmt), source_modified_at: date(row.date_modified_gmt) }; }
-function normalizeVariation(row) { return { source_id: positiveInt(row.id), parent_source_id: positiveInt(row.parent), sku: text(row.sku), attributes: Array.isArray(row.attributes) ? row.attributes.filter(x => x && positiveInt(x.id) && typeof x.name === "string" && typeof x.option === "string").map(x => ({ id: x.id, name: x.name, option: x.option })) : [], regular_price: decimal(row.regular_price), current_price: decimal(row.price), sale_price: decimal(row.sale_price), manage_stock: typeof row.manage_stock === "boolean" ? row.manage_stock : null, stock_quantity: typeof row.stock_quantity === "number" && Number.isFinite(row.stock_quantity) ? String(row.stock_quantity) : null, stock_status: text(row.stock_status), source_status: text(row.status), source_created_at: date(row.date_created_gmt), source_modified_at: date(row.date_modified_gmt) }; }
+function normalizeVariation(row) { return { source_id: positiveInt(row.id), parent_source_id: positiveInt(row.parent_id), sku: text(row.sku), attributes: Array.isArray(row.attributes) ? row.attributes.filter(x => x && typeof x.name === "string" && typeof x.option === "string").map(x => ({ ...(positiveInt(x.id) ? { id: x.id } : {}), name: x.name, option: x.option })) : [], regular_price: decimal(row.regular_price), current_price: decimal(row.price), sale_price: decimal(row.sale_price), manage_stock: typeof row.manage_stock === "boolean" ? row.manage_stock : null, stock_quantity: typeof row.stock_quantity === "number" && Number.isFinite(row.stock_quantity) ? String(row.stock_quantity) : null, stock_status: text(row.stock_status), source_status: text(row.status), source_created_at: date(row.date_created_gmt), source_modified_at: date(row.date_modified_gmt) }; }
 function normalizeCategory(row) { return { source_id: positiveInt(row.id), name: text(row.name), slug: text(row.slug), parent_source_id: row.parent === 0 ? null : positiveInt(row.parent) }; }
-function recognition(status) { return status === "processing" || status === "completed" ? "recognised" : status === "cancelled" || status === "failed" ? "excluded" : status === "pending" || status === "on-hold" ? "unknown" : "unclassified"; }
+function recognition(status) { return status === "processing" || status === "completed" || status === "refunded" ? "recognised" : status === "cancelled" || status === "failed" ? "excluded" : status === "pending" || status === "on-hold" ? "unknown" : "unclassified"; }
 
 export function normalizeRefund(refund, orderId) {
   const id = positiveInt(refund.id);
@@ -62,7 +62,13 @@ export function normalizeRefund(refund, orderId) {
     const sourceLine = positiveInt(Number(meta?.value));
     if (sourceLine) lines.push({ source_line_id: sourceLine, refunded_quantity: typeof line.quantity === "number" ? String(Math.abs(line.quantity)) : "0", refund_total: magnitude(line.total), refund_tax: magnitude(line.total_tax) });
   }
-  return { order_source_id: orderId, provider_adjustment_id: String(id), amount: magnitude(refund.amount), lines, has_unattributed_line: Array.isArray(refund.line_items) && refund.line_items.length > lines.length };
+  const exactGross = lines.reduce((sum, line) => addDecimal(sum, addDecimal(line.refund_total, line.refund_tax)), "0");
+  const otherGross = [...(Array.isArray(refund.shipping_lines) ? refund.shipping_lines : []), ...(Array.isArray(refund.fee_lines) ? refund.fee_lines : [])].reduce((sum, line) => addDecimal(sum, addDecimal(magnitude(line.total), magnitude(line.total_tax))), "0");
+  const total = magnitude(refund.amount);
+  const used = addDecimal(exactGross, otherGross);
+  const remainderCandidate = addDecimal(total, `-${used}`);
+  const remainder = remainderCandidate.startsWith("-") ? "0" : remainderCandidate;
+  return { order_source_id: orderId, provider_adjustment_id: String(id), amount: total, lines, unattributed_amount: addDecimal(otherGross, remainder) };
 }
 function normalizeOrder(row, refundTotal) { return { source_id: positiveInt(row.id), source_status: text(row.status) || "unknown", recognition_state: recognition(row.status), currency: text(row.currency), source_created_at: date(row.date_created_gmt), source_modified_at: date(row.date_modified_gmt), order_total: decimal(row.total), tax_total: decimal(row.total_tax), shipping_total: decimal(row.shipping_total), discount_total: decimal(row.discount_total), refund_total: refundTotal, prices_include_tax: typeof row.prices_include_tax === "boolean" ? row.prices_include_tax : null }; }
 
@@ -78,7 +84,7 @@ export async function collectInitialCommerce(provider, { syncStartedAt = new Dat
   const ordersRaw = await paginateWooCollection(provider, "orders", { fields: FIELDS.orders, perPage, query: { after: orderWindowStart, before: orderWindowEnd, dates_are_gmt: "true", status: "any", orderby: "date", order: "asc" } });
   const refunds = [];
   for (const raw of ordersRaw) {
-    for (const summary of Array.isArray(raw.refunds) ? raw.refunds : []) refunds.push(normalizeRefund(await provider.get(`orders/${positiveInt(raw.id)}/refunds/${positiveInt(summary.id || summary.refund_id)}`, { fields: "id,amount,line_items" }), positiveInt(raw.id)));
+    for (const summary of Array.isArray(raw.refunds) ? raw.refunds : []) refunds.push(normalizeRefund(await provider.get(`orders/${positiveInt(raw.id)}/refunds/${positiveInt(summary.id || summary.refund_id)}`, { fields: ["id","amount","line_items","shipping_lines","fee_lines","taxes"] }), positiveInt(raw.id)));
   }
   const refundTotals = new Map();
   for (const refund of refunds) refundTotals.set(refund.order_source_id, addDecimal(refundTotals.get(refund.order_source_id), refund.amount));
@@ -87,16 +93,12 @@ export async function collectInitialCommerce(provider, { syncStartedAt = new Dat
   for (const raw of ordersRaw) {
     for (const line of Array.isArray(raw.line_items) ? raw.line_items : []) lines.push({ order_source_id: positiveInt(raw.id), source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : null, subtotal: decimal(line.subtotal), total: decimal(line.total), tax: decimal(line.total_tax), refunded_quantity: "0", refund_total: "0", refund_tax: "0" });
     for (const refund of refunds.filter(item => item.order_source_id === positiveInt(raw.id))) {
-      if (refund.has_unattributed_line) {
-        adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: refund.provider_adjustment_id, amount: `-${refund.amount}`, product_source_id: null, variation_source_id: null });
-        continue;
-      }
       for (const refundLine of refund.lines) {
         const target = lines.find(line => line.order_source_id === refund.order_source_id && line.source_line_id === refundLine.source_line_id);
         if (target) { target.refunded_quantity = addDecimal(target.refunded_quantity, refundLine.refunded_quantity); target.refund_total = addDecimal(target.refund_total, refundLine.refund_total); target.refund_tax = addDecimal(target.refund_tax, refundLine.refund_tax); }
-        else adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: refund.provider_adjustment_id, amount: `-${refund.amount}`, product_source_id: null, variation_source_id: null });
+        else adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: `${refund.provider_adjustment_id}:unmatched:${refundLine.source_line_id}`, amount: `-${addDecimal(refundLine.refund_total, refundLine.refund_tax)}`, product_source_id: null, variation_source_id: null });
       }
-      if (!refund.lines.length) adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: refund.provider_adjustment_id, amount: `-${refund.amount}`, product_source_id: null, variation_source_id: null });
+      if (!/^0(?:\.0+)?$/.test(refund.unattributed_amount)) adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: `${refund.provider_adjustment_id}:unattributed`, amount: `-${refund.unattributed_amount}`, product_source_id: null, variation_source_id: null });
     }
   }
   const links = [];

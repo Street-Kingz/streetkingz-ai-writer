@@ -52,3 +52,11 @@ export async function loadWooStoreContext(admin, connectionId) {
   if (secret.error || secret.data === null || secret.data === undefined) throw new ProductError("WOO_CREDENTIAL_INVALID", "WooCommerce credentials are invalid.", 502);
   return { connection: connection.data, store: store.data, credentials: parseCredential(secret.data) };
 }
+
+export async function assertWooSyncActive(admin, { connectionId, storeId, generationId }) {
+  const connection = await admin.from("connections").select("id,business_id,provider_type,status,consent_state").eq("id", connectionId).maybeSingle();
+  const store = await admin.from("commerce_stores").select("id,business_id,connection_id,provider").eq("id", storeId).maybeSingle();
+  const generation = await admin.from("commerce_sync_generations").select("id,store_id,state").eq("id", generationId).maybeSingle();
+  if (connection.error || store.error || generation.error || !connection.data || !store.data || !generation.data || connection.data.provider_type !== "woocommerce" || connection.data.status !== "connected" || connection.data.consent_state !== "granted" || store.data.business_id !== connection.data.business_id || store.data.connection_id !== connection.data.id || store.data.provider !== "woocommerce" || generation.data.store_id !== store.data.id || generation.data.state !== "pending") throw new ProductError("SYNC_CANCELLED", "WooCommerce evidence sync is no longer active.", 409);
+  return true;
+}
