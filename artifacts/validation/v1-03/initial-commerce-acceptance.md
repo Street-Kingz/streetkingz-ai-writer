@@ -5,7 +5,7 @@ Status: BLOCKED: required real refund fixture and full commercial reconciliation
 Deterministic initial-sync collector/normaliser: 7 passed, 0 failed.
 Public WooCommerce route suite: 17 passed, 0 failed.
 Frozen foundation suite: 68 passed, 0 failed.
-Real local V1-03 lifecycle/commerce integration: 61 passed, 0 failed.
+Real local V1-03 lifecycle/commerce integration: 63 passed, 0 failed.
 V1-02 unit regression: 9 passed, 0 failed.
 V1-02 real local integration: 1 passed, 0 failed.
 Full npm suite: 1010 tests; 1006 passed, 0 failed, 4 skipped.
@@ -21,11 +21,13 @@ The real Product sync promoted a complete candidate for those available
 fixtures and the disconnected historical success=1 and success=0 return URLs
 both reported disconnected.
 
-The disposable fixture did not yield the required actual refund resources:
-Woo's admin refund helper returned a generic error, so partial/full,
-unattributed, mixed-refund, and independent commercial-total reconciliation
-remain unproven. No complete real commercial acceptance is claimed.
-refund, pagination, or commercial totals are claimed here. The temporary
+The disposable refund helper was diagnosed and corrected locally: the prior
+failure was the fixture code treating Woo's integer order-item ID as an item
+object. One native `wc_create_refund()` partial refund is now proven with a
+real refund ID, parent order, and `_refunded_item_id`. The full required real
+refund matrix, Product sync using those refunds, and independent commercial
+total reconciliation were not completed in this run. No complete real
+commercial acceptance is claimed. The temporary
 Woo containers, tunnels, credentials, and logs were removed after the run.
 
 The initial-sync implementation now uses explicit `_fields` arrays, current
