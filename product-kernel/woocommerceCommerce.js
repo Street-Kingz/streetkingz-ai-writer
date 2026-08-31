@@ -10,7 +10,7 @@ export { FIELDS };
 export const INCREMENTAL_PRODUCT_FIELDS = ["id", "type", "status", "date_modified_gmt", "categories.id"];
 // Woo 11.0.1 did not advance an Order's modified timestamp for a rapid line-total edit.
 // Keep only the strict commercial line fingerprint in the inventory response.
-export const INCREMENTAL_ORDER_FIELDS = ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "refunds", "line_items"];
+export const INCREMENTAL_ORDER_FIELDS = ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "prices_include_tax", "refunds", "line_items"];
 const MAX_PAGES = 10000;
 const positiveInt = value => Number.isSafeInteger(value) && value > 0 ? value : null;
 const text = value => typeof value === "string" && value.length ? value : null;
@@ -158,13 +158,13 @@ function withinTimestampBoundary(value, previousSuccessfulAt, precisionMs) {
   return Number.isFinite(sourceMs) && Number.isFinite(boundaryMs) && sourceMs >= boundaryMs - precisionMs && sourceMs <= boundaryMs + precisionMs;
 }
 function orderLineFingerprint(lines) {
-  return (lines || []).map(line => ({ source_line_id: line.source_line_id, product_source_id: line.product_source_id, variation_source_id: line.variation_source_id, quantity: canonicalDecimal(line.quantity), total: canonicalDecimal(line.total), tax: canonicalDecimal(line.tax) })).sort((a, b) => a.source_line_id - b.source_line_id);
+  return (lines || []).map(line => ({ source_line_id: line.source_line_id, product_source_id: line.product_source_id, variation_source_id: line.variation_source_id, quantity: canonicalDecimal(line.quantity), subtotal: canonicalDecimal(line.subtotal), total: canonicalDecimal(line.total), tax: canonicalDecimal(line.tax) })).sort((a, b) => a.source_line_id - b.source_line_id);
 }
 function inventoryLineFingerprint(row) {
-  return orderLineFingerprint((Array.isArray(row.line_items) ? row.line_items : []).map(line => ({ source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : line.quantity, total: line.total, tax: line.total_tax })));
+  return orderLineFingerprint((Array.isArray(row.line_items) ? row.line_items : []).map(line => ({ source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : line.quantity, subtotal: line.subtotal, total: line.total, tax: line.total_tax })));
 }
 function sameOrderInventory(inventory, current, currentLines, previousSuccessfulAt, precisionMs) {
-  return current && positiveInt(inventory.id) === current.source_id && (text(inventory.status) || "unknown") === current.source_status && text(inventory.currency) === current.currency && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && sameMoney(inventory.total, current.order_total) && sameMoney(inventory.total_tax, current.tax_total) && sameMoney(inventory.discount_total, current.discount_total) && sameMoney(inventory.shipping_total, current.shipping_total) && sameCanonical(canonicalValue(inventoryLineFingerprint(inventory)), canonicalValue(orderLineFingerprint(currentLines))) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs);
+  return current && positiveInt(inventory.id) === current.source_id && (text(inventory.status) || "unknown") === current.source_status && text(inventory.currency) === current.currency && canonicalTimestamp(inventory.date_created_gmt) === canonicalTimestamp(current.source_created_at) && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && sameMoney(inventory.total, current.order_total) && sameMoney(inventory.total_tax, current.tax_total) && sameMoney(inventory.discount_total, current.discount_total) && sameMoney(inventory.shipping_total, current.shipping_total) && inventory.prices_include_tax === current.prices_include_tax && sameCanonical(canonicalValue(inventoryLineFingerprint(inventory)), canonicalValue(orderLineFingerprint(currentLines))) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs);
 }
 function sameProductInventory(inventory, current, previousSuccessfulAt, precisionMs) { return current && positiveInt(inventory.id) === current.source_id && inventory.type === current.product_type && inventory.status === current.source_status && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs); }
 function productCategoryIds(product) { return (Array.isArray(product.categories) ? product.categories : []).map(row => positiveInt(row.id)).filter(Boolean).sort((a, b) => a - b); }

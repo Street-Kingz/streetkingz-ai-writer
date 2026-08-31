@@ -4,7 +4,7 @@ import { collectIncrementalCommerce, INCREMENTAL_ORDER_FIELDS } from "../product
 
 const headers = (total, pages = total ? 1 : 0) => ({ "x-wp-total": String(total), "x-wp-totalpages": String(pages) });
 const product = ({ id = 1, type = "simple", status = "publish", modified = "2026-01-02T00:00:00Z", price = "10.00", categories = [{ id: 10 }] } = {}) => ({ id, name: `P${id}`, slug: `p-${id}`, permalink: `https://shop.example/p-${id}`, type, status, sku: `SKU-${id}`, price, regular_price: price, sale_price: "", manage_stock: true, stock_quantity: 3, stock_status: "instock", date_created_gmt: "2026-01-01T00:00:00Z", date_modified_gmt: modified, categories });
-const order = ({ id = 50, status = "completed", modified = "2026-01-02T00:00:00Z", lineProduct = 1, total = "10.00" } = {}) => ({ id, status, currency: "GBP", date_created_gmt: "2025-12-01T00:00:00Z", date_modified_gmt: modified, discount_total: "0", shipping_total: "0", total, total_tax: "2.00", prices_include_tax: false, line_items: [{ id: id * 10, product_id: lineProduct, variation_id: 0, quantity: 1, subtotal: total, total, total_tax: "2.00" }], refunds: [] });
+const order = ({ id = 50, status = "completed", created = "2025-12-01T00:00:00Z", modified = "2026-01-02T00:00:00Z", lineProduct = 1, subtotal = "10.00", total = "10.00", pricesIncludeTax = false } = {}) => ({ id, status, currency: "GBP", date_created_gmt: created, date_modified_gmt: modified, discount_total: "0", shipping_total: "0", total, total_tax: "2.00", prices_include_tax: pricesIncludeTax, line_items: [{ id: id * 10, product_id: lineProduct, variation_id: 0, quantity: 1, subtotal, total, total_tax: "2.00" }], refunds: [] });
 function provider({ products, categories = [{ id: 10, name: "Cat", slug: "cat", parent: 0 }], variations = {}, orders, details = {}, calls }) {
   return {
     collection: async (path) => { calls.push(["collection", path]); const data = path === "products" ? products.map(row => ({ id: row.id, type: row.type, status: row.status, date_modified_gmt: row.date_modified_gmt, categories: row.categories })) : path === "products/categories" ? categories : path === "orders" ? orders : path.startsWith("products/") ? (variations[path] || []) : []; return { data, headers: headers(data.length) }; },
@@ -48,7 +48,7 @@ test("new and changed orders are refreshed while orders outside the rolling wind
 });
 
 test("incremental inventory is minimal and canonicalizes persisted numeric/timestamp facts", async () => {
-  assert.deepEqual(INCREMENTAL_ORDER_FIELDS, ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "refunds", "line_items"]);
+  assert.deepEqual(INCREMENTAL_ORDER_FIELDS, ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "prices_include_tax", "refunds", "line_items"]);
   const calls = [], source = product({ modified: "2026-01-02T00:00:00Z" });
   const dbLoaded = current(); dbLoaded.products[0].current_price = 10; dbLoaded.products[0].stock_quantity = 3; dbLoaded.products[0].source_modified_at = "2026-01-02T00:00:00.000Z";
   const result = await collectIncrementalCommerce(provider({ products: [source], orders: [order()], calls }), { current: dbLoaded, syncStartedAt: "2026-02-01T00:00:00Z" });
@@ -69,4 +69,16 @@ test("refunded Orders are conservatively refreshed even when the prior refund wa
   const result = await collectIncrementalCommerce(provider({ products: [product()], orders: [order({ total: "10.00" })], details: { "orders/50": order({ total: "10.00" }) }, calls }), { current: prior, syncStartedAt: "2026-02-01T00:00:00Z" });
   assert.ok(calls.some(call => call[1] === "orders/50"));
   assert.equal(result.orders.length, 1);
+});
+
+test("complete Order commercial fingerprint refreshes subtotal and persisted source facts", async () => {
+  for (const changed of [
+    { current: current({ lines: [{ ...current().lines[0], subtotal: "12.00" }] }), source: order({ subtotal: "13.00" }) },
+    { current: current({ orders: [{ ...current().orders[0], source_created_at: "2025-12-01T00:00:00.000Z" }] }), source: order({ created: "2025-12-02T00:00:00Z" }) },
+    { current: current({ orders: [{ ...current().orders[0], prices_include_tax: false }] }), source: order({ pricesIncludeTax: true }) }
+  ]) {
+    const calls = [];
+    await collectIncrementalCommerce(provider({ products: [product()], orders: [changed.source], calls }), { current: changed.current, syncStartedAt: "2026-02-01T00:00:00Z" });
+    assert.ok(calls.some(call => call[1] === "orders/50"));
+  }
 });

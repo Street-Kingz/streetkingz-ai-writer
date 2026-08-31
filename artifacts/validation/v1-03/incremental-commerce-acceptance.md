@@ -60,5 +60,16 @@ successful evidence timestamp. These integrity corrections preserve the
 complete-generation/LKG architecture and do not change the accepted initial
 sync path.
 
+The harness now has a local-only `POST /internal/v1-03/resume` path that
+rotates a temporary password for the exact existing acceptance Auth user,
+without creating Product records or a Woo authorization attempt. The live
+local check correctly failed closed because the current local database contains
+four active Businesses with the exact acceptance name/platform, including two
+connected complete Woo Stores. No tenant was guessed, modified, disconnected,
+or reset. The duplicate-state ambiguity must be resolved before the existing
+Street Kingz browser session can be resumed; the resume implementation itself
+is covered by focused tests for not-found, ambiguous, hosted-Supabase, and
+successful exact-tenant cases.
+
 V1-03 remains In Progress. This artifact does not claim real Street Kingz
 incremental acceptance or V1-03 completion.

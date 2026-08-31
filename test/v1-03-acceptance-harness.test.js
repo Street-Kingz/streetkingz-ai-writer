@@ -6,7 +6,7 @@ import { createV103AcceptanceHarnessRouter } from "../routes/v1-03AcceptanceHarn
 test("harness is gated, local-host only, and fixed-purpose", () => {
   const source = fs.readFileSync(new URL("../routes/v1-03AcceptanceHarness.js", import.meta.url), "utf8");
   assert.match(source, /V1_03_ACCEPTANCE_HARNESS === "1"/); assert.match(source, /LOCAL_HOSTS/); assert.match(source, /localhost.*127\.0\.0\.1.*::1/s);
-  const ui = fs.readFileSync(new URL("../internal/v1-03-harness/harness.js", import.meta.url), "utf8"); assert.match(ui, /\/api\/product\/account/); assert.match(ui, /\/api\/product\/business/); assert.match(ui, /\/api\/product\/connections/);
+  const ui = fs.readFileSync(new URL("../internal/v1-03-harness/harness.js", import.meta.url), "utf8"); const html = fs.readFileSync(new URL("../internal/v1-03-harness/index.html", import.meta.url), "utf8"); assert.match(ui, /\/api\/product\/account/); assert.match(ui, /\/api\/product\/business/); assert.match(ui, /\/api\/product\/connections/); assert.match(ui, /\/internal\/v1-03\/resume/); assert.match(html, /Resume Existing Street Kingz Acceptance/);
   assert.match(source, /readCurrentProductSnapshot/); assert.match(source, /collectReference/); assert.doesNotMatch(source, /secret_reference.*res|consumerSecret.*res|SERVICE_ROLE_KEY.*access_token/);
 });
 
