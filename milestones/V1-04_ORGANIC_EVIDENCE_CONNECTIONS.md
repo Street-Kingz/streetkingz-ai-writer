@@ -18,6 +18,12 @@ The proposed customer capability is:
 The Product must remain useful without Search Console. V1-03 commerce evidence
 is already accepted and is not reimplemented by this milestone.
 
+The Google OAuth client belongs to the Product/operator. Customers provide no
+developer credentials. Public deployment must satisfy Google's current OAuth
+brand/scope verification, verified-domain, privacy-policy and redirect-origin
+requirements; that is a public-release gate, not a requirement for the bounded
+development test.
+
 ## Boundaries inherited from governance
 
 - One Account owns one Business; every source and fact is tenant-scoped.
@@ -166,6 +172,23 @@ Account → Business → Connection architecture:
 8. The customer sees Connected, Failed or Reauthentication Required, can
    reconnect, explicitly change property, or disconnect.
 
+Both URL-prefix and Domain properties are supported. Discovery exposes only
+safe `siteUrl`, permission level and property type facts, followed by an
+authorized read probe. No Google profile identity is retained.
+
+For a URL-prefix property, normalize the Business canonical base URL including
+any supported base path. The property must contain it within the same scheme,
+host, port and path boundary. A Business at `https://example.com/shop/` may
+accept `https://example.com/` or `https://example.com/shop/`, but not
+`https://example.com/blog/`; HTTP, `www`, sibling subdomains and lookalike
+hosts are rejected. Evidence remains constrained to the Business canonical
+base path.
+
+For `sc-domain:example.com`, the Business canonical registrable domain must
+match. Since a Domain property can cover multiple protocols and subdomains,
+page-grain evidence is still constrained to the verified canonical host and
+base path; sibling subdomains and other properties are not mixed in.
+
 No token, client secret, Vault reference, Google profile, copied credential or
 manual database action is exposed to the browser. A fresh test customer must
 complete this journey without founder/operator intervention.
@@ -205,23 +228,32 @@ Country, device and search appearance are excluded from the first V1 contract
 unless a reviewed V1-05 decision requirement proves one necessary. They are not
 free dimensions to ingest.
 
-### Window and API behaviour
+### Two acquisition grains and finalized-data semantics
 
-Proposed initial history is the latest **90 finalized calendar days**, with the
-end date set conservatively behind the source's reporting delay and recorded
-explicitly. This is a proposal, not a claim that 90 days is universally right:
-it is enough for current query/page coverage and an early trend comparison,
-keeps row/storage cost bounded, and avoids presenting delayed days as complete.
-V1-05 may request a separately bounded comparison period only after this
-contract is approved.
+V1-04 acquires two deliberately different grains:
 
-The implementation must document the selected finalization lag from provider
-behaviour, page through all rows up to an explicit per-dimension cap, and expose
-`partial`/`incomplete` when a cap or API top-row semantics prevents a complete
-claim. Empty properties and new sites are valid `complete` zero-row coverage
-only when the API response itself is complete; they are not evidence of zero
-traffic or zero demand. Sparse rows retain their actual values and coverage
-limits.
+- **Trend/seasonality grain:** up to the latest 365 finalized calendar days of
+  low-cardinality property/date observations: date, clicks, impressions, CTR
+  and position where valid under the selected aggregation. This aligns with
+  the accepted V1-03 commerce horizon and permits one seasonal cycle without
+  storing 365 days of high-cardinality detail.
+- **Current detailed grain:** the latest 90 finalized calendar days for query,
+  page and query+page observations, with clicks, impressions, CTR and average
+  position.
+
+The implementation uses Search Console's actual finalized-data semantics,
+preferably `dataState=final`, and derives the latest usable evidence date from
+provider results. It must not encode a guessed fixed two- or three-day lag.
+Any later fresh/incomplete exploration is a separate explicitly incomplete
+observation, never silently mixed into finalized evidence.
+
+Completeness is grain-specific. Property/date coverage may be complete for the
+requested finalized period according to provider semantics. Query, page and
+query+page coverage remains provider-limited because of top-row and privacy
+semantics. Pagination and explicit row caps are required; reaching an API end
+does not erase those limitations. Hitting an implementation cap is `partial`.
+An omitted query is `not_observed`/`provider_limited`, never zero impressions.
+Empty and sparse properties are represented honestly.
 
 ### Credential and lifecycle rules
 
@@ -246,13 +278,22 @@ The minimum current site inventory is:
 - bounded headings when useful;
 - bounded internal-link relationships if they are needed by V1-05.
 
-Discovery should start with the verified canonical URL, supported sitemap URLs,
-Woo Product/category URLs and a small same-origin link frontier. It must have
-explicit page, byte, redirect, depth and request budgets; honor robots policy
-where applicable; reject private/link-local/reserved IPs after DNS resolution;
-re-check redirect destinations; and prevent DNS rebinding/host drift. HTTPS is
-required for authenticated reads. Unsupported builders or uninspectable pages
-are reported as unknown/unsupported, not silently treated as empty.
+Discovery priority is fixed: (1) the verified canonical homepage, (2) current
+Woo Product/category URLs from accepted V1-03 evidence, (3) same-origin
+sitemap/sitemap-index URLs, and only then (4) a bounded same-origin link
+frontier to fill discovery gaps. Open-ended crawling is not the normal path.
+
+The inventory distinguishes a **discovered URL** from an **inspected page**.
+Every implementation must set explicit URL discovery, page fetch, response
+byte, redirect, concurrency and total-run deadline caps before acceptance.
+It must not silently truncate and call the inventory complete. Robots policy,
+same-origin rules, private-network rejection, DNS-rebinding protection and
+redirect revalidation remain mandatory.
+
+The inventory stores declared/observable indexability evidence — robots policy,
+meta robots/noindex, canonical declaration and HTTP status. It does not claim
+“Google indexed” or “Google indexable truth”. The URL Inspection API is not in
+scope.
 
 V1-04 is not a PageSpeed, Core Web Vitals, accessibility, backlink, broken-link,
 schema-writing, monitoring or generic technical SEO product. Removed URLs are
@@ -277,20 +318,28 @@ source, period and completeness state, not exact truth and not a recommendation
 score. SERP results are observations, not a universal rank history.
 
 The first provider remains a decision gate: DataForSEO is a provisional
-PRODUCT-CONNECTED option because foundations exist, but terms/licensing, live
-quality, cost, retention and reliability must be reviewed before selection is
-frozen. If it fails, the contract must name the replacement through a decision
-update; implementation must not silently add a second paid provider.
+PRODUCT-CONNECTED option because foundations exist. Before Slice D, a bounded
+decision must verify current terms/licensing, permitted storage/retention, UK
+keyword quality, Google UK SERP quality, bounded Business acquisition/refresh
+cost, hard per-run/per-Business ceilings, duplicate-task protection, rate
+limits and failure behaviour. It is not the accepted V1 provider yet, and no
+second paid provider may be silently added. This gate does not block earlier
+GSC/site slices.
 
 ### Query-seeding boundary
 
-V1-04 may acquire evidence for a deterministic, inspectable seed set derived
-from Product names, Category names, verified site page topics and available GSC
-queries. Seed IDs, source and locale are retained. A bounded expansion may be
-used to collect evidence, but expansion must not rank opportunities, sum
-volumes, assign commercial value, select interventions or generate content.
-Those are V1-05 decisions. V1-04 must be able to report no seeds / no demand as
-unknown or unavailable rather than inventing values.
+Allowed direct seed sources are Woo Product names, Woo Category names, verified
+site page titles, verified site H1 values and available GSC queries. “Topic” is
+not an independent source: it means a normalized direct title/H1 fact. Seed IDs,
+source lineage, locale and language are retained. V1-04 does not use an LLM to
+invent seeds.
+
+A licensed provider may return bounded keyword ideas or related queries. These
+are evidence with parent seed, provider relation, provider ordering/relevance
+when supplied, locale/language and retrieval time. V1-04 may normalize,
+deduplicate, reject malformed/junk rows and enforce result/cost bounds. It may
+not rank opportunities, apply commercial weighting, select interventions, sum
+opportunity value, produce an SEO shortlist or generate content.
 
 ## Unified organic evidence model
 
@@ -327,11 +376,20 @@ Source states exposed to customers are:
 `not_connected`, `unavailable`, `collecting`, `complete`, `partial`, `failed`,
 `stale`.
 
+Customer Connection state is separate from evidence source/run state. A GSC
+Connection may be connected while its evidence is failed or stale, and a
+disconnected Connection may retain stale last-known-good evidence. Site and
+Product-owned external sources do not receive artificial customer Connection
+rows merely to share this vocabulary. `business_id` is mandatory for every
+durable fact; `connection_id` is present only for a genuine customer-connected
+source and is otherwise null/not applicable.
+
 Each source exposes `last_attempted_at`, `last_successful_at`,
 `evidence_as_of` and coverage/completeness where meaningful.
 
-- Search Console freshness follows the source's delayed/finalized reporting;
-  the requested range and lag are part of evidence metadata.
+- Search Console freshness follows the source's finalized-data semantics; the
+  actual latest finalized date returned by the provider is recorded. No fixed
+  guessed lag is encoded.
 - Site evidence freshness follows the last successful bounded retrieval/crawl;
   changed/removed URLs are represented by the next complete inventory.
 - Demand/SERP freshness follows provider-specific cache/reuse policy and
@@ -398,53 +456,66 @@ The proposal has 36 independently reviewable criteria:
 
 ### Customer connection and Search Console
 
-1. A fresh test customer can start GSC connection from the authenticated
-   Business flow without founder intervention.
-2. OAuth uses the official Google flow and minimum read-only scope.
-3. Callback state/PKCE binds the result to the caller's pending Business
-   Connection.
-4. Tokens are Vault-only and absent from browser responses, logs and artifacts.
-5. Property discovery is server-side and returns only safe property facts.
-6. Multiple properties require explicit customer selection.
-7. Domain and URL-prefix properties reconcile exactly to the Business site.
-8. A mismatched property cannot activate the Connection.
-9. Connected, failed and reauthentication-required states are customer-safe.
-10. Reconnect, explicit property change and disconnect are tested.
-11. Revoked/expired authorization preserves LKG evidence and exposes failure.
-12. No Google write API is called.
-13. Query, page and query-page facts preserve date, dimensions and metrics.
-14. Search Console pagination and row caps are bounded and reported.
-15. Empty and sparse properties are represented honestly, never as fake zero.
+1. A fresh test customer can connect GSC from the authenticated Business flow
+   without founder intervention.
+2. OAuth uses the Product-owned client, official flow and exactly
+   `https://www.googleapis.com/auth/webmasters.readonly`; no profile, email,
+   openid or write scope is requested.
+3. HTTPS callback, state/PKCE, short-lived pending Connection and one-time
+   callback consumption are enforced.
+4. Tokens remain Vault-only and absent from browser responses, logs and artifacts.
+5. Official property discovery exposes only safe site URL, permission and type.
+6. Multiple properties require explicit selection and an authorized read probe.
+7. URL-prefix properties satisfy exact scheme/host/port/path-boundary rules.
+8. Domain properties match the registrable domain and constrain evidence to the
+   canonical host/base path.
+9. Mismatched/unverified properties cannot activate; reconnect, property change,
+   disconnect and reauthentication states are tested.
+10. Revoked/expired authorization preserves LKG evidence and exposes failure.
+11. No Google write API is called.
+12. Finalized property/date evidence covers up to 365 days; finalized detailed
+    query/page/query+page evidence covers up to 90 days.
+13. The latest finalized date comes from provider semantics, not a fixed guessed
+    lag.
+14. Query/page/query+page coverage is separately provider-limited; pagination,
+    caps, empty and sparse states are honest and omissions are never zero.
 
 ### Site evidence
 
-16. The canonical site identity is verified before acquisition.
-17. Discovery is bounded by URL, depth, byte, redirect and request budgets.
-18. Same-origin and redirect rules prevent scope escape.
-19. SSRF/DNS-rebinding/private-network protections are tested.
-20. Sitemap/robots handling is bounded and its limitations are recorded.
-21. URL, final URL, status, canonical, indexability, page type and retrieval
-    facts are normalized.
-22. Product/category relations are included only when source-verified.
+15. The canonical site identity is verified before acquisition.
+16. Discovery follows homepage → Woo URLs → sitemap → bounded link fallback.
+17. Discovered URLs and inspected pages are distinct.
+18. URL, page, byte, redirect, concurrency and deadline budgets are explicit;
+    silent truncation cannot claim completeness.
+19. Same-origin, redirect, SSRF, DNS-rebinding and private-network protections
+    are tested.
+20. Sitemap/robots handling is bounded and limitations are recorded.
+21. URL, final URL, status, canonical, declared/observable indexability, page
+    type and retrieval facts are normalized without claiming Google indexing.
+22. Product/category relations are source-verified only.
 23. Removed URLs disappear from the current inventory without erasing history.
-24. Partial/failing crawl retains LKG and cannot claim complete coverage.
-25. Site evidence contains no customer PII or auth material.
+24. Partial/failing collection retains LKG and cannot claim complete coverage;
+    site evidence contains no PII or auth material.
 
 ### External search evidence
 
-26. The selected licensed provider and terms are explicitly approved.
-27. Query identity, locale and language are deterministic and retained.
+25. DataForSEO terms, storage, UK quality, cost ceilings, duplicate protection,
+    rate limits and failure behavior are approved before Slice D.
+26. Query identity, direct seed lineage, locale and language are deterministic;
+    no LLM invents seeds.
+27. Provider ideas remain attributed evidence, not a shortlist or recommendation.
 28. Demand evidence includes period, unit, provider and completeness.
 29. SERP evidence includes bounded rank, URL and domain observations.
-30. Provider pagination, timeout, malformed response and cost ceilings fail
-    closed without fake demand values.
-31. Cache/reuse policy exposes retrieval time and source observation time.
+30. Pagination, timeout, malformed response and cost ceilings fail closed;
+    cache/reuse exposes retrieval and observation time without fake demand.
 
 ### Cross-source contract and governance
 
-32. Every durable fact has Business ownership, provenance and observation/
-    retrieval metadata.
-33. Direct facts and derived relationships remain distinct and traceable.
+31. Every durable fact has mandatory Business ownership, provenance and
+    observation/retrieval metadata; connection ID is used only for real customer
+    Connections.
+32. Direct facts and derived relationships remain distinct and traceable.
+33. Connection state is separate from evidence source/run state.
 34. Source states, missing evidence and completeness are customer-safe and
     source-appropriate.
 35. RLS/cross-tenant tests prove one Business cannot read another's evidence.
@@ -461,22 +532,41 @@ selection, bounded real external evidence, exact source/provenance coverage,
 failure/LKG and no live writes. Reconcile only sanitized facts and preserve
 the fact that Street Kingz is validation evidence, not the Product definition.
 
-## Owner decisions required before authorization
+## Resolved owner decisions
 
-1. Approve the 90 finalized-day initial GSC window and the explicit provider
-   finalization lag, or select a different bounded period with evidence.
-2. Approve the Google Cloud OAuth client/redirect deployment model and exact
-   read-only scope after security review.
-3. Approve whether URL-prefix, Domain, or both property types are supported in
-   V1 and the canonical identity rules for each.
-4. Decide whether site acquisition is implemented as a bounded inventory run
-   or a smaller sitemap/page set for the first release.
-5. Resolve DataForSEO terms/licensing, retention, cost ceiling and V1 provider
-   selection; no paid provider is authorized by this proposal.
-6. Approve the minimum evidence retention period and raw-response policy.
-7. Confirm whether V1-05 may operate with site/external evidence while GSC is
-   unavailable (the contract assumes yes, consistent with progressive evidence).
-8. Confirm whether GA4/Bing remain future evidence-gated candidates.
+Resolved for this proposal: the customer-controlled GSC journey; Product-owned
+Google OAuth client; exact `webmasters.readonly` scope; both URL-prefix and
+Domain properties; canonical property isolation; 365-day finalized trend plus
+90-day finalized detailed GSC evidence; provider-derived finalized dates rather
+than a fixed guessed lag; sitemap/Woo-led site acquisition; deterministic
+direct query seeds; GA4 and Bing excluded; and the Slice A–E execution order.
+
+Public deployment must still satisfy Google's then-current OAuth brand/scope
+verification, verified-domain, privacy-policy and redirect-origin requirements.
+That is a public-release gate, not a requirement for the bounded development
+test.
+
+## Remaining bounded decisions
+
+1. Exact implementation crawl/request caps.
+2. DataForSEO terms/licensing, retention, UK quality, cost and provider approval
+   before Slice D.
+3. Detailed evidence/raw-retention constants where provider evidence is required.
+
+These are bounded implementation/provider gates, not reasons to expand scope.
+
+## Proposed execution order within one V1-04 milestone
+
+Only one slice is active at a time:
+
+- **Slice A:** organic evidence durable source/run/status foundation.
+- **Slice B:** fresh-customer Google Search Console connection and evidence.
+- **Slice C:** bounded site discovery and page-truth evidence.
+- **Slice D:** external-provider decision and bounded external evidence.
+- **Slice E:** unified progressive-evidence validation, real Street Kingz
+  acceptance and V1-04 closeout.
+
+V1-05 remains untouched until Slice E and V1-04 are accepted.
 
 ## Proposal review risks
 

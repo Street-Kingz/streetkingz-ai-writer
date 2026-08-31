@@ -26,7 +26,12 @@ Account → Business
 
 The accepted Account → Business → Connection and Vault lifecycle should be
 reused. GSC needs a pending customer-bound Connection because OAuth is a
-customer action. Site evidence needs no separate connection after canonical
+customer action. The Product owns the OAuth client; the customer supplies no
+developer credentials. Use exactly `https://www.googleapis.com/auth/webmasters.readonly`,
+an HTTPS callback, server-bound state, PKCE where appropriate, one-time
+callback consumption and safe reconnect handling. Support both URL-prefix and
+Domain properties, but constrain Domain evidence to the verified canonical
+host/base path. Site evidence needs no separate connection after canonical
 site verification. External search credentials belong to the Product and stay
 server-side.
 
@@ -38,6 +43,13 @@ validation. A failed/partial run keeps the previous complete view readable and
 exposes the current failure. This is analogous to the accepted V1-03 LKG rule,
 but should not force all source data into commerce generations where a simpler
 source-run model is sufficient.
+
+## State and ownership
+
+Connection lifecycle and evidence lifecycle are separate. `business_id` is
+mandatory for all durable organic evidence. `connection_id` is present only
+for a genuine customer-connected source; site and Product-connected external
+evidence use null/not-applicable rather than artificial Connection rows.
 
 ## Direct versus derived
 
@@ -58,7 +70,10 @@ an interpretation may overwrite the direct query, page, URL or SERP fact.
   to existing Product/category identity where it is verified.
 - The first implementation should prove the fresh-customer GSC connection,
   site-boundary safety and one licensed provider contract before adding richer
-  dimensions or UI.
+  dimensions or UI. Execution proceeds as one milestone in five bounded
+  slices: durable foundation; GSC; site; provider decision/external evidence;
+  then progressive-evidence and Street Kingz closeout. Only one slice is
+  active at a time, and the provider decision gates the external slice only.
 
 ## Deliberate omissions
 
