@@ -58,6 +58,38 @@ test("Slice A local Supabase source/run lifecycle, RLS and LKG", { skip: !enable
   assert.ifError(otherBusiness.error);
   const otherSource = await admin.rpc("organic_ensure_source", { p_business_id: otherBusiness.data.id, p_source_class: "no_separate_connection", p_source_kind: "site" });
   assert.ifError(otherSource.error);
+  const connectionAResult = await userClient.rpc("product_create_connection", { p_provider_type: "google_search_console", p_correlation_id: crypto.randomUUID() });
+  assert.ifError(connectionAResult.error);
+  const connectionBResult = await otherClient.rpc("product_create_connection", { p_provider_type: "google_search_console", p_correlation_id: crypto.randomUUID() });
+  assert.ifError(connectionBResult.error);
+  const connectionA = connectionAResult.data.id;
+  const connectionB = connectionBResult.data.id;
+  const bound = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "customer_connected", p_source_kind: "search_console", p_provider_id: "google_search_console", p_connection_id: connectionA });
+  assert.ifError(bound.error);
+  const wrongBusinessConnection = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "customer_connected", p_source_kind: "search_console", p_provider_id: "google_search_console-2", p_connection_id: connectionB });
+  assert.ok(wrongBusinessConnection.error, "Business A cannot bind Business B Connection");
+  const crossBound = await admin.rpc("organic_ensure_source", { p_business_id: otherBusiness.data.id, p_source_class: "customer_connected", p_source_kind: "search_console", p_provider_id: "google_search_console-2", p_connection_id: connectionA });
+  assert.ok(crossBound.error, "Business B cannot bind Business A Connection");
+  const conflictingEnsure = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "customer_connected", p_source_kind: "search_console", p_provider_id: "google_search_console", p_connection_id: connectionB });
+  assert.ok(conflictingEnsure.error, "existing source cannot be silently rebound");
+  assert.match(conflictingEnsure.error.message, /ORGANIC_SOURCE_CONFLICT/);
+
+  const firstFailed = await admin.rpc("organic_begin_run", { p_source_id: otherSource.data.id, p_correlation_id: crypto.randomUUID() });
+  assert.ifError(firstFailed.error);
+  const failedFirst = await admin.rpc("organic_finish_run", { p_run_id: firstFailed.data.id, p_state: "failed", p_completeness_state: "unavailable", p_error_code: "PROVIDER_UNAVAILABLE" });
+  assert.ifError(failedFirst.error);
+  const failedSource = await admin.from("organic_evidence_sources").select("evidence_state,current_complete_run,current_completeness_state,last_successful_at,evidence_as_of,active_run").eq("id", otherSource.data.id).single();
+  assert.ifError(failedSource.error);
+  assert.deepEqual(failedSource.data, { evidence_state: "failed", current_complete_run: null, current_completeness_state: null, last_successful_at: null, evidence_as_of: null, active_run: null });
+  const partialSourceResult = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "product_connected", p_source_kind: "external_search", p_provider_id: "foundation-test" });
+  assert.ifError(partialSourceResult.error);
+  const firstPartial = await admin.rpc("organic_begin_run", { p_source_id: partialSourceResult.data.id, p_correlation_id: crypto.randomUUID() });
+  assert.ifError(firstPartial.error);
+  const partialFirst = await admin.rpc("organic_finish_run", { p_run_id: firstPartial.data.id, p_state: "partial", p_completeness_state: "partial", p_error_code: "PROVIDER_PARTIAL" });
+  assert.ifError(partialFirst.error);
+  const partialSource = await admin.from("organic_evidence_sources").select("evidence_state,current_complete_run,current_completeness_state,last_successful_at,evidence_as_of,active_run").eq("id", partialSourceResult.data.id).single();
+  assert.ifError(partialSource.error);
+  assert.deepEqual(partialSource.data, { evidence_state: "partial", current_complete_run: null, current_completeness_state: null, last_successful_at: null, evidence_as_of: null, active_run: null });
   const ensured = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "no_separate_connection", p_source_kind: "site" });
   assert.ifError(ensured.error);
   const source = ensured.data;
@@ -115,10 +147,11 @@ test("Slice A local Supabase source/run lifecycle, RLS and LKG", { skip: !enable
   try {
     const httpStatus = await request(server, { authorization: `Bearer ${token}` });
     assert.equal(httpStatus.status, 200);
-    assert.equal(httpStatus.body.sources.length, 1, "tenant status excludes the other Business");
-    assert.equal(httpStatus.body.sources[0].current_completeness_state, "provider_limited");
-    assert.equal(httpStatus.body.sources[0].has_current_complete_evidence, true);
-    assert.equal(Object.hasOwn(httpStatus.body.sources[0], "current_complete_run"), false);
+    assert.equal(httpStatus.body.sources.length, 3, "tenant status excludes the other Business");
+    const siteStatus = httpStatus.body.sources.find(source => source.source_kind === "site");
+    assert.equal(siteStatus.current_completeness_state, "provider_limited");
+    assert.equal(siteStatus.has_current_complete_evidence, true);
+    assert.equal(Object.hasOwn(siteStatus, "current_complete_run"), false);
     assert.equal((await request(server)).status, 401);
   } finally {
     await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));

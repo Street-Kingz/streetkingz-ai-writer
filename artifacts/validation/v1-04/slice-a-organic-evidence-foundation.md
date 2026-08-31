@@ -54,6 +54,9 @@ rewritten.
   cross-tenant source isolation, direct mutation denial, and the actual HTTP
   status route. The route returned the current run's real `provider_limited`
   completeness state without internal run identifiers.
+- Separate no-prior-complete sources proved failed-first and partial-first runs
+  leave no current evidence, no successful timestamp and no fabricated
+  completeness state.
 - Concurrent begin allowed exactly one active run; completion/failure races had
   one winner; stale completion was rejected. Conflicting logical source ensure
   inputs were rejected.
@@ -63,11 +66,11 @@ rewritten.
 ## State boundary
 
 The correction migration was applied to the existing local V1-03 database
-without a reset. A separate migrations-from-zero Supabase stack was not started
-in this run because the preserved local stack was intentionally protected from
-reset and Docker isolation was unavailable. The migration is self-contained and
-the repository's migration checks remain green, but Slice A cannot be marked
-accepted until the isolated from-zero proof is completed.
+without a reset. An isolated-stack attempt with a unique project identity was
+stopped before database creation because the pinned CLI still attempted to bind
+the default database port; no preserved containers or data were affected. Slice
+A cannot be marked accepted until a genuinely empty isolated migration run
+completes.
 
 Slice A does not collect Search Console, site or external-search observations.
 Slice B — Google Search Console Connection + Evidence — remains not started.
