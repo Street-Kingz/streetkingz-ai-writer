@@ -8,7 +8,9 @@ const FIELDS = {
 };
 export { FIELDS };
 export const INCREMENTAL_PRODUCT_FIELDS = ["id", "type", "status", "date_modified_gmt", "categories.id"];
-export const INCREMENTAL_ORDER_FIELDS = ["id", "status", "date_created_gmt", "date_modified_gmt", "refunds", "line_items"];
+// Woo 11.0.1 did not advance an Order's modified timestamp for a rapid line-total edit.
+// Keep only the strict commercial line fingerprint in the inventory response.
+export const INCREMENTAL_ORDER_FIELDS = ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "refunds", "line_items"];
 const MAX_PAGES = 10000;
 const positiveInt = value => Number.isSafeInteger(value) && value > 0 ? value : null;
 const text = value => typeof value === "string" && value.length ? value : null;
@@ -118,13 +120,55 @@ export async function collectInitialCommerce(provider, { syncStartedAt = new Dat
 }
 
 function sourceDate(value) { return date(value); }
-function sameSourceDate(inventoryValue, currentValue) { return sourceDate(inventoryValue) === currentValue; }
-function refundIdsFromOrder(row) { return (Array.isArray(row.refunds) ? row.refunds : []).map(refund => positiveInt(refund.id || refund.refund_id)).filter(Boolean).sort((a, b) => a - b); }
-function refundIdsFromAdjustments(rows) { return rows.map(row => String(row.provider_adjustment_id || "").split(":", 1)[0]).filter(value => /^[1-9][0-9]*$/.test(value)).map(Number).sort((a, b) => a - b); }
-function sameNumberList(left, right) { return left.length === right.length && left.every((value, index) => value === right[index]); }
-function sameProductInventory(inventory, current) { return current && positiveInt(inventory.id) === current.source_id && inventory.type === current.product_type && inventory.status === current.source_status && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at); }
+function canonicalDecimal(value) {
+  if (typeof value === "number" && Number.isFinite(value)) value = String(value);
+  const parsed = decimal(value);
+  if (!parsed) return null;
+  const [whole, fraction = ""] = parsed.replace(/^-/, "").split(".");
+  const sign = parsed.startsWith("-") && !/^0+$/.test(whole) ? "-" : "";
+  const trimmed = fraction.replace(/0+$/, "");
+  return `${sign}${whole}${trimmed ? `.${trimmed}` : ""}`;
+}
+function canonicalValue(value) {
+  if (Array.isArray(value)) return value.map(canonicalValue);
+  if (value && typeof value === "object") return Object.fromEntries(Object.keys(value).sort().map(key => [key, canonicalValue(value[key])]));
+  return value;
+}
+function sameCanonical(left, right) {
+  if (Array.isArray(left) || Array.isArray(right)) return Array.isArray(left) && Array.isArray(right) && left.length === right.length && left.every((value, index) => sameCanonical(value, right[index]));
+  if (left && typeof left === "object" || right && typeof right === "object") {
+    if (!left || !right || typeof left !== "object" || typeof right !== "object") return false;
+    const leftKeys = Object.keys(left).sort(), rightKeys = Object.keys(right).sort();
+    return leftKeys.length === rightKeys.length && leftKeys.every((key, index) => key === rightKeys[index] && sameCanonical(left[key], right[key]));
+  }
+  return left === right;
+}
+function canonicalTimestamp(value) { return sourceDate(value); }
+function sameSourceDate(inventoryValue, currentValue) { return canonicalTimestamp(inventoryValue) === canonicalTimestamp(currentValue); }
+function sameMoney(left, right) { return canonicalDecimal(left) === canonicalDecimal(right); }
+function sameNormalizedProduct(left, right) {
+  return left?.source_id === right?.source_id && left?.name === right?.name && left?.slug === right?.slug && left?.canonical_url === right?.canonical_url && left?.sku === right?.sku && left?.product_type === right?.product_type && left?.source_status === right?.source_status && sameMoney(left?.regular_price, right?.regular_price) && sameMoney(left?.current_price, right?.current_price) && sameMoney(left?.sale_price, right?.sale_price) && left?.manage_stock === right?.manage_stock && sameMoney(left?.stock_quantity, right?.stock_quantity) && left?.stock_status === right?.stock_status && canonicalTimestamp(left?.source_created_at) === canonicalTimestamp(right?.source_created_at) && canonicalTimestamp(left?.source_modified_at) === canonicalTimestamp(right?.source_modified_at);
+}
+function sameNormalizedVariation(left, right) {
+  return left?.source_id === right?.source_id && left?.parent_source_id === right?.parent_source_id && left?.sku === right?.sku && sameCanonical(canonicalValue(left?.attributes || []), canonicalValue(right?.attributes || [])) && sameMoney(left?.regular_price, right?.regular_price) && sameMoney(left?.current_price, right?.current_price) && sameMoney(left?.sale_price, right?.sale_price) && left?.manage_stock === right?.manage_stock && sameMoney(left?.stock_quantity, right?.stock_quantity) && left?.stock_status === right?.stock_status && left?.source_status === right?.source_status && canonicalTimestamp(left?.source_created_at) === canonicalTimestamp(right?.source_created_at) && canonicalTimestamp(left?.source_modified_at) === canonicalTimestamp(right?.source_modified_at);
+}
+function withinTimestampBoundary(value, previousSuccessfulAt, precisionMs) {
+  if (!previousSuccessfulAt || !value) return false;
+  const sourceMs = Date.parse(value), boundaryMs = Date.parse(previousSuccessfulAt);
+  return Number.isFinite(sourceMs) && Number.isFinite(boundaryMs) && sourceMs >= boundaryMs - precisionMs && sourceMs <= boundaryMs + precisionMs;
+}
+function orderLineFingerprint(lines) {
+  return (lines || []).map(line => ({ source_line_id: line.source_line_id, product_source_id: line.product_source_id, variation_source_id: line.variation_source_id, quantity: canonicalDecimal(line.quantity), total: canonicalDecimal(line.total), tax: canonicalDecimal(line.tax) })).sort((a, b) => a.source_line_id - b.source_line_id);
+}
+function inventoryLineFingerprint(row) {
+  return orderLineFingerprint((Array.isArray(row.line_items) ? row.line_items : []).map(line => ({ source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : line.quantity, total: line.total, tax: line.total_tax })));
+}
+function sameOrderInventory(inventory, current, currentLines, previousSuccessfulAt, precisionMs) {
+  return current && positiveInt(inventory.id) === current.source_id && (text(inventory.status) || "unknown") === current.source_status && text(inventory.currency) === current.currency && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && sameMoney(inventory.total, current.order_total) && sameMoney(inventory.total_tax, current.tax_total) && sameMoney(inventory.discount_total, current.discount_total) && sameMoney(inventory.shipping_total, current.shipping_total) && sameCanonical(canonicalValue(inventoryLineFingerprint(inventory)), canonicalValue(orderLineFingerprint(currentLines))) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs);
+}
+function sameProductInventory(inventory, current, previousSuccessfulAt, precisionMs) { return current && positiveInt(inventory.id) === current.source_id && inventory.type === current.product_type && inventory.status === current.source_status && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs); }
 function productCategoryIds(product) { return (Array.isArray(product.categories) ? product.categories : []).map(row => positiveInt(row.id)).filter(Boolean).sort((a, b) => a - b); }
-function sameProductInventoryWithCategories(inventory, current, oldLinks) { return sameProductInventory(inventory, current) && JSON.stringify(productCategoryIds(inventory)) === JSON.stringify(oldLinks.filter(row => row.product_source_id === current.source_id).map(row => row.category_source_id).sort((a, b) => a - b)); }
+function sameProductInventoryWithCategories(inventory, current, oldLinks, previousSuccessfulAt, precisionMs) { const oldCategoryIds = oldLinks.filter(row => row.product_source_id === current.source_id).map(row => row.category_source_id).sort((a, b) => a - b); return sameProductInventory(inventory, current, previousSuccessfulAt, precisionMs) && sameCanonical(productCategoryIds(inventory), oldCategoryIds); }
 
 async function collectOrderDetails(provider, rawOrders) {
   const refunds = [];
@@ -150,7 +194,7 @@ async function collectOrderDetails(provider, rawOrders) {
   return { orders: rawOrders.map(row => normalizeOrder(row, refundTotals.get(positiveInt(row.id)) || "0")), lines, adjustments };
 }
 
-export async function collectIncrementalCommerce(provider, { syncStartedAt = new Date(), current = {}, perPage = 100 } = {}) {
+export async function collectIncrementalCommerce(provider, { syncStartedAt = new Date(), previousSuccessfulAt = null, current = {}, perPage = 100, providerTimestampPrecisionMs = 1000 } = {}) {
   const start = new Date(syncStartedAt);
   if (Number.isNaN(start.valueOf())) throw new ProductError("INVALID_REQUEST", "Sync start time is invalid.", 400);
   const orderWindowEnd = start.toISOString(), orderWindowStart = new Date(start.getTime() - 365 * 24 * 60 * 60 * 1000).toISOString();
@@ -163,7 +207,7 @@ export async function collectIncrementalCommerce(provider, { syncStartedAt = new
   for (const inventory of productInventory) {
     const old = oldProducts.get(positiveInt(inventory.id));
     const oldLinks = previous.links.filter(row => row.product_source_id === old?.source_id);
-    products.push(old && sameProductInventoryWithCategories(inventory, old, oldLinks) ? old : normalizeProduct(await provider.get(`products/${positiveInt(inventory.id)}`, { fields: FIELDS.products })));
+    products.push(old && sameProductInventoryWithCategories(inventory, old, oldLinks, previousSuccessfulAt, providerTimestampPrecisionMs) ? old : normalizeProduct(await provider.get(`products/${positiveInt(inventory.id)}`, { fields: FIELDS.products })));
   }
   const links = productInventory.flatMap(row => productCategoryIds(row).filter(categoryId => categoryIds.has(categoryId)).map(categoryId => ({ product_source_id: positiveInt(row.id), category_source_id: categoryId })));
   const variationsRaw = [];
@@ -177,13 +221,13 @@ export async function collectIncrementalCommerce(provider, { syncStartedAt = new
   const currentProductIds = new Set(productInventory.map(row => positiveInt(row.id))), currentVariationIds = new Set(variations.map(row => row.source_id)), currentOrderIds = new Set(ordersRaw.map(row => positiveInt(row.id)));
   const changedRaw = [], carriedOrders = [], carriedLines = [], carriedAdjustments = [], changes = { products_added: 0, products_refreshed: 0, products_removed: previous.products.filter(row => !currentProductIds.has(row.source_id)).length, variations_added_or_refreshed: 0, variations_removed: previous.variations.filter(row => !currentVariationIds.has(row.source_id)).length, orders_added: 0, orders_refreshed: 0, orders_expired_or_removed: previous.orders.filter(row => !currentOrderIds.has(row.source_id)).length };
   for (const inventory of ordersRaw) {
-    const id = positiveInt(inventory.id), old = oldOrders.get(id), unchanged = old && old.source_status === (text(inventory.status) || "unknown") && sameSourceDate(inventory.date_modified_gmt, old.source_modified_at) && sameNumberList(refundIdsFromOrder(inventory), refundIdsFromAdjustments(oldAdjustments.get(id) || []));
+    const id = positiveInt(inventory.id), old = oldOrders.get(id), oldOrderLines = oldLines.get(id) || [], oldOrderAdjustments = oldAdjustments.get(id) || [], hasCurrentRefunds = Array.isArray(inventory.refunds) && inventory.refunds.length > 0, hasPreviousRefundEvidence = oldOrderAdjustments.length > 0 || oldOrderLines.some(line => !sameMoney(line.refund_total, "0") || !sameMoney(line.refund_tax, "0")), unchanged = old && !hasCurrentRefunds && !hasPreviousRefundEvidence && sameOrderInventory(inventory, old, oldOrderLines, previousSuccessfulAt, providerTimestampPrecisionMs);
     if (unchanged) { carriedOrders.push(old); carriedLines.push(...(oldLines.get(id) || [])); carriedAdjustments.push(...(oldAdjustments.get(id) || [])); }
     else { changedRaw.push(await provider.get(`orders/${id}`, { fields: FIELDS.orders })); if (old) changes.orders_refreshed += 1; else changes.orders_added += 1; }
   }
   const refreshed = await collectOrderDetails(provider, changedRaw);
   const orderFacts = { orders: [...carriedOrders, ...refreshed.orders].sort((a, b) => a.source_id - b.source_id), lines: [...carriedLines, ...refreshed.lines], adjustments: [...carriedAdjustments, ...refreshed.adjustments] };
-  changes.products_added = products.filter(row => !oldProducts.has(row.source_id)).length; changes.products_refreshed = products.filter(row => oldProducts.has(row.source_id) && !previous.products.find(old => old.source_id === row.source_id && JSON.stringify(old) === JSON.stringify(row))).length;
-  const oldVariations = new Map(previous.variations.map(row => [row.source_id, row])); changes.variations_added_or_refreshed = variations.filter(row => !oldVariations.has(row.source_id) || JSON.stringify(oldVariations.get(row.source_id)) !== JSON.stringify(row)).length;
+  changes.products_added = products.filter(row => !oldProducts.has(row.source_id)).length; changes.products_refreshed = products.filter(row => oldProducts.has(row.source_id) && !sameNormalizedProduct(oldProducts.get(row.source_id), row)).length;
+  const oldVariations = new Map(previous.variations.map(row => [row.source_id, row])); changes.variations_added_or_refreshed = variations.filter(row => !oldVariations.has(row.source_id) || !sameNormalizedVariation(oldVariations.get(row.source_id), row)).length;
   return { syncStartedAt: start.toISOString(), orderWindowStart, orderWindowEnd, products, variations, categories, links, ...orderFacts, changes };
 }

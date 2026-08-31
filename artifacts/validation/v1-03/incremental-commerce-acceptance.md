@@ -36,8 +36,29 @@ status routing, and cleanup on synthetic accounts.
 Disposable real WooCommerce validation passed Product price/stock refresh,
 Order status refresh, native refund creation, parent `date_modified_gmt`
 advancement, refund-summary selection, and exact `_refunded_item_id` line
-attribution. The fixture was removed after validation. No Street Kingz
-incremental sync was run and no Street Kingz data was changed.
+attribution. Follow-up provider precision probing established second-level
+`date_modified_gmt` serialization: rapid Product edits advanced the timestamp,
+while rapid Order line-total edits did not advance the parent timestamp. The
+incremental inventory therefore retains only a strict bounded Order commercial
+line fingerprint (line ID, Product/Variation IDs, quantity, total, tax) and
+conservatively refreshes refunded Orders. The fixture was removed after
+validation. No Street Kingz incremental sync was run and no Street Kingz data
+was changed.
+
+The corrected current-snapshot loader selects internal row IDs only for link
+reconstruction, strips them from collector state, and uses deterministic
+bounded paging for every Store/Generation table. Child lines and adjustments
+are read through bounded Order-ID chunks. Local Supabase proof loaded two
+Products with multiple Category links and carried an unchanged categorised
+Product without a detail GET. A separate local proof loaded 1001 Products,
+1001 Orders, 1001 Lines, 2 Categories, and 2002 links exactly once.
+
+Canonical Product/Variation comparisons normalize database numeric and
+timestamp representations before change counting. Boundary timestamps within
+the explicit one-second provider precision window are re-read using the prior
+successful evidence timestamp. These integrity corrections preserve the
+complete-generation/LKG architecture and do not change the accepted initial
+sync path.
 
 V1-03 remains In Progress. This artifact does not claim real Street Kingz
 incremental acceptance or V1-03 completion.

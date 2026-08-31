@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { collectIncrementalCommerce } from "../product-kernel/woocommerceCommerce.js";
+import { collectIncrementalCommerce, INCREMENTAL_ORDER_FIELDS } from "../product-kernel/woocommerceCommerce.js";
 
 const headers = (total, pages = total ? 1 : 0) => ({ "x-wp-total": String(total), "x-wp-totalpages": String(pages) });
 const product = ({ id = 1, type = "simple", status = "publish", modified = "2026-01-02T00:00:00Z", price = "10.00", categories = [{ id: 10 }] } = {}) => ({ id, name: `P${id}`, slug: `p-${id}`, permalink: `https://shop.example/p-${id}`, type, status, sku: `SKU-${id}`, price, regular_price: price, sale_price: "", manage_stock: true, stock_quantity: 3, stock_status: "instock", date_created_gmt: "2026-01-01T00:00:00Z", date_modified_gmt: modified, categories });
@@ -45,4 +45,28 @@ test("new and changed orders are refreshed while orders outside the rolling wind
   assert.deepEqual(result.orders.map(row => row.source_id), [50, 51]); assert.equal(result.changes.orders_refreshed, 1); assert.equal(result.changes.orders_added, 1); assert.ok(calls.some(call => call[1] === "orders/50")); assert.ok(calls.some(call => call[1] === "orders/51"));
   const expired = await collectIncrementalCommerce(provider({ products: [product()], orders: [], calls: [] }), { current: current(), syncStartedAt: "2027-02-01T00:00:00Z" });
   assert.equal(expired.orders.length, 0); assert.equal(expired.changes.orders_expired_or_removed, 1);
+});
+
+test("incremental inventory is minimal and canonicalizes persisted numeric/timestamp facts", async () => {
+  assert.deepEqual(INCREMENTAL_ORDER_FIELDS, ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "refunds", "line_items"]);
+  const calls = [], source = product({ modified: "2026-01-02T00:00:00Z" });
+  const dbLoaded = current(); dbLoaded.products[0].current_price = 10; dbLoaded.products[0].stock_quantity = 3; dbLoaded.products[0].source_modified_at = "2026-01-02T00:00:00.000Z";
+  const result = await collectIncrementalCommerce(provider({ products: [source], orders: [order()], calls }), { current: dbLoaded, syncStartedAt: "2026-02-01T00:00:00Z" });
+  assert.equal(result.changes.products_refreshed, 0);
+  assert.equal(result.changes.orders_refreshed, 0);
+  assert.equal(calls.some(call => call[0] === "get"), false);
+});
+
+test("source timestamp boundary deliberately re-reads facts at provider precision edge", async () => {
+  const calls = [], source = product();
+  await collectIncrementalCommerce(provider({ products: [source], orders: [order()], calls }), { current: current(), syncStartedAt: "2026-02-01T00:00:00Z", previousSuccessfulAt: "2026-01-02T00:00:00Z" });
+  assert.ok(calls.some(call => call[1] === "products/1"));
+  assert.ok(calls.some(call => call[1] === "orders/50"));
+});
+
+test("refunded Orders are conservatively refreshed even when the prior refund was fully line-attributed", async () => {
+  const calls = [], prior = current({ lines: [{ ...current().lines[0], refund_total: "2.00", refund_tax: "0.40" }], adjustments: [] });
+  const result = await collectIncrementalCommerce(provider({ products: [product()], orders: [order({ total: "10.00" })], details: { "orders/50": order({ total: "10.00" }) }, calls }), { current: prior, syncStartedAt: "2026-02-01T00:00:00Z" });
+  assert.ok(calls.some(call => call[1] === "orders/50"));
+  assert.equal(result.orders.length, 1);
 });
