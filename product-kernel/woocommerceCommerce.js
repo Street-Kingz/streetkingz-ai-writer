@@ -7,6 +7,8 @@ const FIELDS = {
   orders: ["id","status","currency","date_created_gmt","date_modified_gmt","discount_total","shipping_total","total","total_tax","prices_include_tax","line_items","refunds"]
 };
 export { FIELDS };
+export const INCREMENTAL_PRODUCT_FIELDS = ["id", "type", "status", "date_modified_gmt", "categories.id"];
+export const INCREMENTAL_ORDER_FIELDS = ["id", "status", "date_created_gmt", "date_modified_gmt", "refunds", "line_items"];
 const MAX_PAGES = 10000;
 const positiveInt = value => Number.isSafeInteger(value) && value > 0 ? value : null;
 const text = value => typeof value === "string" && value.length ? value : null;
@@ -113,4 +115,75 @@ export async function collectInitialCommerce(provider, { syncStartedAt = new Dat
   const links = [];
   for (const raw of productsRaw) for (const category of Array.isArray(raw.categories) ? raw.categories : []) links.push({ product_source_id: positiveInt(raw.id), category_source_id: positiveInt(category.id) });
   return { syncStartedAt: start.toISOString(), orderWindowStart, orderWindowEnd, products: productsRaw.map(normalizeProduct), variations: variationsRaw.map(normalizeVariation), categories: categoriesRaw.map(normalizeCategory), links, orders: ordersRaw.map(row => normalizeOrder(row, refundTotals.get(positiveInt(row.id)) || "0")), lines, adjustments };
+}
+
+function sourceDate(value) { return date(value); }
+function sameSourceDate(inventoryValue, currentValue) { return sourceDate(inventoryValue) === currentValue; }
+function refundIdsFromOrder(row) { return (Array.isArray(row.refunds) ? row.refunds : []).map(refund => positiveInt(refund.id || refund.refund_id)).filter(Boolean).sort((a, b) => a - b); }
+function refundIdsFromAdjustments(rows) { return rows.map(row => String(row.provider_adjustment_id || "").split(":", 1)[0]).filter(value => /^[1-9][0-9]*$/.test(value)).map(Number).sort((a, b) => a - b); }
+function sameNumberList(left, right) { return left.length === right.length && left.every((value, index) => value === right[index]); }
+function sameProductInventory(inventory, current) { return current && positiveInt(inventory.id) === current.source_id && inventory.type === current.product_type && inventory.status === current.source_status && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at); }
+function productCategoryIds(product) { return (Array.isArray(product.categories) ? product.categories : []).map(row => positiveInt(row.id)).filter(Boolean).sort((a, b) => a - b); }
+function sameProductInventoryWithCategories(inventory, current, oldLinks) { return sameProductInventory(inventory, current) && JSON.stringify(productCategoryIds(inventory)) === JSON.stringify(oldLinks.filter(row => row.product_source_id === current.source_id).map(row => row.category_source_id).sort((a, b) => a - b)); }
+
+async function collectOrderDetails(provider, rawOrders) {
+  const refunds = [];
+  for (const raw of rawOrders) for (const summary of Array.isArray(raw.refunds) ? raw.refunds : []) refunds.push(normalizeRefund(await provider.get(`orders/${positiveInt(raw.id)}/refunds/${positiveInt(summary.id || summary.refund_id)}`, { fields: ["id", "amount", "line_items", "shipping_lines", "fee_lines", "taxes"] }), positiveInt(raw.id)));
+  const refundTotals = new Map();
+  for (const refund of refunds) refundTotals.set(refund.order_source_id, addDecimal(refundTotals.get(refund.order_source_id), refund.amount));
+  const lines = [], adjustments = [];
+  for (const raw of rawOrders) {
+    for (const line of Array.isArray(raw.line_items) ? raw.line_items : []) {
+      const total = decimal(line.total), tax = decimal(line.total_tax);
+      if (recognition(raw.status) === "recognised" && (!total || !tax)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce recognised order line money was invalid.", 502);
+      lines.push({ order_source_id: positiveInt(raw.id), source_line_id: positiveInt(line.id), product_source_id: positiveInt(line.product_id), variation_source_id: positiveInt(line.variation_id), quantity: typeof line.quantity === "number" ? String(line.quantity) : null, subtotal: decimal(line.subtotal), total, tax, refunded_quantity: "0", refund_total: "0", refund_tax: "0" });
+    }
+    for (const refund of refunds.filter(item => item.order_source_id === positiveInt(raw.id))) {
+      for (const refundLine of refund.lines) {
+        const target = lines.find(line => line.order_source_id === refund.order_source_id && line.source_line_id === refundLine.source_line_id);
+        if (target) { target.refunded_quantity = addDecimal(target.refunded_quantity, refundLine.refunded_quantity); target.refund_total = addDecimal(target.refund_total, refundLine.refund_total); target.refund_tax = addDecimal(target.refund_tax, refundLine.refund_tax); }
+        else adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: `${refund.provider_adjustment_id}:unmatched:${refundLine.source_line_id}`, amount: `-${addDecimal(refundLine.refund_total, refundLine.refund_tax)}`, product_source_id: null, variation_source_id: null });
+      }
+      if (!/^0(?:\.0+)?$/.test(refund.unattributed_amount)) adjustments.push({ order_source_id: refund.order_source_id, adjustment_type: "refund", provider_adjustment_id: `${refund.provider_adjustment_id}:unattributed`, amount: `-${refund.unattributed_amount}`, product_source_id: null, variation_source_id: null });
+    }
+  }
+  return { orders: rawOrders.map(row => normalizeOrder(row, refundTotals.get(positiveInt(row.id)) || "0")), lines, adjustments };
+}
+
+export async function collectIncrementalCommerce(provider, { syncStartedAt = new Date(), current = {}, perPage = 100 } = {}) {
+  const start = new Date(syncStartedAt);
+  if (Number.isNaN(start.valueOf())) throw new ProductError("INVALID_REQUEST", "Sync start time is invalid.", 400);
+  const orderWindowEnd = start.toISOString(), orderWindowStart = new Date(start.getTime() - 365 * 24 * 60 * 60 * 1000).toISOString();
+  const previous = { products: current.products || [], variations: current.variations || [], categories: current.categories || [], links: current.links || [], orders: current.orders || [], lines: current.lines || [], adjustments: current.adjustments || [] };
+  const productInventory = await paginateWooCollection(provider, "products", { fields: INCREMENTAL_PRODUCT_FIELDS, perPage });
+  const categoriesRaw = await paginateWooCollection(provider, "products/categories", { fields: FIELDS.categories, perPage });
+  const categories = categoriesRaw.map(normalizeCategory), categoryIds = new Set(categories.map(row => row.source_id));
+  const oldProducts = new Map(previous.products.map(row => [row.source_id, row]));
+  const products = [];
+  for (const inventory of productInventory) {
+    const old = oldProducts.get(positiveInt(inventory.id));
+    const oldLinks = previous.links.filter(row => row.product_source_id === old?.source_id);
+    products.push(old && sameProductInventoryWithCategories(inventory, old, oldLinks) ? old : normalizeProduct(await provider.get(`products/${positiveInt(inventory.id)}`, { fields: FIELDS.products })));
+  }
+  const links = productInventory.flatMap(row => productCategoryIds(row).filter(categoryId => categoryIds.has(categoryId)).map(categoryId => ({ product_source_id: positiveInt(row.id), category_source_id: categoryId })));
+  const variationsRaw = [];
+  for (const product of productInventory.filter(row => row.type === "variable")) variationsRaw.push(...await paginateWooCollection(provider, `products/${positiveInt(product.id)}/variations`, { fields: FIELDS.variations, perPage }));
+  const variations = variationsRaw.map(normalizeVariation);
+  const ordersRaw = await paginateWooCollection(provider, "orders", { fields: INCREMENTAL_ORDER_FIELDS, perPage, query: { after: orderWindowStart, before: orderWindowEnd, dates_are_gmt: "true", status: "any", orderby: "date", order: "asc" } });
+  const oldOrders = new Map(previous.orders.map(row => [row.source_id, row]));
+  const oldLines = new Map(), oldAdjustments = new Map();
+  for (const row of previous.lines) { const list = oldLines.get(row.order_source_id) || []; list.push(row); oldLines.set(row.order_source_id, list); }
+  for (const row of previous.adjustments) { const list = oldAdjustments.get(row.order_source_id) || []; list.push(row); oldAdjustments.set(row.order_source_id, list); }
+  const currentProductIds = new Set(productInventory.map(row => positiveInt(row.id))), currentVariationIds = new Set(variations.map(row => row.source_id)), currentOrderIds = new Set(ordersRaw.map(row => positiveInt(row.id)));
+  const changedRaw = [], carriedOrders = [], carriedLines = [], carriedAdjustments = [], changes = { products_added: 0, products_refreshed: 0, products_removed: previous.products.filter(row => !currentProductIds.has(row.source_id)).length, variations_added_or_refreshed: 0, variations_removed: previous.variations.filter(row => !currentVariationIds.has(row.source_id)).length, orders_added: 0, orders_refreshed: 0, orders_expired_or_removed: previous.orders.filter(row => !currentOrderIds.has(row.source_id)).length };
+  for (const inventory of ordersRaw) {
+    const id = positiveInt(inventory.id), old = oldOrders.get(id), unchanged = old && old.source_status === (text(inventory.status) || "unknown") && sameSourceDate(inventory.date_modified_gmt, old.source_modified_at) && sameNumberList(refundIdsFromOrder(inventory), refundIdsFromAdjustments(oldAdjustments.get(id) || []));
+    if (unchanged) { carriedOrders.push(old); carriedLines.push(...(oldLines.get(id) || [])); carriedAdjustments.push(...(oldAdjustments.get(id) || [])); }
+    else { changedRaw.push(await provider.get(`orders/${id}`, { fields: FIELDS.orders })); if (old) changes.orders_refreshed += 1; else changes.orders_added += 1; }
+  }
+  const refreshed = await collectOrderDetails(provider, changedRaw);
+  const orderFacts = { orders: [...carriedOrders, ...refreshed.orders].sort((a, b) => a.source_id - b.source_id), lines: [...carriedLines, ...refreshed.lines], adjustments: [...carriedAdjustments, ...refreshed.adjustments] };
+  changes.products_added = products.filter(row => !oldProducts.has(row.source_id)).length; changes.products_refreshed = products.filter(row => oldProducts.has(row.source_id) && !previous.products.find(old => old.source_id === row.source_id && JSON.stringify(old) === JSON.stringify(row))).length;
+  const oldVariations = new Map(previous.variations.map(row => [row.source_id, row])); changes.variations_added_or_refreshed = variations.filter(row => !oldVariations.has(row.source_id) || JSON.stringify(oldVariations.get(row.source_id)) !== JSON.stringify(row)).length;
+  return { syncStartedAt: start.toISOString(), orderWindowStart, orderWindowEnd, products, variations, categories, links, ...orderFacts, changes };
 }

@@ -206,6 +206,9 @@ connected for the next authorised validation slice. V1-03 itself remains In
 Progress. The next V1-03 slice is incremental sync plus freshness/rolling-window
 behaviour. V1-04 is not activated.
 
+V1-03 incremental implementation: READY FOR REAL STREET KINGZ ACCEPTANCE.
+The real Street Kingz incremental run has not been started.
+
 V1-00 Governance Activation: Done
 
 V1-01 Progressive Evidence Decision Gate: Done
