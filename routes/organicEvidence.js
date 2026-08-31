@@ -1,5 +1,6 @@
 import express from "express";
 import { parseBearer, verifyIdentity, callerClient } from "../product-kernel/auth.js";
+import { privilegedClient } from "../product-kernel/privileged.js";
 import { resolveAccount } from "../product-kernel/repository.js";
 import { ProductError, safeError } from "../product-kernel/errors.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
@@ -30,10 +31,13 @@ router.get("/api/product/organic-evidence/status", handle(async (req, res) => {
   const businessIds = (businesses.data || []).map(row => row.id);
   if (!businessIds.length) return res.json({ sources: [] });
   const result = await client.from("organic_evidence_sources")
-    .select("source_kind,source_class,provider_id,evidence_state,last_attempted_at,last_successful_at,evidence_as_of,current_complete_run,current_completeness_state,active_run")
+    .select("source_kind,source_class,provider_id,connection_id,evidence_state,last_attempted_at,last_successful_at,evidence_as_of,current_complete_run,current_completeness_state,active_run")
     .in("business_id", businessIds)
     .order("source_kind", { ascending: true });
   if (result.error) throw result.error;
+  const gscIds = (result.data || []).map(source => source.connection_id).filter(Boolean);
+  const gsc = gscIds.length ? await privilegedClient().from("gsc_connections").select("connection_id,connection_state,selected_site_url,property_type,permission_level").in("connection_id", gscIds).eq("business_id", businessIds[0]) : { data: [], error: null };
+  if (gsc.error) throw gsc.error;
   res.json({ sources: (result.data || []).map(source => ({
     source_kind: source.source_kind,
     source_class: source.source_class,
@@ -45,6 +49,10 @@ router.get("/api/product/organic-evidence/status", handle(async (req, res) => {
     has_current_complete_evidence: Boolean(source.current_complete_run),
     current_completeness_state: source.current_complete_run ? source.current_completeness_state : null,
     collecting: Boolean(source.active_run)
+    ,connection_state: gsc.data?.find(item => item.connection_id === source.connection_id)?.connection_state || null
+    ,selected_property: gsc.data?.find(item => item.connection_id === source.connection_id)?.selected_site_url || null
+    ,property_type: gsc.data?.find(item => item.connection_id === source.connection_id)?.property_type || null
+    ,permission_level: gsc.data?.find(item => item.connection_id === source.connection_id)?.permission_level || null
   })) });
 }));
 

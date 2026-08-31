@@ -4,7 +4,9 @@
 
 **Owner approval date:** 2026-08-31
 
-**Current authorized slice:** Slice A — Organic Evidence Foundation
+**Current authorized slice:** Slice B — Google Search Console Connection + Evidence
+
+**Current engineering phase:** B1 — Customer Connection + Property Selection
 
 ## Contract purpose
 
