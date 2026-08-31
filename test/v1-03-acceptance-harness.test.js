@@ -23,5 +23,5 @@ test("public Woo callback/return remain in normal router and harness does not wr
 
 test("launcher verifies intended Product readiness and has a safe tunnel fallback", () => {
   const source = fs.readFileSync(new URL("../scripts/runV103AcceptanceHarness.js", import.meta.url), "utf8");
-  assert.match(source, /exitCode/); assert.match(source, /\/health/); assert.match(source, /\/internal\/v1-03/); assert.match(source, /cloudflared/); assert.match(source, /Manual fallback/); assert.doesNotMatch(source, /console\.log\([^)]*(KEY|SECRET|TOKEN)/i);
+  assert.match(source, /exitCode/); assert.match(source, /waitFor\("\//); assert.doesNotMatch(source, /waitFor\("\/health"/); assert.match(source, /\/internal\/v1-03/); assert.match(source, /cloudflared/); assert.match(source, /Manual fallback/); assert.doesNotMatch(source, /console\.log\([^)]*(KEY|SECRET|TOKEN)/i);
 });
