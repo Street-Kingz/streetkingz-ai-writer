@@ -196,7 +196,7 @@ Governance rebaseline and Product-state establishment
 
 Current milestone: V1-04 Organic Evidence Connections — In Progress
 
-Current active slice: Slice A — Organic Evidence Foundation
+Current active slice: Slice A — Organic Evidence Foundation — DONE / ACCEPTED
 
 Current V1-03 acceptance state (verified at the current repository state):
 
@@ -208,9 +208,9 @@ acceptance also passed. The first real incremental category-link failure and
 corrected self-healing run remain preserved in the V1-03 acceptance evidence.
 
 V1-04 Organic Evidence Connections is In Progress under its approved contract.
-Slice A — Organic Evidence Foundation is the only active slice. Slice B —
-Google Search Console Connection + Evidence is the next authorized slice but is
-not started.
+Slice A — Organic Evidence Foundation is DONE / ACCEPTED. Slice B — Google
+Search Console Connection + Evidence is the next authorized slice but is not
+started.
 
 V1-00 Governance Activation: Done
 

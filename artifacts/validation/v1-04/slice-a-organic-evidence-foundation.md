@@ -1,6 +1,6 @@
 # V1-04 Slice A — Organic Evidence Foundation
 
-Status: `SLICE A: BLOCKED`
+Status: `SLICE A: PASS`
 
 This artifact records the bounded local acceptance of the common organic-evidence
 source/run envelope. It contains no provider credentials, tokens, Vault IDs or
@@ -57,6 +57,9 @@ rewritten.
 - Separate no-prior-complete sources proved failed-first and partial-first runs
   leave no current evidence, no successful timestamp and no fabricated
   completeness state.
+- Exact-provider cross-Business attempts were rejected by the composite
+  `organic_source_connection_business_fk`; same-Business bindings succeeded,
+  and a later conflicting rebind was rejected as `ORGANIC_SOURCE_CONFLICT`.
 - Concurrent begin allowed exactly one active run; completion/failure races had
   one winner; stale completion was rejected. Conflicting logical source ensure
   inputs were rejected.
@@ -66,11 +69,12 @@ rewritten.
 ## State boundary
 
 The correction migration was applied to the existing local V1-03 database
-without a reset. An isolated-stack attempt with a unique project identity was
-stopped before database creation because the pinned CLI still attempted to bind
-the default database port; no preserved containers or data were affected. Slice
-A cannot be marked accepted until a genuinely empty isolated migration run
-completes.
+without a reset. A detached worktree using project ID
+`streetkingz-ai-writer-v104-zero-proof` ran an isolated Supabase stack on ports
+55320–55339. The empty database applied all repository migrations in filename
+order, and the isolated Auth → Account → Business → site source → complete run
+smoke proof passed. The temporary stack and worktree were then removed; the
+preserved stack remained running and was not reset.
 
 Slice A does not collect Search Console, site or external-search observations.
 Slice B — Google Search Console Connection + Evidence — remains not started.
