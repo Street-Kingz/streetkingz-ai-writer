@@ -1,6 +1,10 @@
 # V1-04 — Organic Evidence Connections
 
-**Status: PROPOSED — NOT AUTHORISED FOR IMPLEMENTATION**
+**Status: APPROVED — IMPLEMENTATION AUTHORISED**
+
+**Owner approval date:** 2026-08-31
+
+**Current authorized slice:** Slice A — Organic Evidence Foundation
 
 ## Contract purpose
 
