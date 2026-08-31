@@ -357,7 +357,7 @@ WooCommerce Commerce Connection
 
 Read-only commerce ingestion and minimum commercial business model
 
-Current / In Progress
+Done
 
 V1-04
 
@@ -365,7 +365,7 @@ Organic Evidence Connections
 
 Search Console, site understanding and external search evidence connected safely
 
-Not started
+Next / Not Started
 
 V1-05
 
@@ -2381,15 +2381,11 @@ V1-00 Governance Activation is Done.
 
 V1-01 Progressive Evidence Decision Gate is Done.
 
-V1-02 Single-Business Product Kernel is Current.
+V1-03 WooCommerce Commerce Connection is Done / accepted.
 
 The canonical PROJECT_STATE.md, ROADMAP.md and BACKLOG.md are present, the required Roadmap resolutions are recorded in DECISIONS.md, and the approved V1-01 contract is present at `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The former commercial-context contract is preserved under `milestones/superseded/`.
 
-The next approved action is:
-
-Create and approve the bounded V1-02 Single-Business Product Kernel milestone contract.
-
-V1-02 is the sole authorised Product milestone. V1-02 Product code is not authorised until its milestone contract is created and approved. No V1-03 or executor work is authorised.
+The next approved milestone is V1-04 Organic Evidence Connections. It is next / not started and awaits its normal implementation activation and contract process. No V1-04 implementation is authorised by this closeout.
 
 29. Final Roadmap Rule
 

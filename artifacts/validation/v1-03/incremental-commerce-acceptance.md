@@ -1,6 +1,6 @@
 # V1-03 incremental commerce acceptance
 
-## INCREMENTAL IMPLEMENTATION: READY FOR REAL STREET KINGZ ACCEPTANCE
+## REAL STREET KINGZ INCREMENTAL ACCEPTANCE: PASS
 
 The V1 incremental path keeps complete snapshot generations. It loads the
 current promoted normalized snapshot, reads bounded current WooCommerce
@@ -42,8 +42,8 @@ while rapid Order line-total edits did not advance the parent timestamp. The
 incremental inventory therefore retains only a strict bounded Order commercial
 line fingerprint (line ID, Product/Variation IDs, quantity, total, tax) and
 conservatively refreshes refunded Orders. The fixture was removed after
-validation. No Street Kingz incremental sync was run and no Street Kingz data
-was changed.
+validation. At that pre-acceptance checkpoint, no Street Kingz incremental sync
+had been run and no Street Kingz data had been changed.
 
 The corrected current-snapshot loader selects internal row IDs only for link
 reconstruction, strips them from collector state, and uses deterministic
@@ -60,19 +60,22 @@ successful evidence timestamp. These integrity corrections preserve the
 complete-generation/LKG architecture and do not change the accepted initial
 sync path.
 
-The harness now has a local-only `POST /internal/v1-03/resume` path that
+The harness has a local-only `POST /internal/v1-03/resume` path that
 rotates a temporary password for the exact existing acceptance Auth user,
 without creating Product records or a Woo authorization attempt. The live
 local check correctly failed closed because the current local database contains
 four active Businesses with the exact acceptance name/platform, including two
-connected complete Woo Stores. No tenant was guessed, modified, disconnected,
-or reset. The duplicate-state ambiguity must be resolved before the existing
-Street Kingz browser session can be resumed; the resume implementation itself
-is covered by focused tests for not-found, ambiguous, hosted-Supabase, and
-successful exact-tenant cases.
+connected complete Woo Stores. The selector was then narrowed to the exact
+canonical Street Kingz Store URL and complete-generation readiness, uniquely
+selecting the accepted tenant without guessing or modifying any other tenant.
+The resume implementation is covered by focused tests for not-found,
+ambiguous, hosted-Supabase, canonical URL rejection, and successful exact-tenant
+cases.
 
-V1-03 remains In Progress. This artifact does not claim real Street Kingz
-incremental acceptance or V1-03 completion.
+The first real Street Kingz incremental run is retained below as a failed
+acceptance attempt. The corrected second real incremental run passed, and this
+acceptance completes the V1-03 commerce-connection boundary. V1-04 is the next
+milestone and is not started.
 
 The first real Street Kingz incremental run completed structurally but failed
 acceptance: Product-category links fell from 103 to 0 while Products (30),
@@ -85,4 +88,32 @@ generation remains historical evidence. The corrected collector now requests
 `categories`, validates the array and IDs, rejects orphaned categories, and
 reconstructs exact links for the replacement candidate; the acceptance
 reference now compares exact Product-category pairs and fingerprints category
-membership. No corrective Street Kingz sync has been run yet.
+membership. This first run is retained as FAIL evidence.
+
+The corrected second real Street Kingz incremental sync completed with
+`status=complete` and `sync_mode=incremental`. It produced 30 Products, 6
+Variations, 11 Categories, 103 Product-category links, 23 Orders, 35 Order
+lines, and 1 Adjustment. Its exact order window was
+`2025-08-31T16:30:59.162Z` through `2026-08-31T16:30:59.162Z`. Changes were
+zero Product changes, zero Variation changes, one refreshed Order, and one
+expired/removed Order.
+
+Independent reconciliation passed exact counts and exact Product-category
+pair-set comparison: 30 Products, 6 Variations, 11 Categories, 103 links,
+and 23 Orders. All populated commercial rows reconciled exactly. Product
+2018 / Variation 2020 remained `NO_RECOGNISED_SALES` with Product NULL/NULL.
+
+The rolling horizon was proven against real evidence: the prior generation had
+24 Orders and 36 Lines; the corrected generation had 23 Orders and 35 Lines,
+with one Order naturally leaving the exact 365-day window. Historical evidence
+remains intact and was not converted to zero or deleted.
+
+Freshness after promotion was complete, with `order_horizon_days=365`,
+`has_current_complete_generation=true`, and `evidence_as_of` equal to the
+reported last successful timestamp. The first real failure remains preserved:
+the initial incremental candidate promoted with 0 links because the real Woo
+inventory response for `categories.id` contained no usable category arrays.
+The corrected `categories` request self-healed 0 links to 103 through the
+normal Product sync path. No manual rollback or database edit was used.
+
+REAL STREET KINGZ INCREMENTAL ACCEPTANCE: PASS

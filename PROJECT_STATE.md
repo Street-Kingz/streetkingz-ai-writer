@@ -194,20 +194,19 @@ Product phase
 
 Governance rebaseline and Product-state establishment
 
-Current milestone: V1-03 WooCommerce Commerce Connection (authorised; In Progress)
+Current milestone: V1-04 Organic Evidence (next milestone; not started)
 
 Current V1-03 acceptance state (verified at the current repository state):
 
-V1-03 initial commerce sync: DONE / ACCEPTED.
+V1-03 WooCommerce Commerce Connection: DONE / ACCEPTED.
 
 The real owner-authorised Street Kingz WooCommerce initial sync and independent
-read-only reconciliation passed. The current connection remains intentionally
-connected for the next authorised validation slice. V1-03 itself remains In
-Progress. The next V1-03 slice is incremental sync plus freshness/rolling-window
-behaviour. V1-04 is not activated.
+read-only reconciliation passed. The final incremental sync and freshness
+acceptance also passed. The first real incremental category-link failure and
+corrected self-healing run remain preserved in the V1-03 acceptance evidence.
 
-V1-03 incremental implementation: READY FOR REAL STREET KINGZ ACCEPTANCE.
-The real Street Kingz incremental run has not been started.
+V1-04 Organic Evidence is the next milestone and is not started. No V1-04
+implementation is activated by this state update.
 
 V1-00 Governance Activation: Done
 
@@ -269,8 +268,9 @@ Accepted Street Kingz validation recommendation
 
 This is Product validation evidence, not the next Product milestone. Implementing the Street Kingz recommendation is a separate test-store side task and must not block V1-02.
 
-The next approved action is the current V1-03 incremental-sync slice, within
-the approved V1-03 contract baseline. The completed V1-01 contract is
+V1-03 WooCommerce Commerce Connection is Done / accepted, including its
+incremental-sync and freshness slice. The next approved milestone is V1-04
+Organic Evidence, which is not started. The completed V1-01 contract is
 `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The approved V1-02
 contract is `milestones/V1-02_SINGLE_BUSINESS_PRODUCT_KERNEL.md`; its accepted
 architecture is `docs/architecture/V1-02_PRODUCT_KERNEL_ARCHITECTURE.md`. The
@@ -2215,10 +2215,9 @@ The previous Phase B attempt is preserved but superseded; its blocked result was
 
 V1-02 Single-Business Product Kernel is Done and accepted.
 
-The next approved action is the V1-03 incremental-sync plus
-freshness/rolling-window slice. V1-03 remains authorised only within its
-approved contract and remains In Progress; V1-04 and executor work are not
-authorised.
+V1-03 WooCommerce Commerce Connection is Done / accepted. The next milestone
+is V1-04 Organic Evidence, which remains not started and awaits its normal
+implementation activation and contract process.
 
 35. Backlog State
 
@@ -2312,8 +2311,9 @@ V1-01 Progressive Evidence Decision Gate is Done;
 
 V1-02 Single-Business Product Kernel is Done and accepted;
 
-V1-03 initial commerce sync is Done / accepted, while V1-03 remains In
-Progress for incremental-sync and freshness/rolling-window behaviour; V1-04 is
-not activated.
+V1-03 WooCommerce Commerce Connection is Done / accepted, including initial
+commerce sync, incremental sync, rolling-window behavior, freshness exposure,
+and final real Street Kingz reconciliation. V1-04 Organic Evidence is next and
+not started; no V1-04 implementation is activated.
 
 The repository is a strong foundation. It is not yet the Product.
