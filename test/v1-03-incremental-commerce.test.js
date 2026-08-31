@@ -7,7 +7,7 @@ const product = ({ id = 1, type = "simple", status = "publish", modified = "2026
 const order = ({ id = 50, status = "completed", created = "2025-12-01T00:00:00Z", modified = "2026-01-02T00:00:00Z", lineProduct = 1, subtotal = "10.00", total = "10.00", pricesIncludeTax = false } = {}) => ({ id, status, currency: "GBP", date_created_gmt: created, date_modified_gmt: modified, discount_total: "0", shipping_total: "0", total, total_tax: "2.00", prices_include_tax: pricesIncludeTax, line_items: [{ id: id * 10, product_id: lineProduct, variation_id: 0, quantity: 1, subtotal, total, total_tax: "2.00" }], refunds: [] });
 function provider({ products, categories = [{ id: 10, name: "Cat", slug: "cat", parent: 0 }], variations = {}, orders, details = {}, calls }) {
   return {
-    collection: async (path) => { calls.push(["collection", path]); const data = path === "products" ? products.map(row => ({ id: row.id, type: row.type, status: row.status, date_modified_gmt: row.date_modified_gmt, categories: row.categories })) : path === "products/categories" ? categories : path === "orders" ? orders : path.startsWith("products/") ? (variations[path] || []) : []; return { data, headers: headers(data.length) }; },
+    collection: async (path, options) => { calls.push(["collection", path, options?.fields]); const allData = path === "products" ? products.map(row => ({ id: row.id, type: row.type, status: row.status, date_modified_gmt: row.date_modified_gmt, ...(Object.prototype.hasOwnProperty.call(row, "categories") ? { categories: row.categories } : {}) })) : path === "products/categories" ? categories : path === "orders" ? orders : path.startsWith("products/") ? (variations[path] || []) : []; const page = Number(options?.query?.page || 1), perPage = Number(options?.query?.per_page || 100), data = allData.slice((page - 1) * perPage, page * perPage); return { data, headers: headers(allData.length, allData.length ? Math.ceil(allData.length / perPage) : 0) }; },
     get: async (path) => { calls.push(["get", path]); return details[path] || products.find(row => path === `products/${row.id}`) || orders.find(row => path === `orders/${row.id}`); }
   };
 }
@@ -37,6 +37,36 @@ test("category membership and variable variations use current source state", asy
   const calls = [], variable = product({ id: 2, type: "variable", categories: [{ id: 11 }] }), variation = { id: 21, parent_id: 2, sku: "V", attributes: [], regular_price: "8", price: "7", sale_price: "", manage_stock: true, stock_quantity: 4, stock_status: "instock", status: "publish", date_created_gmt: "2026-01-01T00:00:00Z", date_modified_gmt: "2026-01-03T00:00:00Z" };
   const result = await collectIncrementalCommerce(provider({ products: [variable], categories: [{ id: 11, name: "New", slug: "new", parent: 0 }], variations: { "products/2/variations": [variation] }, orders: [], calls }), { current: current({ products: [], variations: [], links: [] }), syncStartedAt: "2026-02-01T00:00:00Z" });
   assert.deepEqual(result.categories.map(row => row.source_id), [11]); assert.deepEqual(result.links, [{ product_source_id: 2, category_source_id: 11 }]); assert.equal(result.variations[0].source_id, 21); assert.ok(calls.some(call => call[1] === "products/2/variations"));
+});
+
+test("Product inventory category membership fails closed and preserves exact links", async () => {
+  const missingCategories = product(); delete missingCategories.categories;
+  for (const malformed of [missingCategories, product({ categories: null }), product({ categories: [{ id: "10" }] })]) {
+    const calls = [];
+    await assert.rejects(() => collectIncrementalCommerce(provider({ products: [malformed], orders: [], calls }), { current: current(), syncStartedAt: "2026-02-01T00:00:00Z" }), /categories|category/i);
+  }
+  const calls = [], result = await collectIncrementalCommerce(provider({ products: [product({ categories: [] }), product({ id: 2, categories: [{ id: 10 }, { id: 10 }] })], categories: [{ id: 10, name: "Cat", slug: "cat", parent: 0 }], orders: [], calls }), { current: current({ products: [], links: [] }), syncStartedAt: "2026-02-01T00:00:00Z" });
+  assert.deepEqual(result.links, [{ product_source_id: 2, category_source_id: 10 }]);
+  assert.equal(result.products.length, 2);
+});
+
+test("Product inventory rejects a category absent from the complete category set", async () => {
+  await assert.rejects(() => collectIncrementalCommerce(provider({ products: [product({ categories: [{ id: 999 }] })], categories: [{ id: 10, name: "Cat", slug: "cat", parent: 0 }], orders: [], calls: [] }), { current: current({ products: [], links: [] }), syncStartedAt: "2026-02-01T00:00:00Z" }), /unavailable category/i);
+});
+
+test("broken empty current links self-heal from valid Product inventory", async () => {
+  const result = await collectIncrementalCommerce(provider({ products: [product({ id: 1, categories: [{ id: 10 }] })], categories: [{ id: 10, name: "Cat", slug: "cat", parent: 0 }], orders: [], calls: [] }), { current: current({ links: [] }), syncStartedAt: "2026-02-01T00:00:00Z" });
+  assert.deepEqual(result.links, [{ product_source_id: 1, category_source_id: 10 }]);
+  assert.equal(current().links.length, 1);
+});
+
+test("103-style Product-category membership is reconstructed exactly", async () => {
+  const products = Array.from({ length: 103 }, (_, index) => product({ id: index + 1, categories: [{ id: index + 1 }] }));
+  const categories = products.map(row => ({ id: row.id, name: `Cat${row.id}`, slug: `cat-${row.id}`, parent: 0 }));
+  const calls = [], result = await collectIncrementalCommerce(provider({ products, categories, orders: [], calls }), { current: current({ products: [], links: [] }), syncStartedAt: "2026-02-01T00:00:00Z" });
+  assert.equal(result.links.length, 103);
+  assert.deepEqual(result.links, products.map(row => ({ product_source_id: row.id, category_source_id: row.id })));
+  assert.deepEqual(calls.find(call => call[1] === "products")[2], ["id", "type", "status", "date_modified_gmt", "categories"]);
 });
 
 test("new and changed orders are refreshed while orders outside the rolling window are removed", async () => {

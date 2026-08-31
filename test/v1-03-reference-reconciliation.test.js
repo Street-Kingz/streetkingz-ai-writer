@@ -70,3 +70,18 @@ test("reference source reader uses GET-only Woo operations and keeps output sani
   const source = fs.readFileSync(new URL("../internal/v1-03-harness/referenceReconciliation.js", import.meta.url), "utf8");
   assert.doesNotMatch(source, /method\s*:\s*["'](POST|PATCH|PUT|DELETE)/i); assert.doesNotMatch(source, /secret_reference|consumerSecret|customer|billing|email|phone|user_agent|raw payload/i);
 });
+
+test("reference links compare exact pairs, not only counts", () => {
+  const expected = { expected: [], source: { product_category_links: 2, links: [{ product_source_id: 1, category_source_id: 10 }, { product_source_id: 2, category_source_id: 11 }] } };
+  assert.equal(compareReference(expected, { rows: [], links: [{ product_source_id: 1, category_source_id: 10 }, { product_source_id: 2, category_source_id: 99 }] }).links.result, "FAIL");
+  assert.equal(compareReference(expected, { rows: [], links: expected.source.links }).links.result, "PASS");
+  assert.equal(compareReference({ expected: [], source: { product_category_links: 0, links: [] } }, { rows: [], links: [{ product_source_id: 1, category_source_id: 10 }] }).overall, "FAIL");
+});
+
+test("reference Product categories are strict and source fingerprints include membership", () => {
+  const product = { id: 1, type: "simple", categories: [{ id: 10 }, { id: 10 }] };
+  const signature = buildSourceSignature({ products: [product] });
+  assert.match(signature, /category_ids/);
+  assert.throws(() => buildSourceSignature({ products: [{ id: 1, type: "simple" }] }), /categories/);
+  assert.notEqual(signature, buildSourceSignature({ products: [{ ...product, categories: [{ id: 11 }] }] }));
+});

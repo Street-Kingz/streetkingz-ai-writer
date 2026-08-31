@@ -73,3 +73,16 @@ successful exact-tenant cases.
 
 V1-03 remains In Progress. This artifact does not claim real Street Kingz
 incremental acceptance or V1-03 completion.
+
+The first real Street Kingz incremental run completed structurally but failed
+acceptance: Product-category links fell from 103 to 0 while Products (30),
+Variations (6), Categories (11), Orders (24), Lines (36), and Adjustments (1)
+were unchanged. Read-only provider diagnostics confirmed that the inventory
+request using `categories.id` returned no usable category arrays, while the
+supported `categories` field returned 103 valid category IDs. The broken
+generation remains current evidence and the prior complete 103-link
+generation remains historical evidence. The corrected collector now requests
+`categories`, validates the array and IDs, rejects orphaned categories, and
+reconstructs exact links for the replacement candidate; the acceptance
+reference now compares exact Product-category pairs and fingerprints category
+membership. No corrective Street Kingz sync has been run yet.

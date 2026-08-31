@@ -7,7 +7,7 @@ const FIELDS = {
   orders: ["id","status","currency","date_created_gmt","date_modified_gmt","discount_total","shipping_total","total","total_tax","prices_include_tax","line_items","refunds"]
 };
 export { FIELDS };
-export const INCREMENTAL_PRODUCT_FIELDS = ["id", "type", "status", "date_modified_gmt", "categories.id"];
+export const INCREMENTAL_PRODUCT_FIELDS = ["id", "type", "status", "date_modified_gmt", "categories"];
 // Woo 11.0.1 did not advance an Order's modified timestamp for a rapid line-total edit.
 // Keep only the strict commercial line fingerprint in the inventory response.
 export const INCREMENTAL_ORDER_FIELDS = ["id", "status", "currency", "date_created_gmt", "date_modified_gmt", "total", "total_tax", "discount_total", "shipping_total", "prices_include_tax", "refunds", "line_items"];
@@ -167,7 +167,12 @@ function sameOrderInventory(inventory, current, currentLines, previousSuccessful
   return current && positiveInt(inventory.id) === current.source_id && (text(inventory.status) || "unknown") === current.source_status && text(inventory.currency) === current.currency && canonicalTimestamp(inventory.date_created_gmt) === canonicalTimestamp(current.source_created_at) && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && sameMoney(inventory.total, current.order_total) && sameMoney(inventory.total_tax, current.tax_total) && sameMoney(inventory.discount_total, current.discount_total) && sameMoney(inventory.shipping_total, current.shipping_total) && inventory.prices_include_tax === current.prices_include_tax && sameCanonical(canonicalValue(inventoryLineFingerprint(inventory)), canonicalValue(orderLineFingerprint(currentLines))) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs);
 }
 function sameProductInventory(inventory, current, previousSuccessfulAt, precisionMs) { return current && positiveInt(inventory.id) === current.source_id && inventory.type === current.product_type && inventory.status === current.source_status && sameSourceDate(inventory.date_modified_gmt, current.source_modified_at) && !withinTimestampBoundary(inventory.date_modified_gmt, previousSuccessfulAt, precisionMs); }
-function productCategoryIds(product) { return (Array.isArray(product.categories) ? product.categories : []).map(row => positiveInt(row.id)).filter(Boolean).sort((a, b) => a - b); }
+function productCategoryIds(product) {
+  if (!Array.isArray(product?.categories)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce Product categories were invalid.", 502);
+  const ids = product.categories.map(row => positiveInt(row?.id));
+  if (ids.some(id => !id)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce Product category identity was invalid.", 502);
+  return [...new Set(ids)].sort((a, b) => a - b);
+}
 function sameProductInventoryWithCategories(inventory, current, oldLinks, previousSuccessfulAt, precisionMs) { const oldCategoryIds = oldLinks.filter(row => row.product_source_id === current.source_id).map(row => row.category_source_id).sort((a, b) => a - b); return sameProductInventory(inventory, current, previousSuccessfulAt, precisionMs) && sameCanonical(productCategoryIds(inventory), oldCategoryIds); }
 
 async function collectOrderDetails(provider, rawOrders) {
@@ -209,7 +214,10 @@ export async function collectIncrementalCommerce(provider, { syncStartedAt = new
     const oldLinks = previous.links.filter(row => row.product_source_id === old?.source_id);
     products.push(old && sameProductInventoryWithCategories(inventory, old, oldLinks, previousSuccessfulAt, providerTimestampPrecisionMs) ? old : normalizeProduct(await provider.get(`products/${positiveInt(inventory.id)}`, { fields: FIELDS.products })));
   }
-  const links = productInventory.flatMap(row => productCategoryIds(row).filter(categoryId => categoryIds.has(categoryId)).map(categoryId => ({ product_source_id: positiveInt(row.id), category_source_id: categoryId })));
+  const links = productInventory.flatMap(row => productCategoryIds(row).map(categoryId => {
+    if (!categoryIds.has(categoryId)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce Product referenced an unavailable category.", 502);
+    return { product_source_id: positiveInt(row.id), category_source_id: categoryId };
+  }));
   const variationsRaw = [];
   for (const product of productInventory.filter(row => row.type === "variable")) variationsRaw.push(...await paginateWooCollection(provider, `products/${positiveInt(product.id)}/variations`, { fields: FIELDS.variations, perPage }));
   const variations = variationsRaw.map(normalizeVariation);
