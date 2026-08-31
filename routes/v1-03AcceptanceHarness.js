@@ -14,6 +14,12 @@ const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
 const localOnly = (req, res, next) => LOCAL_HOSTS.has(req.hostname) ? next() : res.status(404).end();
 const handle = fn => (req, res) => Promise.resolve(fn(req, res)).catch(error => { const safe = safeError(error, req.correlationId); res.status(safe.status).json(safe.body); });
 function envIsLocal(url) { try { const hostname = new URL(url).hostname; return LOCAL_HOSTS.has(hostname); } catch { return false; } }
+function isExactAcceptanceStoreUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname.toLowerCase() === "streetkingz.co.uk" && (url.port === "" || url.port === "443") && url.pathname === "/" && !url.username && !url.password && !url.search && !url.hash;
+  } catch { return false; }
+}
 function config() { return productKernelConfig(process.env, { privileged: true }); }
 async function context(req) { const token = parseBearer(req.get("authorization")); const identity = await verifyIdentity(token); const client = callerClient(token); const account = await resolveAccount(client, identity.authUserId); if (!account || account.status !== "active") throw new ProductError("TENANT_NOT_FOUND", "Product account is not provisioned.", 404); return { token, identity, client, account }; }
 async function ownedConnection(ctx, id) { if (typeof id !== "string" || !UUID.test(id)) throw new ProductError("INVALID_REQUEST", "Connection ID is invalid.", 400); const business = await ctx.client.from("businesses").select("id").eq("account_id", ctx.account.id).maybeSingle(); if (business.error) throw business.error; if (!business.data) throw new ProductError("BUSINESS_NOT_PROVISIONED", "Business is not provisioned.", 404); const row = await ctx.client.from("connections").select("id,business_id,provider_type,status,consent_state").eq("id", id).eq("business_id", business.data.id).maybeSingle(); if (row.error) throw row.error; if (!row.data || row.data.provider_type !== "woocommerce") throw new ProductError("CONNECTION_NOT_FOUND", "WooCommerce connection not found.", 404); return row.data; }
@@ -27,16 +33,17 @@ async function findAcceptanceTenant(admin) {
     if (!account.data) continue;
     const connections = await admin.from("connections").select("id,business_id,provider_type,status,consent_state").eq("business_id", business.id).eq("provider_type", "woocommerce");
     if (connections.error) throw connections.error;
-    const stores = connections.data?.length === 1 ? await admin.from("commerce_stores").select("id,connection_id,current_generation").eq("business_id", business.id).eq("connection_id", connections.data[0].id).eq("provider", "woocommerce") : { data: [], error: null };
+    const stores = connections.data?.length === 1 ? await admin.from("commerce_stores").select("id,connection_id,current_generation,canonical_base_url").eq("business_id", business.id).eq("connection_id", connections.data[0].id).eq("provider", "woocommerce") : { data: [], error: null };
     if (stores.error) throw stores.error;
-    const generation = stores.data?.length === 1 && stores.data[0].current_generation ? await admin.from("commerce_sync_generations").select("id,state").eq("id", stores.data[0].current_generation).eq("store_id", stores.data[0].id).maybeSingle() : { data: null, error: null };
+    const store = stores.data?.length === 1 ? stores.data[0] : null;
+    const generation = store?.current_generation && isExactAcceptanceStoreUrl(store.canonical_base_url) ? await admin.from("commerce_sync_generations").select("id,state").eq("id", store.current_generation).eq("store_id", store.id).maybeSingle() : { data: null, error: null };
     if (generation.error) throw generation.error;
-    candidates.push({ account: account.data, business, connections: connections.data || [], stores: stores.data || [], generation: generation.data });
+    if (connections.data?.length !== 1 || connections.data[0].status !== "connected" || connections.data[0].consent_state !== "granted" || !store || !isExactAcceptanceStoreUrl(store.canonical_base_url) || !generation.data || generation.data.state !== "complete") continue;
+    candidates.push({ account: account.data, business, connections: connections.data, stores: stores.data, generation: generation.data });
   }
   if (candidates.length === 0) throw new ProductError("ACCEPTANCE_SESSION_NOT_FOUND", "The existing Street Kingz V1-03 acceptance session was not found.", 404);
   if (candidates.length > 1) throw new ProductError("ACCEPTANCE_SESSION_AMBIGUOUS", "More than one Street Kingz V1-03 acceptance session matches.", 409);
   const candidate = candidates[0];
-  if (candidate.connections.length !== 1 || candidate.connections[0].status !== "connected" || candidate.connections[0].consent_state !== "granted" || candidate.stores.length !== 1 || !candidate.generation || candidate.generation.state !== "complete") throw new ProductError("ACCEPTANCE_SESSION_NOT_FOUND", "The existing Street Kingz V1-03 acceptance session is not ready.", 404);
   return { ...candidate, connection: candidate.connections[0], store: candidate.stores[0] };
 }
 export async function readCurrentProductSnapshot({ admin, client, accountId, connectionId }) {
