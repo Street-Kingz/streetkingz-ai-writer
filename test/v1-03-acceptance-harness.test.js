@@ -20,3 +20,8 @@ test("public Woo callback/return remain in normal router and harness does not wr
   assert.match(woo, /\/api\/product\/woocommerce\/callback/); assert.match(woo, /\/api\/product\/woocommerce\/return/); assert.doesNotMatch(fs.readFileSync(new URL("../internal/v1-03-harness/referenceReconciliation.js", import.meta.url), "utf8"), /method\s*:\s*["'](POST|PATCH|PUT|DELETE)/i); assert.match(app, /if \(v103AcceptanceHarnessRoute\)/);
   assert.equal(typeof createV103AcceptanceHarnessRouter, "function");
 });
+
+test("launcher verifies intended Product readiness and has a safe tunnel fallback", () => {
+  const source = fs.readFileSync(new URL("../scripts/runV103AcceptanceHarness.js", import.meta.url), "utf8");
+  assert.match(source, /exitCode/); assert.match(source, /\/health/); assert.match(source, /\/internal\/v1-03/); assert.match(source, /cloudflared/); assert.match(source, /Manual fallback/); assert.doesNotMatch(source, /console\.log\([^)]*(KEY|SECRET|TOKEN)/i);
+});

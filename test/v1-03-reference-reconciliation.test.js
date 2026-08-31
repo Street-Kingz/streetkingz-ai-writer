@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { addDecimal, subtractDecimal, classifyReferenceStatus, compareReference, calculateExpected } from "../internal/v1-03-harness/referenceReconciliation.js";
+import { addDecimal, subtractDecimal, classifyReferenceStatus, compareReference, calculateExpected, refundMagnitude, parseReferenceRefund } from "../internal/v1-03-harness/referenceReconciliation.js";
 
 test("reference status contract and exact decimal comparison", () => {
   assert.equal(classifyReferenceStatus("processing"), "recognised"); assert.equal(classifyReferenceStatus("refunded"), "recognised"); assert.equal(classifyReferenceStatus("cancelled"), "excluded"); assert.equal(classifyReferenceStatus("failed"), "excluded"); assert.equal(classifyReferenceStatus("pending"), "unknown"); assert.equal(classifyReferenceStatus("on-hold"), "unknown"); assert.equal(classifyReferenceStatus("custom"), "unclassified");
@@ -22,6 +22,21 @@ test("independent commercial formula recognises exact refunds and excludes non-c
   ];
   const rows = calculateExpected({ orders, refunds: [{ orderId: 1, lines: [{ lineId: 10, total: "25.00", tax: "5.00" }], unattributed: "15.00" }] });
   assert.deepEqual(rows, [{ product_source_id: 123, variation_source_id: null, product_net_sales_ex_tax: "75.00", product_tax: "15.00" }]);
+});
+
+test("genuine Woo negative refund values become magnitudes and shipping does not reduce Product sales", () => {
+  assert.equal(refundMagnitude("-12.00", "refund"), "12.00"); assert.equal(refundMagnitude("0", "refund"), "0");
+  const orders = [{ id: 1, status: "refunded", line_items: [{ id: 10, product_id: 123, variation_id: 0, total: "100.00", total_tax: "20.00" }] }];
+  const refund = parseReferenceRefund({ id: 99, amount: "-12.00", line_items: [{ meta_data: [{ key: "_refunded_item_id", value: "10" }], total: "-10.00", total_tax: "-2.00" }] }, 1);
+  const rows = calculateExpected({ orders, refunds: [refund] });
+  assert.deepEqual(rows, [{ product_source_id: 123, variation_source_id: null, product_net_sales_ex_tax: "90.00", product_tax: "18.00" }]);
+  const shippingRefund = parseReferenceRefund({ id: 100, amount: "-16.80", line_items: [{ meta_data: [{ key: "_refunded_item_id", value: "10" }], total: "-10", total_tax: "-2" }], shipping_lines: [{ total: "-4", total_tax: "-0.80" }] }, 1);
+  assert.deepEqual(calculateExpected({ orders, refunds: [shippingRefund] })[0], { product_source_id: 123, variation_source_id: null, product_net_sales_ex_tax: "90.00", product_tax: "18.00" });
+});
+
+test("refund gross conflict blocks instead of silently changing the expected result", () => {
+  assert.throws(() => refundMagnitude("-bad", "refund"), /malformed/);
+  assert.throws(() => parseReferenceRefund({ id: 1, amount: "-11.00", line_items: [{ meta_data: [{ key: "_refunded_item_id", value: "10" }], total: "-10.00", total_tax: "-2.00" }] }, 1), /conflicted/);
 });
 
 test("malformed reference money fails closed", () => assert.throws(() => calculateExpected({ orders: [{ id: 1, status: "processing", line_items: [{ id: 1, product_id: 1, total: "not-money", total_tax: "0" }] }] }), /malformed/));
