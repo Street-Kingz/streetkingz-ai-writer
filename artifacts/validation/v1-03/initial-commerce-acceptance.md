@@ -1,6 +1,6 @@
 # V1-03 initial commerce acceptance
 
-Status: BLOCKED: fresh refund-backed real Product reconciliation did not complete.
+Status: BLOCKED: fresh real Product authentication and refund-backed Product reconciliation did not complete.
 
 Deterministic initial-sync collector/normaliser: 7 passed, 0 failed.
 Public WooCommerce route suite: 17 passed, 0 failed.
@@ -24,14 +24,19 @@ The real Product sync promoted a complete candidate for those available
 fixtures and the disconnected historical success=1 and success=0 return URLs
 both reported disconnected.
 
-The disposable refund helper was diagnosed and corrected locally: the prior
+The fresh disposable WooCommerce 11.0.1 fixture contained 4 Products, 2
+Variations, 3 Categories, and 11 Orders, with Product and Order source facts
+created before any Product connection. The disposable refund helper was
+diagnosed and corrected locally: the prior
 failure was the fixture code treating Woo's integer order-item ID as an item
 object. One native `wc_create_refund()` partial refund is now proven with a
 real refund ID, parent order, and `_refunded_item_id`. A fresh local matrix
 also created genuine partial, full, unattributed, Product-plus-shipping, and
-Product-plus-remainder refunds. The required HTTPS Product authentication and
-refund-backed Product sync using this fresh matrix were not completed in this
-run, so independent commercial-total reconciliation remains unavailable. No complete real
+Product-plus-remainder refunds. Store HTTPS reached WordPress and the public
+Woo Application Authentication endpoint, but the available non-browser
+harness did not complete administrator approval. Therefore fresh Product
+authentication, refund-backed Product sync, independent commercial totals,
+real LKG failure, and real disconnect closeout remain unavailable. No complete real
 commercial acceptance is claimed. The temporary
 Woo containers, tunnels, credentials, and logs were removed after the run.
 
