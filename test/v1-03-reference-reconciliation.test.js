@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { addDecimal, subtractDecimal, classifyReferenceStatus, compareReference, calculateExpected, refundMagnitude, parseReferenceRefund } from "../internal/v1-03-harness/referenceReconciliation.js";
+import { addDecimal, subtractDecimal, classifyReferenceStatus, compareReference, calculateExpected, refundMagnitude, parseReferenceRefund, buildSourceSignature } from "../internal/v1-03-harness/referenceReconciliation.js";
 
 test("reference status contract and exact decimal comparison", () => {
   assert.equal(classifyReferenceStatus("processing"), "recognised"); assert.equal(classifyReferenceStatus("refunded"), "recognised"); assert.equal(classifyReferenceStatus("cancelled"), "excluded"); assert.equal(classifyReferenceStatus("failed"), "excluded"); assert.equal(classifyReferenceStatus("pending"), "unknown"); assert.equal(classifyReferenceStatus("on-hold"), "unknown"); assert.equal(classifyReferenceStatus("custom"), "unclassified");
@@ -40,6 +40,25 @@ test("refund gross conflict blocks instead of silently changing the expected res
 });
 
 test("malformed reference money fails closed", () => assert.throws(() => calculateExpected({ orders: [{ id: 1, status: "processing", line_items: [{ id: 1, product_id: 1, total: "not-money", total_tax: "0" }] }] }), /malformed/));
+
+test("null aggregate semantics are explicit and never coerce zero to no-sales", () => {
+  const absent = { expected: [] };
+  assert.equal(compareReference(absent, { rows: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: null, product_tax: null }] }).overall, "PASS");
+  assert.equal(compareReference(absent, { rows: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: "0", product_tax: "0" }] }).overall, "FAIL");
+  assert.equal(compareReference(absent, { rows: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: "1", product_tax: "0" }] }).overall, "FAIL");
+  const numeric = { expected: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: "1", product_tax: "0" }] };
+  assert.equal(compareReference(numeric, { rows: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: null, product_tax: null }] }).overall, "FAIL");
+  assert.equal(compareReference(numeric, { rows: [] }).overall, "FAIL");
+  assert.equal(compareReference(numeric, { rows: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: "1", product_tax: "0" }] }).overall, "PASS");
+  assert.equal(compareReference(numeric, { rows: [{ product_source_id: 1, variation_source_id: 2, product_net_sales_ex_tax: "1.01", product_tax: "0" }] }).overall, "FAIL");
+});
+
+test("non-recognised-only activity maps to NULL aggregate equivalence and fingerprints line identity", () => {
+  const orders = [{ id: 3151, status: "failed", date_created_gmt: "2026-01-01T00:00:00.000Z", line_items: [{ id: 273, product_id: 2018, variation_id: 2020, total: "12.99", total_tax: "0" }], refunds: [] }];
+  assert.deepEqual(calculateExpected({ orders }), []);
+  assert.equal(compareReference({ expected: [] }, { rows: [{ product_source_id: 2018, variation_source_id: 2020, product_net_sales_ex_tax: null, product_tax: null }] }).rows[0].reason, "NO_RECOGNISED_SALES");
+  const before = buildSourceSignature({ orders }); const after = buildSourceSignature({ orders: [{ ...orders[0], line_items: [{ ...orders[0].line_items[0], product_id: 9999 }] }] }); assert.notEqual(before, after); assert.doesNotMatch(before, /customer|billing|shipping|email|phone|address/i);
+});
 
 test("reference reader is independent of Product commerce normalisers and .tmp is ignored", () => {
   const source = fs.readFileSync(new URL("../internal/v1-03-harness/referenceReconciliation.js", import.meta.url), "utf8");
