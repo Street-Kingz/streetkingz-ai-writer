@@ -30,7 +30,7 @@ router.get("/api/product/organic-evidence/status", handle(async (req, res) => {
   const businessIds = (businesses.data || []).map(row => row.id);
   if (!businessIds.length) return res.json({ sources: [] });
   const result = await client.from("organic_evidence_sources")
-    .select("source_kind,source_class,provider_id,evidence_state,last_attempted_at,last_successful_at,evidence_as_of,current_complete_run,active_run")
+    .select("source_kind,source_class,provider_id,evidence_state,last_attempted_at,last_successful_at,evidence_as_of,current_complete_run,current_completeness_state,active_run")
     .in("business_id", businessIds)
     .order("source_kind", { ascending: true });
   if (result.error) throw result.error;
@@ -43,7 +43,7 @@ router.get("/api/product/organic-evidence/status", handle(async (req, res) => {
     last_successful_at: source.last_successful_at,
     evidence_as_of: source.evidence_as_of,
     has_current_complete_evidence: Boolean(source.current_complete_run),
-    current_completeness_state: source.current_complete_run ? "complete" : null,
+    current_completeness_state: source.current_complete_run ? source.current_completeness_state : null,
     collecting: Boolean(source.active_run)
   })) });
 }));

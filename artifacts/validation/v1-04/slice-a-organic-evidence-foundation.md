@@ -6,6 +6,13 @@ This artifact records the bounded local acceptance of the common organic-evidenc
 source/run envelope. It contains no provider credentials, tokens, Vault IDs or
 customer evidence.
 
+The first Slice A implementation was initially reported as passing, but review
+identified three integrity gaps: incomplete runs could be promoted as complete,
+historical runs did not retain `evidence_as_of`, and status fabricated current
+completeness. These were corrected by the monotonic integrity migration
+`20260903000000_v1_04_slice_a_integrity.sql`; the original migration was not
+rewritten.
+
 ## Scope accepted
 
 - Business-owned typed source records for `search_console`, `site` and
@@ -21,6 +28,11 @@ customer evidence.
 - RLS denies customer direct writes and cross-tenant access; lifecycle mutation
   is bounded to server-side service-role functions.
 - Business deletion cascades owned sources and historical runs.
+- Complete promotion requires `complete` or `provider_limited` completeness and
+  a non-null historical `evidence_as_of`; partial/unavailable/unknown complete
+  combinations fail closed.
+- Current/active run pointers are guarded by a database constraint trigger and
+  historical runs retain their own evidence timestamps.
 
 ## Local acceptance evidence
 
@@ -38,10 +50,23 @@ customer evidence.
 - Concurrent completion/failure had one lifecycle winner and left no active run.
 - Direct authenticated source insertion was denied, and Business deletion
   removed the owned source/run records.
+- Two disposable authenticated tenants proved same-Business Connection binding,
+  cross-tenant source isolation, direct mutation denial, and the actual HTTP
+  status route. The route returned the current run's real `provider_limited`
+  completeness state without internal run identifiers.
+- Concurrent begin allowed exactly one active run; completion/failure races had
+  one winner; stale completion was rejected. Conflicting logical source ensure
+  inputs were rejected.
 - Local Supabase migration/application tests and the full repository suite
   passed; no provider calls were made.
 
 ## State boundary
+
+The correction migration was applied to the existing local V1-03 database
+without a reset. A separate migrations-from-zero Supabase stack was not started
+in this run because the preserved local stack was intentionally protected from
+reset; the migration is self-contained and the repository's migration checks
+remain green.
 
 Slice A does not collect Search Console, site or external-search observations.
 Slice B — Google Search Console Connection + Evidence — remains not started.

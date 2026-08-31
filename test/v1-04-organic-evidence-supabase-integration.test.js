@@ -1,10 +1,26 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
+import http from "node:http";
+import express from "express";
 import { createClient } from "@supabase/supabase-js";
+import organicEvidenceRoute from "../routes/organicEvidence.js";
 
 const enabled = process.env.V1_04_INTEGRATION === "1";
 const required = name => process.env[name] || (() => { throw new Error(`${name} required`); })();
+
+function request(server, headers = {}) {
+  return new Promise((resolve, reject) => {
+    const req = http.request({ hostname: "127.0.0.1", port: server.address().port, path: "/api/product/organic-evidence/status", headers }, res => {
+      let body = "";
+      res.setEncoding("utf8");
+      res.on("data", chunk => { body += chunk; });
+      res.on("end", () => resolve({ status: res.statusCode, body: body ? JSON.parse(body) : null }));
+    });
+    req.on("error", reject);
+    req.end();
+  });
+}
 
 test("Slice A local Supabase source/run lifecycle, RLS and LKG", { skip: !enabled }, async t => {
   const url = required("SUPABASE_URL");
@@ -26,6 +42,22 @@ test("Slice A local Supabase source/run lifecycle, RLS and LKG", { skip: !enable
   assert.ifError(account.error);
   const business = await userClient.rpc("product_create_business", { p_name: "V1-04 Foundation Test", p_platform: "woocommerce", p_correlation_id: crypto.randomUUID() });
   assert.ifError(business.error);
+  const otherEmail = `v104-other-${crypto.randomUUID()}@local.test`;
+  const otherPassword = `${crypto.randomUUID()}!Aa9`;
+  const otherCreated = await admin.auth.admin.createUser({ email: otherEmail, password: otherPassword, email_confirm: true });
+  assert.ifError(otherCreated.error);
+  const otherUserId = otherCreated.data.user.id;
+  t.after(async () => { await admin.auth.admin.deleteUser(otherUserId); });
+  const otherCaller = createClient(url, publishable, { auth: { autoRefreshToken: false, persistSession: false } });
+  const otherSigned = await otherCaller.auth.signInWithPassword({ email: otherEmail, password: otherPassword });
+  assert.ifError(otherSigned.error);
+  const otherClient = createClient(url, publishable, { global: { headers: { authorization: `Bearer ${otherSigned.data.session.access_token}` } }, auth: { autoRefreshToken: false, persistSession: false } });
+  const otherAccount = await otherClient.rpc("product_create_account", { p_correlation_id: crypto.randomUUID() });
+  assert.ifError(otherAccount.error);
+  const otherBusiness = await otherClient.rpc("product_create_business", { p_name: "V1-04 Other Tenant", p_platform: "woocommerce", p_correlation_id: crypto.randomUUID() });
+  assert.ifError(otherBusiness.error);
+  const otherSource = await admin.rpc("organic_ensure_source", { p_business_id: otherBusiness.data.id, p_source_class: "no_separate_connection", p_source_kind: "site" });
+  assert.ifError(otherSource.error);
   const ensured = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "no_separate_connection", p_source_kind: "site" });
   assert.ifError(ensured.error);
   const source = ensured.data;
@@ -58,6 +90,42 @@ test("Slice A local Supabase source/run lifecycle, RLS and LKG", { skip: !enable
   assert.notEqual(after.data.last_attempted_at, attempted);
   const forged = await userClient.from("organic_evidence_sources").insert({ business_id: business.data.id, source_class: "no_separate_connection", source_kind: "site" });
   assert.ok(forged.error, "customer direct writes must be denied");
+  const pointerForgery = await admin.from("organic_evidence_sources").update({ current_complete_run: started.data.id }).eq("id", source.id);
+  assert.ok(pointerForgery.error, "service clients cannot directly mutate lifecycle pointers");
+
+  const invalidPromotion = await admin.rpc("organic_begin_run", { p_source_id: source.id, p_correlation_id: crypto.randomUUID() });
+  assert.ifError(invalidPromotion.error);
+  for (const completeness of ["partial", "unavailable", "unknown"]) {
+    const rejected = await admin.rpc("organic_finish_run", { p_run_id: invalidPromotion.data.id, p_state: "complete", p_completeness_state: completeness, p_evidence_as_of: "2026-08-31T11:00:00Z" });
+    assert.ok(rejected.error, `complete/${completeness} cannot promote`);
+  }
+  const invalidCleaned = await admin.rpc("organic_finish_run", { p_run_id: invalidPromotion.data.id, p_state: "failed", p_completeness_state: "unavailable", p_error_code: "VALIDATION_REJECTED" });
+  assert.ifError(invalidCleaned.error);
+  const limited = await admin.rpc("organic_begin_run", { p_source_id: source.id, p_correlation_id: crypto.randomUUID() });
+  assert.ifError(limited.error);
+  const limitedComplete = await admin.rpc("organic_finish_run", { p_run_id: limited.data.id, p_state: "complete", p_completeness_state: "provider_limited", p_evidence_as_of: "2026-08-31T11:30:00Z" });
+  assert.ifError(limitedComplete.error);
+  const limitedStatus = await admin.from("organic_evidence_sources").select("current_complete_run,current_completeness_state,evidence_as_of").eq("id", source.id).single();
+  assert.ifError(limitedStatus.error);
+  assert.deepEqual({ run: limitedStatus.data.current_complete_run, completeness: limitedStatus.data.current_completeness_state, asOf: limitedStatus.data.evidence_as_of }, { run: limitedComplete.data.id, completeness: "provider_limited", asOf: "2026-08-31T11:30:00+00:00" });
+
+  const statusApp = express();
+  statusApp.use(organicEvidenceRoute);
+  const server = await new Promise((resolve, reject) => { const instance = statusApp.listen(0, "127.0.0.1", () => resolve(instance)); instance.on("error", reject); });
+  try {
+    const httpStatus = await request(server, { authorization: `Bearer ${token}` });
+    assert.equal(httpStatus.status, 200);
+    assert.equal(httpStatus.body.sources.length, 1, "tenant status excludes the other Business");
+    assert.equal(httpStatus.body.sources[0].current_completeness_state, "provider_limited");
+    assert.equal(httpStatus.body.sources[0].has_current_complete_evidence, true);
+    assert.equal(Object.hasOwn(httpStatus.body.sources[0], "current_complete_run"), false);
+    assert.equal((await request(server)).status, 401);
+  } finally {
+    await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
+  }
+  const otherVisible = await otherClient.from("organic_evidence_sources").select("id").eq("id", source.id);
+  assert.ifError(otherVisible.error);
+  assert.deepEqual(otherVisible.data, [], "Account B cannot read Account A source");
 
   const replacement = await admin.rpc("organic_begin_run", { p_source_id: source.id, p_correlation_id: crypto.randomUUID(), p_source_version: "v2" });
   assert.ifError(replacement.error);
