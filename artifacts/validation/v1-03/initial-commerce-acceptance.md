@@ -1,47 +1,52 @@
 # V1-03 initial commerce acceptance
 
-Status: BLOCKED: fresh real Product authentication and refund-backed Product reconciliation did not complete.
+## INITIAL COMMERCE SYNC: PASS
 
-Deterministic initial-sync collector/normaliser: 7 passed, 0 failed.
-Public WooCommerce route suite: 17 passed, 0 failed.
-Frozen foundation suite: 68 passed, 0 failed.
-Real local V1-03 lifecycle/commerce integration after clean reset: 63 passed, 0 failed.
-V1-02 unit regression: 9 passed, 0 failed.
-V1-02 real local integration: 1 passed, 0 failed.
-Full npm suite: 1010 tests; 1006 passed, 0 failed, 4 skipped.
-Supabase CLI: 2.115.0. Clean local reset completed successfully; the
-`/Users/ben/.supabase/profile` message was a warning, while the earlier fatal
-condition was the exited local database container.
+Real owner-authorised Street Kingz WooCommerce acceptance completed through
+the official browser Application Authentication flow. The permission is
+read-only. Product callback and verification succeeded, and no WooCommerce
+write operation was performed.
 
-Controlled real Woo authentication succeeded against disposable WordPress 7.1
-and WooCommerce 11.0.1. The real callback returned HTTP 200 with an empty
-body, Product verified system_status, and the initial sync observed 4
-Products, 2 Variations, 3 Categories, and 7 Orders across multiple Product
-and Order pages with per-page size 2. A read GET returned 200 and a read-key
-mutation returned 401.
+The accepted initial sync promoted a complete generation with:
 
-The real Product sync promoted a complete candidate for those available
-fixtures and the disconnected historical success=1 and success=0 return URLs
-both reported disconnected.
+- Products: 30
+- Variations: 6
+- Categories: 11
+- Product-category links: 103
+- Orders: 24
+- Order lines: 36
+- Adjustments: 1
 
-The fresh disposable WooCommerce 11.0.1 fixture contained 4 Products, 2
-Variations, 3 Categories, and 11 Orders, with Product and Order source facts
-created before any Product connection. The disposable refund helper was
-diagnosed and corrected locally: the prior
-failure was the fixture code treating Woo's integer order-item ID as an item
-object. One native `wc_create_refund()` partial refund is now proven with a
-real refund ID, parent order, and `_refunded_item_id`. A fresh local matrix
-also created genuine partial, full, unattributed, Product-plus-shipping, and
-Product-plus-remainder refunds. Store HTTPS reached WordPress and the public
-Woo Application Authentication endpoint, but the available non-browser
-harness did not complete administrator approval. Therefore fresh Product
-authentication, refund-backed Product sync, independent commercial totals,
-real LKG failure, and real disconnect closeout remain unavailable. No complete real
-commercial acceptance is claimed. The temporary
-Woo containers, tunnels, credentials, and logs were removed after the run.
+Exact order window:
 
-The initial-sync implementation now uses explicit `_fields` arrays, current
-variation `parent_id`, exact refund-line attribution with order-level
-remainders, per-request connection/generation validity checks, one active
-generation per Store with stale recovery, and separate order-grain and
-generation/Product-grain net-sales views.
+- Start: `2025-08-31T09:20:35.909Z`
+- End: `2026-08-31T09:20:35.909Z`
+
+Independent WooCommerce reference reconciliation passed with unchanged source
+fingerprint:
+
+- Products: 30 / 30 PASS
+- Variations: 6 / 6 PASS
+- Categories: 11 / 11 PASS
+- Orders: 24 / 24 PASS
+- Every populated Product/Variation commercial row matched exactly.
+
+The real-world edge case for Product `2018` / Variation `2020` was accepted as
+`NO_RECOGNISED_SALES`: Woo Order `3151` was `failed`, its Product line `273`
+was `excluded`, and its line total was `12.99` with tax `0` and refund total
+and tax `0`. The independent reference had no recognised commercial row, and
+the Product aggregate was explicitly NULL/NULL. This is a PASS and required no
+Product code change.
+
+Supporting V1-03 evidence remains accepted for genuine refund attribution and
+fails-closed money handling, multi-page collection, atomic/LKG generation
+promotion, concurrency/stale-worker protection, callback/return lifecycle,
+read-key mutation rejection, RLS tenant isolation, clean rebuild, and PII
+filtering/sensitive-data review. The Street Kingz store was not deliberately
+broken to repeat synthetic failure exercises.
+
+Street Kingz remains connected intentionally with read-only consent for the
+next V1-03 incremental-sync validation. This acceptance is only the initial
+commerce-sync slice; it does not mean V1-03 is complete. No credentials,
+customer PII, raw orders/responses, tunnel URLs, or Vault references are stored
+in this artifact.

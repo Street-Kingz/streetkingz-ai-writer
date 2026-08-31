@@ -196,6 +196,16 @@ Governance rebaseline and Product-state establishment
 
 Current milestone: V1-03 WooCommerce Commerce Connection (authorised; In Progress)
 
+Current V1-03 acceptance state (verified at the current repository state):
+
+V1-03 initial commerce sync: DONE / ACCEPTED.
+
+The real owner-authorised Street Kingz WooCommerce initial sync and independent
+read-only reconciliation passed. The current connection remains intentionally
+connected for the next authorised validation slice. V1-03 itself remains In
+Progress. The next V1-03 slice is incremental sync plus freshness/rolling-window
+behaviour. V1-04 is not activated.
+
 V1-00 Governance Activation: Done
 
 V1-01 Progressive Evidence Decision Gate: Done
@@ -256,11 +266,14 @@ Accepted Street Kingz validation recommendation
 
 This is Product validation evidence, not the next Product milestone. Implementing the Street Kingz recommendation is a separate test-store side task and must not block V1-02.
 
-The next approved action is:
-
-Implement and verify the V1-02 Single-Business Product Kernel.
-
-No V1-03 or executor work is authorised. The completed V1-01 contract is `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The approved V1-02 contract is `milestones/V1-02_SINGLE_BUSINESS_PRODUCT_KERNEL.md`; its accepted architecture is `docs/architecture/V1-02_PRODUCT_KERNEL_ARCHITECTURE.md`. The superseded commercial-context contract is preserved at `milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The contract is governed by:
+The next approved action is the current V1-03 incremental-sync slice, within
+the approved V1-03 contract baseline. The completed V1-01 contract is
+`milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The approved V1-02
+contract is `milestones/V1-02_SINGLE_BUSINESS_PRODUCT_KERNEL.md`; its accepted
+architecture is `docs/architecture/V1-02_PRODUCT_KERNEL_ARCHITECTURE.md`. The
+superseded commercial-context contract is preserved at
+`milestones/superseded/V1-01_COMMERCIAL_DECISION_HYPOTHESIS_GATE.md`. The
+contract is governed by:
 
 Product Vision;
 
@@ -2197,13 +2210,12 @@ V1-01 Progressive Evidence Decision Gate is Done.
 
 The previous Phase B attempt is preserved but superseded; its blocked result was caused by an incorrect evidence assumption, not a Product failure.
 
-V1-02 Single-Business Product Kernel is Current.
+V1-02 Single-Business Product Kernel is Done and accepted.
 
-The next approved action is:
-
-Implement and verify the V1-02 Single-Business Product Kernel.
-
-V1-02 is the sole authorised Product milestone and is authorised only within its approved contract. No V1-03 or executor work is authorised.
+The next approved action is the V1-03 incremental-sync plus
+freshness/rolling-window slice. V1-03 remains authorised only within its
+approved contract and remains In Progress; V1-04 and executor work are not
+authorised.
 
 35. Backlog State
 
@@ -2289,14 +2301,16 @@ Create SEO Article is a reusable intervention primitive, not the Product;
 
 the old article-first roadmap is superseded and archived;
 
-Product development is paused outside the approved V1-02 milestone contract;
+Product development is limited to the approved V1-03 contract slice;
 
 V1-00 Governance Activation is Done;
 
 V1-01 Progressive Evidence Decision Gate is Done;
 
-V1-02 Single-Business Product Kernel is Current and implementation is authorised only within its approved contract;
+V1-02 Single-Business Product Kernel is Done and accepted;
 
-no V1-03 or executor work is authorised.
+V1-03 initial commerce sync is Done / accepted, while V1-03 remains In
+Progress for incremental-sync and freshness/rolling-window behaviour; V1-04 is
+not activated.
 
 The repository is a strong foundation. It is not yet the Product.
