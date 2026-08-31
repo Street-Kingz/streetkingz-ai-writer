@@ -1,6 +1,6 @@
 # V1-04 Slice A — Organic Evidence Foundation
 
-Status: `SLICE A: PASS`
+Status: `SLICE A: BLOCKED`
 
 This artifact records the bounded local acceptance of the common organic-evidence
 source/run envelope. It contains no provider credentials, tokens, Vault IDs or
@@ -65,8 +65,9 @@ rewritten.
 The correction migration was applied to the existing local V1-03 database
 without a reset. A separate migrations-from-zero Supabase stack was not started
 in this run because the preserved local stack was intentionally protected from
-reset; the migration is self-contained and the repository's migration checks
-remain green.
+reset and Docker isolation was unavailable. The migration is self-contained and
+the repository's migration checks remain green, but Slice A cannot be marked
+accepted until the isolated from-zero proof is completed.
 
 Slice A does not collect Search Console, site or external-search observations.
 Slice B — Google Search Console Connection + Evidence — remains not started.
