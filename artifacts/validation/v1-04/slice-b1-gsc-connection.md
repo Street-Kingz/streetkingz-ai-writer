@@ -2,9 +2,9 @@
 
 Status: `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`
 
-Validation revision: current correction worktree at `a9bcea5` plus the
-uncommitted validation corrections described below. No live Google, WooCommerce
-or Street Kingz call was made.
+Validation revision: P2 validation work from starting baseline
+`d9b3ae9320bc824549fb86b299c7f3b4a3d2184e`. No live Google, WooCommerce or
+Street Kingz call was made.
 
 This artifact records the bounded B1 implementation and deterministic local
 proof. No Google account data, tokens, credentials, property responses or
@@ -137,3 +137,51 @@ Executed P1 proof:
 P1 did not execute the P2 OAuth failure/race matrix, P3 reconnect/tenant/full
 acceptance-surface matrix, or P4 migration/combined closeout. No live Google,
 WooCommerce, Street Kingz or DataForSEO call was made.
+
+## P2 validation — OAuth failure and replay/race matrix
+
+P2 status: `BLOCKED`. This is a durable partial proof, not P2 acceptance.
+
+The predeclared matrix was exercised through the real Express routes, Supabase
+RPCs and local Vault with an injected deterministic Google transport. The
+executed proof passed 9/9 Node test cases (8 nested matrix groups plus the
+parent), with no required test skipped in the dedicated command:
+
+`V1_04_P2_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p2-integration.test.js`
+
+Passed groups:
+
+- callback input/state failures P2-OAUTH-001 through P2-OAUTH-013;
+- authorization-code failure scenarios P2-TOKEN-001, 002, 003, 007, 008,
+  009, 011;
+- staged post-callback provider failure cases P2-PROVIDER-001, 002 and
+  the P1 identity regression;
+- two-way and three-way concurrent callback claim races;
+- simultaneous three-start supersession;
+- callback versus superseding start;
+- pending and processing expiry cleanup.
+
+The matrix remains incomplete. The following required proof families were not
+executed individually and block P2: P2-TOKEN-004, 005, 006 and 010;
+P2-VAULT-001 through P2-VAULT-005; P2-PROVIDER-003 through 006 as distinct
+route cases; the full P2-RACE-START-001 through 004 interleaving matrix;
+P2-RACE-CALLBACK-001 through 003 as separate durable cases; both explicit
+callback/expiry interleavings; and P2-RACE-ACTIVATE-001 through 004. The
+required activation/expiry/replay boundary and Vault partial-failure cleanup
+proof therefore remain unproven.
+
+No production defect was demonstrated by the executed P2 cases. No migration
+was added. P3 and P4 were not executed, B1 remains blocked, and real Google
+acceptance remains unauthorized.
+
+Regression evidence for this P2 pass:
+
+- P1 plus existing B1 focused tests: 13 passed, 0 failed, 0 skipped.
+- Dedicated P2 local route/RPC/Vault matrix: 9 passed, 0 failed, 0 skipped.
+- Slice-A local integration: 1 passed, 0 failed, 0 skipped.
+- V1-02 local integration: 1 passed, 0 failed, 0 skipped.
+- V1-03 local integration: 63 passed, 0 failed, 0 skipped.
+- Full npm: 1,063 passed, 0 failed, 10 skipped. The additional skipped case
+  is the opt-in P2 Supabase integration when its environment flag is absent;
+  the dedicated P2 command above executed it with no skip.
+- git diff check and sensitive literal scan: passed.

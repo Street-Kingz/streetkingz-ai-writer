@@ -109,6 +109,6 @@ replace it.
 | Phase | Status |
 | --- | --- |
 | P1 — Property Identity + Acceptance-Harness Security | COMPLETE |
-| P2 — OAuth Failure + Replay/Race Matrix | NOT STARTED |
+| P2 — OAuth Failure + Replay/Race Matrix | BLOCKED |
 | P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | NOT STARTED |
 | P4 — Migration + Combined Acceptance Closeout | NOT STARTED |
