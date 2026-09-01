@@ -170,9 +170,9 @@ callback/expiry interleavings; and P2-RACE-ACTIVATE-001 through 004. The
 required activation/expiry/replay boundary and Vault partial-failure cleanup
 proof therefore remain unproven.
 
-No production defect was demonstrated by the executed P2 cases. No migration
-was added. P3 and P4 were not executed, B1 remains blocked, and real Google
-acceptance remains unauthorized.
+The earlier grouped P2 run did not demonstrate a production defect, but it did
+not close the later individually required P2-A cases. P3 and P4 were not
+executed, B1 remains blocked, and real Google acceptance remains unauthorized.
 
 Regression evidence for this P2 pass:
 
@@ -185,3 +185,39 @@ Regression evidence for this P2 pass:
   is the opt-in P2 Supabase integration when its environment flag is absent;
   the dedicated P2 command above executed it with no skip.
 - git diff check and sensitive literal scan: passed.
+
+## P2-A — failure-boundary proof
+
+P2-A status: `COMPLETE`. P2 overall remains `BLOCKED` pending P2-B. The
+earlier grouped P2 wording above is historical and is superseded for the
+failure-boundary cases by the exact ledger in
+`slice-b1-p2-oauth-failure-race-matrix.md`.
+
+At baseline `f36caf4d11c8a8645f02f8058a0b9dd35056fa54`, the dedicated P2-A
+suite closed 35 cases individually: all 13 callback/state cases, all 11
+token cases, all 5 Vault/staging cases, and all 6 provider-list/probe cases.
+The provider cases used the real `/select` route with a synthetic verified
+Commerce Store created through the accepted local Woo lifecycle; no Woo
+network call was made. Transport cases used the real bounded GSC transport
+with controlled local fetch responses.
+
+The exact-scope correction rejects additional `openid`, `email` and Search
+Console write scopes while accepting only the approved read-only scope with
+ordinary surrounding whitespace. The Vault test hook is explicit and
+test-only; production defaults remain the real Vault RPCs. Secret checks use
+counts/existence only and retain no secret values or references.
+
+P2-B remains responsible for the 16 race/activation cases in the exact ledger:
+simultaneous starts, concurrent callbacks, supersession interleavings,
+callback/expiry interleavings, and activation/expiry/replay. P3 and P4 remain
+not started. Real Google acceptance remains unauthorized and B2 remains not
+started.
+
+P2-A final command:
+`V1_04_P2A_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p2a-failures.test.js`
+
+Result: 42 tests passed, 0 failed, 0 skipped (35 owned case assertions plus
+five exact-scope supplemental assertions, the positive provider control and
+the parent test). The existing grouped P2 race regression also passed 9/9
+tests; those 16 ledger cases remain P2-B UNEXECUTED rather than being claimed
+by this P2-A task.

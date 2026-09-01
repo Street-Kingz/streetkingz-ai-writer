@@ -221,8 +221,8 @@ pending the complete non-live route/Vault, race/replay, reconnect, two-tenant
 and acceptance-surface matrix. Search Analytics evidence (B2) is not started.
 
 B1 remains BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE. P1 is DONE / ACCEPTED
-under the frozen closeout plan. P2 validation is BLOCKED with required Vault
-and activation-race cases still unproven. P3 and P4 remain NOT STARTED. B2
+under the frozen closeout plan. P2-A failure-boundary proof is complete;
+P2-B race/activation proof remains pending. P3 and P4 remain NOT STARTED. B2
 remains NOT STARTED.
 
 V1-00 Governance Activation: Done
