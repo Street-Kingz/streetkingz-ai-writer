@@ -8,15 +8,83 @@ import { ProductError, safeError } from "../product-kernel/errors.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
 import { googleSearchConsoleTransport, hashOAuthState, propertyMatches, normalizeProperty } from "../product-kernel/googleSearchConsoleOAuth.js";
 
-const router=express.Router(); router.use(correlationMiddleware);
-const context=async req=>{const token=parseBearer(req.get("authorization"));const identity=await verifyIdentity(token);const client=callerClient(token);const account=await resolveAccount(client,identity.authUserId);if(!account||account.status!=="active")throw new ProductError("TENANT_NOT_FOUND","Product account is not provisioned.",404);const b=await client.from("businesses").select("id").eq("account_id",account.id).eq("status","active").maybeSingle();if(b.error)throw b.error;if(!b.data)throw new ProductError("BUSINESS_NOT_FOUND","Business is not provisioned.",404);return{token,client,admin:privilegedClient(),account,business:b.data};};
-const handle=fn=>(req,res)=>Promise.resolve(fn(req,res)).catch(e=>{const s=safeError(e,req.correlationId);res.status(s.status).json(s.body);});
-async function connection(admin,businessId){const r=await admin.rpc("gsc_ensure_connection",{p_business_id:businessId});if(r.error)throw r.error;return r.data;}
-async function start(req,res){const x=await context(req);const admin=x.admin;const c=await connection(admin,x.business.id);const state=crypto.randomBytes(32).toString("base64url"),verifier=crypto.randomBytes(32).toString("base64url"), expires=new Date(Date.now()+15*60_000);const ins=await admin.from("gsc_oauth_attempts").update({status:"superseded"}).eq("connection_id",c.id).eq("status","pending");if(ins.error)throw ins.error;const row=await admin.from("gsc_oauth_attempts").insert({account_id:x.account.id,business_id:x.business.id,connection_id:c.id,state_hash:hashOAuthState(state),state,pkce_verifier:verifier,expires_at:expires.toISOString()}).select("id").single();if(row.error)throw row.error;const transport=googleSearchConsoleTransport();res.status(201).json({authorization_url:transport.authorizationUrl({state,verifier}),connection:{id:c.id,status:c.status,consent_state:c.consent_state},expires_at:expires.toISOString()});}
-router.post("/api/product/organic-evidence/search-console/connect",handle(start));
-router.post("/api/product/organic-evidence/search-console/reconnect",handle(start));
-router.get("/api/product/organic-evidence/search-console/callback",handle(async(req,res)=>{const state=typeof req.query.state==="string"?req.query.state:"";if(!state)throw new ProductError("GSC_CALLBACK_INVALID","Search Console callback is invalid.",400);const admin=privilegedClient();const found=await admin.from("gsc_oauth_attempts").select("id,account_id,business_id,connection_id,state,pkce_verifier,status,expires_at").eq("state_hash",hashOAuthState(state)).maybeSingle();if(found.error)throw found.error;const a=found.data;if(!a||a.state!==state||a.status!=="pending"||new Date(a.expires_at)<=new Date())throw new ProductError("GSC_CALLBACK_INVALID","Search Console callback is invalid or expired.",400);const fail=async code=>{await admin.from("gsc_oauth_attempts").update({status:"failed",consumed_at:new Date().toISOString()}).eq("id",a.id);await admin.from("gsc_connections").update({connection_state:"error",updated_at:new Date().toISOString()}).eq("connection_id",a.connection_id);throw new ProductError(code,"Google Search Console authorization could not be completed.",409);};if(req.query.error)return fail("GSC_AUTH_DENIED");if(typeof req.query.code!=="string"||Object.keys(req.query).some(k=>!["state","code","error","error_description","error_uri"].includes(k)))return fail("GSC_CALLBACK_INVALID");let tokens;try{tokens=await googleSearchConsoleTransport().exchangeCode(req.query.code,a.pkce_verifier);}catch{ return fail("GSC_TOKEN_EXCHANGE_FAILED"); }const secret=await createVaultSecret(admin,JSON.stringify({refresh_token:tokens.refresh_token}),"v1-04-google-search-console");const updated=await admin.from("connections").update({secret_reference:secret.secretReference,status:"pending",consent_state:"pending"}).eq("id",a.connection_id).eq("business_id",a.business_id);if(updated.error){await deleteVaultSecret(admin,secret.secretReference);return fail("GSC_CONNECTION_FAILED");}await admin.from("gsc_connections").update({connection_state:"awaiting_property",updated_at:new Date().toISOString()}).eq("connection_id",a.connection_id);await admin.from("gsc_oauth_attempts").update({status:"consumed",consumed_at:new Date().toISOString()}).eq("id",a.id);res.json({status:"awaiting_property",connection_id:a.connection_id});}));
-router.get("/api/product/organic-evidence/search-console/properties",handle(async(req,res)=>{const x=await context(req);const id=req.query.connection_id;const c=await x.admin.from("connections").select("id,secret_reference,provider_type").eq("id",id).eq("business_id",x.business.id).eq("provider_type","google_search_console").maybeSingle();if(c.error||!c.data)throw new ProductError("CONNECTION_NOT_FOUND","Connection not found.",404);if(!c.data.secret_reference)throw new ProductError("GSC_REAUTH_REQUIRED","Search Console requires reconnection.",409);const raw=await x.admin.rpc("vault_read_secret",{secret_id:c.data.secret_reference});if(raw.error)throw raw.error;const access=JSON.parse(raw.data).refresh_token;const token=await googleSearchConsoleTransport().accessToken(access);const data=await googleSearchConsoleTransport().sitesList(token);res.json({properties:(data.siteEntry||[]).map(p=>({siteUrl:p.siteUrl,permissionLevel:p.permissionLevel,property_type:p.siteUrl?.startsWith("sc-domain:")?"domain":"url_prefix"}))});}));
-router.post("/api/product/organic-evidence/search-console/select",handle(async(req,res)=>{const x=await context(req), id=req.body?.connection_id, site=req.body?.site_url;const c=await x.admin.from("connections").select("id,secret_reference,provider_type").eq("id",id).eq("business_id",x.business.id).eq("provider_type","google_search_console").maybeSingle();if(c.error||!c.data)throw new ProductError("CONNECTION_NOT_FOUND","Connection not found.",404);const store=await x.admin.from("commerce_stores").select("canonical_base_url").eq("business_id",x.business.id).order("created_at",{ascending:false}).limit(1).maybeSingle();if(store.error||!store.data)throw new ProductError("GSC_BUSINESS_SITE_REQUIRED","A verified Business site is required.",409);const property=normalizeProperty(site);if(!property||!propertyMatches(site,store.data.canonical_base_url))throw new ProductError("GSC_PROPERTY_MISMATCH","Search Console property does not match the Business site.",409);const raw=await x.admin.rpc("vault_read_secret",{secret_id:c.data.secret_reference});if(raw.error)throw raw.error;const access=await googleSearchConsoleTransport().accessToken(JSON.parse(raw.data).refresh_token);const verified=await googleSearchConsoleTransport().site(access,property.siteUrl);if(!verified||!verified.permissionLevel)throw new ProductError("GSC_PROPERTY_INVALID","Search Console property is not usable.",409);const saved=await x.admin.from("gsc_connections").update({connection_state:"connected",selected_site_url:property.siteUrl,property_type:property.type,permission_level:verified.permissionLevel,updated_at:new Date().toISOString()}).eq("connection_id",id).eq("business_id",x.business.id);if(saved.error)throw saved.error;await x.admin.from("connections").update({status:"connected",consent_state:"granted"}).eq("id",id).eq("business_id",x.business.id);const source=await x.admin.rpc("organic_ensure_source",{p_business_id:x.business.id,p_source_class:"customer_connected",p_source_kind:"search_console",p_provider_id:"google_search_console",p_connection_id:id});if(source.error)throw source.error;res.json({status:"connected",connection_id:id,property:{siteUrl:property.siteUrl,property_type:property.type,permissionLevel:verified.permissionLevel},evidence_state:"never_collected"});}));
-router.post("/api/product/organic-evidence/search-console/disconnect",handle(async(req,res)=>{const x=await context(req),id=req.body?.connection_id;const c=await x.admin.from("connections").select("id,secret_reference").eq("id",id).eq("business_id",x.business.id).eq("provider_type","google_search_console").maybeSingle();if(c.error||!c.data)throw new ProductError("CONNECTION_NOT_FOUND","Connection not found.",404);if(c.data.secret_reference)await deleteVaultSecret(x.admin,c.data.secret_reference);await x.admin.from("connections").update({status:"disconnected",consent_state:"revoked",secret_reference:null}).eq("id",id).eq("business_id",x.business.id);await x.admin.from("gsc_connections").update({connection_state:"disconnected"}).eq("connection_id",id);await x.admin.from("gsc_oauth_attempts").update({status:"superseded"}).eq("connection_id",id).eq("status","pending");await x.admin.from("organic_evidence_sources").update({evidence_state:"stale"}).eq("business_id",x.business.id).eq("source_kind","search_console");res.json({status:"disconnected",consent_state:"revoked"});}));
+const router = express.Router(); router.use(correlationMiddleware);
+const provider = "google_search_console";
+const handle = fn => (req, res) => Promise.resolve(fn(req, res)).catch(error => { const safe = safeError(error, req.correlationId); res.status(safe.status).json(safe.body); });
+
+async function context(req) {
+  const token = parseBearer(req.get("authorization"));
+  const identity = await verifyIdentity(token);
+  const client = callerClient(token);
+  const account = await resolveAccount(client, identity.authUserId);
+  if (!account || account.status !== "active") throw new ProductError("TENANT_NOT_FOUND", "Product account is not provisioned.", 404);
+  const business = await client.from("businesses").select("id").eq("account_id", account.id).eq("status", "active").maybeSingle();
+  if (business.error) throw business.error;
+  if (!business.data) throw new ProductError("BUSINESS_NOT_FOUND", "Business is not provisioned.", 404);
+  return { account, business: business.data, admin: privilegedClient() };
+}
+
+async function ownedConnection(admin, businessId, id) {
+  const row = await admin.from("connections").select("id,business_id,provider_type,secret_reference").eq("id", id).eq("business_id", businessId).eq("provider_type", provider).maybeSingle();
+  if (row.error || !row.data) throw new ProductError("CONNECTION_NOT_FOUND", "Connection not found.", 404);
+  return row.data;
+}
+
+router.post("/api/product/organic-evidence/search-console/connect", handle(start));
+router.post("/api/product/organic-evidence/search-console/reconnect", handle(start));
+
+async function start(req, res) {
+  const { account, business, admin } = await context(req);
+  const ensured = await admin.rpc("gsc_ensure_connection", { p_business_id: business.id });
+  if (ensured.error) throw ensured.error;
+  const state = crypto.randomBytes(32).toString("base64url");
+  const verifier = crypto.randomBytes(32).toString("base64url");
+  const expires = new Date(Date.now() + 15 * 60_000).toISOString();
+  const attempt = await admin.rpc("gsc_begin_oauth_attempt", { p_account_id: account.id, p_business_id: business.id, p_state_hash: hashOAuthState(state), p_pkce_verifier: verifier, p_expires_at: expires });
+  if (attempt.error) throw attempt.error;
+  res.status(201).json({ authorization_url: googleSearchConsoleTransport().authorizationUrl({ state, verifier }), connection: { id: ensured.data.id, status: ensured.data.status, consent_state: ensured.data.consent_state }, expires_at: expires });
+}
+
+router.get("/api/product/organic-evidence/search-console/callback", handle(async (req, res) => {
+  const state = typeof req.query.state === "string" ? req.query.state : "";
+  if (!state || (typeof req.query.code !== "string" && typeof req.query.error !== "string") || Object.keys(req.query).some(key => !["state", "code", "error", "error_description", "error_uri"].includes(key))) throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid.", 400);
+  const admin = privilegedClient();
+  const claim = await admin.rpc("gsc_claim_oauth_attempt", { p_state_hash: hashOAuthState(state) });
+  if (claim.error || !claim.data) throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid or expired.", 400);
+  const attempt = Array.isArray(claim.data) ? claim.data[0] : claim.data;
+  const fail = async code => { await admin.rpc("gsc_fail_oauth_attempt", { p_attempt_id: attempt.attempt_id }); throw new ProductError(code, "Google Search Console authorization could not be completed.", 409); };
+  if (req.query.error) return fail("GSC_AUTH_DENIED");
+  let tokens; try { tokens = await googleSearchConsoleTransport().exchangeCode(req.query.code, attempt.pkce_verifier); } catch { return fail("GSC_TOKEN_EXCHANGE_FAILED"); }
+  let staged;
+  try { staged = await createVaultSecret(admin, JSON.stringify({ refresh_token: tokens.refresh_token }), "v1-04-google-search-console-pending"); const saved = await admin.rpc("gsc_stage_oauth_secret", { p_attempt_id: attempt.attempt_id, p_secret_reference: staged.secretReference }); if (saved.error) throw saved.error; } catch { if (staged?.secretReference) await deleteVaultSecret(admin, staged.secretReference); return fail("GSC_CONNECTION_FAILED"); }
+  res.json({ status: "awaiting_property" });
+}));
+
+async function stagedAuthorization(admin, connectionId) {
+  const row = await admin.from("gsc_oauth_attempts").select("id,staged_secret_reference").eq("connection_id", connectionId).eq("status", "processing").order("created_at", { ascending: false }).limit(1).maybeSingle();
+  if (row.error || !row.data?.staged_secret_reference) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+  const secret = await admin.rpc("vault_read_secret", { secret_id: row.data.staged_secret_reference });
+  if (secret.error || !secret.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+  return { attemptId: row.data.id, refreshToken: JSON.parse(secret.data).refresh_token };
+}
+
+router.get("/api/product/organic-evidence/search-console/properties", handle(async (req, res) => {
+  const { business, admin } = await context(req); const connection = await ownedConnection(admin, business.id, req.query.connection_id); const authorization = await stagedAuthorization(admin, connection.id); const transport = googleSearchConsoleTransport(); const body = await transport.sitesList(await transport.accessToken(authorization.refreshToken));
+  if (body?.siteEntry !== undefined && !Array.isArray(body.siteEntry)) throw new ProductError("GSC_PROVIDER_MALFORMED", "Search Console returned an invalid property list.", 502);
+  const allowed = ["siteOwner", "siteFullUser", "siteRestrictedUser"];
+  res.json({ properties: (body?.siteEntry || []).flatMap(item => typeof item?.siteUrl === "string" && allowed.includes(item.permissionLevel) ? [{ siteUrl: item.siteUrl, permissionLevel: item.permissionLevel, property_type: item.siteUrl.startsWith("sc-domain:") ? "domain" : "url_prefix" }] : []) });
+}));
+
+router.post("/api/product/organic-evidence/search-console/select", handle(async (req, res) => {
+  const { business, admin } = await context(req); const connection = await ownedConnection(admin, business.id, req.body?.connection_id); const authorization = await stagedAuthorization(admin, connection.id); const store = await admin.from("commerce_stores").select("canonical_base_url").eq("business_id", business.id).eq("provider", "woocommerce").order("created_at", { ascending: false }).limit(1).maybeSingle();
+  if (store.error || !store.data) throw new ProductError("GSC_BUSINESS_SITE_REQUIRED", "A verified Business site is required.", 409);
+  const property = normalizeProperty(req.body?.site_url); if (!property || !propertyMatches(req.body.site_url, store.data.canonical_base_url)) throw new ProductError("GSC_PROPERTY_MISMATCH", "Search Console property does not match the Business site.", 409);
+  const transport = googleSearchConsoleTransport(); const verified = await transport.site(await transport.accessToken(authorization.refreshToken), property.siteUrl); const allowed = ["siteOwner", "siteFullUser", "siteRestrictedUser"];
+  if (!verified || !allowed.includes(verified.permissionLevel)) throw new ProductError("GSC_PROPERTY_INVALID", "Search Console property is not usable.", 409);
+  const activated = await admin.rpc("gsc_activate_property", { p_attempt_id: authorization.attemptId, p_site_url: property.siteUrl, p_property_type: property.type, p_permission_level: verified.permissionLevel }); if (activated.error) throw activated.error;
+  res.json({ status: "connected", property: { siteUrl: property.siteUrl, property_type: property.type, permissionLevel: verified.permissionLevel }, evidence_state: "never_collected" });
+}));
+
+router.post("/api/product/organic-evidence/search-console/disconnect", handle(async (req, res) => { const { business, admin } = await context(req); const result = await admin.rpc("gsc_disconnect", { p_business_id: business.id, p_connection_id: req.body?.connection_id }); if (result.error) throw result.error; res.json({ status: "disconnected", consent_state: "revoked" }); }));
+
 export default router;

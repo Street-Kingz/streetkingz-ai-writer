@@ -1,6 +1,6 @@
 # V1-04 Slice B1 — Google Search Console Customer Connection
 
-Status: `READY FOR REAL GOOGLE ACCEPTANCE`
+Status: `BLOCKED — PRE-REAL-GOOGLE HARDENING`
 
 This artifact records the bounded B1 implementation and deterministic local
 proof. No Google account data, tokens, credentials, property responses or
@@ -29,6 +29,18 @@ customer evidence are stored here.
 
 ## Recovery and validation record
 
+The first B1 implementation self-reported readiness. Independent review found
+unsafe direct lifecycle DML, non-atomic OAuth attempts, unsafe reconnect
+credential replacement, incomplete property identity/permission validation,
+and insufficient end-to-end route proof. This artifact remains blocked until
+the hardening migration and full injected-transport route proof pass.
+
+The current correction adds monotonic lifecycle migrations through
+`20260907000000`, removes durable plaintext OAuth state, adds atomic attempt
+start/claim/activation/disconnect functions, stages replacement credentials,
+and uses `tldts` for public-suffix-aware matching. The local-only acceptance
+surface is at `/internal/v1-04` when `V1_04_B1_ACCEPTANCE=1`.
+
 - A local acceptance environment reset incident removed local runtime rows; it
   did not alter committed V1-03/Slice A evidence and did not contact Google or
   WooCommerce. The incident is recorded separately in
@@ -44,7 +56,8 @@ customer evidence are stored here.
   the source remained complete while the B1 objects/functions existed. That
   temporary stack was removed; the normal local stack remained running.
 - The B1 focused tests passed 4/4 and the Slice A local integration passed 1/1
-  after the reset. No live Google authorization was performed.
+  after the reset. The full route/Vault injected-transport integration matrix
+  remains to be executed. No live Google authorization was performed.
 
 ## Deterministic proof
 

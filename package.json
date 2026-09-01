@@ -8,7 +8,7 @@
     "test": "node --test --test-concurrency=1 test/*.test.js",
     "test:v1-03": "node --test --test-concurrency=1 test/v1-03-foundation.test.js",
     "harness:v1-03": "node scripts/runV103AcceptanceHarness.js",
-  "test:v1-03:integration": "V1_03_INTEGRATION=1 node --test --test-concurrency=1 test/v1-03-supabase-integration.test.js test/v1-03-commerce-supabase-integration.test.js",
+    "test:v1-03:integration": "V1_03_INTEGRATION=1 node --test --test-concurrency=1 test/v1-03-supabase-integration.test.js test/v1-03-commerce-supabase-integration.test.js",
     "workflow:create-seo-article:proof": "node scripts/proveCreateSeoArticleWorkflow.js",
     "workflow:create-seo-article:m3:proof": "node scripts/proveCreateSeoArticleM3.js",
     "extract:product": "node scripts/extractProduct.js",
@@ -46,7 +46,8 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.0",
-    "ipaddr.js": "^2.5.0"
+    "ipaddr.js": "^2.5.0",
+    "tldts": "^7.4.11"
   },
   "devDependencies": {
     "supabase": "^2.115.0"
