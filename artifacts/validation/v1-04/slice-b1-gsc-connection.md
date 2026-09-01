@@ -36,10 +36,11 @@ and insufficient end-to-end route proof. This artifact remains blocked until
 the hardening migration and full injected-transport route proof pass.
 
 The current correction adds monotonic lifecycle migrations through
-`20260907000000`, removes durable plaintext OAuth state, adds atomic attempt
+`20260910000000`, removes durable plaintext OAuth state, adds atomic attempt
 start/claim/activation/disconnect functions, stages replacement credentials,
 and uses `tldts` for public-suffix-aware matching. The local-only acceptance
-surface is at `/internal/v1-04` when `V1_04_B1_ACCEPTANCE=1`.
+surface is at `/internal/v1-04` when `V1_04_B1_ACCEPTANCE=1` and now prepares a
+disposable authenticated browser session in memory.
 
 - A local acceptance environment reset incident removed local runtime rows; it
   did not alter committed V1-03/Slice A evidence and did not contact Google or
@@ -55,18 +56,20 @@ surface is at `/internal/v1-04` when `V1_04_B1_ACCEPTANCE=1`.
   representative complete source/run, applied both B1 migrations, and verified
   the source remained complete while the B1 objects/functions existed. That
   temporary stack was removed; the normal local stack remained running.
-- The B1 focused tests passed 4/4 and the Slice A local integration passed 1/1
-  after the reset. The full route/Vault injected-transport integration matrix
-  remains to be executed. No live Google authorization was performed.
+- The B1 focused tests passed 6/6 and the full route/Vault injected-transport
+  lifecycle passed 1/1. The complete failure, race, reconnect, two-tenant and
+  acceptance-surface matrix remains to be executed. No live Google
+  authorization was performed.
 
 ## Deterministic proof
 
-- Four focused B1 tests passed: exact OAuth scope/PKCE, PSL-aware property
-  normalization, URL-prefix/domain matching, and no Search Analytics collection.
+- Six focused B1 tests passed: exact OAuth scope/PKCE, PSL-aware property
+  normalization, URL-prefix/domain matching, no Search Analytics collection,
+  bounded lifecycle RPC usage, and plaintext-state/expiry assertions.
 - Slice A local integration remained green after the B1 migration.
 - No live Google authorization or Google API call was performed.
 
 ## Acceptance boundary
 
-B1 is ready for Ben's owner-authorized real Google acceptance. B2 — Search
-Analytics evidence acquisition — remains not started. V1-04 remains in progress.
+B1 remains `BLOCKED — FULL NON-LIVE MATRIX INCOMPLETE`. B2 — Search Analytics
+evidence acquisition — remains not started. V1-04 remains in progress.

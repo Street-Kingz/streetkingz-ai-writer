@@ -212,9 +212,9 @@ corrected self-healing run remain preserved in the V1-03 acceptance evidence.
 V1-04 Organic Evidence Connections is In Progress under its approved contract.
 Slice A — Organic Evidence Foundation is DONE / ACCEPTED. Slice B — Google
 Search Console Connection + Evidence is IN PROGRESS in B1 — Customer
-Connection + Property Selection. B1 is implemented locally and ready for
-owner-authorized real Google acceptance. Search Analytics evidence (B2) is not
-started.
+Connection + Property Selection. B1 is implemented locally but remains BLOCKED
+pending the complete non-live route/Vault, race/replay, reconnect, two-tenant
+and acceptance-surface matrix. Search Analytics evidence (B2) is not started.
 
 V1-00 Governance Activation: Done
 
