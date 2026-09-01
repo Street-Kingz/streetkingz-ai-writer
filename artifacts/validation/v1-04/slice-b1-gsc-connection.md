@@ -1,6 +1,6 @@
 # V1-04 Slice B1 — Google Search Console Customer Connection
 
-Status: `BLOCKED — PRE-REAL-GOOGLE HARDENING`
+Status: `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`
 
 This artifact records the bounded B1 implementation and deterministic local
 proof. No Google account data, tokens, credentials, property responses or
@@ -36,7 +36,7 @@ and insufficient end-to-end route proof. This artifact remains blocked until
 the hardening migration and full injected-transport route proof pass.
 
 The current correction adds monotonic lifecycle migrations through
-`20260910000000`, removes durable plaintext OAuth state, adds atomic attempt
+`20260912000000`, removes durable plaintext OAuth state, adds atomic attempt
 start/claim/activation/disconnect functions, stages replacement credentials,
 and uses `tldts` for public-suffix-aware matching. The local-only acceptance
 surface is at `/internal/v1-04` when `V1_04_B1_ACCEPTANCE=1` and now prepares a
@@ -57,9 +57,16 @@ disposable authenticated browser session in memory.
   the source remained complete while the B1 objects/functions existed. That
   temporary stack was removed; the normal local stack remained running.
 - The B1 focused tests passed 6/6 and the full route/Vault injected-transport
-  lifecycle passed 1/1. The complete failure, race, reconnect, two-tenant and
-  acceptance-surface matrix remains to be executed. No live Google
-  authorization was performed.
+  lifecycle passed 1/1 after the atomic-expiry correction. Exact provider
+  identity tests, the activation expiry gate, and the loopback implementation
+  are present, but the complete failure, race, reconnect, two-tenant,
+  reauthentication and acceptance-surface matrix remains to be executed. No
+  live Google authorization was performed.
+- The final correction preserves the exact provider URL-prefix string, makes
+  activation reject and expire staged attempts atomically, restricts the
+  acceptance surface by socket peer address, adds bounded local-session
+  cleanup, and adds an active-credential reauthentication check. These
+  corrections have not yet been covered by a complete durable matrix.
 
 ## Deterministic proof
 

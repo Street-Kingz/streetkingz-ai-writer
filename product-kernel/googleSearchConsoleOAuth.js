@@ -23,7 +23,9 @@ export function canonicalBusinessUrl(value) { try { const u = new URL(value); if
 export function normalizeProperty(value) {
   if (typeof value !== "string") return null;
   if (value.startsWith("sc-domain:")) { const domain=value.slice(10).toLowerCase().replace(/\.$/,""); const registrable=publicSuffixRegistrableDomain(domain); return registrable === domain ? { siteUrl:`sc-domain:${domain}`, type:"domain", domain } : null; }
-  const url=canonicalBusinessUrl(value); return url ? { siteUrl:url.toString(), type:"url_prefix", url } : null;
+  let providerUrl; try { providerUrl = new URL(value); } catch { return null; }
+  if (providerUrl.protocol !== "https:" || providerUrl.username || providerUrl.password || providerUrl.search || providerUrl.hash || !providerUrl.hostname) return null;
+  const comparisonUrl = canonicalBusinessUrl(value); return comparisonUrl ? { siteUrl:value, type:"url_prefix", url:comparisonUrl } : null;
 }
 export function propertyMatches(property, businessValue) {
   const business=canonicalBusinessUrl(businessValue); const normalized=normalizeProperty(property); if (!business || !normalized) return false;

@@ -83,17 +83,27 @@ router.post("/api/product/organic-evidence/search-console/select", handle(async 
   const property = normalizeProperty(req.body?.site_url); if (!property || !propertyMatches(req.body.site_url, store.data.canonical_base_url)) throw new ProductError("GSC_PROPERTY_MISMATCH", "Search Console property does not match the Business site.", 409);
   const transport = googleSearchConsoleTransport(); const verified = await transport.site(await transport.accessToken(authorization.refreshToken), property.siteUrl); const allowed = ["siteOwner", "siteFullUser", "siteRestrictedUser"];
   if (!verified || !allowed.includes(verified.permissionLevel)) throw new ProductError("GSC_PROPERTY_INVALID", "Search Console property is not usable.", 409);
-  const activated = await admin.rpc("gsc_activate_property", { p_attempt_id: authorization.attemptId, p_site_url: property.siteUrl, p_property_type: property.type, p_permission_level: verified.permissionLevel }); if (activated.error) throw activated.error;
+  const activated = await admin.rpc("gsc_activate_property", { p_attempt_id: authorization.attemptId, p_site_url: property.siteUrl, p_property_type: property.type, p_permission_level: verified.permissionLevel }); if (activated.error) throw activated.error; if (!activated.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console authorization expired; reconnect to continue.", 409);
   res.json({ status: "connected", property: { siteUrl: property.siteUrl, property_type: property.type, permissionLevel: verified.permissionLevel }, evidence_state: "never_collected" });
 }));
 
 router.post("/api/product/organic-evidence/search-console/disconnect", handle(async (req, res) => { const { business, admin } = await context(req); const result = await admin.rpc("gsc_disconnect", { p_business_id: business.id, p_connection_id: req.body?.connection_id }); if (result.error) throw result.error; res.json({ status: "disconnected", consent_state: "revoked" }); }));
+
+router.post("/api/product/organic-evidence/search-console/reauth-check", handle(async (req, res) => {
+  const { business, admin } = await context(req); const connection = await ownedConnection(admin, business.id, req.body?.connection_id);
+  if (!connection.secret_reference) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+  try { const secret = await admin.rpc("vault_read_secret", { secret_id: connection.secret_reference }); if (secret.error || !secret.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); const transport = googleSearchConsoleTransport(); await transport.accessToken(JSON.parse(secret.data).refresh_token); }
+  catch (error) { if (error?.code === "GSC_REAUTH_REQUIRED") { await admin.rpc("gsc_mark_reauthentication_required", { p_business_id: business.id, p_connection_id: connection.id }); throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); } throw error; }
+  res.json({ status: "connected" });
+}));
 
 router.get("/api/product/organic-evidence/search-console/status", handle(async (req, res) => {
   const { business, admin } = await context(req);
   const connection = await admin.from("connections").select("id,status,consent_state").eq("business_id", business.id).eq("provider_type", provider).maybeSingle();
   if (connection.error) throw connection.error;
   if (!connection.data) return res.json({ connection_state: "disconnected", selected_property: null, property_type: null, permission_level: null, evidence_state: null, has_current_complete_evidence: false, current_completeness_state: null, last_successful_at: null, evidence_as_of: null });
+  const expired = await admin.from("gsc_oauth_attempts").select("id").eq("connection_id", connection.data.id).in("status", ["pending", "processing"]).lte("expires_at", new Date().toISOString());
+  if (!expired.error) for (const attempt of expired.data || []) await admin.rpc("gsc_expire_oauth_attempt", { p_attempt_id: attempt.id });
   const gsc = await admin.from("gsc_connections").select("connection_state,selected_site_url,property_type,permission_level").eq("connection_id", connection.data.id).single();
   if (gsc.error) throw gsc.error;
   const source = await admin.from("organic_evidence_sources").select("evidence_state,current_complete_run,current_completeness_state,last_successful_at,evidence_as_of").eq("business_id", business.id).eq("connection_id", connection.data.id).maybeSingle();

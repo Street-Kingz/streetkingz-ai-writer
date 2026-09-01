@@ -7,10 +7,11 @@ import { productKernelConfig } from "../config/productKernel.js";
 
 const router = express.Router();
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "../internal/v1-04-b1");
-const localHost = value => ["localhost", "127.0.0.1", "::1"].includes(value || "");
+import net from "node:net";
+const localPeer = value => { if (value === "::1" || value === "127.0.0.1") return true; if (net.isIP(value) === 6 && value.toLowerCase() === "::ffff:127.0.0.1") return true; return false; };
 const enabled = process.env.V1_04_B1_ACCEPTANCE === "1";
 if (enabled) {
-  router.use((req, res, next) => localHost(req.hostname) ? next() : res.status(404).end());
+  router.use((req, res, next) => localPeer(req.socket?.remoteAddress) ? next() : res.status(404).end());
   router.post("/internal/v1-04/session", async (_req, res) => {
     const config = productKernelConfig(process.env, { privileged: true });
     const admin = createClient(config.url, config.privilegedKey, { auth: { persistSession: false } });
@@ -26,6 +27,20 @@ if (enabled) {
     const business = account.error ? account : await caller.rpc("product_create_business", { p_name: "V1-04 B1 Local Acceptance", p_platform: "woocommerce", p_correlation_id: crypto.randomUUID() });
     if (business.error) { await admin.auth.admin.deleteUser(created.data.user.id); return res.status(503).json({ error: { code: "LOCAL_SESSION_FAILED", message: "Local acceptance session could not be prepared." } }); }
     res.json({ access_token: signed.data.session.access_token, expires_at: signed.data.session.expires_at, account_ready: !account.error, business_ready: true });
+  });
+  router.post("/internal/v1-04/session/cleanup", async (req, res) => {
+    const token = typeof req.get("authorization") === "string" ? req.get("authorization").replace(/^Bearer\s+/i, "") : "";
+    if (!token) return res.status(401).json({ error: { code: "AUTH_REQUIRED", message: "Authentication is required." } });
+    const config = productKernelConfig(process.env, { privileged: true });
+    const login = createClient(config.url, config.publishableKey, { global: { headers: { authorization: `Bearer ${token}` } }, auth: { persistSession: false } });
+    const identity = await login.auth.getUser();
+    if (identity.error || !identity.data.user?.id) return res.status(401).json({ error: { code: "AUTH_INVALID", message: "Authentication is invalid." } });
+    const admin = createClient(config.url, config.privilegedKey, { auth: { persistSession: false } });
+    const account = await admin.from("accounts").select("id").eq("auth_user_id", identity.data.user.id).maybeSingle();
+    if (account.error) return res.status(503).json({ error: { code: "LOCAL_SESSION_CLEANUP_FAILED", message: "Local acceptance session could not be cleaned up." } });
+    const deleted = await admin.auth.admin.deleteUser(identity.data.user.id);
+    if (deleted.error) return res.status(503).json({ error: { code: "LOCAL_SESSION_CLEANUP_FAILED", message: "Local acceptance session could not be cleaned up." } });
+    res.json({ cleaned: true, account_was_present: Boolean(account.data) });
   });
   router.get("/internal/v1-04", (_req, res) => res.sendFile("index.html", { root }));
   router.get("/internal/v1-04/harness.js", (_req, res) => res.sendFile("harness.js", { root }));
