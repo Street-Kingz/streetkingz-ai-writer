@@ -200,6 +200,10 @@ Current active slice: Slice B — Google Search Console Connection + Evidence �
 
 Current engineering phase: B1 — Customer Connection + Property Selection
 
+Current B1 closeout phase: P1 — Property Identity + Acceptance-Harness Security
+
+Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
+
 Current V1-03 acceptance state (verified at the current repository state):
 
 V1-03 WooCommerce Commerce Connection: DONE / ACCEPTED.
@@ -215,6 +219,9 @@ Search Console Connection + Evidence is IN PROGRESS in B1 — Customer
 Connection + Property Selection. B1 is implemented locally but remains BLOCKED
 pending the complete non-live route/Vault, race/replay, reconnect, two-tenant
 and acceptance-surface matrix. Search Analytics evidence (B2) is not started.
+
+B1 remains BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE. B2 remains NOT
+STARTED.
 
 V1-00 Governance Activation: Done
 
