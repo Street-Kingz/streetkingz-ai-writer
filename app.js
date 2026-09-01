@@ -9,7 +9,6 @@ import woocommerceRoute from "./routes/woocommerce.js";
 import v103AcceptanceHarnessRoute from "./routes/v1-03AcceptanceHarness.js";
 import organicEvidenceRoute from "./routes/organicEvidence.js";
 import googleSearchConsoleRoute from "./routes/googleSearchConsole.js";
-import v104B1AcceptanceRoute from "./routes/v1-04B1Acceptance.js";
 import { randomUUID } from "node:crypto";
 
 const app = express();
@@ -36,7 +35,6 @@ app.use(createSeoArticleWorkflowRoute);
 app.use(productKernelRoute);
 app.use(organicEvidenceRoute);
 app.use(googleSearchConsoleRoute);
-if (v104B1AcceptanceRoute) app.use(v104B1AcceptanceRoute);
 if (v103AcceptanceHarnessRoute) app.use(v103AcceptanceHarnessRoute);
 
 export default app;

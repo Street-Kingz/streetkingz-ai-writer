@@ -6,7 +6,7 @@ import { resolveAccount } from "../product-kernel/repository.js";
 import { createVaultSecret, deleteVaultSecret } from "../product-kernel/vault.js";
 import { ProductError, safeError } from "../product-kernel/errors.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
-import { googleSearchConsoleTransport, hashOAuthState, propertyMatches, normalizeProperty } from "../product-kernel/googleSearchConsoleOAuth.js";
+import { googleSearchConsoleTransport, hashOAuthState, propertyMatches, propertyProbeMatches, normalizeProperty } from "../product-kernel/googleSearchConsoleOAuth.js";
 
 const router = express.Router(); router.use(correlationMiddleware);
 const provider = "google_search_console";
@@ -82,7 +82,7 @@ router.post("/api/product/organic-evidence/search-console/select", handle(async 
   if (store.error || !store.data) throw new ProductError("GSC_BUSINESS_SITE_REQUIRED", "A verified Business site is required.", 409);
   const property = normalizeProperty(req.body?.site_url); if (!property || !propertyMatches(req.body.site_url, store.data.canonical_base_url)) throw new ProductError("GSC_PROPERTY_MISMATCH", "Search Console property does not match the Business site.", 409);
   const transport = googleSearchConsoleTransport(); const verified = await transport.site(await transport.accessToken(authorization.refreshToken), property.siteUrl); const allowed = ["siteOwner", "siteFullUser", "siteRestrictedUser"];
-  if (!verified || !allowed.includes(verified.permissionLevel)) throw new ProductError("GSC_PROPERTY_INVALID", "Search Console property is not usable.", 409);
+  if (!propertyProbeMatches(property.siteUrl, verified) || !allowed.includes(verified.permissionLevel)) throw new ProductError("GSC_PROPERTY_INVALID", "Search Console property is not usable.", 409);
   const activated = await admin.rpc("gsc_activate_property", { p_attempt_id: authorization.attemptId, p_site_url: property.siteUrl, p_property_type: property.type, p_permission_level: verified.permissionLevel }); if (activated.error) throw activated.error; if (!activated.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console authorization expired; reconnect to continue.", 409);
   res.json({ status: "connected", property: { siteUrl: property.siteUrl, property_type: property.type, permissionLevel: verified.permissionLevel }, evidence_state: "never_collected" });
 }));

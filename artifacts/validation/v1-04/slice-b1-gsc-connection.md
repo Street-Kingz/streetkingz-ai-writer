@@ -104,3 +104,36 @@ blocked and is not authorized for real Google acceptance.
 
 B1 remains `BLOCKED — FULL NON-LIVE MATRIX INCOMPLETE`. B2 — Search Analytics
 evidence acquisition — remains not started. V1-04 remains in progress.
+
+## P1 closeout — property identity and acceptance-harness security
+
+P1 status: `COMPLETE`. B1 remains blocked pending P2, P3 and P4.
+
+The advisor-identified property-probe defect was confirmed: selection sent the
+requested property to the probe and checked permission, but did not validate
+that the provider response identified the same property. The route now rejects
+missing, malformed and different returned `siteUrl` values before activation.
+Exact URL-prefix provider identity remains unchanged for probing and storage;
+comparison normalization is separate.
+
+The acceptance-harness isolation defect was confirmed: the harness had been
+conditionally mounted in the normal Express application after global CORS.
+The normal app no longer imports or mounts it. A dedicated runner at
+`scripts/runV104B1Acceptance.js` requires the explicit acceptance flag, rejects
+production, requires loopback Supabase, and binds only to `127.0.0.1`. The
+harness router retains socket-peer loopback validation, rejects non-local
+Origins, has no CORS middleware, and requires an in-memory bootstrap header for
+session/cleanup mutations. The browser token remains in JavaScript memory only.
+
+Executed P1 proof:
+
+- `node --test --test-concurrency=1 test/v1-04-b1-p1.test.js test/v1-04-gsc-b1.test.js`:
+  13 passed, 0 failed, 0 skipped.
+- Proof covers exact returned identity, parent/sibling/scheme/host/port
+  mismatch, missing/malformed identity, Domain identity, normal-app
+  non-mounting, explicit enable/production/local-environment guards, loopback
+  peer variants, bootstrap/origin rejection, and absence of wildcard CORS.
+
+P1 did not execute the P2 OAuth failure/race matrix, P3 reconnect/tenant/full
+acceptance-surface matrix, or P4 migration/combined closeout. No live Google,
+WooCommerce, Street Kingz or DataForSEO call was made.
