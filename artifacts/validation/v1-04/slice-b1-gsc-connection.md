@@ -2,6 +2,10 @@
 
 Status: `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`
 
+Validation revision: current correction worktree at `a9bcea5` plus the
+uncommitted validation corrections described below. No live Google, WooCommerce
+or Street Kingz call was made.
+
 This artifact records the bounded B1 implementation and deterministic local
 proof. No Google account data, tokens, credentials, property responses or
 customer evidence are stored here.
@@ -67,6 +71,26 @@ disposable authenticated browser session in memory.
   acceptance surface by socket peer address, adds bounded local-session
   cleanup, and adds an active-credential reauthentication check. These
   corrections have not yet been covered by a complete durable matrix.
+
+## Latest validation
+
+Executed successfully:
+
+- focused B1 contract tests: 6 passed, 0 failed;
+- local B1 route/Vault integration: 1 passed, 0 failed, including exact
+  provider probe identity, active `invalid_grant` state, LKG retention and
+  disconnect;
+- Slice A local integration: 1 passed;
+- enabled V1-02/V1-03 local integrations: 64 passed;
+- full npm: 1,056 passed, 9 skipped, 0 failed;
+- `git diff --check`: passed.
+
+Still unexecuted as durable B1 proofs: the complete OAuth failure matrix,
+concurrent start/callback races, reconnect failure/success matrix, full
+two-tenant route isolation, acceptance-surface HTTP/peer tests, isolated
+from-zero migration proof, reproducible Slice-A-to-B1 upgrade proof, and
+separate staged-expiry/active-reauth/disconnect-LKG cases. B1 therefore remains
+blocked and is not authorized for real Google acceptance.
 
 ## Deterministic proof
 
