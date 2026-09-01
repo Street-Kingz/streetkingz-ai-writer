@@ -1,8 +1,9 @@
 # V1-04 B1 P2 OAuth Failure + Replay/Race Matrix
 
-Status: **BLOCKED — P2-B REMAINS**
+Status: **COMPLETE — P2 PASSED; P3/P4 REMAIN**
 
 P2-A baseline: `f36caf4d11c8a8645f02f8058a0b9dd35056fa54`
+P2-B baseline: `414e3bb4263977e10a508f8634a2e7947d5e9ff1`
 Validation: local Supabase/Vault, real Express routes/RPCs, deterministic
 local `fetchImpl`, synthetic authenticated tenant and synthetic verified
 WooCommerce site identity. No external network.
@@ -50,25 +51,26 @@ design; the earlier grouped race test is regression evidence only.
 | P2-PROVIDER-004 | malformed probe | `/select` missing siteUrl | PASS | same | — | no selection |
 | P2-PROVIDER-005 | unusable permission | `/select` unverified user | PASS | same | — | rejected |
 | P2-PROVIDER-006 | different identity | `/select` parent siteUrl | PASS | same | — | exact identity |
-| P2-RACE-START-001 | two simultaneous starts | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-START-002 | three simultaneous starts | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-START-003 | start while pending | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-START-004 | start while processing | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-CALLBACK-001 | sequential replay | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-CALLBACK-002 | two callback race | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-CALLBACK-003 | three callback race | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-SUPERSEDE-001 | processing superseded | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-SUPERSEDE-002 | pending superseded | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-EXPIRY-001 | expiry before claim | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-EXPIRY-002 | expiry during exchange | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-EXPIRY-003 | expiry before selection | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-ACTIVATE-001 | activation before expiry | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-ACTIVATE-002 | expiry before activation | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-ACTIVATE-003 | competing activation | prior grouped regression only | UNEXECUTED | — | — | P2-B |
-| P2-RACE-ACTIVATE-004 | activation replay | prior grouped regression only | UNEXECUTED | — | — | P2-B |
+| P2-RACE-START-001 | two simultaneous starts | named P2-B start race subtest | PASS | dedicated P2-B command | — | one pending |
+| P2-RACE-START-002 | three simultaneous starts | named P2-B start race subtest | PASS | same | — | one pending |
+| P2-RACE-START-003 | start while pending | named P2-B supersession subtest | PASS | same | — | old callback rejected |
+| P2-RACE-START-004 | start while processing | named P2-B staged supersession subtest | PASS | same | P2B-SECRET-001 corrected | ref cleared and secret deleted |
+| P2-RACE-CALLBACK-001 | sequential replay | named P2-B replay subtest | PASS | same | — | one exchange |
+| P2-RACE-CALLBACK-002 | two callback race | named P2-B callback race subtest | PASS | same | — | one winner |
+| P2-RACE-CALLBACK-003 | three callback race | named P2-B callback race subtest | PASS | same | — | one winner |
+| P2-RACE-SUPERSEDE-001 | processing superseded | named P2-B processing supersession subtest | PASS | same | — | no orphan |
+| P2-RACE-SUPERSEDE-002 | pending superseded | named P2-B pending supersession subtest | PASS | same | — | no exchange |
+| P2-RACE-EXPIRY-001 | expiry before claim | named P2-B expiry subtest | PASS | same | — | no exchange |
+| P2-RACE-EXPIRY-002 | expiry during exchange | named P2-B expiry subtest | PASS | same | — | no stage |
+| P2-RACE-EXPIRY-003 | expiry before selection | named P2-B expiry subtest | PASS | same | — | staged secret removed |
+| P2-RACE-ACTIVATE-001 | activation before expiry | named P2-B activation subtest | PASS | same | — | expiry no-op |
+| P2-RACE-ACTIVATE-002 | expiry before activation | named P2-B activation subtest | PASS | same | — | no partial activation |
+| P2-RACE-ACTIVATE-003 | competing activation | named P2-B activation subtest | PASS | same | — | one winner |
+| P2-RACE-ACTIVATE-004 | activation replay | named P2-B activation replay subtest | PASS | same | — | no duplicate source |
+| P2-RACE-ACTIVATE-005 | activation versus new start | named P2-B supplemental lock-order subtest | PASS | same | P2B-LOCK-001 | both orderings deadlock-free |
 
-**Ledger total:** 51 cases; 35 P2-A cases passed individually; 16 P2-B cases
-remain unexecuted. No approved P2-A case is skipped.
+**Ledger total:** 52 cases; 35 P2-A cases and 17 P2-B cases passed individually.
+No approved P2 case is skipped.
 
 ## P2-A evidence
 
@@ -90,4 +92,20 @@ Exact scope semantics are fail-closed: whitespace around the one approved scope
 is accepted, while missing, malformed, wrong, `openid`, `email`, and write-scope
 additions are rejected. This is a code correction, not a migration.
 
-P2-B, P3 and P4 were not executed. P2 remains blocked and B1 remains blocked.
+## P2-B evidence
+
+The dedicated `test/v1-04-gsc-b1-p2b-races.test.js` suite passed 17/17 named
+cases (18 including the parent test) using actual concurrent HTTP requests,
+real RPC locks, local Vault and deterministic exchange/property barriers. Every
+race had a three-second hard barrier deadline. Activation/start was proven in
+both activation-wins and new-start-wins orderings.
+
+The lock audit confirmed that the pre-correction functions acquired locks in
+opposite order. Monotonic migration
+`20260913000000_v1_04_b1_activation_lock_order.sql` makes activation acquire
+the Connection before the OAuth attempt, matching start. Migration
+`20260914000000_v1_04_b1_superseded_secret_reference.sql` clears staged
+references after deleting their Vault secrets. No deadlock, partial activation,
+or Vault residue remained.
+
+P2 is complete. P3 and P4 were not executed; B1 remains blocked pending them.

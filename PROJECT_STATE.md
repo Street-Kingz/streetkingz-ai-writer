@@ -200,7 +200,7 @@ Current active slice: Slice B — Google Search Console Connection + Evidence �
 
 Current engineering phase: B1 — Customer Connection + Property Selection
 
-Current B1 closeout phase: P2 — OAuth Failure + Replay/Race Matrix
+Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
 
 Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
 
@@ -221,9 +221,10 @@ pending the complete non-live route/Vault, race/replay, reconnect, two-tenant
 and acceptance-surface matrix. Search Analytics evidence (B2) is not started.
 
 B1 remains BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE. P1 is DONE / ACCEPTED
-under the frozen closeout plan. P2-A failure-boundary proof is complete;
-P2-B race/activation proof remains pending. P3 and P4 remain NOT STARTED. B2
-remains NOT STARTED.
+under the frozen closeout plan. P2 is COMPLETE, including P2-A failure-boundary
+and P2-B race/activation proof. Current next B1 closeout phase is P3 —
+Reconnect + Reauth + Disconnect + Tenant/HTTP, which remains NOT STARTED until
+separately founder-authorised. P4 remains NOT STARTED. B2 remains NOT STARTED.
 
 V1-00 Governance Activation: Done
 

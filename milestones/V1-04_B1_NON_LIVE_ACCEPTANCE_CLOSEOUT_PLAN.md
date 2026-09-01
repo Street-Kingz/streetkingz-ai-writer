@@ -104,11 +104,19 @@ evidence, impact, Ben approval and a repository update before implementation.
 Codex may report that this plan is technically wrong but may not silently
 replace it.
 
+### P2-B change control record
+
+Ben approved the supplemental `P2-RACE-ACTIVATE-005` case on 2026-09-01
+because review identified a possible opposite lock order between start and
+activation. The case remained inside P2's existing activation-race boundary;
+it did not change P1–P4 order, completion criteria, P3/P4 scope, provider
+authorization or the B2 boundary.
+
 ## Status
 
 | Phase | Status |
 | --- | --- |
 | P1 — Property Identity + Acceptance-Harness Security | COMPLETE |
-| P2 — OAuth Failure + Replay/Race Matrix | BLOCKED |
+| P2 — OAuth Failure + Replay/Race Matrix | COMPLETE |
 | P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | NOT STARTED |
 | P4 — Migration + Combined Acceptance Closeout | NOT STARTED |

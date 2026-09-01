@@ -188,9 +188,9 @@ Regression evidence for this P2 pass:
 
 ## P2-A — failure-boundary proof
 
-P2-A status: `COMPLETE`. P2 overall remains `BLOCKED` pending P2-B. The
-earlier grouped P2 wording above is historical and is superseded for the
-failure-boundary cases by the exact ledger in
+P2-A checkpoint status: `COMPLETE`; at that checkpoint P2 overall remained
+`BLOCKED` pending P2-B. The earlier grouped P2 wording above is historical and
+is superseded for the failure-boundary cases by the exact ledger in
 `slice-b1-p2-oauth-failure-race-matrix.md`.
 
 At baseline `f36caf4d11c8a8645f02f8058a0b9dd35056fa54`, the dedicated P2-A
@@ -207,7 +207,7 @@ ordinary surrounding whitespace. The Vault test hook is explicit and
 test-only; production defaults remain the real Vault RPCs. Secret checks use
 counts/existence only and retain no secret values or references.
 
-P2-B remains responsible for the 16 race/activation cases in the exact ledger:
+At the P2-A checkpoint, P2-B remained responsible for the 16 race/activation cases in the exact ledger:
 simultaneous starts, concurrent callbacks, supersession interleavings,
 callback/expiry interleavings, and activation/expiry/replay. P3 and P4 remain
 not started. Real Google acceptance remains unauthorized and B2 remains not
@@ -219,5 +219,27 @@ P2-A final command:
 Result: 42 tests passed, 0 failed, 0 skipped (35 owned case assertions plus
 five exact-scope supplemental assertions, the positive provider control and
 the parent test). The existing grouped P2 race regression also passed 9/9
-tests; those 16 ledger cases remain P2-B UNEXECUTED rather than being claimed
-by this P2-A task.
+tests; those 16 ledger cases were then P2-B UNEXECUTED rather than being
+claimed by the P2-A task.
+
+## P2-B — replay, concurrency and activation-race proof
+
+P2-B status: `COMPLETE`; P2 status: `COMPLETE`. The exact ledger now contains
+52 rows: the retained 35 P2-A PASS cases and 17 individually proven P2-B
+cases, including owner-approved `P2-RACE-ACTIVATE-005`. The dedicated suite
+passed 18/18 tests including its parent (17 named cases), with actual
+concurrent HTTP requests, Supabase RPC locks, local Vault and deterministic
+exchange/property barriers. The three-second barrier deadline detected no
+deadlock.
+
+The effective SQL audit confirmed the pre-correction start/activation lock-order
+inversion. New monotonic migrations
+`20260913000000_v1_04_b1_activation_lock_order.sql` and
+`20260914000000_v1_04_b1_superseded_secret_reference.sql` corrected the lock
+order and cleared deleted staged-secret references. Both activation-wins and
+new-start-wins orderings passed without partial activation or Vault residue.
+
+The P2-B proof is recorded in
+`artifacts/validation/v1-04/slice-b1-p2-oauth-failure-race-matrix.md`.
+P3 and P4 remain not started; B1 remains blocked pending those phases. Real
+Google acceptance remains unauthorized and B2 remains not started.
