@@ -399,3 +399,26 @@ the 20-case tenant-isolation domain remains unexecuted. P3-B and P3 remain
 blocked pending tenant proof. B1 remains **BLOCKED PENDING P3-B TENANT
 ISOLATION AND P4**. P4 and B2 remain NOT STARTED, and READY FOR REAL GOOGLE
 ACCEPTANCE remains NO.
+
+## Current P3-B tenant/P3 closeout (2026-09-02)
+
+The normal Product tenant-isolation suite executed 20 / 20 approved tenant
+cases as individual subtests: 21 TAP tests including the parent, 21 passed,
+0 failed, and 0 skipped. It covered route ownership, authenticated RLS and
+safe columns, service-only OAuth/Vault/lifecycle boundaries, direct DML
+denial, callback binding, foreign-versus-nonexistent response parity, provider
+counter isolation, and final paired-tenant state preservation.
+
+P3-B Harness remains COMPLETE at 22 / 22 PASS. P3-B Tenant is COMPLETE at
+20 / 20 PASS. P3-B is COMPLETE at 42 / 42 PASS and P3 is COMPLETE. P4 remains
+NOT STARTED. B1 remains **BLOCKED PENDING P4 COMBINED ACCEPTANCE CLOSEOUT**;
+READY FOR REAL GOOGLE ACCEPTANCE remains NO and B2 remains NOT STARTED.
+
+Exact tenant proof command:
+
+`V1_04_P3B_TENANT_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3b-tenant-isolation.test.js`
+
+The suite found and closed `P3B-DEF-001` (High): a foreign disconnect ID could
+reach the lifecycle RPC and produce an internal failure. The route now checks
+ownership before the RPC; no migration was required. P3 remains complete, and
+B1 remains blocked pending the separately authorised P4 combined closeout.

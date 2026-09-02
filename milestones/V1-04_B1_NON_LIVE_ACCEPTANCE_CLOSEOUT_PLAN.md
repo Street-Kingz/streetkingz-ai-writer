@@ -163,12 +163,12 @@ authorization or the B2 boundary.
 | --- | --- |
 | P1 — Property Identity + Acceptance-Harness Security | COMPLETE |
 | P2 — OAuth Failure + Replay/Race Matrix | COMPLETE |
-| P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | BLOCKED pending P3-B |
+| P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | COMPLETE |
 | P4 — Migration + Combined Acceptance Closeout | NOT STARTED |
 | P3-A — Connection Lifecycle + Evidence Preservation | COMPLETE |
 | P3-B Harness — Acceptance-Surface HTTP | COMPLETE — 22 / 22 PASS |
-| P3-B Tenant — Tenant Isolation | NOT STARTED |
-| P3-B — Tenant Isolation + Acceptance-Surface HTTP | BLOCKED pending tenant proof |
+| P3-B Tenant — Tenant Isolation | COMPLETE — 20 / 20 PASS |
+| P3-B — Tenant Isolation + Acceptance-Surface HTTP | COMPLETE — 42 / 42 PASS |
 | P3-A1 — Reconnect + Property/Evidence Consistency | COMPLETE |
 | P3-A2 — Reauthentication + Credential Health | COMPLETE |
 | P3-A3 — Disconnect + Lifecycle Races | COMPLETE |

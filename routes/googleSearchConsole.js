@@ -91,7 +91,7 @@ router.post("/api/product/organic-evidence/search-console/select", handle(async 
   res.json({ status: "connected", property: { siteUrl: property.siteUrl, property_type: property.type, permissionLevel: verified.permissionLevel }, evidence_state: activated.data.evidence_state, has_current_complete_evidence: Boolean(activated.data.current_complete_run), evidence_as_of: activated.data.evidence_as_of || null });
 }));
 
-router.post("/api/product/organic-evidence/search-console/disconnect", handle(async (req, res) => { const { business, admin } = await context(req); await lifecyclePause("before_disconnect"); const result = await admin.rpc("gsc_disconnect", { p_business_id: business.id, p_connection_id: req.body?.connection_id }); if (result.error) throw result.error; res.json({ status: "disconnected", consent_state: "revoked", local_credential_removed: true, remote_google_revocation_requested: false }); }));
+router.post("/api/product/organic-evidence/search-console/disconnect", handle(async (req, res) => { const { business, admin } = await context(req); await ownedConnection(admin, business.id, req.body?.connection_id); await lifecyclePause("before_disconnect"); const result = await admin.rpc("gsc_disconnect", { p_business_id: business.id, p_connection_id: req.body?.connection_id }); if (result.error) throw result.error; res.json({ status: "disconnected", consent_state: "revoked", local_credential_removed: true, remote_google_revocation_requested: false }); }));
 
 router.post("/api/product/organic-evidence/search-console/reauth-check", handle(async (req, res) => {
   const { business, admin } = await context(req); const connection = await ownedConnection(admin, business.id, req.body?.connection_id);

@@ -1,35 +1,36 @@
 # V1-04 B1 P3-B — Tenant Isolation + Acceptance-Surface HTTP
 
-Status: **BLOCKED — TENANT-ISOLATION PROOF PENDING**
+Status: **COMPLETE — 42 / 42 PASS**
 
 Starting SHA: `7f52cce74c4c94e0975268acc86aae755757a6dc`
 
-This ledger is intentionally individual. P3-B was not previously executed;
-rows remain UNEXECUTED until dedicated local integration suites exercise the
-real routes, RLS, RPC grants, Vault boundary, and acceptance server.
+This ledger is intentionally individual. The Harness and Tenant domains are
+proven by dedicated local integration suites exercising the real routes, RLS,
+RPC grants, Vault boundary, and acceptance server. Historical execution notes
+below are retained for traceability.
 
 | Case ID | Scenario | Boundary | Result | Test / command | Notes |
 | --- | --- | --- | --- | --- | --- |
-| P3B-TENANT-001 | Own-tenant positive control | GSC routes/RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-002 | Missing/invalid authentication | GSC routes/Auth | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-003 | A cannot load B properties | `/properties`/RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-004 | A cannot select B property | `/select`/RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-005 | A cannot disconnect B | `/disconnect`/RPC | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-006 | A cannot reauth-check B | `/reauth-check`/Vault | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-007 | Symmetric B-to-A control | GSC routes/RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-008 | Connect/reconnect identifier injection | `/connect`/`/reconnect` | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-009 | Status cannot be rebound | `/status` | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-010 | Callback cannot be rebound by IDs | callback/RPC | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-011 | Account/business RLS | Supabase RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-012 | Base connection RLS/safe columns | Supabase RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-013 | GSC connection RLS | Supabase RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-014 | Organic source/run isolation | Supabase RLS | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-015 | OAuth attempts service-only | RLS/RPC | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-016 | Secret references not customer-readable | RLS/Vault | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-017 | Vault inaccessible | Vault/RPC | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-018 | Lifecycle RPCs service-only | RPC grants | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-019 | Direct DML denied | RLS/DML | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-TENANT-020 | Foreign attacks have no side effect | all tenant boundaries | UNEXECUTED | P3-B tenant suite | pending |
+| P3B-TENANT-001 | Own-tenant positive control | GSC routes/RLS | PASS | `P3B-TENANT-001 own-tenant positive controls` | normal app HTTP; both tenants |
+| P3B-TENANT-002 | Missing/invalid authentication | GSC routes/Auth | PASS | `P3B-TENANT-002 authentication failures` | unauthenticated route vectors |
+| P3B-TENANT-003 | A cannot load B properties | `/properties`/RLS | PASS | `P3B-TENANT-003 foreign property discovery` | provider counter unchanged |
+| P3B-TENANT-004 | A cannot select B property | `/select`/RLS | PASS | `P3B-TENANT-004 foreign property selection` | B unchanged |
+| P3B-TENANT-005 | A cannot disconnect B | `/disconnect`/RPC | PASS | `P3B-TENANT-005 foreign disconnect and nonexistent comparison` | same safe not-found class |
+| P3B-TENANT-006 | A cannot reauth-check B | `/reauth-check`/Vault | PASS | `P3B-TENANT-006 foreign reauth-check` | no provider work |
+| P3B-TENANT-007 | Symmetric B-to-A control | GSC routes/RLS | PASS | `P3B-TENANT-007 symmetric foreign route controls` | reverse direction |
+| P3B-TENANT-008 | Connect/reconnect identifier injection | `/connect`/`/reconnect` | PASS | `P3B-TENANT-008 connect/reconnect identifier injection` | own tenant remains authoritative |
+| P3B-TENANT-009 | Status cannot be rebound | `/status` | PASS | `P3B-TENANT-009 status cannot be rebound` | foreign fields ignored |
+| P3B-TENANT-010 | Callback cannot be rebound by IDs | callback/RPC | PASS | `P3B-TENANT-010 callback cannot be rebound` | one-time state preserved |
+| P3B-TENANT-011 | Account/business RLS | Supabase RLS | PASS | `P3B-TENANT-011 Account/Business/audit RLS` | authenticated callers |
+| P3B-TENANT-012 | Base connection RLS/safe columns | Supabase RLS | PASS | `P3B-TENANT-012 base Connection RLS and safe columns` | secret column unavailable |
+| P3B-TENANT-013 | GSC connection RLS | Supabase RLS | PASS | `P3B-TENANT-013 GSC Connection RLS` | own-only read/update denied |
+| P3B-TENANT-014 | Organic source/run isolation | Supabase RLS | PASS | `P3B-TENANT-014 organic source/run and commerce identity RLS` | source own-only; runs denied |
+| P3B-TENANT-015 | OAuth attempts service-only | RLS/RPC | PASS | `P3B-TENANT-015 OAuth attempts service-only` | no attempt data |
+| P3B-TENANT-016 | Secret references not customer-readable | RLS/Vault | PASS | `P3B-TENANT-016 secret references not customer-readable` | own/foreign |
+| P3B-TENANT-017 | Vault inaccessible | Vault/RPC | PASS | `P3B-TENANT-017 Vault inaccessible` | tables and RPCs denied |
+| P3B-TENANT-018 | Lifecycle RPCs service-only | RPC grants | PASS | `P3B-TENANT-018 service-only lifecycle RPCs` | effective signatures denied |
+| P3B-TENANT-019 | Direct DML denied | RLS/DML | PASS | `P3B-TENANT-019 direct DML denied` | insert/update/delete denied |
+| P3B-TENANT-020 | Foreign attacks have no side effect | all tenant boundaries | PASS | `P3B-TENANT-020 final foreign-attack side-effect audit` | both tenants remain usable |
 | P3B-HARNESS-001 | Normal app exposes no harness | app routing | PASS | `P3B-HARNESS-001 normal app exposes no V1-04 routes` | HTTP 404 for all six routes |
 | P3B-HARNESS-002 | Runner requires explicit enablement | runner | PASS | `P3B-HARNESS-002 explicit enable flag required` | fail-closed |
 | P3B-HARNESS-003 | Production blocks startup | runner/config | PASS | `P3B-HARNESS-003 production rejected` | fail-closed |
@@ -101,5 +102,34 @@ corrected enabled command executed all 22 top-level cases: 22 passed, 0 failed,
 failure points, the injected local GSC connect/callback/properties/select
 journey, valid normal-user and two-session cleanup principals, strict target
 shape rejection, complete account/connection cleanup checks, and repeated
-cleanup. No live provider call occurred. The tenant domain remains 0 / 20
+ cleanup. No live provider call occurred. The tenant domain remains 0 / 20
 UNEXECUTED; P3-B remains BLOCKED pending tenant-isolation proof.
+
+## P3-B tenant closeout (2026-09-02)
+
+The normal Product application tenant suite executed all 20 approved cases as
+individual subtests: 21 TAP tests including the parent, 21 passed, 0 failed,
+and 0 skipped. The paired synthetic tenants used local Woo/GSC lifecycle
+fixtures, injected Google transport, authenticated caller clients, real
+PostgREST/RLS/Vault boundaries, and normal Product HTTP routes.
+
+The suite proved own-tenant status and health controls; safe authentication
+failure; foreign property, selection, disconnect and reauthentication denial;
+identifier-injection resistance; callback state binding; Account/Business,
+Connection, GSC and organic-source/run RLS; service-only attempts, Vault and
+lifecycle RPCs; denied direct DML; and unchanged, still-usable tenants after
+all foreign attacks. Foreign and nonexistent Connection IDs produced the same
+safe response class. Provider counters remained unchanged for rejected foreign
+work. No live provider calls occurred and teardown removed synthetic users and
+state. Defect `P3B-DEF-001` (High) was found when a foreign disconnect
+identifier reached the lifecycle RPC and produced an internal failure; the
+route now performs the existing ownership lookup before invoking the RPC. No
+migration was required.
+
+Exact proof command:
+
+`V1_04_P3B_TENANT_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3b-tenant-isolation.test.js`
+
+Tenant domain: **COMPLETE — 20 / 20 PASS**. Harness domain remains **COMPLETE
+— 22 / 22 PASS**. P3-B is **COMPLETE — 42 / 42 PASS** and P3 is **COMPLETE**.
+P4 remains NOT STARTED; B1 remains blocked pending P4.
