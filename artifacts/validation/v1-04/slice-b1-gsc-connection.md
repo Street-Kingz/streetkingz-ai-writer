@@ -244,6 +244,25 @@ The P2-B proof is recorded in
 P3 and P4 remain not started; B1 remains blocked pending those phases. Real
 Google acceptance remains unauthorized and B2 remains not started.
 
+## P3-A1 — reconnect and property/evidence consistency
+
+P3-A1 is `COMPLETE`. The exact 17-case suite
+`test/v1-04-gsc-b1-p3a1-reconnect.test.js` passed 18 tests including its
+parent, with real local Express routes, Supabase lifecycle RPCs, Vault and
+synthetic verified Woo state. Same-property reconnect retained the current
+complete evidence pointer and `/select` returned the durable evidence state.
+Different-property reconnect retained historical run rows while clearing the
+current source view. Failed, expired and repeated reconnects preserved the
+active credential and left no staged reference. The owner-approved
+`P3A-RECONNECT-013` staging/start overlap passed without deadlock or Vault
+residue after the Connection-first staging correction in
+`20260916000000_v1_04_p3a1_reconnect_consistency.sql`.
+
+P3-A2 — Reauthentication + Credential Health — and P3-A3 — Disconnect +
+Lifecycle Races — remain NOT STARTED. P3-A and P3 remain blocked; P3-B and P4
+remain not started. B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`.
+Real Google acceptance remains unauthorized and B2 remains not started.
+
 ## P3-A — connection lifecycle and evidence preservation
 
 P3-A is `BLOCKED — CONNECTION LIFECYCLE PROOF INCOMPLETE`. The lifecycle audit

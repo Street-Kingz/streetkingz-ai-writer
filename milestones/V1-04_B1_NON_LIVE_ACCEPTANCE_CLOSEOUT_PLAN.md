@@ -120,6 +120,20 @@ runner's HTTP, spoof, Origin/bootstrap and cleanup boundaries.
 P3-A must complete before P3-B starts. Passing P3-A alone leaves P3 blocked
 pending P3-B; it does not make B1 ready for real Google acceptance.
 
+### P3-A execution subdivision
+
+Ben approved on 2026-09-02 the fixed execution order P3-A1 — Reconnect +
+Property/Evidence Consistency, P3-A2 — Reauthentication + Credential Health,
+then P3-A3 — Disconnect + Lifecycle Races. This is an implementation
+decomposition only: P3-A's scope and completion gate are unchanged. P3-A is
+complete only when all three subparts pass; P3-B, P4 and B2 boundaries remain
+unchanged and no live-provider authorization is added.
+
+The owner-approved supplemental case `P3A-RECONNECT-013` covers callback
+secret staging versus a new reconnect start. It is evidence-driven by the
+effective staging/start lock-order audit and remains inside P3-A1's reconnect
+race boundary. This record does not alter P3-B, P4 or B2.
+
 ## Change control
 
 A change to phase order, phase boundary, completion condition, pass gate,
@@ -142,7 +156,10 @@ authorization or the B2 boundary.
 | --- | --- |
 | P1 — Property Identity + Acceptance-Harness Security | COMPLETE |
 | P2 — OAuth Failure + Replay/Race Matrix | COMPLETE |
-| P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | NOT STARTED |
+| P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | IN PROGRESS — P3-A BLOCKED |
 | P4 — Migration + Combined Acceptance Closeout | NOT STARTED |
-| P3-A — Connection Lifecycle + Evidence Preservation | BLOCKED — 34 individual cases unexecuted |
+| P3-A — Connection Lifecycle + Evidence Preservation | BLOCKED — P3-A2/P3-A3 pending |
 | P3-B — Tenant Isolation + Acceptance-Surface HTTP | NOT STARTED |
+| P3-A1 — Reconnect + Property/Evidence Consistency | COMPLETE |
+| P3-A2 — Reauthentication + Credential Health | NOT STARTED |
+| P3-A3 — Disconnect + Lifecycle Races | NOT STARTED |
