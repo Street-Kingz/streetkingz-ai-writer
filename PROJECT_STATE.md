@@ -204,10 +204,10 @@ Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
 
 Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
 
-Current P3 execution task: P3-A3 — Disconnect + Lifecycle Races.
-P3 is IN PROGRESS / BLOCKED. P3-A1 and P3-A2 are COMPLETE; P3-A remains
-BLOCKED pending P3-A3. P3-A3 remains NOT STARTED until separately authorised.
-P3-B and P4 remain not started.
+Current P3 execution task: P3-B — Tenant Isolation + Acceptance-Surface HTTP.
+P3 is IN PROGRESS / BLOCKED. P3-A1, P3-A2 and P3-A3 are COMPLETE; P3-A is
+COMPLETE. P3-B remains NOT STARTED until separately authorised. P4 remains not
+started.
 
 Current V1-03 acceptance state (verified at the current repository state):
 

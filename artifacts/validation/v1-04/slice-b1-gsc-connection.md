@@ -263,6 +263,30 @@ Lifecycle Races — remain NOT STARTED. P3-A and P3 remain blocked; P3-B and P4
 remain not started. B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`.
 Real Google acceptance remains unauthorized and B2 remains not started.
 
+## P3-A3 — disconnect and lifecycle races
+
+P3-A3 is `COMPLETE`: all twelve individually named disconnect/lifecycle cases
+passed (13 TAP tests including the parent). The real local route/RPC/Vault proof
+covered active, pending, staged and reauthentication disconnects, repeated and
+post-disconnect reconnect, property-change evidence reset, local-versus-remote
+revocation wording, and both orderings of the four approved lifecycle races.
+Migration `20260918000000_v1_04_p3a3_disconnect_consistency.sql` makes staged
+cleanup set-based, clears deleted references and preserves the first disconnect
+timestamp. No deadlock, credential resurrection or LKG deletion occurred.
+
+P3-A is now `COMPLETE` with all 41 ledger cases passing. P3-B — Tenant
+Isolation + Acceptance-Surface HTTP — remains NOT STARTED, so P3 and B1 remain
+blocked. P4 and B2 remain not started. No live provider call was made.
+
+## P3-A / current closeout correction
+
+The earlier historical P3-A section above is preserved as historical evidence.
+Current repository evidence supersedes its old 38-case snapshot: P3-A now has
+41 individual PASS cases across P3-A1, P3-A2 and P3-A3. P3-A is `COMPLETE`.
+P3-B remains NOT STARTED, so P3 is `IN PROGRESS / BLOCKED pending P3-B` and B1
+remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`. P4 and B2 remain not
+started; no live Google, WooCommerce, Street Kingz or DataForSEO call occurred.
+
 ## P3-A2 — reauthentication and credential health
 
 P3-A2 is `COMPLETE`: all 12 individually named credential-health cases passed

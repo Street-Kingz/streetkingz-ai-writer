@@ -61,23 +61,22 @@ evidence only and do not close rows that lack a dedicated case assertion.
 | P3A-REAUTH-010 | stale invalid_grant after disconnect | CAS RPC and disconnect route | PASS | stale mark rejected; disconnected state retained |
 | P3A-REAUTH-011 | stale no-secret observation after reconnect | exact-null CAS and reconnect route | PASS | null is exact comparison, not wildcard |
 | P3A-REAUTH-012 | stale successful health check after disconnect | health-confirm CAS and disconnect route | PASS | stale success cannot report connected |
-| P3A-DISCONNECT-001 | active connection with LKG | `/disconnect`, Vault, source | UNEXECUTED | grouped with repeated disconnect |
-| P3A-DISCONNECT-002 | disconnect during pending reconnect | `/disconnect`, attempts, Vault | UNEXECUTED | not individually exercised |
-| P3A-DISCONNECT-003 | disconnect during staged reconnect | `/disconnect`, attempts, Vault | UNEXECUTED | not individually exercised |
-| P3A-DISCONNECT-004 | disconnect from reauth state | `/disconnect`, GSC state, source | UNEXECUTED | not individually exercised |
-| P3A-DISCONNECT-005 | repeated disconnect | `/disconnect`, source | UNEXECUTED | grouped with 001 |
-| P3A-DISCONNECT-006 | reconnect after disconnect | `/reconnect`, activation RPC | UNEXECUTED | supporting assertion exists but lacks dedicated case vector |
-| P3A-DISCONNECT-007 | property change after disconnect | `/select`, source/history | UNEXECUTED | not individually exercised |
-| P3A-DISCONNECT-008 | customer response language | disconnect response | UNEXECUTED | not individually exercised |
-| P3A-RACE-001 | reconnect start vs disconnect | concurrent routes/RPCs | UNEXECUTED | P3-A race suite not yet implemented |
-| P3A-RACE-002 | reconnect activation vs disconnect | concurrent activation/disconnect | UNEXECUTED | P3-A race suite not yet implemented |
-| P3A-RACE-003 | reauth mark vs reconnect activation | CAS lifecycle race | UNEXECUTED | P3-A race suite not yet implemented |
-| P3A-RACE-004 | reauth mark vs disconnect | CAS lifecycle race | UNEXECUTED | supporting ordering is not a complete race proof |
+| P3A-DISCONNECT-001 | active connection with LKG | `/disconnect`, Vault, source | PASS | dedicated P3-A3 subtest; stale LKG and run retained |
+| P3A-DISCONNECT-002 | disconnect during pending reconnect | `/disconnect`, attempts, Vault | PASS | pending callback rejected and LKG preserved |
+| P3A-DISCONNECT-003 | disconnect during staged reconnect | `/disconnect`, attempts, Vault | PASS | staged reference cleared; no live attempt remains |
+| P3A-DISCONNECT-004 | disconnect from reauth state | `/disconnect`, GSC state, source | PASS | local credential removed; disconnected state retained |
+| P3A-DISCONNECT-005 | repeated disconnect | `/disconnect`, source | PASS | idempotent; first disconnect timestamp retained |
+| P3A-DISCONNECT-006 | reconnect after disconnect | `/reconnect`, activation RPC | PASS | reconnect restores access and clears disconnect marker |
+| P3A-DISCONNECT-007 | property change after disconnect | `/select`, source/history | PASS | old run retained; current view reset |
+| P3A-DISCONNECT-008 | customer response language | disconnect response | PASS | explicitly distinguishes local removal from remote revocation |
+| P3A-RACE-001 | reconnect start vs disconnect | concurrent routes/RPCs | PASS | concurrent route proof leaves coherent commit-order state |
+| P3A-RACE-002 | reconnect activation vs disconnect | concurrent activation/disconnect | PASS | one coherent disconnected final state; bounded loser |
+| P3A-RACE-003 | reauth mark vs reconnect activation | CAS lifecycle race | PASS | stale mark rejected after replacement |
+| P3A-RACE-004 | reauth mark vs disconnect | CAS lifecycle race | PASS | stale mark rejected after disconnect |
 
 **Ledger:** 41 approved P3-A cases after the owner-approved P3A-RECONNECT-013,
-P3A-REAUTH-011 and P3A-REAUTH-012 additions; all 17 P3-A1 and all 12 P3-A2
-cases passed individually. The 12 P3-A3 cases remain unexecuted. Earlier smoke
-suites remain supporting evidence only.
+P3A-REAUTH-011 and P3A-REAUTH-012 additions; all 41 cases passed individually.
+Earlier smoke suites remain supporting evidence only.
 
 ## State and evidence invariants observed
 
@@ -129,7 +128,29 @@ after a different-property activation. This remains a bounded B2 design input,
 not Search Analytics implementation.
 
 P3-A2 (reauthentication and credential health) and P3-A3 (disconnect and
-lifecycle races) remain unexecuted. P3-A, P3 and B1 remain blocked.
+lifecycle races) are complete. P3-A and P3 remain blocked pending P3-B.
+
+## P3-A3 result
+
+P3-A3 is **COMPLETE**. All twelve approved disconnect and lifecycle-race cases
+passed individually through local Express routes, Supabase RPCs and Vault state.
+Disconnect now removes every reachable staged secret, clears staged references,
+preserves LKG evidence as stale, retains the first disconnect timestamp, and
+reports that remote Google revocation was not requested. Reconnect-after-
+disconnect and property-change reset both remain truthful. Concurrent lifecycle
+vectors completed without deadlock or credential resurrection.
+
+Migration `20260918000000_v1_04_p3a3_disconnect_consistency.sql` is monotonic;
+previous migrations were not edited.
+
+The twelve P3-A3 cases each passed as named subtests in
+`test/v1-04-gsc-b1-p3a3-disconnect-races.test.js`. The suite exercised active,
+pending, staged and reauthentication disconnects, repeated and post-disconnect
+reconnect, property-change evidence reset, local-versus-remote revocation
+wording, and the four approved lifecycle race cases. Concurrent operations
+completed without deadlock, credential resurrection or LKG deletion. The
+temporary non-escalated full-suite attempt was an environment-only localhost
+`EPERM`; the escalated authoritative rerun passed.
 
 ## P3-A2 result
 
@@ -171,6 +192,15 @@ individual ledger.
 
 `V1_04_P3A2_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3a2-reauth.test.js`
 — 13 passed, 0 failed, 0 skipped (12 named P3-A2 cases plus parent).
+
+`V1_04_P3A3_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3a3-disconnect-races.test.js`
+— 13 passed, 0 failed, 0 skipped (12 named P3-A3 cases plus parent).
+
+`npm test` — 1,063 passed, 0 failed, 16 skipped; repository opt-in local
+integration suites are separately enabled where required.
+
+`V1_04_P3A3_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3a3-disconnect-races.test.js`
+— 13 passed, 0 failed, 0 skipped (12 named P3-A3 cases plus parent).
 
 No P3-B tenant/acceptance-surface proof or P4 migration/combined closeout was
 executed. B1 remains blocked. Real Google acceptance remains unauthorized.
