@@ -311,6 +311,23 @@ P3-B remains NOT STARTED, so P3 is `IN PROGRESS / BLOCKED pending P3-B` and B1
 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`. P4 and B2 remain not
 started; no live Google, WooCommerce, Street Kingz or DataForSEO call occurred.
 
+## P3-B/H — acceptance-surface HTTP current result
+
+The acceptance-harness domain is COMPLETE: all 22 individually named harness
+cases passed in the enabled local suite. The proof exercised the ordinary app
+404 boundary, loopback runner and actual Host/Origin checks, bootstrap and
+security headers, disposable-session ownership, synthetic Woo site provisioning,
+the injected local GSC connect/callback/properties/select journey, nine partial
+provisioning failure points, complete cleanup inventory, cross-session target
+rejection, and repeated cleanup. Local Supabase and Vault were used; no live
+Google, WooCommerce, Street Kingz or DataForSEO call occurred.
+
+The exact ledger is recorded at
+`artifacts/validation/v1-04/slice-b1-p3b-tenant-acceptance-http.md`.
+P3-B tenant isolation remains NOT STARTED (0 / 20), so P3-B and P3 remain
+blocked. P4 and B2 remain NOT STARTED, B1 remains blocked pending P4, and real
+Google acceptance remains NO.
+
 ## P3-A2 — reauthentication and credential health
 
 P3-A2 is `COMPLETE`: all 12 individually named credential-health cases passed

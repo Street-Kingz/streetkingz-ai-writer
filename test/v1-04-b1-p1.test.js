@@ -58,7 +58,7 @@ test("P1 bootstrap boundary rejects missing/foreign origin and accepts local boo
   assert.equal((await request(server, "GET", "/internal/v1-04/bootstrap", { origin: "https://evil.example" })).status, 404);
   const bootstrap = await request(server, "GET", "/internal/v1-04/bootstrap");
   assert.equal(bootstrap.status, 200); assert.doesNotMatch(bootstrap.headers["access-control-allow-origin"] || "", /\*/);
-  assert.equal((await request(server, "POST", "/internal/v1-04/session", { "x-v1-04-bootstrap": "synthetic-bootstrap", origin: "http://127.0.0.1" })).status, 503);
+  assert.equal((await request(server, "POST", "/internal/v1-04/session", { "x-v1-04-bootstrap": "synthetic-bootstrap", origin: `http://127.0.0.1:${server.address().port}` })).status, 503);
 });
 
 test("P1 dedicated runner app rejects production and exposes no wildcard CORS", () => {

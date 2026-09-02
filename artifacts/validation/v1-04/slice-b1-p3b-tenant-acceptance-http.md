@@ -1,6 +1,6 @@
 # V1-04 B1 P3-B — Tenant Isolation + Acceptance-Surface HTTP
 
-Status: **BLOCKED — PROOF INCOMPLETE**
+Status: **BLOCKED — TENANT-ISOLATION PROOF PENDING**
 
 Starting SHA: `7f52cce74c4c94e0975268acc86aae755757a6dc`
 
@@ -30,28 +30,28 @@ real routes, RLS, RPC grants, Vault boundary, and acceptance server.
 | P3B-TENANT-018 | Lifecycle RPCs service-only | RPC grants | UNEXECUTED | P3-B tenant suite | pending |
 | P3B-TENANT-019 | Direct DML denied | RLS/DML | UNEXECUTED | P3-B tenant suite | pending |
 | P3B-TENANT-020 | Foreign attacks have no side effect | all tenant boundaries | UNEXECUTED | P3-B tenant suite | pending |
-| P3B-HARNESS-001 | Normal app exposes no harness | app routing | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-002 | Runner requires explicit enablement | runner | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-003 | Production blocks startup | runner/config | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-004 | Hosted Supabase blocks startup | runner/config | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-005 | Runner binds loopback | server/socket | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-006 | Legitimate local journey | acceptance HTTP | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-007 | Non-loopback rejected | socket/peer | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-008 | Forwarded headers untrusted | peer headers | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-009 | Foreign Origin rejected | Origin/HTTP | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-010 | Host rebinding rejected | Host/HTTP | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-011 | CORS/preflight bounded | CORS/HTTP | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-012 | Static content bounded | static HTTP | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-013 | Bootstrap headers required | bootstrap | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-014 | Bootstrap non-cacheable/memory-only | bootstrap | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-015 | Safe disposable session response | session HTTP | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-016 | Synthetic verified site provisioned | session/Woo RPC | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-017 | Partial provisioning cleanup | Auth/DB/Vault | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-018 | Cleanup requires ownership/token | cleanup/Auth | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-019 | Normal user cleanup denied | cleanup/Auth | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-020 | Cross-session cleanup denied | cleanup/Auth | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-021 | Complete cleanup/no residue | Auth/DB/Vault | UNEXECUTED | P3-B acceptance suite | pending |
-| P3B-HARNESS-022 | Repeated cleanup safe | cleanup/Auth | UNEXECUTED | P3-B acceptance suite | pending |
+| P3B-HARNESS-001 | Normal app exposes no harness | app routing | PASS | `P3B-HARNESS-001 normal app exposes no V1-04 routes` | HTTP 404 for all six routes |
+| P3B-HARNESS-002 | Runner requires explicit enablement | runner | PASS | `P3B-HARNESS-002 explicit enable flag required` | fail-closed |
+| P3B-HARNESS-003 | Production blocks startup | runner/config | PASS | `P3B-HARNESS-003 production rejected` | fail-closed |
+| P3B-HARNESS-004 | Hosted Supabase blocks startup | runner/config | PASS | `P3B-HARNESS-004 hosted Supabase rejected` | loopback target required |
+| P3B-HARNESS-005 | Runner binds loopback | server/socket | PASS | `P3B-HARNESS-005 binds loopback` | actual address 127.0.0.1 |
+| P3B-HARNESS-006 | Legitimate local journey | acceptance HTTP | PASS | `P3B-HARNESS-006 local index/bootstrap journey` | index/bootstrap HTTP |
+| P3B-HARNESS-007 | Non-loopback rejected | socket/peer | PASS | `P3B-HARNESS-007 non-loopback peer rejected` | peer predicate plus loopback bind |
+| P3B-HARNESS-008 | Forwarded headers untrusted | peer headers | PASS | `P3B-HARNESS-008 forwarded headers cannot establish trust` | forwarded headers ignored |
+| P3B-HARNESS-009 | Foreign Origin rejected | Origin/HTTP | PASS | `P3B-HARNESS-009 foreign Origin rejected` | HTTP 404 |
+| P3B-HARNESS-010 | Host rebinding rejected | Host/HTTP | PASS | `P3B-HARNESS-010 foreign Host rejected` | HTTP 404 |
+| P3B-HARNESS-011 | CORS/preflight bounded | CORS/HTTP | PASS | `P3B-HARNESS-011 hostile preflight has no grant` | no allow-origin |
+| P3B-HARNESS-012 | Static content bounded | static HTTP | PASS | `P3B-HARNESS-012 static content is bounded` | no credential literals |
+| P3B-HARNESS-013 | Bootstrap headers required | bootstrap | PASS | `P3B-HARNESS-013 bootstrap header required` | missing bootstrap rejected |
+| P3B-HARNESS-014 | Bootstrap non-cacheable/memory-only | bootstrap | PASS | `P3B-HARNESS-014 bootstrap is non-cacheable and not in URL` | no-store |
+| P3B-HARNESS-015 | Safe disposable session response | session HTTP | PASS | `P3B-HARNESS-015 safe session response` | exact safe-field allowlist |
+| P3B-HARNESS-016 | Synthetic verified site provisioned | session/Woo/GSC HTTP/RPC | PASS | `P3B-HARNESS-016 synthetic site provisions locally and starts GSC journey` | injected Google; property selected; no observations |
+| P3B-HARNESS-017 | Partial provisioning cleanup | Auth/DB/Vault | PASS | `P3B-HARNESS-017 partial provisioning cleanup vectors` | nine named failure points; safe failure |
+| P3B-HARNESS-018 | Cleanup requires ownership/token | cleanup/Auth | PASS | `P3B-HARNESS-018 cleanup requires bootstrap and bearer vectors` | auth/bootstrap vectors |
+| P3B-HARNESS-019 | Normal user cleanup denied | cleanup/Auth | PASS | `P3B-HARNESS-019 normal user cannot cleanup` | valid unmarked user receives 403 |
+| P3B-HARNESS-020 | Cross-session cleanup denied | cleanup/Auth | PASS | `P3B-HARNESS-020 sessions cannot cross-clean` | target fields rejected; A/B isolated |
+| P3B-HARNESS-021 | Complete cleanup/no residue | Auth/DB/Vault | PASS | `P3B-HARNESS-021 complete cleanup and no residue` | Auth/account/business/connection inventory cleared |
+| P3B-HARNESS-022 | Repeated cleanup safe | cleanup/Auth | PASS | `P3B-HARNESS-022 repeated cleanup is bounded` | first cleanup succeeds; replay safe 401/403 |
 
 ## Audit and current limitation
 
@@ -63,11 +63,12 @@ through dedicated tests. P3-A remains complete; P4 and B2 were not executed.
 
 ## P3-B/H execution result
 
-The enabled command executed all 22 harness subtests against loopback Supabase
-and local Vault: 19 passed, 3 failed, 0 skipped (the parent test therefore
-failed). HARNESS-001 through HARNESS-015 and HARNESS-017 through HARNESS-018,
-HARNESS-021, and HARNESS-022 passed. HARNESS-016 failed in the fresh-session
-journey, and HARNESS-019/020 failed because the cleanup authentication vectors
-did not establish a valid authenticated cleanup principal. These failures are
-not accepted as passes. The tenant domain remains 0 / 20 UNEXECUTED and P3-B
-remains BLOCKED.
+The initial 19-pass run was superseded after diagnosis: HARNESS-016 was missing
+the GSC journey, and HARNESS-019/020 used invalid cleanup principals. The
+corrected enabled command executed all 22 top-level cases: 22 passed, 0 failed,
+0 skipped. Supporting evidence includes nine deterministic partial-provisioning
+failure points, the injected local GSC connect/callback/properties/select
+journey, valid normal-user and two-session cleanup principals, strict target
+shape rejection, complete account/connection cleanup checks, and repeated
+cleanup. No live provider call occurred. The tenant domain remains 0 / 20
+UNEXECUTED; P3-B remains BLOCKED pending tenant-isolation proof.
