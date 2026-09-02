@@ -205,8 +205,8 @@ Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
 Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
 
 Current P3 execution task: P3-A — Connection Lifecycle + Evidence Preservation.
-P3-A is not started until the approved split checkpoint is committed; P3
-remains incomplete and B1 remains blocked. P3-B and P4 remain not started.
+P3-A is BLOCKED with 4 individually passed and 34 unexecuted lifecycle cases;
+P3 remains incomplete and B1 remains blocked. P3-B and P4 remain not started.
 
 Current V1-03 acceptance state (verified at the current repository state):
 

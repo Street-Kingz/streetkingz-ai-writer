@@ -91,9 +91,25 @@ router.post("/api/product/organic-evidence/search-console/disconnect", handle(as
 
 router.post("/api/product/organic-evidence/search-console/reauth-check", handle(async (req, res) => {
   const { business, admin } = await context(req); const connection = await ownedConnection(admin, business.id, req.body?.connection_id);
-  if (!connection.secret_reference) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
-  try { const secret = await admin.rpc("vault_read_secret", { secret_id: connection.secret_reference }); if (secret.error || !secret.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); const transport = googleSearchConsoleTransport(); await transport.accessToken(JSON.parse(secret.data).refresh_token); }
-  catch (error) { if (error?.code === "GSC_REAUTH_REQUIRED") { await admin.rpc("gsc_mark_reauthentication_required", { p_business_id: business.id, p_connection_id: connection.id }); throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); } throw error; }
+  if (!connection.secret_reference) { await admin.rpc("gsc_mark_reauthentication_required", { p_business_id: business.id, p_connection_id: connection.id, p_expected_secret_reference: null }); throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); }
+  try {
+    const checkedReference = connection.secret_reference;
+    const secret = await admin.rpc("vault_read_secret", { secret_id: checkedReference });
+    if (secret.error || !secret.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+    let stored; try { stored = JSON.parse(secret.data); } catch { throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); }
+    if (typeof stored?.refresh_token !== "string" || !stored.refresh_token) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+    const transport = googleSearchConsoleTransport(); await transport.accessToken(stored.refresh_token);
+  }
+  catch (error) {
+    if (error?.code === "GSC_REAUTH_REQUIRED") {
+      const marked = await admin.rpc("gsc_mark_reauthentication_required", { p_business_id: business.id, p_connection_id: connection.id, p_expected_secret_reference: connection.secret_reference });
+      if (marked.error && marked.error.message !== "GSC_REAUTHENTICATION_STALE") throw marked.error;
+      if (!marked.error) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+      throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+    }
+    if (error?.code === "GSC_REAUTH_REQUIRED") throw error;
+    throw error;
+  }
   res.json({ status: "connected" });
 }));
 

@@ -144,5 +144,5 @@ authorization or the B2 boundary.
 | P2 — OAuth Failure + Replay/Race Matrix | COMPLETE |
 | P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | NOT STARTED |
 | P4 — Migration + Combined Acceptance Closeout | NOT STARTED |
-| P3-A — Connection Lifecycle + Evidence Preservation | NOT STARTED |
+| P3-A — Connection Lifecycle + Evidence Preservation | BLOCKED — 34 individual cases unexecuted |
 | P3-B — Tenant Isolation + Acceptance-Surface HTTP | NOT STARTED |

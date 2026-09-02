@@ -243,3 +243,23 @@ The P2-B proof is recorded in
 `artifacts/validation/v1-04/slice-b1-p2-oauth-failure-race-matrix.md`.
 P3 and P4 remain not started; B1 remains blocked pending those phases. Real
 Google acceptance remains unauthorized and B2 remains not started.
+
+## P3-A — connection lifecycle and evidence preservation
+
+P3-A is `BLOCKED — CONNECTION LIFECYCLE PROOF INCOMPLETE`. The lifecycle audit
+identified and corrected bounded defects for first-time `awaiting_property`
+state, reconnect timestamp/property evidence consistency, and compare-and-set
+reauthentication marking in monotonic migration
+`20260915000000_v1_04_p3a_lifecycle_consistency.sql`.
+
+The dedicated proof is recorded in
+`artifacts/validation/v1-04/slice-b1-p3a-connection-lifecycle.md`. Its exact
+ledger contains 38 P3-A cases: four individual first-connection cases passed
+and 34 lifecycle/reconnect/reauth/disconnect/race cases remain unexecuted as
+individual proof. A supporting local route/Vault smoke suite passed 17 tests,
+but grouped assertions are not counted as individual acceptance closure.
+
+P3-B — Tenant Isolation + Acceptance-Surface HTTP — remains NOT STARTED. P4
+remains NOT STARTED. B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX
+INCOMPLETE`; real Google acceptance remains unauthorized and B2 remains not
+started. No live Google, WooCommerce, Street Kingz or DataForSEO call occurred.
