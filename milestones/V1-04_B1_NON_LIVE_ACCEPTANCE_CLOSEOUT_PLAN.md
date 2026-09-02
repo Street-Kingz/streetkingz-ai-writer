@@ -96,6 +96,30 @@ required non-live case passes, Critical = 0, High = 0, no required case is
 unproven, no required acceptance test remains unexecuted, and evidence is
 reproducible. P4 does not authorise a real Google run and does not start B2.
 
+## P3 execution split
+
+Ben approved on 2026-09-01 that P3 will be executed as two bounded
+implementation tasks: P3-A — Connection Lifecycle + Evidence Preservation,
+then P3-B — Tenant Isolation + Acceptance-Surface HTTP. This is an
+implementation decomposition, not a scope expansion. P3's original
+requirements and completion standard remain unchanged; P3 cannot be marked
+complete until both subparts pass. P4 and B2 boundaries are unchanged and no
+real-provider authorization is added.
+
+### P3-A — Connection Lifecycle + Evidence Preservation
+
+Owns first-connection and reconnect lifecycle consistency, credential staging
+and replacement, reauthentication, disconnect, timestamp consistency, and
+last-known-good evidence preservation, including property identity changes.
+
+### P3-B — Tenant Isolation + Acceptance-Surface HTTP
+
+Owns the complete two-customer route/RPC/RLS matrix and the local acceptance
+runner's HTTP, spoof, Origin/bootstrap and cleanup boundaries.
+
+P3-A must complete before P3-B starts. Passing P3-A alone leaves P3 blocked
+pending P3-B; it does not make B1 ready for real Google acceptance.
+
 ## Change control
 
 A change to phase order, phase boundary, completion condition, pass gate,
@@ -120,3 +144,5 @@ authorization or the B2 boundary.
 | P2 — OAuth Failure + Replay/Race Matrix | COMPLETE |
 | P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | NOT STARTED |
 | P4 — Migration + Combined Acceptance Closeout | NOT STARTED |
+| P3-A — Connection Lifecycle + Evidence Preservation | NOT STARTED |
+| P3-B — Tenant Isolation + Acceptance-Surface HTTP | NOT STARTED |
