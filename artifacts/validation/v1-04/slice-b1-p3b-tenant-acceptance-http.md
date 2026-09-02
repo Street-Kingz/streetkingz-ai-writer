@@ -60,3 +60,14 @@ users with protected `app_metadata`; session creation accepts a validated
 synthetic HTTPS site and provisions the minimum local Woo identity. These are
 bounded corrections, not proof. P3-B remains blocked until all 42 rows pass
 through dedicated tests. P3-A remains complete; P4 and B2 were not executed.
+
+## P3-B/H execution result
+
+The enabled command executed all 22 harness subtests against loopback Supabase
+and local Vault: 19 passed, 3 failed, 0 skipped (the parent test therefore
+failed). HARNESS-001 through HARNESS-015 and HARNESS-017 through HARNESS-018,
+HARNESS-021, and HARNESS-022 passed. HARNESS-016 failed in the fresh-session
+journey, and HARNESS-019/020 failed because the cleanup authentication vectors
+did not establish a valid authenticated cleanup principal. These failures are
+not accepted as passes. The tenant domain remains 0 / 20 UNEXECUTED and P3-B
+remains BLOCKED.

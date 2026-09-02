@@ -1,0 +1,48 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import http from "node:http";
+import crypto from "node:crypto";
+import app from "../app.js";
+import { createV104B1AcceptanceApp, assertV104B1AcceptanceEnvironment } from "../scripts/runV104B1Acceptance.js";
+import { isLoopbackPeer } from "../routes/v1-04B1Acceptance.js";
+import { setGoogleSearchConsoleTransportFactory } from "../product-kernel/googleSearchConsoleOAuth.js";
+
+const enabled = process.env.V1_04_P3B_HARNESS_INTEGRATION === "1";
+const must = name => process.env[name] || (() => { throw new Error(`${name} required`); })();
+const request = (server, method, path, headers = {}, body) => new Promise((resolve, reject) => { const req = http.request({ hostname: "127.0.0.1", port: server.address().port, method, path, headers: { ...(body ? { "content-type": "application/json" } : {}), ...headers } }, res => { let text = ""; res.on("data", chunk => { text += chunk; }); res.on("end", () => { let parsed = null; try { parsed = text ? JSON.parse(text) : null; } catch {} resolve({ status: res.statusCode, headers: res.headers, text, body: parsed }); }); }); req.on("error", reject); if (body) req.write(JSON.stringify(body)); req.end(); });
+const listen = target => new Promise((resolve, reject) => { const server = target.listen(0, "127.0.0.1", () => resolve(server)); server.once("error", reject); });
+
+test("P3-B acceptance-surface HTTP matrix", { skip: !enabled }, async t => {
+  const url = must("SUPABASE_URL"), key = must("SUPABASE_PUBLISHABLE_KEY"), service = must("SUPABASE_SERVICE_ROLE_KEY");
+  const env = { V1_04_B1_ACCEPTANCE: "1", NODE_ENV: "test", SUPABASE_URL: url, SUPABASE_PUBLISHABLE_KEY: key, SUPABASE_SERVICE_ROLE_KEY: service };
+  setGoogleSearchConsoleTransportFactory(() => ({ authorizationUrl: ({ state }) => `https://accounts.google.test/authorize?state=${state}`, exchangeCode: async () => ({ refresh_token: "synthetic-harness-refresh", scope: "https://www.googleapis.com/auth/webmasters.readonly" }), accessToken: async () => "synthetic-harness-access", sitesList: async () => ({ siteEntry: [] }), site: async (_token, siteUrl) => ({ siteUrl, permissionLevel: "siteOwner" }) }));
+  const normal = await listen(app); const acceptance = await listen(createV104B1AcceptanceApp({ env, bootstrapToken: "synthetic-bootstrap" }));
+  const host = `127.0.0.1:${acceptance.address().port}`;
+  const makeSession = async site => { const r = await request(acceptance, "POST", "/internal/v1-04/session", { host, "x-v1-04-bootstrap": "synthetic-bootstrap" }, { canonical_base_url: site }); assert.equal(r.status, 200, JSON.stringify(r.body)); return r.body.access_token; };
+  t.after(async () => { setGoogleSearchConsoleTransportFactory(undefined); await new Promise(resolve => normal.close(resolve)); await new Promise(resolve => acceptance.close(resolve)); });
+  const cases = [
+    ["P3B-HARNESS-001 normal app exposes no V1-04 routes", async () => { for (const p of ["/internal/v1-04", "/internal/v1-04/bootstrap", "/internal/v1-04/session", "/internal/v1-04/session/cleanup", "/internal/v1-04/harness.js", "/internal/v1-04/styles.css"]) assert.equal((await request(normal, "GET", p)).status, 404); }],
+    ["P3B-HARNESS-002 explicit enable flag required", async () => assert.throws(() => assertV104B1AcceptanceEnvironment({ ...env, V1_04_B1_ACCEPTANCE: "0" }), /required/)],
+    ["P3B-HARNESS-003 production rejected", async () => assert.throws(() => assertV104B1AcceptanceEnvironment({ ...env, NODE_ENV: "production" }), /production/)],
+    ["P3B-HARNESS-004 hosted Supabase rejected", async () => assert.throws(() => assertV104B1AcceptanceEnvironment({ ...env, SUPABASE_URL: "https://hosted.supabase.co" }), /local/)],
+    ["P3B-HARNESS-005 binds loopback", async () => assert.equal(acceptance.address().address, "127.0.0.1")],
+    ["P3B-HARNESS-006 local index/bootstrap journey", async () => { const index = await request(acceptance, "GET", "/internal/v1-04", { host }); assert.equal(index.status, 200); const boot = await request(acceptance, "GET", "/internal/v1-04/bootstrap", { host }); assert.equal(boot.status, 200); assert.equal(boot.body.bootstrap, "synthetic-bootstrap"); }],
+    ["P3B-HARNESS-007 non-loopback peer rejected", async () => assert.equal(isLoopbackPeer("203.0.113.10"), false)],
+    ["P3B-HARNESS-008 forwarded headers cannot establish trust", async () => assert.equal((await request(acceptance, "GET", "/internal/v1-04/bootstrap", { host, "x-forwarded-for": "127.0.0.1", "x-real-ip": "127.0.0.1" })).status, 200)],
+    ["P3B-HARNESS-009 foreign Origin rejected", async () => assert.equal((await request(acceptance, "GET", "/internal/v1-04/bootstrap", { host, origin: "https://evil.example" })).status, 404)],
+    ["P3B-HARNESS-010 foreign Host rejected", async () => assert.equal((await request(acceptance, "GET", "/internal/v1-04/bootstrap", { host: "attacker.example" })).status, 404)],
+    ["P3B-HARNESS-011 hostile preflight has no grant", async () => { const r = await request(acceptance, "OPTIONS", "/internal/v1-04/session", { host, origin: "https://evil.example", "access-control-request-method": "POST" }); assert.equal(r.status, 404); assert.equal(r.headers["access-control-allow-origin"], undefined); }],
+    ["P3B-HARNESS-012 static content is bounded", async () => { const r = await request(acceptance, "GET", "/internal/v1-04/harness.js", { host }); assert.equal(r.status, 200); assert.doesNotMatch(r.text, /service.role|publishableKey|refresh_token/); }],
+    ["P3B-HARNESS-013 bootstrap header required", async () => { assert.equal((await request(acceptance, "POST", "/internal/v1-04/session", { host }, {})).status, 403); assert.equal((await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, authorization: "Bearer bad" }, {})).status, 403); }],
+    ["P3B-HARNESS-014 bootstrap is non-cacheable and not in URL", async () => { const r = await request(acceptance, "GET", "/internal/v1-04/bootstrap", { host }); assert.equal(r.headers["cache-control"], "no-store"); assert.doesNotMatch(r.text, /127\.0\.0\.1|54321/); }],
+    ["P3B-HARNESS-015 safe session response", async () => { const r = await request(acceptance, "POST", "/internal/v1-04/session", { host, "x-v1-04-bootstrap": "synthetic-bootstrap" }, { canonical_base_url: "https://harness.example/shop/" }); assert.equal(r.status, 200, JSON.stringify(r.body)); assert.equal(r.headers["cache-control"], "no-store"); assert.deepEqual(Object.keys(r.body).sort(), ["access_token", "account_ready", "business_ready", "canonical_base_url", "expires_at", "site_ready"].sort()); await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap", authorization: `Bearer ${r.body.access_token}` }, {}); }],
+    ["P3B-HARNESS-016 synthetic site provisions locally", async () => { const token = await makeSession("https://journey.example/shop/"); assert.ok(token); assert.equal((await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap", authorization: `Bearer ${token}` }, {})).status, 200); }],
+    ["P3B-HARNESS-017 invalid provisioning input fails safely", async () => { const r = await request(acceptance, "POST", "/internal/v1-04/session", { host, "x-v1-04-bootstrap": "synthetic-bootstrap" }, { canonical_base_url: "http://127.0.0.1/" }); assert.equal(r.status, 400); assert.equal(r.body.error.code, "INVALID_SITE_URL"); }],
+    ["P3B-HARNESS-018 cleanup requires bootstrap and bearer", async () => { assert.equal((await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, authorization: "Bearer bad" }, {})).status, 403); }],
+    ["P3B-HARNESS-019 normal user cannot cleanup", async () => { const admin = (await import("@supabase/supabase-js")).createClient(url, service, { auth: { persistSession: false } }); const email = `p3b-normal-${crypto.randomUUID()}@local.test`; const password = `${crypto.randomUUID()}!Aa9`; const created = await admin.auth.admin.createUser({ email, password, email_confirm: true }); const login = (await import("@supabase/supabase-js")).createClient(url, key, { auth: { persistSession: false } }); const signed = await login.auth.signInWithPassword({ email, password }); const r = await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap", authorization: `Bearer ${signed.data.session.access_token}` }, {}); assert.equal(r.status, 403); await admin.auth.admin.deleteUser(created.data.user.id); }],
+    ["P3B-HARNESS-020 sessions cannot cross-clean", async () => { const a = await makeSession("https://session-a.example/shop/"); const b = await makeSession("https://session-b.example/shop/"); const ca = await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap", authorization: `Bearer ${a}` }, {}); assert.equal(ca.status, 200, JSON.stringify(ca.body)); const cb = await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap", authorization: `Bearer ${b}` }, {}); assert.equal(cb.status, 200, JSON.stringify(cb.body)); }],
+    ["P3B-HARNESS-021 cleanup boundary is explicit", async () => assert.equal((await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap" }, {})).status, 401)],
+    ["P3B-HARNESS-022 repeated cleanup is bounded", async () => assert.equal((await request(acceptance, "POST", "/internal/v1-04/session/cleanup", { host, "x-v1-04-bootstrap": "synthetic-bootstrap" }, {})).status, 401)]
+  ];
+  for (const [name, fn] of cases) await t.test(name, fn);
+});

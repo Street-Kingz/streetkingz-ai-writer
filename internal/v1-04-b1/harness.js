@@ -17,7 +17,8 @@ async function call(path, options = {}) {
   return body;
 }
 bootstrapToken = (await fetch("/internal/v1-04/bootstrap").then(response => response.json())).bootstrap;
-sessionButton.onclick = async () => { try { const body = await call("/internal/v1-04/session", { method: "POST", body: "{}" }); sessionToken = body.access_token; $("status").textContent = "Local session ready"; show({ account: body.account_ready, business: body.business_ready }); } catch (error) { show(error.message); } };
+sessionButton.onclick = async () => { try { const body = await call("/internal/v1-04/session", { method: "POST", body: JSON.stringify({ canonical_base_url: $("site")?.value }) }); sessionToken = body.access_token; $("status").textContent = "Local session ready"; show({ account: body.account_ready, business: body.business_ready, site: body.site_ready }); } catch (error) { show(error.message); } };
+$("cleanup")?.addEventListener("click", async () => { try { await call("/internal/v1-04/session/cleanup", { method: "POST", body: "{}" }); sessionToken = null; connectionId = null; $("status").textContent = "Session cleaned"; show("Disposable session cleaned up."); } catch (error) { show(error.message); } });
 async function start(path) { try { const result = await call(path, { method: "POST", body: JSON.stringify({}) }); connectionId = result.connection?.id || connectionId; const popup = window.open(result.authorization_url, "gsc-approval"); if (!popup) throw new Error("Browser blocked the Google authorization window. Allow popups for localhost and try again."); show("Waiting for Google Search Console approval..."); } catch (error) { show(error.message); } }
 $("connect").onclick = () => start("/api/product/organic-evidence/search-console/connect");
 $("reconnect").onclick = () => start("/api/product/organic-evidence/search-console/reconnect");
