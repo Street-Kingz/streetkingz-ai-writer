@@ -134,6 +134,13 @@ secret staging versus a new reconnect start. It is evidence-driven by the
 effective staging/start lock-order audit and remains inside P3-A1's reconnect
 race boundary. This record does not alter P3-B, P4 or B2.
 
+On 2026-09-02 Ben approved two additional P3-A2 credential-health cases:
+`P3A-REAUTH-011` (a stale exact-null secret observation after successful
+reconnect) and `P3A-REAUTH-012` (a stale successful health check after
+disconnect). Both are evidence-driven extensions of P3-A2's stale-result and
+credential-comparison boundary; they do not alter P3-A3, P3-B, P4 or B2 and do
+not authorise live-provider calls.
+
 ## Change control
 
 A change to phase order, phase boundary, completion condition, pass gate,
@@ -161,5 +168,5 @@ authorization or the B2 boundary.
 | P3-A — Connection Lifecycle + Evidence Preservation | BLOCKED — P3-A2/P3-A3 pending |
 | P3-B — Tenant Isolation + Acceptance-Surface HTTP | NOT STARTED |
 | P3-A1 — Reconnect + Property/Evidence Consistency | COMPLETE |
-| P3-A2 — Reauthentication + Credential Health | NOT STARTED |
+| P3-A2 — Reauthentication + Credential Health | NOT STARTED — 12 cases approved |
 | P3-A3 — Disconnect + Lifecycle Races | NOT STARTED |

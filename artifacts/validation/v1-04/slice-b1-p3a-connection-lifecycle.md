@@ -3,7 +3,8 @@
 Status: **BLOCKED — CONNECTION LIFECYCLE PROOF INCOMPLETE**
 
 Starting implementation SHA: `dcdc22694f4d955f0f3f518fc5dbf2c0a39d2ec3`
-P3-A subdivision checkpoint SHA: `803498f7ec8d277bc20a904ce75026dd413fbc71`
+P3-A/P3-B execution-split checkpoint SHA: `803498f7ec8d277bc20a904ce75026dd413fbc71`
+P3-A1 subdivision and implementation checkpoint SHA: `25b16396e2c3dbb1a14690570eb8b6ec05588623`
 Environment: local Supabase/Vault, real Express routes and RPCs, synthetic
 verified WooCommerce site identity, injected Google transport. No external
 network was used.
