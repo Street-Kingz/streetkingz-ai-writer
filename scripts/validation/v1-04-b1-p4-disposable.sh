@@ -83,6 +83,13 @@ schema_assertions() {
 
 run_slice_a() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-organic-evidence-supabase-integration.test.js; }
 run_b1() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-supabase-integration.test.js; }
+run_accepted_slice_a() {
+  local baseline="$TMP/accepted-slice-a"
+  mkdir -p "$baseline"
+  git -C "$ROOT" archive 8b91c797f3a45655cf5703651dad143a684ef620 | tar -x -C "$baseline"
+  ln -s "$ROOT/node_modules" "$baseline/node_modules"
+  (cd "$baseline" && V1_04_INTEGRATION=1 SUPABASE_URL="$SUPABASE_URL" SUPABASE_PUBLISHABLE_KEY="$SUPABASE_PUBLISHABLE_KEY" SUPABASE_SERVICE_ROLE_KEY="$SUPABASE_SERVICE_ROLE_KEY" node --test --test-concurrency=1 test/v1-04-organic-evidence-supabase-integration.test.js)
+}
 
 ZERO_ID="v104-p4-zero-${RUN_ID}"
 typeset -a ZERO_PORTS=( ${(f)"$(free_ports)"} )
@@ -104,7 +111,7 @@ make_project "$UPGRADE_ID" "$UPGRADE_DB" "$UPGRADE_API" 20260903000000_v1_04_sli
 start_project "$UPGRADE_ID" "$LAST_DIR"
 load_env "$LAST_DIR"
 schema_assertions "$UPGRADE_ID" 20260903000000 5
-run_slice_a
+run_accepted_slice_a
 for migration in "${ROOT}"/supabase/migrations/*.sql; do
   [[ "$(basename "$migration")" > 20260903000000_v1_04_slice_a_integrity.sql ]] && cp "$migration" "$LAST_DIR/supabase/migrations/"
 done
