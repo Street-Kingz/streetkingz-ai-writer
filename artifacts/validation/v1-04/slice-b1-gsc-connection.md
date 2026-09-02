@@ -278,6 +278,15 @@ NOT STARTED, P3 remains `IN PROGRESS / BLOCKED pending P3-B`, P4 and B2 remain
 NOT STARTED, B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`, and
 real Google acceptance remains unauthorized.
 
+## P3-B current status
+
+P3-A remains COMPLETE with 41 / 41 cases passing. P3-B is `BLOCKED — PROOF
+INCOMPLETE`; its exact 42-case ledger is recorded at
+`artifacts/validation/v1-04/slice-b1-p3b-tenant-acceptance-http.md`. The
+bounded Host, disposable-session ownership, and synthetic-site provisioning
+corrections are not acceptance proof until the dedicated tenant and HTTP suites
+pass. P4 and B2 remain NOT STARTED.
+
 ## P3-A3 — disconnect and lifecycle races
 
 P3-A3 is `COMPLETE`: all twelve individually named disconnect/lifecycle cases
