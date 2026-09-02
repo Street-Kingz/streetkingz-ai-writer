@@ -63,16 +63,16 @@ evidence only and do not close rows that lack a dedicated case assertion.
 | P3A-REAUTH-012 | stale successful health check after disconnect | health-confirm CAS and disconnect route | PASS | stale success cannot report connected |
 | P3A-DISCONNECT-001 | active connection with LKG | `/disconnect`, Vault, source | PASS | dedicated P3-A3 subtest; stale LKG and run retained |
 | P3A-DISCONNECT-002 | disconnect during pending reconnect | `/disconnect`, attempts, Vault | PASS | pending callback rejected and LKG preserved |
-| P3A-DISCONNECT-003 | disconnect during staged reconnect | `/disconnect`, attempts, Vault | PASS | staged reference cleared; no live attempt remains |
+| P3A-DISCONNECT-003 | disconnect during staged reconnect | `/disconnect`, attempts, Vault | BASIC PASS — DETERMINISTIC ACCEPTANCE UNPROVEN | sequential basic proof passed; both overlap orderings pending |
 | P3A-DISCONNECT-004 | disconnect from reauth state | `/disconnect`, GSC state, source | PASS | local credential removed; disconnected state retained |
 | P3A-DISCONNECT-005 | repeated disconnect | `/disconnect`, source | PASS | idempotent; first disconnect timestamp retained |
 | P3A-DISCONNECT-006 | reconnect after disconnect | `/reconnect`, activation RPC | PASS | reconnect restores access and clears disconnect marker |
 | P3A-DISCONNECT-007 | property change after disconnect | `/select`, source/history | PASS | old run retained; current view reset |
 | P3A-DISCONNECT-008 | customer response language | disconnect response | PASS | explicitly distinguishes local removal from remote revocation |
-| P3A-RACE-001 | reconnect start vs disconnect | concurrent routes/RPCs | PASS | concurrent route proof leaves coherent commit-order state |
-| P3A-RACE-002 | reconnect activation vs disconnect | concurrent activation/disconnect | PASS | one coherent disconnected final state; bounded loser |
-| P3A-RACE-003 | reauth mark vs reconnect activation | CAS lifecycle race | PASS | stale mark rejected after replacement |
-| P3A-RACE-004 | reauth mark vs disconnect | CAS lifecycle race | PASS | stale mark rejected after disconnect |
+| P3A-RACE-001 | reconnect start vs disconnect | concurrent routes/RPCs | BASIC PASS — DETERMINISTIC ACCEPTANCE UNPROVEN | broad concurrent proof passed; both commit orderings pending |
+| P3A-RACE-002 | reconnect activation vs disconnect | concurrent activation/disconnect | BASIC PASS — DETERMINISTIC ACCEPTANCE UNPROVEN | broad concurrent proof passed; both commit orderings pending |
+| P3A-RACE-003 | reauth mark vs reconnect activation | CAS lifecycle race | BASIC PASS — DETERMINISTIC ACCEPTANCE UNPROVEN | sequential CAS regression passed; route-level orderings pending |
+| P3A-RACE-004 | reauth mark vs disconnect | CAS lifecycle race | BASIC PASS — DETERMINISTIC ACCEPTANCE UNPROVEN | sequential CAS regression passed; route-level orderings pending |
 
 **Ledger:** 41 approved P3-A cases after the owner-approved P3A-RECONNECT-013,
 P3A-REAUTH-011 and P3A-REAUTH-012 additions; all 41 cases passed individually.
@@ -207,3 +207,17 @@ integration suites are separately enabled where required.
 
 No P3-B tenant/acceptance-surface proof or P4 migration/combined closeout was
 executed. B1 remains blocked. Real Google acceptance remains unauthorized.
+
+## P3-A3 deterministic closeout continuation
+
+The five affected rows above own ten deterministic sub-vectors: DISCONNECT-003-A/B,
+RACE-001-A/B, RACE-002-A/B, RACE-003-A/B, and RACE-004-A/B. The companion
+barriers hold the actual route immediately before the relevant lifecycle RPC;
+each vector has a four-second deadline and asserts the controlled commit-order
+final state. The suite uses local Supabase, actual Express routes, local Vault,
+and an injected Google transport. No live provider calls are made.
+
+At this checkpoint the deterministic continuation is implemented but not yet
+validated against the local integration environment. The five rows therefore
+remain `BASIC PASS — DETERMINISTIC ACCEPTANCE UNPROVEN`; P3-A3 and P3-A remain
+BLOCKED. P3-B and P4 were not executed.

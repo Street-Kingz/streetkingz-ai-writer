@@ -204,7 +204,7 @@ Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
 
 Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
 
-Current P3 execution task: P3-A3 — Disconnect + Lifecycle Races.
+Current P3 execution task: P3-A3 — Deterministic Race Closeout Continuation.
 P3 is IN PROGRESS / BLOCKED. P3-A1 and P3-A2 are COMPLETE; P3-A3 is BLOCKED
 because the required deterministic race interleavings remain incomplete. P3-A,
 P3-B and P4 remain incomplete/not started as applicable.

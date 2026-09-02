@@ -332,3 +332,18 @@ audit found that it did not prove every required deterministic race ordering or
 the staged-callback overlap vectors. Therefore P3-A3 and P3-A remain
 `BLOCKED`; P3-B and P4 remain not started. B1 remains blocked and real Google
 acceptance is not authorised.
+
+## P3-A3 deterministic closeout continuation
+
+The bounded continuation covers five existing P3-A3 rows and ten deterministic
+sub-vectors: staged callback/disconnect, reconnect-start/disconnect,
+activation/disconnect, reauthentication-mark/activation, and
+reauthentication-mark/disconnect, each in both controlled orderings. The
+implementation adds resettable route barriers with four-second deadlines and
+maps an expected superseded callback failure to a safe Product conflict.
+
+The dedicated local integration run is not available at this checkpoint, so
+these vectors remain unproven. P3-A3 remains `BLOCKED — DETERMINISTIC RACE
+PROOF INCOMPLETE`; P3-A, P3-B, and P4 remain incomplete/not started as
+applicable. Real Google acceptance remains unauthorized and B2 remains not
+started.

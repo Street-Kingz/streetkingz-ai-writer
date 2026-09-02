@@ -170,3 +170,10 @@ authorization or the B2 boundary.
 | P3-A1 — Reconnect + Property/Evidence Consistency | COMPLETE |
 | P3-A2 — Reauthentication + Credential Health | COMPLETE |
 | P3-A3 — Disconnect + Lifecycle Races | BLOCKED — required interleavings incomplete |
+
+### P3-A3 deterministic closeout continuation (2026-09-02)
+
+Owner-approved continuation by Ben. The remaining proof is limited to the ten
+deterministic orderings for staged callback/disconnect and the four lifecycle
+races. This is evidence completion within P3-A3, not a scope expansion. P3-B,
+P4, B2, and real-provider authorization remain unchanged and unexecuted.
