@@ -13,7 +13,7 @@ const allowedOrigins = (origin, host, port) => { if (!origin) return true; try {
 export const isLoopbackPeer = value => value === "::1" || value === "127.0.0.1" || (net.isIP(value) === 6 && value.toLowerCase() === "::ffff:127.0.0.1");
 let provisioningTestHook = null;
 export function setV104B1AcceptanceProvisioningHookForTests(next) { provisioningTestHook = next || null; }
-async function provisioningPause(point) { if (provisioningTestHook) await provisioningTestHook(point); }
+async function provisioningPause(point, context) { if (provisioningTestHook) await provisioningTestHook(point, context); }
 
 export function createV104B1AcceptanceRouter({ enabled = false, bootstrapToken = crypto.randomBytes(32).toString("base64url"), config = () => productKernelConfig(process.env, { privileged: true }) } = {}) {
   if (!enabled) return express.Router();
@@ -65,30 +65,30 @@ export function createV104B1AcceptanceRouter({ enabled = false, bootstrapToken =
     const created = await admin.auth.admin.createUser({ email, password, email_confirm: true, app_metadata: { v104_b1_acceptance: true } });
     if (created.error) return res.status(503).json({ error: { code: "LOCAL_SESSION_FAILED", message: "Local acceptance session could not be prepared." } });
     const fail = () => provisioningFailure(admin, created.data.user.id, res);
-    try { await provisioningPause("after_user_created"); } catch { return fail(); }
+    try { await provisioningPause("after_user_created", { userId: created.data.user.id }); } catch { return fail(); }
     const login = createClient(c.url, c.publishableKey, { auth: { persistSession: false } }); const signed = await login.auth.signInWithPassword({ email, password });
     if (signed.error || !signed.data.session?.access_token) return fail();
-    try { await provisioningPause("after_sign_in"); } catch { return fail(); }
+    try { await provisioningPause("after_sign_in", { userId: created.data.user.id }); } catch { return fail(); }
     const caller = createClient(c.url, c.publishableKey, { global: { headers: { authorization: `Bearer ${signed.data.session.access_token}` } }, auth: { persistSession: false } });
     const account = await caller.rpc("product_create_account", { p_correlation_id: crypto.randomUUID() });
-    try { await provisioningPause("after_account_created"); } catch { return fail(); }
+    try { await provisioningPause("after_account_created", { userId: created.data.user.id }); } catch { return fail(); }
     const business = account.error ? account : await caller.rpc("product_create_business", { p_name: "V1-04 B1 Local Acceptance", p_platform: "woocommerce", p_correlation_id: crypto.randomUUID() });
-    try { await provisioningPause("after_business_created"); } catch { return fail(); }
+    try { await provisioningPause("after_business_created", { userId: created.data.user.id }); } catch { return fail(); }
     if (business.error) return fail();
     const connection = await caller.rpc("product_create_connection", { p_provider_type: "woocommerce", p_correlation_id: crypto.randomUUID() });
-    try { await provisioningPause("after_woo_connection_created"); } catch { return fail(); }
+    try { await provisioningPause("after_woo_connection_created", { userId: created.data.user.id }); } catch { return fail(); }
     if (connection.error) return fail();
     const accountRow = await admin.from("accounts").select("id").eq("auth_user_id", created.data.user.id).single();
     const site = typeof _req.body?.canonical_base_url === "string" ? _req.body.canonical_base_url : "";
     let parsed; try { parsed = new URL(site); } catch { parsed = null; }
     if (!parsed || parsed.protocol !== "https:" || parsed.username || parsed.password || parsed.search || parsed.hash || !parsed.hostname.includes(".") || net.isIP(parsed.hostname) || parsed.hostname === "localhost" || parsed.hostname.endsWith(".local") || (parsed.port && parsed.port !== "443")) { try { await cleanupDisposableUser(admin, created.data.user.id); } catch { return res.status(503).json({ error: { code: "LOCAL_SESSION_CLEANUP_FAILED", message: "Local acceptance session could not be cleaned up." } }); } return res.status(400).json({ error: { code: "INVALID_SITE_URL", message: "A valid synthetic HTTPS site URL is required." } }); }
     const attempt = await admin.rpc("woo_create_auth_attempt", { p_user_id: `v104-b1-${created.data.user.id}`, p_account_id: accountRow.data.id, p_business_id: business.data.id, p_connection_id: connection.data.id, p_canonical_base_url: parsed.toString(), p_expires_at: new Date(Date.now() + 60000).toISOString() });
-    try { await provisioningPause("after_woo_attempt_created"); } catch { return fail(); }
+    try { await provisioningPause("after_woo_attempt_created", { userId: created.data.user.id }); } catch { return fail(); }
     if (attempt.error) return fail();
     const claimed = await admin.rpc("woo_claim_auth_attempt", { p_user_id: `v104-b1-${created.data.user.id}` });
     if (claimed.error) return fail();
-    for (const [point, operation] of [["after_woo_credential_captured", () => admin.rpc("woo_capture_callback", { p_attempt_id: attempt.data, p_consumer_key: "synthetic-acceptance-key", p_consumer_secret: "synthetic-acceptance-secret", p_key_permissions: "read" })], ["after_woo_connection_completed", () => admin.rpc("woo_complete_connection", { p_attempt_id: attempt.data, p_home_url: parsed.toString(), p_site_url: parsed.toString(), p_version: "synthetic", p_timezone: "UTC", p_currency: "GBP", p_correlation_id: crypto.randomUUID() })]]) { const result = await operation(); if (result.error) return fail(); try { await provisioningPause(point); } catch { return fail(); } }
-    try { await provisioningPause("before_session_response"); } catch { return fail(); }
+    for (const [point, operation] of [["after_woo_credential_captured", () => admin.rpc("woo_capture_callback", { p_attempt_id: attempt.data, p_consumer_key: "synthetic-acceptance-key", p_consumer_secret: "synthetic-acceptance-secret", p_key_permissions: "read" })], ["after_woo_connection_completed", () => admin.rpc("woo_complete_connection", { p_attempt_id: attempt.data, p_home_url: parsed.toString(), p_site_url: parsed.toString(), p_version: "synthetic", p_timezone: "UTC", p_currency: "GBP", p_correlation_id: crypto.randomUUID() })]]) { const result = await operation(); if (result.error) return fail(); try { await provisioningPause(point, { userId: created.data.user.id }); } catch { return fail(); } }
+    try { await provisioningPause("before_session_response", { userId: created.data.user.id }); } catch { return fail(); }
     res.set("Cache-Control", "no-store").json({ access_token: signed.data.session.access_token, expires_at: signed.data.session.expires_at, account_ready: !account.error, business_ready: true, site_ready: true, canonical_base_url: parsed.toString() });
   });
   router.post("/internal/v1-04/session/cleanup", async (req, res) => {

@@ -388,3 +388,14 @@ these vectors remain unproven. P3-A3 remains `BLOCKED — DETERMINISTIC RACE
 PROOF INCOMPLETE`; P3-A, P3-B, and P4 remain incomplete/not started as
 applicable. Real Google acceptance remains unauthorized and B2 remains not
 started.
+## Current P3-B/H cleanup evidence (2026-09-02)
+
+The final strengthened acceptance-harness proof executed 22 / 22 named Harness
+cases with 0 failures and 0 skips. It added complete inventory and Vault
+read-before/read-after assertions for HARNESS-016, all nine HARNESS-017
+failure vectors, HARNESS-021, and HARNESS-022, including untouched control
+session checks and organic source/run absence. The Harness domain is complete;
+the 20-case tenant-isolation domain remains unexecuted. P3-B and P3 remain
+blocked pending tenant proof. B1 remains **BLOCKED PENDING P3-B TENANT
+ISOLATION AND P4**. P4 and B2 remain NOT STARTED, and READY FOR REAL GOOGLE
+ACCEPTANCE remains NO.

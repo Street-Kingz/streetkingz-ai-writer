@@ -53,6 +53,37 @@ real routes, RLS, RPC grants, Vault boundary, and acceptance server.
 | P3B-HARNESS-021 | Complete cleanup/no residue | Auth/DB/Vault | PASS | `P3B-HARNESS-021 complete cleanup and no residue` | Auth/account/business/connection inventory cleared |
 | P3B-HARNESS-022 | Repeated cleanup safe | cleanup/Auth | PASS | `P3B-HARNESS-022 repeated cleanup is bounded` | first cleanup succeeds; replay safe 401/403 |
 
+## Final cleanup/residue evidence closeout (2026-09-02)
+
+The strengthened local run supersedes the earlier shallow cleanup evidence.
+The enabled command executed all 22 top-level Harness cases: 23 TAP tests
+including the matrix parent, 23 passed, 0 failed, and 0 skipped. Supporting
+proof included 9 individually named provisioning-failure vectors, 4 bootstrap
+authentication vectors, Host wrong-port vectors, recreated bootstrap
+comparison, and complete in-memory inventory checks.
+
+HARNESS-016 completed the injected GSC journey through connect, callback,
+properties and select, then verified the disposable Auth user, Account,
+Business, Woo Connection/store, GSC row/attempts, organic source/runs and all
+captured Vault references were absent after cleanup. HARNESS-017-A through -I
+captured the inventory immediately before each injected failure and verified
+all created rows and readable Vault references were removed; the control
+session remained unaffected. HARNESS-021 verified active Woo and GSC
+credentials and their database ownership before cleanup, then verified
+complete database/Vault absence while a second control session retained its
+rows and Vault credential. HARNESS-022 verified the same complete absence
+before accepting the repeated-cleanup 401/403 result.
+
+Exact proof command:
+
+`V1_04_P3B_HARNESS_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3b-acceptance-http.test.js`
+
+The run used local loopback Supabase, injected Google transport, no external
+provider calls, and restored the synthetic acceptance state. No production
+correction or migration was required by this evidence closeout. Harness
+domain: **COMPLETE — 22 / 22 PASS**. Tenant domain: **NOT STARTED — 0 / 20**.
+P3-B remains blocked pending tenant isolation proof.
+
 ## Audit and current limitation
 
 The acceptance router now validates an explicit local Host and marks disposable

@@ -207,7 +207,9 @@ Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN
 Current next separately authorised task: P3-B — Tenant Isolation +
 Acceptance-Surface HTTP. P3-A1, P3-A2, and P3-A3 are COMPLETE; P3-A is
 COMPLETE. P3 remains IN PROGRESS / BLOCKED pending P3-B. P3-B remains NOT
-STARTED until separately founder-authorised; P4 and B2 remain NOT STARTED.
+STARTED until separately founder-authorised; B1 remains BLOCKED pending P3-B
+tenant isolation and P4; READY FOR REAL GOOGLE ACCEPTANCE remains NO; P4 and
+B2 remain NOT STARTED.
 
 Current V1-03 acceptance state (verified at the current repository state):
 
