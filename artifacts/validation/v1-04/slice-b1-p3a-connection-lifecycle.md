@@ -127,18 +127,21 @@ proves the required safety property that an old run is not exposed as current
 after a different-property activation. This remains a bounded B2 design input,
 not Search Analytics implementation.
 
-P3-A2 (reauthentication and credential health) and P3-A3 (disconnect and
-lifecycle races) are complete. P3-A and P3 remain blocked pending P3-B.
+P3-A2 (reauthentication and credential health) is complete. P3-A3 has basic
+passing coverage but remains blocked pending complete deterministic race proof.
+P3-A and P3 remain blocked.
 
 ## P3-A3 result
 
-P3-A3 is **COMPLETE**. All twelve approved disconnect and lifecycle-race cases
-passed individually through local Express routes, Supabase RPCs and Vault state.
+P3-A3 is **BLOCKED**. The basic twelve-case route/Vault suite passed, but the
+required deterministic execution of both orderings for each lifecycle race and
+the staged-callback overlap vectors is not yet complete.
 Disconnect now removes every reachable staged secret, clears staged references,
 preserves LKG evidence as stale, retains the first disconnect timestamp, and
 reports that remote Google revocation was not requested. Reconnect-after-
-disconnect and property-change reset both remain truthful. Concurrent lifecycle
-vectors completed without deadlock or credential resurrection.
+disconnect and property-change reset both remain truthful. The basic concurrent
+lifecycle vectors completed without deadlock or credential resurrection, but
+this is insufficient for the approved race closeout.
 
 Migration `20260918000000_v1_04_p3a3_disconnect_consistency.sql` is monotonic;
 previous migrations were not edited.

@@ -324,3 +324,11 @@ P3-B — Tenant Isolation + Acceptance-Surface HTTP — remains NOT STARTED. P4
 remains NOT STARTED. B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX
 INCOMPLETE`; real Google acceptance remains unauthorized and B2 remains not
 started. No live Google, WooCommerce, Street Kingz or DataForSEO call occurred.
+
+## P3-A3 current correction
+
+The preceding P3-A3 paragraph records the basic twelve-case run, but current
+audit found that it did not prove every required deterministic race ordering or
+the staged-callback overlap vectors. Therefore P3-A3 and P3-A remain
+`BLOCKED`; P3-B and P4 remain not started. B1 remains blocked and real Google
+acceptance is not authorised.
