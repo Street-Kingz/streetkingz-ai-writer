@@ -204,10 +204,10 @@ Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
 
 Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
 
-Current P3 execution task: P3-A3 — Deterministic Race Closeout Continuation.
-P3 is IN PROGRESS / BLOCKED. P3-A1 and P3-A2 are COMPLETE; P3-A3 is BLOCKED
-because the required deterministic race interleavings remain incomplete. P3-A,
-P3-B and P4 remain incomplete/not started as applicable.
+Current next separately authorised task: P3-B — Tenant Isolation +
+Acceptance-Surface HTTP. P3-A1, P3-A2, and P3-A3 are COMPLETE; P3-A is
+COMPLETE. P3 remains IN PROGRESS / BLOCKED pending P3-B. P3-B remains NOT
+STARTED until separately founder-authorised; P4 and B2 remain NOT STARTED.
 
 Current V1-03 acceptance state (verified at the current repository state):
 

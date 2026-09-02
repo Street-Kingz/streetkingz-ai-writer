@@ -170,6 +170,20 @@ selected-property identity were preserved in all negative cases.
 P3-A3 disconnect and lifecycle-race cases remain unexecuted; P3-A and P3 remain
 blocked.
 
+## P3-A3 deterministic closeout result
+
+The continuation executed all ten required deterministic sub-vectors in the
+same local route/Vault suite, each with a four-second deadline and explicit
+barrier release. DISCONNECT-003-A/B, RACE-001-A/B, RACE-002-A/B, RACE-003-A/B,
+and RACE-004-A/B all passed. The twelve basic P3-A3 cases also passed in the
+same run: 23 tests total including the parent, 23 passed, 0 failed, 0 skipped.
+
+The controlled final states followed the requested commit ordering; staged and
+active credential counts returned to baseline, LKG remained preserved/stale as
+applicable, and no deadlock or timeout occurred. The current ledger is 41 / 41
+PASS and P3-A3/P3-A are COMPLETE. P3 remains blocked pending P3-B; P4 and B2
+were not executed.
+
 ## Commands and result
 
 `npx supabase migration up --local` — PASS; applied

@@ -263,6 +263,21 @@ Lifecycle Races — remain NOT STARTED. P3-A and P3 remain blocked; P3-B and P4
 remain not started. B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`.
 Real Google acceptance remains unauthorized and B2 remains not started.
 
+## P3-A3 deterministic closeout — current result
+
+All ten deterministic sub-vectors and the twelve basic P3-A3 cases passed
+against local Supabase/Vault and actual Express routes: 23 passed, 0 failed,
+0 skipped including the parent. Four-second barriers established both commit
+orderings for staged callback/disconnect, reconnect-start/disconnect,
+activation/disconnect, reauthentication-mark/activation, and
+reauthentication-mark/disconnect. No deadlock, timeout, credential residue, or
+LKG loss occurred.
+
+The current P3-A ledger is 41 / 41 PASS. P3-A3 and P3-A are COMPLETE. P3-B is
+NOT STARTED, P3 remains `IN PROGRESS / BLOCKED pending P3-B`, P4 and B2 remain
+NOT STARTED, B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`, and
+real Google acceptance remains unauthorized.
+
 ## P3-A3 — disconnect and lifecycle races
 
 P3-A3 is `COMPLETE`: all twelve individually named disconnect/lifecycle cases

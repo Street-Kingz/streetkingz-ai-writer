@@ -169,7 +169,8 @@ authorization or the B2 boundary.
 | P3-B — Tenant Isolation + Acceptance-Surface HTTP | NOT STARTED |
 | P3-A1 — Reconnect + Property/Evidence Consistency | COMPLETE |
 | P3-A2 — Reauthentication + Credential Health | COMPLETE |
-| P3-A3 — Disconnect + Lifecycle Races | BLOCKED — required interleavings incomplete |
+| P3-A3 — Disconnect + Lifecycle Races | COMPLETE |
+| P3-A — Connection Lifecycle + Evidence Preservation | COMPLETE |
 
 ### P3-A3 deterministic closeout continuation (2026-09-02)
 
