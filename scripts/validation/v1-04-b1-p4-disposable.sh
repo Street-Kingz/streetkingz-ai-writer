@@ -26,7 +26,8 @@ make_project() {
 }
 
 start_project() {
-  local id="$1" dir="$2" log="$TMP/$id-start.log"
+  local id="$1" dir="$2" log
+  log="$TMP/$id-start.log"
   SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$dir" start --network-id "$NET" --exclude 'realtime,storage-api,imgproxy,studio,edge-runtime,logflare,vector,supavisor,postgres-meta,mailpit' >"$log" 2>&1
   SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$dir" migration up --local >>"$log" 2>&1
 }
