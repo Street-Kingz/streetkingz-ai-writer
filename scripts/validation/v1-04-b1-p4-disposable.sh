@@ -35,6 +35,7 @@ start_project() {
 load_env() {
   local dir="$1" file
   file="$TMP/$(basename "$dir")-env"
+  : >"$file"
   chmod 600 "$file"
   SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$dir" status -o env >"$file" 2>/dev/null
   API_URL=$(sed -n 's/^API_URL=//p' "$file")
