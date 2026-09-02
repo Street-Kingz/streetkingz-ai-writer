@@ -49,16 +49,18 @@ evidence only and do not close rows that lack a dedicated case assertion.
 | P3A-RECONNECT-011 | repeated reconnect starts | `/reconnect`, begin RPC | PASS | dedicated P3-A1 subtest; one current attempt |
 | P3A-RECONNECT-012 | failed property change | `/select`, activation | PASS | dedicated P3-A1 subtest; no partial change |
 | P3A-RECONNECT-013 | staging versus new reconnect start | callback/Vault and concurrent `/reconnect` | PASS | owner-approved overlap; no deadlock or orphan |
-| P3A-REAUTH-001 | valid active credential | `/reauth-check`, Vault, provider | UNEXECUTED | positive path not separately asserted |
-| P3A-REAUTH-002 | active invalid_grant | `/reauth-check`, mark RPC, status | UNEXECUTED | grouped with 001 and LKG setup |
-| P3A-REAUTH-003 | transient provider failure | `/reauth-check`, provider | UNEXECUTED | not individually exercised |
-| P3A-REAUTH-004 | no active secret reference | `/reauth-check`, mark RPC | UNEXECUTED | grouped with 005/006 |
-| P3A-REAUTH-005 | Vault secret missing | `/reauth-check`, Vault | UNEXECUTED | not individually exercised |
-| P3A-REAUTH-006 | malformed stored credential | `/reauth-check`, Vault | UNEXECUTED | not individually exercised |
-| P3A-REAUTH-007 | failed reconnect from reauth state | `/reconnect`, callback | UNEXECUTED | supporting recovery path is grouped |
-| P3A-REAUTH-008 | successful reconnect from reauth state | `/reconnect`, `/select` | UNEXECUTED | supporting recovery path is grouped |
-| P3A-REAUTH-009 | stale invalid_grant after reconnect | held reauth, reconnect, CAS RPC | UNEXECUTED | current test covers disconnect ordering only |
-| P3A-REAUTH-010 | stale invalid_grant after disconnect | held reauth, disconnect, CAS RPC | UNEXECUTED | supporting assertion exists but lacks dedicated case vector |
+| P3A-REAUTH-001 | valid active credential | `/reauth-check`, Vault, provider | PASS | dedicated P3-A2 subtest; connected and evidence retained |
+| P3A-REAUTH-002 | active invalid_grant | `/reauth-check`, mark RPC, status | PASS | dedicated P3-A2 subtest; reauthentication_required and LKG retained |
+| P3A-REAUTH-003 | transient provider failure | `/reauth-check`, provider | PASS | dedicated subtest; safe retryable failure, connected state retained |
+| P3A-REAUTH-004 | no active secret reference | `/reauth-check`, mark RPC | PASS | dedicated subtest; current null observation marks safely |
+| P3A-REAUTH-005 | Vault secret missing | `/reauth-check`, Vault | PASS | dedicated subtest; safe reauthentication-required result |
+| P3A-REAUTH-006 | malformed stored credential | `/reauth-check`, Vault | PASS | four named malformed/empty/shape vectors passed |
+| P3A-REAUTH-007 | failed reconnect from reauth state | `/reconnect`, callback | PASS | dedicated subtest; recovery remains possible without false health |
+| P3A-REAUTH-008 | successful reconnect from reauth state | `/reconnect`, `/select` | PASS | dedicated subtest; replacement restores connected state |
+| P3A-REAUTH-009 | stale invalid_grant after reconnect | CAS RPC and replacement route | PASS | old credential CAS rejected after replacement |
+| P3A-REAUTH-010 | stale invalid_grant after disconnect | CAS RPC and disconnect route | PASS | stale mark rejected; disconnected state retained |
+| P3A-REAUTH-011 | stale no-secret observation after reconnect | exact-null CAS and reconnect route | PASS | null is exact comparison, not wildcard |
+| P3A-REAUTH-012 | stale successful health check after disconnect | health-confirm CAS and disconnect route | PASS | stale success cannot report connected |
 | P3A-DISCONNECT-001 | active connection with LKG | `/disconnect`, Vault, source | UNEXECUTED | grouped with repeated disconnect |
 | P3A-DISCONNECT-002 | disconnect during pending reconnect | `/disconnect`, attempts, Vault | UNEXECUTED | not individually exercised |
 | P3A-DISCONNECT-003 | disconnect during staged reconnect | `/disconnect`, attempts, Vault | UNEXECUTED | not individually exercised |
@@ -72,10 +74,10 @@ evidence only and do not close rows that lack a dedicated case assertion.
 | P3A-RACE-003 | reauth mark vs reconnect activation | CAS lifecycle race | UNEXECUTED | P3-A race suite not yet implemented |
 | P3A-RACE-004 | reauth mark vs disconnect | CAS lifecycle race | UNEXECUTED | supporting ordering is not a complete race proof |
 
-**Ledger:** 39 approved P3-A cases after the owner-approved P3A-RECONNECT-013
-addition; all 17 P3-A1 cases passed individually and 22 P3-A2/P3-A3 cases
-remain unexecuted. The earlier 17-test smoke suite remains supporting evidence
-only.
+**Ledger:** 41 approved P3-A cases after the owner-approved P3A-RECONNECT-013,
+P3A-REAUTH-011 and P3A-REAUTH-012 additions; all 17 P3-A1 and all 12 P3-A2
+cases passed individually. The 12 P3-A3 cases remain unexecuted. Earlier smoke
+suites remain supporting evidence only.
 
 ## State and evidence invariants observed
 
@@ -129,6 +131,21 @@ not Search Analytics implementation.
 P3-A2 (reauthentication and credential health) and P3-A3 (disconnect and
 lifecycle races) remain unexecuted. P3-A, P3 and B1 remain blocked.
 
+## P3-A2 result
+
+P3-A2 is **COMPLETE**. All 12 cases, including the two owner-approved stale
+credential-health cases, passed individually in
+`test/v1-04-gsc-b1-p3a2-reauth.test.js` through real local Express routes,
+Supabase RPCs and Vault-backed state. The new monotonic migration
+`20260917000000_v1_04_p3a2_credential_health_cas.sql` makes expected-null
+comparison exact, removes the unsafe two-argument RPC, provides bounded
+compare-and-set/health-confirm results, and prevents stale responses from
+contradicting connected or disconnected durable state. LKG evidence and
+selected-property identity were preserved in all negative cases.
+
+P3-A3 disconnect and lifecycle-race cases remain unexecuted; P3-A and P3 remain
+blocked.
+
 ## Commands and result
 
 `npx supabase migration up --local` — PASS; applied
@@ -151,6 +168,9 @@ individual ledger.
 
 `V1_04_P3A1_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3a1-reconnect.test.js`
 — 18 passed, 0 failed, 0 skipped (17 named P3-A1 cases plus parent).
+
+`V1_04_P3A2_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3a2-reauth.test.js`
+— 13 passed, 0 failed, 0 skipped (12 named P3-A2 cases plus parent).
 
 No P3-B tenant/acceptance-surface proof or P4 migration/combined closeout was
 executed. B1 remains blocked. Real Google acceptance remains unauthorized.

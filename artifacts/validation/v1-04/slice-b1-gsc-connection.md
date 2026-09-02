@@ -263,6 +263,24 @@ Lifecycle Races — remain NOT STARTED. P3-A and P3 remain blocked; P3-B and P4
 remain not started. B1 remains `BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE`.
 Real Google acceptance remains unauthorized and B2 remains not started.
 
+## P3-A2 — reauthentication and credential health
+
+P3-A2 is `COMPLETE`: all 12 individually named credential-health cases passed
+(13 TAP tests including the parent) through local Express, Supabase RPC and
+Vault boundaries. Current invalid-grant transitions to
+`reauthentication_required`; transient provider failures preserve connected
+state; missing, unreadable and malformed credentials fail safely; recovery from
+reauthentication-required works; and stale invalid-grant, exact-null and stale
+successful-health results cannot overwrite a newer replacement or disconnect.
+The LKG source/run state remains intact and no raw credential/provider detail is
+returned.
+
+Migration `20260917000000_v1_04_p3a2_credential_health_cas.sql` applies the
+exact-null compare-and-set semantics, adds bounded health confirmation, and
+drops the unsafe legacy two-argument marking function. P3-A3 — Disconnect +
+Lifecycle Races — remains NOT STARTED, so P3-A, P3 and B1 remain blocked. P4
+and B2 remain not started; no live Google acceptance was performed.
+
 ## P3-A — connection lifecycle and evidence preservation
 
 P3-A is `BLOCKED — CONNECTION LIFECYCLE PROOF INCOMPLETE`. The lifecycle audit

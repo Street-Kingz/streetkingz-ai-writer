@@ -168,5 +168,5 @@ authorization or the B2 boundary.
 | P3-A — Connection Lifecycle + Evidence Preservation | BLOCKED — P3-A2/P3-A3 pending |
 | P3-B — Tenant Isolation + Acceptance-Surface HTTP | NOT STARTED |
 | P3-A1 — Reconnect + Property/Evidence Consistency | COMPLETE |
-| P3-A2 — Reauthentication + Credential Health | NOT STARTED — 12 cases approved |
+| P3-A2 — Reauthentication + Credential Health | COMPLETE |
 | P3-A3 — Disconnect + Lifecycle Races | NOT STARTED |
