@@ -225,6 +225,11 @@ Search Analytics evidence: COLLECTED / accepted under B2 semantics
 Current next separately authorised task: Slice D — external-provider decision
 and bounded external evidence
 
+Slice D status: PROVIDER DECISION GATE BLOCKED — PROVIDER TERMS/LICENSING
+CLARIFICATION REQUIRED
+
+DataForSEO: PROVISIONAL — recommendation recorded, not yet owner-approved
+
 ## Current V1-04 Slice C real acceptance (2026-09-03)
 
 The founder-authorised bounded real Street Kingz site acquisition passed with a
