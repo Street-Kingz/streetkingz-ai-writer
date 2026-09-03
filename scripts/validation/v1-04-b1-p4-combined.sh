@@ -45,5 +45,7 @@ run_suite p3-b-tenant V1_04_P3B_TENANT_INTEGRATION "test/v1-04-gsc-b1-p3b-tenant
 run_suite slice-a V1_04_INTEGRATION "test/v1-04-organic-evidence-supabase-integration.test.js"
 run_suite v1-02 V1_02_INTEGRATION "test/v1-02-supabase-integration.test.js"
 run_suite v1-03 V1_03_INTEGRATION "test/v1-03-supabase-integration.test.js test/v1-03-commerce-supabase-integration.test.js"
+run_suite v1-03-incremental V1_03_INTEGRATION "test/v1-03-incremental-supabase-integration.test.js"
+run_suite v1-03-pagination V1_03_INTEGRATION "test/v1-03-snapshot-pagination-supabase-integration.test.js"
 run_suite v1-03-harness V1_03_ACCEPTANCE_HARNESS_INTEGRATION "test/v1-03-acceptance-harness-integration.test.js"
 print "combined=P1-P3 PASS"
