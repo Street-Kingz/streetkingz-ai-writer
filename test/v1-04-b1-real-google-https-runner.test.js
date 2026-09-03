@@ -3,7 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
-import { assertRealGoogleHttpsEnvironment, isFixedLoopbackHttpsAddress, safeRealGoogleHttpsConfiguration } from "../scripts/runV104B1RealGoogleAcceptanceHttps.js";
+import { assertRealGoogleHttpsEnvironment, installRealGoogleNetworkGuard, isFixedLoopbackHttpsAddress, safeRealGoogleHttpsConfiguration } from "../scripts/runV104B1RealGoogleAcceptanceHttps.js";
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "v104-https-test-"));
 const cert = path.join(temp, "cert.pem");
@@ -37,4 +37,21 @@ test("safe configuration output excludes secrets", () => {
   const value = assertRealGoogleHttpsEnvironment(base());
   const output = JSON.stringify(safeRealGoogleHttpsConfiguration(value));
   assert.doesNotMatch(output, /synthetic-secret|synthetic-service|publishable/);
+});
+
+test("network guard permits only loopback and approved Google sites/token calls", async () => {
+  const calls = [];
+  const original = globalThis.fetch;
+  const fake = async (input, init) => { calls.push([String(input), init?.method || "GET"]); return { ok: true }; };
+  const guard = installRealGoogleNetworkGuard({ fetchImpl: fake });
+  await globalThis.fetch("http://127.0.0.1:54321/rest/v1/health");
+  await globalThis.fetch("https://oauth2.googleapis.com/token", { method: "POST" });
+  await globalThis.fetch("https://www.googleapis.com/webmasters/v3/sites");
+  await globalThis.fetch("https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fstreetkingz.co.uk%2F");
+  await assert.rejects(() => globalThis.fetch("https://www.googleapis.com/webmasters/v3/sites/searchAnalytics/query"), /LIVE_NETWORK_GUARD_BLOCKED/);
+  await assert.rejects(() => globalThis.fetch("https://streetkingz.co.uk/"), /LIVE_NETWORK_GUARD_BLOCKED/);
+  assert.equal(calls.length, 4);
+  assert.equal(Object.values(guard.counters.blocked).reduce((a, b) => a + b, 0), 2);
+  guard.restore();
+  globalThis.fetch = original;
 });
