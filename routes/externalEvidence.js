@@ -127,7 +127,8 @@ router.post("/api/product/organic-evidence/external/acquire", handle(async (req,
         try {
           const effectiveTimeout = Math.min(EXTERNAL_LIMITS.REQUEST_TIMEOUT_MS, Math.max(1, runDeadline - Date.now()));
           const response = await transport.post(endpoint, [providerPayload(endpoint, seed)], { timeoutMs: effectiveTimeout });
-          const normalized = endpoint === DATAFORSEO_KEYWORD_IDEAS_ENDPOINT ? normalizeKeywordResponse(response.body, seed, run, retrievedAt) : normalizeSerpResponse(response.body, seed, run, retrievedAt);
+          const seedRun = { ...run, seed_id: seedDbIds.get(seed.seed_id) };
+          const normalized = endpoint === DATAFORSEO_KEYWORD_IDEAS_ENDPOINT ? normalizeKeywordResponse(response.body, seed, seedRun, retrievedAt) : normalizeSerpResponse(response.body, seed, seedRun, retrievedAt);
           if (normalized.actualCost > estimate + 0.000001 || actualCost + normalized.actualCost > EXTERNAL_LIMITS.MAX_PROVIDER_COST_USD_PER_RUN || businessCost - estimate + normalized.actualCost > EXTERNAL_LIMITS.MAX_PROVIDER_COST_USD_PER_BUSINESS_PER_REFRESH_WINDOW) {
             await updateRequest(admin, ledger.data.id, { status: "failed", actual_cost: normalized.actualCost, error_code: "PROVIDER_COST_ANOMALY", completed_at: new Date().toISOString() });
             throw new ProductError("PROVIDER_COST_ANOMALY", "The external evidence provider returned an unexpected cost.", 502);

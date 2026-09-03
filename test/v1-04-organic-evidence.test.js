@@ -70,6 +70,7 @@ test("Slice D Product route is authenticated, fixed-scope, and does not expose s
   assert.match(route, /\/api\/product\/organic-evidence\/external\/acquire/);
   assert.match(route, /location_code: 2826/);
   assert.match(route, /device: "desktop"/);
+  assert.match(route, /seedRun = \{ \.\.\.run, seed_id: seedDbIds\.get\(seed\.seed_id\) \}/);
   assert.doesNotMatch(route, /selectSerpShortlist|opportunity_score|recommendation|keyword_difficulty/);
   assert.doesNotMatch(route, /req\.body.*keyword|req\.body.*location/);
 });

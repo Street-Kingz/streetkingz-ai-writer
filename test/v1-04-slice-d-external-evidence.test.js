@@ -29,6 +29,7 @@ test("Keyword Ideas normalization preserves one parent and genuine zero demand",
   const result = normalizeKeywordResponse(task([{ keyword: "alpha idea", keyword_info: { search_volume: 0, monthly_searches: [{ year: 2026, month: 8, search_volume: 0 }] } }, { keyword: "alpha idea", keyword_info: { search_volume: 4 } }, { keyword: "", keyword_info: { search_volume: 3 } }]), seed, run, "2026-09-03T10:00:00.000Z");
   assert.equal(result.rows.length, 1);
   assert.equal(result.rows[0].search_volume, 0);
+  assert.equal(result.rows[0].seed_id, 99);
   assert.equal(result.rows[0].provenance.parent_seed_id, "seed-1");
   assert.equal(Object.hasOwn(result.rows[0], "keyword_difficulty"), false);
 });
