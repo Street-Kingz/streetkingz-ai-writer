@@ -129,6 +129,7 @@ schema_assertions() {
 
 run_slice_a() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-organic-evidence-supabase-integration.test.js; }
 run_b1() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-supabase-integration.test.js; }
+run_security() { V1_04_P3B_TENANT_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-p3b-tenant-isolation.test.js; }
 run_preservation() { node scripts/validation/v1-04-b1-p4-upgrade-preservation.mjs "$@"; }
 run_dependency_comparison() { node scripts/validation/v1-04-b1-p4-dependency-closure.mjs "$TMP/dependency-closure.json"; }
 run_accepted_slice_a() {
@@ -148,6 +149,8 @@ start_project "$ZERO_ID" "$LAST_DIR"
 load_env "$LAST_DIR"
 schema_assertions "$ZERO_ID" 20260918000000 7
 run_slice_a
+run_b1
+run_security
 echo "from-zero=PASS project=$ZERO_ID ports=$ZERO_API,$ZERO_DB"
 
 UPGRADE_ID="v104-p4-upgrade-${RUN_ID}"
@@ -178,6 +181,7 @@ run_preservation --mode snapshot-after --state "$PRESERVE_STATE" --snapshot "$PR
 cmp -s "$PRESERVE_BEFORE" "$PRESERVE_AFTER"
 run_slice_a
 run_preservation --mode post-upgrade-b1 --state "$PRESERVE_STATE"
+run_security
 PRE_HASH=$(tr -d '\n' < "$PRESERVE_BEFORE.sha256")
 POST_HASH=$(tr -d '\n' < "$PRESERVE_AFTER.sha256")
 UNAFF_BEFORE=$(tr -d '\n' < "$PRESERVE_STATE.unaffected-before.json.sha256")
