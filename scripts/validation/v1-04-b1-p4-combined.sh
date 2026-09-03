@@ -13,7 +13,8 @@ case "$API_URL" in http://127.0.0.1:*|http://localhost:*) ;; *) print -u2 "norma
 export SUPABASE_URL="$API_URL" SUPABASE_PUBLISHABLE_KEY="$PUBLISHABLE_KEY" SUPABASE_SERVICE_ROLE_KEY="$SERVICE_ROLE_KEY"
 
 run_suite() {
-  local name="$1" flag="$2" files="$3" log="$TMP/$name.tap" started ended status summary
+  local name="$1" flag="$2" files="$3" log started ended status summary
+  log="$TMP/$name.tap"
   started=$(date +%s)
   unset V1_02_INTEGRATION V1_03_INTEGRATION V1_03_ACCEPTANCE_HARNESS_INTEGRATION V1_04_INTEGRATION V1_04_P2_INTEGRATION V1_04_P2A_INTEGRATION V1_04_P2B_INTEGRATION V1_04_P3A_INTEGRATION V1_04_P3A1_INTEGRATION V1_04_P3A2_INTEGRATION V1_04_P3A3_INTEGRATION V1_04_P3B_HARNESS_INTEGRATION V1_04_P3B_TENANT_INTEGRATION
   if [[ -n "$flag" ]]; then export "$flag=1"; fi
