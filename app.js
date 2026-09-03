@@ -10,6 +10,7 @@ import v103AcceptanceHarnessRoute from "./routes/v1-03AcceptanceHarness.js";
 import organicEvidenceRoute from "./routes/organicEvidence.js";
 import googleSearchConsoleRoute from "./routes/googleSearchConsole.js";
 import siteEvidenceRoute from "./routes/siteEvidence.js";
+import externalEvidenceRoute from "./routes/externalEvidence.js";
 import { randomUUID } from "node:crypto";
 
 const app = express();
@@ -37,6 +38,7 @@ app.use(productKernelRoute);
 app.use(organicEvidenceRoute);
 app.use(googleSearchConsoleRoute);
 app.use(siteEvidenceRoute);
+app.use(externalEvidenceRoute);
 if (v103AcceptanceHarnessRoute) app.use(v103AcceptanceHarnessRoute);
 
 export default app;

@@ -50,3 +50,26 @@ test("Slice A correction closes completion and pointer integrity gaps", () => {
   assert.match(correction, /ORGANIC_SOURCE_CONFLICT/);
   assert.match(correction, /revoke insert, update, delete/);
 });
+
+test("Slice D migration is typed, tenant-scoped, service-write-only, and credential-free", () => {
+  const external = fs.readFileSync(new URL("../supabase/migrations/20260921000000_v1_04_slice_d_external_evidence.sql", import.meta.url), "utf8");
+  assert.match(external, /create table public\.organic_external_seeds/);
+  assert.match(external, /create table public\.organic_external_provider_requests/);
+  assert.match(external, /create table public\.organic_external_observations/);
+  assert.match(external, /source_class text not null check \(source_class in \('woo_product','woo_category','site_title','site_h1','gsc_query'\)\)/);
+  assert.match(external, /request_fingerprint text not null unique/);
+  assert.match(external, /alter table public\.organic_external_observations enable row level security/);
+  assert.match(external, /revoke all on public\.organic_external_seeds, public\.organic_external_provider_requests, public\.organic_external_observations from public, anon, authenticated/);
+  assert.doesNotMatch(external, /password|refresh_token|access_token|authorization/i);
+  assert.doesNotMatch(external, /raw_response|response_body/i);
+});
+
+test("Slice D Product route is authenticated, fixed-scope, and does not expose shortlist logic", () => {
+  const route = fs.readFileSync(new URL("../routes/externalEvidence.js", import.meta.url), "utf8");
+  assert.match(route, /verifyIdentity/);
+  assert.match(route, /\/api\/product\/organic-evidence\/external\/acquire/);
+  assert.match(route, /location_code: 2826/);
+  assert.match(route, /device: "desktop"/);
+  assert.doesNotMatch(route, /selectSerpShortlist|opportunity_score|recommendation|keyword_difficulty/);
+  assert.doesNotMatch(route, /req\.body.*keyword|req\.body.*location/);
+});
