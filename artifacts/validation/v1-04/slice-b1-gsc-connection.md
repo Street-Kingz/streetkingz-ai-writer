@@ -422,3 +422,10 @@ The suite found and closed `P3B-DEF-001` (High): a foreign disconnect ID could
 reach the lifecycle RPC and produce an internal failure. The route now checks
 ownership before the RPC; no migration was required. P3 remains complete, and
 B1 remains blocked pending the separately authorised P4 combined closeout.
+
+## Current final non-live status (2026-09-03)
+
+The preceding blocked statements are historical snapshots. Current P1, P2, P3
+and P4 evidence is complete. B1 is READY FOR REAL GOOGLE ACCEPTANCE. Real
+Google acceptance has NOT been performed, B2 is NOT STARTED, and V1-04 remains
+IN PROGRESS.

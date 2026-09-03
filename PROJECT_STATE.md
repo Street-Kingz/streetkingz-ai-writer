@@ -204,12 +204,10 @@ Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
 
 Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
 
-Current next separately authorised task: P4 — Migration + Combined Acceptance
-Closeout. P3-A1, P3-A2, and P3-A3 are COMPLETE; P3-A is COMPLETE. P3-B
-Harness and Tenant domains are COMPLETE; P3-B is COMPLETE and P3 is COMPLETE.
-P4 remains NOT STARTED until separately founder-authorised; B1 remains BLOCKED
-pending P4; READY FOR REAL GOOGLE ACCEPTANCE remains NO; B2 remains NOT
-STARTED.
+Current next separately authorised task: founder-authorised real Google B1
+acceptance run. P1, P2, P3 and P4 are COMPLETE. B1 is READY FOR REAL GOOGLE
+ACCEPTANCE; real Google acceptance has NOT been performed. B2 remains NOT
+STARTED and V1-04 remains IN PROGRESS.
 
 Current V1-03 acceptance state (verified at the current repository state):
 
@@ -227,11 +225,9 @@ Connection + Property Selection. B1 is implemented locally but remains BLOCKED
 pending the complete non-live route/Vault, race/replay, reconnect, two-tenant
 and acceptance-surface matrix. Search Analytics evidence (B2) is not started.
 
-B1 remains BLOCKED — COMPLETE NON-LIVE MATRIX INCOMPLETE. P1 is DONE / ACCEPTED
-under the frozen closeout plan. P2 is COMPLETE, including P2-A failure-boundary
-and P2-B race/activation proof. Current next B1 closeout phase is P3 —
-Reconnect + Reauth + Disconnect + Tenant/HTTP, which remains NOT STARTED until
-separately founder-authorised. P4 remains NOT STARTED. B2 remains NOT STARTED.
+B1 non-live acceptance is complete under the frozen closeout plan and B1 is
+READY FOR REAL GOOGLE ACCEPTANCE. P1, P2, P3 and P4 are COMPLETE. Real Google
+acceptance has NOT been performed; B2 remains NOT STARTED.
 
 V1-00 Governance Activation: Done
 

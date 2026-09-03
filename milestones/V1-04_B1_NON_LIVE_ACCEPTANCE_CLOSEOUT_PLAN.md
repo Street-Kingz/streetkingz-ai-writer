@@ -164,8 +164,9 @@ authorization or the B2 boundary.
 | P1 — Property Identity + Acceptance-Harness Security | COMPLETE |
 | P2 — OAuth Failure + Replay/Race Matrix | COMPLETE |
 | P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP | COMPLETE |
-| P4 — Migration + Combined Acceptance Closeout | NOT STARTED |
+| P4 — Migration + Combined Acceptance Closeout | COMPLETE |
 | P3-A — Connection Lifecycle + Evidence Preservation | COMPLETE |
+
 | P3-B Harness — Acceptance-Surface HTTP | COMPLETE — 22 / 22 PASS |
 | P3-B Tenant — Tenant Isolation | COMPLETE — 20 / 20 PASS |
 | P3-B — Tenant Isolation + Acceptance-Surface HTTP | COMPLETE — 42 / 42 PASS |
@@ -173,6 +174,13 @@ authorization or the B2 boundary.
 | P3-A2 — Reauthentication + Credential Health | COMPLETE |
 | P3-A3 — Disconnect + Lifecycle Races | COMPLETE |
 | P3-A — Connection Lifecycle + Evidence Preservation | COMPLETE |
+
+## Current status (2026-09-03)
+
+P1, P2, P3 and P4 are COMPLETE. B1 is READY FOR REAL GOOGLE ACCEPTANCE.
+Real Google acceptance has NOT been performed. B2 is NOT STARTED and V1-04
+remains IN PROGRESS. The next separately authorised task is a founder-authorised
+real Google B1 acceptance run.
 
 ### P3-A3 deterministic closeout continuation (2026-09-02)
 

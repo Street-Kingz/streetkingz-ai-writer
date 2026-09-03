@@ -1,0 +1,102 @@
+{
+  "artifact_schema_version": 1,
+  "implementation_sha": "225f36f867ea23d6455c0289f91b3c443705134d",
+  "migration_count": 22,
+  "ordered_migrations": [
+    {
+      "filename": "20260825000000_v1_02_product_kernel.sql",
+      "sha256": "6d3b11c08371672724b8969cf053362c8b15af1b65e4c48d287fb87a229cf58b"
+    },
+    {
+      "filename": "20260827000000_v1_03_commerce_foundation.sql",
+      "sha256": "ebbd4887ada13d20c33d80221c6a873466b5b9bedb14ca97eaba8ce9da4967a4"
+    },
+    {
+      "filename": "20260830000000_v1_03_route_corrections.sql",
+      "sha256": "ce721f73fe42921bc59d92a0b197934e9bef3038bdc4716e333b7b1f65640ea8"
+    },
+    {
+      "filename": "20260831000000_v1_03_lifecycle_races.sql",
+      "sha256": "cda886e5366db9685f94e7fc0a39adf2d18e58b8479ba8790ac69ef5d2737c0c"
+    },
+    {
+      "filename": "20260901000000_v1_03_initial_sync.sql",
+      "sha256": "751cc3b68f7e3d66017cf5d0f8732a2bd0afe41292059c19f2498abd65e3fdfa"
+    },
+    {
+      "filename": "20260902000000_v1_04_organic_evidence_foundation.sql",
+      "sha256": "cbc700d686e1ff02d617a09eaa0bcc4d2fef7fed5bb55dbc32e2970cf783399b"
+    },
+    {
+      "filename": "20260903000000_v1_04_slice_a_integrity.sql",
+      "sha256": "cc730d049bfe3060df36e91d11a74ad0a94b728bdcb5a31d40ef154895739325"
+    },
+    {
+      "filename": "20260904000000_v1_04_gsc_connection.sql",
+      "sha256": "bf8e25a75ae05670724bab656db01b857e65d5be2555ecc4191dcb115ffe0779"
+    },
+    {
+      "filename": "20260905000000_v1_04_gsc_connection_functions.sql",
+      "sha256": "54bda22f29386b6e41dcd75eb59b8078c498fbe60006b86156780cd85679ee8a"
+    },
+    {
+      "filename": "20260906000000_v1_04_b1_lifecycle_hardening.sql",
+      "sha256": "9ecbd49b99509292e3e59c3dc34380532f5c8cc86b6ad7655ac278899809cdd3"
+    },
+    {
+      "filename": "20260907000000_v1_04_b1_failure_cleanup.sql",
+      "sha256": "676221120d7aa5bb1e67a4f2f5d42d6b40b5ba9ea9179a6c887107b50d29daac"
+    },
+    {
+      "filename": "20260908000000_v1_04_b1_attempt_expiry.sql",
+      "sha256": "8be4046bcd06d104c379d28beea12e3d27c703295138c90f332022a9951393bb"
+    },
+    {
+      "filename": "20260909000000_v1_04_b1_begin_fix.sql",
+      "sha256": "514e7a9499e7027548c6920b40be38a46f356c1a1726479a0ee7610cae3f513a"
+    },
+    {
+      "filename": "20260910000000_v1_04_b1_begin_qualification.sql",
+      "sha256": "17631db0ea4db6088d7dbebf39adc1e5f33ff11ab6e12454b51454d6093b07dd"
+    },
+    {
+      "filename": "20260911000000_v1_04_b1_activation_expiry.sql",
+      "sha256": "1e4d271d941d987bec404f7ccc1bcaca59a8a88dccb2b05736113a912d31281d"
+    },
+    {
+      "filename": "20260912000000_v1_04_b1_reauth_state.sql",
+      "sha256": "8e0edf76ad8e416b42aeff41358d73b777f20d8e5425c4df35c0f86e9032ce0b"
+    },
+    {
+      "filename": "20260913000000_v1_04_b1_activation_lock_order.sql",
+      "sha256": "0acb8a1baf91a00ce826baa97af25505a1505ca31fa464a32de21309df8e6e9e"
+    },
+    {
+      "filename": "20260914000000_v1_04_b1_superseded_secret_reference.sql",
+      "sha256": "7affb5f58deecbd1782b733eaed1f32fdefffdc57161b172e53305bb2bbf3495"
+    },
+    {
+      "filename": "20260915000000_v1_04_p3a_lifecycle_consistency.sql",
+      "sha256": "7ee83f97b3d92e748052a1c17586285e8357b116cdb5c04990492d946dea372d"
+    },
+    {
+      "filename": "20260916000000_v1_04_p3a1_reconnect_consistency.sql",
+      "sha256": "7200116b810e0db41dda98b7f077583bd3edfd194f2bcceba324b5806193d280"
+    },
+    {
+      "filename": "20260917000000_v1_04_p3a2_credential_health_cas.sql",
+      "sha256": "1df5f638457f806a062997b58665fc58e65fbfd71037375003808544151d0285"
+    },
+    {
+      "filename": "20260918000000_v1_04_p3a3_disconnect_consistency.sql",
+      "sha256": "a11f9f011af13a444c0d5a41abdb06f0f83b64c5b31a925cb7f3e2cb02892b5c"
+    }
+  ],
+  "duplicate_timestamp_names": false,
+  "monotonic_order": true,
+  "accepted_slice_a_cutoff": "20260903000000_v1_04_slice_a_integrity.sql",
+  "pre_cutoff_migration_count": 7,
+  "post_cutoff_migration_count": 15,
+  "current_head": "20260918000000_v1_04_p3a3_disconnect_consistency.sql",
+  "existing_migrations_modified_during_p4": false
+}
