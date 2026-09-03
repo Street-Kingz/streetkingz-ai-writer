@@ -214,23 +214,25 @@ Property type: `url_prefix`
 
 Permission: `siteOwner`
 
-Search Console source: `never_collected`
+Search Console source: `complete`
 
-Search Analytics observations: 0
+Search Analytics observations: 1125
 
-B2: NOT STARTED
+B2: DONE / ACCEPTED
 
-Current next separately authorised task: B2 — Search Analytics Evidence
-Acquisition
+Search Analytics evidence: COLLECTED / accepted under B2 semantics
 
-## Current B1 real acceptance (2026-09-03)
+Current next separately authorised task: Slice C — bounded site discovery and
+page-truth evidence
 
-The founder-authorised real Google B1 acceptance passed for the exact
-reprovisioned Street Kingz tenant. B1 is DONE / ACCEPTED, the read-only GSC
-connection is active, and the selected property is retained in Vault. The
-requested scope was `webmasters.readonly`; Search Analytics collection was not
-performed. B2 remains NOT STARTED and V1-04 remains IN PROGRESS. The next
-separately authorised task is B2 — Search Analytics Evidence Acquisition.
+## Current V1-04 B2 real acceptance (2026-09-03)
+
+The founder-authorised bounded real Google B2 acceptance passed for the exact
+accepted Street Kingz property. B1 remains DONE / ACCEPTED, the read-only GSC
+connection remains active, and B2 Search Analytics evidence is accepted with
+provider-limited detailed grains. V1-04 remains IN PROGRESS. The next
+separately authorised task is Slice C — bounded site discovery and page-truth
+evidence.
 
 Current V1-03 acceptance state (verified at the current repository state):
 
@@ -243,12 +245,12 @@ corrected self-healing run remain preserved in the V1-03 acceptance evidence.
 
 V1-04 Organic Evidence Connections is In Progress under its approved contract.
 Slice A — Organic Evidence Foundation is DONE / ACCEPTED. Slice B — Google
-Search Console Connection + Evidence is IN PROGRESS in B2 — Search Analytics
-Evidence Acquisition. B1 is DONE / ACCEPTED. B1 non-live acceptance and real
-Google acceptance are COMPLETE. The active read-only GSC connection uses the
-accepted Street Kingz property `https://streetkingz.co.uk/` with property type
-`url_prefix` and permission `siteOwner`. Search Analytics evidence (B2) is not
-started; the source remains `never_collected` and observations remain 0.
+Search Console Connection + Evidence is DONE / ACCEPTED. B1 and B2 are DONE /
+ACCEPTED. B1 non-live acceptance and real Google acceptance are COMPLETE. The
+active read-only GSC connection uses the accepted Street Kingz property
+`https://streetkingz.co.uk/` with property type `url_prefix` and permission
+`siteOwner`. Search Analytics evidence is collected and accepted under B2
+semantics; detailed grains remain explicitly provider-limited.
 
 V1-00 Governance Activation: Done
 
