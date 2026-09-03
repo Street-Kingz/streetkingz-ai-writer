@@ -73,3 +73,10 @@ test("Slice D Product route is authenticated, fixed-scope, and does not expose s
   assert.doesNotMatch(route, /selectSerpShortlist|opportunity_score|recommendation|keyword_difficulty/);
   assert.doesNotMatch(route, /req\.body.*keyword|req\.body.*location/);
 });
+
+test("Slice D retry migration preserves failed attempts while serializing active fingerprints", () => {
+  const attempts = fs.readFileSync(new URL("../supabase/migrations/20260922000000_v1_04_slice_d_request_attempts.sql", import.meta.url), "utf8");
+  assert.match(attempts, /drop constraint if exists organic_external_provider_requests_request_fingerprint_key/);
+  assert.match(attempts, /where status in \('reserved','running'\)/);
+  assert.match(attempts, /failed provider attempts remain auditable/i);
+});

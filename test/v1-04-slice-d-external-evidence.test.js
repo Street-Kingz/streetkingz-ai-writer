@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, DATAFORSEO_SERP_ENDPOINT, EXTERNAL_LIMITS,
   createDataForSeoTransport, deriveDirectSeeds, normalizeKeywordResponse,
-  normalizeSerpResponse, requestIdentity, ExternalEvidenceError
+  normalizeSerpResponse, requestIdentity, ExternalEvidenceError, isReusable
 } from "../product-kernel/externalEvidence.js";
 
 const run = { business_id: "business-a", source_id: "source-a", run_id: 1, seed_id: 99 };
@@ -56,6 +56,21 @@ test("transport is limited to approved HTTPS endpoints and sanitizes failures", 
   for (const status of failures) await assert.rejects(() => createDataForSeoTransport({ login: "l", password: "p", fetchImpl: async () => response(status, "provider secret body") }).post(DATAFORSEO_SERP_ENDPOINT, []), error => error instanceof ExternalEvidenceError && !error.message.includes("provider secret"));
 });
 
+test("transport uses the caller's bounded remaining deadline and maps provider live timeout", async () => {
+  let observedSignal;
+  const slow = createDataForSeoTransport({ login: "login", password: "password", timeoutMs: 120000, fetchImpl: async (_url, options) => {
+    observedSignal = options.signal;
+    await new Promise(resolve => setTimeout(resolve, 25));
+    return response(200, JSON.stringify(task([])));
+  } });
+  await slow.post(DATAFORSEO_SERP_ENDPOINT, [], { timeoutMs: 100 });
+  assert.equal(observedSignal.aborted, false);
+  const providerTimeout = JSON.stringify({ status_code: 20000, tasks: [{ status_code: 50401, cost: null, result: [] }] });
+  const fast = createDataForSeoTransport({ login: "l", password: "p", fetchImpl: async () => response(200, providerTimeout) });
+  const taskResult = await fast.post(DATAFORSEO_SERP_ENDPOINT, []);
+  assert.throws(() => normalizeSerpResponse(taskResult.body, { seed_id: "seed-1", source_text: "Alpha", normalized_text: "alpha" }, run, "2026-09-03T10:00:00.000Z"), error => error.code === "PROVIDER_TIMEOUT" && error.details.actualCost === null);
+});
+
 test("request fingerprint changes with endpoint/seed scope and bounded cost is explicit", () => {
   const seed = { seed_id: "seed-1", normalized_text: "alpha" };
   const first = requestIdentity({ businessId: "business-a", endpoint: DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, seed, limit: 20 });
@@ -64,4 +79,14 @@ test("request fingerprint changes with endpoint/seed scope and bounded cost is e
   assert.equal(EXTERNAL_LIMITS.MAX_DIRECT_SEEDS_PER_BUSINESS_RUN, 5);
   assert.equal(EXTERNAL_LIMITS.MAX_PROVIDER_COST_USD_PER_RUN, 0.1);
   assert.equal(EXTERNAL_LIMITS.MAX_CONCURRENCY, 2);
+});
+
+test("freshness windows are source-specific", () => {
+  const now = Date.parse("2026-09-03T00:00:00.000Z");
+  const daysAgo = days => new Date(now - days * 24 * 60 * 60 * 1000).toISOString();
+  assert.equal(isReusable(daysAgo(6), DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, now), true);
+  assert.equal(isReusable(daysAgo(6), DATAFORSEO_SERP_ENDPOINT, now), true);
+  assert.equal(isReusable(daysAgo(8), DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, now), true);
+  assert.equal(isReusable(daysAgo(8), DATAFORSEO_SERP_ENDPOINT, now), false);
+  assert.equal(isReusable(daysAgo(31), DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, now), false);
 });

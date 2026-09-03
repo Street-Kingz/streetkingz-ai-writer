@@ -13,8 +13,8 @@ export const EXTERNAL_LIMITS = Object.freeze({
   MAX_PROVIDER_COST_USD_PER_RUN: 0.10,
   MAX_PROVIDER_COST_USD_PER_BUSINESS_PER_REFRESH_WINDOW: 0.20,
   MAX_CONCURRENCY: 2,
-  REQUEST_TIMEOUT_MS: 30000,
-  TOTAL_RUN_DEADLINE_MS: 120000,
+  REQUEST_TIMEOUT_MS: 120000,
+  TOTAL_RUN_DEADLINE_MS: 360000,
   MAX_PROVIDER_RESPONSE_BYTES: 2 * 1024 * 1024,
   KEYWORD_EVIDENCE_REUSE_WINDOW_MS: 30 * 24 * 60 * 60 * 1000,
   SERP_EVIDENCE_REUSE_WINDOW_MS: 7 * 24 * 60 * 60 * 1000
@@ -27,7 +27,20 @@ export class ExternalEvidenceError extends Error {
   constructor(code, message, status = 502, details = {}) { super(message); this.name = "ExternalEvidenceError"; this.code = code; this.status = status; this.details = details; }
 }
 
-function number(value, fallback = null) { const n = Number(value); return Number.isFinite(n) ? n : fallback; }
+export function requestReuseWindow(endpoint) {
+  return endpoint === DATAFORSEO_SERP_ENDPOINT ? EXTERNAL_LIMITS.SERP_EVIDENCE_REUSE_WINDOW_MS : EXTERNAL_LIMITS.KEYWORD_EVIDENCE_REUSE_WINDOW_MS;
+}
+
+export function estimatedRequestCost(endpoint) {
+  return endpoint === DATAFORSEO_SERP_ENDPOINT ? 0.002 : 0.012 + (EXTERNAL_LIMITS.MAX_PROVIDER_IDEAS_PER_REQUEST * 0.00012);
+}
+
+export function isReusable(completedAt, endpoint, now = Date.now()) {
+  const completed = Date.parse(completedAt || "");
+  return Number.isFinite(completed) && now >= completed && now - completed <= requestReuseWindow(endpoint);
+}
+
+function number(value, fallback = null) { if (value === null || value === undefined || value === "") return fallback; const n = Number(value); return Number.isFinite(n) ? n : fallback; }
 function normalized(value) { return String(value || "").normalize("NFKC").replace(/[–—]/g, " ").replace(/\s+/g, " ").trim().toLowerCase(); }
 function boundedText(value, maximum) { return typeof value === "string" ? value.trim().slice(0, maximum) || null : null; }
 function dateValue(value) { const n = Date.parse(value || ""); return Number.isFinite(n) ? new Date(n).toISOString() : null; }
@@ -71,9 +84,9 @@ export function createDataForSeoTransport({ login = process.env.DATAFORSEO_LOGIN
   try { base = new URL(baseUrl); } catch { throw new ExternalEvidenceError("PROVIDER_UNAVAILABLE", "The external evidence provider is not configured.", 503); }
   if (base.protocol !== "https:" || base.hostname !== "api.dataforseo.com" || base.username || base.password || base.pathname !== "/") throw new ExternalEvidenceError("PROVIDER_ENDPOINT_INVALID", "The external evidence provider endpoint is not approved.", 400);
   return {
-    async post(endpoint, payload) {
+    async post(endpoint, payload, { timeoutMs: requestTimeoutMs = timeoutMs } = {}) {
       if (![DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, DATAFORSEO_SERP_ENDPOINT].includes(endpoint)) throw new ExternalEvidenceError("PROVIDER_ENDPOINT_INVALID", "The requested external evidence endpoint is not approved.", 400);
-      const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
+      const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), requestTimeoutMs);
       let response;
       try {
         response = await fetchImpl(new URL(endpoint, base), { method: "POST", redirect: "error", headers: { authorization: `Basic ${Buffer.from(`${login}:${password}`, "utf8").toString("base64")}`, "content-type": "application/json" }, body: JSON.stringify(payload), signal: controller.signal });
@@ -93,7 +106,10 @@ export function createDataForSeoTransport({ login = process.env.DATAFORSEO_LOGIN
 function providerTask(body, endpoint) {
   if (!body || body.status_code !== 20000 || !Array.isArray(body.tasks) || body.tasks.length !== 1) throw new ExternalEvidenceError("PROVIDER_MALFORMED", "The external evidence provider returned an invalid response.", 502);
   const task = body.tasks[0];
-  if (task.status_code !== 20000) throw new ExternalEvidenceError("PROVIDER_TASK_FAILED", "The external evidence provider task failed.", 502, { actualCost: number(task.cost, 0) });
+  if (task.status_code !== 20000) {
+    if (Number(task.status_code) === 50401) throw new ExternalEvidenceError("PROVIDER_TIMEOUT", "The external evidence provider task timed out.", 504, { actualCost: number(task.cost) });
+    throw new ExternalEvidenceError("PROVIDER_TASK_FAILED", "The external evidence provider task failed.", 502, { actualCost: number(task.cost) });
+  }
   if (!Array.isArray(task.result)) throw new ExternalEvidenceError("PROVIDER_MALFORMED", "The external evidence provider returned an invalid task result.", 502);
   const result = task.result[0] || { items: [] };
   if (!Array.isArray(result.items)) throw new ExternalEvidenceError("PROVIDER_MALFORMED", "The external evidence provider returned invalid items.", 502);
