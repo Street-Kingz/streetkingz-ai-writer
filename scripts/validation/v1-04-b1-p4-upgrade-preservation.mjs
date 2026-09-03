@@ -3,6 +3,11 @@ import crypto from "node:crypto";
 import { promisify } from "node:util";
 import { execFile } from "node:child_process";
 import { createClient } from "@supabase/supabase-js";
+import http from "node:http";
+import express from "express";
+import route from "../../routes/googleSearchConsole.js";
+import organicRoute from "../../routes/organicEvidence.js";
+import { setGoogleSearchConsoleTransportFactory } from "../../product-kernel/googleSearchConsoleOAuth.js";
 
 const args = new Map();
 for (let i = 2; i < process.argv.length; i += 2) args.set(process.argv[i], process.argv[i + 1]);
@@ -73,6 +78,15 @@ async function projection(state) {
   };
 }
 
+const request = (server, method, path, token, body) => new Promise((resolve, reject) => {
+  const headers = { "content-type": "application/json" }; if (token) headers.authorization = `Bearer ${token}`;
+  const req = http.request({ hostname: "127.0.0.1", port: server.address().port, method, path, headers }, res => { let text = ""; res.on("data", chunk => { text += chunk; }); res.on("end", () => { try { resolve({ status: res.statusCode, body: text ? JSON.parse(text) : null }); } catch (error) { reject(error); } }); });
+  req.on("error", reject); if (body) req.write(JSON.stringify(body)); req.end();
+});
+
+const projectionGroups = ["account", "business", "connection", "store", "generation", "commerce", "organic", "vault"];
+const writeHash = async (out, value) => { await fs.writeFile(`${out}.sha256`, `${hash(value)}\n`, { mode: 0o600 }); };
+
 async function seed() {
   const email = `v104-p4-preserve-${crypto.randomUUID()}@local.test`;
   const password = `${crypto.randomUUID()}!Aa9`;
@@ -105,6 +119,43 @@ async function seed() {
   return state;
 }
 
+async function postUpgradeB1() {
+  const state = await readState();
+  const caller = createClient(required("SUPABASE_URL"), required("SUPABASE_PUBLISHABLE_KEY"), { auth: { autoRefreshToken: false, persistSession: false } });
+  const signed = fail("sign in", await caller.auth.signInWithPassword({ email: state.email, password: state.password }));
+  const token = signed.session.access_token;
+  const accounts = await many("accounts", "id", "auth_user_id", state.userId); if (accounts.length !== 1 || accounts[0].id !== state.accountId) throw new Error("preserved account was not the sole account");
+  const businesses = await many("businesses", "id", "account_id", state.accountId); if (businesses.length !== 1 || businesses[0].id !== state.businessId) throw new Error("preserved business was not the sole business");
+  const before = await projection(state); const beforePath = `${statePath}.unaffected-before.json`; await fs.writeFile(beforePath, JSON.stringify(before), { mode: 0o600 }); await writeHash(beforePath, before);
+  let exchanges = 0; let probedSiteUrl = null;
+  setGoogleSearchConsoleTransportFactory(() => ({
+    authorizationUrl: ({ state: oauthState }) => `https://accounts.google.test/authorize?state=${oauthState}`,
+    async exchangeCode() { exchanges += 1; return { refresh_token: "p4-synthetic-gsc-refresh", scope: "https://www.googleapis.com/auth/webmasters.readonly" }; },
+    async accessToken() { return "p4-synthetic-gsc-access"; },
+    async sitesList() { return { siteEntry: [{ siteUrl: "https://preservation.example/shop/", permissionLevel: "siteOwner" }, { siteUrl: "sc-domain:preservation.example", permissionLevel: "siteFullUser" }] }; },
+    async site(_token, siteUrl) { probedSiteUrl = siteUrl; return { siteUrl, permissionLevel: "siteOwner" }; }
+  }));
+  const app = express(); app.use(express.json()); app.use(organicRoute); app.use(route);
+  const server = await new Promise((resolve, reject) => { const instance = app.listen(0, "127.0.0.1", () => resolve(instance)); instance.on("error", reject); });
+  try {
+    const organicStatus = await request(server, "GET", "/api/product/organic-evidence/status", token); if (organicStatus.status !== 200 || !organicStatus.body.sources.some(source => source.source_kind === "site" && source.evidence_state === "complete")) throw new Error("preserved current organic status failed");
+    const started = await request(server, "POST", "/api/product/organic-evidence/search-console/connect", token, {}); if (started.status !== 201) throw new Error(`preserved B1 connect HTTP ${started.status}`);
+    const authUrl = new URL(started.body.authorization_url); const connectionId = started.body.connection.id;
+    const callback = await request(server, "GET", `/api/product/organic-evidence/search-console/callback?state=${encodeURIComponent(authUrl.searchParams.get("state"))}&code=p4-code`, null); if (callback.status !== 200) throw new Error(`preserved B1 callback HTTP ${callback.status}`);
+    const properties = await request(server, "GET", `/api/product/organic-evidence/search-console/properties?connection_id=${connectionId}`, token); if (properties.status !== 200 || properties.body.properties.length !== 2) throw new Error("preserved B1 properties failed");
+    const selected = await request(server, "POST", "/api/product/organic-evidence/search-console/select", token, { connection_id: connectionId, site_url: "https://preservation.example/shop/" }); if (selected.status !== 200 || probedSiteUrl !== "https://preservation.example/shop/") throw new Error("preserved B1 property selection failed");
+    const status = await request(server, "GET", `/api/product/organic-evidence/search-console/status?connection_id=${connectionId}`, token); if (status.status !== 200 || status.body.connection_state !== "connected") throw new Error("preserved B1 status failed");
+    const reauth = await request(server, "POST", "/api/product/organic-evidence/search-console/reauth-check", token, { connection_id: connectionId }); if (reauth.status !== 200) throw new Error("preserved B1 reauth failed");
+    const disconnected = await request(server, "POST", "/api/product/organic-evidence/search-console/disconnect", token, { connection_id: connectionId }); if (disconnected.status !== 200) throw new Error("preserved B1 disconnect failed");
+    const after = await projection(state); const afterPath = `${statePath}.unaffected-after.json`; await fs.writeFile(afterPath, JSON.stringify(after), { mode: 0o600 }); await writeHash(afterPath, after);
+    const beforeHash = hash(before), afterHash = hash(after); if (beforeHash !== afterHash) throw new Error("preserved B1 changed unaffected state");
+    const gsc = await get("connections", "id,status,consent_state,secret_reference", "id", connectionId); const gscRows = await many("gsc_connections", "connection_id,business_id,connection_state,selected_site_url", "connection_id", connectionId); if (gscRows.length !== 1 || gscRows[0].connection_state !== "disconnected") throw new Error("GSC connection state invalid after disconnect");
+    if (gsc.data?.secret_reference) throw new Error("GSC credential remained active after disconnect");
+    await fs.writeFile(`${statePath}.b1-result.json`, JSON.stringify({ status_route: "PASS", b1: "PASS", exchanges, selected_property: probedSiteUrl, gsc_connections: gscRows.length, gsc_secret_removed: true, search_analytics_observations: 0, unaffected_state_match: true }), { mode: 0o600 });
+    console.log("preserved-b1=PASS");
+  } finally { await new Promise(resolve => server.close(resolve)); }
+}
+
 if (mode === "seed") { await seed(); console.log("preservation-seed=PASS"); }
 else if (mode === "snapshot-before" || mode === "snapshot-after") {
   const state = await readState();
@@ -114,6 +165,7 @@ else if (mode === "snapshot-before" || mode === "snapshot-after") {
   await fs.writeFile(`${out}.sha256`, `${hash(value)}\n`, { mode: 0o600 });
   console.log(`${mode}=PASS`);
 }
+else if (mode === "post-upgrade-b1") await postUpgradeB1();
 else if (mode === "cleanup") {
   const state = await readState();
   const refs = new Set([state.wooSecretReference]);

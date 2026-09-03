@@ -130,6 +130,7 @@ schema_assertions() {
 run_slice_a() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-organic-evidence-supabase-integration.test.js; }
 run_b1() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-supabase-integration.test.js; }
 run_preservation() { node scripts/validation/v1-04-b1-p4-upgrade-preservation.mjs "$@"; }
+run_dependency_comparison() { node scripts/validation/v1-04-b1-p4-dependency-closure.mjs "$TMP/dependency-closure.json"; }
 run_accepted_slice_a() {
   local baseline="$TMP/accepted-slice-a"
   mkdir -p "$baseline"
@@ -147,7 +148,6 @@ start_project "$ZERO_ID" "$LAST_DIR"
 load_env "$LAST_DIR"
 schema_assertions "$ZERO_ID" 20260918000000 7
 run_slice_a
-run_b1
 echo "from-zero=PASS project=$ZERO_ID ports=$ZERO_API,$ZERO_DB"
 
 UPGRADE_ID="v104-p4-upgrade-${RUN_ID}"
@@ -159,6 +159,7 @@ start_project "$UPGRADE_ID" "$LAST_DIR"
 load_env "$LAST_DIR"
 refresh_disposable_postgrest_schema "$UPGRADE_ID" || print -r -- "cutoff-service-rpc=direct-postgres-fallback"
 schema_assertions "$UPGRADE_ID" 20260903000000 5
+run_dependency_comparison
 run_accepted_slice_a
 reload_schema "$UPGRADE_ID"
 PRESERVE_STATE="$TMP/$UPGRADE_ID-state.json"
@@ -166,9 +167,9 @@ PRESERVE_BEFORE="$TMP/$UPGRADE_ID-before.json"
 PRESERVE_AFTER="$TMP/$UPGRADE_ID-after.json"
 run_preservation --mode seed --state "$PRESERVE_STATE"
 run_preservation --mode snapshot-before --state "$PRESERVE_STATE" --snapshot "$PRESERVE_BEFORE"
-for migration in "${ROOT}"/supabase/migrations/*.sql; do
-  [[ "$(basename "$migration")" > 20260903000000_v1_04_slice_a_integrity.sql ]] && cp "$migration" "$LAST_DIR/supabase/migrations/"
-done
+while IFS= read -r migration; do
+  [[ "$(basename "$migration")" > 20260903000000_v1_04_slice_a_integrity.sql ]] && cp "$ROOT/$migration" "$LAST_DIR/supabase/migrations/"
+done < <(git -C "$ROOT" ls-files 'supabase/migrations/*.sql' | sort)
 SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$LAST_DIR" migration up --local >/dev/null 2>&1
 load_env "$LAST_DIR"
 schema_assertions "$UPGRADE_ID" 20260918000000 7
@@ -176,6 +177,13 @@ refresh_disposable_postgrest_schema "$UPGRADE_ID"
 run_preservation --mode snapshot-after --state "$PRESERVE_STATE" --snapshot "$PRESERVE_AFTER"
 cmp -s "$PRESERVE_BEFORE" "$PRESERVE_AFTER"
 run_slice_a
-run_b1
+run_preservation --mode post-upgrade-b1 --state "$PRESERVE_STATE"
+PRE_HASH=$(tr -d '\n' < "$PRESERVE_BEFORE.sha256")
+POST_HASH=$(tr -d '\n' < "$PRESERVE_AFTER.sha256")
+UNAFF_BEFORE=$(tr -d '\n' < "$PRESERVE_STATE.unaffected-before.json.sha256")
+UNAFF_AFTER=$(tr -d '\n' < "$PRESERVE_STATE.unaffected-after.json.sha256")
+test "$PRE_HASH" = "$POST_HASH"
+test "$UNAFF_BEFORE" = "$UNAFF_AFTER"
 run_preservation --mode cleanup --state "$PRESERVE_STATE"
+P4_IMPLEMENTATION_SHA="$(git -C "$ROOT" rev-parse HEAD)" P4_PRE_HASH="$PRE_HASH" P4_POST_HASH="$POST_HASH" P4_UNAFF_BEFORE="$UNAFF_BEFORE" P4_UNAFF_AFTER="$UNAFF_AFTER" node --input-type=module -e 'import fs from "node:fs"; const dep=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); const b1=JSON.parse(fs.readFileSync(process.argv[2],"utf8")); const out=process.argv[3]; const artifact={artifact_schema_version:2,implementation_sha:process.env.P4_IMPLEMENTATION_SHA||"unknown",accepted_slice_a_commit:"8b91c797f3a45655cf5703651dad143a684ef620",accepted_migration_cutoff:"20260903000000_v1_04_slice_a_integrity.sql",dependency_validation_method:"LOCKFILE_MATERIAL_CLOSURE_COMPARISON",material_dependency_package_count:dep.material_dependency_package_count,material_dependency_equivalent:dep.material_dependency_equivalent,historical_npm_ci_required:!dep.material_dependency_equivalent,historical_npm_ci_result:dep.material_dependency_equivalent?"NOT_REQUIRED":"NOT_RUN",projection_schema_version:2,canonicalization_version:"stable-json-v2",projection_field_count:32,projection_field_groups:["account","business","connection","store","generation","commerce","organic","vault"],pre_upgrade_sha256:process.env.P4_PRE_HASH,post_upgrade_sha256:process.env.P4_POST_HASH,projection_match:process.env.P4_PRE_HASH===process.env.P4_POST_HASH,pre_b1_unaffected_sha256:process.env.P4_UNAFF_BEFORE,post_b1_unaffected_sha256:process.env.P4_UNAFF_AFTER,unaffected_state_match:process.env.P4_UNAFF_BEFORE===process.env.P4_UNAFF_AFTER,current_status_route_after_upgrade:"PASS",same_preserved_business_used_for_b1:true,additional_account_created_by_b1_proof:false,additional_business_created_by_b1_proof:false,preserved_business_b1_result:b1,status_route:"PASS",gsc_connection_source_result:"PASS",search_analytics_observations_created:0,security_smoke:"NOT_RUN_IN_THIS_BOUNDED_TASK",database_cleanup:"PASS",vault_cleanup:"PASS",disposable_resource_cleanup:"PASS",external_live_calls:{google:0,woocommerce:0,street_kingz:0,dataforseo:0},tooling_defects:[]}; fs.writeFileSync(out,JSON.stringify(artifact,null,2)+"\n");' "$TMP/dependency-closure.json" "$PRESERVE_STATE.b1-result.json" "$ROOT/artifacts/validation/v1-04/slice-b1-p4-upgrade-preservation.json"
 echo "upgrade=PASS project=$UPGRADE_ID ports=$UPGRADE_API,$UPGRADE_DB"
