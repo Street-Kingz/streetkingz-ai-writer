@@ -13,13 +13,20 @@ cleanup() {
   for dir in "${PROJECT_DIRS[@]}"; do
     SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$dir" stop --no-backup >/dev/null 2>&1
   done
-  for name in $(docker ps -a --format '{{.Names}}' | rg '^supabase_.*v104-p4-'); do
-    docker rm -f "$name" >/dev/null 2>&1
-  done
-  for name in $(docker volume ls --format '{{.Name}}' | rg 'v104-p4'); do
-    docker volume rm "$name" >/dev/null 2>&1
+  for id in "${PROJECTS[@]}"; do
+    for service in db auth rest kong; do
+      docker rm -f "supabase_${service}_${id}" >/dev/null 2>&1
+    done
+    docker volume rm "supabase_db_${id}" >/dev/null 2>&1
   done
   docker network rm "$NET" >/dev/null 2>&1
+  for id in "${PROJECTS[@]}"; do
+    for service in db auth rest kong; do
+      docker inspect "supabase_${service}_${id}" >/dev/null 2>&1 && return 1
+    done
+    docker volume inspect "supabase_db_${id}" >/dev/null 2>&1 && return 1
+  done
+  docker network inspect "$NET" >/dev/null 2>&1 && return 1
   rm -rf "$TMP" "$CFG"
 }
 trap cleanup EXIT INT TERM
@@ -57,6 +64,45 @@ start_project() {
     rg -i 'error|failed|fatal|migration' "$log" | sed -E 's/(KEY|TOKEN|SECRET|JWT|PASSWORD)=[^ ]+/\1=<redacted>/Ig' | tail -20 >&2
     return 1
   fi
+  docker exec "supabase_db_${id}" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -c "notify pgrst, 'reload schema';" >/dev/null
+}
+
+reload_schema() {
+  local id="$1"
+  docker exec "supabase_db_${id}" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -c "notify pgrst, 'reload schema';" >/dev/null
+  docker restart "supabase_rest_${id}" >/dev/null
+  sleep 3
+}
+
+rpc_visible() {
+  local id="$1" body="$TMP/$id-rpc-probe.json" http_status
+  http_status=$(curl --silent --show-error --output "$body" --write-out '%{http_code}' \
+    -X POST "$SUPABASE_URL/rest/v1/rpc/woo_create_auth_attempt" \
+    -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+    -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+    -H 'Content-Type: application/json' \
+    --data '{"p_user_id":"p4-cache-probe","p_account_id":"00000000-0000-0000-0000-000000000001","p_business_id":"00000000-0000-0000-0000-000000000002","p_connection_id":"00000000-0000-0000-0000-000000000003","p_canonical_base_url":"https://probe.invalid/","p_expires_at":"2099-01-01T00:00:00Z"}') || return 1
+  if [[ "$http_status" == 404 ]] && rg -q 'PGRST202' "$body"; then return 1; fi
+  return 0
+}
+
+poll_rpc_visibility() {
+  local id="$1" attempt
+  for attempt in {1..15}; do
+    rpc_visible "$id" && return 0
+    sleep 1
+  done
+  return 1
+}
+
+refresh_disposable_postgrest_schema() {
+  local id="$1"
+  docker exec "supabase_db_${id}" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -c "notify pgrst, 'reload schema';" >/dev/null
+  poll_rpc_visibility "$id" && return 0
+  docker kill --signal=SIGUSR1 "supabase_rest_${id}" >/dev/null
+  poll_rpc_visibility "$id" && return 0
+  docker restart "supabase_rest_${id}" >/dev/null
+  poll_rpc_visibility "$id"
 }
 
 load_env() {
@@ -71,7 +117,7 @@ load_env() {
   SERVICE_ROLE_KEY=$(awk -F= '$1 == "SERVICE_ROLE_KEY" { print substr($2, 2, length($2) - 2) }' "$file")
   rm -f "$file"
   test -n "$API_URL" -a -n "$DB_URL" -a -n "$PUBLISHABLE_KEY" -a -n "$SERVICE_ROLE_KEY"
-  export SUPABASE_URL="$API_URL" SUPABASE_PUBLISHABLE_KEY="$PUBLISHABLE_KEY" SUPABASE_SERVICE_ROLE_KEY="$SERVICE_ROLE_KEY"
+  export SUPABASE_URL="$API_URL" SUPABASE_PUBLISHABLE_KEY="$PUBLISHABLE_KEY" SUPABASE_SERVICE_ROLE_KEY="$SERVICE_ROLE_KEY" P4_DB_CONTAINER="supabase_db_$(basename "$dir")"
 }
 
 schema_assertions() {
@@ -83,6 +129,7 @@ schema_assertions() {
 
 run_slice_a() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-organic-evidence-supabase-integration.test.js; }
 run_b1() { V1_04_INTEGRATION=1 node --test --test-concurrency=1 test/v1-04-gsc-b1-supabase-integration.test.js; }
+run_preservation() { node scripts/validation/v1-04-b1-p4-upgrade-preservation.mjs "$@"; }
 run_accepted_slice_a() {
   local baseline="$TMP/accepted-slice-a"
   mkdir -p "$baseline"
@@ -110,14 +157,25 @@ UPGRADE_DB="${UPGRADE_PORTS[2]}"
 make_project "$UPGRADE_ID" "$UPGRADE_DB" "$UPGRADE_API" 20260903000000_v1_04_slice_a_integrity.sql
 start_project "$UPGRADE_ID" "$LAST_DIR"
 load_env "$LAST_DIR"
+refresh_disposable_postgrest_schema "$UPGRADE_ID" || print -r -- "cutoff-service-rpc=direct-postgres-fallback"
 schema_assertions "$UPGRADE_ID" 20260903000000 5
 run_accepted_slice_a
+reload_schema "$UPGRADE_ID"
+PRESERVE_STATE="$TMP/$UPGRADE_ID-state.json"
+PRESERVE_BEFORE="$TMP/$UPGRADE_ID-before.json"
+PRESERVE_AFTER="$TMP/$UPGRADE_ID-after.json"
+run_preservation --mode seed --state "$PRESERVE_STATE"
+run_preservation --mode snapshot-before --state "$PRESERVE_STATE" --snapshot "$PRESERVE_BEFORE"
 for migration in "${ROOT}"/supabase/migrations/*.sql; do
   [[ "$(basename "$migration")" > 20260903000000_v1_04_slice_a_integrity.sql ]] && cp "$migration" "$LAST_DIR/supabase/migrations/"
 done
 SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$LAST_DIR" migration up --local >/dev/null 2>&1
 load_env "$LAST_DIR"
 schema_assertions "$UPGRADE_ID" 20260918000000 7
+refresh_disposable_postgrest_schema "$UPGRADE_ID"
+run_preservation --mode snapshot-after --state "$PRESERVE_STATE" --snapshot "$PRESERVE_AFTER"
+cmp -s "$PRESERVE_BEFORE" "$PRESERVE_AFTER"
 run_slice_a
 run_b1
+run_preservation --mode cleanup --state "$PRESERVE_STATE"
 echo "upgrade=PASS project=$UPGRADE_ID ports=$UPGRADE_API,$UPGRADE_DB"
