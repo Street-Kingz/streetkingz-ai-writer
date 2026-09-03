@@ -198,16 +198,30 @@ Current milestone: V1-04 Organic Evidence Connections — In Progress
 
 Current active slice: Slice B — Google Search Console Connection + Evidence — IN PROGRESS
 
-Current engineering phase: B1 — Customer Connection + Property Selection
+Current engineering phase: B2 — Search Analytics Evidence Acquisition
 
-Current B1 closeout phase: P3 — Reconnect + Reauth + Disconnect + Tenant/HTTP
+B1: DONE / ACCEPTED
 
-Approved B1 closeout plan: milestones/V1-04_B1_NON_LIVE_ACCEPTANCE_CLOSEOUT_PLAN.md
+B1 non-live acceptance: COMPLETE
 
-Current next separately authorised task: founder-authorised real Google B1
-acceptance run. P1, P2, P3 and P4 are COMPLETE. B1 is READY FOR REAL GOOGLE
-ACCEPTANCE; real Google acceptance has NOT been performed. B2 remains NOT
-STARTED and V1-04 remains IN PROGRESS.
+B1 real Google acceptance: COMPLETE
+
+Real GSC connection: ACTIVE for the accepted Street Kingz property
+
+Selected property: `https://streetkingz.co.uk/`
+
+Property type: `url_prefix`
+
+Permission: `siteOwner`
+
+Search Console source: `never_collected`
+
+Search Analytics observations: 0
+
+B2: NOT STARTED
+
+Current next separately authorised task: B2 — Search Analytics Evidence
+Acquisition
 
 ## Current B1 real acceptance (2026-09-03)
 
@@ -229,14 +243,12 @@ corrected self-healing run remain preserved in the V1-03 acceptance evidence.
 
 V1-04 Organic Evidence Connections is In Progress under its approved contract.
 Slice A — Organic Evidence Foundation is DONE / ACCEPTED. Slice B — Google
-Search Console Connection + Evidence is IN PROGRESS in B1 — Customer
-Connection + Property Selection. B1 is implemented locally but remains BLOCKED
-pending the complete non-live route/Vault, race/replay, reconnect, two-tenant
-and acceptance-surface matrix. Search Analytics evidence (B2) is not started.
-
-B1 non-live acceptance is complete under the frozen closeout plan and B1 is
-READY FOR REAL GOOGLE ACCEPTANCE. P1, P2, P3 and P4 are COMPLETE. Real Google
-acceptance has NOT been performed; B2 remains NOT STARTED.
+Search Console Connection + Evidence is IN PROGRESS in B2 — Search Analytics
+Evidence Acquisition. B1 is DONE / ACCEPTED. B1 non-live acceptance and real
+Google acceptance are COMPLETE. The active read-only GSC connection uses the
+accepted Street Kingz property `https://streetkingz.co.uk/` with property type
+`url_prefix` and permission `siteOwner`. Search Analytics evidence (B2) is not
+started; the source remains `never_collected` and observations remain 0.
 
 V1-00 Governance Activation: Done
 
@@ -299,8 +311,9 @@ Accepted Street Kingz validation recommendation
 This is Product validation evidence, not the next Product milestone. Implementing the Street Kingz recommendation is a separate test-store side task and must not block V1-02.
 
 V1-03 WooCommerce Commerce Connection is Done / accepted, including its
-incremental-sync and freshness slice. The next approved milestone is V1-04
-Organic Evidence, which is not started. The completed V1-01 contract is
+incremental-sync and freshness slice. Historical governance-baseline snapshot
+(42c4c59): the next approved milestone was V1-04 Organic Evidence, which was
+not started. The completed V1-01 contract is
 `milestones/V1-01_PROGRESSIVE_EVIDENCE_DECISION_GATE.md`. The approved V1-02
 contract is `milestones/V1-02_SINGLE_BUSINESS_PRODUCT_KERNEL.md`; its accepted
 architecture is `docs/architecture/V1-02_PRODUCT_KERNEL_ARCHITECTURE.md`. The
@@ -2245,9 +2258,10 @@ The previous Phase B attempt is preserved but superseded; its blocked result was
 
 V1-02 Single-Business Product Kernel is Done and accepted.
 
-V1-03 WooCommerce Commerce Connection is Done / accepted. The next milestone
-is V1-04 Organic Evidence, which remains not started and awaits its normal
-implementation activation and contract process.
+V1-03 WooCommerce Commerce Connection is Done / accepted. Historical
+governance-baseline snapshot (42c4c59): the next milestone was V1-04 Organic
+Evidence, which remained not started and awaited its normal implementation
+activation and contract process.
 
 35. Backlog State
 
@@ -2343,7 +2357,8 @@ V1-02 Single-Business Product Kernel is Done and accepted;
 
 V1-03 WooCommerce Commerce Connection is Done / accepted, including initial
 commerce sync, incremental sync, rolling-window behavior, freshness exposure,
-and final real Street Kingz reconciliation. V1-04 Organic Evidence is next and
-not started; no V1-04 implementation is activated.
+and final real Street Kingz reconciliation. Historical governance-baseline
+snapshot (42c4c59): V1-04 Organic Evidence was next and not started; no V1-04
+implementation was activated at that baseline.
 
 The repository is a strong foundation. It is not yet the Product.
