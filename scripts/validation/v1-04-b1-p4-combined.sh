@@ -18,6 +18,7 @@ run_suite() {
   started=$(date +%s)
   unset V1_02_INTEGRATION V1_03_INTEGRATION V1_03_ACCEPTANCE_HARNESS_INTEGRATION V1_04_INTEGRATION V1_04_P2_INTEGRATION V1_04_P2A_INTEGRATION V1_04_P2B_INTEGRATION V1_04_P3A_INTEGRATION V1_04_P3A1_INTEGRATION V1_04_P3A2_INTEGRATION V1_04_P3A3_INTEGRATION V1_04_P3B_HARNESS_INTEGRATION V1_04_P3B_TENANT_INTEGRATION
   if [[ -n "$flag" ]]; then export "$flag=1"; fi
+  if [[ "$name" == "v1-03-harness" ]]; then export V1_03_ACCEPTANCE_HARNESS=1; fi
   set +e
   (cd "$ROOT" && perl -e 'alarm 1800; exec @ARGV' -- node --test --test-concurrency=1 $=files) >"$log" 2>&1
   exit_status=$?
