@@ -1,6 +1,6 @@
 {
   "artifact_schema_version": 2,
-  "implementation_sha": "225f36f867ea23d6455c0289f91b3c443705134d",
+  "implementation_sha": "ff9024dfcdbfc8af6f244bd47461ded8394c051d",
   "accepted_slice_a_commit": "8b91c797f3a45655cf5703651dad143a684ef620",
   "accepted_migration_cutoff": "20260903000000_v1_04_slice_a_integrity.sql",
   "dependency_validation_method": "LOCKFILE_MATERIAL_CLOSURE_COMPARISON",
@@ -21,11 +21,11 @@
     "organic",
     "vault"
   ],
-  "pre_upgrade_sha256": "80e07ac12827dbab70ad353e5cf419ba15f7af5a80b14aedec79d22e6a4c0bcf",
-  "post_upgrade_sha256": "80e07ac12827dbab70ad353e5cf419ba15f7af5a80b14aedec79d22e6a4c0bcf",
+  "pre_upgrade_sha256": "8b0542dc30f953abb30b22d878a8f255045666eb4596af18aed85d35f12ffa3d",
+  "post_upgrade_sha256": "8b0542dc30f953abb30b22d878a8f255045666eb4596af18aed85d35f12ffa3d",
   "projection_match": true,
-  "pre_b1_unaffected_sha256": "80e07ac12827dbab70ad353e5cf419ba15f7af5a80b14aedec79d22e6a4c0bcf",
-  "post_b1_unaffected_sha256": "80e07ac12827dbab70ad353e5cf419ba15f7af5a80b14aedec79d22e6a4c0bcf",
+  "pre_b1_unaffected_sha256": "8b0542dc30f953abb30b22d878a8f255045666eb4596af18aed85d35f12ffa3d",
+  "post_b1_unaffected_sha256": "8b0542dc30f953abb30b22d878a8f255045666eb4596af18aed85d35f12ffa3d",
   "unaffected_state_match": true,
   "current_status_route_after_upgrade": "PASS",
   "same_preserved_business_used_for_b1": true,
