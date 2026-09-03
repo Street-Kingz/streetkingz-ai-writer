@@ -13,19 +13,19 @@ case "$API_URL" in http://127.0.0.1:*|http://localhost:*) ;; *) print -u2 "norma
 export SUPABASE_URL="$API_URL" SUPABASE_PUBLISHABLE_KEY="$PUBLISHABLE_KEY" SUPABASE_SERVICE_ROLE_KEY="$SERVICE_ROLE_KEY"
 
 run_suite() {
-  local name="$1" flag="$2" files="$3" log started ended status summary
+  local name="$1" flag="$2" files="$3" log started ended exit_status summary
   log="$TMP/$name.tap"
   started=$(date +%s)
   unset V1_02_INTEGRATION V1_03_INTEGRATION V1_03_ACCEPTANCE_HARNESS_INTEGRATION V1_04_INTEGRATION V1_04_P2_INTEGRATION V1_04_P2A_INTEGRATION V1_04_P2B_INTEGRATION V1_04_P3A_INTEGRATION V1_04_P3A1_INTEGRATION V1_04_P3A2_INTEGRATION V1_04_P3A3_INTEGRATION V1_04_P3B_HARNESS_INTEGRATION V1_04_P3B_TENANT_INTEGRATION
   if [[ -n "$flag" ]]; then export "$flag=1"; fi
   set +e
   (cd "$ROOT" && perl -e 'alarm 1800; exec @ARGV' -- node --test --test-concurrency=1 $=files) >"$log" 2>&1
-  status=$?
+  exit_status=$?
   set -e
   ended=$(date +%s)
   summary=$(rg '^# (tests|pass|fail|skipped|todo) ' "$log" | tail -5 | tr '\n' ';' || true)
-  print "suite=$name exit=$status duration=$((ended-started))s $summary"
-  if (( status != 0 )); then sed -E 's/(KEY|TOKEN|SECRET|PASSWORD)=[^ ]+/\1=<redacted>/Ig' "$log" | tail -30 >&2; return $status; fi
+  print "suite=$name exit=$exit_status duration=$((ended-started))s $summary"
+  if (( exit_status != 0 )); then sed -E 's/(KEY|TOKEN|SECRET|PASSWORD)=[^ ]+/\1=<redacted>/Ig' "$log" | tail -30 >&2; return $exit_status; fi
   rg -q '^1\.\.1|^1\.\.([0-9]+)' "$log"
 }
 
