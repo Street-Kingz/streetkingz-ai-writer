@@ -9,6 +9,10 @@ test("Google-shaped callback metadata is informational and accepted", () => {
   assert.deepEqual(validateGoogleCallbackQuery(valid), { state: "synthetic-state", code: "synthetic-code", error: null });
 });
 
+test("Google callback issuer metadata is accepted as a scalar", () => {
+  assert.deepEqual(validateGoogleCallbackQuery({ state: "synthetic-state", code: "synthetic-code", scope: "synthetic-read-only-scope", iss: "https://accounts.google.com" }), { state: "synthetic-state", code: "synthetic-code", error: null });
+});
+
 for (const key of ["account_id", "business_id", "connection_id", "provider_id", "user_id", "auth_user_id", "site_url", "selected_property", "target"]) {
   test(`callback rejects ownership rebinding key ${key}`, () => assert.throws(() => validateGoogleCallbackQuery({ ...valid, [key]: "injected" }), ProductError));
 }

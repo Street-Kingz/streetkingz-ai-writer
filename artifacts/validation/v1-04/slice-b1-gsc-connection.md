@@ -429,3 +429,13 @@ The preceding blocked statements are historical snapshots. Current P1, P2, P3
 and P4 evidence is complete. B1 is READY FOR REAL GOOGLE ACCEPTANCE. Real
 Google acceptance has NOT been performed, B2 is NOT STARTED, and V1-04 remains
 IN PROGRESS.
+
+## Current real Google B1 acceptance (2026-09-03)
+
+The founder-authorised real Google B1 acceptance passed using the exact
+reprovisioned Street Kingz tenant. The read-only Search Console connection is
+ACTIVE, the exact property `https://streetkingz.co.uk/` was selected and
+probed, and the Search Console source remains `never_collected`. Search
+Analytics collection was not performed. B1 is DONE / ACCEPTED; B2 remains NOT
+STARTED and V1-04 remains IN PROGRESS. The sanitized live proof is recorded in
+`artifacts/validation/v1-04/slice-b1-real-google-acceptance.md`.

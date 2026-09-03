@@ -209,6 +209,15 @@ acceptance run. P1, P2, P3 and P4 are COMPLETE. B1 is READY FOR REAL GOOGLE
 ACCEPTANCE; real Google acceptance has NOT been performed. B2 remains NOT
 STARTED and V1-04 remains IN PROGRESS.
 
+## Current B1 real acceptance (2026-09-03)
+
+The founder-authorised real Google B1 acceptance passed for the exact
+reprovisioned Street Kingz tenant. B1 is DONE / ACCEPTED, the read-only GSC
+connection is active, and the selected property is retained in Vault. The
+requested scope was `webmasters.readonly`; Search Analytics collection was not
+performed. B2 remains NOT STARTED and V1-04 remains IN PROGRESS. The next
+separately authorised task is B2 — Search Analytics Evidence Acquisition.
+
 Current V1-03 acceptance state (verified at the current repository state):
 
 V1-03 WooCommerce Commerce Connection: DONE / ACCEPTED.
