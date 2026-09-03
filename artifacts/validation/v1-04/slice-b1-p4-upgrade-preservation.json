@@ -1,0 +1,23 @@
+{
+  "artifact_schema_version": 1,
+  "implementation_sha": "8c0205c1f5335c1f636413e987cc92df8b96a28d",
+  "accepted_slice_a_commit": "8b91c797f3a45655cf5703651dad143a684ef620",
+  "accepted_migration_cutoff": "20260903000000_v1_04_slice_a_integrity.sql",
+  "accepted_dependency_validation": "historical contract executed in isolated archive; dependency lockfile installation remains a follow-up limitation",
+  "pgrst202_reproduced": true,
+  "schema_cache_reload": { "notify": true, "sigusr1": true, "exact_restart": true, "cutoff_fixture_transport": "DIRECT_POSTGRES_SERVICE_ROLE_FUNCTIONS" },
+  "seeded_record_classes": ["auth_user", "account", "business", "woo_connection", "commerce_store", "commerce_generation", "commerce_evidence", "organic_source", "organic_run"],
+  "projection": { "field_manifest_defined": true, "pre_upgrade_hash_captured": true, "post_upgrade_hash_captured": true, "projection_match": true, "private_vault_reference_stable": true, "active_woo_secret_readable_before": true, "active_woo_secret_readable_after": true, "active_woo_secret_content_unchanged": true },
+  "post_cutoff_migration_count": 11,
+  "current_migration_head": "20260918000000_v1_04_p3a3_disconnect_consistency.sql",
+  "accepted_baseline": "PASS",
+  "current_status_route_after_upgrade": "PASS",
+  "current_b1_flow_after_upgrade": "PASS",
+  "security_smoke": "PASS",
+  "database_cleanup": "PASS",
+  "vault_cleanup": "PASS",
+  "disposable_resource_cleanup": "PASS",
+  "external_live_calls": { "google": 0, "woocommerce": 0, "street_kingz": 0, "dataforseo": 0 },
+  "product_defects": [],
+  "tooling_defects": ["P4-TOOL-DEF-001"]
+}
