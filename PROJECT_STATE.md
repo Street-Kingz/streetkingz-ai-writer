@@ -196,7 +196,7 @@ Governance rebaseline and Product-state establishment
 
 Current milestone: V1-04 Organic Evidence Connections — In Progress
 
-Current active slice: Slice B — Google Search Console Connection + Evidence — IN PROGRESS
+Current active slice: Slice C — bounded site discovery and page-truth evidence — DONE / ACCEPTED
 
 Current engineering phase: B2 — Search Analytics Evidence Acquisition
 
@@ -222,17 +222,18 @@ B2: DONE / ACCEPTED
 
 Search Analytics evidence: COLLECTED / accepted under B2 semantics
 
-Current next separately authorised task: Slice C — bounded site discovery and
-page-truth evidence
+Current next separately authorised task: Slice D — external-provider decision
+and bounded external evidence
 
-## Current V1-04 B2 real acceptance (2026-09-03)
+## Current V1-04 Slice C real acceptance (2026-09-03)
 
-The founder-authorised bounded real Google B2 acceptance passed for the exact
-accepted Street Kingz property. B1 remains DONE / ACCEPTED, the read-only GSC
-connection remains active, and B2 Search Analytics evidence is accepted with
-provider-limited detailed grains. V1-04 remains IN PROGRESS. The next
-separately authorised task is Slice C — bounded site discovery and page-truth
-evidence.
+The founder-authorised bounded real Street Kingz site acquisition passed with a
+truthful `partial` result because the explicit inspected-page cap was reached.
+The prior complete site run remains the current/LKG inventory; the partial run
+is retained for inspection and does not mark URLs removed. B1 and B2 remain
+DONE / ACCEPTED, the read-only GSC connection remains active, and V1-04 remains
+IN PROGRESS. The next separately authorised task is Slice D — external-provider
+decision and bounded external evidence.
 
 Current V1-03 acceptance state (verified at the current repository state):
 
@@ -245,12 +246,15 @@ corrected self-healing run remain preserved in the V1-03 acceptance evidence.
 
 V1-04 Organic Evidence Connections is In Progress under its approved contract.
 Slice A — Organic Evidence Foundation is DONE / ACCEPTED. Slice B — Google
-Search Console Connection + Evidence is DONE / ACCEPTED. B1 and B2 are DONE /
-ACCEPTED. B1 non-live acceptance and real Google acceptance are COMPLETE. The
-active read-only GSC connection uses the accepted Street Kingz property
-`https://streetkingz.co.uk/` with property type `url_prefix` and permission
-`siteOwner`. Search Analytics evidence is collected and accepted under B2
-semantics; detailed grains remain explicitly provider-limited.
+Search Console Connection + Evidence is DONE / ACCEPTED. Slice C — bounded site
+discovery and page-truth evidence is DONE / ACCEPTED with a partial real run
+and preserved LKG inventory. B1 and B2 are DONE / ACCEPTED. B1 non-live
+acceptance and real Google acceptance are COMPLETE. The active read-only GSC
+connection uses the accepted Street Kingz property `https://streetkingz.co.uk/`
+with property type `url_prefix` and permission `siteOwner`. Search Analytics
+evidence remains accepted under B2 semantics; detailed grains remain explicitly
+provider-limited. The next separately authorised task is Slice D —
+external-provider decision and bounded external evidence.
 
 V1-00 Governance Activation: Done
 
