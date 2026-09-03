@@ -198,7 +198,8 @@ Current milestone: V1-04 Organic Evidence Connections — In Progress
 
 Current active slice: Slice C — bounded site discovery and page-truth evidence — DONE / ACCEPTED
 
-Current engineering phase: B2 — Search Analytics Evidence Acquisition
+Current engineering phase: Slice D — external-provider decision and bounded
+external evidence
 
 B1: DONE / ACCEPTED
 
@@ -225,10 +226,11 @@ Search Analytics evidence: COLLECTED / accepted under B2 semantics
 Current next separately authorised task: Slice D — external-provider decision
 and bounded external evidence
 
-Slice D status: PROVIDER DECISION GATE BLOCKED — PROVIDER TERMS/LICENSING
-CLARIFICATION REQUIRED
+Slice D status: PROVIDER DECISION GATE COMPLETE — OWNER APPROVED FOR BOUNDED
+IMPLEMENTATION
 
-DataForSEO: PROVISIONAL — recommendation recorded, not yet owner-approved
+DataForSEO: ACCEPTED V1 EXTERNAL PROVIDER — bounded Product implementation not
+yet started
 
 ## Current V1-04 Slice C real acceptance (2026-09-03)
 

@@ -4,7 +4,7 @@
 - Branch: `feature/v1-04-organic-evidence`
 - Repository SHA at review: `cc2452c9ba44659ef087de2ad680c851ef219545`
 - Scope: Slice D0 provider decision only; no Slice D Product implementation.
-- Live validation: **NO — blocked before billable testing**.
+- Live validation: **NO — the prior D0 gate was blocked before billable testing**.
 
 ## Governed state
 
@@ -13,8 +13,13 @@ Search Analytics observations. Slice C remains accepted with truthful partial
 completeness caused by `inspected_page_cap`. No accepted evidence, connection,
 credential or tenant state was changed.
 
-The Slice D decision gate remains required. DataForSEO remains **PROVISIONAL**;
-this document is a recommendation for Ben and is not provider approval.
+The original Slice D decision gate was required and was blocked pending terms
+clarification. On 2026-09-03, Ben explicitly approved DataForSEO for bounded V1
+use under the controls recorded below. DataForSEO is now **ACCEPTED V1 EXTERNAL
+PROVIDER** for a separately authorised implementation; this document does not
+authorize implementation by itself.
+
+Owner approval: `DATAFORSEO: APPROVED FOR BOUNDED V1 USE`.
 
 ## Official material reviewed
 
@@ -44,10 +49,13 @@ Reviewed on 2026-09-03:
   current supported-location mechanism and free lookup endpoint.
 - [Google SERP locations](https://docs.dataforseo.com/v3/serp/google/locations/):
   current supported SERP-location mechanism and free lookup endpoint.
+- [DataForSEO Labs Google API pricing](https://dataforseo.com/pricing/dataforseo-labs/dataforseo-google-api):
+  current Labs live pricing of $0.012 per task plus $0.00012 per returned item
+  for the applicable non-historical endpoints.
+- [Google Organic SERP API pricing](https://dataforseo.com/pricing/serp/google-organic-serp-api):
+  current Live pricing of $0.002 per 10-result SERP and documented multipliers.
 - [DataForSEO pricing](https://dataforseo.com/pricing): pay-as-you-go model,
-  minimum payment of $50 and account budget controls; the retrieved public page
-  delegates endpoint prices to interactive pricing material and did not expose
-  stable numeric prices for the two proposed endpoints.
+  minimum payment of $50 and account budget controls.
 - [DataForSEO UK location announcement](https://dataforseo.com/update/new-locations-for-amazon-search-volume):
   identifies United Kingdom as location code 2826 and English as `en`.
 - [DataForSEO US location example](https://dataforseo.com/help-center/how-to-scrape-google-search-results-with-python-using-dataforseo-serp-api):
@@ -136,11 +144,13 @@ must retain a stable ID, Business/source-record identity, normalized text,
 locale/language and direct provenance. Provider-returned ideas remain child
 evidence with a parent direct seed. No LLM seed generation is permitted.
 
-Recommended owner-review policy: source priority `woo_product`,
-`woo_category`, `site_title`, `site_h1`, `gsc_query`; normalize deterministic
-duplicates; sort stably by source priority then normalized text then source
-identity; retain at most 5 per class and 20 per Business run. Do not use volume,
-difficulty, revenue, margin or rank to choose seeds.
+The owner-approved policy is source priority `woo_product`, `woo_category`,
+`site_title`, `site_h1`, `gsc_query`, with deterministic duplicate identity and
+round-robin selection across non-empty classes. Select at most 5 total direct
+seeds. Within each class, order by normalized text then stable source identity.
+Each Keyword Ideas request contains exactly one direct seed, preserving exact
+parent lineage. Do not use volume, difficulty, revenue, margin or rank to
+choose seeds.
 
 ### Conditional future caps
 
@@ -148,13 +158,13 @@ These are proposed freeze points only:
 
 | Constant | Proposed value |
 |---|---:|
-| `MAX_DIRECT_SEEDS_PER_SOURCE_CLASS` | 5 |
-| `MAX_DIRECT_SEEDS_PER_BUSINESS_RUN` | 20 |
-| `MAX_PROVIDER_IDEAS_PER_SEED_OR_REQUEST` | 25 |
+| `MAX_DIRECT_SEEDS_PER_SOURCE_CLASS` | 5, subject to the 5-seed global cap |
+| `MAX_DIRECT_SEEDS_PER_BUSINESS_RUN` | 5 |
+| `MAX_PROVIDER_IDEAS_PER_SEED_OR_REQUEST` | 20 |
 | `MAX_PROVIDER_IDEAS_TOTAL` | 100 |
-| `MAX_SERP_QUERIES_PER_BUSINESS_RUN` | 20 direct seeds only |
+| `MAX_SERP_QUERIES_PER_BUSINESS_RUN` | 5 direct seeds only |
 | `SERP_RESULTS_DEPTH` | 10 |
-| `MAX_PROVIDER_REQUESTS_PER_RUN` | 21 (1 Labs + 20 SERP) |
+| `MAX_PROVIDER_REQUESTS_PER_RUN` | 10 (5 Labs + 5 SERP) |
 | `MAX_PROVIDER_COST_USD_PER_RUN` | 0.10 hard ceiling, subject to verified pricing |
 | `MAX_PROVIDER_COST_USD_PER_BUSINESS_PER_REFRESH_WINDOW` | 0.20 hard ceiling |
 | `MAX_CONCURRENCY` | 2 |
@@ -165,15 +175,12 @@ These are proposed freeze points only:
 
 ### Cost and rate-limit position
 
-The official pages establish pay-per-request billing and the endpoint cost
-model, including a 10-result SERP billing unit and extra charges for certain
-optional parameters. They do not expose a stable numeric price in the retrieved
-public pricing page. Therefore:
+The official pricing pages establish:
 
-- current Keyword Ideas price: **unresolved**;
-- current SERP Advanced price: **unresolved**;
-- historical estimates (`$0.024` Labs and `$0.002` SERP task) are stale and not
-  used as current truth;
+- Keyword Ideas: $0.012 per task plus $0.00012 per returned item;
+- Google Organic SERP Live: $0.002 per 10-result SERP at depth 10;
+- historical estimates (`$0.024` Labs and `$0.002` SERP task) are not used as
+  current truth;
 - cost multipliers reviewed: clickstream can double Labs cost; SERP depth above
   10, async AI overview, rectangles, PAA clicks, special query operators and
   crawl depth can add charges;
@@ -182,8 +189,10 @@ public pricing page. Therefore:
 - Product should remain far below those limits with tenant fairness, a durable
   cost ledger, preflight estimates and a hard actual-cost stop.
 
-No $0.10 live-test preflight can pass until the account-applicable numeric
-prices and all applicable multipliers are verified.
+The corrected bounded first run is 5 Labs requests × ($0.012 + 20 ×
+$0.00012) = $0.072, plus 5 SERP requests × $0.002 = $0.010, for a worst
+bounded estimate of $0.082. This fits the $0.10 ceiling provided no optional
+multiplier is enabled.
 
 ### Duplicate, freshness and failure requirements
 
@@ -201,6 +210,19 @@ require reauthentication/credential remediation; insufficient balance, 400,
 401/403, 429, 5xx, timeout, malformed JSON/item, task error, cost-limit breach
 and partial responses need distinct safe failure/limitation states.
 
+## Subsequent owner decision and implementation authorization
+
+Ben reviewed the original terms/storage concern and explicitly accepted bounded
+customer-facing SaaS use under these controls: server-side Product-owned
+credentials; normalized minimum data only; no raw resale, passthrough, bulk raw
+redistribution or full-dataset mirroring; minimum necessary retention; tenant
+isolation; provenance; cost ceilings; LKG/failure semantics; and no opportunity
+ranking in V1-04. The original concern is retained above and is not erased.
+
+The D0 result is therefore: **APPROVED BY OWNER FOR BOUNDED V1 USE**.
+DataForSEO is **ACCEPTED V1 EXTERNAL PROVIDER**, and Slice D is **AUTHORIZED
+FOR IMPLEMENTATION**. This is not Slice D completion.
+
 ## Live validation result
 
 - DataForSEO live test performed: **NO**.
@@ -208,7 +230,7 @@ and partial responses need distinct safe failure/limitation states.
 - SERP calls: 0.
 - Total billable calls: 0.
 - Actual provider cost: USD 0.00.
-- $0.10 ceiling: not consumed; preflight could not be proven.
+- $0.10 ceiling: not consumed; corrected non-live preflight is $0.082 worst case.
 - Keyword quality: not assessed.
 - SERP quality: not assessed.
 - External calls by host/type: none.
@@ -225,16 +247,13 @@ No Product code or migration was changed by this gate.
 
 ## Decision
 
-**RECOMMENDATION: APPROVE WITH CONDITIONS, pending owner/legal clarification.**
+**PROVIDER RECOMMENDATION: APPROVED BY OWNER FOR BOUNDED V1 USE.**
 
-Technical fit, bounded endpoints, UK configuration and deterministic controls
-are promising. Terms/licensing/storage permission and current endpoint pricing
-remain unresolved, so this is not approval to implement or spend provider
-credit. Ben must decide whether to accept written clarification and authorize a
-separate Slice D implementation.
+Technical fit, bounded endpoints, UK configuration, current pricing and
+deterministic controls are accepted by the owner under the explicit restrictions
+above. The later Product implementation must still prove all security,
+idempotency, lifecycle and quality requirements before any live call.
 
-- Critical remaining: provider terms/licensing/storage clarification; current
-  account-applicable endpoint pricing and $0.10 preflight.
-- High remaining: UK keyword/SERP quality validation; Product credential and
-  tenant-bound implementation; paid-call idempotency and cost ledger.
-
+- Critical remaining: none for D0 approval.
+- High remaining: Product credential and tenant-bound implementation; paid-call
+  idempotency/cost ledger; UK keyword/SERP quality validation.
