@@ -10,6 +10,7 @@ import { googleSearchConsoleTransport, hashOAuthState, propertyMatches, property
 
 const router = express.Router(); router.use(correlationMiddleware);
 const provider = "google_search_console";
+const CALLBACK_REBINDING_KEYS = new Set(["account_id", "business_id", "connection_id", "provider_id", "user_id", "auth_user_id", "site_url", "selected_property", "target"]);
 let lifecycleTestHook = null;
 export function setGoogleSearchConsoleLifecycleHookForTests(next) { lifecycleTestHook = next || null; }
 async function lifecyclePause(point) { if (lifecycleTestHook) await lifecycleTestHook(point); }
@@ -33,6 +34,18 @@ async function ownedConnection(admin, businessId, id) {
   return row.data;
 }
 
+export function validateGoogleCallbackQuery(query = {}) {
+  for (const [key, value] of Object.entries(query)) {
+    if (CALLBACK_REBINDING_KEYS.has(key)) throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid.", 400);
+    if (value === null || typeof value === "object") throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid.", 400);
+  }
+  const state = query.state;
+  const code = query.code;
+  const error = query.error;
+  if (typeof state !== "string" || !state || (code !== undefined && typeof code !== "string") || (error !== undefined && typeof error !== "string") || (code === undefined) === (error === undefined) || (code !== undefined && !code) || (error !== undefined && !error)) throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid.", 400);
+  return { state, code: code ?? null, error: error ?? null };
+}
+
 router.post("/api/product/organic-evidence/search-console/connect", handle(start));
 router.post("/api/product/organic-evidence/search-console/reconnect", handle(start));
 
@@ -50,15 +63,14 @@ async function start(req, res) {
 }
 
 router.get("/api/product/organic-evidence/search-console/callback", handle(async (req, res) => {
-  const state = typeof req.query.state === "string" ? req.query.state : "";
-  if (!state || (typeof req.query.code !== "string" && typeof req.query.error !== "string") || Object.keys(req.query).some(key => !["state", "code", "error", "error_description", "error_uri"].includes(key))) throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid.", 400);
+  const { state, code, error: callbackError } = validateGoogleCallbackQuery(req.query);
   const admin = privilegedClient();
   const claim = await admin.rpc("gsc_claim_oauth_attempt", { p_state_hash: hashOAuthState(state) });
   if (claim.error || !claim.data) throw new ProductError("GSC_CALLBACK_INVALID", "Search Console callback is invalid or expired.", 400);
   const attempt = Array.isArray(claim.data) ? claim.data[0] : claim.data;
   const fail = async code => { const failed = await admin.rpc("gsc_fail_oauth_attempt", { p_attempt_id: attempt.attempt_id, p_code: code }); if (failed.error && !String(failed.error.message || "").includes("GSC_CALLBACK_INVALID")) throw failed.error; throw new ProductError(code, "Google Search Console authorization could not be completed.", 409); };
-  if (req.query.error) return fail("GSC_AUTH_DENIED");
-  let tokens; try { tokens = await googleSearchConsoleTransport().exchangeCode(req.query.code, attempt.pkce_verifier); } catch (error) { return fail(["GSC_REFRESH_TOKEN_REQUIRED", "GSC_SCOPE_INVALID", "GSC_REAUTH_REQUIRED"].includes(error?.code) ? error.code : "GSC_TOKEN_EXCHANGE_FAILED"); }
+  if (callbackError) return fail("GSC_AUTH_DENIED");
+  let tokens; try { tokens = await googleSearchConsoleTransport().exchangeCode(code, attempt.pkce_verifier); } catch (error) { return fail(["GSC_REFRESH_TOKEN_REQUIRED", "GSC_SCOPE_INVALID", "GSC_REAUTH_REQUIRED"].includes(error?.code) ? error.code : "GSC_TOKEN_EXCHANGE_FAILED"); }
   let staged;
   try { staged = await createVaultSecret(admin, JSON.stringify({ refresh_token: tokens.refresh_token }), `v1-04-google-search-console-pending-${attempt.attempt_id}`); await lifecyclePause("before_stage"); const saved = await admin.rpc("gsc_stage_oauth_secret", { p_attempt_id: attempt.attempt_id, p_secret_reference: staged.secretReference }); if (saved.error) throw saved.error; } catch { if (staged?.secretReference) await deleteVaultSecret(admin, staged.secretReference); return fail("GSC_CONNECTION_FAILED"); }
   res.json({ status: "awaiting_property" });

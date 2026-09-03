@@ -61,7 +61,8 @@ test("P2 OAuth failure and deterministic race matrix", { skip: !enabled }, async
       const r = await request(server, "GET", path, null); assert.ok(r.status >= 400 && r.status < 500); assert.doesNotMatch(r.text, /unknown|state=|synthetic-code/);
     }
     const s = await start(); const denied = await callback(s.state, "error=access_denied"); assert.equal(denied.status, 409); assert.equal((await row((await admin.from("gsc_oauth_attempts").select("id").eq("connection_id", s.connectionId).order("created_at", { ascending: false }).limit(1).single()).data.id)).status, "failed");
-    const both = await start(); const result = await callback(both.state, "code=x&error=access_denied"); assert.equal(result.status, 409); assert.equal(exchanges, 0);
+    const shaped = await start(); const accepted = await callback(shaped.state, "code=synthetic-code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fwebmasters.readonly&authuser=0&prompt=consent&hd=synthetic.example"); assert.equal(accepted.status, 200, accepted.text); assert.equal(accepted.body.status, "awaiting_property");
+    const both = await start(); const beforeBoth = exchanges; const result = await callback(both.state, "code=x&error=access_denied"); assert.equal(result.status, 400); assert.equal(exchanges, beforeBoth);
   });
 
   await t.test("P2-TOKEN-001..011 authorization failures are bounded and terminal", async () => {
