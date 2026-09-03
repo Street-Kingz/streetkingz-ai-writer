@@ -1,0 +1,42 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import crypto from "node:crypto";
+import http from "node:http";
+import { createClient } from "@supabase/supabase-js";
+import app from "../app.js";
+import { ProductError } from "../product-kernel/errors.js";
+import { setGoogleSearchConsoleTransportFactory } from "../product-kernel/googleSearchConsoleOAuth.js";
+
+const enabled = process.env.V1_04_B2_INTEGRATION === "1";
+const required = name => process.env[name] || (() => { throw new Error(`${name} required`); })();
+const listen = target => new Promise((resolve, reject) => { const server = target.listen(0, "127.0.0.1", () => resolve(server)); server.once("error", reject); });
+const request = (server, token) => new Promise((resolve, reject) => { const req = http.request({ hostname: "127.0.0.1", port: server.address().port, method: "POST", path: "/api/product/organic-evidence/search-console/acquire", headers: { authorization: `Bearer ${token}`, "content-type": "application/json" } }, res => { let text = ""; res.on("data", chunk => { text += chunk; }); res.on("end", () => resolve({ status: res.statusCode, text, body: text ? JSON.parse(text) : null })); }); req.on("error", reject); req.end("{}"); });
+
+test("B2 local lifecycle, LKG, invalid_grant and observation RLS proof", { skip: !enabled }, async t => {
+  const url = required("SUPABASE_URL"), publishable = required("SUPABASE_PUBLISHABLE_KEY"), service = required("SUPABASE_SERVICE_ROLE_KEY");
+  const admin = createClient(url, service, { auth: { autoRefreshToken: false, persistSession: false } });
+  const email = `v104-b2-${crypto.randomUUID()}@local.test`, password = `${crypto.randomUUID()}!Aa9`;
+  const made = await admin.auth.admin.createUser({ email, password, email_confirm: true }); assert.ifError(made.error); t.after(async () => { setGoogleSearchConsoleTransportFactory(undefined); await admin.auth.admin.deleteUser(made.data.user.id); });
+  const login = createClient(url, publishable, { auth: { autoRefreshToken: false, persistSession: false } }); const signed = await login.auth.signInWithPassword({ email, password }); assert.ifError(signed.error); const token = signed.data.session.access_token;
+  const caller = createClient(url, publishable, { global: { headers: { authorization: `Bearer ${token}` } }, auth: { autoRefreshToken: false, persistSession: false } });
+  assert.ifError((await caller.rpc("product_create_account", { p_correlation_id: crypto.randomUUID() })).error);
+  const business = await caller.rpc("product_create_business", { p_name: "B2 synthetic tenant", p_platform: "woocommerce", p_correlation_id: crypto.randomUUID() }); assert.ifError(business.error);
+  const connection = await caller.rpc("product_create_connection", { p_provider_type: "google_search_console", p_correlation_id: crypto.randomUUID() }); assert.ifError(connection.error);
+  const refresh = await admin.rpc("vault_create_secret", { secret_value: JSON.stringify({ refresh_token: "synthetic-refresh" }), secret_name: "b2-test" }); assert.ifError(refresh.error);
+  t.after(() => admin.rpc("vault_delete_secret", { secret_id: refresh.data }));
+  const accountRow = await admin.from("accounts").select("id").eq("auth_user_id", made.data.user.id).single(); assert.ifError(accountRow.error);
+  assert.ifError((await admin.rpc("gsc_ensure_connection", { p_business_id: business.data.id })).error);
+  const attempt = await admin.rpc("gsc_begin_oauth_attempt", { p_account_id: accountRow.data.id, p_business_id: business.data.id, p_state_hash: crypto.randomUUID(), p_pkce_verifier: crypto.randomUUID(), p_expires_at: new Date(Date.now() + 60000).toISOString() }); assert.ifError(attempt.error); const attemptRow = Array.isArray(attempt.data) ? attempt.data[0] : attempt.data;
+  assert.ifError((await admin.rpc("gsc_claim_oauth_attempt", { p_state_hash: (await admin.from("gsc_oauth_attempts").select("state_hash").eq("id", attemptRow.attempt_id).single()).data.state_hash })).error);
+  assert.ifError((await admin.rpc("gsc_stage_oauth_secret", { p_attempt_id: attemptRow.attempt_id, p_secret_reference: refresh.data })).error);
+  const activated = await admin.rpc("gsc_activate_property", { p_attempt_id: attemptRow.attempt_id, p_site_url: "https://synthetic.example/", p_property_type: "url_prefix", p_permission_level: "siteOwner" }); assert.ifError(activated.error);
+  const source = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "customer_connected", p_source_kind: "search_console", p_provider_id: "google_search_console", p_connection_id: connection.data.id }); assert.ifError(source.error);
+  const mode = { value: "success" }; let calls = 0;
+  setGoogleSearchConsoleTransportFactory(() => ({ async accessToken() { if (mode.value === "invalid_grant") throw Object.assign(new Error("invalid_grant"), { code: "GSC_REAUTH_REQUIRED" }); return "synthetic-access"; }, async searchAnalytics(_token, _site, body) { calls += 1; if (mode.value === "transient") throw new ProductError("GSC_PROVIDER_ERROR", "provider unavailable", 502); const keys = body.dimensions.map(dimension => dimension === "date" ? "2026-09-03" : dimension === "query" ? "synthetic query" : "https://synthetic.example/page/"); return { rows: [{ keys, clicks: 0, impressions: 2, ctr: 0, position: 4 }] }; } }));
+  const server = await listen(app); t.after(() => server.close());
+  const first = await request(server, token); assert.equal(first.status, 200, first.text); assert.equal(first.body.status, "complete"); assert.equal(first.body.grains.query.completeness, "provider_limited"); assert.equal(first.body.grains.trend.row_count, 1); assert.equal(calls, 4);
+  const before = await admin.from("organic_evidence_sources").select("evidence_state,current_complete_run,evidence_as_of,last_successful_at").eq("id", source.data.id).single(); assert.ifError(before.error); const observations = await admin.from("organic_search_console_observations").select("id,grain,clicks").eq("run_id", before.data.current_complete_run); assert.ifError(observations.error); assert.equal(observations.data.length, 4); assert.equal(observations.data.find(row => row.grain === "trend").clicks, 0);
+  mode.value = "transient"; const failed = await request(server, token); assert.equal(failed.status, 502, failed.text); const afterFailure = await admin.from("organic_evidence_sources").select("evidence_state,current_complete_run,evidence_as_of,last_successful_at").eq("id", source.data.id).single(); assert.ifError(afterFailure.error); assert.equal(afterFailure.data.evidence_state, "failed"); assert.equal(afterFailure.data.current_complete_run, before.data.current_complete_run); assert.equal(afterFailure.data.evidence_as_of, before.data.evidence_as_of); assert.equal(afterFailure.data.last_successful_at, before.data.last_successful_at);
+  mode.value = "invalid_grant"; const reauth = await request(server, token); assert.equal(reauth.status, 409, reauth.text); assert.equal(reauth.body.error.code, "GSC_REAUTH_REQUIRED"); const connectionAfter = await admin.from("gsc_connections").select("connection_state").eq("connection_id", connection.data.id).single(); assert.ifError(connectionAfter.error); assert.equal(connectionAfter.data.connection_state, "reauthentication_required"); const lkg = await admin.from("organic_search_console_observations").select("id").eq("run_id", before.data.current_complete_run); assert.equal(lkg.data.length, 4);
+  const directInsert = await caller.from("organic_search_console_observations").insert({ business_id: business.data.id, connection_id: connection.data.id, source_id: source.data.id, run_id: before.data.current_complete_run, property_identity: "https://synthetic.example/", grain: "trend", observed_date: "2026-09-03", clicks: 0, impressions: 0, ctr: 0, average_position: 1, requested_start_date: "2025-09-04", requested_end_date: "2026-09-03", retrieved_at: new Date().toISOString(), completeness: "complete", provider_version: "x", source_version: "x", observation_identity: crypto.randomUUID() }); assert.ok(directInsert.error);
+});

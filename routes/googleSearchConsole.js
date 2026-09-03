@@ -7,6 +7,7 @@ import { createVaultSecret, deleteVaultSecret } from "../product-kernel/vault.js
 import { ProductError, safeError } from "../product-kernel/errors.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
 import { googleSearchConsoleTransport, hashOAuthState, propertyMatches, propertyProbeMatches, normalizeProperty } from "../product-kernel/googleSearchConsoleOAuth.js";
+import { acquireB2SearchAnalytics } from "../product-kernel/googleSearchConsoleEvidence.js";
 
 const router = express.Router(); router.use(correlationMiddleware);
 const provider = "google_search_console";
@@ -104,6 +105,57 @@ router.post("/api/product/organic-evidence/search-console/select", handle(async 
 }));
 
 router.post("/api/product/organic-evidence/search-console/disconnect", handle(async (req, res) => { const { business, admin } = await context(req); await ownedConnection(admin, business.id, req.body?.connection_id); await lifecyclePause("before_disconnect"); const result = await admin.rpc("gsc_disconnect", { p_business_id: business.id, p_connection_id: req.body?.connection_id }); if (result.error) throw result.error; res.json({ status: "disconnected", consent_state: "revoked", local_credential_removed: true, remote_google_revocation_requested: false }); }));
+
+router.post("/api/product/organic-evidence/search-console/acquire", handle(async (req, res) => {
+  const { business, admin } = await context(req);
+  const connection = await admin.from("connections").select("id,status,secret_reference").eq("business_id", business.id).eq("provider_type", provider).maybeSingle();
+  if (connection.error || !connection.data) throw new ProductError("CONNECTION_NOT_FOUND", "Search Console connection not found.", 404);
+  const gsc = await admin.from("gsc_connections").select("connection_state,selected_site_url,property_type,permission_level").eq("connection_id", connection.data.id).eq("business_id", business.id).single();
+  if (gsc.error || gsc.data.connection_state !== "connected" || connection.data.status !== "connected" || !connection.data.secret_reference) {
+    if (gsc.data?.connection_state === "reauthentication_required") throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+    throw new ProductError("GSC_NOT_CONNECTED", "Search Console is not connected.", 409);
+  }
+  const source = await admin.from("organic_evidence_sources").select("id,evidence_state,current_complete_run,active_run").eq("business_id", business.id).eq("connection_id", connection.data.id).eq("source_kind", "search_console").eq("provider_id", provider).single();
+  if (source.error || !source.data) throw new ProductError("GSC_SOURCE_NOT_FOUND", "Search Console evidence source not found.", 409);
+  if (source.data.active_run) throw new ProductError("GSC_RUN_ACTIVE", "Search Console evidence collection is already running.", 409);
+  const retrievedAt = new Date().toISOString();
+  const range = new Date();
+  range.setUTCDate(range.getUTCDate() - 364);
+  let run;
+  const begun = await admin.rpc("organic_begin_run", { p_source_id: source.data.id, p_retrieved_at: retrievedAt, p_evidence_period_start: range.toISOString(), p_evidence_period_end: new Date().toISOString(), p_provider_version: "2.0.0", p_source_version: "v1-04-b2" });
+  if (begun.error || !begun.data) throw begun.error || new ProductError("GSC_RUN_BEGIN_FAILED", "Search Console evidence collection could not start.", 409);
+  run = begun.data;
+  const fail = async error => {
+    const code = error?.code === "GSC_REAUTH_REQUIRED" ? "GSC_REAUTH_REQUIRED" : error?.code || "GSC_PROVIDER_ERROR";
+    if (code === "GSC_REAUTH_REQUIRED") await admin.rpc("gsc_try_mark_reauthentication_required", { p_business_id: business.id, p_connection_id: connection.data.id, p_expected_secret_reference: connection.data.secret_reference });
+    await admin.rpc("organic_finish_run", { p_run_id: run.id, p_state: "failed", p_completeness_state: "unavailable", p_error_code: code.replace(/[^A-Z0-9_:-]/g, "_").slice(0, 100) });
+    throw error instanceof ProductError ? error : new ProductError(code, "Search Console evidence collection failed.", code === "GSC_REAUTH_REQUIRED" ? 409 : 502);
+  };
+  try {
+    const secret = await admin.rpc("vault_read_secret", { secret_id: connection.data.secret_reference });
+    if (secret.error || !secret.data) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+    let stored; try { stored = JSON.parse(secret.data); } catch { throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409); }
+    if (typeof stored?.refresh_token !== "string" || !stored.refresh_token) throw new ProductError("GSC_REAUTH_REQUIRED", "Search Console requires reconnection.", 409);
+    const transport = googleSearchConsoleTransport();
+    const accessToken = await transport.accessToken(stored.refresh_token);
+    const acquisition = await acquireB2SearchAnalytics({ transport, accessToken, property: gsc.data.selected_site_url });
+    const allRows = Object.values(acquisition.grains).flatMap(grain => grain.rows.map(row => ({ ...row, business_id: business.id, connection_id: connection.data.id, source_id: source.data.id, run_id: run.id })));
+    if (allRows.length) {
+      const saved = await admin.from("organic_search_console_observations").insert(allRows);
+      if (saved.error) throw new ProductError("GSC_OBSERVATION_PERSIST_FAILED", "Search Console evidence could not be saved.", 503);
+    }
+    const results = Object.values(acquisition.grains);
+    const hasRows = allRows.length > 0;
+    const capHit = results.some(result => result.cap_hit);
+    const hasPartial = results.some(result => result.completeness === "partial");
+    const latest = acquisition.latest_finalized_observed_date;
+    const completeness = !hasRows ? "empty" : hasPartial || !latest ? "partial" : results.some(result => result.completeness === "provider_limited") ? "provider_limited" : "complete";
+    const state = completeness === "partial" ? "partial" : "complete";
+    const finished = await admin.rpc("organic_finish_run", { p_run_id: run.id, p_state: state, p_completeness_state: completeness, p_evidence_as_of: latest ? `${latest}T00:00:00.000Z` : null, p_error_code: state === "partial" ? (capHit ? "IMPLEMENTATION_CAP_REACHED" : "FINALIZED_DATE_UNAVAILABLE") : null });
+    if (finished.error) throw finished.error;
+    res.status(200).json({ status: state, completeness, evidence_as_of: latest, requested_periods: acquisition.ranges, grains: Object.fromEntries(results.map(result => [result.grain, { row_count: result.row_count, request_count: result.request_count, cap_hit: result.cap_hit, provider_end: result.provider_end, completeness: result.completeness, limitations: result.limitations }])) });
+  } catch (error) { await fail(error); }
+}));
 
 router.post("/api/product/organic-evidence/search-console/reauth-check", handle(async (req, res) => {
   const { business, admin } = await context(req); const connection = await ownedConnection(admin, business.id, req.body?.connection_id);
