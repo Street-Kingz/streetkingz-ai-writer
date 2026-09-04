@@ -5,7 +5,15 @@ import { buildInputHash, buildSnapshotFingerprint, CANDIDATE_TYPES, discoverCand
 
 const fixtureRows = fs.readFileSync("artifacts/planning/v1-05/fixtures/evaluation-inputs.jsonl", "utf8").trim().split("\n").map(JSON.parse);
 const matches = JSON.parse(fs.readFileSync("artifacts/planning/v1-05/evaluation-discovery-matches.json", "utf8")).matches;
-const match = (candidate, expected) => candidate.candidate_type === expected.expected_candidate_type && (expected.match_mode !== "existing_target" || expected.expected_target_refs.every(ref => candidate.target_resources.includes(ref))) && (expected.match_mode !== "internal_link_pair" || expected.expected_link_pair.every(ref => candidate.target_resources.includes(ref)));
+const sourceIdentity = value => value.replace("external:", "external_search:");
+const match = (candidate, expected) => {
+  if (candidate.candidate_type !== expected.expected_candidate_type) return false;
+  const hasSource = candidate.evidence_refs.some(ref => ref.source_kind + ":" + ref.source_record_id === sourceIdentity(expected.expected_source_query_or_job || expected.supporting_source_identity || ""));
+  if (expected.match_mode === "existing_target") return expected.expected_target_refs.every(ref => candidate.target_resources.includes(ref)) && hasSource;
+  if (expected.match_mode === "new_asset_source") return hasSource;
+  if (expected.match_mode === "internal_link_direction") return candidate.target_resources[0] === expected.expected_link_source && candidate.target_resources[1] === expected.expected_link_target && candidate.evidence_refs.some(ref => ref.source_kind + ":" + ref.source_record_id === sourceIdentity(expected.supporting_source_identity));
+  return false;
+};
 
 test("Slice A uses only the approved five candidate types and stable hashes", () => {
   assert.deepEqual(CANDIDATE_TYPES, ["existing_product_improvement", "existing_category_improvement", "existing_content_improvement", "new_page_or_content_asset", "internal_linking"]);
@@ -38,6 +46,29 @@ test("Slice A merges exact identity and uses explicit cap semantics", () => {
   assert.equal(selected.candidates.length, 200);
   assert.equal(selected.completeness, "partial");
   assert.deepEqual(selected.limitations, ["candidate_cap_hit"]);
+});
+
+test("Slice A emits broad coexistence, directed links, and no arbitrary pairs", () => {
+  const packet = { business: { market: "GB", language: "en" }, commerce: { products: [{ id: "p", name: "Blue brush" }], categories: [{ id: "c", name: "Brushes" }], relations: [{ id: "relation-1", product_id: "p", category_id: "c" }] }, site: { state: "available", pages: [{ id: "cat", type: "category", title: "Brushes", url: "https://example.test/brushes", internal_links: [] }, { id: "prod", type: "product", title: "Blue brush", url: "https://example.test/blue-brush", internal_links: [] }] }, external: { state: "available", rows: [{ query: "blue brush", market: "GB", language: "en", search_volume: 20, serp: [{ url: "https://example.test/blue-brush" }] }] } };
+  const candidates = discoverCandidates(packet);
+  assert.equal(candidates.some(c => c.candidate_type === "existing_product_improvement" && c.target_resources.includes("page:prod")), true);
+  assert.equal(candidates.some(c => c.candidate_type === "new_page_or_content_asset"), true);
+  assert.equal(candidates.some(c => c.candidate_type === "internal_linking" && c.target_resources[0] === "page:cat" && c.target_resources[1] === "page:prod"), true);
+  assert.equal(candidates.some(c => c.candidate_type === "internal_linking" && c.target_resources[0] === "page:prod" && c.target_resources[1] === "page:cat"), false);
+  const unrelated = { business: { market: "GB" }, site: { state: "available", pages: Array.from({ length: 20 }, (_, i) => ({ id: "page-" + i, type: i % 2 ? "product" : "category", title: "Unrelated " + i, url: "https://example.test/u-" + i, internal_links: [] })) } };
+  assert.equal(discoverCandidates(unrelated).filter(c => c.candidate_type === "internal_linking").length, 0);
+});
+
+test("Slice A fair cap represents mixed type/source groups deterministically", () => {
+  const candidates = [];
+  for (const type of CANDIDATE_TYPES) for (const source of ["site", "search_console", "external_search"]) for (let i = 0; i < 20; i++) candidates.push({ candidate_identity: type + "-" + source + "-" + i, candidate_type: type, discovery_sources: [source], evidence_refs: [{ source_kind: source, source_record_id: String(i) }] });
+  const shuffled = [...candidates].reverse();
+  const a = selectBoundedCandidates(candidates); const b = selectBoundedCandidates(shuffled);
+  assert.equal(a.candidates.length, 200);
+  assert.deepEqual(a.candidates.map(c => c.candidate_identity), b.candidates.map(c => c.candidate_identity));
+  assert.equal(new Set(a.candidates.map(c => c.candidate_type)).size, 5);
+  assert.equal(a.completeness, "partial");
+  assert.deepEqual(a.limitations, ["candidate_cap_hit"]);
 });
 
 test("Slice A is generic under consistent renaming", () => {
