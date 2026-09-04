@@ -36,5 +36,5 @@ export function requestLogger(req, res, next) {
 }
 
 export function protectedProductPath(req) { return req.path.startsWith("/api/product/"); }
-export function sensitiveProductPath(req) { return /^\/api\/product\/(account|business|connections|woocommerce\/(authorize|verify|sync)|organic-evidence\/(search-console\/(connect|reconnect|select|disconnect|acquire)|site\/acquire|external\/acquire))/.test(req.path); }
+export function sensitiveProductPath(req) { return /^\/api\/product\/(account|business|connections|decision-runs\/discover|woocommerce\/(authorize|verify|sync)|organic-evidence\/(search-console\/(connect|reconnect|select|disconnect|acquire)|site\/acquire|external\/acquire))/.test(req.path); }
 export function expensiveProductPath(req) { return /\/((woocommerce\/sync)|(organic-evidence\/((site|external)\/acquire|search-console\/acquire)))$/.test(req.path); }

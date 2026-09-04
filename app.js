@@ -11,6 +11,7 @@ import organicEvidenceRoute from "./routes/organicEvidence.js";
 import googleSearchConsoleRoute from "./routes/googleSearchConsole.js";
 import siteEvidenceRoute from "./routes/siteEvidence.js";
 import externalEvidenceRoute from "./routes/externalEvidence.js";
+import decisionRunsRoute from "./routes/decisionRuns.js";
 import { correlationMiddleware, productCorsOptions, loopbackOnly, requestLogger, generalProductRateLimit, sensitiveProductRateLimit, expensiveProductRateLimit, protectedProductPath, sensitiveProductPath, expensiveProductPath } from "./product-kernel/security.js";
 
 const app = express();
@@ -48,6 +49,7 @@ app.use(organicEvidenceRoute);
 app.use(googleSearchConsoleRoute);
 app.use(siteEvidenceRoute);
 app.use(externalEvidenceRoute);
+app.use(decisionRunsRoute);
 if (v103AcceptanceHarnessRoute) {
   if (process.env.NODE_ENV !== "production" && process.env.V1_03_ACCEPTANCE_HARNESS === "1") app.use(loopbackOnly, v103AcceptanceHarnessRoute);
 }
