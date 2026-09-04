@@ -198,7 +198,7 @@ Current milestone: V1-04 Organic Evidence Connections — DONE / ACCEPTED
 
 Current active slice: none — V1-04 complete
 
-Current engineering phase: V1-05 evidence-layer corpus correction — owner review required
+Current engineering phase: V1 pre-Slice-A security hardening — DONE / ACCEPTED
 
 B1: DONE / ACCEPTED
 
@@ -222,9 +222,9 @@ B2: DONE / ACCEPTED
 
 Search Analytics evidence: COLLECTED / accepted under B2 semantics
 
-Current next separately authorised task: Ben/ChatGPT final evidence-layer
-corpus approval, followed by the bounded V1 security-hardening gate. V1-05
-implementation is not authorised.
+Current next separately authorised task: V1-05 Slice A — candidate/run
+contracts and deterministic discovery. Slice A remains separately
+unauthorised.
 
 Slice D status: DONE / ACCEPTED — truthful partial real external-evidence
 validation accepted as bounded capability and failure-behaviour proof
@@ -240,12 +240,11 @@ complete run or an LKG.
 Slice E: DONE / ACCEPTED — unified progressive-evidence snapshot validated from
 durable local evidence. Site complete/LKG and external usable-partial states
 remain distinct; no global completeness claim is made. V1-04 evidence boundary
-is frozen for V1. V1-05 milestone contract: FINAL APPROVAL CANDIDATE — OWNER
-REVIEW REQUIRED. The previous materialised corpus is superseded as an
-evaluation input because it contained interpretive signal leakage. V1-05
-evaluation corpus: FINAL CORPUS CORRECTION — OWNER REVIEW REQUIRED. Bounded V1
-security hardening remains a pre-implementation dependency and is OPEN.
-V1-05 implementation is not authorised.
+is frozen for V1. V1-05 milestone contract: APPROVED / FROZEN. V1-05
+evaluation corpus: APPROVED / FROZEN. The previous materialised corpus remains
+superseded as an evaluation input because it contained interpretive signal
+leakage. V1 security hardening: DONE / ACCEPTED. V1-05 implementation is not
+started; Slice A requires separate owner authorization.
 
 ## Current V1-04 Slice C real acceptance (2026-09-03)
 
