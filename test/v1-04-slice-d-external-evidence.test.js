@@ -94,7 +94,13 @@ test("freshness windows are source-specific", () => {
   assert.equal(isReusable(daysAgo(31), DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, now), false);
 });
 
-test("database diagnostics retain only bounded safe fields", () => {
+test("database diagnostics use a strict allowlist and never retain row values", () => {
   const diagnostic = safeDatabaseDiagnostic({ code: "23502", table: "organic_external_observations", column: "seed_id", message: "null value in column 'seed_id' violates not-null constraint", details: "Failing row contains ('sensitive value')." }, "corr-1");
-  assert.deepEqual(diagnostic, { event: "external_observation_persistence_failure", correlation_id: "corr-1", code: "23502", constraint: null, table: "organic_external_observations", column: "seed_id", message: "null value in column '…' violates not-null constraint", details: "Failing row contains ('…').", hint: null });
+  assert.deepEqual(diagnostic, { event: "external_observation_persistence_failure", correlation_id: "corr-1", code: "23502", table: "organic_external_observations", column: "seed_id", constraint: null, reason: "not_null" });
+  assert.equal(JSON.stringify(diagnostic).includes("sensitive value"), false);
+  assert.equal(Object.hasOwn(diagnostic, "message"), false);
+  assert.equal(Object.hasOwn(diagnostic, "details"), false);
+  assert.equal(Object.hasOwn(diagnostic, "hint"), false);
+  const hostile = safeDatabaseDiagnostic({ code: "23514", table: "public.secret_table", column: "query_text", constraint: "bad_constraint", details: "Failing row contains (secret query phrase, https://private.example)." });
+  assert.deepEqual(hostile, { event: "external_observation_persistence_failure", correlation_id: null, code: "23514", table: null, column: "query_text", constraint: null, reason: "check" });
 });

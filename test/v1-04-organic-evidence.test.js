@@ -70,6 +70,12 @@ test("Slice D observation semantics distinguish direct seeds from derived provid
   assert.match(fs.readFileSync(new URL("../product-kernel/externalEvidence.js", import.meta.url), "utf8"), /direct_or_derived: "derived"/);
 });
 
+test("Slice D adds a database-level derived-only observation invariant", () => {
+  const invariant = fs.readFileSync(new URL("../supabase/migrations/20260924000000_v1_04_slice_d_derived_observation_invariant.sql", import.meta.url), "utf8");
+  assert.match(invariant, /alter column direct_or_derived set default 'derived'/);
+  assert.match(invariant, /check \(direct_or_derived = 'derived'\)/);
+});
+
 test("Slice D Product route is authenticated, fixed-scope, and does not expose shortlist logic", () => {
   const route = fs.readFileSync(new URL("../routes/externalEvidence.js", import.meta.url), "utf8");
   assert.match(route, /verifyIdentity/);

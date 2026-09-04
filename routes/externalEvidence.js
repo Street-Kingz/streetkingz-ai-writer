@@ -124,15 +124,20 @@ router.post("/api/product/organic-evidence/external/acquire", handle(async (req,
         requestCount += 1;
         reservedCost += estimate;
         businessCost += estimate;
+        let knownActualCost = null;
+        let knownTaskId = null;
         try {
           const effectiveTimeout = Math.min(EXTERNAL_LIMITS.REQUEST_TIMEOUT_MS, Math.max(1, runDeadline - Date.now()));
           const response = await transport.post(endpoint, [providerPayload(endpoint, seed)], { timeoutMs: effectiveTimeout });
           const seedRun = { ...run, seed_id: seedDbIds.get(seed.seed_id) };
           const normalized = endpoint === DATAFORSEO_KEYWORD_IDEAS_ENDPOINT ? normalizeKeywordResponse(response.body, seed, seedRun, retrievedAt) : normalizeSerpResponse(response.body, seed, seedRun, retrievedAt);
+          knownActualCost = normalized.actualCost;
+          knownTaskId = normalized.taskId;
           if (normalized.actualCost > estimate + 0.000001 || actualCost + normalized.actualCost > EXTERNAL_LIMITS.MAX_PROVIDER_COST_USD_PER_RUN || businessCost - estimate + normalized.actualCost > EXTERNAL_LIMITS.MAX_PROVIDER_COST_USD_PER_BUSINESS_PER_REFRESH_WINDOW) {
             await updateRequest(admin, ledger.data.id, { status: "failed", actual_cost: normalized.actualCost, error_code: "PROVIDER_COST_ANOMALY", completed_at: new Date().toISOString() });
             throw new ProductError("PROVIDER_COST_ANOMALY", "The external evidence provider returned an unexpected cost.", 502);
           }
+          await updateRequest(admin, ledger.data.id, { actual_cost: knownActualCost, provider_task_id: knownTaskId });
           const saved = normalized.rows.length ? await admin.from("organic_external_observations").upsert(normalized.rows, { onConflict: "observation_identity", ignoreDuplicates: true }) : { error: null };
           if (saved.error) { console.error(JSON.stringify(safeDatabaseDiagnostic(saved.error, req.correlationId))); throw new ProductError("EXTERNAL_OBSERVATION_PERSIST_FAILED", "External evidence could not be saved.", 503); }
           actualCost += normalized.actualCost || 0;
@@ -140,7 +145,7 @@ router.post("/api/product/organic-evidence/external/acquire", handle(async (req,
           keywordCount += endpoint === DATAFORSEO_KEYWORD_IDEAS_ENDPOINT ? normalized.rows.length : 0;
           serpCount += endpoint === DATAFORSEO_SERP_ENDPOINT ? normalized.rows.length : 0;
           await updateRequest(admin, ledger.data.id, { status: "complete", actual_cost: normalized.actualCost || 0, provider_task_id: normalized.taskId, completed_at: new Date().toISOString() });
-        } catch (error) { await updateRequest(admin, ledger.data.id, { status: "failed", actual_cost: error.details?.actualCost ?? null, error_code: String(error.code || "PROVIDER_FAILURE").slice(0, 100), completed_at: new Date().toISOString() }); failed = error; break; }
+        } catch (error) { await updateRequest(admin, ledger.data.id, { status: "failed", actual_cost: error.details?.actualCost ?? knownActualCost, provider_task_id: error.details?.taskId ?? knownTaskId, error_code: String(error.code || "PROVIDER_FAILURE").slice(0, 100), completed_at: new Date().toISOString() }); failed = error; break; }
       }
       if (failed) break;
     }

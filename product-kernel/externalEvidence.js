@@ -28,8 +28,20 @@ export class ExternalEvidenceError extends Error {
 }
 
 export function safeDatabaseDiagnostic(error, correlationId = null) {
-  const sanitize = value => String(value || "").replace(/'[^']*'/g, "'…'").replace(/[\r\n]+/g, " ").slice(0, 240) || null;
-  return { event: "external_observation_persistence_failure", correlation_id: correlationId, code: sanitize(error?.code), constraint: sanitize(error?.constraint), table: sanitize(error?.table), column: sanitize(error?.column), message: sanitize(error?.message), details: sanitize(error?.details), hint: sanitize(error?.hint) };
+  const code = /^[0-9A-Z]{4,8}$/.test(String(error?.code || "")) ? String(error.code) : null;
+  const tables = new Set(["organic_external_observations", "organic_external_provider_requests", "organic_external_seeds"]);
+  const columns = new Set(["seed_id", "business_id", "source_id", "run_id", "observation_identity", "direct_or_derived", "retrieved_at", "query_text", "provider"]);
+  const constraints = new Set(["external_observation_seed_fk", "external_observation_shape", "organic_external_observations_direct_or_derived_check", "organic_external_observations_observation_identity_key"]);
+  const reason = { "23502": "not_null", "23503": "foreign_key", "23505": "unique", "23514": "check" }[code] || "database_persistence";
+  return {
+    event: "external_observation_persistence_failure",
+    correlation_id: correlationId,
+    code,
+    table: tables.has(error?.table) ? error.table : null,
+    column: columns.has(error?.column) ? error.column : null,
+    constraint: constraints.has(error?.constraint) ? error.constraint : null,
+    reason
+  };
 }
 
 export function requestReuseWindow(endpoint) {
