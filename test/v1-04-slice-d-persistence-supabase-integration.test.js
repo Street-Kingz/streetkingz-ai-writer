@@ -1,0 +1,43 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import crypto from "node:crypto";
+import { createClient } from "@supabase/supabase-js";
+import { normalizeKeywordResponse, normalizeSerpResponse } from "../product-kernel/externalEvidence.js";
+
+const enabled = process.env.V1_04_SLICE_D_PERSISTENCE === "1";
+const required = name => process.env[name] || (() => { throw new Error(`${name} required`); })();
+const now = "2026-09-04T12:00:00.000Z";
+const task = items => ({ status_code: 20000, tasks: [{ id: "synthetic-task", status_code: 20000, cost: 0.002, result: [{ items }] }] });
+
+test("Slice D real local schema persists derived Keyword Ideas/SERP evidence and deduplicates", { skip: !enabled }, async t => {
+  const admin = createClient(required("SUPABASE_URL"), required("SUPABASE_SERVICE_ROLE_KEY"), { auth: { persistSession: false } });
+  const password = `${crypto.randomUUID()}!Aa9`;
+  const user = await admin.auth.admin.createUser({ email: `slice-d-persist-${crypto.randomUUID()}@local.test`, password, email_confirm: true });
+  assert.ifError(user.error); t.after(() => admin.auth.admin.deleteUser(user.data.user.id));
+  const account = await admin.from("accounts").insert({ auth_user_id: user.data.user.id }).select("id").single(); assert.ifError(account.error);
+  const business = await admin.from("businesses").insert({ account_id: account.data.id, name: "Slice D persistence fixture", ecommerce_platform: "woocommerce" }).select("id").single(); assert.ifError(business.error);
+  const source = await admin.rpc("organic_ensure_source", { p_business_id: business.data.id, p_source_class: "product_connected", p_source_kind: "external_search", p_provider_id: "dataforseo-fixture" }); assert.ifError(source.error);
+  const started = await admin.rpc("organic_begin_run", { p_source_id: source.data.id, p_retrieved_at: now, p_provider_version: "fixture", p_source_version: "fixture" }); assert.ifError(started.error);
+  const run = { run_id: started.data.id, business_id: business.data.id, source_id: source.data.id };
+  const seed = await admin.from("organic_external_seeds").insert({ business_id: business.data.id, source_id: source.data.id, run_id: run.run_id, seed_id: "direct_seed_fixture", source_class: "woo_product", source_record_identity: "commerce_product:fixture", source_text: "Synthetic towel", normalized_text: "synthetic towel", locale: "GB", language_code: "en", direct_or_derived: "direct", provenance: { fixture: true } }).select("id").single(); assert.ifError(seed.error);
+  assert.equal(Number.isInteger(seed.data.id), true);
+  const seedRun = { ...run, seed_id: seed.data.id };
+  const keywordItems = Array.from({ length: 20 }, (_, index) => ({ keyword: `synthetic towel ${index}`, keyword_info: index === 0 ? { search_volume: 0, monthly_searches: [{ year: 2026, month: 8, search_volume: 0 }], last_updated_time: now } : index === 1 ? {} : { search_volume: index, last_updated_time: now } }));
+  const keyword = normalizeKeywordResponse(task(keywordItems.concat(keywordItems[0])), { seed_id: "direct_seed_fixture", source_text: "Synthetic towel", normalized_text: "synthetic towel" }, seedRun, now);
+  assert.equal(keyword.rows.length, 20); assert.equal(keyword.rows.every(row => row.seed_id === seed.data.id && row.direct_or_derived === "derived"), true);
+  const invalid = await admin.from("organic_external_observations").insert({ ...keyword.rows[0], seed_id: undefined });
+  assert.equal(invalid.error?.code, "23502");
+  assert.match(`${invalid.error?.message} ${invalid.error?.details || ""}`, /seed_id/);
+  const caller = createClient(required("SUPABASE_URL"), required("SUPABASE_PUBLISHABLE_KEY"), { auth: { persistSession: false } });
+  const signed = await caller.auth.signInWithPassword({ email: user.data.user.email, password }); assert.ifError(signed.error);
+  const forged = await caller.from("organic_external_observations").insert(keyword.rows[0]);
+  assert.ok(forged.error, "authenticated direct observation insert must be denied");
+  const first = await admin.from("organic_external_observations").upsert(keyword.rows, { onConflict: "observation_identity", ignoreDuplicates: true }); assert.ifError(first.error);
+  const duplicate = await admin.from("organic_external_observations").upsert(keyword.rows, { onConflict: "observation_identity", ignoreDuplicates: true }); assert.ifError(duplicate.error);
+  const serp = normalizeSerpResponse(task([{ type: "organic", rank_group: 1, rank_absolute: 1, url: "https://example.test/result", domain: "example.test", title: "Result", description: "Description" }, { type: "paid", rank_group: 1, rank_absolute: 2, url: "https://ads.test/ignore" }]), { seed_id: "direct_seed_fixture", source_text: "Synthetic towel", normalized_text: "synthetic towel" }, seedRun, now);
+  assert.equal(serp.rows.length, 1); assert.equal(serp.rows[0].seed_id, seed.data.id); assert.equal(serp.rows[0].direct_or_derived, "derived");
+  assert.ifError((await admin.from("organic_external_observations").upsert(serp.rows, { onConflict: "observation_identity", ignoreDuplicates: true })).error);
+  const read = await admin.from("organic_external_observations").select("business_id,source_id,run_id,seed_id,observation_type,direct_or_derived,search_volume").eq("run_id", run.run_id); assert.ifError(read.error);
+  assert.equal(read.data.length, 21); assert.equal(read.data.every(row => row.business_id === business.data.id && row.source_id === source.data.id && row.run_id === run.run_id && row.seed_id === seed.data.id), true);
+  const completed = await admin.rpc("organic_finish_run", { p_run_id: run.run_id, p_state: "complete", p_completeness_state: "complete", p_evidence_as_of: now }); assert.ifError(completed.error);
+});

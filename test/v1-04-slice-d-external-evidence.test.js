@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, DATAFORSEO_SERP_ENDPOINT, EXTERNAL_LIMITS,
   createDataForSeoTransport, deriveDirectSeeds, normalizeKeywordResponse,
-  normalizeSerpResponse, requestIdentity, ExternalEvidenceError, isReusable
+  normalizeSerpResponse, requestIdentity, ExternalEvidenceError, isReusable, safeDatabaseDiagnostic
 } from "../product-kernel/externalEvidence.js";
 
 const run = { business_id: "business-a", source_id: "source-a", run_id: 1, seed_id: 99 };
@@ -31,6 +31,7 @@ test("Keyword Ideas normalization preserves one parent and genuine zero demand",
   assert.equal(result.rows[0].search_volume, 0);
   assert.equal(result.rows[0].seed_id, 99);
   assert.equal(result.rows[0].provenance.parent_seed_id, "seed-1");
+  assert.equal(result.rows[0].direct_or_derived, "derived");
   assert.equal(Object.hasOwn(result.rows[0], "keyword_difficulty"), false);
 });
 
@@ -43,6 +44,7 @@ test("SERP normalization retains organic rows only and deduplicates exact result
   ]), seed, run, "2026-09-03T10:00:00.000Z");
   assert.equal(result.rows.length, 1);
   assert.equal(result.rows[0].device, "desktop");
+  assert.equal(result.rows[0].direct_or_derived, "derived");
 });
 
 test("transport is limited to approved HTTPS endpoints and sanitizes failures", async () => {
@@ -90,4 +92,9 @@ test("freshness windows are source-specific", () => {
   assert.equal(isReusable(daysAgo(8), DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, now), true);
   assert.equal(isReusable(daysAgo(8), DATAFORSEO_SERP_ENDPOINT, now), false);
   assert.equal(isReusable(daysAgo(31), DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, now), false);
+});
+
+test("database diagnostics retain only bounded safe fields", () => {
+  const diagnostic = safeDatabaseDiagnostic({ code: "23502", table: "organic_external_observations", column: "seed_id", message: "null value in column 'seed_id' violates not-null constraint", details: "Failing row contains ('sensitive value')." }, "corr-1");
+  assert.deepEqual(diagnostic, { event: "external_observation_persistence_failure", correlation_id: "corr-1", code: "23502", constraint: null, table: "organic_external_observations", column: "seed_id", message: "null value in column '…' violates not-null constraint", details: "Failing row contains ('…').", hint: null });
 });

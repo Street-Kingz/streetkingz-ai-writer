@@ -64,6 +64,12 @@ test("Slice D migration is typed, tenant-scoped, service-write-only, and credent
   assert.doesNotMatch(external, /raw_response|response_body/i);
 });
 
+test("Slice D observation semantics distinguish direct seeds from derived provider facts", () => {
+  const semantics = fs.readFileSync(new URL("../supabase/migrations/20260923000000_v1_04_slice_d_observation_semantics.sql", import.meta.url), "utf8");
+  assert.match(semantics, /direct_or_derived in \('direct','derived'\)/);
+  assert.match(fs.readFileSync(new URL("../product-kernel/externalEvidence.js", import.meta.url), "utf8"), /direct_or_derived: "derived"/);
+});
+
 test("Slice D Product route is authenticated, fixed-scope, and does not expose shortlist logic", () => {
   const route = fs.readFileSync(new URL("../routes/externalEvidence.js", import.meta.url), "utf8");
   assert.match(route, /verifyIdentity/);
@@ -73,6 +79,7 @@ test("Slice D Product route is authenticated, fixed-scope, and does not expose s
   assert.match(route, /seedRun = \{ \.\.\.run, seed_id: seedDbIds\.get\(seed\.seed_id\) \}/);
   assert.doesNotMatch(route, /selectSerpShortlist|opportunity_score|recommendation|keyword_difficulty/);
   assert.doesNotMatch(route, /req\.body.*keyword|req\.body.*location/);
+  assert.match(route, /safeDatabaseDiagnostic/);
 });
 
 test("Slice D retry migration preserves failed attempts while serializing active fingerprints", () => {

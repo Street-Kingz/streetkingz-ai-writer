@@ -8,7 +8,7 @@ import {
   createDataForSeoTransport, deriveDirectSeeds, requestIdentity,
   normalizeKeywordResponse, normalizeSerpResponse,
   DATAFORSEO_KEYWORD_IDEAS_ENDPOINT, DATAFORSEO_SERP_ENDPOINT,
-  EXTERNAL_EVIDENCE_VERSION, EXTERNAL_LIMITS, estimatedRequestCost, isReusable
+  EXTERNAL_EVIDENCE_VERSION, EXTERNAL_LIMITS, estimatedRequestCost, isReusable, safeDatabaseDiagnostic
 } from "../product-kernel/externalEvidence.js";
 
 const router = express.Router();
@@ -134,7 +134,7 @@ router.post("/api/product/organic-evidence/external/acquire", handle(async (req,
             throw new ProductError("PROVIDER_COST_ANOMALY", "The external evidence provider returned an unexpected cost.", 502);
           }
           const saved = normalized.rows.length ? await admin.from("organic_external_observations").upsert(normalized.rows, { onConflict: "observation_identity", ignoreDuplicates: true }) : { error: null };
-          if (saved.error) throw new ProductError("EXTERNAL_OBSERVATION_PERSIST_FAILED", "External evidence could not be saved.", 503);
+          if (saved.error) { console.error(JSON.stringify(safeDatabaseDiagnostic(saved.error, req.correlationId))); throw new ProductError("EXTERNAL_OBSERVATION_PERSIST_FAILED", "External evidence could not be saved.", 503); }
           actualCost += normalized.actualCost || 0;
           businessCost += (normalized.actualCost || 0) - estimate;
           keywordCount += endpoint === DATAFORSEO_KEYWORD_IDEAS_ENDPOINT ? normalized.rows.length : 0;
