@@ -45,10 +45,11 @@ proposed typed record contains:
 
 Candidate types are `existing_product_improvement`,
 `existing_category_improvement`, `existing_content_improvement`,
-`new_page_or_content_asset`, `internal_linking`, `monitor_or_defer`,
-`do_nothing` and `insufficient_evidence`. Technical/indexability blockers may
-be recorded only as bounded blockers of an in-scope candidate; no generic
-technical executor is created.
+`new_page_or_content_asset` and `internal_linking`. A bounded technical or
+indexability blocker is supporting/dependency metadata (`blocking_condition`),
+not a generic technical candidate family. Candidate lifecycle is
+`discovered`, `eligible`, `rejected` or `interpreted`; rejection reason codes
+are retained.
 
 ## Discovery and deterministic filtering
 
@@ -108,9 +109,11 @@ relative-priority tier (`now`, `next`, `monitor`, `defer`, `no_action`) may be
 overridden only by an explicit dependency or evidence limitation. No factor
 becomes zero because it is unavailable; no value predicts revenue.
 
-No-action is valid when no candidate merits attention. Insufficient-evidence is
-valid when evidence cannot support a decision. Neither is an error or a hidden
-recommendation.
+No-action and insufficient-evidence are decision-run outcomes, not candidate
+types or recommendations. A run outcome is `recommendations`, `no_action` or
+`insufficient_evidence` and preserves snapshot identity, considered count,
+rejection reasons, limitations, rationale and reassessment condition. Neither
+outcome is an error or a hidden recommendation.
 
 ## Recommendation record and projection
 
@@ -124,8 +127,9 @@ interpretive gates. The proposed durable record contains:
 `what_could_make_it_wrong`, `reassess_when`, `status`, `version` and
 `supersedes_id`.
 
-Statuses support `current`, `superseded`, `withdrawn`, `needs_reassessment`,
-`deferred`, `no_action` and `insufficient_evidence`. History is never erased.
+Statuses support `current`, `deferred`, `superseded`, `withdrawn` and
+`needs_reassessment`. No recommendation record is created for a no-action or
+insufficient-evidence run. History is never erased.
 The customer-neutral projection uses plain language and exposes evidence
 references, confidence and limitations without raw provider dumps, internal
 factor machinery, paid offers, executor selection, generated assets or
@@ -139,12 +143,16 @@ candidate dispositions, intent, feasibility and rationale. It may not invent
 evidence, search volume, commercial facts, keywords, targets or Business
 identity, and may not bypass filters.
 
-Each call would be bounded to at most 4 candidates, 3 calls per decision run,
-6,000 output tokens per call, one retry only for transport/schema failure, and a
-120-second total decision deadline. Inputs include snapshot identity, typed
-evidence references, source limitations, candidate records and the versioned
-instruction. Outputs require valid schema and references; malformed or
-unavailable model output fails the run safely. O-004 funding remains deferred.
+All post-filter candidates receive interpretation. Calls are batched at no more
+than 10 candidates, with at most 5 interpretation calls and 1 final synthesis
+call (6 planned calls total). A single additional model request for the entire
+run is permitted only for transport/schema failure. The decision deadline is
+180 seconds. Interpretation output is capped at 4,000 tokens per call, final
+synthesis at 5,000 and total output at 25,000. Inputs include snapshot
+identity, typed evidence references, source limitations, candidate records and
+the versioned instruction. Outputs require valid schema and references;
+malformed or unavailable model output fails the run safely. O-004 funding
+remains deferred.
 
 ## Security, tenancy, durability and bounds
 
@@ -152,9 +160,15 @@ Every candidate/recommendation is Business-owned. Customer reads are
 authenticated and tenant-scoped; writes are service-only where appropriate;
 RLS is mandatory; credentials and unnecessary licensed raw evidence are never
 stored in the output. Proposed bounds are: 200 candidates per Business run, 50
-after deterministic filtering, 12 interpretive candidates, 5 recommendations,
-3 model calls, 120 seconds total, one retry per failed model call and a 2 MB
-decision packet.
+after deterministic filtering, 50 interpretive candidates, 5 recommendations,
+6 planned model calls, 180 seconds total, one run-wide retry, and a 2 MB
+decision packet. Each candidate has at most 40 evidence references and 2,000
+bounded text characters; interpretation batches have at most 10 candidates.
+Interpretation output is capped at 4,000 tokens per call, synthesis at 5,000 and
+the run at 25,000 total. Before Slice A implementation, the separately governed
+bounded V1 security-hardening gate must pass: rate limiting, legacy paid/AI
+route review, debug-route mounting, CORS, RLS/grant assertions, redacted
+logging, request validation and secret scanning.
 
 A durable decision run is proposed with snapshot identity, run identity,
 candidate/evaluation version, instruction/model version, deterministic input
@@ -166,12 +180,14 @@ Recurring automation and customer interaction remain out of scope.
 ## Evaluation and acceptance
 
 The normative proposed evaluation is in
-`artifacts/planning/v1-05/evaluation-design.md`. It specifies a frozen 48-case
-labelled corpus, 85% discovery recall, FP ≤10%, FN ≤5%, 85% intent/intervention
-correctness, at most 2 high-impact errors, five-point usefulness with mean ≥4.0
-and no dimension below 3.5, five repeat runs, and at most one materially
-unstable run per case. It includes sparse/rich evidence, SEO-only control versus
-commercial challenger, failure classes, no-action and insufficient-evidence.
+`artifacts/planning/v1-05/evaluation-design.md` and the actual manifest is in
+`artifacts/planning/v1-05/evaluation-corpus.md`. It specifies 48 stable cases,
+at least 90% discovery recall with zero high-impact misses, FP ≤10%, FN ≤5%,
+85% intent/intervention correctness with zero high-impact errors, zero hard
+requirement violations, five-point usefulness with mean ≥4.0 and no dimension
+below 3.5, exactly 12 reliability cases repeated five times (60 runs), and a
+12-case commercial challenger. It includes sparse/rich evidence, failure
+classes, no-action and insufficient-evidence.
 
 Street Kingz validation uses one frozen accepted V1-04 snapshot, no founder
 hints and no network calls. Independent stores and the full V1-07 competitor
@@ -179,7 +195,11 @@ gauntlet are not V1-05 requirements.
 
 ## Proposed slices
 
-1. Candidate contract, frozen corpus and deterministic discovery.
+Pre-implementation gate: the security-hardening gate and this contract/corpus
+must be accepted. Then:
+
+1. Candidate contract and deterministic discovery against the already frozen
+   corpus.
 2. Deduplication, overlap, filtering, target attribution and intent/page type.
 3. Commercial relevance, strategic value, feasibility, dependencies and
    relative prioritisation.
@@ -205,4 +225,3 @@ Implementation may be authorised only after owner acceptance of this contract,
 the labelled corpus, thresholds and slice gates; completion requires all hard
 requirements, evaluation thresholds, reliability limits, tenant/security tests
 and frozen Street Kingz validation to pass with Critical 0 and High 0.
-
