@@ -1,0 +1,1272 @@
+{
+  "schema_version": "v1-05-slice-b-expectations-v1",
+  "status": "HARNESS-ONLY — NOT PRODUCT INPUT",
+  "runtime_import_prohibited": true,
+  "cases": [
+    {
+      "case_id": "V105-EVAL-001",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-001",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-002",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-002",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "search_console:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-003",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-003",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [
+        "same_job_group_a"
+      ],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-004",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-004",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-005",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-005",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-006",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-006",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "site:page-a",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-a"
+      ],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-007",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-007",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-a"
+      ],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-008",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-008",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [
+        "same_job_group_a"
+      ],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "comparison_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-009",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-009",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-010",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-010",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-b"
+      ],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "aligned",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-011",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-011",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
+      "expected_overlap_labels": [
+        "target_ambiguity"
+      ],
+      "expected_target_attribution_state": "ambiguous",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a",
+        "page:page-b"
+      ],
+      "expected_intent": "mixed_intent",
+      "expected_page_type_fit": "ambiguous",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-012",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-012",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "unresolved",
+      "expected_target_refs": [],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "unknown",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-013",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-013",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-014",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-014",
+        "expected_candidate_type": "internal_linking",
+        "match_mode": "internal_link_direction",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "site:page-a",
+        "expected_link_pair": null,
+        "expected_link_source": "page:page-b",
+        "expected_link_target": "page:page-a",
+        "supporting_source_identity": "site:page-a",
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [],
+      "expected_intent": "navigation_discovery",
+      "expected_page_type_fit": "aligned",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-015",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-015",
+        "expected_candidate_type": "internal_linking",
+        "match_mode": "internal_link_direction",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "site:page-a",
+        "expected_link_pair": null,
+        "expected_link_source": "page:page-b",
+        "expected_link_target": "page:page-a",
+        "supporting_source_identity": "site:page-a",
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [],
+      "expected_intent": "navigation_discovery",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-016",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-016",
+        "expected_candidate_type": "internal_linking",
+        "match_mode": "internal_link_direction",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "commerce:relation-1",
+        "expected_link_pair": null,
+        "expected_link_source": "page:page-a",
+        "expected_link_target": "page:page-b",
+        "supporting_source_identity": "commerce:relation-1",
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [],
+      "expected_intent": "navigation_discovery",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-017",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-017",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "uncertain_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-018",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-018",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-b"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-b"
+      ],
+      "expected_intent": "mixed_intent",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-019",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-019",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "site:page-a",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-020",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-020",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-021",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "uncertain",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-022",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "uncertain",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-023",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "uncertain",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-024",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "uncertain",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-025",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-025",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "search_console:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "duplicate_identity",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [
+        "lexical_duplicate"
+      ],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "same_customer_job",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-026",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-026",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "same_target_duplicate",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [
+        "same_target_group"
+      ],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-027",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-027",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-b"
+        ],
+        "expected_source_query_or_job": "search_console:row-2",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "semantic_overlap",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [
+        "overlap_group_c"
+      ],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [
+        "page:page-b"
+      ],
+      "expected_intent": "comparison",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-028",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-028",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-b"
+        ],
+        "expected_source_query_or_job": "search_console:row-2",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "competing_target_overlap",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [
+        "competing_pages"
+      ],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-b"
+      ],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-029",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-029",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "same_target_duplicate",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [
+        "same_target_group"
+      ],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-030",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-030",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-b"
+        ],
+        "expected_source_query_or_job": "search_console:row-2",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "semantic_overlap",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [
+        "same_job_group_a"
+      ],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [
+        "page:page-b"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-031",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "wrong_market",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-032",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-032",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "search_console:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-a"
+      ],
+      "expected_intent": "brand_navigation",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-033",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "wrong_market",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-034",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-034",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "site:page-a",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-a"
+      ],
+      "expected_intent": "brand_navigation",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-035",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-036",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-036",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "reject_wrong_page_type",
+      "expected_overlap_labels": [
+        "target_mismatch"
+      ],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "misaligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-037",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "reject",
+      "expected_deterministic_reason": "invalid_target",
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "uncertain",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-038",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-039",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-039",
+        "expected_candidate_type": "existing_product_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "product:p-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "product:p-a",
+        "page:page-a"
+      ],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-040",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-040",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-041",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-041",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "reject_mismatch",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "unresolved",
+      "expected_target_refs": [],
+      "expected_intent": "broad_information",
+      "expected_page_type_fit": "unknown",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-042",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-042",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "reject_mismatch",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "unresolved",
+      "expected_target_refs": [],
+      "expected_intent": "broad_information",
+      "expected_page_type_fit": "unknown",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-043",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-043",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a",
+          "page:page-b"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
+      "expected_overlap_labels": [
+        "overlap_group"
+      ],
+      "expected_target_attribution_state": "ambiguous",
+      "expected_target_refs": [
+        "page:page-a",
+        "page:page-b"
+      ],
+      "expected_intent": "comparison_selection",
+      "expected_page_type_fit": "ambiguous",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-044",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-044",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "page:page-a"
+      ],
+      "expected_intent": "informational",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-045",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-045",
+        "expected_candidate_type": "existing_category_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "category:c-a",
+          "page:page-a"
+        ],
+        "expected_source_query_or_job": "search_console:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
+      "expected_target_refs": [
+        "category:c-a",
+        "page:page-a"
+      ],
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-046",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-046",
+        "expected_candidate_type": "new_page_or_content_asset",
+        "match_mode": "new_asset_source",
+        "expected_target_refs": [],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": false
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "unresolved",
+      "expected_target_refs": [],
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "unknown",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-047",
+      "primary_candidate_match": null,
+      "deterministic_filter_applicable": false,
+      "expected_deterministic_disposition": "not_applicable",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": false,
+      "expected_interpretive_disposition": "not_applicable",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "not_applicable",
+      "expected_target_refs": [],
+      "expected_intent": "uncertain",
+      "expected_page_type_fit": "not_applicable",
+      "high_impact": false,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    },
+    {
+      "case_id": "V105-EVAL-048",
+      "primary_candidate_match": {
+        "case_id": "V105-EVAL-048",
+        "expected_candidate_type": "existing_content_improvement",
+        "match_mode": "existing_target",
+        "expected_target_refs": [
+          "page:page-a",
+          "page:page-b"
+        ],
+        "expected_source_query_or_job": "external:row-1",
+        "expected_link_pair": null,
+        "high_impact": true
+      },
+      "deterministic_filter_applicable": true,
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "ambiguous",
+      "expected_target_refs": [
+        "page:page-a",
+        "page:page-b"
+      ],
+      "expected_intent": "comparison_selection",
+      "expected_page_type_fit": "ambiguous",
+      "high_impact": true,
+      "label_version": "owner-approved-pre-slice-b-v3"
+    }
+  ]
+}
+
