@@ -1779,11 +1779,18 @@ The decision must consider onboarding, security, support, cost and quality.
 
 ## O-005 — External Search/SERP Data Provider
 
-**Status:** Deferred
+**Status:** Accepted
+**Date:** 2026-09-04
 
-The Product will buy or integrate licensed external data rather than build a search index.
-
-The specific provider is not yet selected.
+The Product selects DataForSEO as the V1 external organic-search evidence
+provider. Use is bounded to Product-owned, server-side, tenant-isolated
+normalized minimum evidence: UK location `2826`, English, bounded Keyword Ideas
+and Google Organic SERP requests, explicit cost limits, provenance and
+failure/LKG semantics. Raw provider resale, customer API passthrough, bulk raw
+response redistribution, full-dataset mirroring, opportunity scoring and
+recommendation logic are excluded. The real validation run is retained as
+truthful partial evidence because a malformed final provider response was
+rejected fail-closed; this does not claim a complete provider universe.
 
 ---
 

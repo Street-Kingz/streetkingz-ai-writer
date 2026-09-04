@@ -196,10 +196,10 @@ Governance rebaseline and Product-state establishment
 
 Current milestone: V1-04 Organic Evidence Connections — In Progress
 
-Current active slice: Slice C — bounded site discovery and page-truth evidence — DONE / ACCEPTED
+Current active slice: Slice D — external-provider decision and bounded external evidence — DONE / ACCEPTED
 
-Current engineering phase: Slice D — external-provider decision and bounded
-external evidence
+Current engineering phase: Slice E — unified progressive-evidence validation,
+real Street Kingz acceptance and V1-04 closeout
 
 B1: DONE / ACCEPTED
 
@@ -223,14 +223,19 @@ B2: DONE / ACCEPTED
 
 Search Analytics evidence: COLLECTED / accepted under B2 semantics
 
-Current next separately authorised task: Slice D — external-provider decision
-and bounded external evidence
+Current next separately authorised task: Slice E — unified progressive-evidence
+validation, real Street Kingz acceptance and V1-04 closeout
 
-Slice D status: PROVIDER DECISION GATE COMPLETE — OWNER APPROVED FOR BOUNDED
-IMPLEMENTATION
+Slice D status: DONE / ACCEPTED — truthful partial real external-evidence
+validation accepted as bounded capability and failure-behaviour proof
 
-DataForSEO: ACCEPTED V1 EXTERNAL PROVIDER — bounded Product implementation not
-yet started
+DataForSEO: ACCEPTED V1 EXTERNAL PROVIDER — Product-owned bounded normalized
+evidence only; no raw resale or opportunity logic
+
+Slice D real validation: partial; four direct-seed cycles completed, 111 real
+observations retained, and the fifth Keyword Ideas response was rejected as
+provider-malformed. The partial run remains inspectable and is not the current
+complete run or an LKG.
 
 ## Current V1-04 Slice C real acceptance (2026-09-03)
 
@@ -239,8 +244,8 @@ truthful `partial` result because the explicit inspected-page cap was reached.
 The prior complete site run remains the current/LKG inventory; the partial run
 is retained for inspection and does not mark URLs removed. B1 and B2 remain
 DONE / ACCEPTED, the read-only GSC connection remains active, and V1-04 remains
-IN PROGRESS. The next separately authorised task is Slice D — external-provider
-decision and bounded external evidence.
+IN PROGRESS. This historical Slice C acceptance context precedes Slice D; the
+next separately authorised task is now Slice E closeout.
 
 Current V1-03 acceptance state (verified at the current repository state):
 
@@ -255,13 +260,17 @@ V1-04 Organic Evidence Connections is In Progress under its approved contract.
 Slice A — Organic Evidence Foundation is DONE / ACCEPTED. Slice B — Google
 Search Console Connection + Evidence is DONE / ACCEPTED. Slice C — bounded site
 discovery and page-truth evidence is DONE / ACCEPTED with a partial real run
-and preserved LKG inventory. B1 and B2 are DONE / ACCEPTED. B1 non-live
-acceptance and real Google acceptance are COMPLETE. The active read-only GSC
-connection uses the accepted Street Kingz property `https://streetkingz.co.uk/`
-with property type `url_prefix` and permission `siteOwner`. Search Analytics
-evidence remains accepted under B2 semantics; detailed grains remain explicitly
-provider-limited. The next separately authorised task is Slice D —
-external-provider decision and bounded external evidence.
+and preserved LKG inventory. Slice D — external-provider evidence is DONE /
+ACCEPTED with truthful partial real validation: 111 real observations were
+retained and the final malformed provider response was rejected without retry.
+B1 and B2 are DONE / ACCEPTED. B1 non-live acceptance and real Google
+acceptance are COMPLETE. The active read-only GSC connection uses the accepted
+Street Kingz property `https://streetkingz.co.uk/` with property type
+`url_prefix` and permission `siteOwner`. Search Analytics evidence remains
+accepted under B2 semantics; detailed grains remain explicitly
+provider-limited. The next separately authorised task is Slice E — unified
+progressive-evidence validation, real Street Kingz acceptance and V1-04
+closeout.
 
 V1-00 Governance Activation: Done
 
