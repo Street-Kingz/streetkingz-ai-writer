@@ -1,6 +1,6 @@
 # V1-05 Slice A post-acceptance correction
 
-Status: BLOCKED — disposable migration proof incomplete
+Status: DONE / ACCEPTED
 
 Original Slice A acceptance: b17a02f0dbd9758cae10e757784ca1a6d9becf6d.
 Original strict result: 31/38. Owner benchmark correction checkpoint:
@@ -43,7 +43,37 @@ image does not contain the platform-created vault schema:
 
 ERROR: schema "vault" does not exist
 
-Therefore disposable migration proof is not PASS, Slice A is not reaccepted,
-and Slice B remains unauthorised. No normal Supabase reset occurred; accepted
-evidence and historical v1 runs remain preserved. Model calls: 0. External
-provider calls: 0. Critical: 0. High: 0. Migration-proof blocker: 1.
+Therefore the initial proof was not PASS. That historical blocker is retained
+here for audit; the earlier final wording claiming the broad discovery
+threshold was not met was inaccurate because discovery had already passed.
+
+## Final isolated proof and reacceptance
+
+Pending-proof governance checkpoint: 999b835c181f2bc5a7221214fe59e88f32d0235c.
+
+The root cause was reproduced in a fresh isolated Supabase CLI project,
+`v105-view-proof-20260904`, using database port `56422`. The platform
+prerequisites (`auth`, `auth.users`, `vault`, and `supabase_vault`) were
+automatically present. The 30-migration chain reproduced authenticated
+relation privileges on the two service-only commerce views. Runtime audit
+found no authenticated Product customer path using either view.
+
+Migration `20260927000000_v1_security_view_privilege_correction.sql` was added
+monotonically. It revokes public, anon and authenticated relation privileges on
+both views, restores explicit service-role SELECT, and denies authenticated
+privileges on future public table-like objects by default. The permanent
+security posture now also rejects authenticated privileges on any public view.
+
+The corrected 31-migration chain passed from zero in the disposable project;
+security posture passed, both Slice A tables had RLS, and the disposable
+containers, volumes and temporary directory were removed. The normal database
+received only the new correction migration, without reset; its security
+posture passed and the two views have zero customer-role privileges with
+service-role SELECT preserved.
+
+Accepted state remains preserved: 23 accounts, 23 Businesses, 2 commerce
+generations, 1,125 B2 observations, 111 external observations, 100 site-page
+rows, and corrected v2 run
+`46efeea3-22e2-4adc-a8a2-2abdafe50f3c`. Strict discovery remains 38/38 with
+zero high-impact misses. Model calls: 0. External provider calls: 0. Critical:
+0. High: 0. Migration-proof blocker: 0.
