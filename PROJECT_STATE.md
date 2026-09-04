@@ -178,6 +178,24 @@ independent-store validation;
 
 free-competitor gauntlet result.
 
+## Current governed milestone state
+
+V1-04: DONE / ACCEPTED / FROZEN
+
+V1-05 contract and evaluation corpus: APPROVED / FROZEN
+
+V1 security hardening: DONE / ACCEPTED
+
+V1-05: IN PROGRESS
+
+V1-05 Slice A: DONE / ACCEPTED — durable decision runs and deterministic
+candidate discovery. The implementation uses the accepted V1-04 evidence
+boundary, preserves candidate/recommendation separation, and makes no model or
+external calls. The frozen corpus is unchanged.
+
+Current next separately authorised task: V1-05 Slice B — deduplication,
+overlap, filtering, target attribution and intent/page-type interpretation.
+
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
 No paid executor currently meets the paid-executor Definition of Done.
