@@ -1,12 +1,12 @@
 # V1-04 — Organic Evidence Connections
 
-**Status: APPROVED — IMPLEMENTATION AUTHORISED**
+**Status: DONE / ACCEPTED**
 
 **Owner approval date:** 2026-08-31
 
-**Current authorized slice:** Slice B — Google Search Console Connection + Evidence
+**Current authorized slice:** none — milestone complete
 
-**Current engineering phase:** B1 — Customer Connection + Property Selection
+**Current engineering phase:** none — milestone complete
 
 ## Contract purpose
 

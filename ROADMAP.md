@@ -365,7 +365,7 @@ Organic Evidence Connections
 
 Search Console, site understanding and external search evidence connected safely
 
-Current / In Progress
+Done
 
 V1-05
 
