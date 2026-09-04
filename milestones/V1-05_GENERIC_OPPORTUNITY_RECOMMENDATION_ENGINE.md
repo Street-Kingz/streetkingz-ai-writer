@@ -1,8 +1,8 @@
 # V1-05 — Generic Opportunity and Recommendation Engine
 
-**Status: APPROVED — SECURITY PREREQUISITE SATISFIED**
+**Status: APPROVED — SLICE B ACTIVE**
 
-**Implementation authorised:** NO — SLICE A REQUIRES SEPARATE OWNER AUTHORIZATION
+**Implementation authorised:** SLICE B ONLY — OWNER AUTHORISED
 
 ## Authority and objective
 

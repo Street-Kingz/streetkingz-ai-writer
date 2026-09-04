@@ -208,9 +208,15 @@ Pre-Slice-B label review: DONE / ACCEPTED.
 
 Evaluation corpus: APPROVED / FROZEN with owner-reviewed later-stage labels.
 
-Slice B: NOT STARTED / READY FOR SEPARATE AUTHORIZATION
+Slice B: IN PROGRESS / OWNER AUTHORISED
 
-Current next task: V1-05 Slice B implementation authorization.
+Current active slice: V1-05 Slice B
+
+Slice C: NOT AUTHORISED
+
+Commercial corpus strengthening: REQUIRED BEFORE SLICE C
+
+Current next task: V1-05 Slice B implementation.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
