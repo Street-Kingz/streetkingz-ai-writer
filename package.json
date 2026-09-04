@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "test": "NODE_ENV=test LEGACY_ARTICLE_ROUTES=1 node --test --test-concurrency=1 test/*.test.js",
     "test:v1-03": "node --test --test-concurrency=1 test/v1-03-foundation.test.js",
     "harness:v1-03": "node scripts/runV103AcceptanceHarness.js",
     "harness:v1-04:b1": "node scripts/runV104B1Acceptance.js",
@@ -41,12 +41,14 @@
     "generation:fixture": "node scripts/buildGenerationFixture.js",
     "cms:read-product": "node --env-file=.env scripts/readWordPressAuthoritativeProduct.js",
     "cms:validate-authoritative-endpoint": "node --env-file=.env scripts/validateWordPressAuthoritativeEndpoint.js"
+    ,"security:secrets": "node scripts/security/scan-secrets.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.0",
+    "express-rate-limit": "^7.5.1",
     "ipaddr.js": "^2.5.0",
     "tldts": "^7.4.11"
   },
