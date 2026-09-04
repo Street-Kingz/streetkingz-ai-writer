@@ -35,10 +35,34 @@ evidence cases; 8 cases intentionally combine sparse and rich source states.
 The machine-readable label manifest is
 `artifacts/planning/v1-05/evaluation-corpus.json`; its SHA-256 values bind each
 case to one sanitized immutable input fixture in
-`artifacts/planning/v1-05/fixtures/evaluation-inputs.jsonl`. Input packets and
+`artifacts/planning/v1-05/fixtures/evaluation-inputs.jsonl`. Hashes cover the
+canonical UTF-8 `JSON.stringify(input_packet)` value only. Input packets and
 ground-truth labels are separate: labels are available only to the evaluation
-harness after the engine run and are never runtime Product input.
-Manifest references use `#/CASE_ID` as the matching JSONL case selector.
+harness after the engine run and are never runtime Product input. Manifest
+references use the fixture file plus case ID as the JSONL case selector.
+
+The planning-only validator is `artifacts/planning/v1-05/validate-corpus-v2.cjs`;
+it verifies packet hashes, fixture coverage, prohibited answer fields,
+commercial control equivalence and the predeclared subset counts. It is not
+loaded by Product runtime.
+
+The v2 input packets contain source facts, not evaluation conclusions: typed
+commerce, page, Search Console and external observations, including explicit
+numeric metrics, dates, market/language and legitimate source limitations. The
+previous v1 signal-based fixture is superseded and is not a current benchmark
+input. For each commercial-sensitive pair, the control is generated from the
+same packet by removing approved commercial fields (price, stock, sales,
+revenue, COGS/margin and explicit commercial constraints); all non-commercial
+records remain byte/logically equivalent.
+The real/historical cases are bounded references to already accepted evidence;
+synthetic cases use reserved `example.test` URLs and neutral catalogue facts.
+Case 039 includes demand 20 plus price, stock, sales, revenue, COGS and a
+product/category relationship. Cases 041 and 042 include demand 12,000 and
+11,000 plus unrelated catalogue/page facts. Case 043 has two content pages with
+overlapping query/page observations and an internal-link relationship. Case 048
+has two comparable content targets with equivalent organic evidence and
+differing commercial stock/sales facts; its control is the same packet with
+approved commercial fields removed.
 
 Reviewer A is Ben, Product Owner. Reviewer B is ChatGPT performing an
 independent governance review against this rubric. Codex may prepare the

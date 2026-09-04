@@ -62,9 +62,13 @@ The reliability subset is exactly 001, 010, 014, 018, 022, 026, 032, 036,
 039, 042, 047 and 048. The commercial-context-sensitive paired subset is
 exactly 001, 004, 009, 010, 014, 017, 021, 039, 040, 041, 043 and 048.
 
-Each row binds to the corresponding JSONL record and hash in the machine
-manifest. The fixture reference is a JSONL case identity, not a second copy of
-the evidence packet.
+The v2 machine manifest is authoritative for current fixture references and
+hashes. The earlier table below is retained only as superseded v1 audit history;
+its hashes are not current evaluation hashes. The current v2 hash rule is
+SHA-256 of canonical UTF-8 `JSON.stringify(input_packet)` and the current
+case-by-case values are in `evaluation-corpus.json`.
+
+## Superseded v1 hash table (audit only)
 
 | Case | Fixture reference | SHA-256 |
 |---|---|---|

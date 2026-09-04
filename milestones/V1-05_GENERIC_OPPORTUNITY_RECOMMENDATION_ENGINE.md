@@ -203,6 +203,20 @@ synthesis call. At most seven total request attempts are allowed, including one
 run-wide transport/schema retry; the retry shares the 180-second deadline and
 25,000-token total output budget.
 
+Formal evaluation begins from these V1-04-shaped source facts. Derived
+interpretation labels, candidate labels, expected outcomes, commercial-effect
+labels and other answer-key features are prohibited from Product inputs;
+candidate discovery itself is evaluated. Runtime receives only `input_packet`
+from a fixture wrapper. For commercial challenger pairs, the control packet is
+the deterministic projection of the same packet with approved commercial
+fields removed; products, targets, site/search evidence and SERP evidence are
+otherwise unchanged. Ground-truth labels are harness-only and must never be
+imported by Product runtime modules.
+
+The planning-only corpus validator is
+`artifacts/planning/v1-05/validate-corpus-v2.cjs`; it is evaluation tooling only
+and is not a Product runtime dependency.
+
 Street Kingz validation uses one frozen accepted V1-04 snapshot, no founder
 hints and no network calls. Independent stores and the full V1-07 competitor
 gauntlet are not V1-05 requirements.
