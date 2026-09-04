@@ -198,7 +198,7 @@ Current milestone: V1-04 Organic Evidence Connections — DONE / ACCEPTED
 
 Current active slice: none — V1-04 complete
 
-Current engineering phase: V1-05 revised milestone contract and evaluation corpus — owner review required
+Current engineering phase: V1-05 materialised evaluation corpus — final owner approval required
 
 B1: DONE / ACCEPTED
 
@@ -222,9 +222,9 @@ B2: DONE / ACCEPTED
 
 Search Analytics evidence: COLLECTED / accepted under B2 semantics
 
-Current next separately authorised task: Ben/ChatGPT final approval of the
-revised V1-05 milestone contract and frozen evaluation corpus. V1-05
-implementation is not authorised.
+Current next separately authorised task: Ben/ChatGPT approval of the
+materialised V1-05 corpus and revised contract, followed by the bounded V1
+security-hardening gate. V1-05 implementation is not authorised.
 
 Slice D status: DONE / ACCEPTED — truthful partial real external-evidence
 validation accepted as bounded capability and failure-behaviour proof
@@ -240,9 +240,10 @@ complete run or an LKG.
 Slice E: DONE / ACCEPTED — unified progressive-evidence snapshot validated from
 durable local evidence. Site complete/LKG and external usable-partial states
 remain distinct; no global completeness claim is made. V1-04 evidence boundary
-is frozen for V1. V1-05 milestone contract: REVISED PROPOSAL — OWNER REVIEW
-REQUIRED. V1-05 evaluation corpus: PROPOSED / FROZEN FOR OWNER REVIEW.
-Bounded V1 security hardening remains a pre-implementation dependency.
+is frozen for V1. V1-05 milestone contract: FINAL APPROVAL CANDIDATE — OWNER
+REVIEW REQUIRED. V1-05 evaluation corpus: MATERIALISED / IMMUTABLY FROZEN FOR
+OWNER REVIEW. Bounded V1 security hardening remains a pre-implementation
+dependency and is OPEN.
 V1-05 implementation is not authorised.
 
 ## Current V1-04 Slice C real acceptance (2026-09-03)

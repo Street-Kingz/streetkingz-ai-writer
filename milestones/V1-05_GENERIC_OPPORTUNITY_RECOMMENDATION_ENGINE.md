@@ -189,6 +189,20 @@ below 3.5, exactly 12 reliability cases repeated five times (60 runs), and a
 12-case commercial challenger. It includes sparse/rich evidence, failure
 classes, no-action and insufficient-evidence.
 
+The machine-readable manifest and input fixtures are immutable evaluation
+inputs: `artifacts/planning/v1-05/evaluation-corpus.json` contains the proposed
+labels and SHA-256 references to the sanitized fixture collection in
+`artifacts/planning/v1-05/fixtures/evaluation-inputs.jsonl`. The evaluation
+runner must provide only the input packet to Product code; ground-truth labels
+are comparison-only harness data and must never be imported into runtime.
+Actionable dispositions are `improve_existing_product`,
+`improve_existing_category`, `improve_existing_content`, `create_new_asset`,
+`improve_internal_linking` or `monitor_or_defer`; run outcomes remain separate.
+The six planned model calls comprise five interpretation calls and one final
+synthesis call. At most seven total request attempts are allowed, including one
+run-wide transport/schema retry; the retry shares the 180-second deadline and
+25,000-token total output budget.
+
 Street Kingz validation uses one frozen accepted V1-04 snapshot, no founder
 hints and no network calls. Independent stores and the full V1-07 competitor
 gauntlet are not V1-05 requirements.

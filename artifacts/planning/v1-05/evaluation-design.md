@@ -32,6 +32,13 @@ provenance remains valid, and synthetic/adversarial cases needed to cover
 failure classes. No founder hint unavailable to a normal customer is included.
 At least 12 cases are sparse-evidence cases and at least 12 are rich first-party
 evidence cases; 8 cases intentionally combine sparse and rich source states.
+The machine-readable label manifest is
+`artifacts/planning/v1-05/evaluation-corpus.json`; its SHA-256 values bind each
+case to one sanitized immutable input fixture in
+`artifacts/planning/v1-05/fixtures/evaluation-inputs.jsonl`. Input packets and
+ground-truth labels are separate: labels are available only to the evaluation
+harness after the engine run and are never runtime Product input.
+Manifest references use `#/CASE_ID` as the matching JSONL case selector.
 
 Reviewer A is Ben, Product Owner. Reviewer B is ChatGPT performing an
 independent governance review against this rubric. Codex may prepare the
@@ -40,6 +47,21 @@ reviewers independently label discoverability, filter disposition,
 customer-job/intent, intervention, severity, dependencies and usefulness;
 material disagreements are adjudicated by Ben. Evaluation is blinded to
 control/challenger labels where practical.
+
+The final intervention mapping is explicit: `improve_existing_product`,
+`improve_existing_category`, `improve_existing_content`, `create_new_asset`,
+`improve_internal_linking` and `monitor_or_defer`. Consolidation is represented
+as overlap/dependency reasoning and maps to an approved existing-page,
+new-asset, internal-linking or monitor/defer intervention. No generic
+consolidation executor is an enum.
+
+Model bounds are 6 planned calls (5 interpretation batches plus 1 synthesis),
+7 total request attempts maximum, and one run-wide retry only for transport or
+schema failure. Successful interpretation responses are capped at 4,000
+tokens, synthesis at 5,000, and all attempts share a 25,000-token output budget
+and 180-second deadline. The 2,000-character candidate bound applies to the
+combined bounded evidence-summary text, not raw source text; identifiers and
+provenance are never truncated.
 
 ## Measurements and thresholds
 
@@ -100,6 +122,13 @@ challenger need not improve; an unjustified decision change fails.
 Run the same engine over sparse, rich and mixed packets. Missing sources must
 reduce confidence or add limitations; they must not be treated as zero or make
 the engine invent a candidate.
+
+The exact 12-case reliability subset is 001, 010, 014, 018, 022, 026, 032,
+036, 039, 042, 047 and 048. At least eight are expected to reach interpretation;
+the remaining cases are deterministic boundary controls. The exact 12 paired
+commercial subset is 001, 004, 009, 010, 014, 017, 021, 039, 040, 041, 043 and
+048. Commercial-sensitive cases carry an explicit expected effect; neutral
+cases require `no_material_change`.
 
 ## Street Kingz protocol
 
