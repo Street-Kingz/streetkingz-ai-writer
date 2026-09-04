@@ -4,13 +4,13 @@ export function supportsStrictStructuredOutputs(model) {
   return /^(?:gpt-4o|gpt-4\.1|gpt-5)/.test(model);
 }
 
-export function buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, temperature = 0.1 }) {
+export function buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName = "product_page_interpretation", temperature = 0.1 }) {
   const strictStructuredOutput = supportsStrictStructuredOutputs(model);
   if (strictStructuredOutput && !responseSchema) throw new Error("A JSON Schema is required for strict Structured Outputs.");
   return {
     model,
     temperature,
-    response_format: strictStructuredOutput ? { type: "json_schema", json_schema: { name: "product_page_interpretation", strict: true, schema: responseSchema } } : { type: "json_object" },
+    response_format: strictStructuredOutput ? { type: "json_schema", json_schema: { name: schemaName, strict: true, schema: responseSchema } } : { type: "json_object" },
     messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }]
   };
 }
@@ -25,9 +25,9 @@ export function createOpenAIInterpretationProvider({ env = process.env, fetchImp
     id: "openai",
     model,
     settings: { temperature: 0.1, api: "chat.completions", response_format: strictStructuredOutput ? "json_schema" : "json_object", strict_structured_output: strictStructuredOutput },
-    requestPayload({ systemPrompt, userPrompt, responseSchema, temperature = 0.1 }) { return buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, temperature }); },
-    async generate({ systemPrompt, userPrompt, responseSchema }) {
-      const requestBody = buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema });
+    requestPayload({ systemPrompt, userPrompt, responseSchema, schemaName, temperature = 0.1 }) { return buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, temperature }); },
+    async generate({ systemPrompt, userPrompt, responseSchema, schemaName }) {
+      const requestBody = buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName });
       const response = await fetchImpl("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` },

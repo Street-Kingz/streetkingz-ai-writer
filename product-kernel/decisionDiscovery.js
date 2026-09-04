@@ -42,8 +42,8 @@ function pageTargets(packet, page) {
 }
 
 function sourceId(row, fallback) { return String(row?.source_record_id || row?.id || fallback); }
-function refs(kind, type, id, relation = "supports", runReference = null) {
-  return [{ source_kind: kind, source_record_type: type, source_record_id: id, source_run_or_generation_reference: runReference, relationship: relation }];
+function refs(kind, type, id, relation = "supports", runReference = null, facts = {}) {
+  return [{ source_kind: kind, source_record_type: type, source_record_id: id, source_run_or_generation_reference: runReference, relationship: relation, ...facts }];
 }
 
 export function buildSnapshotFingerprint(snapshot) { return sha256(snapshot); }
@@ -102,7 +102,7 @@ export function discoverCandidates(packet) {
     } else if (row.page_url) { const target = commerceTargetForUrl(row.page_url); if (target) add({ ...target, sources: ["search_console"], evidence: refs("search_console", "observation", sourceId(row, `row-${i + 1}`), "query_page_relationship", p.search_console?.selected_run_id), identityPart: target.targets }); }
   }
   for (const [i, row] of extRows.entries()) {
-    const evidence = refs("external_search", "observation", sourceId(row, `row-${i + 1}`), "query_serp_relationship", p.external?.selected_run_id);
+    const evidence = refs("external_search", "observation", sourceId(row, `row-${i + 1}`), "query_serp_relationship", p.external?.selected_run_id, { source_market: row.market || null, source_language: row.language || null });
     const matchedPages = [...new Set((row.serp || []).map(result => pageForUrl(result.url)).filter(Boolean))];
     for (const page of matchedPages) {
       const targets = pageTargets(p, page);
@@ -127,6 +127,8 @@ export function discoverCandidates(packet) {
     add({ type: "internal_linking", targets: [sourceRef, targetRefValue], targetType: "directed_page_pair", sources: [sourceClass], evidence, identityPart: { source_page: sourceRef, target_page: targetRefValue } });
   };
   for (const page of pages) for (const linkedId of page.internal_links || []) if (pageById.has(String(linkedId))) {
+    // The observed page.id -> linkedId edge is evidence for the relationship;
+    // the candidate, if any, is the missing reverse edge linkedId -> page.id.
     addDirectedLink(String(linkedId), String(page.id), refs("site", "page", page.id, "link_relationship"), "site");
   }
   for (const relation of p.commerce?.relations || []) {
