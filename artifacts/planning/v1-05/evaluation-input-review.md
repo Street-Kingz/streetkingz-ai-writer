@@ -24,7 +24,7 @@ are sufficient for the labelled stage; the answer-key manifest is separate.
 | V105-EVAL-013 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-013` | real | rich | Rinse products/category, category/product pages, query metrics and GB organic result. |
 | V105-EVAL-014 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-014` | real | rich | Drying/wash products, category and product pages with an internal link, query metrics and GB result. |
 | V105-EVAL-015 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-015` | historical | mixed | Wheel products, linked category/product pages, limited query metrics and a GB demand row. |
-| V105-EVAL-016 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-016` | synthetic | sparse | Detailing products, category/product pages with no internal links; Search Console/external rows absent. |
+| V105-EVAL-016 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-016` | synthetic | sparse | Detailing products, category/product pages with no internal links, and an explicit Product↔Category commerce relation; Search Console/external rows absent. |
 | V105-EVAL-017 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-017` | real | rich | Ceramic products, category/product pages, query metrics, demand and stock quantity values. |
 | V105-EVAL-018 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-018` | synthetic | sparse | Finishing products, product/guide pages, missing Search Console and a two-result GB SERP. |
 | V105-EVAL-019 | `fixtures/evaluation-inputs.jsonl#V105-EVAL-019` | synthetic | sparse | Dated category/product pages from 2025; Search Console and external rows absent. |
