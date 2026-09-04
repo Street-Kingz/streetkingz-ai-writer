@@ -21,4 +21,7 @@ do $$ declare n integer; begin
   if exists (select 1 from information_schema.role_table_grants where table_schema = 'public'
     and table_name in (select table_name from information_schema.views where table_schema = 'public')
     and grantee in ('anon', 'public')) then raise exception 'UNSAFE_PUBLIC_VIEW'; end if;
+  if exists (select 1 from information_schema.role_table_grants where table_schema = 'public'
+    and table_name in (select table_name from information_schema.views where table_schema = 'public')
+    and grantee = 'authenticated') then raise exception 'UNSAFE_CUSTOMER_VIEW_PRIVILEGE'; end if;
 end $$;
