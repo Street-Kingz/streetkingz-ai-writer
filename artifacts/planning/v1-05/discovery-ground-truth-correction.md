@@ -25,3 +25,16 @@ input hash change; all other fixture bytes and hashes remain frozen.
 
 This correction is evaluation ground truth only and must not be imported by
 Product runtime code.
+
+## Owner boundary correction
+
+The temporary instruction that an existing target must suppress a new-asset
+candidate has been reviewed and withdrawn. It performed Slice B target-fit,
+intent, unnecessary-new-page and cannibalisation filtering inside broad Slice A
+discovery. Slice A may therefore retain existing-target and unresolved-source-job
+candidates together; coexistence is not a recommendation. Slice B owns
+unnecessary-new-page rejection.
+
+Cases 010, 011, 013 and 041 retain their unchanged Slice A new-asset discovery
+labels. Their final intent/intervention labels require explicit owner review
+before Slice B implementation. The recall threshold is unchanged.

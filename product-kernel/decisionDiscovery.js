@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-export const DISCOVERY_VERSION = "v1-05-slice-a-2";
+export const DISCOVERY_VERSION = "v1-05-slice-a-2-provenance";
 export const CANDIDATE_TYPES = Object.freeze([
   "existing_product_improvement",
   "existing_category_improvement",
@@ -41,8 +41,9 @@ function pageTargets(packet, page) {
   return targets;
 }
 
-function refs(kind, type, id, relation = "supports") {
-  return [{ source_kind: kind, source_record_type: type, source_record_id: id, relationship: relation }];
+function sourceId(row, fallback) { return String(row?.source_record_id || row?.id || fallback); }
+function refs(kind, type, id, relation = "supports", runReference = null) {
+  return [{ source_kind: kind, source_record_type: type, source_record_id: id, source_run_or_generation_reference: runReference, relationship: relation }];
 }
 
 export function buildSnapshotFingerprint(snapshot) { return sha256(snapshot); }
@@ -97,11 +98,11 @@ export function discoverCandidates(packet) {
     if (page) {
       const targets = pageTargets(p, page);
       const type = page.type === "product" ? "existing_product_improvement" : page.type === "category" ? "existing_category_improvement" : (page.type === "content" || page.type === "home") ? "existing_content_improvement" : null;
-      if (type && targets.length) add({ type, targets, targetType: page.type === "home" ? "content" : page.type, sources: ["search_console"], evidence: refs("search_console", "observation", `row-${i + 1}`), identityPart: targets });
-    } else if (row.page_url) { const target = commerceTargetForUrl(row.page_url); if (target) add({ ...target, sources: ["search_console"], evidence: refs("search_console", "observation", `row-${i + 1}`), identityPart: target.targets }); }
+      if (type && targets.length) add({ type, targets, targetType: page.type === "home" ? "content" : page.type, sources: ["search_console"], evidence: refs("search_console", "observation", sourceId(row, `row-${i + 1}`), "query_page_relationship", p.search_console?.selected_run_id), identityPart: targets });
+    } else if (row.page_url) { const target = commerceTargetForUrl(row.page_url); if (target) add({ ...target, sources: ["search_console"], evidence: refs("search_console", "observation", sourceId(row, `row-${i + 1}`), "query_page_relationship", p.search_console?.selected_run_id), identityPart: target.targets }); }
   }
   for (const [i, row] of extRows.entries()) {
-    const evidence = refs("external_search", "observation", `row-${i + 1}`);
+    const evidence = refs("external_search", "observation", sourceId(row, `row-${i + 1}`), "query_serp_relationship", p.external?.selected_run_id);
     const matchedPages = [...new Set((row.serp || []).map(result => pageForUrl(result.url)).filter(Boolean))];
     for (const page of matchedPages) {
       const targets = pageTargets(p, page);
@@ -115,9 +116,9 @@ export function discoverCandidates(packet) {
     if (row.query) add({ type: "new_page_or_content_asset", targets: [], targetType: "unresolved", sources: ["external_search"], evidence, identityPart: { query: norm(row.query), market: row.market, language: row.language } });
   }
   for (const page of pages) {
-    if ((page.type === "content" || page.type === "home") && (page.title || page.h1) && (p.site?.state !== "missing")) add({ type: "existing_content_improvement", targets: [pageRef(page.id)], targetType: "content", sources: ["site"], evidence: refs("site", "page", page.id), identityPart: [pageRef(page.id)] });
-    if (page.type === "category" && (page.title || page.h1) && (p.site?.state !== "missing")) add({ type: "existing_category_improvement", targets: pageTargets(p, page), targetType: "category", sources: ["site"], evidence: refs("site", "page", page.id), identityPart: pageTargets(p, page) });
-    if (page.type === "product" && (page.title || page.h1) && (p.site?.state !== "missing")) add({ type: "existing_product_improvement", targets: pageTargets(p, page), targetType: "product", sources: ["site"], evidence: refs("site", "page", page.id), identityPart: pageTargets(p, page) });
+    if ((page.type === "content" || page.type === "home") && (page.title || page.h1) && (p.site?.state !== "missing")) add({ type: "existing_content_improvement", targets: [pageRef(page.id)], targetType: "content", sources: ["site"], evidence: refs("site", "page", sourceId(page, page.id), "site_page", p.site?.selected_run_id), identityPart: [pageRef(page.id)] });
+    if (page.type === "category" && (page.title || page.h1) && (p.site?.state !== "missing")) add({ type: "existing_category_improvement", targets: pageTargets(p, page), targetType: "category", sources: ["site"], evidence: refs("site", "page", sourceId(page, page.id), "site_page", p.site?.selected_run_id), identityPart: pageTargets(p, page) });
+    if (page.type === "product" && (page.title || page.h1) && (p.site?.state !== "missing")) add({ type: "existing_product_improvement", targets: pageTargets(p, page), targetType: "product", sources: ["site"], evidence: refs("site", "page", sourceId(page, page.id), "site_page", p.site?.selected_run_id), identityPart: pageTargets(p, page) });
   }
   const hasLink = (source, target) => Boolean((pageById.get(String(source))?.internal_links || []).map(String).includes(String(target)));
   const addDirectedLink = (source, target, evidence, sourceClass) => {
