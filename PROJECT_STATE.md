@@ -188,16 +188,24 @@ V1 security hardening: DONE / ACCEPTED
 
 V1-05: IN PROGRESS
 
-V1-05 Slice A: DONE / ACCEPTED — corrected discovery v2. The implementation
-uses the accepted V1-04 evidence boundary, preserves candidate/recommendation
-separation, and makes no model or external calls. The original v1 acceptance
-is superseded as final acceptance by the documented post-acceptance correction;
-the owner-corrected discovery benchmark is frozen.
+V1-05 Slice A: CORRECTED DISCOVERY V2 — ACCEPTANCE PENDING DISPOSABLE
+MIGRATION PROOF
+
+Product/evaluation gates: PASS
+
+Remaining gate: isolated Supabase from-zero migration proof
+
+The implementation uses the accepted V1-04 evidence boundary, preserves
+candidate/recommendation separation, and makes no model or external calls. The
+original v1 acceptance is superseded as final acceptance by the documented
+post-acceptance correction; the owner-corrected discovery benchmark is frozen.
 
 Pre-Slice-B label review is required for V105-EVAL-010, 011, 013 and 041.
 
-Current next separately authorised task: V1-05 Slice B — deduplication,
-overlap, filtering, target attribution and intent/page-type interpretation.
+Slice B: NOT AUTHORISED
+
+Current next separately authorised task: complete isolated migration proof and
+reaccept V1-05 Slice A.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
