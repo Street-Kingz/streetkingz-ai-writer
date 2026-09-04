@@ -1,7 +1,7 @@
 # V1-05 Proposed Labelled Evaluation Corpus
 
-Status: PROPOSED — frozen for owner review. Labels are proposed by the Product
-Owner review process; material disagreement is adjudicated by Ben. Evidence
+Status: APPROVED / FROZEN — PRE-SLICE-B LABEL REVIEW COMPLETE. Labels are
+owner-reviewed; material disagreement is adjudicated by Ben. Evidence
 references are sanitized and do not include licensed dumps or query lists.
 
 Exactly 48 stable cases are defined below. The two calibration cases make the
@@ -18,17 +18,17 @@ manifest total explicit while preserving the required behavioural classes.
 | V105-EVAL-007 | existing content improvement | real / rich | YES | pass | information seeking | improve content | none | NO | NO | NO | Existing page and SERP fit. |
 | V105-EVAL-008 | existing product improvement | real / rich | YES | pass | comparison / selection | improve product | same-job group A | NO | NO | NO | Existing target beats a duplicate new asset. |
 | V105-EVAL-009 | existing category improvement | synthetic / sparse | YES | pass | category selection | improve category | none | YES | NO | NO | Commercial relationship is relevant context with limited evidence. |
-| V105-EVAL-010 | appropriate new asset | real / rich | YES | pass | informational | create new asset | prerequisite: none | YES | YES | YES | No suitable existing target; new asset is appropriate. |
-| V105-EVAL-011 | appropriate new asset | synthetic / mixed | YES | pass | comparison / selection | create new asset | none | NO | NO | NO | Mixed SERP supports a bounded new comparison asset. |
+| V105-EVAL-010 | existing content improvement | real / rich | YES | pass | informational | improve content | none | NO | YES | YES | Existing guide is the directly observed target. |
+| V105-EVAL-011 | monitor / defer outcome | synthetic / mixed | YES | pass | mixed intent | monitor / defer | target ambiguity; target-fit uncertainty | NO | NO | NO | Product and guide targets leave the customer job unresolved. |
 | V105-EVAL-012 | appropriate new asset | synthetic / sparse | YES | pass | informational | create new asset | evidence limited | NO | NO | NO | Sparse but valid evidence supports cautious creation. |
-| V105-EVAL-013 | appropriate new asset | real / rich | YES | pass | category selection | create new asset | architecture prerequisite | NO | NO | NO | Existing pages do not cover the customer job. |
+| V105-EVAL-013 | existing category improvement | real / rich | YES | pass | category selection | improve category | none | NO | NO | NO | External and GSC evidence resolve to the existing category. |
 | V105-EVAL-014 | internal linking | real / rich | YES | pass | navigation / discovery | improve internal linking | dependency group A | YES | YES | YES | Linking supports a stronger target opportunity. |
 | V105-EVAL-015 | internal linking | historical / mixed | YES | pass | navigation / discovery | improve internal linking | dependency group B | NO | NO | NO | Accepted V1-01 structure pattern. |
 | V105-EVAL-016 | internal linking | synthetic / sparse | YES | pass | navigation / discovery | improve internal linking | dependency group B | NO | NO | NO | Sparse structure evidence requires bounded language. |
 | V105-EVAL-017 | monitor / defer outcome | real / rich | YES | pass | uncertain selection | monitor / defer | dependency: evidence refresh | YES | NO | NO | Evidence is sufficient but timing is not favourable. |
 | V105-EVAL-018 | monitor / defer outcome | synthetic / sparse | YES | pass | mixed intent | monitor / defer | uncertainty | NO | NO | YES | Sparse mixed intent should not force action. |
 | V105-EVAL-019 | monitor / defer outcome | synthetic / sparse | YES | pass | informational | monitor / defer | stale evidence | NO | NO | NO | Freshness limitation controls timing. |
-| V105-EVAL-020 | monitor / defer outcome | real / rich | YES | pass | product selection | monitor / defer | stock constraint | NO | NO | NO | Stock is context, not a ranking multiplier. |
+| V105-EVAL-020 | monitor / defer outcome | real / rich | YES | pass | product selection | monitor / defer | stock constraint | YES | NO | NO | Zero stock and stronger sales justify lower priority/defer context. |
 | V105-EVAL-021 | insufficient evidence | synthetic / mixed | NO | pass | uncertain | insufficient evidence | missing demand | YES | NO | NO | Missing evidence is not zero demand. |
 | V105-EVAL-022 | insufficient evidence | synthetic / sparse | NO | pass | uncertain | insufficient evidence | missing target | NO | NO | YES | Target cannot be validated. |
 | V105-EVAL-023 | insufficient evidence | real / mixed | NO | pass | uncertain | insufficient evidence | provider-limited | NO | NO | NO | Source limitation prevents reliable choice. |
@@ -49,7 +49,7 @@ manifest total explicit while preserving the required behavioural classes.
 | V105-EVAL-038 | product mismatch | historical / rich | NO | reject: mismatch | product selection | no candidate | none | NO | NO | NO | Product relationship is unsupported. |
 | V105-EVAL-039 | low-volume commercial | real / mixed | YES | pass | product selection | improve product | dependency: stock | YES | YES | YES | Low demand does not erase credible commercial fit. |
 | V105-EVAL-040 | low-volume commercial | synthetic / rich | YES | pass | category selection | improve category | none | YES | NO | NO | Low volume with strong customer fit. |
-| V105-EVAL-041 | high-volume irrelevant | synthetic / rich | YES | pass | broad information | monitor / defer | relevance uncertainty | YES | YES | NO | High volume alone cannot justify irrelevant work. |
+| V105-EVAL-041 | high-volume irrelevant | synthetic / rich | YES | reject: mismatch | broad information | no action | none | NO | YES | NO | High volume cannot rescue an unrelated Business/customer job. |
 | V105-EVAL-042 | high-volume irrelevant | real / mixed | YES | pass | broad information | do nothing | none | NO | NO | YES | Commercial irrelevance remains explicit. |
 | V105-EVAL-043 | consolidation / sequencing | real / rich | YES | pass | comparison / selection | consolidate existing pages | prerequisite: consolidation | YES | YES | NO | Consolidation precedes new-page creation. |
 | V105-EVAL-044 | consolidation / sequencing | historical / rich | YES | pass | informational | improve existing content | prerequisite: canonical | NO | NO | NO | Fix target relationship before expansion. |
@@ -60,7 +60,9 @@ manifest total explicit while preserving the required behavioural classes.
 
 The reliability subset is exactly 001, 010, 014, 018, 022, 026, 032, 036,
 039, 042, 047 and 048. The commercial-context-sensitive paired subset is
-exactly 001, 004, 009, 010, 014, 017, 021, 039, 040, 041, 043 and 048.
+exactly 001, 004, 009, 014, 017, 020, 021, 039, 040, 043 and 048 (11 cases).
+No second neutral replacement is supported by the frozen facts; corpus
+strengthening is required before Slice C commercial evaluation.
 
 The v2 machine manifest is authoritative for current fixture references and
 hashes. The earlier table below is retained only as superseded v1 audit history;

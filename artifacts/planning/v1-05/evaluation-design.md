@@ -1,30 +1,34 @@
 # V1-05 Proposed Evaluation Design
 
-Status: PROPOSED — owner review required. All quantities and thresholds below
-are frozen proposal values for review before implementation; they are not yet
-accepted Product requirements.
+Status: APPROVED / FROZEN — pre-Slice-B label review complete. All quantities
+and thresholds below remain frozen evaluation requirements.
 
 ## Labelled corpus
 
 Use the actual 48-case manifest in
 `artifacts/planning/v1-05/evaluation-corpus.md`, created before implementation
-and frozen by case ID. The corpus
-contains 32 evidence-grounded opportunity cases and 16 adversarial/control
-cases:
+and frozen by case ID. Following owner review, its current primary-class
+distribution is:
 
 | Class | Cases |
 |---|---:|
-| Existing product/category/content improvement | 9 |
-| Appropriate new page/content asset | 4 |
-| Internal linking / dependency | 3 |
-| Monitor/defer or do nothing | 4 |
+| Existing product improvement | 4 |
+| Existing category improvement | 4 |
+| Existing content improvement | 3 |
+| Appropriate new page/content asset | 1 |
+| Internal linking | 3 |
+| Monitor/defer outcome | 5 |
 | Insufficient evidence | 4 |
-| Duplicate, same-target or overlap cases | 6 |
-| Wrong market / navigational-brand cases | 4 |
-| Product mismatch / wrong page type / invalid target | 4 |
-| Low-volume commercially credible | 2 |
-| High-volume commercially irrelevant | 2 |
-| Consolidation and sequencing dependency | 4 |
+| Duplicate/overlap | 6 |
+| Wrong market | 2 |
+| Navigational brand | 2 |
+| Product mismatch | 2 |
+| Wrong page type | 1 |
+| Low-volume commercial | 2 |
+| High-volume irrelevant | 2 |
+| Consolidation/sequencing | 4 |
+| Missing-data control | 1 |
+| Commercial calibration | 1 |
 | **Total** | **48** |
 
 Cases use frozen V1-04 evidence, valid historical V1-01 evidence where its
@@ -135,7 +139,7 @@ outcome, dependencies, failure conditions and reassessment trigger.
 
 ## Control/challenger and progressive evidence
 
-Run exactly 12 predeclared commercial-context-sensitive paired cases through an
+Run exactly 11 currently predeclared commercial-context-sensitive paired cases through an
 SEO-only control and a challenger using the same candidate universe and
 non-commercial evidence plus approved commercial evidence. The challenger must
 improve mean commercial appropriateness or action worthiness by at least **0.5**
@@ -150,9 +154,11 @@ the engine invent a candidate.
 The exact 12-case reliability subset is 001, 010, 014, 018, 022, 026, 032,
 036, 039, 042, 047 and 048. At least eight are expected to reach interpretation;
 the remaining cases are deterministic boundary controls. The exact 12 paired
-commercial subset is 001, 004, 009, 010, 014, 017, 021, 039, 040, 041, 043 and
-048. Commercial-sensitive cases carry an explicit expected effect; neutral
-cases require `no_material_change`.
+commercial subset is 001, 004, 009, 014, 017, 020, 021, 039, 040, 043 and 048.
+No second neutral replacement is supported by the frozen facts; corpus
+strengthening is required before Slice C commercial evaluation.
+Commercial-sensitive cases carry an explicit expected effect; neutral cases
+require `no_material_change`.
 
 ## Street Kingz protocol
 

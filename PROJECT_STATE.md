@@ -204,11 +204,13 @@ candidate/recommendation separation, and makes no model or external calls. The
 original v1 acceptance is superseded as final acceptance by the documented
 post-acceptance correction; the owner-corrected discovery benchmark is frozen.
 
-Pre-Slice-B label review is required for V105-EVAL-010 / 011 / 013 / 041.
+Pre-Slice-B label review: DONE / ACCEPTED.
 
-Slice B: NOT AUTHORISED
+Evaluation corpus: APPROVED / FROZEN with owner-reviewed later-stage labels.
 
-Current next separately authorised task: V1-05 pre-Slice-B label review.
+Slice B: NOT STARTED / READY FOR SEPARATE AUTHORIZATION
+
+Current next task: V1-05 Slice B implementation authorization.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 

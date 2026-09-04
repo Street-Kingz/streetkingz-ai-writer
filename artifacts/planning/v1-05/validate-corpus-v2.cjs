@@ -56,7 +56,10 @@ const commercial = labels.filter(label => label.commercial_context_sensitive);
 const modelReaching = new Set(['V105-EVAL-001', 'V105-EVAL-010', 'V105-EVAL-014', 'V105-EVAL-018', 'V105-EVAL-026', 'V105-EVAL-032', 'V105-EVAL-039', 'V105-EVAL-042', 'V105-EVAL-048']);
 if (reliability.length !== 12) errors.push('reliability subset is not exactly 12');
 if (reliability.filter(label => modelReaching.has(label.case_id)).length < 8) errors.push('fewer than 8 reliability cases reach interpretation');
-if (commercial.length !== 12) errors.push('commercial-sensitive subset is not exactly 12');
+// Owner review reduced the current paired subset to the 11 cases with
+// genuinely commerce-sensitive frozen facts. Corpus strengthening is required
+// before Slice C; this validator must not manufacture a twelfth pair.
+if (commercial.length !== 11) errors.push('commercial-sensitive subset is not exactly 11');
 for (const label of commercial) {
   const packet = byId.get(label.case_id).input_packet;
   const control = stripCommercial(packet);
