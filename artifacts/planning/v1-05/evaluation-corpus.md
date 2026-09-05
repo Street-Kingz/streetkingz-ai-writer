@@ -33,12 +33,12 @@ manifest total explicit while preserving the required behavioural classes.
 | V105-EVAL-022 | insufficient evidence | synthetic / sparse | NO | pass | uncertain | insufficient evidence | missing target | NO | NO | YES | Target cannot be validated. |
 | V105-EVAL-023 | insufficient evidence | real / mixed | NO | pass | uncertain | insufficient evidence | provider-limited | NO | NO | NO | Source limitation prevents reliable choice. |
 | V105-EVAL-024 | insufficient evidence | synthetic / sparse | NO | pass | uncertain | insufficient evidence | no usable source | NO | NO | NO | No evidence supports a decision. |
-| V105-EVAL-025 | duplicate / lexical overlap | synthetic / rich | YES | reject: duplicate | same customer job | no candidate | lexical duplicate | NO | NO | NO | Exact normalized duplicate retains reason code. |
-| V105-EVAL-026 | duplicate / same target | real / rich | YES | reject: same target | product selection | no candidate | same target group | NO | NO | YES | Same-page duplicate must not multiply work. |
-| V105-EVAL-027 | duplicate / overlap | synthetic / mixed | YES | reject: overlap | comparison | no candidate | overlap group C | NO | NO | NO | Overlapping query group avoids volume addition. |
-| V105-EVAL-028 | duplicate / competing new page | synthetic / rich | YES | reject: overlap | informational | no candidate | competing pages | NO | NO | NO | Existing target remains preferred where fit is clear. |
-| V105-EVAL-029 | duplicate / same target | historical / rich | YES | reject: same target | category selection | no candidate | same target group | NO | NO | NO | Canonical target duplicate. |
-| V105-EVAL-030 | duplicate / overlap | real / rich | YES | reject: overlap | product selection | no candidate | same-job group A | NO | NO | NO | Preserve one coherent candidate. |
+| V105-EVAL-025 | duplicate / lexical overlap | synthetic / rich | YES | pass | product selection | improve existing product | none | YES | YES | NO | Slice A merged duplicate discovery identities; Slice B must not multiply work. |
+| V105-EVAL-026 | duplicate / same target | real / rich | YES | pass | product selection | improve existing product | none | YES | YES | YES | Slice A merged duplicate discovery identities; Slice B must not multiply work. |
+| V105-EVAL-027 | duplicate / overlap | synthetic / mixed | YES | pass | mixed intent | monitor or defer | overlap group C | YES | YES | NO | Distinct content/product candidates sharing evidence require interpretation. |
+| V105-EVAL-028 | duplicate / competing new page | synthetic / rich | YES | pass | category selection | improve existing category | competing pages | YES | YES | NO | GSC target mapping supports the category candidate; overlap is interpretive. |
+| V105-EVAL-029 | duplicate / same target | historical / rich | YES | pass | product selection | improve existing product | none | YES | YES | NO | Slice A merged duplicate discovery identities; Slice B must not multiply work. |
+| V105-EVAL-030 | duplicate / overlap | real / rich | YES | pass | mixed intent | monitor or defer | same-job group A | YES | YES | NO | Distinct content/product candidates sharing evidence require interpretation. |
 | V105-EVAL-031 | wrong market | synthetic / rich | NO | reject: wrong market | product selection | no candidate | none | NO | YES | NO | Evidence market is outside GB. |
 | V105-EVAL-032 | navigational / brand | real / rich | YES | pass | brand navigation | do nothing | none | NO | NO | YES | Brand query is not an organic growth intervention. |
 | V105-EVAL-033 | wrong market | synthetic / mixed | NO | reject: wrong market | category selection | no candidate | none | NO | NO | NO | Locale mismatch is explicit. |

@@ -658,22 +658,21 @@
         "high_impact": false
       },
       "deterministic_filter_applicable": true,
-      "expected_deterministic_disposition": "reject",
-      "expected_deterministic_reason": "duplicate_identity",
-      "interpretation_applicable": false,
-      "expected_interpretive_disposition": "not_applicable",
-      "expected_overlap_labels": [
-        "lexical_duplicate"
-      ],
-      "expected_target_attribution_state": "not_applicable",
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
       "expected_target_refs": [
         "product:p-a",
         "page:page-a"
       ],
-      "expected_intent": "same_customer_job",
-      "expected_page_type_fit": "not_applicable",
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
       "high_impact": false,
-      "label_version": "owner-approved-pre-slice-b-v3"
+      "label_version": "owner-approved-slice-b-overlap-v4",
+      "pre_slice_b_resolution": "merged_by_discovery_identity"
     },
     {
       "case_id": "V105-EVAL-026",
@@ -690,22 +689,21 @@
         "high_impact": false
       },
       "deterministic_filter_applicable": true,
-      "expected_deterministic_disposition": "reject",
-      "expected_deterministic_reason": "same_target_duplicate",
-      "interpretation_applicable": false,
-      "expected_interpretive_disposition": "not_applicable",
-      "expected_overlap_labels": [
-        "same_target_group"
-      ],
-      "expected_target_attribution_state": "not_applicable",
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
       "expected_target_refs": [
         "product:p-a",
         "page:page-a"
       ],
       "expected_intent": "product_selection",
-      "expected_page_type_fit": "not_applicable",
+      "expected_page_type_fit": "aligned",
       "high_impact": false,
-      "label_version": "owner-approved-pre-slice-b-v3"
+      "label_version": "owner-approved-slice-b-overlap-v4",
+      "pre_slice_b_resolution": "merged_by_discovery_identity"
     },
     {
       "case_id": "V105-EVAL-027",
@@ -721,21 +719,21 @@
         "high_impact": false
       },
       "deterministic_filter_applicable": true,
-      "expected_deterministic_disposition": "reject",
-      "expected_deterministic_reason": "semantic_overlap",
-      "interpretation_applicable": false,
-      "expected_interpretive_disposition": "not_applicable",
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
       "expected_overlap_labels": [
         "overlap_group_c"
       ],
-      "expected_target_attribution_state": "not_applicable",
+      "expected_target_attribution_state": "established",
       "expected_target_refs": [
         "page:page-b"
       ],
-      "expected_intent": "comparison",
-      "expected_page_type_fit": "not_applicable",
+      "expected_intent": "mixed_intent",
+      "expected_page_type_fit": "ambiguous",
       "high_impact": false,
-      "label_version": "owner-approved-pre-slice-b-v3"
+      "label_version": "owner-approved-slice-b-overlap-v4"
     },
     {
       "case_id": "V105-EVAL-028",
@@ -752,22 +750,22 @@
         "high_impact": false
       },
       "deterministic_filter_applicable": true,
-      "expected_deterministic_disposition": "reject",
-      "expected_deterministic_reason": "competing_target_overlap",
-      "interpretation_applicable": false,
-      "expected_interpretive_disposition": "not_applicable",
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
       "expected_overlap_labels": [
         "competing_pages"
       ],
-      "expected_target_attribution_state": "not_applicable",
+      "expected_target_attribution_state": "established",
       "expected_target_refs": [
         "category:c-a",
         "page:page-b"
       ],
-      "expected_intent": "informational",
-      "expected_page_type_fit": "not_applicable",
+      "expected_intent": "category_selection",
+      "expected_page_type_fit": "aligned",
       "high_impact": false,
-      "label_version": "owner-approved-pre-slice-b-v3"
+      "label_version": "owner-approved-slice-b-overlap-v4"
     },
     {
       "case_id": "V105-EVAL-029",
@@ -784,22 +782,21 @@
         "high_impact": false
       },
       "deterministic_filter_applicable": true,
-      "expected_deterministic_disposition": "reject",
-      "expected_deterministic_reason": "same_target_duplicate",
-      "interpretation_applicable": false,
-      "expected_interpretive_disposition": "not_applicable",
-      "expected_overlap_labels": [
-        "same_target_group"
-      ],
-      "expected_target_attribution_state": "not_applicable",
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain",
+      "expected_overlap_labels": [],
+      "expected_target_attribution_state": "established",
       "expected_target_refs": [
         "product:p-a",
         "page:page-a"
       ],
-      "expected_intent": "category_selection",
-      "expected_page_type_fit": "not_applicable",
+      "expected_intent": "product_selection",
+      "expected_page_type_fit": "aligned",
       "high_impact": false,
-      "label_version": "owner-approved-pre-slice-b-v3"
+      "label_version": "owner-approved-slice-b-overlap-v4",
+      "pre_slice_b_resolution": "merged_by_discovery_identity"
     },
     {
       "case_id": "V105-EVAL-030",
@@ -815,21 +812,21 @@
         "high_impact": false
       },
       "deterministic_filter_applicable": true,
-      "expected_deterministic_disposition": "reject",
-      "expected_deterministic_reason": "semantic_overlap",
-      "interpretation_applicable": false,
-      "expected_interpretive_disposition": "not_applicable",
+      "expected_deterministic_disposition": "pass",
+      "expected_deterministic_reason": null,
+      "interpretation_applicable": true,
+      "expected_interpretive_disposition": "retain_uncertain",
       "expected_overlap_labels": [
         "same_job_group_a"
       ],
-      "expected_target_attribution_state": "not_applicable",
+      "expected_target_attribution_state": "established",
       "expected_target_refs": [
         "page:page-b"
       ],
-      "expected_intent": "product_selection",
-      "expected_page_type_fit": "not_applicable",
+      "expected_intent": "mixed_intent",
+      "expected_page_type_fit": "ambiguous",
       "high_impact": false,
-      "label_version": "owner-approved-pre-slice-b-v3"
+      "label_version": "owner-approved-slice-b-overlap-v4"
     },
     {
       "case_id": "V105-EVAL-031",
@@ -1269,4 +1266,3 @@
     }
   ]
 }
-
