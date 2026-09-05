@@ -41,7 +41,8 @@
     "generation:fixture": "node scripts/buildGenerationFixture.js",
     "cms:read-product": "node --env-file=.env scripts/readWordPressAuthoritativeProduct.js",
     "cms:validate-authoritative-endpoint": "node --env-file=.env scripts/validateWordPressAuthoritativeEndpoint.js"
-    ,"security:secrets": "node scripts/security/scan-secrets.mjs"
+    ,"security:secrets": "node scripts/security/scan-secrets.mjs",
+    "harness:v1-05:slice-b": "node scripts/v1-05-slice-b-live-evaluation.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",

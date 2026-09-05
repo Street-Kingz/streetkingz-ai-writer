@@ -73,7 +73,7 @@ router.delete("/api/product/account", handle(async (req, res) => {
 
 router.get("/api/product/business", handle(async (req, res) => {
   const { client, account } = await authContext(req); requireAccount(account);
-  const { data, error } = await client.from("businesses").select("id,account_id,name,ecommerce_platform,connection_status,status,created_at,updated_at").eq("account_id", account.id).maybeSingle();
+  const { data, error } = await client.from("businesses").select("id,account_id,name,ecommerce_platform,primary_market,primary_language,connection_status,status,created_at,updated_at").eq("account_id", account.id).maybeSingle();
   if (error) throw error;
   res.json({ business: data });
 }));
@@ -86,6 +86,15 @@ router.post("/api/product/business", handle(async (req, res) => {
   const { data, error } = await client.rpc("product_create_business", { p_name: name, p_platform: platform.trim(), p_correlation_id: req.correlationId });
   if (error) throw mapRpcError(error);
   res.status(201).json({ business: data });
+}));
+router.patch("/api/product/business/locale", handle(async (req, res) => {
+  const { client, account } = await authContext(req); requireAccount(account);
+  const market = typeof req.body?.primary_market === "string" ? req.body.primary_market.trim().toUpperCase() : "";
+  const language = typeof req.body?.primary_language === "string" ? req.body.primary_language.trim().toLowerCase() : "";
+  if (!/^[A-Z]{2,3}$/.test(market) || !/^[a-z]{2,3}(?:-[A-Z]{2})?$/.test(language)) throw new ProductError("INVALID_BUSINESS_LOCALE", "A bounded market and language are required.", 400);
+  const { data, error } = await client.rpc("product_set_business_locale", { p_market: market, p_language: language, p_correlation_id: req.correlationId });
+  if (error) throw mapRpcError(error);
+  res.json({ business: data });
 }));
 
 router.get("/api/product/connections", handle(async (req, res) => {

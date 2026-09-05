@@ -1,4 +1,5 @@
 import express from "express";
+import { randomUUID } from "node:crypto";
 import { parseBearer, verifyIdentity, callerClient } from "../product-kernel/auth.js";
 import { privilegedClient } from "../product-kernel/privileged.js";
 import { resolveAccount } from "../product-kernel/repository.js";
@@ -6,8 +7,9 @@ import { ProductError, safeError } from "../product-kernel/errors.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
 import { loadDiscoveryEvidence } from "../product-kernel/decisionEvidenceAdapter.js";
 import { DISCOVERY_VERSION, discoverCandidates, selectBoundedCandidates } from "../product-kernel/decisionDiscovery.js";
-import { SLICE_B_EVALUATION_VERSION, FILTER_VERSION, INTERPRETATION_VERSION, INSTRUCTION_VERSION, evaluationHash, evaluateCandidates } from "../product-kernel/candidateEvaluation.js";
+import { SLICE_B_EVALUATION_VERSION, FILTER_VERSION, INTERPRETATION_VERSION, INSTRUCTION_VERSION, buildInterpretationPacket, buildBatchIdentity, deterministicFilter, prepareDeterministicCohort, selectInterpretiveCandidates, evaluationHash, evaluateCandidates, MAX_OUTPUT_TOKENS, MAX_CALL_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
 import { createOpenAIInterpretationProvider } from "../interpretation/providers/openai.js";
+import { calculateConfiguredCost, configuredModelPricing } from "../interpretation/cost.js";
 
 const router = express.Router();
 router.use(correlationMiddleware);
@@ -75,7 +77,7 @@ router.get("/api/product/decision-runs/:id", handle(async (req, res) => {
 router.get("/api/product/decision-runs/:id/candidates", handle(async (req, res) => {
   const { business, admin } = await context(req);
   if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) throw new ProductError("INVALID_RUN_ID", "The decision run identifier is invalid.", 400);
-  const result = await admin.from("organic_opportunity_candidates").select("candidate_id,candidate_type,target_resources,target_resource_type,discovery_sources,evidence_refs,market,language,freshness_state,completeness,limitations,candidate_status,snapshot_id,candidate_version,created_at").eq("decision_run_id", req.params.id).eq("business_id", business.id).order("created_at", { ascending: true }).limit(200);
+  const result = await admin.from("organic_opportunity_candidates").select("candidate_id,candidate_type,target_resources,allowed_target_refs,target_resource_type,discovery_sources,evidence_refs,market,language,freshness_state,completeness,limitations,candidate_status,snapshot_id,candidate_version,created_at").eq("decision_run_id", req.params.id).eq("business_id", business.id).order("created_at", { ascending: true }).limit(200);
   if (result.error) throw result.error;
   res.json({ candidates: result.data || [] });
 }));
@@ -108,21 +110,61 @@ router.post("/api/product/decision-runs/:id/evaluate", handle(async (req, res) =
   }
   if (!evalRun) throw new ProductError("EVALUATION_FAILED", "Candidate evaluation could not be started.", 503);
   try {
+    const cohort = prepareDeterministicCohort(candidates.data);
+    const prepared = cohort.prepared.map(candidate => ({ candidate, filter: deterministicFilter(candidate, evidence.packet) }));
+    const eligible = selectInterpretiveCandidates(prepared.filter(item => item.filter.disposition === "pass").map(item => item.candidate));
+    const deterministicRows = prepared.filter(item => item.filter.disposition === "reject").map(item => ({ candidate_id: item.candidate.candidate_id, business_id: business.id, evaluation_run_id: evalRun.id, decision_run_id: req.params.id, evaluation_version: SLICE_B_EVALUATION_VERSION, deterministic_disposition: "reject", deterministic_reason_codes: item.filter.reason_codes, target_attribution_state: "not_applicable", attributed_target_resources: [], interpretation_state: "not_applicable", interpretive_disposition: "not_applicable", interpretive_reason_codes: [], evidence_refs: item.candidate.evidence_refs || [], limitations: item.candidate.limitations || [], interpretation_input_hash: evaluationHash(buildInterpretationPacket(item.candidate, evidence.packet)) }));
+    deterministicRows.push(...cohort.duplicateRejections.map(item => ({ candidate_id: item.candidate.candidate_id, business_id: business.id, evaluation_run_id: evalRun.id, decision_run_id: req.params.id, evaluation_version: SLICE_B_EVALUATION_VERSION, deterministic_disposition: "reject", deterministic_reason_codes: [item.reason_code], target_attribution_state: "not_applicable", attributed_target_resources: [], interpretation_state: "not_applicable", interpretive_disposition: "not_applicable", interpretive_reason_codes: [], evidence_refs: item.candidate.evidence_refs || [], limitations: item.candidate.limitations || [], interpretation_input_hash: evaluationHash(buildInterpretationPacket(item.candidate, evidence.packet)) })));
+    deterministicRows.push(...eligible.boundedOut.map(candidate => ({ candidate_id: candidate.candidate_id, business_id: business.id, evaluation_run_id: evalRun.id, decision_run_id: req.params.id, evaluation_version: SLICE_B_EVALUATION_VERSION, deterministic_disposition: "bounded_out", deterministic_reason_codes: [], target_attribution_state: "not_applicable", attributed_target_resources: [], interpretation_state: "not_applicable", interpretive_disposition: "not_applicable", interpretive_reason_codes: [], evidence_refs: candidate.evidence_refs || [], limitations: ["interpretation_candidate_cap_hit"], interpretation_input_hash: evaluationHash(buildInterpretationPacket(candidate, evidence.packet)) })));
+    if (deterministicRows.length) { const savedPreparation = await admin.from("organic_candidate_evaluations").upsert(deterministicRows, { onConflict: "evaluation_run_id,candidate_id" }); if (savedPreparation.error) throw savedPreparation.error; }
+    const filterCheckpoint = await admin.from("organic_candidate_evaluation_runs").update({ state: "filter_complete", deterministic_rejected_count: prepared.filter(item => item.filter.disposition === "reject").length + cohort.duplicateRejections.length, post_filter_count: eligible.selected.length + eligible.boundedOut.length, bounded_out_count: eligible.boundedOut.length, limitation_codes: eligible.partial ? ["interpretation_candidate_cap_hit"] : [] }).eq("id", evalRun.id).eq("state", "pending");
+    if (filterCheckpoint.error) throw filterCheckpoint.error;
+    const batches = [];
+    const ownedBatchClaims = new Map();
+    for (let offset = 0; offset < eligible.selected.length; offset += 10) {
+      const ids = eligible.selected.slice(offset, offset + 10); batches.push({ business_id: business.id, evaluation_run_id: evalRun.id, batch_index: batches.length, candidate_ids: ids.map(item => item.candidate_id), input_hash: buildBatchIdentity({ candidates: ids, packet: evidence.packet }), state: "pending" });
+    }
+    if (batches.length) { const batchInsert = await admin.from("organic_candidate_interpretation_batches").upsert(batches, { onConflict: "evaluation_run_id,batch_index,input_hash" }); if (batchInsert.error) throw batchInsert.error; }
+    const pricing = configuredModelPricing(process.env, process.env.OPENAI_INTERPRETATION_MODEL || process.env.OPENAI_MODEL || "gpt-4o-mini");
+    const projectedCalls = Math.ceil(eligible.selected.length / 10);
+    const projected = calculateConfiguredCost({ inputTokens: 0, outputTokens: Math.min(MAX_OUTPUT_TOKENS, projectedCalls * MAX_CALL_OUTPUT_TOKENS), pricing });
+    if (projected.cost_usd !== null && projected.cost_usd > 5) { const error = new Error("ACCEPTANCE_COST_BOUND_EXCEEDED"); error.code = "ACCEPTANCE_COST_BOUND_EXCEEDED"; throw error; }
     const provider = createOpenAIInterpretationProvider();
-    const result = await evaluateCandidates({ candidates: candidates.data, packet: evidence.packet, interpretationProvider: provider });
+    const result = await evaluateCandidates({ candidates: candidates.data, packet: evidence.packet, interpretationProvider: provider,
+      resolveBatch: async ({ batch, batchIndex, inputHash }) => {
+        let found = await admin.from("organic_candidate_interpretation_batches").select("*").eq("evaluation_run_id", evalRun.id).eq("batch_index", batchIndex).eq("input_hash", inputHash).maybeSingle();
+        if (found.error) throw found.error;
+        if (!found.data) { const insertedBatch = await admin.from("organic_candidate_interpretation_batches").insert({ business_id: business.id, evaluation_run_id: evalRun.id, batch_index: batchIndex, candidate_ids: batch.map(c => c.candidate_id), input_hash: inputHash, state: "pending" }).select("*").single(); if (insertedBatch.error && insertedBatch.error.code !== "23505") throw insertedBatch.error; found = insertedBatch.error ? await admin.from("organic_candidate_interpretation_batches").select("*").eq("evaluation_run_id", evalRun.id).eq("batch_index", batchIndex).eq("input_hash", inputHash).single() : insertedBatch; }
+        if (found.error) throw found.error;
+        if (found.data.state === "complete") { const saved = await admin.from("organic_candidate_evaluations").select("*").eq("evaluation_run_id", evalRun.id).in("candidate_id", batch.map(c => c.candidate_id)); if (saved.error) throw saved.error; if ((saved.data || []).length === batch.length) return { reused: true, response: { provider: found.data.provider, model: found.data.model, response_id: found.data.response_id, usage: { prompt_tokens: found.data.input_tokens, completion_tokens: found.data.output_tokens }, output: saved.data } }; }
+        if (ownedBatchClaims.get(batchIndex) === found.data.claim_token) return null;
+        const claimToken = randomUUID(); const claim = await admin.rpc("claim_candidate_interpretation_batch", { p_batch_id: found.data.id, p_claim_token: claimToken, p_timeout_seconds: 300 }); if (claim.error) throw claim.error; if (!claim.data) return { pending: true }; ownedBatchClaims.set(batchIndex, claimToken); return null;
+      },
+      onBatchComplete: async ({ batchIndex, inputHash, response, rows }) => {
+        const candidateById = new Map(candidates.data.map(candidate => [String(candidate.candidate_id), candidate])); const savedRows = rows.map(row => ({ ...row, business_id: business.id, evaluation_run_id: evalRun.id, decision_run_id: req.params.id, evaluation_version: SLICE_B_EVALUATION_VERSION, attributed_target_resources: row.attributed_target_resources || [], evidence_refs: candidateById.get(String(row.candidate_id))?.evidence_refs || [], interpretation_input_hash: candidateById.has(String(row.candidate_id)) ? evaluationHash(buildInterpretationPacket(candidateById.get(String(row.candidate_id)), evidence.packet)) : null, model_provider: response.provider || "openai", model_name: response.model || provider.model, instruction_version: INSTRUCTION_VERSION, provider_response_id: response.response_id || null, input_tokens: Number(response.usage?.prompt_tokens || response.usage?.input_tokens || 0), output_tokens: Number(response.usage?.completion_tokens || response.usage?.output_tokens || 0), limitations: row.limitations || [], overlap_group_id: row.overlap_group_id || null }));
+        const saved = await admin.from("organic_candidate_evaluations").upsert(savedRows, { onConflict: "evaluation_run_id,candidate_id" }); if (saved.error) throw saved.error;
+        const batchInputTokens = Number(response.usage?.prompt_tokens || response.usage?.input_tokens || 0); const batchOutputTokens = Number(response.usage?.completion_tokens || response.usage?.output_tokens || 0); const batchCost = calculateConfiguredCost({ inputTokens: batchInputTokens, outputTokens: batchOutputTokens, pricing: configuredModelPricing(process.env, response.model || provider.model) });
+        const completedBatch = await admin.from("organic_candidate_interpretation_batches").update({ state: "complete", provider: response.provider || "openai", model: response.model || provider.model, response_id: response.response_id || null, input_tokens: batchInputTokens, output_tokens: batchOutputTokens, cost_status: batchCost.cost_status, estimated_cost_usd: batchCost.cost_usd, completed_at: new Date().toISOString() }).eq("evaluation_run_id", evalRun.id).eq("batch_index", batchIndex).eq("input_hash", inputHash); if (completedBatch.error) throw completedBatch.error;
+      },
+      onRetry: async () => { const claimedRetry = await admin.from("organic_candidate_evaluation_runs").update({ retry_used: true }).eq("id", evalRun.id).eq("retry_used", false).select("id"); return !claimedRetry.error && (claimedRetry.data || []).length === 1; }
+    });
+    const pricing = configuredModelPricing(process.env, result.modelName);
+    const cost = calculateConfiguredCost({ inputTokens: result.inputTokens, outputTokens: result.outputTokens, pricing });
     const candidateById = new Map(candidates.data.map(candidate => [candidate.candidate_id, candidate]));
-    const rows = result.rows.map(row => ({ ...row, business_id: business.id, evaluation_run_id: evalRun.id, decision_run_id: req.params.id, evaluation_version: SLICE_B_EVALUATION_VERSION, attributed_target_resources: row.attributed_target_resources || [], evidence_refs: candidateById.get(row.candidate_id)?.evidence_refs || [], interpretation_input_hash: candidateById.has(row.candidate_id) ? evaluationHash(candidateById.get(row.candidate_id)) : null, model_provider: result.modelProvider, model_name: result.modelName, instruction_version: INSTRUCTION_VERSION, limitations: row.limitations || [], overlap_group_id: row.overlap_group_id || null }));
+    const rows = result.rows.map(row => ({ ...row, business_id: business.id, evaluation_run_id: evalRun.id, decision_run_id: req.params.id, evaluation_version: SLICE_B_EVALUATION_VERSION, attributed_target_resources: row.attributed_target_resources || [], evidence_refs: candidateById.get(row.candidate_id)?.evidence_refs || [], interpretation_input_hash: candidateById.has(row.candidate_id) ? evaluationHash(buildInterpretationPacket(candidateById.get(row.candidate_id), evidence.packet)) : null, model_provider: result.modelProvider, model_name: result.modelName, instruction_version: INSTRUCTION_VERSION, limitations: row.limitations || [], overlap_group_id: row.overlap_group_id || null }));
     if (rows.length) { const saved = await admin.from("organic_candidate_evaluations").upsert(rows, { onConflict: "evaluation_run_id,candidate_id" }); if (saved.error) throw saved.error; }
     for (const row of result.rows) {
       const status = row.deterministic_disposition === "reject" || ["reject_mismatch", "reject_wrong_page_type"].includes(row.interpretive_disposition) ? "rejected" : row.interpretation_state === "complete" ? "interpreted" : row.deterministic_disposition === "pass" ? "eligible" : "discovered";
       const update = await admin.from("organic_opportunity_candidates").update({ candidate_status: status, rejection_reason_codes: row.deterministic_reason_codes?.length ? row.deterministic_reason_codes : row.interpretive_reason_codes || [], overlap_group_id: row.overlap_group_id || null, evaluated_at: row.interpretation_state === "complete" ? new Date().toISOString() : null }).eq("candidate_id", row.candidate_id).eq("business_id", business.id).eq("decision_run_id", req.params.id);
       if (update.error) throw update.error;
     }
-    const completed = await admin.from("organic_candidate_evaluation_runs").update({ state: "interpretation_complete", deterministic_rejected_count: result.deterministicRejectedCount, post_filter_count: result.postFilterCount, bounded_out_count: result.boundedOutCount, interpreted_count: result.interpretedCount, interpretive_rejected_count: result.interpretiveRejectedCount, model_provider: result.modelProvider, model_name: result.modelName, model_request_attempts: result.modelRequestAttempts, input_tokens: result.inputTokens, output_tokens: result.outputTokens, limitation_codes: result.limitations, completed_at: new Date().toISOString() }).eq("id", evalRun.id).select("*").single();
+    const completed = await admin.from("organic_candidate_evaluation_runs").update({ state: "interpretation_complete", deterministic_rejected_count: result.deterministicRejectedCount, post_filter_count: result.postFilterCount, bounded_out_count: result.boundedOutCount, interpreted_count: result.interpretedCount, interpretive_rejected_count: result.interpretiveRejectedCount, model_provider: result.modelProvider, model_name: result.modelName, model_request_attempts: result.modelRequestAttempts, input_tokens: result.inputTokens, output_tokens: result.outputTokens, retry_used: result.retryUsed, estimated_cost_usd: cost.cost_usd, cost_status: cost.cost_status, limitation_codes: result.limitations, completed_at: new Date().toISOString() }).eq("id", evalRun.id).select("*").single();
     if (completed.error) throw completed.error;
     res.status(201).json({ evaluation: projectEvaluation(completed.data), reused: false });
   } catch (error) {
     await admin.from("organic_candidate_evaluation_runs").update({ state: "failed", limitation_codes: [error.code === "INTERPRETATION_PROVIDER_UNAVAILABLE" ? "MODEL_UNAVAILABLE" : "EVALUATION_FAILED"], completed_at: new Date().toISOString() }).eq("id", evalRun.id);
+    if (error?.code === "BATCH_PENDING") return res.status(202).json({ evaluation: { id: evalRun.id, state: "pending" }, pending: true });
+    if (error?.code === "BUSINESS_LOCALE_REQUIRED" || error?.message === "BUSINESS_LOCALE_REQUIRED") throw new ProductError("BUSINESS_LOCALE_REQUIRED", "Business market and language must be established before evaluation.", 409);
     throw new ProductError("EVALUATION_FAILED", "Candidate evaluation could not be completed.", 503);
   }
 }));
@@ -144,6 +186,6 @@ router.get("/api/product/decision-runs/:id/evaluations/candidates", handle(async
   res.json({ evaluations: result.data || [] });
 }));
 
-const projectEvaluation = row => ({ id: row.id, state: row.state, discovered_count: row.discovered_count, deterministic_rejected_count: row.deterministic_rejected_count, post_filter_count: row.post_filter_count, bounded_out_count: row.bounded_out_count, interpreted_count: row.interpreted_count, interpretive_rejected_count: row.interpretive_rejected_count, overlap_group_count: row.overlap_group_count, model_provider: row.model_provider, model_name: row.model_name, model_request_attempts: row.model_request_attempts, input_tokens: row.input_tokens, output_tokens: row.output_tokens, limitation_codes: row.limitation_codes || [], cost_status: "unknown", started_at: row.started_at, completed_at: row.completed_at, created_at: row.created_at });
+const projectEvaluation = row => ({ id: row.id, state: row.state, discovered_count: row.discovered_count, deterministic_rejected_count: row.deterministic_rejected_count, post_filter_count: row.post_filter_count, bounded_out_count: row.bounded_out_count, interpreted_count: row.interpreted_count, interpretive_rejected_count: row.interpretive_rejected_count, overlap_group_count: row.overlap_group_count, model_provider: row.model_provider, model_name: row.model_name, model_request_attempts: row.model_request_attempts, input_tokens: row.input_tokens, output_tokens: row.output_tokens, limitation_codes: row.limitation_codes || [], cost_status: row.cost_status || "unknown", estimated_cost_usd: row.estimated_cost_usd ?? null, started_at: row.started_at, completed_at: row.completed_at, created_at: row.created_at });
 
 export default router;

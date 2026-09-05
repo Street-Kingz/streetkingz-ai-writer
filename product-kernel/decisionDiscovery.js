@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-export const DISCOVERY_VERSION = "v1-05-slice-a-2-provenance";
+export const DISCOVERY_VERSION = "v1-05-slice-a-3-provenance";
 export const CANDIDATE_TYPES = Object.freeze([
   "existing_product_improvement",
   "existing_category_improvement",
@@ -67,6 +67,7 @@ export function discoverCandidates(packet) {
       candidate_identity: identity,
       candidate_type: type,
       target_resources: targets,
+      allowed_target_refs: [...targets],
       target_resource_type: targetType,
       discovery_sources: [...new Set(sources)].sort(),
       evidence_refs: evidence,
@@ -129,7 +130,7 @@ export function discoverCandidates(packet) {
   for (const page of pages) for (const linkedId of page.internal_links || []) if (pageById.has(String(linkedId))) {
     // The observed page.id -> linkedId edge is evidence for the relationship;
     // the candidate, if any, is the missing reverse edge linkedId -> page.id.
-    addDirectedLink(String(linkedId), String(page.id), refs("site", "page", page.id, "link_relationship"), "site");
+    addDirectedLink(String(linkedId), String(page.id), refs("site", "page", page.id, "link_relationship", p.site?.selected_run_id), "site");
   }
   for (const relation of p.commerce?.relations || []) {
     const productPage = pages.find(page => pageTargets(p, page).includes(targetRef("product", relation.product_id)));
@@ -139,13 +140,19 @@ export function discoverCandidates(packet) {
   const queryPages = new Map();
   for (const [i, row] of gscRows.entries()) if (row.query && row.page_id) {
     const key = norm(row.query); const arr = queryPages.get(key) || [];
-    arr.push({ id: String(row.page_id), evidence: refs("search_console", "observation", "row-" + (i + 1), "shared_query_relationship") }); queryPages.set(key, arr);
+    arr.push({ id: String(row.page_id), evidence: refs("search_console", "observation", sourceId(row, `row-${i + 1}`), "shared_query_relationship", p.search_console?.selected_run_id) }); queryPages.set(key, arr);
   }
   for (const entries of queryPages.values()) {
     const unique = [...new Map(entries.map(entry => [entry.id, entry])).values()];
     if (unique.length > 1 && unique.length <= 10) for (const source of unique) for (const target of unique) if (source.id !== target.id) addDirectedLink(source.id, target.id, [source.evidence, target.evidence].flat(), "search_console");
   }
-  return [...byIdentity.values()].sort((a, b) => a.candidate_identity.localeCompare(b.candidate_identity));
+  const discovered = [...byIdentity.values()];
+  for (const candidate of discovered.filter(item => item.candidate_type === "new_page_or_content_asset")) {
+    const evidenceKeys = new Set(candidate.evidence_refs.map(ref => `${ref.source_kind}:${ref.source_record_id}:${ref.source_run_or_generation_reference || ""}`));
+    const peerTargets = discovered.filter(peer => peer !== candidate && peer.evidence_refs.some(ref => evidenceKeys.has(`${ref.source_kind}:${ref.source_record_id}:${ref.source_run_or_generation_reference || ""}`))).flatMap(peer => peer.target_resources || []);
+    candidate.allowed_target_refs = [...new Set([...(candidate.allowed_target_refs || []), ...peerTargets])].sort();
+  }
+  return discovered.sort((a, b) => a.candidate_identity.localeCompare(b.candidate_identity));
 }
 
 export function selectBoundedCandidates(candidates) {

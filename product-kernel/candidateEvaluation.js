@@ -1,16 +1,17 @@
 import crypto from "node:crypto";
+import { canonicalJson } from "./decisionDiscovery.js";
 
-export const SLICE_B_EVALUATION_VERSION = "v1-05-slice-b-1";
-export const FILTER_VERSION = "v1-05-filter-1";
-export const INTERPRETATION_VERSION = "v1-05-interpretation-1";
-export const INSTRUCTION_VERSION = "v1-05-slice-b-instructions-1";
+export const SLICE_B_EVALUATION_VERSION = "v1-05-slice-b-2";
+export const FILTER_VERSION = "v1-05-filter-2";
+export const INTERPRETATION_VERSION = "v1-05-interpretation-2";
+export const INSTRUCTION_VERSION = "v1-05-slice-b-instructions-2";
 export const MAX_INTERPRETIVE_CANDIDATES = 50;
 export const MAX_BATCH_SIZE = 10;
 export const MAX_PLANNED_CALLS = 5;
 export const MAX_TOTAL_ATTEMPTS = 6;
+export const MAX_CALL_OUTPUT_TOKENS = 4000;
 export const MAX_OUTPUT_TOKENS = 20_000;
 export const MAX_DEADLINE_MS = 180_000;
-export const INTERPRETATION_RESPONSE_SCHEMA = { type: "object", additionalProperties: false, required: ["results"], properties: { results: { type: "array", items: { type: "object", additionalProperties: false, required: ["candidate_id", "customer_job", "intent_class", "intent_confidence", "relevance_state", "target_attribution_state", "attributed_target_resources", "page_type_fit", "new_asset_fit", "interpretive_disposition", "reason_codes", "limitations"], properties: { candidate_id: { type: "string" }, customer_job: { type: "string" }, intent_class: { type: "string", enum: ["product_selection", "category_selection", "comparison_selection", "informational", "mixed_intent", "brand_navigation", "navigation_discovery", "broad_information", "uncertain", "uncertain_selection"] }, intent_confidence: { type: "string", enum: ["high", "medium", "low", "unknown"] }, relevance_state: { type: "string", enum: ["relevant", "irrelevant", "uncertain"] }, target_attribution_state: { type: "string", enum: ["established", "ambiguous", "unresolved", "invalid"] }, attributed_target_resources: { type: "array", items: { type: "string" } }, page_type_fit: { type: "string", enum: ["aligned", "misaligned", "ambiguous", "unknown"] }, new_asset_fit: { type: "string", enum: ["supported", "redundant", "uncertain", "not_applicable"] }, interpretive_disposition: { type: "string", enum: ["retain", "retain_uncertain", "reject_mismatch", "reject_wrong_page_type"] }, reason_codes: { type: "array", items: { type: "string" } }, limitations: { type: "array", items: { type: "string" } } } } } } };
 
 const intents = new Set(["product_selection", "category_selection", "comparison_selection", "informational", "mixed_intent", "brand_navigation", "navigation_discovery", "broad_information", "uncertain", "uncertain_selection"]);
 const dispositions = new Set(["retain", "retain_uncertain", "reject_mismatch", "reject_wrong_page_type"]);
@@ -18,138 +19,92 @@ const targetStates = new Set(["established", "ambiguous", "unresolved", "invalid
 const pageFits = new Set(["aligned", "misaligned", "ambiguous", "unknown"]);
 const relevanceStates = new Set(["relevant", "irrelevant", "uncertain"]);
 const assetFits = new Set(["supported", "redundant", "uncertain", "not_applicable"]);
+export const REASON_CODES = Object.freeze(["wrong_market", "wrong_language", "invalid_target", "duplicate_candidate", "overlap_redundant", "irrelevant_job", "wrong_page_type", "target_ambiguous", "target_supported", "new_asset_redundant", "new_asset_supported", "brand_navigation", "mixed_intent", "evidence_limited", "uncertain"]);
+const reasons = new Set(REASON_CODES);
+const normalise = value => String(value || "").toLowerCase().normalize("NFKC").replace(/[^a-z0-9]+/g, " ").trim();
+export const evaluationHash = value => crypto.createHash("sha256").update(canonicalJson(value), "utf8").digest("hex");
+export function buildBatchIdentity({ candidates, packet }) { return evaluationHash({ evaluation_version: SLICE_B_EVALUATION_VERSION, filter_version: FILTER_VERSION, interpretation_version: INTERPRETATION_VERSION, instruction_version: INSTRUCTION_VERSION, candidate_ids: candidates.map(c => String(c.candidate_id)).sort(), candidate_input_hashes: candidates.map(c => evaluationHash(buildInterpretationPacket(c, packet))).sort() }); }
 
-const normalise = value => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-export const evaluationHash = value => crypto.createHash("sha256").update(JSON.stringify(value), "utf8").digest("hex");
-const source = candidate => [...(candidate.discovery_sources || [])].sort()[0] || "unknown";
-const targetKey = candidate => JSON.stringify([...(candidate.target_resources || [])].sort());
+export const INTERPRETATION_RESPONSE_SCHEMA = { type: "object", additionalProperties: false, required: ["results"], properties: { results: { type: "array", items: { type: "object", additionalProperties: false, required: ["candidate_id", "customer_job", "intent_class", "intent_confidence", "relevance_state", "target_attribution_state", "attributed_target_resources", "page_type_fit", "new_asset_fit", "interpretive_disposition", "reason_codes", "limitations"], properties: { candidate_id: { type: "string" }, customer_job: { type: "string", maxLength: 1000 }, intent_class: { type: "string", enum: [...intents] }, intent_confidence: { type: "string", enum: ["high", "medium", "low", "unknown"] }, relevance_state: { type: "string", enum: [...relevanceStates] }, target_attribution_state: { type: "string", enum: [...targetStates] }, attributed_target_resources: { type: "array", items: { type: "string" } }, page_type_fit: { type: "string", enum: [...pageFits] }, new_asset_fit: { type: "string", enum: [...assetFits] }, interpretive_disposition: { type: "string", enum: [...dispositions] }, reason_codes: { type: "array", maxItems: 8, items: { type: "string", enum: REASON_CODES } }, limitations: { type: "array", maxItems: 8, items: { type: "string", maxLength: 120 } } } } } } };
+
+function availableTargetRefs(packet) { return new Set([...(packet.site?.pages || []).flatMap(page => [`page:${page.id}`]), ...(packet.commerce?.products || []).map(item => `product:${item.id}`), ...(packet.commerce?.categories || []).map(item => `category:${item.id}`)]); }
+
+export function resolveEvidenceRef(ref, packet = {}) {
+  const source = packet[ref.source_kind === "external_search" ? "external" : ref.source_kind]; const rows = source?.pages || source?.rows || [];
+  const record = rows.find((row, index) => String(row.id ?? row.source_record_id ?? `row-${index + 1}`) === String(ref.source_record_id));
+  if (!record || (ref.source_run_or_generation_reference && String(record.source_run_or_generation_reference || source.selected_run_id || source.generation_id || "") !== String(ref.source_run_or_generation_reference))) return null;
+  return { ref, record };
+}
+function sourceFacts(candidate, packet) { return (candidate.evidence_refs || []).map(ref => resolveEvidenceRef(ref, packet)).filter(Boolean).map(({ ref, record }) => ({ ...ref, market: record.market || record.location || record.location_code || null, language: record.language || record.language_code || null, record })); }
 
 export function deterministicFilter(candidate, packet = {}) {
-  const reasons = [];
-  const market = packet.business?.market;
-  const language = packet.business?.language;
-  const refs = candidate.evidence_refs || [];
-  if (!candidate.candidate_identity || !candidate.candidate_type || !refs.length) reasons.push("malformed_candidate");
-  if (market && candidate.market && candidate.market !== market) reasons.push("wrong_market");
-  if (language && candidate.language && candidate.language !== language) reasons.push("wrong_language");
-  const sourceFacts = refs.map(ref => ref.source_market || ref.market).filter(Boolean);
-  const sourceLanguages = refs.map(ref => ref.source_language || ref.language).filter(Boolean);
-  if (market && sourceFacts.some(value => value !== market)) reasons.push("wrong_market");
-  if (language && sourceLanguages.some(value => value !== language)) reasons.push("wrong_language");
-  if ((candidate.target_resources || []).some(ref => String(ref).includes("missing:"))) reasons.push("invalid_target");
-  const available = new Set([
-    ...(packet.site?.pages || []).flatMap(page => [`page:${page.id}`]),
-    ...(packet.commerce?.products || []).map(item => `product:${item.id}`),
-    ...(packet.commerce?.categories || []).map(item => `category:${item.id}`)
-  ]);
-  if ((candidate.target_resources || []).length && available.size && candidate.target_resources.some(ref => !available.has(ref))) reasons.push("invalid_target");
-  return { disposition: reasons.length ? "reject" : "pass", reason_codes: reasons };
+  const found = []; const market = packet.business?.market; const language = packet.business?.language; const facts = sourceFacts(candidate, packet);
+  if (!candidate.candidate_identity || !candidate.candidate_type || !(candidate.evidence_refs || []).length) found.push("malformed_candidate");
+  if (market && candidate.market && candidate.market !== market) found.push("wrong_market");
+  if (language && candidate.language && candidate.language !== language) found.push("wrong_language");
+  if (market && facts.some(f => f.market && f.market !== market)) found.push("wrong_market");
+  if (language && facts.some(f => f.language && f.language !== language)) found.push("wrong_language");
+  const targets = availableTargetRefs(packet); if ((candidate.target_resources || []).some(ref => String(ref).startsWith("missing:") || (targets.size && !targets.has(ref)))) found.push("invalid_target");
+  const reason_codes = [...new Set(found)]; return { disposition: reason_codes.length ? "reject" : "pass", reason_codes };
 }
 
+function edgeKeys(candidate) { return new Set([...([candidate.source_job_identity, candidate.normalized_source_job].filter(Boolean).map(v => `job:${normalise(v)}`)), ...(candidate.evidence_refs || []).map(ref => `evidence:${ref.source_kind || ""}:${ref.source_record_id || ""}:${ref.source_run_or_generation_reference || ""}`), ...[...(candidate.target_resources || [])].sort().map(v => `target:${v}`)]); }
+export function prepareDeterministicCohort(candidates) {
+  const ordered = [...candidates].sort((a, b) => String(a.candidate_id || a.candidate_identity).localeCompare(String(b.candidate_id || b.candidate_identity)));
+  const seen = new Map(); const prepared = []; const duplicateRejections = [];
+  for (const candidate of ordered) {
+    const targets = [...new Set(candidate.target_resources || [])].sort();
+    const directed = candidate.link_source_ref && candidate.link_target_ref ? `link:${candidate.link_source_ref}->${candidate.link_target_ref}` : null;
+    const key = targets.length ? `target:${targets.join("|")}` : directed ? directed : (candidate.source_job_identity || candidate.normalized_source_job) ? `job:${normalise(candidate.source_job_identity || candidate.normalized_source_job)}` : null;
+    if (key && seen.has(key)) { duplicateRejections.push({ candidate, representative: seen.get(key), reason_code: "duplicate_candidate" }); continue; }
+    if (key) seen.set(key, candidate); prepared.push(candidate);
+  }
+  return { prepared, duplicateRejections };
+}
 export function groupOverlap(candidates) {
-  const groups = new Map();
-  const keyFor = candidate => {
-    const sourceJob = candidate.source_job_identity || candidate.normalized_source_job || null;
-    if (sourceJob) return `job:${normalise(sourceJob)}`;
-    const refs = (candidate.evidence_refs || []).map(ref => `${ref.source_kind || ""}:${ref.source_record_id || ""}`).sort();
-    return refs.length ? `evidence:${refs.join("|")}` : `target:${targetKey(candidate)}`;
-  };
-  for (const candidate of candidates) {
-    const key = keyFor(candidate);
-    if (!groups.has(key)) groups.set(key, `overlap-${evaluationHash(key).slice(0, 16)}`);
-  }
-  return new Map(candidates.map(candidate => {
-    const sourceJob = candidate.source_job_identity || candidate.normalized_source_job || null;
-    const refs = (candidate.evidence_refs || []).map(ref => `${ref.source_kind || ""}:${ref.source_record_id || ""}`).sort();
-    const key = sourceJob ? `job:${normalise(sourceJob)}` : refs.length ? `evidence:${refs.join("|")}` : `target:${targetKey(candidate)}`;
-    return [candidate.candidate_id || candidate.candidate_identity, groups.get(key)];
-  }));
+  const all = [...candidates].sort((a, b) => String(a.candidate_id || a.candidate_identity).localeCompare(String(b.candidate_id || b.candidate_identity))); const parent = new Map(all.map((c, i) => [c, i]));
+  const find = x => { while (parent.get(all[x]) !== x) { parent.set(all[x], parent.get(all[parent.get(all[x])])); x = parent.get(all[x]); } return x; }; const seen = new Map();
+  all.forEach((c, i) => edgeKeys(c).forEach(key => { if (seen.has(key)) { const a = find(i), b = find(seen.get(key)); if (a !== b) parent.set(all[a], b); } else seen.set(key, i); }));
+  const members = new Map(); all.forEach((c, i) => { const root = find(i); const group = members.get(root) || []; group.push(c); members.set(root, group); }); const result = new Map();
+  for (const group of members.values()) if (group.length >= 2) { const id = `overlap-${evaluationHash(group.map(c => c.candidate_identity).sort()).slice(0, 16)}`; group.forEach(c => result.set(c.candidate_id || c.candidate_identity, id)); }
+  all.forEach(c => { const id = c.candidate_id || c.candidate_identity; if (!result.has(id)) result.set(id, null); }); return result;
 }
 
-export function selectInterpretiveCandidates(candidates) {
-  const all = [...candidates];
-  if (all.length <= MAX_INTERPRETIVE_CANDIDATES) return { selected: all.sort((a, b) => a.candidate_identity.localeCompare(b.candidate_identity)), boundedOut: [], partial: false };
-  const groups = new Map();
-  for (const candidate of all) {
-    const key = `${candidate.candidate_type}:${source(candidate)}`;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(candidate);
-  }
-  for (const group of groups.values()) group.sort((a, b) => a.candidate_identity.localeCompare(b.candidate_identity));
-  const keys = [...groups.keys()].sort(); const selected = [];
-  for (let index = 0; selected.length < MAX_INTERPRETIVE_CANDIDATES; index++) {
-    let added = false;
-    for (const key of keys) { const candidate = groups.get(key)[index]; if (candidate) { selected.push(candidate); added = true; if (selected.length === MAX_INTERPRETIVE_CANDIDATES) break; } }
-    if (!added) break;
-  }
-  const selectedIds = new Set(selected.map(candidate => candidate.candidate_id));
-  return { selected, boundedOut: all.filter(candidate => !selectedIds.has(candidate.candidate_id)), partial: true };
-}
+export function selectInterpretiveCandidates(candidates) { const all = [...candidates].sort((a, b) => a.candidate_identity.localeCompare(b.candidate_identity)); if (all.length <= MAX_INTERPRETIVE_CANDIDATES) return { selected: all, boundedOut: [], partial: false }; return { selected: all.slice(0, MAX_INTERPRETIVE_CANDIDATES), boundedOut: all.slice(MAX_INTERPRETIVE_CANDIDATES), partial: true }; }
+
+function targetDescriptors(packet, refs) { const allowed = new Set(refs); return [...(packet.site?.pages || []).filter(p => allowed.has(`page:${p.id}`)).map(p => ({ ref: `page:${p.id}`, resource_type: "page", page_type: p.type, name: p.title || p.h1 || null, url: p.url, h1: p.h1, canonical: p.canonical, indexable: p.indexable })), ...(packet.commerce?.products || []).filter(p => allowed.has(`product:${p.id}`)).map(p => ({ ref: `product:${p.id}`, resource_type: "product", name: p.name, url: p.canonical_url })), ...(packet.commerce?.categories || []).filter(c => allowed.has(`category:${c.id}`)).map(c => ({ ref: `category:${c.id}`, resource_type: "category", name: c.name }))].sort((a, b) => a.ref.localeCompare(b.ref)); }
 
 export function buildInterpretationPacket(candidate, packet = {}) {
-  const allowed = [...(candidate.target_resources || [])].sort();
-  const evidence = (candidate.evidence_refs || []).slice(0, 40).map(ref => ({ source_kind: ref.source_kind, source_record_type: ref.source_record_type, source_record_id: ref.source_record_id, source_run_or_generation_reference: ref.source_run_or_generation_reference, relationship: ref.relationship }));
-  const ids = new Set(evidence.map(ref => `${ref.source_kind}:${ref.source_record_id}`));
-  const sourceFacts = {
-    site_pages: (packet.site?.pages || []).filter(row => ids.has(`site:${row.id}`)).map(row => ({ id: row.id, url: row.url, type: row.type, title: row.title, h1: row.h1, canonical: row.canonical, indexable: row.indexable, internal_links: row.internal_links })),
-    search_console: (packet.search_console?.rows || []).filter(row => ids.has(`search_console:${row.source_record_id || row.id}`)).map(row => ({ query: row.query, page_id: row.page_id, page_url: row.page_url, period: [row.observed_start_date, row.observed_end_date], market: row.market || null, language: row.language || null })),
-    external_search: (packet.external?.rows || []).filter(row => (row.source_record_ids || [row.source_record_id]).some(id => ids.has(`external_search:${id}`))).map(row => ({ query: row.query, market: row.market, language: row.language, serp: (row.serp || []).slice(0, 20).map(item => ({ url: item.url, domain: item.domain, title: item.title, description: item.description })) }))
-  };
-  const summary = JSON.stringify({ candidate_type: candidate.candidate_type, target_resources: allowed, market: candidate.market, language: candidate.language, discovery_sources: candidate.discovery_sources, evidence_refs: evidence, limitations: candidate.limitations || [], source_facts: sourceFacts });
-  return { candidate_id: candidate.candidate_id, candidate_identity: candidate.candidate_identity, allowed_target_refs: allowed, evidence_refs: evidence, bounded_evidence_summary: summary.slice(0, 2000) };
+  const allowed = [...new Set(candidate.allowed_target_refs || candidate.target_resources || [])].sort(); const evidence = (candidate.evidence_refs || []).map(ref => ({ source_kind: ref.source_kind, source_record_type: ref.source_record_type, source_record_id: ref.source_record_id, source_run_or_generation_reference: ref.source_run_or_generation_reference, relationship: ref.relationship })).sort((a, b) => `${a.source_kind}:${a.source_record_id}`.localeCompare(`${b.source_kind}:${b.source_record_id}`)).slice(0, 40);
+  const facts = sourceFacts(candidate, packet).map(({ ref, record }) => ({ source_kind: ref.source_kind, source_record_id: ref.source_record_id, market: record.market || record.location || record.location_code || null, language: record.language || record.language_code || null, query: record.query || record.query_text || null, page_type: record.type || record.page_type || null, title: record.title || record.result_title || null, url: record.url || record.result_url || null, h1: record.h1 || null })).slice(0, 40);
+  const business = { name: packet.business?.name || null, ecommerce_platform: packet.business?.ecommerce_platform || null, primary_market: packet.business?.market || null, primary_language: packet.business?.language || null, product_names: (packet.commerce?.products || []).map(p => p.name).filter(Boolean).sort().slice(0, 20), category_names: (packet.commerce?.categories || []).map(c => c.name).filter(Boolean).sort().slice(0, 20) }; const limitations = [...new Set([...(candidate.limitations || []), ...(packet.limitations || [])])].slice(0, 8);
+  const result = { evaluation_version: SLICE_B_EVALUATION_VERSION, filter_version: FILTER_VERSION, interpretation_version: INTERPRETATION_VERSION, instruction_version: INSTRUCTION_VERSION, candidate_id: candidate.candidate_id, candidate_identity: candidate.candidate_identity, candidate_type: candidate.candidate_type, source_job: candidate.source_job_identity || candidate.normalized_source_job || null, allowed_target_refs: allowed, target_descriptors: targetDescriptors(packet, allowed), business, evidence_refs: evidence, bounded_evidence: facts, limitations, evidence_summary_truncated: (candidate.evidence_refs || []).length > 40 };
+  return { ...result, bounded_evidence_summary: JSON.stringify({ candidate_identity: result.candidate_identity, candidate_type: result.candidate_type, source_job: result.source_job, allowed_target_refs: result.allowed_target_refs, target_descriptors: result.target_descriptors, business: result.business, evidence: result.bounded_evidence, limitations: result.limitations }) };
 }
 
-export function validateInterpretation(output, candidate) {
-  if (!output || output.candidate_id !== candidate.candidate_id || typeof output.customer_job !== "string" || output.customer_job.length > 1000 || !intents.has(output.intent_class) || !["high", "medium", "low", "unknown"].includes(output.intent_confidence) || !relevanceStates.has(output.relevance_state) || !targetStates.has(output.target_attribution_state) || !pageFits.has(output.page_type_fit) || !assetFits.has(output.new_asset_fit) || !dispositions.has(output.interpretive_disposition) || !Array.isArray(output.attributed_target_resources) || !output.attributed_target_resources.every(ref => candidate.target_resources?.includes(ref)) || !Array.isArray(output.reason_codes) || !Array.isArray(output.limitations)) throw new Error("INVALID_INTERPRETATION_OUTPUT");
-  return { ...output, reason_codes: Array.isArray(output.reason_codes) ? output.reason_codes.slice(0, 8) : [], limitations: Array.isArray(output.limitations) ? output.limitations.slice(0, 8) : [] };
+export function validateInterpretation(output, candidate, packet = {}) {
+  const allowed = new Set(buildInterpretationPacket(candidate, packet).allowed_target_refs); const ids = output?.attributed_target_resources || [];
+  if (!output || typeof output.candidate_id !== "string" || output.candidate_id !== String(candidate.candidate_id) || typeof output.customer_job !== "string" || output.customer_job.length > 1000 || !intents.has(output.intent_class) || !["high", "medium", "low", "unknown"].includes(output.intent_confidence) || !relevanceStates.has(output.relevance_state) || !targetStates.has(output.target_attribution_state) || !pageFits.has(output.page_type_fit) || !assetFits.has(output.new_asset_fit) || !dispositions.has(output.interpretive_disposition) || !Array.isArray(ids) || new Set(ids).size !== ids.length || !ids.every(ref => allowed.has(ref)) || !Array.isArray(output.reason_codes) || output.reason_codes.length > 8 || output.reason_codes.some(code => !reasons.has(code)) || !Array.isArray(output.limitations) || output.limitations.length > 8) throw new Error("INVALID_INTERPRETATION_OUTPUT");
+  if (output.target_attribution_state === "established" && !ids.length) throw new Error("INVALID_TARGET_INVARIANT"); if (output.target_attribution_state === "unresolved" && ids.length) throw new Error("INVALID_TARGET_INVARIANT"); if (output.interpretive_disposition === "reject_wrong_page_type" && output.page_type_fit !== "misaligned") throw new Error("INVALID_PAGE_TYPE_INVARIANT"); if (output.interpretive_disposition === "reject_mismatch" && !["irrelevant", "uncertain"].includes(output.relevance_state)) throw new Error("INVALID_RELEVANCE_INVARIANT"); if (candidate.candidate_type !== "new_page_or_content_asset" && output.new_asset_fit !== "not_applicable") throw new Error("INVALID_NEW_ASSET_INVARIANT");
+  return { ...output, reason_codes: [...new Set(output.reason_codes)], limitations: [...new Set(output.limitations)].map(String).map(s => s.slice(0, 120)) };
 }
 
-export function buildInterpretationRequest({ candidate, packet }) {
-  const input = buildInterpretationPacket(candidate, packet);
-  return { systemPrompt: "Interpret only the supplied organic/site evidence. Do not invent targets, facts, metrics or commercial conclusions. Preserve uncertainty. Return only the required structured result.", userPrompt: JSON.stringify(input), input };
-}
+export function buildInterpretationRequest({ candidate, packet }) { const input = buildInterpretationPacket(candidate, packet); return { systemPrompt: "Interpret only the supplied bounded organic evidence. Do not invent facts, targets, metrics, or commercial conclusions. Preserve uncertainty. Return one result for every candidate_id.", userPrompt: JSON.stringify(input), input }; }
+function notApplicable(candidate, disposition, codes = []) { return { candidate_id: candidate.candidate_id, deterministic_disposition: disposition, deterministic_reason_codes: codes, target_attribution_state: "not_applicable", attributed_target_resources: [], interpretation_state: "not_applicable", interpretive_disposition: "not_applicable", interpretive_reason_codes: [], limitations: [] }; }
 
-export async function evaluateCandidates({ candidates, packet, interpretationProvider, signal }) {
-  const filterRows = candidates.map(candidate => ({ candidate, filter: deterministicFilter(candidate, packet) }));
-  const rejected = filterRows.filter(row => row.filter.disposition === "reject");
-  const eligible = filterRows.filter(row => row.filter.disposition === "pass").map(row => row.candidate);
-  const bounded = selectInterpretiveCandidates(eligible);
-  const results = new Map();
-  for (const row of rejected) results.set(row.candidate.candidate_id, { candidate_id: row.candidate.candidate_id, deterministic_disposition: "reject", deterministic_reason_codes: row.filter.reason_codes, interpretation_state: "not_applicable", interpretive_disposition: "not_applicable" });
-  for (const candidate of bounded.boundedOut) results.set(candidate.candidate_id, { candidate_id: candidate.candidate_id, deterministic_disposition: "bounded_out", deterministic_reason_codes: [], interpretation_state: "not_applicable", interpretive_disposition: "not_applicable" });
-  if (!interpretationProvider && bounded.selected.length) throw new Error("INTERPRETATION_PROVIDER_UNAVAILABLE");
-  let attempts = 0; let plannedCalls = 0; let inputTokens = 0; let outputTokens = 0; let model = null; let provider = null;
-  const overlapGroups = groupOverlap(candidates);
-  const deadline = Date.now() + MAX_DEADLINE_MS;
-  const call = async request => {
-    if (Date.now() >= deadline) throw new Error("INTERPRETATION_DEADLINE_EXCEEDED");
-    const response = await interpretationProvider.generate({ ...request, signal });
-    provider = response.provider || provider;
-    model = response.model || model;
-    inputTokens += Number(response.usage?.prompt_tokens || response.usage?.input_tokens || 0);
-    outputTokens += Number(response.usage?.completion_tokens || response.usage?.output_tokens || 0);
-    if (outputTokens > MAX_OUTPUT_TOKENS) throw new Error("INTERPRETATION_OUTPUT_TOKEN_BOUND_EXCEEDED");
-    return response;
-  };
-  for (let offset = 0; offset < bounded.selected.length; offset += MAX_BATCH_SIZE) {
-    const batch = bounded.selected.slice(offset, offset + MAX_BATCH_SIZE);
-    if (plannedCalls >= MAX_PLANNED_CALLS || attempts >= MAX_TOTAL_ATTEMPTS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED");
-    const request = { candidates: batch.map(candidate => buildInterpretationRequest({ candidate, packet }).input) };
-    plannedCalls++;
-    let completed = false;
-    for (let retry = 0; retry < 2 && !completed; retry++) {
-      if (attempts >= MAX_TOTAL_ATTEMPTS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED");
-      attempts++;
-      try {
-        const response = await call({ systemPrompt: "Interpret each candidate independently from supplied evidence. Do not invent facts or targets. Return a JSON object with a results array.", userPrompt: JSON.stringify(request), responseSchema: INTERPRETATION_RESPONSE_SCHEMA, schemaName: "organic_candidate_interpretation" });
-        const outputs = Array.isArray(response.output) ? response.output : JSON.parse(response.rawText || "{}").results;
-        if (!Array.isArray(outputs) || outputs.length !== batch.length) throw new Error("INVALID_INTERPRETATION_BATCH");
-        outputs.forEach((output, index) => { const validated = validateInterpretation(output, batch[index]); results.set(batch[index].candidate_id, { ...validated, deterministic_disposition: "pass", deterministic_reason_codes: [], overlap_group_id: overlapGroups.get(batch[index].candidate_id) || null, interpretation_state: "complete", interpretive_reason_codes: validated.reason_codes || [] }); });
-        completed = true;
-      } catch (error) {
-        if (retry === 1) throw error;
-      }
-    }
+export async function evaluateCandidates({ candidates, packet, interpretationProvider, signal, resolveBatch, onBatchComplete, onRetry }) {
+  if (!packet.business?.market || !packet.business?.language) { const error = new Error("BUSINESS_LOCALE_REQUIRED"); error.code = "BUSINESS_LOCALE_REQUIRED"; throw error; }
+  const cohort = prepareDeterministicCohort(candidates); const filters = cohort.prepared.map(candidate => ({ candidate, filter: deterministicFilter(candidate, packet) })); const rejected = filters.filter(x => x.filter.disposition === "reject"); const eligible = filters.filter(x => x.filter.disposition === "pass").map(x => x.candidate); const bounded = selectInterpretiveCandidates(eligible); const overlap = groupOverlap(candidates); const results = new Map(rejected.map(x => [x.candidate.candidate_id, notApplicable(x.candidate, "reject", x.filter.reason_codes)])); cohort.duplicateRejections.forEach(x => results.set(x.candidate.candidate_id, notApplicable(x.candidate, "reject", [x.reason_code]))); bounded.boundedOut.forEach(c => results.set(c.candidate_id, notApplicable(c, "bounded_out"))); if (!interpretationProvider && bounded.selected.length) throw new Error("INTERPRETATION_PROVIDER_UNAVAILABLE");
+  let attempts = 0, plannedCalls = 0, retryUsed = false, inputTokens = 0, outputTokens = 0, model = null, provider = null; const timeout = AbortSignal.timeout ? AbortSignal.timeout(MAX_DEADLINE_MS) : null; const combined = signal && timeout ? AbortSignal.any([signal, timeout]) : signal || timeout;
+  for (let offset = 0; offset < bounded.selected.length; offset += MAX_BATCH_SIZE) { const batchIndex = Math.floor(offset / MAX_BATCH_SIZE); const batch = bounded.selected.slice(offset, offset + MAX_BATCH_SIZE); if (++plannedCalls > MAX_PLANNED_CALLS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); const request = { candidates: batch.map(candidate => buildInterpretationRequest({ candidate, packet }).input) }; let done = false;
+    while (!done) { if (++attempts > MAX_TOTAL_ATTEMPTS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); try {
+      const cached = resolveBatch ? await resolveBatch({ batch, batchIndex, packet, inputHash: buildBatchIdentity({ candidates: batch, packet }) }) : null;
+      if (cached?.pending) { const error = new Error("BATCH_PENDING"); error.code = "BATCH_PENDING"; throw error; }
+      const response = cached?.response || await interpretationProvider.generate({ systemPrompt: "Interpret each candidate independently from supplied evidence. Return a set keyed by candidate_id.", userPrompt: JSON.stringify(request), responseSchema: INTERPRETATION_RESPONSE_SCHEMA, schemaName: "organic_candidate_interpretation", maxOutputTokens: MAX_CALL_OUTPUT_TOKENS, signal: combined });
+      provider = response.provider || provider; model = response.model || model; inputTokens += Number(response.usage?.prompt_tokens || response.usage?.input_tokens || 0); outputTokens += Number(response.usage?.completion_tokens || response.usage?.output_tokens || 0); if (outputTokens > MAX_OUTPUT_TOKENS) throw new Error("INTERPRETATION_OUTPUT_TOKEN_BOUND_EXCEEDED"); const outputs = Array.isArray(response.output) ? response.output : JSON.parse(response.rawText || "{}").results; if (!Array.isArray(outputs) || outputs.length !== batch.length) throw new Error("INVALID_INTERPRETATION_BATCH"); const expected = new Set(batch.map(c => String(c.candidate_id))); const actual = outputs.map(o => String(o?.candidate_id)); if (new Set(actual).size !== actual.length || actual.some(id => !expected.has(id)) || actual.length !== expected.size) throw new Error("INVALID_INTERPRETATION_CANDIDATE_SET");
+      const validated = outputs.map(output => { const candidate = batch.find(c => String(c.candidate_id) === String(output.candidate_id)); const valid = validateInterpretation(output, candidate, packet); const row = { ...valid, deterministic_disposition: "pass", deterministic_reason_codes: [], overlap_group_id: overlap.get(candidate.candidate_id) || null, interpretation_state: "complete", interpretive_reason_codes: valid.reason_codes }; results.set(candidate.candidate_id, row); return row; });
+      if (onBatchComplete && !cached?.reused) await onBatchComplete({ batch, batchIndex, inputHash: buildBatchIdentity({ candidates: batch, packet }), response, rows: validated }); done = true;
+    } catch (error) { const retryable = !retryUsed && (!error.code ? /transport|transient|network|timeout/i.test(error.message || "") : ["ETIMEDOUT", "ECONNRESET", "PROVIDER_TRANSIENT"].includes(error.code)) || (!retryUsed && ["INVALID_INTERPRETATION_BATCH", "INVALID_INTERPRETATION_CANDIDATE_SET", "INVALID_INTERPRETATION_OUTPUT", "INVALID_TARGET_INVARIANT", "INVALID_PAGE_TYPE_INVARIANT", "INVALID_RELEVANCE_INVARIANT"].includes(error.message)); if (!retryable) throw error; if (onRetry && !(await onRetry({ batchIndex, error }))) throw error; retryUsed = true; } }
   }
-  return { rows: candidates.map(candidate => results.get(candidate.candidate_id)), discoveredCount: candidates.length, deterministicRejectedCount: rejected.length, postFilterCount: eligible.length, boundedOutCount: bounded.boundedOut.length, interpretedCount: bounded.selected.length, interpretiveRejectedCount: [...results.values()].filter(row => ["reject_mismatch", "reject_wrong_page_type"].includes(row.interpretive_disposition)).length, overlapGroupCount: new Set([...overlapGroups.values()]).size, modelProvider: provider, modelName: model, modelRequestAttempts: attempts, inputTokens, outputTokens, completeness: bounded.partial ? "partial" : "complete", limitations: bounded.partial ? ["interpretation_candidate_cap_hit"] : [] };
+  return { rows: candidates.map(c => results.get(c.candidate_id)), discoveredCount: candidates.length, deterministicRejectedCount: rejected.length, postFilterCount: eligible.length, boundedOutCount: bounded.boundedOut.length, interpretedCount: bounded.selected.length, interpretiveRejectedCount: [...results.values()].filter(row => ["reject_mismatch", "reject_wrong_page_type"].includes(row.interpretive_disposition)).length, overlapGroupCount: new Set([...overlap.values()].filter(Boolean)).size, modelProvider: provider, modelName: model, modelRequestAttempts: attempts, plannedCalls, retryUsed, inputTokens, outputTokens, completeness: bounded.partial ? "partial" : "complete", limitations: bounded.partial ? ["interpretation_candidate_cap_hit"] : [] };
 }
