@@ -23,3 +23,36 @@ implemented locally and are subject to the final non-live regression:
 Frozen fixture bytes, fixture hashes, owner labels, discovery matches, and
 deterministic thresholds were not changed. No live authorization variable was
 set.
+
+## Final independent committed-code verification
+
+FINAL-001 — CONFIRMED and CLOSED: durable interpreted rows now use
+`interpretationInputHash`, derived from the exact bounded
+`buildInterpretationRequest(...).input`; deterministic and bounded-out rows
+persist a null interpretation hash because no model input was sent.
+
+FINAL-002 — CONFIRMED and CLOSED: `PROVIDER_OUTCOME_UNKNOWN` records unknown
+cost with null cost rather than manufacturing a zero-token priced attempt.
+
+FINAL-003 — CONFIRMED and CLOSED: preview executes the commercial-control check
+before returning and reports 11/11 invariance.
+
+FINAL-004 — CONFIRMED and CLOSED: committed pure harness helpers and regression
+tests cover commercial control, smoke/request bounds, restart state, cache
+identity, and unknown-cost accounting.
+
+FINAL-005 — CONFIRMED, ENVIRONMENT-BLOCKED: full npm execution remains blocked
+by localhost bind permission in this agent environment; Product tests that ran
+were green.
+
+FINAL-006 — CONFIRMED, ENVIRONMENT-BLOCKED: disposable Supabase cannot start
+because Colima is stopped and Docker socket access is denied. No normal
+database was reset or modified.
+
+Environment diagnostics: Node `v22.18.0`, npm `10.9.3`, Docker client
+`29.7.2` with the Colima context, Colima `not running`; Supabase CLI execution
+was likewise blocked by the unavailable Docker environment.
+
+Final preview: PASS; 38 applicable cases, 38 formal requests, 1 smoke request,
+39 base requests, global maximum 40, commercial invariance 11/11, provider
+calls 0. Live approval was not set.
