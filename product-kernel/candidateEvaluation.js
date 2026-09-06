@@ -1,9 +1,9 @@
 import crypto from "node:crypto";
 import { canonicalJson } from "./decisionDiscovery.js";
 
-export const SLICE_B_EVALUATION_VERSION = "v1-05-slice-b-4";
+export const SLICE_B_EVALUATION_VERSION = "v1-05-slice-b-5";
 export const FILTER_VERSION = "v1-05-filter-3";
-export const INTERPRETATION_VERSION = "v1-05-interpretation-4";
+export const INTERPRETATION_VERSION = "v1-05-interpretation-5";
 export const INSTRUCTION_VERSION = "v1-05-slice-b-instructions-4";
 export const MAX_INTERPRETIVE_CANDIDATES = 50;
 export const MAX_BATCH_SIZE = 10;
@@ -87,6 +87,32 @@ export function buildInterpretationPacket(candidate, packet = {}) {
   return { ...result, evidence_text_chars: JSON.stringify(boundedSummary).length, bounded_evidence_summary: JSON.stringify(boundedSummary) };
 }
 
+const nonDescriptiveKey = key => /(^|_)(id|ref|refs|url|type|kind|state|status|canonical|indexable|relationship|market|language|rank|clicks|impressions|ctr)$|(^|_)(candidate|source|target|run|generation)_?(id|ref)?$/i.test(String(key || ""));
+function descriptiveTextChars(value, key = "") {
+  if (value == null || nonDescriptiveKey(key) || key === "limitations") return 0;
+  if (typeof value === "string") return value.length;
+  if (Array.isArray(value)) return value.reduce((sum, item) => sum + descriptiveTextChars(item, key), 0);
+  if (typeof value === "object") return Object.entries(value).reduce((sum, [childKey, child]) => sum + descriptiveTextChars(child, childKey), 0);
+  return 0;
+}
+function boundDescriptiveText(value, state, key = "") {
+  if (value == null || nonDescriptiveKey(key) || key === "limitations" || typeof value !== "object") {
+    if (typeof value !== "string" || nonDescriptiveKey(key) || key === "limitations") return value;
+    const kept = Math.max(0, state.remaining); state.remaining = Math.max(0, state.remaining - value.length);
+    return value.slice(0, kept);
+  }
+  if (Array.isArray(value)) return value.map(item => boundDescriptiveText(item, state, key));
+  return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [childKey, boundDescriptiveText(child, state, childKey)]));
+}
+function boundModelInput(input) {
+  const copy = structuredClone(input); const before = descriptiveTextChars(copy); if (before <= 2000) return { ...copy, model_facing_text_chars: before };
+  const bounded = boundDescriptiveText(copy, { remaining: 2000 });
+  const after = descriptiveTextChars(bounded);
+  if (after > 2000) throw new Error("INTERPRETATION_TEXT_BOUND_EXCEEDED");
+  const limitations = [...new Set([...(bounded.limitations || []), "evidence_summary_truncated"])].slice(0, 8);
+  return { ...bounded, limitations, evidence_summary_truncated: true, model_facing_text_chars: after };
+}
+
 export function validateInterpretation(output, candidate, packet = {}) {
   const allowed = new Set(buildInterpretationPacket(candidate, packet).allowed_target_refs); const ids = output?.attributed_target_resources || [];
   if (!output || typeof output.candidate_id !== "string" || output.candidate_id !== String(candidate.candidate_id) || typeof output.customer_job !== "string" || output.customer_job.length > 1000 || !intents.has(output.intent_class) || !["high", "medium", "low", "unknown"].includes(output.intent_confidence) || !relevanceStates.has(output.relevance_state) || !targetStates.has(output.target_attribution_state) || !pageFits.has(output.page_type_fit) || !assetFits.has(output.new_asset_fit) || !dispositions.has(output.interpretive_disposition) || !Array.isArray(ids) || new Set(ids).size !== ids.length || !ids.every(ref => allowed.has(ref)) || !Array.isArray(output.reason_codes) || output.reason_codes.length > 8 || output.reason_codes.some(code => !reasons.has(code)) || !Array.isArray(output.limitations) || output.limitations.length > 8) throw new Error("INVALID_INTERPRETATION_OUTPUT");
@@ -94,7 +120,7 @@ export function validateInterpretation(output, candidate, packet = {}) {
   return { ...output, reason_codes: [...new Set(output.reason_codes)], limitations: [...new Set(output.limitations)].map(String).map(s => s.slice(0, 120)) };
 }
 
-export function buildInterpretationRequest({ candidate, packet }) { const input = buildInterpretationPacket(candidate, packet); const { bounded_evidence_summary, evidence_text_chars, ...modelInput } = input; return { systemPrompt: "Interpret only the supplied bounded organic evidence. Do not invent facts, targets, metrics, or commercial conclusions. Preserve uncertainty. Return one result for every candidate_id.", userPrompt: JSON.stringify(modelInput), input: modelInput }; }
+export function buildInterpretationRequest({ candidate, packet }) { const input = buildInterpretationPacket(candidate, packet); const { bounded_evidence_summary, evidence_text_chars, ...modelInput } = input; const boundedInput = boundModelInput(modelInput); return { systemPrompt: "Interpret only the supplied bounded organic evidence. Do not invent facts, targets, metrics, or commercial conclusions. Preserve uncertainty. Return one result for every candidate_id.", userPrompt: JSON.stringify(boundedInput), input: boundedInput }; }
 function notApplicable(candidate, disposition, codes = []) { return { candidate_id: candidate.candidate_id, deterministic_disposition: disposition, deterministic_reason_codes: codes, target_attribution_state: "not_applicable", attributed_target_resources: [], interpretation_state: "not_applicable", interpretive_disposition: "not_applicable", interpretive_reason_codes: [], limitations: [] }; }
 export function refinePostInterpretationOverlap(candidates, rows) {
   const groups = new Map(); for (const row of rows) { if (!row || row.interpretation_state !== "complete") continue; const key = `${normalise(row.customer_job)}|${(row.attributed_target_resources || []).slice().sort().join("|")}|${row.intent_class}`; if (key !== "||") (groups.get(key) || groups.set(key, []).get(key)).push(row); }
@@ -106,8 +132,8 @@ export async function evaluateCandidates({ candidates, packet, interpretationPro
   if (!packet.business?.market || !packet.business?.language) { const error = new Error("BUSINESS_LOCALE_REQUIRED"); error.code = "BUSINESS_LOCALE_REQUIRED"; throw error; }
   const cohort = prepareDeterministicCohort(candidates); const filters = cohort.prepared.map(candidate => ({ candidate, filter: deterministicFilter(candidate, packet) })); const rejected = filters.filter(x => x.filter.disposition === "reject"); const eligible = filters.filter(x => x.filter.disposition === "pass").map(x => x.candidate); const bounded = selectInterpretiveCandidates(eligible); const overlap = groupOverlap(candidates, packet); const results = new Map(rejected.map(x => [x.candidate.candidate_id, notApplicable(x.candidate, "reject", x.filter.reason_codes)])); cohort.duplicateRejections.forEach(x => results.set(x.candidate.candidate_id, notApplicable(x.candidate, "reject", [x.reason_code]))); bounded.boundedOut.forEach(c => results.set(c.candidate_id, notApplicable(c, "bounded_out"))); if (!interpretationProvider && bounded.selected.length) throw new Error("INTERPRETATION_PROVIDER_UNAVAILABLE");
   let attempts = 0, plannedCalls = 0, retryUsed = false, inputTokens = 0, outputTokens = 0, model = null, provider = null; const timeout = AbortSignal.timeout ? AbortSignal.timeout(MAX_DEADLINE_MS) : null; const combined = signal && timeout ? AbortSignal.any([signal, timeout]) : signal || timeout;
-  for (let offset = 0; offset < bounded.selected.length; offset += MAX_BATCH_SIZE) { const batchIndex = Math.floor(offset / MAX_BATCH_SIZE); const batch = bounded.selected.slice(offset, offset + MAX_BATCH_SIZE); if (++plannedCalls > MAX_PLANNED_CALLS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); const request = { candidates: batch.map(candidate => buildInterpretationRequest({ candidate, packet }).input) }; let done = false; let responseMetadata = null;
-    while (!done) { if (++attempts > MAX_TOTAL_ATTEMPTS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); try {
+  for (let offset = 0; offset < bounded.selected.length; offset += MAX_BATCH_SIZE) { const batchIndex = Math.floor(offset / MAX_BATCH_SIZE); const batch = bounded.selected.slice(offset, offset + MAX_BATCH_SIZE); if (++plannedCalls > MAX_PLANNED_CALLS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); const request = { candidates: batch.map(candidate => buildInterpretationRequest({ candidate, packet }).input) }; let done = false;
+    while (!done) { let responseMetadata = null; if (++attempts > MAX_TOTAL_ATTEMPTS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); try {
       const cached = resolveBatch ? await resolveBatch({ batch, batchIndex, packet, inputHash: buildBatchIdentity({ candidates: batch, packet }) }) : null;
       if (cached?.pending) { const error = new Error("BATCH_PENDING"); error.code = "BATCH_PENDING"; throw error; }
       const response = cached?.response || await interpretationProvider.generate({ systemPrompt: "Interpret only the bounded supplied evidence. Classify intent as product_selection, category_selection, comparison_selection, informational, mixed_intent, brand_navigation, navigation_discovery, broad_information, uncertain, or uncertain_selection. Use relevant when evidence supports the Business job, irrelevant only for clear mismatch, and uncertain when evidence is insufficient. Established attribution requires a supplied allowed target; unresolved requires none. page_type_fit is aligned, misaligned, ambiguous, or unknown. new_asset_fit applies only to new assets. Retain uncertainty; reject only clear mismatch or wrong page type. Never invent targets, facts, commercial priority, or interventions.", userPrompt: JSON.stringify(request), responseSchema: INTERPRETATION_RESPONSE_SCHEMA, schemaName: "organic_candidate_interpretation", maxOutputTokens: MAX_CALL_OUTPUT_TOKENS, signal: combined });
