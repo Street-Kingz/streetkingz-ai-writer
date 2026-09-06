@@ -401,7 +401,10 @@
       "expected_interpretive_disposition": "retain",
       "expected_overlap_labels": [],
       "expected_target_attribution_state": "established",
-      "expected_target_refs": [],
+      "expected_target_refs": [
+        "page:page-b",
+        "page:page-a"
+      ],
       "expected_intent": "navigation_discovery",
       "expected_page_type_fit": "aligned",
       "high_impact": true,
@@ -428,7 +431,10 @@
       "expected_interpretive_disposition": "retain",
       "expected_overlap_labels": [],
       "expected_target_attribution_state": "established",
-      "expected_target_refs": [],
+      "expected_target_refs": [
+        "page:page-b",
+        "page:page-a"
+      ],
       "expected_intent": "navigation_discovery",
       "expected_page_type_fit": "aligned",
       "high_impact": false,
@@ -455,7 +461,10 @@
       "expected_interpretive_disposition": "retain",
       "expected_overlap_labels": [],
       "expected_target_attribution_state": "established",
-      "expected_target_refs": [],
+      "expected_target_refs": [
+        "page:page-a",
+        "page:page-b"
+      ],
       "expected_intent": "navigation_discovery",
       "expected_page_type_fit": "aligned",
       "high_impact": false,
