@@ -30,22 +30,22 @@ export function createOpenAIInterpretationProvider({ env = process.env, fetchImp
     requestPayload({ systemPrompt, userPrompt, responseSchema, schemaName, temperature = 0.1, maxOutputTokens }) { return buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, temperature, maxOutputTokens }); },
     async generate({ systemPrompt, userPrompt, responseSchema, schemaName, maxOutputTokens, signal }) {
       const requestBody = buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, maxOutputTokens });
-      let response; try { response = await fetchImpl("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` }, body: JSON.stringify(requestBody), signal }); } catch (error) { if (error?.name === "AbortError") { const unknown = new Error("PROVIDER_OUTCOME_UNKNOWN"); unknown.code = "PROVIDER_OUTCOME_UNKNOWN"; throw unknown; } throw error; }
+      let response; try { response = await fetchImpl("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` }, body: JSON.stringify(requestBody), signal }); } catch (error) { const unknown = new Error("PROVIDER_OUTCOME_UNKNOWN"); unknown.code = "PROVIDER_OUTCOME_UNKNOWN"; unknown.provider = "openai"; throw unknown; }
       const rawHttpBody = await response.text();
       let envelope;
       try { envelope = JSON.parse(rawHttpBody); } catch { envelope = null; }
+      const safeMetadata = { provider: "openai", model: envelope?.model || model, response_id: envelope?.id || null, usage: envelope?.usage || null, status: response.status };
       if (!response.ok) {
         const error = new Error(`OpenAI interpretation request failed with HTTP ${response.status}.`);
-        error.status = response.status;
-        error.provider = "openai";
+        error.status = response.status; error.provider = "openai"; error.providerMetadata = safeMetadata; error.code = response.status === 429 || response.status >= 500 ? "PROVIDER_TRANSIENT" : "PROVIDER_HTTP_ERROR";
         throw error;
       }
       const choice = envelope?.choices?.[0]; const finishReason = choice?.finish_reason; const refusal = choice?.message?.refusal;
-      if (refusal) { const error = new Error("PROVIDER_REFUSAL"); error.code = "PROVIDER_REFUSAL"; throw error; }
-      if (finishReason === "length") { const error = new Error("PROVIDER_LENGTH"); error.code = "PROVIDER_LENGTH"; throw error; }
-      if (finishReason === "content_filter") { const error = new Error("PROVIDER_CONTENT_FILTER"); error.code = "PROVIDER_CONTENT_FILTER"; throw error; }
+      if (refusal) { const error = new Error("PROVIDER_REFUSAL"); error.code = "PROVIDER_REFUSAL"; error.providerMetadata = { ...safeMetadata, finish_reason: "refusal" }; throw error; }
+      if (finishReason === "length") { const error = new Error("PROVIDER_LENGTH"); error.code = "PROVIDER_LENGTH"; error.providerMetadata = { ...safeMetadata, finish_reason: "length" }; throw error; }
+      if (finishReason === "content_filter") { const error = new Error("PROVIDER_CONTENT_FILTER"); error.code = "PROVIDER_CONTENT_FILTER"; error.providerMetadata = { ...safeMetadata, finish_reason: "content_filter" }; throw error; }
       const rawText = choice?.message?.content;
-      if (typeof rawText !== "string" || !rawText.trim()) throw new Error("PROVIDER_EMPTY_CONTENT");
+      if (typeof rawText !== "string" || !rawText.trim()) { const error = new Error("PROVIDER_EMPTY_CONTENT"); error.code = "PROVIDER_EMPTY_CONTENT"; error.providerMetadata = safeMetadata; throw error; }
       return {
         provider: "openai",
         model: envelope?.model || model,

@@ -28,3 +28,6 @@ Live provider calls: **0**. `V105_LIVE_APPROVED` was not set.
 
 Applied migrations `20260929000000` and `20260930000000` were not edited.
 The new monotonic migration is `20261001000000_v1_05_slice_b_final_pre_live_integrity.sql`.
+
+Follow-up: the prior READY conclusion was superseded by independent post-commit
+verification; see `slice-b-live-authorization-verification.md`.
