@@ -30,11 +30,7 @@ export function createOpenAIInterpretationProvider({ env = process.env, fetchImp
     requestPayload({ systemPrompt, userPrompt, responseSchema, schemaName, temperature = 0.1, maxOutputTokens }) { return buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, temperature, maxOutputTokens }); },
     async generate({ systemPrompt, userPrompt, responseSchema, schemaName, maxOutputTokens, signal }) {
       const requestBody = buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, maxOutputTokens });
-      const response = await fetchImpl("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` },
-        body: JSON.stringify(requestBody), signal
-      });
+      let response; try { response = await fetchImpl("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` }, body: JSON.stringify(requestBody), signal }); } catch (error) { if (error?.name === "AbortError") { const unknown = new Error("PROVIDER_OUTCOME_UNKNOWN"); unknown.code = "PROVIDER_OUTCOME_UNKNOWN"; throw unknown; } throw error; }
       const rawHttpBody = await response.text();
       let envelope;
       try { envelope = JSON.parse(rawHttpBody); } catch { envelope = null; }

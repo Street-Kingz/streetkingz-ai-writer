@@ -15,7 +15,7 @@ do $$ declare n integer; begin
     where s.nspname = 'public' and p.prosecdef
     and (has_function_privilege('public', p.oid, 'EXECUTE') or has_function_privilege('anon', p.oid, 'EXECUTE')
       or (has_function_privilege('authenticated', p.oid, 'EXECUTE') and p.proname not in
-        ('product_create_account','product_create_business','product_create_connection','product_request_account_deletion','product_transition_connection')))) then
+        ('product_create_account','product_create_business','product_create_connection','product_request_account_deletion','product_transition_connection','product_set_business_locale')))) then
     raise exception 'UNINTENDED_SECURITY_DEFINER_EXECUTE';
   end if;
   if exists (select 1 from information_schema.role_table_grants where table_schema = 'public'

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
+import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
 
 const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: id, candidate_type: "existing_content_improvement", target_resources: ["page:" + id], discovery_sources: ["external_search"], evidence_refs: [{ source_kind: "external_search", source_record_type: "observation", source_record_id: "e-" + id, source_run_or_generation_reference: "run-1", relationship: "query_serp_relationship" }], market: "GB", language: "en", ...extra });
 
@@ -42,10 +42,28 @@ test("Slice B singleton overlap is null and batch identity is order-independent"
 test("cohort preparation rejects only objectively duplicate distinct candidates", () => {
   const sameTarget = prepareDeterministicCohort([candidate("target-b", { target_resources: ["page:same"] }), candidate("target-a", { target_resources: ["page:same"] })]);
   assert.deepEqual(sameTarget.prepared.map(x => x.candidate_id), ["target-a"]); assert.equal(sameTarget.duplicateRejections[0].candidate.candidate_id, "target-b");
-  const sameLink = prepareDeterministicCohort([candidate("link-b", { target_resources: [], link_source_ref: "page:a", link_target_ref: "page:b" }), candidate("link-a", { target_resources: [], link_source_ref: "page:a", link_target_ref: "page:b" })]);
+  const sameLink = prepareDeterministicCohort([candidate("link-b", { candidate_type: "internal_linking", target_resource_type: "directed_page_pair", target_resources: ["page:a", "page:b"] }), candidate("link-a", { candidate_type: "internal_linking", target_resource_type: "directed_page_pair", target_resources: ["page:a", "page:b"] })]);
   assert.deepEqual(sameLink.prepared.map(x => x.candidate_id), ["link-a"]); assert.equal(sameLink.duplicateRejections[0].reason_code, "duplicate_candidate");
   const sameJob = prepareDeterministicCohort([candidate("job-b", { target_resources: [], source_job_identity: "Tyre   care guide" }), candidate("job-a", { target_resources: [], source_job_identity: "tyre care guide" })]);
   assert.deepEqual(sameJob.prepared.map(x => x.candidate_id), ["job-a"]); assert.equal(sameJob.duplicateRejections[0].candidate.candidate_id, "job-b");
+});
+
+test("directed links preserve direction and packet exposes it", () => {
+  const forward = candidate("forward", { candidate_type: "internal_linking", target_resource_type: "directed_page_pair", target_resources: ["page:a", "page:b"] });
+  const reverse = candidate("reverse", { candidate_type: "internal_linking", target_resource_type: "directed_page_pair", target_resources: ["page:b", "page:a"] });
+  assert.equal(prepareDeterministicCohort([forward, reverse]).duplicateRejections.length, 0);
+  assert.deepEqual(buildInterpretationPacket(forward).link_direction, { source_ref: "page:a", target_ref: "page:b" });
+});
+
+test("commerce evidence resolves relations and interpretation text is bounded", () => {
+  const item = candidate("commerce", { evidence_refs: [{ source_kind: "commerce", source_record_type: "product_category_relation", source_record_id: "relation-1", source_run_or_generation_reference: "generation-1", relationship: "commerce_product_category_relationship" }] });
+  const packet = { commerce: { relations: [{ id: "relation-1", source_run_or_generation_reference: "generation-1" }], products: [], categories: [] }, site: { pages: [] }, business: { name: "B".repeat(5000), market: "GB", language: "en" } };
+  assert.ok(resolveEvidenceRef(item.evidence_refs[0], packet)); assert.ok(buildInterpretationPacket(item, packet).evidence_text_chars <= 2000);
+});
+
+test("post-interpretation overlap marks only clear redundant repeats", () => {
+  const rows = [{ candidate_id: "a", interpretation_state: "complete", customer_job: "same job", attributed_target_resources: ["page:a"], intent_class: "informational", interpretive_disposition: "retain", relevance_state: "relevant", new_asset_fit: "not_applicable", interpretive_reason_codes: [] }, { candidate_id: "b", interpretation_state: "complete", customer_job: "same job", attributed_target_resources: ["page:a"], intent_class: "informational", interpretive_disposition: "retain", relevance_state: "relevant", new_asset_fit: "not_applicable", interpretive_reason_codes: [] }];
+  const result = refinePostInterpretationOverlap([candidate("a"), candidate("b")], rows); assert.equal(result[0].interpretive_disposition, "retain"); assert.equal(result[1].interpretive_disposition, "reject_mismatch"); assert.ok(result[1].interpretive_reason_codes.includes("overlap_redundant"));
 });
 
 test("completed durable batch is reused without another provider call", async () => {

@@ -34,6 +34,7 @@ function mapRpcError(error) {
     ["SECRET_OPERATION_FAILED", 503, "Connector secret removal failed."],
     ["INVALID_BUSINESS_NAME", 400, "Business name is invalid."],
     ["INVALID_PLATFORM", 400, "Ecommerce platform is invalid."],
+    ["INVALID_BUSINESS_LOCALE", 400, "A bounded market and language are required."],
     ["INVALID_PROVIDER_TYPE", 400, "Provider type is invalid."],
     ["WOO_CONNECTION_STATE_MANAGED", 409, "WooCommerce connection state is managed by the WooCommerce authorisation lifecycle."]
   ];
@@ -90,7 +91,8 @@ router.post("/api/product/business", handle(async (req, res) => {
 router.patch("/api/product/business/locale", handle(async (req, res) => {
   const { client, account } = await authContext(req); requireAccount(account);
   const market = typeof req.body?.primary_market === "string" ? req.body.primary_market.trim().toUpperCase() : "";
-  const language = typeof req.body?.primary_language === "string" ? req.body.primary_language.trim().toLowerCase() : "";
+  const rawLanguage = typeof req.body?.primary_language === "string" ? req.body.primary_language.trim() : "";
+  const languageParts = rawLanguage.split("-"); const language = languageParts.length === 1 ? rawLanguage.toLowerCase() : `${languageParts[0].toLowerCase()}-${languageParts[1].toUpperCase()}`;
   if (!/^[A-Z]{2,3}$/.test(market) || !/^[a-z]{2,3}(?:-[A-Z]{2})?$/.test(language)) throw new ProductError("INVALID_BUSINESS_LOCALE", "A bounded market and language are required.", 400);
   const { data, error } = await client.rpc("product_set_business_locale", { p_market: market, p_language: language, p_correlation_id: req.correlationId });
   if (error) throw mapRpcError(error);

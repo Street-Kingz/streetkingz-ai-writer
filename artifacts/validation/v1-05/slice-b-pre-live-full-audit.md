@@ -58,6 +58,8 @@ The original finding table above records the pre-correction state. The current i
 
 Owner-corrected deterministic result: 41 applicable, FP 0 (0%), FN 0 (0%), high-impact FN 0. No fixture bytes, fixture hashes, or Slice A discovery-match labels changed.
 
+Post-commit follow-up: the historical closure summary above is superseded by `artifacts/validation/v1-05/slice-b-post-hardening-audit.md`, which independently audits the committed runtime and records the subsequent integrity corrections.
+
 ## Follow-up implementation checklist
 
 | Area | Status | Evidence |

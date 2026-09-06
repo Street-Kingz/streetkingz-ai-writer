@@ -14,6 +14,10 @@ perl -0pi -e "s/project_id = \"[^\"]+\"/project_id = \"$ID\"/; s/^port = 54321$/
 SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$TMP" start --network-id "v105-slice-b-net-$$" --exclude 'realtime,storage-api,imgproxy,studio,edge-runtime,logflare,vector,supavisor,postgres-meta,mailpit' >/dev/null
 SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$TMP" migration up --local >/dev/null
 DB_CONTAINER="supabase_db_$ID"
+EXPECTED=$(find "$ROOT/supabase/migrations" -maxdepth 1 -name '*.sql' -print | wc -l | tr -d ' ')
+APPLIED=$(docker exec "$DB_CONTAINER" psql -U postgres -d postgres -Atqc "select count(*) from supabase_migrations.schema_migrations")
+if [[ "$EXPECTED" != "$APPLIED" ]]; then echo "from-zero=FAIL migration_count_expected=$EXPECTED migration_count_applied=$APPLIED"; exit 1; fi
+for file in "$ROOT"/supabase/migrations/*.sql; do version=$(basename "$file" | cut -d_ -f1); docker exec "$DB_CONTAINER" psql -U postgres -d postgres -Atqc "select 1 from supabase_migrations.schema_migrations where version='$version'" | grep -qx 1 || { echo "from-zero=FAIL missing_migration=$version"; exit 1; }; done
 docker exec "$DB_CONTAINER" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -f /dev/stdin < "$ROOT/supabase/tests/security-posture.sql"
 docker exec "$DB_CONTAINER" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -Atqc "select count(*) from supabase_migrations.schema_migrations where version='20260929000000'; select column_name from information_schema.columns where table_schema='public' and table_name='businesses' and column_name in ('primary_market','primary_language'); select proname from pg_proc where proname in ('product_set_business_locale','claim_candidate_interpretation_batch'); select column_name from information_schema.columns where table_schema='public' and table_name='organic_candidate_evaluation_runs' and column_name in ('retry_used','estimated_cost_usd','cost_status'); select column_name from information_schema.columns where table_schema='public' and table_name='organic_candidate_interpretation_batches' and column_name in ('claim_token','claimed_at','claim_expires_at','response_id');" | sort
-echo "from-zero=PASS migration_count=33 security_posture=PASS"
+echo "from-zero=PASS migration_count=$EXPECTED applied_migrations=$APPLIED security_posture=PASS"

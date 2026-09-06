@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-export const DISCOVERY_VERSION = "v1-05-slice-a-3-provenance";
+export const DISCOVERY_VERSION = "v1-05-slice-a-4-provenance";
 export const CANDIDATE_TYPES = Object.freeze([
   "existing_product_improvement",
   "existing_category_improvement",
@@ -54,13 +54,16 @@ export function discoverCandidates(packet) {
   const pages = Array.isArray(p.site?.pages) ? p.site.pages : [];
   const pageById = new Map(pages.map(page => [page.id, page]));
   const byIdentity = new Map();
+  const boundEvidence = evidence => [...new Map(evidence.map(ref => [`${ref.source_kind}:${ref.source_record_id}:${ref.source_run_or_generation_reference || ""}:${ref.relationship || ""}`, ref])).values()].sort((a, b) => `${a.source_kind}:${a.source_record_id}`.localeCompare(`${b.source_kind}:${b.source_record_id}`)).slice(0, 40);
   const add = ({ type, targets, targetType, sources, evidence, identityPart }) => {
     if (!CANDIDATE_TYPES.includes(type) || !sources.length || !evidence.length) return;
     const identity = sha256({ type, identity: identityPart || targets });
     const prior = byIdentity.get(identity);
     if (prior) {
       prior.discovery_sources = [...new Set([...prior.discovery_sources, ...sources])].sort();
-      prior.evidence_refs = [...prior.evidence_refs, ...evidence];
+      prior.evidence_refs = boundEvidence([...prior.evidence_refs, ...evidence]);
+      prior.direct_derived_relationships = prior.evidence_refs.map(ref => ({ ...ref, direct_source: true, derived_candidate: true }));
+      if (prior.evidence_refs.length >= 40) prior.limitations = [...new Set([...prior.limitations, "candidate_evidence_ref_cap_hit"])]
       return;
     }
     byIdentity.set(identity, {
@@ -70,8 +73,8 @@ export function discoverCandidates(packet) {
       allowed_target_refs: [...targets],
       target_resource_type: targetType,
       discovery_sources: [...new Set(sources)].sort(),
-      evidence_refs: evidence,
-      direct_derived_relationships: evidence.map(ref => ({ ...ref, direct_source: true, derived_candidate: true })),
+      evidence_refs: boundEvidence(evidence),
+      direct_derived_relationships: boundEvidence(evidence).map(ref => ({ ...ref, direct_source: true, derived_candidate: true })),
       market: p.business?.market || null,
       language: p.business?.language || null,
       freshness_state: p.external?.state || p.search_console?.state || p.site?.state || "unknown",
@@ -103,7 +106,8 @@ export function discoverCandidates(packet) {
     } else if (row.page_url) { const target = commerceTargetForUrl(row.page_url); if (target) add({ ...target, sources: ["search_console"], evidence: refs("search_console", "observation", sourceId(row, `row-${i + 1}`), "query_page_relationship", p.search_console?.selected_run_id), identityPart: target.targets }); }
   }
   for (const [i, row] of extRows.entries()) {
-    const evidence = refs("external_search", "observation", sourceId(row, `row-${i + 1}`), "query_serp_relationship", p.external?.selected_run_id, { source_market: row.market || null, source_language: row.language || null });
+    const externalIds = Array.isArray(row.source_record_ids) && row.source_record_ids.length ? row.source_record_ids : [sourceId(row, `row-${i + 1}`)];
+    const evidence = externalIds.map(id => refs("external_search", "observation", id, "query_serp_relationship", p.external?.selected_run_id, { source_market: row.market || null, source_language: row.language || null })).flat();
     const matchedPages = [...new Set((row.serp || []).map(result => pageForUrl(result.url)).filter(Boolean))];
     for (const page of matchedPages) {
       const targets = pageTargets(p, page);
