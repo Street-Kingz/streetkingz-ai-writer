@@ -106,7 +106,7 @@ provenance are never truncated.
   deterministically filterable at this stage; ambiguous cases are not penalized
   for passing to interpretation. High-impact hard-filter false negatives: **0**.
 - Intent/intervention correctness: at least **85%** exact or substantively
-  equivalent expert agreement on the 32 applicable cases. Mixed/uncertain
+  equivalent expert agreement on the 38 applicable cases. Mixed/uncertain
   labels count as correct only when uncertainty is preserved.
 - High-impact decision errors: **0**, with zero fabricated evidence, fabricated
   commercial facts, wrong-tenant evidence, unsupported precise revenue claims,
@@ -153,7 +153,7 @@ the engine invent a candidate.
 
 The exact 12-case reliability subset is 001, 010, 014, 018, 022, 026, 032,
 036, 039, 042, 047 and 048. At least eight are expected to reach interpretation;
-the remaining cases are deterministic boundary controls. The exact 12 paired
+the remaining cases are deterministic boundary controls. The exact 11 paired
 commercial subset is 001, 004, 009, 014, 017, 020, 021, 039, 040, 043 and 048.
 No second neutral replacement is supported by the frozen facts; corpus
 strengthening is required before Slice C commercial evaluation.

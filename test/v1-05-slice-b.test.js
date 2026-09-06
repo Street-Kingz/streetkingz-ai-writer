@@ -63,7 +63,7 @@ test("commerce evidence resolves relations and interpretation text is bounded", 
 
 test("post-interpretation overlap marks only clear redundant repeats", () => {
   const rows = [{ candidate_id: "a", interpretation_state: "complete", customer_job: "same job", attributed_target_resources: ["page:a"], intent_class: "informational", interpretive_disposition: "retain", relevance_state: "relevant", new_asset_fit: "not_applicable", interpretive_reason_codes: [] }, { candidate_id: "b", interpretation_state: "complete", customer_job: "same job", attributed_target_resources: ["page:a"], intent_class: "informational", interpretive_disposition: "retain", relevance_state: "relevant", new_asset_fit: "not_applicable", interpretive_reason_codes: [] }];
-  const result = refinePostInterpretationOverlap([candidate("a"), candidate("b")], rows); assert.equal(result[0].interpretive_disposition, "retain"); assert.equal(result[1].interpretive_disposition, "reject_mismatch"); assert.ok(result[1].interpretive_reason_codes.includes("overlap_redundant"));
+  const result = refinePostInterpretationOverlap([candidate("a"), candidate("b")], rows); assert.equal(result[0].interpretive_disposition, "retain"); assert.equal(result[1].interpretive_disposition, "reject_overlap_redundant"); assert.equal(result[1].relevance_state, "relevant"); assert.ok(result[1].interpretive_reason_codes.includes("overlap_redundant"));
 });
 
 test("completed durable batch is reused without another provider call", async () => {

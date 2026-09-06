@@ -188,7 +188,7 @@ V1 security hardening: DONE / ACCEPTED
 
 V1-05: IN PROGRESS
 
-V1-05 Slice A: DONE / ACCEPTED — corrected deterministic discovery v2
+V1-05 Slice A: DONE / ACCEPTED — v4 provenance
 
 Original Slice A v1: superseded as final acceptance by post-acceptance
 correction
@@ -208,7 +208,7 @@ Pre-Slice-B label review: DONE / ACCEPTED.
 
 Evaluation corpus: APPROVED / FROZEN with owner-reviewed later-stage labels.
 
-Slice B: IN PROGRESS / OWNER AUTHORISED
+Slice B: IN PROGRESS — PRE-LIVE INTEGRITY GATES
 
 Current active slice: V1-05 Slice B
 
@@ -216,7 +216,7 @@ Slice C: NOT AUTHORISED
 
 Commercial corpus strengthening: REQUIRED BEFORE SLICE C
 
-Current next task: V1-05 Slice B implementation.
+Current next task: complete final pre-live integrity proof, then owner live authorization.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
