@@ -80,3 +80,15 @@ Final non-live proof: focused harness/Product tests 25/25 passed; full npm
 and security posture PASS; secret scan 0 findings; diff check PASS. The final
 preview is PASS with 38 formal cases, 39 base requests, 40 global maximum,
 11/11 commercial invariance, and zero provider calls.
+
+## Owner clarification: commercial control modes
+
+The prior commercial proof requirement was corrected by owner clarification.
+`V105-EVAL-021` intentionally has no primary candidate and is not
+interpretation-applicable, so it uses the run-level
+`run_level_insufficient_evidence_control` rather than being treated as
+not-applicable. The other ten commercial-sensitive cases use candidate-level
+controls. The authoritative evaluator now joins corpus sensitivity to Slice B
+expectations by `case_id`, evaluates all 11 controls, and reports 10 primary
+matches, 11 evaluated, 0 not-applicable, and 11 passes. No fixture, hash,
+label, discovery-match, Product semantic, or threshold change was made.
