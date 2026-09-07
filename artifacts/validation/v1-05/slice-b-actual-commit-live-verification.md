@@ -74,3 +74,9 @@ HARNESS-WIRE-004 — CONFIRMED: completed case state is now rejected by
 
 HARNESS-WIRE-005 — CONFIRMED: the completed-cache regression now asserts all 20
 completed cases are ineligible and has no `|| true` escape.
+
+Final non-live proof: focused harness/Product tests 25/25 passed; full npm
+1,162 passed, 0 failed, 21 pre-existing skips; disposable migrations 36/36
+and security posture PASS; secret scan 0 findings; diff check PASS. The final
+preview is PASS with 38 formal cases, 39 base requests, 40 global maximum,
+11/11 commercial invariance, and zero provider calls.
