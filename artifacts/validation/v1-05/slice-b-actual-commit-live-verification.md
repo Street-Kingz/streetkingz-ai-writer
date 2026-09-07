@@ -56,3 +56,21 @@ was likewise blocked by the unavailable Docker environment.
 Final preview: PASS; 38 applicable cases, 38 formal requests, 1 smoke request,
 39 base requests, global maximum 40, commercial invariance 11/11, provider
 calls 0. Live approval was not set.
+
+## Harness wiring verification
+
+HARNESS-WIRE-001 — CONFIRMED: the prior call supplied corpus labels directly to
+the commercial checker even though primary matches live in the expectations
+file.
+
+HARNESS-WIRE-002 — CONFIRMED: this produced a false not-applicable/pass path.
+The checker now joins corpus sensitivity to expectation metadata by `case_id`.
+
+HARNESS-WIRE-003 — CONFIRMED: pure ledger/commercial helpers are now imported
+from the authoritative harness library by the live script.
+
+HARNESS-WIRE-004 — CONFIRMED: completed case state is now rejected by
+`canRequestCase`.
+
+HARNESS-WIRE-005 — CONFIRMED: the completed-cache regression now asserts all 20
+completed cases are ineligible and has no `|| true` escape.
