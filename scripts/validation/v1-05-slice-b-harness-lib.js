@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import path from "node:path";
 import { discoverCandidates } from "../../product-kernel/decisionDiscovery.js";
 import { deterministicFilter, prepareDeterministicCohort, selectInterpretiveCandidates, groupOverlap, buildInterpretationRequest, interpretationInputHash } from "../../product-kernel/candidateEvaluation.js";
 
@@ -19,7 +20,11 @@ export function formalQualityFails(metrics) { if (!metrics || typeof metrics !==
 export function isSemanticInterpretationFailure(error) { return ["INVALID_INTERPRETATION_OUTPUT", "INVALID_TARGET_INVARIANT", "INVALID_PAGE_TYPE_INVARIANT", "INVALID_RELEVANCE_INVARIANT", "INVALID_NEW_ASSET_INVARIANT"].includes(error?.code || error?.message); }
 
 export function acceptanceSessionPaths(sessionId) {
-  if (typeof sessionId !== "string" || !/^[A-Za-z0-9._-]{1,64}$/.test(sessionId)) throw new Error("INVALID_ACCEPTANCE_SESSION_ID");
+  if (typeof sessionId !== "string" || !/^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/.test(sessionId)) throw new Error("INVALID_ACCEPTANCE_SESSION_ID");
+  const root = path.resolve("artifacts/validation/v1-05/live-sessions");
+  const resolvedDirectory = path.resolve(root, sessionId);
+  const relative = path.relative(root, resolvedDirectory);
+  if (!relative || relative === ".." || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) throw new Error("INVALID_ACCEPTANCE_SESSION_ID");
   const directory = `artifacts/validation/v1-05/live-sessions/${sessionId}`;
   return { directory, ledgerPath: `${directory}/ledger.json`, caseCachePath: `${directory}/formal-case-cache.json` };
 }
