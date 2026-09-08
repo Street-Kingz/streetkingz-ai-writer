@@ -1,0 +1,25 @@
+name: V1-05 Slice C Disposable E2E
+
+on:
+  push:
+    branches:
+      - feature/v1-05-opportunity-recommendation
+  workflow_dispatch:
+
+jobs:
+  slice-c-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run disposable Supabase recommendation E2E
+        run: zsh scripts/validation/v1-05-slice-c-disposable.sh
+      - name: Run focused Slice C tests
+        run: node --test --test-concurrency=1 test/v1-05-slice-c.test.js
+      - name: Secret scan
+        run: npm run security:secrets
