@@ -234,11 +234,15 @@ Non-live revalidation: PASS
 
 Next live model: GPT-5.6 Sol medium
 
-Instructions-5 live revalidation: OWNER-AUTHORISED / PENDING EXECUTION — cap $6
+Instructions-5 live revalidation: INCOMPLETE — 37/38; paid evidence diagnostic only
 
-Live cost bound: VERIFIED — conservative hard-40 bound is $5.371544 against configured cap $6
+Live cost bound: RESPECTED — actual incomplete-session cost $1.342008 against cap $6
+
+Global retry sub-bound: HARNESS BUG CONFIRMED — 2 formal retries consumed; corrected to one durable session-wide retry
 
 Prior v5 live attempt: FAILED / PRESERVED FOR AUDIT — 9 requests consumed
+
+Sol instructions-5 partial result: 37/38 completed; not acceptable as Slice B evidence
 
 Current next task: obtain fresh owner authorization for the GPT-5.6 Sol medium
 challenger benchmark.
