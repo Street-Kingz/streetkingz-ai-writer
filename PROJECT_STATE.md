@@ -279,19 +279,23 @@ Slice C3 cross-run recommendation continuity: IMPLEMENTED / LOCAL TEST PASS —
 logical identity no longer includes decision run or volatile evidence refs;
 terminal lifecycle states are preserved across runs
 
-Slice C3 disposable authenticated E2E: BLOCKED — isolated Supabase startup
-could not bind its temporary database port because 54322 is occupied by the
-existing local project; no accepted environment was stopped or reset
+Slice C3 disposable authenticated E2E: OWNER-REPORTED BOUNDED PASS — the
+sanitized owner terminal report is preserved at
+`artifacts/validation/v1-05/slice-c/slice-c-owner-reported-e2e-2026-09-08.md`.
+The report covers the exercised disposable scenario only; it was not
+independently rerun here and is not a production-acceptance result. The local
+synthetic connection fixture correction is preserved and committed separately.
 
 Merchant feed/detail projection: DEVELOPMENT READY
 
-Recommendation persistence migration: 37 added; requires disposable/local
-database validation before deployment. No normal accepted Supabase reset was
-performed.
+Recommendation persistence migration: 37 added; owner-reported bounded
+disposable validation passed for the exercised scenario. No normal accepted
+Supabase reset was performed. Remaining limitations are recorded in the owner
+report and the V1-05 Street Kingz evidence brief.
 
-Next governed task: extend and validate recommendation intelligence toward
-V1-05 development completion; no further intent-classifier experiment is
-authorized.
+Next governed task: complete a read-only Street Kingz organic-growth
+opportunity review from retained real evidence; no further intent-classifier
+experiment is authorized.
 
 Fresh paid revalidation: historical evidence only; no new provider calls are
 authorized by this development slice.
@@ -300,9 +304,9 @@ Production acceptance: NOT GRANTED
 
 Street Kingz live Product evaluation: NOT RUN
 
-Next Product task: rerun disposable migration 37 and authenticated
-cross-Business feed/detail E2E once isolated Supabase infrastructure is
-available; no autonomous execution or production release.
+Next Product task: extend recommendation intelligence against real retained
+evidence only after the manual Street Kingz opportunity brief is reviewed;
+no autonomous execution or production release.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
