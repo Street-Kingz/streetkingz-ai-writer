@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { buildRecommendationRecord, merchantSafetyProjection, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
+import { feedProjection, detailProjection, resolveTargetLabels, recommendationPersistenceRow } from "../product-kernel/recommendationRepository.js";
 
 const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", intent_confidence: "medium", evidence_maturity: "mixed", evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
 const record = (overrides = {}) => ({ ...base, ...overrides });
@@ -49,4 +50,51 @@ test("commercial calibration manifest contains the frozen eleven plus one new ge
   assert.equal(new Set(manifest.cases.map(item => item.scenario_id)).size, 12);
   for (const id of ["V105-EVAL-001", "V105-EVAL-004", "V105-EVAL-009", "V105-EVAL-014", "V105-EVAL-017", "V105-EVAL-020", "V105-EVAL-021", "V105-EVAL-039", "V105-EVAL-040", "V105-EVAL-043", "V105-EVAL-048"]) assert.ok(manifest.cases.some(item => item.scenario_id === id));
   assert.ok(manifest.cases.some(item => item.scenario_id === "V105-SLICE-C-COMM-001"));
+});
+
+test("target resolution and merchant feed/detail projections are bounded", () => {
+  const recommendations = upsertRecommendationRecords([], [record({ candidate_identity: "high", evidence_maturity: "rich" }), record({ candidate_identity: "deferred", target_attribution_state: "ambiguous" }), record({ candidate_identity: "blocked", page_type_fit: "misaligned" })], { businessId: "b", runId: "r" });
+  const options = { products: [{ id: "1", name: "XL Drying Towel" }] };
+  assert.equal(resolveTargetLabels(["product:1"], options)[0].label, "XL Drying Towel");
+  const feed = feedProjection(recommendations, options);
+  assert.equal(feed[0].title, "Improve XL Drying Towel");
+  assert.equal(feed.some(item => item.recommendation_id === recommendations[1].recommendation_id), true);
+  assert.equal("intent_class" in feed[0], false);
+  assert.equal(detailProjection(recommendations[0], options).target[0].label, "XL Drying Towel");
+});
+
+test("terminal lifecycle states survive regeneration and feed is capped at five current tasks", () => {
+  const candidates = Array.from({ length: 7 }, (_, index) => record({ candidate_identity: `candidate-${index}`, evidence_maturity: "rich" }));
+  const records = upsertRecommendationRecords([], candidates, { businessId: "b", runId: "r" });
+  assert.equal(records.filter(item => item.status === "current").length, 5);
+  const terminal = { ...records[0], status: "completed" };
+  const rerun = upsertRecommendationRecords([terminal], [candidates[0]], { businessId: "b", runId: "r" });
+  assert.equal(rerun.find(item => item.recommendation_id === terminal.recommendation_id).status, "completed");
+  const ignored = { ...records[1], status: "ignored" };
+  assert.equal(upsertRecommendationRecords([ignored], [candidates[1]], { businessId: "b", runId: "r" }).find(item => item.recommendation_id === ignored.recommendation_id).status, "ignored");
+});
+
+test("persistence row keeps business ownership and server provenance", () => {
+  const row = recommendationPersistenceRow(buildRecommendationRecord(record(), { businessId: "b", runId: "r" }), { businessId: "b", runId: "r" });
+  assert.equal(row.business_id, "b"); assert.equal(row.source_run_id, "r"); assert.equal(row.recommendation_id.startsWith("rec-"), true);
+});
+
+test("recommendation migration uses business ownership RLS and server-only writes", () => {
+  const sql = fs.readFileSync("supabase/migrations/20260931000000_v1_05_slice_c_recommendations.sql", "utf8");
+  assert.match(sql, /create table public\.organic_recommendations/);
+  assert.match(sql, /enable row level security/);
+  assert.match(sql, /grant select on public\.organic_recommendations to authenticated/);
+  assert.match(sql, /grant all on public\.organic_recommendations to service_role/);
+  assert.match(sql, /auth_user_id=auth\.uid\(\)/);
+  assert.doesNotMatch(sql, /grant .*insert.*authenticated/);
+});
+
+test("authenticated development API exposes generation, feed and detail only", () => {
+  const route = fs.readFileSync("routes/recommendations.js", "utf8");
+  const app = fs.readFileSync("app.js", "utf8");
+  assert.match(app, /recommendationsRoute/);
+  assert.match(route, /router\.post\("\/api\/product\/decision-runs\/:id\/recommendations"/);
+  assert.match(route, /router\.get\("\/api\/product\/recommendations"/);
+  assert.match(route, /router\.get\("\/api\/product\/recommendations\/:id"/);
+  assert.doesNotMatch(route, /publish|woocommerce.*update|generate content/i);
 });

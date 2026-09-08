@@ -4,6 +4,84 @@
   "fixture_version": "v1-05-slice-c-demo-1",
   "business_id": "demo-business",
   "run_id": "demo-run-001",
+  "feed": [
+    {
+      "recommendation_id": "rec-02082dcf6fc02be7ed1726d2",
+      "title": "Improve XL Drying Towel",
+      "priority": "high",
+      "state": "current",
+      "recommended_action": "improve existing product",
+      "target": [
+        {
+          "reference": "product:demo-product",
+          "label": "XL Drying Towel"
+        }
+      ],
+      "confidence": "medium",
+      "why_this_matters": "Bounded organic evidence supports work on this opportunity and its identified target.",
+      "limitations": "Commercial context is available only for prioritisation, not revenue prediction.",
+      "evidence_source_count": 1,
+      "provenance_present": true
+    },
+    {
+      "recommendation_id": "rec-70704ffdb5be87375e029cc6",
+      "title": "No action recommended",
+      "priority": "reassess",
+      "state": "needs_reassessment",
+      "recommended_action": "no action",
+      "target": [
+        {
+          "reference": "page:demo-home",
+          "label": "the identified page"
+        }
+      ],
+      "confidence": "high",
+      "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
+      "limitations": "The candidate is not relevant enough to promote.",
+      "evidence_source_count": 1,
+      "provenance_present": true
+    },
+    {
+      "recommendation_id": "rec-7d3b9e46b518e114d60c2014",
+      "title": "More evidence needed before action",
+      "priority": "reassess",
+      "state": "deferred",
+      "recommended_action": "insufficient evidence",
+      "target": [
+        {
+          "reference": "category:demo-category",
+          "label": "Drying towels"
+        },
+        {
+          "reference": "page:demo-guide",
+          "label": "Drying guide"
+        }
+      ],
+      "confidence": "low",
+      "why_this_matters": "The opportunity may matter, but the available evidence is not strong enough for a confident current action.",
+      "limitations": "The available evidence does not resolve one target confidently.",
+      "evidence_source_count": 1,
+      "provenance_present": true
+    },
+    {
+      "recommendation_id": "rec-bfc3b648d0735830009f5ec0",
+      "title": "More evidence needed before action",
+      "priority": "reassess",
+      "state": "needs_reassessment",
+      "recommended_action": "insufficient evidence",
+      "target": [
+        {
+          "reference": "page:demo-product",
+          "label": "the identified page"
+        }
+      ],
+      "confidence": "medium",
+      "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
+      "limitations": "The supplied target does not fit the required page type.",
+      "evidence_source_count": 1,
+      "provenance_present": true
+    }
+  ],
   "recommendations": [
     {
       "title": "Improve existing product",
@@ -11,7 +89,7 @@
       "state": "current",
       "why_this_matters": "Bounded organic evidence supports work on this opportunity and its identified target.",
       "recommended_action": "improve existing product",
-      "target": "product:demo-product",
+      "target": "XL Drying Towel",
       "confidence": "medium",
       "limitations": [
         "Commercial context is available only for prioritisation, not revenue prediction."
@@ -42,12 +120,47 @@
       ]
     },
     {
+      "title": "No action recommended",
+      "priority": "reassess",
+      "state": "needs_reassessment",
+      "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
+      "recommended_action": "no action",
+      "target": "the identified page",
+      "confidence": "high",
+      "limitations": [
+        "The candidate is not relevant enough to promote."
+      ],
+      "evidence": [
+        {
+          "source_kind": "external_search",
+          "source_record_type": "observation",
+          "source_record_id": "demo-evidence-no-action",
+          "source_run_or_generation_reference": "demo-source-run",
+          "relationship": "contradicts"
+        }
+      ],
+      "what_to_do_next": [
+        {
+          "objective": "Resolve the evidence limitation before action",
+          "actions": [
+            "Review the cited evidence and target state",
+            "Confirm the missing or conflicting information",
+            "Reassess the opportunity after the evidence is updated"
+          ],
+          "prerequisites": [
+            "Evidence review"
+          ],
+          "important_limitation": "No current action is authorised from this state."
+        }
+      ]
+    },
+    {
       "title": "More evidence needed before action",
       "priority": "reassess",
       "state": "deferred",
       "why_this_matters": "The opportunity may matter, but the available evidence is not strong enough for a confident current action.",
       "recommended_action": "insufficient evidence",
-      "target": "category:demo-category, page:demo-guide",
+      "target": "Drying towels, Drying guide",
       "confidence": "low",
       "limitations": [
         "The available evidence does not resolve one target confidently."
@@ -82,7 +195,7 @@
       "state": "needs_reassessment",
       "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
       "recommended_action": "insufficient evidence",
-      "target": "page:demo-product",
+      "target": "the identified page",
       "confidence": "medium",
       "limitations": [
         "The supplied target does not fit the required page type."
@@ -94,41 +207,6 @@
           "source_record_id": "demo-evidence-unsafe",
           "source_run_or_generation_reference": "demo-source-run",
           "relationship": "supports"
-        }
-      ],
-      "what_to_do_next": [
-        {
-          "objective": "Resolve the evidence limitation before action",
-          "actions": [
-            "Review the cited evidence and target state",
-            "Confirm the missing or conflicting information",
-            "Reassess the opportunity after the evidence is updated"
-          ],
-          "prerequisites": [
-            "Evidence review"
-          ],
-          "important_limitation": "No current action is authorised from this state."
-        }
-      ]
-    },
-    {
-      "title": "No action recommended",
-      "priority": "reassess",
-      "state": "needs_reassessment",
-      "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
-      "recommended_action": "no action",
-      "target": "page:demo-home",
-      "confidence": "high",
-      "limitations": [
-        "The candidate is not relevant enough to promote."
-      ],
-      "evidence": [
-        {
-          "source_kind": "external_search",
-          "source_record_type": "observation",
-          "source_record_id": "demo-evidence-no-action",
-          "source_run_or_generation_reference": "demo-source-run",
-          "relationship": "contradicts"
         }
       ],
       "what_to_do_next": [

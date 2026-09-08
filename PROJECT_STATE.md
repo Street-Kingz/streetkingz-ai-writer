@@ -271,6 +271,16 @@ Slice C first merchant recommendation vertical slice: DONE — deterministic
 merchant-facing preview, safety projection, bounded prioritisation and
 idempotent recommendation domain record
 
+Slice C durable recommendation pipeline: DONE — evaluated decision runs can
+persist versioned recommendations through the privileged server path with
+business-scoped merchant feed and detail projections
+
+Merchant feed/detail projection: DEVELOPMENT READY
+
+Recommendation persistence migration: 37 added; requires disposable/local
+database validation before deployment. No normal accepted Supabase reset was
+performed.
+
 Next governed task: extend and validate recommendation intelligence toward
 V1-05 development completion; no further intent-classifier experiment is
 authorized.
@@ -281,6 +291,9 @@ authorized by this development slice.
 Production acceptance: NOT GRANTED
 
 Street Kingz live Product evaluation: NOT RUN
+
+Next Product task: extend and validate recommendation intelligence toward
+V1-05 development completion; no autonomous execution or production release.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 

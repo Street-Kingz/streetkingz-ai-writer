@@ -1,14 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
-import { rankRecommendations, projectMerchantRecommendation, RECOMMENDATION_VERSION } from "../product-kernel/recommendationEngine.js";
+import { upsertRecommendationRecords, projectMerchantRecommendation, RECOMMENDATION_VERSION } from "../product-kernel/recommendationEngine.js";
+import { feedProjection, detailProjection, resolveTargetLabels } from "../product-kernel/recommendationRepository.js";
 
 const root = process.cwd();
 const fixturePath = path.join(root, "artifacts/planning/v1-05/slice-c-demo-fixtures.json");
 const outputDir = path.join(root, "artifacts/validation/v1-05/slice-c");
 const fixture = JSON.parse(fs.readFileSync(fixturePath, "utf8"));
-const ranked = rankRecommendations(fixture.candidates, { businessId: fixture.business_id, runId: fixture.run_id });
-const projections = ranked.recommendations.map(projectMerchantRecommendation);
-const output = { demo_version: "v1-05-slice-c-demo-1", recommendation_version: RECOMMENDATION_VERSION, fixture_version: fixture.fixture_version, business_id: fixture.business_id, run_id: fixture.run_id, recommendations: projections, outcomes: ranked.outcomes };
+const records = upsertRecommendationRecords([], fixture.candidates, { businessId: fixture.business_id, runId: fixture.run_id });
+const targetOptions = { products: [{ id: "demo-product", name: "XL Drying Towel" }], categories: [{ id: "demo-category", name: "Drying towels" }], pages: [{ id: "demo-guide", name: "Drying guide" }] };
+const feed = feedProjection(records, targetOptions);
+const projections = records.map(record => projectMerchantRecommendation({ ...record, target_resources: resolveTargetLabels(record.target_resources, targetOptions).map(item => item.label) }));
+const output = { demo_version: "v1-05-slice-c-demo-1", recommendation_version: RECOMMENDATION_VERSION, fixture_version: fixture.fixture_version, business_id: fixture.business_id, run_id: fixture.run_id, feed, recommendations: projections, outcomes: { no_action: records.some(record => record.intervention === "no_action"), insufficient_evidence: records.some(record => record.intervention === "insufficient_evidence") } };
 fs.mkdirSync(outputDir, { recursive: true });
 fs.writeFileSync(path.join(outputDir, "merchant-recommendation-preview.json"), `${JSON.stringify(output, null, 2)}\n`);
 const lines = ["# Merchant recommendation preview", "", "This development preview is evidence-backed and does not execute changes.", "", "## Current recommendations", ""];

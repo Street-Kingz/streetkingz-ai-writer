@@ -87,6 +87,6 @@ export function projectMerchantRecommendation(record) {
 
 export function upsertRecommendationRecords(existingRecords, candidates, options = {}) {
   const map = new Map((existingRecords || []).map(record => [record.recommendation_id, record]));
-  for (const candidate of candidates || []) { const record = buildRecommendationRecord(candidate, options); map.set(record.recommendation_id, record); }
+  for (const record of rankRecommendations(candidates, options).recommendations) map.set(record.recommendation_id, record);
   return [...map.values()].sort((a, b) => a.recommendation_id.localeCompare(b.recommendation_id));
 }
