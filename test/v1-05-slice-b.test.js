@@ -4,6 +4,7 @@ import fs from "node:fs";
 import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, INTENT_CLASS_DEFINITIONS, buildInterpretationSystemPrompt, INSTRUCTION_VERSION } from "../product-kernel/candidateEvaluation.js";
 import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 import { buildOpenAIInterpretationRequest, createOpenAIInterpretationProvider, interpretationModelProfile } from "../interpretation/providers/openai.js";
+import { conservativeProviderRequestCostBound, configuredModelPricing, assertAcceptanceCostWithinCap } from "../interpretation/cost.js";
 import { isSemanticInterpretationFailure } from "../scripts/validation/v1-05-slice-b-harness-lib.js";
 
 const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: id, candidate_type: "existing_content_improvement", target_resources: ["page:" + id], discovery_sources: ["external_search"], evidence_refs: [{ source_kind: "external_search", source_record_type: "observation", source_record_id: "e-" + id, source_run_or_generation_reference: "run-1", relationship: "query_serp_relationship" }], market: "GB", language: "en", ...extra });
@@ -83,6 +84,35 @@ test("OpenAI model profiles preserve mini sampling and explicitly configure Sol 
   assert.deepEqual(interpretationModelProfile("gpt-5.6-sol", { OPENAI_INTERPRETATION_REASONING_EFFORT: "high" }).reasoning_effort, "high");
   assert.throws(() => interpretationModelProfile("gpt-5.6-sol", { OPENAI_INTERPRETATION_REASONING_EFFORT: "arbitrary" }), /must be one of/);
   assert.throws(() => interpretationModelProfile("gpt-4o-mini", { OPENAI_INTERPRETATION_REASONING_EFFORT: "medium" }), /incompatible/);
+});
+
+test("conservative cost bounds include the complete request and enforce the hard envelope", () => {
+  const pricing = { input_per_million_tokens_usd: 4, output_per_million_tokens_usd: 20 };
+  const base = buildOpenAIInterpretationRequest({ model: "gpt-5.6-sol", reasoningEffort: "medium", systemPrompt: "short", userPrompt: "{}", responseSchema: INTERPRETATION_RESPONSE_SCHEMA, maxOutputTokens: 4000 });
+  const long = buildOpenAIInterpretationRequest({ ...{ model: "gpt-5.6-sol", reasoningEffort: "medium", userPrompt: "{}", responseSchema: INTERPRETATION_RESPONSE_SCHEMA, maxOutputTokens: 4000 }, systemPrompt: "long".repeat(1000) });
+  const first = conservativeProviderRequestCostBound({ requestPayload: base, pricing, maxOutputTokens: 4000 });
+  const second = conservativeProviderRequestCostBound({ requestPayload: long, pricing, maxOutputTokens: 4000 });
+  assert.ok(second.conservative_input_token_bound > first.conservative_input_token_bound);
+  assert.ok(second.maximum_request_cost_usd > first.maximum_request_cost_usd);
+  assert.equal(first.max_output_token_bound, 4000);
+  assert.equal(conservativeProviderRequestCostBound({ requestPayload: base, pricing: null }).cost_status, "unknown");
+  assert.equal(configuredModelPricing({}, "gpt-5.6-sol"), null);
+  assert.doesNotThrow(() => assertAcceptanceCostWithinCap({ currentCost: 4.79, costStatus: "calculated_from_explicit_configuration", pendingBound: { maximum_request_cost_usd: 0.20 } }));
+  assert.throws(() => assertAcceptanceCostWithinCap({ currentCost: 4.95, costStatus: "calculated_from_explicit_configuration", pendingBound: { maximum_request_cost_usd: 0.20 } }), /GLOBAL_ACCEPTANCE_COST_BOUND/);
+  assert.throws(() => assertAcceptanceCostWithinCap({ currentCost: 0, costStatus: "unknown", pendingBound: { maximum_request_cost_usd: 0.20 } }), /GLOBAL_ACCEPTANCE_COST_BOUND/);
+});
+
+test("base39 and hard40 cost arithmetic uses all request bounds and the largest retry", () => {
+  const pricing = { input_per_million_tokens_usd: 4, output_per_million_tokens_usd: 20 };
+  const requests = Array.from({ length: 39 }, (_, index) => ({ model: "gpt-5.6-sol", messages: [{ role: "system", content: "x".repeat(index + 1) }], response_format: { type: "json_schema", json_schema: { strict: true, schema: {} } }, reasoning_effort: "medium", max_completion_tokens: 4000 }));
+  const bounds = requests.map(requestPayload => conservativeProviderRequestCostBound({ requestPayload, pricing }));
+  const base39 = bounds.reduce((sum, item) => sum + item.maximum_request_cost_usd, 0);
+  const largest = Math.max(...bounds.slice(1).map(item => item.maximum_request_cost_usd));
+  const base38 = bounds.slice(0, 38).reduce((sum, item) => sum + item.maximum_request_cost_usd, 0);
+  assert.ok(base39 > base38);
+  assert.ok(base39 + largest > base39);
+  assert.equal(bounds.every(item => item.max_output_token_bound === 4000), true);
+  assert.equal(conservativeProviderRequestCostBound({ requestPayload: { reasoning_tokens: 999 }, pricing, maxOutputTokens: 4000 }).max_output_token_bound, 4000);
 });
 
 test("mocked Sol Chat Completions response preserves reasoning diagnostics and normalizes v6 output", async () => {
