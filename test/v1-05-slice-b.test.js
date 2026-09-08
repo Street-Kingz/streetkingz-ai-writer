@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
 import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
-import { buildOpenAIInterpretationRequest } from "../interpretation/providers/openai.js";
+import { buildOpenAIInterpretationRequest, createOpenAIInterpretationProvider, interpretationModelProfile } from "../interpretation/providers/openai.js";
 import { isSemanticInterpretationFailure } from "../scripts/validation/v1-05-slice-b-harness-lib.js";
 
 const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: id, candidate_type: "existing_content_improvement", target_resources: ["page:" + id], discovery_sources: ["external_search"], evidence_refs: [{ source_kind: "external_search", source_record_type: "observation", source_record_id: "e-" + id, source_run_or_generation_reference: "run-1", relationship: "query_serp_relationship" }], market: "GB", language: "en", ...extra });
@@ -53,6 +53,52 @@ test("v6 schema is used in the strict OpenAI request and frozen meanings replay"
   const expectations = JSON.parse(fs.readFileSync("artifacts/planning/v1-05/evaluation-slice-b-expectations.json", "utf8")).cases;
   const applicable = expectations.filter(item => item.interpretation_applicable); assert.equal(applicable.length, 38);
   for (const item of applicable) { const normalized = normalizeInterpretationOutput({ candidate_id: "replay", target_attribution: { state: item.expected_target_attribution_state, resources: item.expected_target_refs } }); assert.equal(normalized.target_attribution_state, item.expected_target_attribution_state); assert.deepEqual(normalized.attributed_target_resources, item.expected_target_refs); }
+});
+
+test("OpenAI model profiles preserve mini sampling and explicitly configure Sol reasoning", () => {
+  const schema = INTERPRETATION_RESPONSE_SCHEMA;
+  const mini = buildOpenAIInterpretationRequest({ model: "gpt-4o-mini", systemPrompt: "s", userPrompt: "u", responseSchema: schema, maxOutputTokens: 9000 });
+  assert.equal(mini.temperature, 0.1);
+  assert.equal("reasoning_effort" in mini, false);
+  assert.equal(mini.max_completion_tokens, 4000);
+  const sol = buildOpenAIInterpretationRequest({ model: "gpt-5.6-sol", reasoningEffort: "medium", systemPrompt: "s", userPrompt: "u", responseSchema: schema, maxOutputTokens: 4000 });
+  assert.equal(sol.model, "gpt-5.6-sol");
+  assert.equal(sol.reasoning_effort, "medium");
+  for (const key of ["temperature", "top_p", "logprobs"]) assert.equal(key in sol, false);
+  assert.equal(sol.response_format.type, "json_schema");
+  assert.equal(sol.response_format.json_schema.strict, true);
+  assert.equal(sol.response_format.json_schema.schema.properties.results.items.properties.target_attribution.anyOf.length, 4);
+  assert.equal(sol.max_completion_tokens, 4000);
+  assert.deepEqual(interpretationModelProfile("gpt-5.6-sol", { OPENAI_INTERPRETATION_REASONING_EFFORT: "low" }).reasoning_effort, "low");
+  assert.deepEqual(interpretationModelProfile("gpt-5.6-sol", { OPENAI_INTERPRETATION_REASONING_EFFORT: "high" }).reasoning_effort, "high");
+  assert.throws(() => interpretationModelProfile("gpt-5.6-sol", { OPENAI_INTERPRETATION_REASONING_EFFORT: "arbitrary" }), /must be one of/);
+  assert.throws(() => interpretationModelProfile("gpt-4o-mini", { OPENAI_INTERPRETATION_REASONING_EFFORT: "medium" }), /incompatible/);
+});
+
+test("mocked Sol Chat Completions response preserves reasoning diagnostics and normalizes v6 output", async () => {
+  let calls = 0;
+  let request;
+  const provider = createOpenAIInterpretationProvider({
+    env: { OPENAI_API_KEY: "fixture-key", OPENAI_INTERPRETATION_MODEL: "gpt-5.6-sol", OPENAI_INTERPRETATION_REASONING_EFFORT: "medium" },
+    fetchImpl: async (_url, options) => {
+      calls++;
+      request = JSON.parse(options.body);
+      return { ok: true, status: 200, async text() { return JSON.stringify({ id: "sol-fixture-response", model: "gpt-5.6-sol", choices: [{ finish_reason: "stop", message: { content: JSON.stringify({ results: [{ candidate_id: "sol-candidate", customer_job: "select", intent_class: "product_selection", intent_confidence: "high", relevance_state: "relevant", target_attribution: { state: "established", resources: ["page:sol"] }, page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] }] }) } }], usage: { prompt_tokens: 120, completion_tokens: 80, completion_tokens_details: { reasoning_tokens: 24 } } }); } };
+    }
+  });
+  const response = await provider.generate({ systemPrompt: "s", userPrompt: "u", responseSchema: INTERPRETATION_RESPONSE_SCHEMA, maxOutputTokens: 4000 });
+  assert.equal(calls, 1);
+  assert.equal(request.model, "gpt-5.6-sol");
+  assert.equal(request.reasoning_effort, "medium");
+  assert.equal("temperature" in request, false);
+  assert.equal(response.provider, "openai");
+  assert.equal(response.model, "gpt-5.6-sol");
+  assert.equal(response.reasoning_tokens, 24);
+  assert.equal(response.usage.completion_tokens, 80);
+  const normalized = normalizeInterpretationOutput(JSON.parse(response.rawText).results[0]);
+  const internalCandidate = candidate("sol-candidate", { target_resources: ["page:sol"] });
+  assert.equal(validateInterpretation(normalized, internalCandidate).target_attribution_state, "established");
+  assert.deepEqual(normalized.attributed_target_resources, ["page:sol"]);
 });
 
 test("case 007 Product packet supports v6 attribution variants without changing labels", () => {
