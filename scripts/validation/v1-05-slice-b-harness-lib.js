@@ -18,6 +18,12 @@ export function accountProviderFailure(ledger, error, pricingCost = null, usage 
 export function formalQualityFails(metrics) { if (!metrics || typeof metrics !== "object" || metrics.intent_applicable_count !== 38 || !Number.isFinite(metrics.intent_accuracy) || metrics.intent_accuracy < 0.85 || !Number.isInteger(metrics.high_impact_intent_errors) || metrics.high_impact_intent_errors > 0 || !Number.isInteger(metrics.high_impact_target_errors) || metrics.high_impact_target_errors > 0) return true; const required = ["mixed_uncertain_preservation", "brand_navigation", "wrong_page_type", "high_volume_irrelevant", "low_volume_preservation", "commercial_invariance"]; return !metrics.required_gates || required.some(key => metrics.required_gates[key] !== true); }
 export function isSemanticInterpretationFailure(error) { return ["INVALID_INTERPRETATION_OUTPUT", "INVALID_TARGET_INVARIANT", "INVALID_PAGE_TYPE_INVARIANT", "INVALID_RELEVANCE_INVARIANT", "INVALID_NEW_ASSET_INVARIANT"].includes(error?.code || error?.message); }
 
+export function acceptanceSessionPaths(sessionId) {
+  if (typeof sessionId !== "string" || !/^[A-Za-z0-9._-]{1,64}$/.test(sessionId)) throw new Error("INVALID_ACCEPTANCE_SESSION_ID");
+  const directory = `artifacts/validation/v1-05/live-sessions/${sessionId}`;
+  return { directory, ledgerPath: `${directory}/ledger.json`, caseCachePath: `${directory}/formal-case-cache.json` };
+}
+
 const harnessId = candidate => `harness-${crypto.createHash("sha256").update(String(candidate.candidate_identity)).digest("hex").slice(0, 24)}`;
 const harnessCandidates = candidates => candidates.map(candidate => ({ ...candidate, candidate_id: harnessId(candidate) }));
 function exactPrimary(candidates, match) {

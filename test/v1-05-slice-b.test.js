@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
+import fs from "node:fs";
+import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
+import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
+import { buildOpenAIInterpretationRequest } from "../interpretation/providers/openai.js";
 import { isSemanticInterpretationFailure } from "../scripts/validation/v1-05-slice-b-harness-lib.js";
 
 const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: id, candidate_type: "existing_content_improvement", target_resources: ["page:" + id], discovery_sources: ["external_search"], evidence_refs: [{ source_kind: "external_search", source_record_type: "observation", source_record_id: "e-" + id, source_run_or_generation_reference: "run-1", relationship: "query_serp_relationship" }], market: "GB", language: "en", ...extra });
@@ -31,6 +34,33 @@ test("target attribution invariants are strict and diagnostics are safe", () => 
   assert.throws(() => validateInterpretation({ ...base, target_attribution_state: "unresolved" }, item), /INVALID_TARGET_INVARIANT/);
   assert.equal(validateInterpretation(base, item).candidate_id, "target");
   assert.equal(validateInterpretation({ ...base, target_attribution_state: "unresolved", attributed_target_resources: [] }, item).candidate_id, "target");
+});
+
+test("v6 target attribution schema and normalization are explicit", () => {
+  const schema = INTERPRETATION_RESPONSE_SCHEMA.properties.results.items.properties.target_attribution;
+  assert.equal(schema.anyOf.length, 4);
+  const variants = Object.fromEntries(schema.anyOf.map(variant => [variant.properties.state.enum[0], variant]));
+  assert.equal(variants.established.properties.resources.minItems, 1);
+  assert.equal(variants.unresolved.properties.resources.maxItems, 0);
+  assert.deepEqual(normalizeInterpretationOutput({ candidate_id: "x", target_attribution: { state: "established", resources: ["page:a"] }, other: "kept" }), { candidate_id: "x", target_attribution_state: "established", attributed_target_resources: ["page:a"], other: "kept" });
+  assert.deepEqual(normalizeInterpretationOutput({ target_attribution: { state: "unresolved", resources: [] } }), { target_attribution_state: "unresolved", attributed_target_resources: [] });
+  assert.equal(buildInterpretationRequest({ candidate: candidate("x"), packet: { business: { market: "GB", language: "en" } } }).input.model_facing_text_chars <= 2000, true);
+});
+
+test("v6 schema is used in the strict OpenAI request and frozen meanings replay", () => {
+  const request = buildOpenAIInterpretationRequest({ model: "gpt-4o-mini", systemPrompt: "x", userPrompt: "{}", responseSchema: INTERPRETATION_RESPONSE_SCHEMA });
+  assert.equal(request.response_format.type, "json_schema"); assert.equal(request.response_format.json_schema.strict, true); assert.equal(request.response_format.json_schema.schema.type, "object");
+  const expectations = JSON.parse(fs.readFileSync("artifacts/planning/v1-05/evaluation-slice-b-expectations.json", "utf8")).cases;
+  const applicable = expectations.filter(item => item.interpretation_applicable); assert.equal(applicable.length, 38);
+  for (const item of applicable) { const normalized = normalizeInterpretationOutput({ candidate_id: "replay", target_attribution: { state: item.expected_target_attribution_state, resources: item.expected_target_refs } }); assert.equal(normalized.target_attribution_state, item.expected_target_attribution_state); assert.deepEqual(normalized.attributed_target_resources, item.expected_target_refs); }
+});
+
+test("case 007 Product packet supports v6 attribution variants without changing labels", () => {
+  const line = fs.readFileSync("artifacts/planning/v1-05/fixtures/evaluation-inputs.jsonl", "utf8").trim().split("\n").map(JSON.parse).find(item => item.case_id === "V105-EVAL-007");
+  const candidates = discoverCandidates(line.input_packet); const eligible = candidates.filter(item => deterministicFilter(item, line.input_packet).disposition === "pass"); const selected = selectInterpretiveCandidates(prepareDeterministicCohort(eligible).prepared).selected;
+  assert.equal(selected.length, 3);
+  for (const item of selected) { const allowed = item.allowed_target_refs || item.target_resources || []; assert.equal(normalizeInterpretationOutput({ candidate_id: item.candidate_id, target_attribution: { state: "unresolved", resources: [] } }).target_attribution_state, "unresolved"); if (allowed.length) assert.equal(normalizeInterpretationOutput({ candidate_id: item.candidate_id, target_attribution: { state: "established", resources: [allowed[0]] } }).attributed_target_resources.length, 1); }
+  const variants = INTERPRETATION_RESPONSE_SCHEMA.properties.results.items.properties.target_attribution.anyOf; assert.equal(variants.find(v => v.properties.state.enum[0] === "established").properties.resources.minItems, 1); assert.equal(variants.find(v => v.properties.state.enum[0] === "unresolved").properties.resources.maxItems, 0);
 });
 
 test("semantic, provider, and harness failures retain distinct classifications", () => { assert.equal(isSemanticInterpretationFailure(Object.assign(new Error("INVALID_TARGET_INVARIANT"), { code: "INVALID_TARGET_INVARIANT" })), true); assert.equal(isSemanticInterpretationFailure({ code: "PROVIDER_OUTCOME_UNKNOWN" }), false); assert.equal(isSemanticInterpretationFailure({ code: "ACCEPTANCE_LEDGER_MISSING" }), false); });
@@ -79,14 +109,14 @@ test("post-interpretation overlap marks only clear redundant repeats", () => {
 
 test("completed durable batch is reused without another provider call", async () => {
   const item = candidate("cached"); let providerCalls = 0; let completionCalls = 0;
-  const output = { candidate_id: "cached", customer_job: "job", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:cached"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] };
+  const output = { candidate_id: "cached", customer_job: "job", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution: { state: "established", resources: ["page:cached"] }, page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] };
   const result = await evaluateCandidates({ candidates: [item], packet: { business: { market: "GB", language: "en" } }, interpretationProvider: { async generate() { providerCalls++; throw new Error("must not call provider"); } }, resolveBatch: async () => ({ reused: true, response: { provider: "test", model: "test", output: [output], usage: {} } }), onBatchComplete: async () => { completionCalls++; } });
   assert.equal(providerCalls, 0); assert.equal(completionCalls, 0); assert.equal(result.rows[0].interpretive_disposition, "retain");
 });
 
 test("Slice B retries one failed batch and never exceeds the attempt bound", async () => {
   const item = candidate("retry"); let calls = 0;
-  const provider = { async generate({ userPrompt }) { calls++; if (calls === 1) throw new Error("transport"); const requested = JSON.parse(userPrompt).candidates[0]; return { provider: "test", model: "test-model", rawText: JSON.stringify({ results: [{ candidate_id: requested.candidate_id, customer_job: "job", intent_class: "uncertain", intent_confidence: "unknown", relevance_state: "uncertain", target_attribution_state: "unresolved", attributed_target_resources: [], page_type_fit: "unknown", new_asset_fit: "not_applicable", interpretive_disposition: "retain_uncertain", reason_codes: ["uncertain"], limitations: [] }] }), usage: {} }; } };
+  const provider = { async generate({ userPrompt }) { calls++; if (calls === 1) throw new Error("transport"); const requested = JSON.parse(userPrompt).candidates[0]; return { provider: "test", model: "test-model", rawText: JSON.stringify({ results: [{ candidate_id: requested.candidate_id, customer_job: "job", intent_class: "uncertain", intent_confidence: "unknown", relevance_state: "uncertain", target_attribution: { state: "unresolved", resources: [] }, page_type_fit: "unknown", new_asset_fit: "not_applicable", interpretive_disposition: "retain_uncertain", reason_codes: ["uncertain"], limitations: [] }] }), usage: {} }; } };
   const result = await evaluateCandidates({ candidates: [item], packet: { business: { market: "GB", language: "en" } }, interpretationProvider: provider });
   assert.equal(calls, 2); assert.equal(result.modelRequestAttempts, 2); assert.equal(result.rows[0].interpretive_disposition, "retain_uncertain");
 });
@@ -94,7 +124,7 @@ test("Slice B retries one failed batch and never exceeds the attempt bound", asy
 test("Slice B injected provider batches at ten and records bounded interpretation", async () => {
   const candidates = Array.from({ length: 11 }, (_, i) => candidate(String(i)));
   let calls = 0;
-  const provider = { async generate({ responseSchema, userPrompt }) { calls++; assert.ok(responseSchema); const requested = JSON.parse(userPrompt).candidates; return { provider: "test", model: "test-model", rawText: JSON.stringify({ results: requested.map(item => ({ candidate_id: item.candidate_id, customer_job: "job", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: item.allowed_target_refs, page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] })) }), usage: { prompt_tokens: 1, completion_tokens: 1 } }; } };
+  const provider = { async generate({ responseSchema, userPrompt }) { calls++; assert.ok(responseSchema); const requested = JSON.parse(userPrompt).candidates; return { provider: "test", model: "test-model", rawText: JSON.stringify({ results: requested.map(item => ({ candidate_id: item.candidate_id, customer_job: "job", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution: { state: "established", resources: item.allowed_target_refs }, page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] })) }), usage: { prompt_tokens: 1, completion_tokens: 1 } }; } };
   const result = await evaluateCandidates({ candidates, packet: { business: { market: "GB", language: "en" } }, interpretationProvider: provider });
   assert.equal(calls, 2); assert.equal(result.interpretedCount, 11); assert.ok(result.outputTokens <= MAX_OUTPUT_TOKENS); assert.equal(MAX_BATCH_SIZE, 10); assert.equal(MAX_PLANNED_CALLS, 5); assert.equal(MAX_TOTAL_ATTEMPTS, 6);
 });

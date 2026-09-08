@@ -69,3 +69,16 @@ lack a successful accepted result. The minimum further requests for completion
 would be 32, requiring 41 total requests. With a hard maximum of 40, the
 current authorised session cannot reach formal PASS. The session is not
 resumed and no further provider calls are made.
+
+## Contract-hardening v6 follow-up
+
+Owner decision: retain `gpt-4o-mini` and require fresh authorization after
+contract hardening. The failed 9-request ledger and case cache remain
+historical evidence and are not reused.
+
+The v5 provider contract exposed target state and target resources as
+independent sibling fields. Version 6 replaces them with one nested
+`target_attribution` value whose strict `anyOf` variants encode the state and
+resource cardinality together. Product persistence remains unchanged: the
+provider response is normalized once to the existing flat internal fields,
+then `validateInterpretation()` remains a defense-in-depth check.
