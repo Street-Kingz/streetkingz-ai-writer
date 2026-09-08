@@ -35,6 +35,7 @@ SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$TM
 SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$TMP" migration up --local >/dev/null
 
 envfile="$TMP/supabase-env"
+: > "$envfile"
 chmod 600 "$envfile"
 SUPABASE_TELEMETRY_DISABLED=1 XDG_CONFIG_HOME="$CFG" npx supabase --workdir "$TMP" status -o env >"$envfile" 2>/dev/null
 API_URL=$(awk -F= '$1 == "API_URL" { print substr($2, 2, length($2) - 2) }' "$envfile")
