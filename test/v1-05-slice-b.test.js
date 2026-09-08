@@ -1,12 +1,22 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
+import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, INTENT_CLASS_DEFINITIONS, buildInterpretationSystemPrompt, INSTRUCTION_VERSION } from "../product-kernel/candidateEvaluation.js";
 import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 import { buildOpenAIInterpretationRequest, createOpenAIInterpretationProvider, interpretationModelProfile } from "../interpretation/providers/openai.js";
 import { isSemanticInterpretationFailure } from "../scripts/validation/v1-05-slice-b-harness-lib.js";
 
 const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: id, candidate_type: "existing_content_improvement", target_resources: ["page:" + id], discovery_sources: ["external_search"], evidence_refs: [{ source_kind: "external_search", source_record_type: "observation", source_record_id: "e-" + id, source_run_or_generation_reference: "run-1", relationship: "query_serp_relationship" }], market: "GB", language: "en", ...extra });
+
+test("instructions-5 defines every intent class and generic boundaries from one source", () => {
+  const names = ["product_selection", "category_selection", "comparison_selection", "informational", "mixed_intent", "brand_navigation", "navigation_discovery", "broad_information", "uncertain", "uncertain_selection"];
+  const prompt = buildInterpretationSystemPrompt();
+  assert.equal(INSTRUCTION_VERSION, "v1-05-slice-b-instructions-5");
+  assert.deepEqual(Object.keys(INTENT_CLASS_DEFINITIONS), names);
+  for (const name of names) { assert.equal(typeof INTENT_CLASS_DEFINITIONS[name], "string"); assert.ok(INTENT_CLASS_DEFINITIONS[name].length > 0); assert.match(prompt, new RegExp(name)); }
+  for (const phrase of ["multiple materially supported jobs", "primary intent family", "selection or evaluation family", "product or item level", "category or type level", "comparing alternatives or trade-offs", "reasonably bounded knowledge job", "genuinely broad exploratory information", "named brand or official brand destination", "generic resource or destination discovery"]) assert.match(prompt, new RegExp(phrase, "i"));
+  assert.doesNotMatch(prompt, /V105-EVAL-|case\\s+0\\d|evaluation corpus|benchmark/i);
+});
 
 test("Slice B deterministic filters remain structural and do not use metrics", () => {
   assert.deepEqual(deterministicFilter(candidate("a"), { business: { market: "GB", language: "en" } }), { disposition: "pass", reason_codes: [] });

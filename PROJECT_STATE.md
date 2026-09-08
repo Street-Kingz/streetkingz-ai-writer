@@ -208,7 +208,7 @@ Pre-Slice-B label review: DONE / ACCEPTED.
 
 Evaluation corpus: APPROVED / FROZEN with owner-reviewed later-stage labels.
 
-Slice B v6 structural contract: PASS
+Slice B structural v6 contract: PASS
 
 Current active slice: V1-05 Slice B
 
@@ -216,19 +216,25 @@ Slice C: NOT AUTHORISED
 
 Commercial corpus strengthening: REQUIRED BEFORE SLICE C
 
-gpt-4o-mini: FAILED QUALITY — 38/38 completed; intent accuracy 57.89%
+gpt-4o-mini instructions-4: FAILED QUALITY — 38/38 completed; intent accuracy 57.89%
 
 Slice B: NOT ACCEPTED
 
 GPT-5.6 Sol medium challenger: NON-LIVE COMPATIBILITY READY
 
-GPT-5.6 Sol medium: FAILED QUALITY — 38/38 completed; intent accuracy 60.53%
+GPT-5.6 Sol medium instructions-4: FAILED QUALITY — 38/38 completed; intent accuracy 60.53%
 
 Sol target/relevance/page reasoning: MATERIAL IMPROVEMENT OVER MINI
 
-Intent taxonomy: UNDER REVIEW
+Intent taxonomy review: COMPLETE
 
-Current next task: intent-taxonomy/model-selection decision.
+Generic intent contract: HARDENED — instructions-5
+
+Non-live revalidation: PASS
+
+Next live model: GPT-5.6 Sol medium
+
+Next live benchmark: REQUIRES FRESH OWNER AUTHORIZATION
 
 Prior v5 live attempt: FAILED / PRESERVED FOR AUDIT — 9 requests consumed
 
