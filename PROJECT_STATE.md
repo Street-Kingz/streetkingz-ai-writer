@@ -253,11 +253,21 @@ instructions-6; normalizes to the unchanged legacy intent_class
 Final hierarchical Sol medium live result: QUALITY_FAIL — 38/38 completed;
 17/38 intent correct (44.74%); INTENT_CLASSIFIER_EXPERIMENT_LOOP_CLOSED
 
-Slice B: NOT ACCEPTED — final intent architecture experiment complete
+Slice B: NOT ACCEPTED FOR PRODUCTION — development progression gate PASS with
+explicit merchant-safety constraints; final intent architecture experiment
+complete
 
-Next governed task: PRODUCT_GOVERNANCE_REVIEW — determine whether exact
-intent_class accuracy remains a V1 blocking signal given downstream Product
-importance
+Development progression: SLICE_B_DEVELOPMENT_READY — recommendation-layer
+development may proceed without autonomous execution or production claims
+
+Production acceptance: FAIL — merchant-critical target and decision-safety
+evidence remains insufficient
+
+Slice C development authorization: RECOMMENDED, not granted
+
+Next governed task: PRODUCT_GOVERNANCE_REVIEW follow-through — owner decision on
+development authorization and merchant-safety contract for the recommendation
+layer. No fresh intent-classifier experiment is authorized.
 
 Fresh paid revalidation: NOT AUTHORIZED; do not rerun the final experiment.
 

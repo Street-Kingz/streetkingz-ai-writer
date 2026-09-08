@@ -1245,6 +1245,24 @@ The intelligence boundary is frozen for the initial Free Product.
 
 Changes after this milestone must be driven by validation failures, not feature ideas.
 
+Development Progression Versus Production Acceptance
+
+Slice B may support bounded recommendation-layer development when the
+implementation remains evidence-backed, provenance-visible, uncertainty-aware
+and non-autonomous. This status is `SLICE_B_DEVELOPMENT_READY`, not production
+acceptance and not authorization for Slice C.
+
+Exact ten-way `intent_class` agreement is a diagnostic quality signal for this
+purpose because the current Product does not use it as a sole recommendation
+or intervention switch. Production remains blocked until merchant-critical
+consequences are proven safe: target attribution, relevance, page-type safety,
+disposition consequences, new-asset redundancy, evidence/fact integrity,
+commercial-governance boundaries and high-impact target decisions.
+
+Every post-Slice-B milestone must advance an inspectable merchant-facing
+output. The recommendation layer must first be developed and tested without
+auto-publish, autonomous paid execution or hidden manual correction.
+
 14. V1-06 — Complete Free Intelligence Experience
 
 Objective

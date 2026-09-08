@@ -1073,6 +1073,21 @@ Intent and SERP interpretation is Done when:
 * important errors are measured by their downstream decision impact, not only classification accuracy;
 * the system does not assume every keyword deserves new content.
 
+Development progression and production acceptance are separate gates. A
+bounded interpretation capability may support recommendation-layer development
+when evidence, provenance and uncertainty remain visible, no autonomous
+publication or paid execution is possible, and merchant-critical consequences
+fail closed. Exact `intent_class` accuracy is a diagnostic quality signal in
+V1 unless it is shown to control a merchant-critical decision.
+
+Production acceptance additionally requires no unresolved merchant-critical
+decision defects, including wrong or invented targets, irrelevant
+opportunities retained, clearly wrong page types retained, redundant assets
+recommended, insufficient evidence presented as confident action, invented
+evidence/facts, unauthorised commercial reasoning, or high-impact target
+mistakes. Label disagreements that do not change those consequences remain
+diagnostic rather than being treated as equally dangerous.
+
 ---
 
 ## 44. Definition of Done for Commercial Relevance and Prioritisation

@@ -1124,6 +1124,52 @@ Independent established ecommerce businesses validate the richer-evidence journe
 
 Success on Street Kingz alone does not prove established-store performance.
 
+### D-037 — Development Progression Is Separate From Production Acceptance
+
+**Status:** Accepted
+**Date:** 2026-09-08
+
+### Decision
+
+V1 work may progress into development of the recommendation layer when the
+current capability is bounded, evidence-backed, provenance-preserving,
+uncertainty-preserving and incapable of autonomous publication or paid
+execution. This development-progression gate is separate from production
+acceptance.
+
+The exact ten-way `intent_class` score is a diagnostic quality signal in V1,
+not a standalone development blocker or standalone production release gate.
+Production release remains blocked by merchant-critical consequences: wrong or
+invented targets, irrelevant opportunities retained, clearly wrong page types
+retained, redundant assets recommended, insufficient evidence presented as
+confident action, invented evidence/facts, unauthorised commercial reasoning,
+or high-impact target errors.
+
+### Rationale
+
+The completed Slice B experiments showed that intent labels are primarily used
+for interpretation, persistence, scoring and quality gates, while target,
+relevance, page fit, disposition, evidence and provenance fields carry the
+merchant-facing safety consequences. Some intent errors coexisted with correct
+downstream decisions, and repeated classifier experiments did not establish a
+merchant-value improvement.
+
+### Consequences
+
+Slice B can be marked development-ready only with explicit limitations and
+human-visible evidence, confidence and uncertainty. It cannot be called
+production-accepted. Slice C or recommendation-layer implementation requires a
+separate owner development authorization and must begin as non-autonomous
+development work.
+
+Every later milestone should produce or advance an inspectable merchant-facing
+output such as a ranked opportunity, evidence-backed recommendation, DIY plan,
+merchant explanation or usable intelligence screen.
+
+Street Kingz remains a validation environment, not the Product. Business
+growth work for Street Kingz may proceed manually in parallel without expanding
+the Product scope or blocking Product governance.
+
 ---
 
 ## D-033 — Initial Domain Is Organic Search
@@ -1974,6 +2020,7 @@ This remains prohibited from implementation until privacy, consent, security, go
 | D-032 | Commercial context is a quality hypothesis, not novelty          | Accepted |
 | D-035 | One Product With Progressive Evidence                            | Accepted |
 | D-036 | Validation Responsibilities                                     | Accepted |
+| D-037 | Development progression is separate from production acceptance | Accepted |
 | D-033 | Initial domain is organic search                                 | Accepted |
 | D-034 | Initial account scope is one business, not agency infrastructure | Accepted |
 | O-008 | Technical architecture and deployment stack                  | Accepted |
