@@ -24,7 +24,8 @@ export function conservativeProviderRequestCostBound({ requestPayload, pricing, 
   return { conservative_input_token_bound: conservativeInputTokenBound, max_output_token_bound: maxOutputTokenBound, maximum_request_cost_usd: cost.cost_usd, cost_status: cost.cost_status };
 }
 
-export function assertAcceptanceCostWithinCap({ currentCost, costStatus, pendingBound, capUsd = 5 }) {
+export function assertAcceptanceCostWithinCap({ currentCost, costStatus, pendingBound, capUsd }) {
+  if (!Number.isFinite(Number(capUsd)) || Number(capUsd) <= 0) { const error = new Error("GLOBAL_ACCEPTANCE_COST_BOUND"); error.code = error.message; throw error; }
   if (costStatus !== "calculated_from_explicit_configuration" || !Number.isFinite(Number(currentCost)) || !pendingBound || !Number.isFinite(Number(pendingBound.maximum_request_cost_usd))) { const error = new Error("GLOBAL_ACCEPTANCE_COST_BOUND"); error.code = error.message; throw error; }
   if (Number(currentCost) + Number(pendingBound.maximum_request_cost_usd) > capUsd) { const error = new Error("GLOBAL_ACCEPTANCE_COST_BOUND"); error.code = error.message; throw error; }
   return true;

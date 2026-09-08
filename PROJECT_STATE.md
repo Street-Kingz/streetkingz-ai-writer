@@ -234,9 +234,9 @@ Non-live revalidation: PASS
 
 Next live model: GPT-5.6 Sol medium
 
-Instructions-5 live revalidation: FRESH OWNER AUTHORIZATION REQUIRED
+Instructions-5 live revalidation: OWNER-AUTHORISED / PENDING EXECUTION — cap $6
 
-Live cost bound: REQUIRES OWNER DECISION — conservative hard-40 bound is $5.371544
+Live cost bound: VERIFIED — conservative hard-40 bound is $5.371544 against configured cap $6
 
 Prior v5 live attempt: FAILED / PRESERVED FOR AUDIT — 9 requests consumed
 

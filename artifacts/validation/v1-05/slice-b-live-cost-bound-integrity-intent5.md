@@ -1,59 +1,43 @@
-# V1-05 Slice B live cost-bound integrity — instructions-5
+# V1-05 Slice B — Live Cost-Bound Integrity (Instructions-5)
 
-## Result
+Status: NON-LIVE COST PROOF PASS — OWNER-AUTHORISED FRESH REVALIDATION PENDING
 
-Zero OpenAI calls were made. The prior preview value `$4.0867` was not a
-complete hard-cost proof because it counted only serialized candidate input and
-omitted the system prompt, messages wrapper, strict response schema, and other
-request fields.
+The previous preview estimator counted only the candidate/model input. It did
+not establish a bound from the complete OpenAI request body, including the
+instructions, message wrapper, strict response schema, and request fields.
+The prior unchanged `$4.0867` figure was therefore insufficient proof after the
+instructions-5 contract became longer.
 
-## Corrected estimator
+The corrected estimator serializes the complete provider request body offline
+and uses its UTF-8 byte length as a deliberately pessimistic input-token upper
+bound. This protects the owner cap rather than predicting tokenizer usage. The
+output bound is the governed 4,000 completion-token ceiling; reasoning tokens
+are not added again.
 
-Preview and live admission now use `conservativeProviderRequestCostBound()` in
-`interpretation/cost.js`. It serializes the complete offline-built provider
-request and uses `Buffer.byteLength(..., "utf8")` as a deliberately pessimistic
-input-token bound. This protects the owner cap rather than attempting to model
-tokenizer efficiency. Each request uses the governed 4,000-token completion
-ceiling; reasoning tokens are not added separately.
+With the exact smoke and 38 formal request payloads, explicit Sol pricing of
+$4/M input and $20/M output produces:
 
-The exact request path includes the Sol model, medium reasoning effort, strict
-JSON Schema response format, system message, user message, and completion-token
-limit. Base-39 sums one smoke bound and all 38 individual formal bounds. Hard-40
-adds the largest individual formal bound as the possible retry.
+- base-39 maximum: `$5.200696`;
+- largest formal retry bound: included separately;
+- hard-40 maximum: `$5.371544`;
+- configured owner cap: `$6`;
+- conservative headroom: `$0.628456`.
 
-Configured pricing was explicit: Sol input `$4/M`, output `$20/M`.
+Preview and live execution share the same configured cap and request-bound
+calculation. Before every network request, known calculated current spend plus
+the pending request's conservative maximum must be no greater than the
+configured cap. Request-count and cost guards both apply to retries. Unknown
+pricing, unknown cost, or unknown provider outcome remains fail-safe and blocks
+further requests. Actual provider usage remains the truthful ledger accounting;
+the conservative bound is only a pre-network safety guard.
 
-| Bound | Value |
-|---|---:|
-| Smoke conservative input bound | 8,364 |
-| Base-39 aggregate conservative input bound | 520,174 |
-| Largest formal input bound | 22,712 |
-| Base-39 maximum output tokens | 156,000 |
-| Hard-40 maximum output tokens | 160,000 |
-| Base-39 maximum cost | `$5.200696` |
-| Hard-40 maximum cost | `$5.371544` |
+Zero-call preflight result: PASS; 38 formal requests planned, 1 smoke planned,
+39 base requests, 40 hard maximum, commercial controls 11/11 PASS, provider
+calls 0. Focused tests passed 43/43 before commit.
 
-The corrected hard-40 bound exceeds the owner limit of `$5`; preview therefore
-returns `HARNESS_FAIL` before any live authorization or network access. No cap
-was weakened and no additional owner authorization is assumed.
+Future session: `slice-b-v6-sol-medium-intent5-001`. This task does not create
+or modify a paid ledger. Fresh owner authorization is required for the paid
+revalidation session; when run, it must explicitly use `V105_ACCEPTANCE_COST_CAP_USD=6`.
 
-## Live guard and accounting
-
-The live provider wrapper computes the same pending-request bound before
-`provider.generate()` and rejects when current known cost plus that bound would
-exceed `$5`, without incrementing request counters. Unknown/missing pricing or
-unknown current cost also rejects before network. Actual post-response usage
-and cost accounting remains separate and truthful; conservative bounds are not
-written as actual usage, and reasoning tokens are diagnostic only rather than
-double-counted.
-
-Focused regressions cover request-body components, longer instructions,
-base-39/hard-40 arithmetic, pricing absence, `$4.95 + $0.20` rejection,
-request-count preservation, and reasoning-token non-double-counting. Existing
-request-count, commercial, v6 contract, and provider-profile tests remain
-green. Full npm remains green with 1,177 passed, 0 failed, and 21 existing
-skips. Secret scan and diff check pass.
-
-Future session remains `slice-b-v6-sol-medium-intent5-001`; no paid ledger was
-created. Fresh owner cost-bound decision is required before any live attempt.
-Slice B remains not accepted and Slice C remains not authorised.
+No secrets, prompts, raw provider responses, fixtures, labels, expectations,
+or Product semantic logic are included here.

@@ -97,9 +97,9 @@ test("conservative cost bounds include the complete request and enforce the hard
   assert.equal(first.max_output_token_bound, 4000);
   assert.equal(conservativeProviderRequestCostBound({ requestPayload: base, pricing: null }).cost_status, "unknown");
   assert.equal(configuredModelPricing({}, "gpt-5.6-sol"), null);
-  assert.doesNotThrow(() => assertAcceptanceCostWithinCap({ currentCost: 4.79, costStatus: "calculated_from_explicit_configuration", pendingBound: { maximum_request_cost_usd: 0.20 } }));
-  assert.throws(() => assertAcceptanceCostWithinCap({ currentCost: 4.95, costStatus: "calculated_from_explicit_configuration", pendingBound: { maximum_request_cost_usd: 0.20 } }), /GLOBAL_ACCEPTANCE_COST_BOUND/);
-  assert.throws(() => assertAcceptanceCostWithinCap({ currentCost: 0, costStatus: "unknown", pendingBound: { maximum_request_cost_usd: 0.20 } }), /GLOBAL_ACCEPTANCE_COST_BOUND/);
+  assert.doesNotThrow(() => assertAcceptanceCostWithinCap({ currentCost: 4.79, costStatus: "calculated_from_explicit_configuration", pendingBound: { maximum_request_cost_usd: 0.20 }, capUsd: 5 }));
+  assert.throws(() => assertAcceptanceCostWithinCap({ currentCost: 4.95, costStatus: "calculated_from_explicit_configuration", pendingBound: { maximum_request_cost_usd: 0.20 }, capUsd: 5 }), /GLOBAL_ACCEPTANCE_COST_BOUND/);
+  assert.throws(() => assertAcceptanceCostWithinCap({ currentCost: 0, costStatus: "unknown", pendingBound: { maximum_request_cost_usd: 0.20 }, capUsd: 5 }), /GLOBAL_ACCEPTANCE_COST_BOUND/);
 });
 
 test("base39 and hard40 cost arithmetic uses all request bounds and the largest retry", () => {
