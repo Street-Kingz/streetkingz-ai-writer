@@ -208,7 +208,7 @@ Pre-Slice-B label review: DONE / ACCEPTED.
 
 Evaluation corpus: APPROVED / FROZEN with owner-reviewed later-stage labels.
 
-Slice B: TARGET ATTRIBUTION CONTRACT HARDENED v6 — NON-LIVE REVALIDATION COMPLETE
+Slice B v6 contract: NON-LIVE + STRUCTURAL LIVE VALIDATION PASS
 
 Current active slice: V1-05 Slice B
 
@@ -216,9 +216,13 @@ Slice C: NOT AUTHORISED
 
 Commercial corpus strengthening: REQUIRED BEFORE SLICE C
 
-Live acceptance: REQUIRES FRESH OWNER AUTHORIZATION
-Prior live attempt: FAILED / PRESERVED FOR AUDIT — 9 requests consumed
-Current next task: obtain fresh owner authorization for the v6 live acceptance attempt.
+gpt-4o-mini formal quality: FAILED — 38/38 completed; intent accuracy 57.89%
+
+Slice B: NOT ACCEPTED
+
+Prior v5 live attempt: FAILED / PRESERVED FOR AUDIT — 9 requests consumed
+
+Current next task: model-selection decision based on completed failure analysis.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
