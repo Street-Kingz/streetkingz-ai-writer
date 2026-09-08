@@ -1,0 +1,154 @@
+{
+  "demo_version": "v1-05-slice-c-demo-1",
+  "recommendation_version": "v1-05-slice-c-recommendation-1",
+  "fixture_version": "v1-05-slice-c-demo-1",
+  "business_id": "demo-business",
+  "run_id": "demo-run-001",
+  "recommendations": [
+    {
+      "title": "Improve existing product",
+      "priority": "high",
+      "state": "current",
+      "why_this_matters": "Bounded organic evidence supports work on this opportunity and its identified target.",
+      "recommended_action": "improve existing product",
+      "target": "product:demo-product",
+      "confidence": "medium",
+      "limitations": [
+        "Commercial context is available only for prioritisation, not revenue prediction."
+      ],
+      "evidence": [
+        {
+          "source_kind": "external_search",
+          "source_record_type": "observation",
+          "source_record_id": "demo-evidence-product",
+          "source_run_or_generation_reference": "demo-source-run",
+          "relationship": "supports"
+        }
+      ],
+      "what_to_do_next": [
+        {
+          "objective": "Review and improve the identified product page",
+          "actions": [
+            "Review and improve the identified product page",
+            "Check the supplied evidence and target product:demo-product",
+            "Make only evidence-supported changes",
+            "Recheck the target and supporting evidence after the change"
+          ],
+          "prerequisites": [
+            "Access to the relevant site or catalogue area"
+          ],
+          "important_limitation": "This is a bounded development action list, not an execution authorization."
+        }
+      ]
+    },
+    {
+      "title": "More evidence needed before action",
+      "priority": "reassess",
+      "state": "deferred",
+      "why_this_matters": "The opportunity may matter, but the available evidence is not strong enough for a confident current action.",
+      "recommended_action": "insufficient evidence",
+      "target": "category:demo-category, page:demo-guide",
+      "confidence": "low",
+      "limitations": [
+        "The available evidence does not resolve one target confidently."
+      ],
+      "evidence": [
+        {
+          "source_kind": "search_console",
+          "source_record_type": "observation",
+          "source_record_id": "demo-evidence-category",
+          "source_run_or_generation_reference": "demo-gsc-run",
+          "relationship": "supports"
+        }
+      ],
+      "what_to_do_next": [
+        {
+          "objective": "Resolve the evidence limitation before action",
+          "actions": [
+            "Review the cited evidence and target state",
+            "Confirm the missing or conflicting information",
+            "Reassess the opportunity after the evidence is updated"
+          ],
+          "prerequisites": [
+            "Evidence review"
+          ],
+          "important_limitation": "No current action is authorised from this state."
+        }
+      ]
+    },
+    {
+      "title": "More evidence needed before action",
+      "priority": "reassess",
+      "state": "needs_reassessment",
+      "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
+      "recommended_action": "insufficient evidence",
+      "target": "page:demo-product",
+      "confidence": "medium",
+      "limitations": [
+        "The supplied target does not fit the required page type."
+      ],
+      "evidence": [
+        {
+          "source_kind": "external_search",
+          "source_record_type": "observation",
+          "source_record_id": "demo-evidence-unsafe",
+          "source_run_or_generation_reference": "demo-source-run",
+          "relationship": "supports"
+        }
+      ],
+      "what_to_do_next": [
+        {
+          "objective": "Resolve the evidence limitation before action",
+          "actions": [
+            "Review the cited evidence and target state",
+            "Confirm the missing or conflicting information",
+            "Reassess the opportunity after the evidence is updated"
+          ],
+          "prerequisites": [
+            "Evidence review"
+          ],
+          "important_limitation": "No current action is authorised from this state."
+        }
+      ]
+    },
+    {
+      "title": "No action recommended",
+      "priority": "reassess",
+      "state": "needs_reassessment",
+      "why_this_matters": "This candidate is blocked because its merchant-facing decision safety could not be established.",
+      "recommended_action": "no action",
+      "target": "page:demo-home",
+      "confidence": "high",
+      "limitations": [
+        "The candidate is not relevant enough to promote."
+      ],
+      "evidence": [
+        {
+          "source_kind": "external_search",
+          "source_record_type": "observation",
+          "source_record_id": "demo-evidence-no-action",
+          "source_run_or_generation_reference": "demo-source-run",
+          "relationship": "contradicts"
+        }
+      ],
+      "what_to_do_next": [
+        {
+          "objective": "Resolve the evidence limitation before action",
+          "actions": [
+            "Review the cited evidence and target state",
+            "Confirm the missing or conflicting information",
+            "Reassess the opportunity after the evidence is updated"
+          ],
+          "prerequisites": [
+            "Evidence review"
+          ],
+          "important_limitation": "No current action is authorised from this state."
+        }
+      ]
+    }
+  ],
+  "outcomes": {
+    "no_action": true,
+    "insufficient_evidence": true
+  }
+}

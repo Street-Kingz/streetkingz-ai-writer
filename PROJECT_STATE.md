@@ -212,9 +212,13 @@ Slice B structural v6 contract: PASS
 
 Current active slice: V1-05 Slice B
 
-Slice C: NOT AUTHORISED
+Slice C development: DEVELOPMENT AUTHORISED / IN PROGRESS — owner-authorised
+bounded recommendation-layer development with no autonomous execution or
+production acceptance
 
-Commercial corpus strengthening: REQUIRED BEFORE SLICE C
+Commercial corpus strengthening: DONE for Slice C calibration — 12 genuine
+commercial-sensitive scenarios, including the frozen 11 plus one separate
+calibration scenario
 
 gpt-4o-mini instructions-4: FAILED QUALITY — 38/38 completed; intent accuracy 57.89%
 
@@ -263,13 +267,20 @@ development may proceed without autonomous execution or production claims
 Production acceptance: FAIL — merchant-critical target and decision-safety
 evidence remains insufficient
 
-Slice C development authorization: RECOMMENDED, not granted
+Slice C first merchant recommendation vertical slice: DONE — deterministic
+merchant-facing preview, safety projection, bounded prioritisation and
+idempotent recommendation domain record
 
-Next governed task: PRODUCT_GOVERNANCE_REVIEW follow-through — owner decision on
-development authorization and merchant-safety contract for the recommendation
-layer. No fresh intent-classifier experiment is authorized.
+Next governed task: extend and validate recommendation intelligence toward
+V1-05 development completion; no further intent-classifier experiment is
+authorized.
 
-Fresh paid revalidation: NOT AUTHORIZED; do not rerun the final experiment.
+Fresh paid revalidation: historical evidence only; no new provider calls are
+authorized by this development slice.
+
+Production acceptance: NOT GRANTED
+
+Street Kingz live Product evaluation: NOT RUN
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 

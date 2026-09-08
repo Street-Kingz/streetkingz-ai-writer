@@ -1,0 +1,70 @@
+{
+  "fixture_version": "v1-05-slice-c-demo-1",
+  "business_id": "demo-business",
+  "run_id": "demo-run-001",
+  "candidates": [
+    {
+      "candidate_identity": "demo-product-improvement",
+      "candidate_type": "existing_product_improvement",
+      "customer_job": "Improve the product page for a clearly supported product need",
+      "relevance_state": "relevant",
+      "target_attribution_state": "established",
+      "attributed_target_resources": ["product:demo-product"],
+      "page_type_fit": "aligned",
+      "new_asset_fit": "not_applicable",
+      "interpretive_disposition": "retain",
+      "intent_confidence": "medium",
+      "evidence_maturity": "rich",
+      "evidence_refs": [{"source_kind":"external_search","source_record_type":"observation","source_record_id":"demo-evidence-product","source_run_or_generation_reference":"demo-source-run","relationship":"supports"}],
+      "limitations": ["Commercial context is available only for prioritisation, not revenue prediction."],
+      "commercial_context": {"available":true,"reliable":true,"relevant":true,"stock_status":"instock","stock_quantity":18,"sales_90d":24,"price":24}
+    },
+    {
+      "candidate_identity": "demo-category-uncertain",
+      "candidate_type": "existing_category_improvement",
+      "customer_job": "The category opportunity may need review but the target fit is not settled",
+      "relevance_state": "uncertain",
+      "target_attribution_state": "ambiguous",
+      "attributed_target_resources": ["category:demo-category","page:demo-guide"],
+      "page_type_fit": "ambiguous",
+      "new_asset_fit": "not_applicable",
+      "interpretive_disposition": "retain_uncertain",
+      "intent_confidence": "low",
+      "evidence_maturity": "mixed",
+      "evidence_refs": [{"source_kind":"search_console","source_record_type":"observation","source_record_id":"demo-evidence-category","source_run_or_generation_reference":"demo-gsc-run","relationship":"supports"}],
+      "limitations": ["The available evidence does not resolve one target confidently."],
+      "commercial_context": {"available":false}
+    },
+    {
+      "candidate_identity": "demo-unsafe-page",
+      "candidate_type": "existing_content_improvement",
+      "customer_job": "Consider a content improvement with a page-type mismatch",
+      "relevance_state": "relevant",
+      "target_attribution_state": "established",
+      "attributed_target_resources": ["page:demo-product"],
+      "page_type_fit": "misaligned",
+      "new_asset_fit": "not_applicable",
+      "interpretive_disposition": "retain",
+      "intent_confidence": "medium",
+      "evidence_maturity": "rich",
+      "evidence_refs": [{"source_kind":"external_search","source_record_type":"observation","source_record_id":"demo-evidence-unsafe","source_run_or_generation_reference":"demo-source-run","relationship":"supports"}],
+      "limitations": ["The supplied target does not fit the required page type."]
+    },
+    {
+      "candidate_identity": "demo-no-action",
+      "candidate_type": "new_page_or_content_asset",
+      "customer_job": "A mismatched opportunity should not be pursued",
+      "relevance_state": "irrelevant",
+      "target_attribution_state": "established",
+      "attributed_target_resources": ["page:demo-home"],
+      "page_type_fit": "aligned",
+      "new_asset_fit": "redundant",
+      "interpretive_disposition": "reject_mismatch",
+      "intent_confidence": "high",
+      "evidence_maturity": "rich",
+      "evidence_refs": [{"source_kind":"external_search","source_record_type":"observation","source_record_id":"demo-evidence-no-action","source_run_or_generation_reference":"demo-source-run","relationship":"contradicts"}],
+      "limitations": ["The candidate is not relevant enough to promote."],
+      "commercial_context": {"available":false}
+    }
+  ]
+}
