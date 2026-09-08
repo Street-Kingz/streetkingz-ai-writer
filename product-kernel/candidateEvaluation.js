@@ -3,8 +3,8 @@ import { canonicalJson } from "./decisionDiscovery.js";
 
 export const SLICE_B_EVALUATION_VERSION = "v1-05-slice-b-6";
 export const FILTER_VERSION = "v1-05-filter-3";
-export const INTERPRETATION_VERSION = "v1-05-interpretation-6";
-export const INSTRUCTION_VERSION = "v1-05-slice-b-instructions-5";
+export const INTERPRETATION_VERSION = "v1-05-interpretation-7";
+export const INSTRUCTION_VERSION = "v1-05-slice-b-instructions-6";
 export const MAX_INTERPRETIVE_CANDIDATES = 50;
 export const MAX_BATCH_SIZE = 10;
 export const MAX_PLANNED_CALLS = 5;
@@ -31,9 +31,15 @@ export const INTENT_CLASS_DEFINITIONS = Object.freeze({
   uncertain: "Use when the bounded evidence does not support a reliable conclusion about the user's primary intent family at all. This is uncertainty about what the user is trying to do, not uncertainty about relevance, target attribution, or page fit.",
   uncertain_selection: "Use when the evidence supports that the user's job belongs to the selection or evaluation family, but does not support resolving it reliably to a firm product, category, or comparison selection classification. Selection-shaped intent is supported; the specific selection classification is not."
 });
+export const INTENT_HIERARCHY = Object.freeze({
+  family_values: Object.freeze(["selection", "information", "navigation", "mixed", "uncertain"]),
+  selection_subtypes: Object.freeze(["product", "category", "comparison", "uncertain"]),
+  information_scopes: Object.freeze(["bounded", "broad"]),
+  navigation_destinations: Object.freeze(["brand", "discovery"])
+});
 export function buildInterpretationSystemPrompt() {
   const definitions = Object.entries(INTENT_CLASS_DEFINITIONS).map(([name, definition]) => `- ${name}: ${definition}`).join("\\n");
-  return `Interpret only the supplied bounded organic evidence. Do not invent facts, targets, metrics, or commercial conclusions. Preserve uncertainty. Return one result for every candidate_id.\\n\\nClassify intent using exactly one of these generic classes:\\n${definitions}\\n\\nBoundary rules: mixed_intent means multiple materially supported jobs coexist; uncertain means even the primary intent family cannot be resolved. Do not use mixed_intent as a synonym for low confidence. Use uncertain_selection when the selection or evaluation family is supported but its product, category, or comparison subtype is unresolved; use uncertain when the family itself is unresolved. product_selection is item-level, category_selection is category or type-level, and comparison_selection applies when comparing alternatives or trade-offs is central rather than incidental. informational is one reasonably bounded knowledge job; broad_information is genuinely broad exploratory information. brand_navigation targets a named brand or official brand destination; navigation_discovery is generic resource or destination discovery.\\n\\nUse relevant when evidence supports the Business job, irrelevant only for clear mismatch, and uncertain when relevance evidence is insufficient. Established attribution requires a supplied allowed target; unresolved requires none. page_type_fit is aligned, misaligned, ambiguous, or unknown. new_asset_fit applies only to new assets. Retain uncertainty; reject only clear mismatch or wrong page type. Never invent targets, facts, commercial priority, or interventions.`;
+  return `Interpret only the supplied bounded organic evidence. Do not invent facts, targets, metrics, or commercial conclusions. Preserve uncertainty. Return one result for every candidate_id.\\n\\nClassify the USER JOB, never the candidate_type or target page type. First choose exactly one broad intent family: selection, information, navigation, mixed, or uncertain. Then choose only the branch field required by that family: selection uses subtype product, category, comparison, or uncertain; information uses scope bounded or broad; navigation uses destination brand or discovery; mixed and uncertain have no branch field.\\n\\nGeneric leaf meanings:\\n${definitions}\\n\\nBoundary rules: mixed_intent means multiple materially supported jobs coexist, not low confidence or noisy evidence. uncertain means even the broad user-job family cannot be resolved. uncertain_selection means selection/evaluation is clear but its product, category, or comparison subtype is unresolved. Product means a specific item-level decision; category means a type or family-level decision. comparison_selection applies when comparing alternatives or trade-offs is central, rather than incidental. informational is one reasonably bounded knowledge job; broad_information is genuinely broad exploratory information. brand_navigation targets a named brand or official brand destination; navigation_discovery is generic resource or destination discovery. Candidate type and target resources describe a possible intervention/page and must not determine intent.\\n\\nUse relevant when evidence supports the Business job, irrelevant only for clear mismatch, and uncertain when relevance evidence is insufficient. Established attribution requires a supplied allowed target; unresolved requires none. page_type_fit is aligned, misaligned, ambiguous, or unknown. new_asset_fit applies only to new assets. Retain uncertainty; reject only clear mismatch or wrong page type. Never invent targets, facts, commercial priority, or interventions.`;
 }
 export const REASON_CODES = Object.freeze(["wrong_market", "wrong_language", "invalid_target", "duplicate_candidate", "overlap_redundant", "irrelevant_job", "wrong_page_type", "target_ambiguous", "target_supported", "new_asset_redundant", "new_asset_supported", "brand_navigation", "mixed_intent", "evidence_limited", "uncertain"]);
 const reasons = new Set(REASON_CODES);
@@ -48,7 +54,14 @@ const targetAttributionVariants = [
   { type: "object", additionalProperties: false, required: ["state", "resources"], properties: { state: { type: "string", enum: ["ambiguous"] }, resources: { type: "array", items: { type: "string" } } } },
   { type: "object", additionalProperties: false, required: ["state", "resources"], properties: { state: { type: "string", enum: ["invalid"] }, resources: { type: "array", items: { type: "string" } } } }
 ];
-export const INTERPRETATION_RESPONSE_SCHEMA = { type: "object", additionalProperties: false, required: ["results"], properties: { results: { type: "array", items: { type: "object", additionalProperties: false, required: ["candidate_id", "customer_job", "intent_class", "intent_confidence", "relevance_state", "target_attribution", "page_type_fit", "new_asset_fit", "interpretive_disposition", "reason_codes", "limitations"], properties: { candidate_id: { type: "string" }, customer_job: { type: "string", maxLength: 1000 }, intent_class: { type: "string", enum: [...intents] }, intent_confidence: { type: "string", enum: ["high", "medium", "low", "unknown"] }, relevance_state: { type: "string", enum: [...relevanceStates] }, target_attribution: { anyOf: targetAttributionVariants }, page_type_fit: { type: "string", enum: [...pageFits] }, new_asset_fit: { type: "string", enum: [...assetFits] }, interpretive_disposition: { type: "string", enum: [...dispositions] }, reason_codes: { type: "array", maxItems: 8, items: { type: "string", enum: REASON_CODES } }, limitations: { type: "array", maxItems: 8, items: { type: "string", maxLength: 120 } } } } } } };
+const hierarchicalIntentVariants = [
+  { type: "object", additionalProperties: false, required: ["family", "subtype"], properties: { family: { type: "string", enum: ["selection"] }, subtype: { type: "string", enum: ["product", "category", "comparison", "uncertain"] } } },
+  { type: "object", additionalProperties: false, required: ["family", "scope"], properties: { family: { type: "string", enum: ["information"] }, scope: { type: "string", enum: ["bounded", "broad"] } } },
+  { type: "object", additionalProperties: false, required: ["family", "destination"], properties: { family: { type: "string", enum: ["navigation"] }, destination: { type: "string", enum: ["brand", "discovery"] } } },
+  { type: "object", additionalProperties: false, required: ["family"], properties: { family: { type: "string", enum: ["mixed"] } } },
+  { type: "object", additionalProperties: false, required: ["family"], properties: { family: { type: "string", enum: ["uncertain"] } } }
+];
+export const INTERPRETATION_RESPONSE_SCHEMA = { type: "object", additionalProperties: false, required: ["results"], properties: { results: { type: "array", items: { type: "object", additionalProperties: false, required: ["candidate_id", "customer_job", "intent", "intent_confidence", "relevance_state", "target_attribution", "page_type_fit", "new_asset_fit", "interpretive_disposition", "reason_codes", "limitations"], properties: { candidate_id: { type: "string" }, customer_job: { type: "string", maxLength: 1000 }, intent: { anyOf: hierarchicalIntentVariants }, intent_confidence: { type: "string", enum: ["high", "medium", "low", "unknown"] }, relevance_state: { type: "string", enum: [...relevanceStates] }, target_attribution: { anyOf: targetAttributionVariants }, page_type_fit: { type: "string", enum: [...pageFits] }, new_asset_fit: { type: "string", enum: [...assetFits] }, interpretive_disposition: { type: "string", enum: [...dispositions] }, reason_codes: { type: "array", maxItems: 8, items: { type: "string", enum: REASON_CODES } }, limitations: { type: "array", maxItems: 8, items: { type: "string", maxLength: 120 } } } } } } };
 
 function availableTargetRefs(packet) { return new Set([...(packet.site?.pages || []).flatMap(page => [`page:${page.id}`]), ...(packet.commerce?.products || []).map(item => `product:${item.id}`), ...(packet.commerce?.categories || []).map(item => `category:${item.id}`)]); }
 
@@ -144,15 +157,34 @@ export function validateInterpretation(output, candidate, packet = {}) {
   return { ...output, reason_codes: [...new Set(output.reason_codes)], limitations: [...new Set(output.limitations)].map(String).map(s => s.slice(0, 120)) };
 }
 
+export function normalizeHierarchicalIntent(intent) {
+  if (!intent || typeof intent !== "object" || Array.isArray(intent) || typeof intent.family !== "string") {
+    const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = error.message; throw error;
+  }
+  const expectedKeys = { selection: ["family", "subtype"], information: ["family", "scope"], navigation: ["family", "destination"], mixed: ["family"], uncertain: ["family"] };
+  const keys = Object.keys(intent).sort(); const familyKeys = expectedKeys[intent.family];
+  if (!familyKeys || JSON.stringify(keys) !== JSON.stringify([...familyKeys].sort())) { const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = error.message; throw error; }
+  const mapping = {
+    "selection:product": "product_selection", "selection:category": "category_selection", "selection:comparison": "comparison_selection", "selection:uncertain": "uncertain_selection",
+    "information:bounded": "informational", "information:broad": "broad_information", "navigation:brand": "brand_navigation", "navigation:discovery": "navigation_discovery", mixed: "mixed_intent", uncertain: "uncertain"
+  };
+  const key = intent.family === "selection" ? `${intent.family}:${intent.subtype}` : intent.family === "information" ? `${intent.family}:${intent.scope}` : intent.family === "navigation" ? `${intent.family}:${intent.destination}` : intent.family;
+  const intentClass = mapping[key];
+  if (!intentClass) { const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = error.message; throw error; }
+  return intentClass;
+}
+
 export function normalizeInterpretationOutput(output) {
   if (!output || typeof output !== "object" || !output.target_attribution || typeof output.target_attribution !== "object" || Array.isArray(output.target_attribution)) {
     const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = "INVALID_INTERPRETATION_OUTPUT"; throw error;
   }
-  const { target_attribution: attribution, ...rest } = output;
+  const { target_attribution: attribution, intent, intent_class: legacyIntent, ...rest } = output;
   if (typeof attribution.state !== "string" || !Array.isArray(attribution.resources) || attribution.resources.some(ref => typeof ref !== "string")) {
     const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = "INVALID_INTERPRETATION_OUTPUT"; throw error;
   }
-  return { ...rest, target_attribution_state: attribution.state, attributed_target_resources: [...attribution.resources] };
+  const normalizedIntent = intent ? normalizeHierarchicalIntent(intent) : legacyIntent;
+  if (normalizedIntent !== undefined && !intents.has(normalizedIntent)) { const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = error.message; throw error; }
+  return { ...rest, ...(normalizedIntent === undefined ? {} : { intent_class: normalizedIntent }), target_attribution_state: attribution.state, attributed_target_resources: [...attribution.resources] };
 }
 
 export function buildInterpretationRequest({ candidate, packet }) { const input = buildInterpretationPacket(candidate, packet); const { bounded_evidence_summary, evidence_text_chars, ...modelInput } = input; const boundedInput = boundModelInput(modelInput); return { systemPrompt: buildInterpretationSystemPrompt(), userPrompt: JSON.stringify(boundedInput), input: boundedInput }; }

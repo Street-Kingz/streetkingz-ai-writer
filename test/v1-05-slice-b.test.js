@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, INTENT_CLASS_DEFINITIONS, buildInterpretationSystemPrompt, INSTRUCTION_VERSION } from "../product-kernel/candidateEvaluation.js";
+import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, normalizeHierarchicalIntent, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, INTENT_CLASS_DEFINITIONS, INTENT_HIERARCHY, buildInterpretationSystemPrompt, INSTRUCTION_VERSION } from "../product-kernel/candidateEvaluation.js";
 import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 import { buildOpenAIInterpretationRequest, createOpenAIInterpretationProvider, interpretationModelProfile } from "../interpretation/providers/openai.js";
 import { conservativeProviderRequestCostBound, configuredModelPricing, assertAcceptanceCostWithinCap } from "../interpretation/cost.js";
@@ -12,11 +12,41 @@ const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: i
 test("instructions-5 defines every intent class and generic boundaries from one source", () => {
   const names = ["product_selection", "category_selection", "comparison_selection", "informational", "mixed_intent", "brand_navigation", "navigation_discovery", "broad_information", "uncertain", "uncertain_selection"];
   const prompt = buildInterpretationSystemPrompt();
-  assert.equal(INSTRUCTION_VERSION, "v1-05-slice-b-instructions-5");
+  assert.equal(INSTRUCTION_VERSION, "v1-05-slice-b-instructions-6");
   assert.deepEqual(Object.keys(INTENT_CLASS_DEFINITIONS), names);
   for (const name of names) { assert.equal(typeof INTENT_CLASS_DEFINITIONS[name], "string"); assert.ok(INTENT_CLASS_DEFINITIONS[name].length > 0); assert.match(prompt, new RegExp(name)); }
   for (const phrase of ["multiple materially supported jobs", "primary intent family", "selection or evaluation family", "product or item level", "category or type level", "comparing alternatives or trade-offs", "reasonably bounded knowledge job", "genuinely broad exploratory information", "named brand or official brand destination", "generic resource or destination discovery"]) assert.match(prompt, new RegExp(phrase, "i"));
   assert.doesNotMatch(prompt, /V105-EVAL-|case\\s+0\\d|evaluation corpus|benchmark/i);
+});
+
+test("hierarchical intent schema has strict branch-specific provider variants", () => {
+  const schema = INTERPRETATION_RESPONSE_SCHEMA.properties.results.items.properties.intent;
+  assert.equal(schema.anyOf.length, 5);
+  const branches = Object.fromEntries(schema.anyOf.map(variant => [variant.properties.family.enum[0], variant]));
+  assert.deepEqual(branches.selection.required, ["family", "subtype"]);
+  assert.deepEqual(branches.selection.properties.subtype.enum, ["product", "category", "comparison", "uncertain"]);
+  assert.deepEqual(branches.information.required, ["family", "scope"]);
+  assert.deepEqual(branches.information.properties.scope.enum, ["bounded", "broad"]);
+  assert.deepEqual(branches.navigation.required, ["family", "destination"]);
+  assert.deepEqual(branches.navigation.properties.destination.enum, ["brand", "discovery"]);
+  assert.deepEqual(branches.mixed.required, ["family"]);
+  assert.deepEqual(branches.uncertain.required, ["family"]);
+  for (const branch of schema.anyOf) assert.equal(branch.additionalProperties, false);
+  assert.equal(Object.keys(branches.mixed.properties).includes("subtype"), false);
+  assert.equal(Object.keys(branches.uncertain.properties).includes("destination"), false);
+});
+
+test("hierarchical intent normalization is lossless for all ten legacy labels", () => {
+  const mapping = {
+    product_selection: { family: "selection", subtype: "product" }, category_selection: { family: "selection", subtype: "category" }, comparison_selection: { family: "selection", subtype: "comparison" }, uncertain_selection: { family: "selection", subtype: "uncertain" },
+    informational: { family: "information", scope: "bounded" }, broad_information: { family: "information", scope: "broad" }, brand_navigation: { family: "navigation", destination: "brand" }, navigation_discovery: { family: "navigation", destination: "discovery" }, mixed_intent: { family: "mixed" }, uncertain: { family: "uncertain" }
+  };
+  assert.deepEqual(Object.keys(mapping).sort(), Object.keys(INTENT_CLASS_DEFINITIONS).sort());
+  for (const [legacy, hierarchical] of Object.entries(mapping)) assert.equal(normalizeHierarchicalIntent(hierarchical), legacy);
+  assert.throws(() => normalizeHierarchicalIntent({ family: "information", subtype: "product" }), /INVALID_INTERPRETATION_OUTPUT/);
+  assert.throws(() => normalizeHierarchicalIntent({ family: "navigation", scope: "broad" }), /INVALID_INTERPRETATION_OUTPUT/);
+  assert.throws(() => normalizeHierarchicalIntent({ family: "mixed", subtype: "product" }), /INVALID_INTERPRETATION_OUTPUT/);
+  assert.throws(() => normalizeHierarchicalIntent({ family: "uncertain", destination: "brand" }), /INVALID_INTERPRETATION_OUTPUT/);
 });
 
 test("Slice B deterministic filters remain structural and do not use metrics", () => {
