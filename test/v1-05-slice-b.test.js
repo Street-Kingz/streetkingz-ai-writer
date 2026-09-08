@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS } from "../product-kernel/candidateEvaluation.js";
+import { isSemanticInterpretationFailure } from "../scripts/validation/v1-05-slice-b-harness-lib.js";
 
 const candidate = (id, extra = {}) => ({ candidate_id: id, candidate_identity: id, candidate_type: "existing_content_improvement", target_resources: ["page:" + id], discovery_sources: ["external_search"], evidence_refs: [{ source_kind: "external_search", source_record_type: "observation", source_record_id: "e-" + id, source_run_or_generation_reference: "run-1", relationship: "query_serp_relationship" }], market: "GB", language: "en", ...extra });
 
@@ -23,6 +24,16 @@ test("Slice B packet is bounded and target output is allowlisted", () => {
   const output = { candidate_id: "a", customer_job: "learn", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:a"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] };
   assert.equal(validateInterpretation(output, item).candidate_id, "a"); assert.throws(() => validateInterpretation({ ...output, attributed_target_resources: ["page:invented"] }, item), /INVALID_INTERPRETATION_OUTPUT/);
 });
+
+test("target attribution invariants are strict and diagnostics are safe", () => {
+  const item = candidate("target"); const base = { candidate_id: "target", customer_job: "learn", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:target"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] };
+  assert.throws(() => validateInterpretation({ ...base, attributed_target_resources: [] }, item), error => error.code === "INVALID_TARGET_INVARIANT" && error.validationDiagnostics.attributed_target_count === 0 && !JSON.stringify(error.validationDiagnostics).includes("learn"));
+  assert.throws(() => validateInterpretation({ ...base, target_attribution_state: "unresolved" }, item), /INVALID_TARGET_INVARIANT/);
+  assert.equal(validateInterpretation(base, item).candidate_id, "target");
+  assert.equal(validateInterpretation({ ...base, target_attribution_state: "unresolved", attributed_target_resources: [] }, item).candidate_id, "target");
+});
+
+test("semantic, provider, and harness failures retain distinct classifications", () => { assert.equal(isSemanticInterpretationFailure(Object.assign(new Error("INVALID_TARGET_INVARIANT"), { code: "INVALID_TARGET_INVARIANT" })), true); assert.equal(isSemanticInterpretationFailure({ code: "PROVIDER_OUTCOME_UNKNOWN" }), false); assert.equal(isSemanticInterpretationFailure({ code: "ACCEPTANCE_LEDGER_MISSING" }), false); });
 
 test("Slice B preserves source facts and groups same jobs without commercial inputs", () => {
   const item = candidate("a", { source_job_identity: "remove tar from paint", discovery_sources: ["external_search"] });

@@ -6,14 +6,14 @@ import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, evaluateCandidates, SLICE_B_EVALUATION_VERSION, INTERPRETATION_VERSION, INSTRUCTION_VERSION, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, MAX_CALL_OUTPUT_TOKENS, MAX_DEADLINE_MS } from "../product-kernel/candidateEvaluation.js";
 import { createOpenAIInterpretationProvider } from "../interpretation/providers/openai.js";
 import { configuredModelPricing, calculateConfiguredCost } from "../interpretation/cost.js";
-import { stripCommercial, canRequestCase, recordAcceptanceAttempt, cacheMatches, accountProviderFailure, evaluateCommercialControls, formalQualityFails } from "./validation/v1-05-slice-b-harness-lib.js";
+import { stripCommercial, canRequestCase, recordAcceptanceAttempt, cacheMatches, accountProviderFailure, evaluateCommercialControls, formalQualityFails, isSemanticInterpretationFailure } from "./validation/v1-05-slice-b-harness-lib.js";
 
 const mode = process.argv.includes("--smoke") ? "smoke" : process.argv.includes("--formal") ? "formal" : "preview";
 const statuses = new Set(["PASS", "QUALITY_FAIL", "PROVIDER_FAIL", "BOUND_FAIL", "HARNESS_FAIL"]);
 const emit = value => { const output = { ...value, status: statuses.has(value.status) ? value.status : "HARNESS_FAIL" }; console.log(JSON.stringify(output)); return output; };
 const safeId = value => `harness-${crypto.createHash("sha256").update(String(value)).digest("hex").slice(0, 24)}`;
 const withHarnessIds = candidates => candidates.map(candidate => ({ ...candidate, candidate_id: safeId(candidate.candidate_identity) }));
-const classify = error => /BOUND|TOKEN/.test(error?.message || "") ? "BOUND_FAIL" : /PROVIDER|OPENAI|fetch|network|transient|timeout/i.test(error?.message || "") ? "PROVIDER_FAIL" : "HARNESS_FAIL";
+const classify = error => /BOUND|TOKEN/.test(error?.message || "") ? "BOUND_FAIL" : isSemanticInterpretationFailure(error) ? "QUALITY_FAIL" : /PROVIDER|OPENAI|fetch|network|transient|timeout/i.test(error?.message || "") ? "PROVIDER_FAIL" : "HARNESS_FAIL";
 const sourceKey = value => String(value || "").replace(/^external:/, "external_search:");
 const atomicWrite = async (path, value) => { const temporary = `${path}.${process.pid}.tmp`; await fs.writeFile(temporary, value, "utf8"); await fs.rename(temporary, path); };
 const gitHead = () => execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
@@ -63,4 +63,4 @@ try {
     if (mode === "formal") resolvePrimaryCandidate(item.candidates, frozenMeta.find(caseLabel => caseLabel.case_id === item.case_id)?.primary_candidate_match);
   }
   if (mode === "smoke") { ledger.smoke_passed = true; await atomicWrite(ledgerPath, JSON.stringify(ledger) + "\n"); } const commercialResults = mode === "formal" ? commercialProof.results : []; const metrics = mode === "formal" ? scoreFormal(results, frozenMeta, corpusCases, commercialResults) : null; const qualityFail = mode === "formal" ? formalQualityFails(metrics) : false; emit({ status: qualityFail ? "QUALITY_FAIL" : "PASS", mode, stage: mode === "smoke" ? "smoke" : "formal", safe_error_code: qualityFail ? "QUALITY_THRESHOLD_FAILED" : "OK", calls, cases: results.length, model: provider.model, token_totals: { input: ledger.input_tokens, output: ledger.output_tokens }, cost_status: ledger.cost_status, metrics }); if (qualityFail) process.exitCode = 1;
-} catch (error) { emit({ status: classify(error), mode, stage: "execution", safe_error_code: String(error?.code || error?.message || "HARNESS_EXCEPTION").replace(/[^A-Z0-9_]/gi, "_").slice(0, 80), attempt_count: null, model: process.env.OPENAI_INTERPRETATION_MODEL || process.env.OPENAI_MODEL || null }); process.exitCode = 1; }
+} catch (error) { emit({ status: classify(error), mode, stage: "execution", safe_error_code: String(error?.code || error?.message || "HARNESS_EXCEPTION").replace(/[^A-Z0-9_]/gi, "_").slice(0, 80), validation_diagnostics: isSemanticInterpretationFailure(error) ? error.validationDiagnostics || null : undefined, attempt_count: null, model: process.env.OPENAI_INTERPRETATION_MODEL || process.env.OPENAI_MODEL || null }); process.exitCode = 1; }

@@ -208,7 +208,7 @@ Pre-Slice-B label review: DONE / ACCEPTED.
 
 Evaluation corpus: APPROVED / FROZEN with owner-reviewed later-stage labels.
 
-Slice B: IN PROGRESS — PRE-LIVE INTEGRITY GATES
+Slice B: LIVE ACCEPTANCE ATTEMPT BLOCKED — semantic interpretation contract failure under diagnosis
 
 Current active slice: V1-05 Slice B
 
@@ -216,7 +216,7 @@ Slice C: NOT AUTHORISED
 
 Commercial corpus strengthening: REQUIRED BEFORE SLICE C
 
-Current next task: complete final pre-live integrity proof, then owner live authorization.
+Current next task: obtain a model-contract decision for the diagnosed live target invariant failure.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
