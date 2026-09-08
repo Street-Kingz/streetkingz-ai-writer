@@ -244,8 +244,11 @@ Prior v5 live attempt: FAILED / PRESERVED FOR AUDIT — 9 requests consumed
 
 Sol instructions-5 partial result: 37/38 completed; not acceptable as Slice B evidence
 
-Current next task: obtain fresh owner authorization for the GPT-5.6 Sol medium
-challenger benchmark.
+Intent flat-taxonomy architecture: UNDER REVIEW — analysis complete; hierarchical
+provider-contract experiment recommended
+
+Current next task: design/owner decision for the hierarchical intent provider
+contract. No fresh paid run is authorized.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
