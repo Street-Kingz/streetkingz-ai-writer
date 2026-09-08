@@ -1,6 +1,6 @@
 import { sha256 } from "./decisionDiscovery.js";
 
-export const RECOMMENDATION_VERSION = "v1-05-slice-c-recommendation-1";
+export const RECOMMENDATION_VERSION = "v1-05-slice-c-recommendation-2";
 export const RECOMMENDATION_STATUS = Object.freeze(["current", "deferred", "needs_reassessment", "superseded", "withdrawn", "completed", "ignored"]);
 export const INTERVENTIONS = Object.freeze(["improve_existing_product", "improve_existing_category", "improve_existing_content", "create_new_page_or_content_asset", "improve_internal_linking", "no_action", "insufficient_evidence"]);
 const priorityOrder = { high: 0, medium: 1, low: 2, reassess: 3 };
@@ -51,8 +51,8 @@ function priorityFor(candidate, safety, commercial) {
   return { band, reasons: unique(reasons) };
 }
 
-export function buildRecommendationIdentity({ businessId, runId, candidate }) {
-  return `rec-${sha256({ recommendation_version: RECOMMENDATION_VERSION, business_id: businessId || null, run_id: runId || null, candidate_identity: candidate.candidate_identity, evidence_refs: candidate.evidence_refs || [], target_resources: candidate.attributed_target_resources || [], intervention: interventionFor(candidate) }).slice(0, 24)}`;
+export function buildRecommendationIdentity({ businessId, runId: _runId, candidate }) {
+  return `rec-${sha256({ recommendation_version: RECOMMENDATION_VERSION, business_id: businessId || null, candidate_identity: candidate.candidate_identity, target_resources: candidate.attributed_target_resources || [], intervention: interventionFor(candidate) }).slice(0, 24)}`;
 }
 
 export function buildRecommendationRecord(candidate, { businessId = null, runId = null } = {}) {
@@ -87,6 +87,7 @@ export function projectMerchantRecommendation(record) {
 
 export function upsertRecommendationRecords(existingRecords, candidates, options = {}) {
   const map = new Map((existingRecords || []).map(record => [record.recommendation_id, record]));
-  for (const record of rankRecommendations(candidates, options).recommendations) map.set(record.recommendation_id, record);
+  const terminal = new Set(["completed", "ignored", "superseded", "withdrawn"]);
+  for (const record of rankRecommendations(candidates, options).recommendations) { const prior = map.get(record.recommendation_id); if (prior && terminal.has(prior.status)) record.status = prior.status; map.set(record.recommendation_id, record); }
   return [...map.values()].sort((a, b) => a.recommendation_id.localeCompare(b.recommendation_id));
 }

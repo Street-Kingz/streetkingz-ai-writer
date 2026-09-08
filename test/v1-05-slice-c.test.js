@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { buildRecommendationRecord, merchantSafetyProjection, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
+import { buildRecommendationIdentity, buildRecommendationRecord, merchantSafetyProjection, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
 import { feedProjection, detailProjection, resolveTargetLabels, recommendationPersistenceRow } from "../product-kernel/recommendationRepository.js";
 
 const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", intent_confidence: "medium", evidence_maturity: "mixed", evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
@@ -42,6 +42,15 @@ test("recommendation identity makes reruns idempotent and projection hides inter
   assert.equal("model" in projection, false);
   assert.ok(projection.evidence.length);
   assert.ok(projection.what_to_do_next.length);
+});
+
+test("logical recommendation identity is stable across decision runs and evidence refreshes", () => {
+  const first = buildRecommendationIdentity({ businessId: "b", runId: "run-1", candidate: record({ evidence_refs: ["e1"] }) });
+  const second = buildRecommendationIdentity({ businessId: "b", runId: "run-2", candidate: record({ evidence_refs: ["e2"] }) });
+  const legacy = runId => `legacy-${JSON.stringify({ business_id: "b", run_id: runId, candidate_identity: "test-candidate", evidence_refs: [runId], target_resources: ["product:1"], intervention: "improve_existing_product" })}`;
+  assert.notEqual(legacy("run-1"), legacy("run-2"));
+  assert.equal(first, second);
+  assert.notEqual(first, buildRecommendationIdentity({ businessId: "b", runId: "run-3", candidate: record({ attributed_target_resources: ["product:2"] }) }));
 });
 
 test("commercial calibration manifest contains the frozen eleven plus one new genuine scenario", () => {

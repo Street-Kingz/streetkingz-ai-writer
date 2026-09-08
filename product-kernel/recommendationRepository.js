@@ -37,7 +37,7 @@ export function recommendationPersistenceRow(record, { businessId, runId }) {
 
 export async function persistRecommendationRecords({ admin, businessId, runId, candidates }) {
   const ranked = rankRecommendations(candidates, { businessId, runId });
-  const existing = await admin.from("organic_recommendations").select("*").eq("business_id", businessId).eq("source_run_id", runId);
+  const existing = await admin.from("organic_recommendations").select("*").eq("business_id", businessId);
   if (existing.error) throw existing.error;
   const old = new Map((existing.data || []).map(row => [row.recommendation_id, row]));
   const rows = ranked.recommendations.map(record => {

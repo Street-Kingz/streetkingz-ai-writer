@@ -275,6 +275,14 @@ Slice C durable recommendation pipeline: DONE — evaluated decision runs can
 persist versioned recommendations through the privileged server path with
 business-scoped merchant feed and detail projections
 
+Slice C3 cross-run recommendation continuity: IMPLEMENTED / LOCAL TEST PASS —
+logical identity no longer includes decision run or volatile evidence refs;
+terminal lifecycle states are preserved across runs
+
+Slice C3 disposable authenticated E2E: BLOCKED — isolated Supabase startup
+could not bind its temporary database port because 54322 is occupied by the
+existing local project; no accepted environment was stopped or reset
+
 Merchant feed/detail projection: DEVELOPMENT READY
 
 Recommendation persistence migration: 37 added; requires disposable/local
@@ -292,8 +300,9 @@ Production acceptance: NOT GRANTED
 
 Street Kingz live Product evaluation: NOT RUN
 
-Next Product task: extend and validate recommendation intelligence toward
-V1-05 development completion; no autonomous execution or production release.
+Next Product task: rerun disposable migration 37 and authenticated
+cross-Business feed/detail E2E once isolated Supabase infrastructure is
+available; no autonomous execution or production release.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
