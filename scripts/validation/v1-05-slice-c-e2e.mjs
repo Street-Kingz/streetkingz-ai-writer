@@ -46,7 +46,7 @@ async function provisionUser(label) {
 }
 
 async function seedCommerceProduct(businessId) {
-  const connection = must(await admin.from("connections").insert({ business_id: businessId, provider_type: "woocommerce", status: "connected", consent_state: "granted" }).select("id").single(), "seed connection");
+  const connection = must(await admin.from("connections").insert({ business_id: businessId, provider_type: "woocommerce", status: "pending", consent_state: "pending" }).select("id").single(), "seed connection");
   const store = must(await admin.from("commerce_stores").insert({ business_id: businessId, connection_id: connection.id, provider: "woocommerce", canonical_base_url: "https://e2e-a.example.test/", sync_state: "complete", last_successful_at: new Date().toISOString() }).select("id").single(), "seed store");
   const generation = must(await admin.from("commerce_sync_generations").insert({ store_id: store.id, state: "complete", completed_at: new Date().toISOString() }).select("id").single(), "seed generation");
   must(await admin.from("commerce_stores").update({ current_generation: generation.id }).eq("id", store.id), "link current generation");
