@@ -247,11 +247,19 @@ Sol instructions-5 partial result: 37/38 completed; not acceptable as Slice B ev
 Intent flat-taxonomy architecture: REVIEW COMPLETE — hierarchical provider
 contract selected for offline implementation
 
-Hierarchical intent provider contract: NON-LIVE READY — interpretation-7 /
+Hierarchical intent provider contract: STRUCTURAL PASS — interpretation-7 /
 instructions-6; normalizes to the unchanged legacy intent_class
 
-Current next task: obtain fresh owner authorization for Sol-medium
-interpretation-7/instructions-6 revalidation. No fresh paid run is authorized.
+Final hierarchical Sol medium live result: QUALITY_FAIL — 38/38 completed;
+17/38 intent correct (44.74%); INTENT_CLASSIFIER_EXPERIMENT_LOOP_CLOSED
+
+Slice B: NOT ACCEPTED — final intent architecture experiment complete
+
+Next governed task: PRODUCT_GOVERNANCE_REVIEW — determine whether exact
+intent_class accuracy remains a V1 blocking signal given downstream Product
+importance
+
+Fresh paid revalidation: NOT AUTHORIZED; do not rerun the final experiment.
 
 No customer-facing Product capability currently meets the full V1 Definition of Done.
 
