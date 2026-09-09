@@ -70,3 +70,11 @@ actual private destination/configuration is prepared locally; the Codex-off
 acceptance test has not been run and is not claimed as passed. No recovery
 recommendations exist yet, so the read-only preflight correctly returned an
 empty feed rather than unrelated history.
+
+Pricing is stored in the private recovery configuration and is used by both
+the runner guard and Product accounting; the parent shell does not supply it.
+The private cost basis records that $0.225724 is the sum of the three persisted
+known-success batch costs, while $0.267196 includes broader observed attempted
+usage from the interrupted run. The $0.041472 difference is not safely
+attributable to a completed persisted batch and remains preserved as unknown
+exposure.
