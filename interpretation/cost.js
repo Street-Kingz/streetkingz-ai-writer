@@ -15,11 +15,11 @@ export function calculateConfiguredCost({ inputTokens, outputTokens, pricing }) 
   return { cost_usd: Number(cost.toFixed(8)), cost_status: "calculated_from_explicit_configuration", pricing };
 }
 
-export function conservativeProviderRequestCostBound({ requestPayload, pricing, maxOutputTokens = 4000 }) {
+export function conservativeProviderRequestCostBound({ requestPayload, pricing, maxOutputTokens }) {
   if (!requestPayload || typeof requestPayload !== "object") throw new Error("REQUEST_PAYLOAD_REQUIRED");
   const conservativeInputTokenBound = Buffer.byteLength(JSON.stringify(requestPayload), "utf8");
-  const maxOutputTokenBound = Math.min(Number(maxOutputTokens), 4000);
-  if (!Number.isFinite(maxOutputTokenBound) || maxOutputTokenBound < 0) throw new Error("INVALID_OUTPUT_TOKEN_BOUND");
+  const maxOutputTokenBound = Number(maxOutputTokens ?? requestPayload.max_completion_tokens ?? 8000);
+  if (!Number.isInteger(maxOutputTokenBound) || maxOutputTokenBound < 1) throw new Error("INVALID_OUTPUT_TOKEN_BOUND");
   const cost = calculateConfiguredCost({ inputTokens: conservativeInputTokenBound, outputTokens: maxOutputTokenBound, pricing });
   return { conservative_input_token_bound: conservativeInputTokenBound, max_output_token_bound: maxOutputTokenBound, maximum_request_cost_usd: cost.cost_usd, cost_status: cost.cost_status };
 }

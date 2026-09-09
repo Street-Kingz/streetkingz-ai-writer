@@ -1,3 +1,5 @@
+import { interpretationLimits } from "../../product-kernel/interpretationLimits.js";
+
 export const DEFAULT_INTERPRETATION_MODEL = "gpt-4o-mini";
 const SOL_MODEL = "gpt-5.6-sol";
 const REASONING_EFFORTS = new Set(["none", "low", "medium", "high", "xhigh", "max"]);
@@ -27,7 +29,12 @@ export function buildOpenAIInterpretationRequest({ model, systemPrompt, userProm
   };
   if (profile.reasoning_effort) request.reasoning_effort = profile.reasoning_effort;
   else if (profile.temperature !== undefined) request.temperature = temperature;
-  if (maxOutputTokens !== undefined) request.max_completion_tokens = Math.min(Number(maxOutputTokens), 4000);
+  if (maxOutputTokens !== undefined) {
+    const configured = interpretationLimits().maxCompletionTokens;
+    const requested = Number(maxOutputTokens);
+    if (!Number.isInteger(requested) || requested < 1) throw new Error("INVALID_INTERPRETATION_OUTPUT_TOKEN_LIMIT");
+    request.max_completion_tokens = Math.min(requested, configured);
+  }
   return request;
 }
 

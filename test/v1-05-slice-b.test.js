@@ -101,7 +101,7 @@ test("OpenAI model profiles preserve mini sampling and explicitly configure Sol 
   const mini = buildOpenAIInterpretationRequest({ model: "gpt-4o-mini", systemPrompt: "s", userPrompt: "u", responseSchema: schema, maxOutputTokens: 9000 });
   assert.equal(mini.temperature, 0.1);
   assert.equal("reasoning_effort" in mini, false);
-  assert.equal(mini.max_completion_tokens, 4000);
+  assert.equal(mini.max_completion_tokens, 8000);
   const sol = buildOpenAIInterpretationRequest({ model: "gpt-5.6-sol", reasoningEffort: "medium", systemPrompt: "s", userPrompt: "u", responseSchema: schema, maxOutputTokens: 4000 });
   assert.equal(sol.model, "gpt-5.6-sol");
   assert.equal(sol.reasoning_effort, "medium");

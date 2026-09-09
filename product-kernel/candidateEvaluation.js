@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { canonicalJson } from "./decisionDiscovery.js";
+import { interpretationLimits } from "./interpretationLimits.js";
 
 export const SLICE_B_EVALUATION_VERSION = "v1-05-slice-b-6";
 export const FILTER_VERSION = "v1-05-filter-3";
@@ -9,9 +10,9 @@ export const MAX_INTERPRETIVE_CANDIDATES = 50;
 export const MAX_BATCH_SIZE = 10;
 export const MAX_PLANNED_CALLS = 5;
 export const MAX_TOTAL_ATTEMPTS = 6;
-export const MAX_CALL_OUTPUT_TOKENS = 4000;
-export const MAX_OUTPUT_TOKENS = 20_000;
-export const MAX_DEADLINE_MS = 180_000;
+export const MAX_CALL_OUTPUT_TOKENS = interpretationLimits().maxCompletionTokens;
+export const MAX_OUTPUT_TOKENS = interpretationLimits().maxOutputTokens;
+export const MAX_DEADLINE_MS = interpretationLimits().deadlineMs;
 
 const intents = new Set(["product_selection", "category_selection", "comparison_selection", "informational", "mixed_intent", "brand_navigation", "navigation_discovery", "broad_information", "uncertain", "uncertain_selection"]);
 const dispositions = new Set(["retain", "retain_uncertain", "reject_mismatch", "reject_wrong_page_type", "reject_overlap_redundant"]);
