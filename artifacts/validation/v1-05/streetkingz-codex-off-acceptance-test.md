@@ -65,6 +65,8 @@ actual request attempts, known cost, and reserved unknown exposure. The Product
 route remains development-only: no publishing, site writes, autonomous paid
 execution, or production acceptance is enabled.
 
-The repository change proves runner plumbing only. The actual private
-destination/configuration was not available in this workspace, so the
-Codex-off acceptance test has not been run and is not claimed as passed.
+The repository change proves runner plumbing and the zero-call preflight. The
+actual private destination/configuration is prepared locally; the Codex-off
+acceptance test has not been run and is not claimed as passed. No recovery
+recommendations exist yet, so the read-only preflight correctly returned an
+empty feed rather than unrelated history.
