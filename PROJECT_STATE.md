@@ -305,10 +305,13 @@ The isolated from-zero database proof is synthetic only; actual-evidence
 destination preparation and the linked two-request recovery remain
 NOT EXECUTED. See `artifacts/validation/v1-05/streetkingz-product-run-repair.md`.
 
-Codex-off recovery acceptance test: PREPARED / NOT EXECUTED — the thin runner
-is locked to the real authenticated Product workflow, batches 4 and 5 only,
-two additional requests, no automatic retries, and the cumulative US$5 bound.
-Its private manifest/result remain outside Git. See
+Codex-off recovery acceptance test: HANDOVER CORRECTED / NOT EXECUTED — the
+runner is private-config-only, verifies destination separation and evidence,
+candidate and batch hashes, uses auth.getUser(token), requires completed
+evaluation, and enforces the two-request/cumulative US$5 bound before
+dispatch. Its private manifest/result remain outside Git. The actual private
+destination/configuration was unavailable here, so no paid recovery was run.
+See
 `artifacts/validation/v1-05/streetkingz-codex-off-acceptance-test.md`.
 
 Fresh paid revalidation: historical evidence only; no new provider calls are

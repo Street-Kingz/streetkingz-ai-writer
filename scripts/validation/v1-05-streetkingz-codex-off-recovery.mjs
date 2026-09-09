@@ -1,85 +1,40 @@
 #!/usr/bin/env node
-/* Codex-off Street Kingz recovery runner. It invokes Product HTTP routes only. */
+/* Codex-off runner: Product routes only; private configuration is outside the repo. */
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
+import { pathToFileURL } from "node:url";
 import { createClient } from "@supabase/supabase-js";
+import { buildOpenAIInterpretationRequest } from "../../interpretation/providers/openai.js";
+import { buildInterpretationSystemPrompt, buildInterpretationRequest, buildBatchIdentity, evaluationHash, INTERPRETATION_RESPONSE_SCHEMA } from "../../product-kernel/candidateEvaluation.js";
+import { loadDiscoveryEvidence } from "../../product-kernel/decisionEvidenceAdapter.js";
+import { conservativeProviderRequestCostBound, configuredModelPricing } from "../../interpretation/cost.js";
 
+export const DEFAULT_CONFIG = path.join(os.homedir(), ".config/streetkingz/v1-05-recovery.json");
 const mode = process.argv.includes("--read") ? "read" : process.argv.includes("--prepare") ? "prepare" : "run";
-const manifestPath = process.env.V105_RECOVERY_MANIFEST || path.resolve("artifacts/validation/v1-05/private/streetkingz-recovery-manifest.json");
-const resultPath = process.env.V105_RECOVERY_RESULT || path.resolve("artifacts/validation/v1-05/private/streetkingz-recovery-result.json");
-const required = (name) => { const value = process.env[name]; if (!value) throw new Error(`${name}_REQUIRED`); return value; };
-const safeJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
-const writePrivate = (file, value) => { fs.mkdirSync(path.dirname(file), { recursive: true, mode: 0o700 }); fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, { encoding: "utf8", mode: 0o600 }); };
-const assertLocal = (url) => { const parsed = new URL(url); if (!((parsed.hostname === "127.0.0.1" || parsed.hostname === "localhost") && parsed.protocol === "http:")) throw new Error("RECOVERY_DESTINATION_MUST_BE_LOCAL_HTTP"); };
+const configPath = process.env.V105_RECOVERY_CONFIG || DEFAULT_CONFIG;
+const readJson = file => JSON.parse(fs.readFileSync(file, "utf8"));
+const writePrivate = (file, value) => { fs.mkdirSync(path.dirname(file), { recursive: true, mode: 0o700 }); const tmp = `${file}.${process.pid}.tmp`; fs.writeFileSync(tmp, `${JSON.stringify(value, null, 2)}\n`, { mode: 0o600 }); fs.renameSync(tmp, file); };
 const one = async (query, label) => { const result = await query; if (result.error) throw new Error(`${label}:${result.error.code || "ERROR"}`); return result.data; };
 
-function loadManifest() {
-  if (!fs.existsSync(manifestPath)) throw new Error("RECOVERY_MANIFEST_REQUIRED");
-  const manifest = safeJson(manifestPath);
-  if (manifest.schema_version !== 1 || manifest.actual_evidence_copy !== true || manifest.original_run_state_copied !== true || manifest.model !== "gpt-5.6-sol" || manifest.reasoning_effort !== "medium" || manifest.interpretation_version !== "v1-05-interpretation-7" || manifest.instruction_version !== "v1-05-slice-b-instructions-6") throw new Error("RECOVERY_MANIFEST_INCOMPATIBLE");
-  if (manifest.allowed_batch_indexes?.join(",") !== "3,4" || manifest.max_additional_requests !== 2 || manifest.max_completion_tokens !== 4000 || manifest.deadline_ms !== 180000) throw new Error("RECOVERY_MANIFEST_BOUND_INVALID");
-  if (!Number.isFinite(Number(manifest.cumulative_upper_bound_usd)) || Number(manifest.cumulative_upper_bound_usd) > 5) throw new Error("RECOVERY_COST_RESERVATION_INVALID");
-  return manifest;
+export function loadPrivateConfig(file = configPath) {
+  if (!fs.existsSync(file)) throw new Error(`RECOVERY_PRIVATE_CONFIG_REQUIRED:${file}`);
+  const c = readJson(file); for (const key of ["destination_url", "accepted_url", "destination_publishable_key", "destination_service_role_key", "auth_email", "auth_password", "manifest_path", "result_path", "state_path"]) if (typeof c[key] !== "string" || !c[key]) throw new Error(`${key}_REQUIRED`);
+  const destination = new URL(c.destination_url); const accepted = new URL(c.accepted_url); if (destination.protocol !== "http:" || !["localhost", "127.0.0.1"].includes(destination.hostname)) throw new Error("RECOVERY_DESTINATION_MUST_BE_LOCAL_HTTP"); if (destination.origin === accepted.origin) throw new Error("RECOVERY_DESTINATION_EQUALS_ACCEPTED_ENVIRONMENT");
+  return c;
 }
-
-async function destinationClients() {
-  const url = required("V105_RECOVERY_DEST_SUPABASE_URL"); assertLocal(url);
-  const publishable = required("V105_RECOVERY_DEST_PUBLISHABLE_KEY"); const service = required("V105_RECOVERY_DEST_SERVICE_ROLE_KEY");
-  const admin = createClient(url, service, { auth: { autoRefreshToken: false, persistSession: false } });
-  const caller = createClient(url, publishable, { auth: { autoRefreshToken: false, persistSession: false } });
-  return { url, admin, caller };
+export function validateManifest(m) {
+  const exact = { schema_version: 1, actual_evidence_copy: true, original_run_state_copied: true, model: "gpt-5.6-sol", reasoning_effort: "medium", interpretation_version: "v1-05-interpretation-7", instruction_version: "v1-05-slice-b-instructions-6", max_additional_requests: 2, max_completion_tokens: 4000, deadline_ms: 180000 };
+  for (const [k, v] of Object.entries(exact)) if (m?.[k] !== v) throw new Error("RECOVERY_MANIFEST_INCOMPATIBLE"); if (JSON.stringify(m.allowed_batch_indexes) !== "[3,4]") throw new Error("RECOVERY_MANIFEST_BATCH_SCOPE_INVALID");
+  for (const k of ["known_cost_usd", "reserved_unknown_cost_usd", "cumulative_upper_bound_usd"]) if (!Number.isFinite(Number(m[k])) || Number(m[k]) < 0) throw new Error("RECOVERY_COST_RESERVATION_INVALID"); if (Number(m.cumulative_upper_bound_usd) > 5 || m.original_unknown_outcome !== true || Number(m.original_request_count) !== 5) throw new Error("RECOVERY_ORIGINAL_RUN_PROVENANCE_INVALID"); return m;
 }
-
-async function verifyDestination(admin, manifest) {
-  const tables = ["businesses", "organic_decision_runs", "organic_candidate_evaluation_runs", "organic_candidate_interpretation_batches", "organic_candidate_evaluations", "organic_recommendations"];
-  for (const table of tables) await one(admin.from(table).select("*", { count: "exact", head: true }), `destination_${table}`);
-  const batches = await one(admin.from("organic_candidate_interpretation_batches").select("batch_index,state,outcome_state,request_attempts,input_hash").eq("evaluation_run_id", manifest.evaluation_run_id).order("batch_index"), "recovery_batches");
-  if (batches.length !== 5) throw new Error("RECOVERY_BATCH_SET_INVALID");
-  if (batches.some((batch) => batch.batch_index < 3 && batch.state !== "complete")) throw new Error("SUCCESSFUL_BATCH_REUSE_NOT_VERIFIED");
-  if (batches.some((batch) => [3, 4].includes(batch.batch_index) && batch.state !== "pending")) throw new Error("RECOVERY_UNFINISHED_BATCH_NOT_PENDING");
-  if (batches.some((batch) => batch.request_attempts !== 0 && [3, 4].includes(batch.batch_index))) throw new Error("RECOVERY_BATCH_ALREADY_ATTEMPTED");
-  return { table_count: tables.length, batches: batches.map(({ batch_index, state, outcome_state, request_attempts, input_hash }) => ({ batch_index, state, outcome_state, request_attempts, input_hash })) };
-}
-
-async function authenticatedToken(caller, admin, manifest) {
-  const email = required("V105_RECOVERY_EMAIL"); const password = required("V105_RECOVERY_PASSWORD");
-  const signed = await caller.auth.signInWithPassword({ email, password }); if (signed.error || !signed.data.session?.access_token) throw new Error("RECOVERY_AUTH_SIGNIN_FAILED");
-  const identity = await admin.auth.admin.getUserByEmail(email); if (identity.error || !identity.data.user?.id) throw new Error("RECOVERY_AUTH_IDENTITY_LOOKUP_FAILED");
-  const account = await admin.from("accounts").select("id").eq("auth_user_id", identity.data.user.id).maybeSingle();
-  if (account.error || !account.data) throw new Error("RECOVERY_AUTH_ACCOUNT_NOT_BOUND");
-  const business = await admin.from("businesses").select("id").eq("id", manifest.business_id).eq("account_id", account.data.id).maybeSingle();
-  if (business.error || !business.data) throw new Error("RECOVERY_DESTINATION_BUSINESS_NOT_BOUND");
-  return signed.data.session.access_token;
-}
-
-async function requestJson(base, token, pathname, method = "GET") {
-  const response = await fetch(`${base}${pathname}`, { method, headers: { authorization: `Bearer ${token}`, ...(method === "POST" ? { "content-type": "application/json" } : {}) }, body: method === "POST" ? "{}" : undefined });
-  const body = await response.json().catch(() => null); return { status: response.status, body };
-}
-
-if (mode === "read") {
-  const result = safeJson(resultPath);
-  process.stdout.write(`${JSON.stringify({ status: result.status, result: result.result, recommendation_ids: result.recommendation_ids, saved_fields: result.saved_fields, provider_calls: result.provider_calls, actual_cost_usd: result.actual_cost_usd, reserved_unknown_cost_usd: result.reserved_unknown_cost_usd }, null, 2)}\n`);
-} else {
-  const manifest = loadManifest(); const { admin, caller } = await destinationClients(); const destination = await verifyDestination(admin, manifest);
-  if (mode === "prepare") { writePrivate(resultPath, { schema_version: 1, status: "PREPARED_NOT_EXECUTED", destination, manifest_identity: { source_run_id: manifest.source_run_id, recovery_run_id: manifest.recovery_run_id, evidence_input_hash: manifest.evidence_input_hash }, provider_calls: 0 }); process.stdout.write(JSON.stringify({ status: "PREPARED_NOT_EXECUTED", provider_calls: 0, destination }, null, 2) + "\n"); }
-  else {
-    if (process.env.V105_RECOVERY_APPROVED !== "1") throw new Error("V105_RECOVERY_APPROVED_REQUIRED");
-    process.env.V105_RECOVERY_MODE = "1";
-    const { default: app } = await import("../../app.js");
-    const token = await authenticatedToken(caller, admin, manifest); const server = app.listen(0, "127.0.0.1"); await new Promise(resolve => server.once("listening", resolve)); const port = server.address().port;
-    try {
-      const evaluation = await requestJson(`http://127.0.0.1:${port}`, token, `/api/product/decision-runs/${manifest.recovery_run_id}/evaluate`, "POST");
-      if (![201, 202].includes(evaluation.status)) throw new Error(`RECOVERY_EVALUATION_HTTP_${evaluation.status}`);
-      const recommendations = await requestJson(`http://127.0.0.1:${port}`, token, `/api/product/decision-runs/${manifest.recovery_run_id}/recommendations`, "POST");
-      if (recommendations.status !== 201) throw new Error(`RECOVERY_RECOMMENDATION_HTTP_${recommendations.status}`);
-      const feed = await requestJson(`http://127.0.0.1:${port}`, token, "/api/product/recommendations");
-      const ids = (recommendations.body?.recommendations || []).map(item => item.recommendation_id);
-      const batches = await one(admin.from("organic_candidate_interpretation_batches").select("batch_index,request_attempts,state,outcome_state,input_tokens,output_tokens,estimated_cost_usd,cost_status").eq("evaluation_run_id", manifest.evaluation_run_id).order("batch_index"), "recovery_result_batches");
-      const newAttempts = batches.filter(batch => [3, 4].includes(batch.batch_index)).reduce((sum, batch) => sum + Number(batch.request_attempts || 0), 0);
-      if (newAttempts !== 2) throw new Error("RECOVERY_REQUEST_COUNT_INVALID");
-      const result = { schema_version: 1, status: "COMPLETE_DEVELOPMENT_ONLY", source_run_id: manifest.source_run_id, recovery_run_id: manifest.recovery_run_id, recommendation_ids: ids, saved_fields: { evaluation_status: evaluation.status, feed_status: feed.status, development_only: recommendations.body?.development_only === true }, provider_calls: newAttempts, actual_cost_usd: null, reserved_unknown_cost_usd: manifest.reserved_unknown_cost_usd, batches: batches.map(({ batch_index, request_attempts, state, outcome_state, input_tokens, output_tokens, estimated_cost_usd, cost_status }) => ({ batch_index, request_attempts, state, outcome_state, input_tokens, output_tokens, estimated_cost_usd, cost_status })) };
-      writePrivate(resultPath, result); process.stdout.write(JSON.stringify({ status: result.status, recommendation_ids: ids, provider_calls: 2 }, null, 2) + "\n");
-    } finally { await new Promise(resolve => server.close(resolve)); }
-  }
-}
+export function buildRecoveryRequest(args) { return buildOpenAIInterpretationRequest({ ...args, schemaName: "organic_candidate_interpretation", maxOutputTokens: 4000 }); }
+export function createRecoveryDispatchGuard({ state, manifest, pricing, writeState }) { return async payload => { if (state.dispatched_requests >= 2) throw Object.assign(new Error("GLOBAL_RECOVERY_REQUEST_BOUND"), { code: "GLOBAL_RECOVERY_REQUEST_BOUND" }); if (state.cost_status === "unknown") throw Object.assign(new Error("GLOBAL_RECOVERY_COST_UNKNOWN"), { code: "GLOBAL_RECOVERY_COST_UNKNOWN" }); const bound = conservativeProviderRequestCostBound({ requestPayload: payload, pricing, maxOutputTokens: 4000 }); const future = (state.remaining_request_bounds_usd || []).slice(1).reduce((a, b) => a + Number(b), 0); if (bound.cost_status !== "calculated_from_explicit_configuration" || !Number.isFinite(bound.maximum_request_cost_usd) || Number(state.actual_known_cost_usd || 0) + Number(manifest.known_cost_usd) + Number(manifest.reserved_unknown_cost_usd) + bound.maximum_request_cost_usd + future > 5) throw Object.assign(new Error("GLOBAL_RECOVERY_COST_BOUND"), { code: "GLOBAL_RECOVERY_COST_BOUND" }); state.dispatched_requests += 1; state.remaining_request_bounds_usd = (state.remaining_request_bounds_usd || []).slice(1); writeState(state); return bound; }; }
+async function clients(c) { return { admin: createClient(c.destination_url, c.destination_service_role_key, { auth: { autoRefreshToken: false, persistSession: false } }), caller: createClient(c.destination_url, c.destination_publishable_key, { auth: { autoRefreshToken: false, persistSession: false } }) }; }
+async function authenticate(caller, admin, c, m) { const signed = await caller.auth.signInWithPassword({ email: c.auth_email, password: c.auth_password }); if (signed.error || !signed.data.session?.access_token) throw new Error("RECOVERY_AUTH_SIGNIN_FAILED"); const checked = await caller.auth.getUser(signed.data.session.access_token); if (checked.error || checked.data.user?.email !== c.auth_email) throw new Error("RECOVERY_AUTH_GETUSER_FAILED"); const account = await one(admin.from("accounts").select("id").eq("auth_user_id", checked.data.user.id).maybeSingle(), "recovery_account"); const business = await one(admin.from("businesses").select("id").eq("id", m.business_id).eq("account_id", account?.id || "").maybeSingle(), "recovery_business"); if (!account || !business) throw new Error("RECOVERY_BUSINESS_OWNERSHIP_FAILED"); return signed.data.session.access_token; }
+async function requestJson(base, token, route, method = "GET") { const r = await fetch(`${base}${route}`, { method, headers: { authorization: `Bearer ${token}`, ...(method === "POST" ? { "content-type": "application/json" } : {}) }, body: method === "POST" ? "{}" : undefined }); return { status: r.status, body: await r.json().catch(() => null) }; }
+async function verifyDestination(admin, m) { for (const table of ["businesses", "organic_decision_runs", "organic_candidate_evaluation_runs", "organic_candidate_interpretation_batches", "organic_candidate_evaluations", "organic_recommendations"]) await one(admin.from(table).select("*", { head: true, count: "exact" }), `destination_${table}`); const run = await one(admin.from("organic_decision_runs").select("id,state,input_hash,business_id").eq("id", m.recovery_run_id).eq("business_id", m.business_id).maybeSingle(), "recovery_run"); if (!run || run.state !== "discovery_complete") throw new Error("RECOVERY_RUN_NOT_READY"); const evidence = await loadDiscoveryEvidence({ admin, businessId: m.business_id }); if (run.input_hash !== m.evidence_input_hash || evidence.inputHash !== m.evidence_input_hash) throw new Error("RECOVERY_EVIDENCE_HASH_MISMATCH"); const candidates = await one(admin.from("organic_opportunity_candidates").select("*").eq("business_id", m.business_id).eq("decision_run_id", m.recovery_run_id).order("candidate_identity"), "recovery_candidates"); for (const candidate of candidates) { const expected = m.candidate_input_hashes?.[String(candidate.candidate_id)]; const actual = evaluationHash(buildInterpretationRequest({ candidate, packet: evidence.packet }).input); if (!expected || expected !== actual) throw new Error("RECOVERY_CANDIDATE_HASH_MISMATCH"); } const batches = await one(admin.from("organic_candidate_interpretation_batches").select("batch_index,state,request_attempts,input_hash,candidate_ids").eq("evaluation_run_id", m.evaluation_run_id).order("batch_index"), "recovery_batches"); if (batches.length !== 5 || batches.some(b => b.batch_index < 3 ? b.state !== "complete" : b.state !== "pending" || b.request_attempts !== 0)) throw new Error("RECOVERY_BATCH_STATE_INVALID"); for (const batch of batches) { const selected = candidates.filter(c => (batch.candidate_ids || []).map(String).includes(String(c.candidate_id))); if (buildBatchIdentity({ candidates: selected, packet: evidence.packet }) !== batch.input_hash || batch.input_hash !== m.batch_hashes?.[String(batch.batch_index)]) throw new Error("RECOVERY_BATCH_HASH_MISMATCH"); } return { run, batches }; }
+async function main() { const c = loadPrivateConfig(); const m = validateManifest(readJson(c.manifest_path)); const { admin, caller } = await clients(c); const destination = await verifyDestination(admin, m); if (mode === "prepare") { writePrivate(c.result_path, { status: "PREPARED_NOT_EXECUTED", provider_calls: 0, destination_identity: c.destination_url, manifest_identity: { evidence_input_hash: m.evidence_input_hash, batch_hashes: m.batch_hashes } }); process.stdout.write(JSON.stringify({ status: "PREPARED_NOT_EXECUTED", provider_calls: 0 }, null, 2) + "\n"); return; } process.env.SUPABASE_URL = c.destination_url; process.env.SUPABASE_PUBLISHABLE_KEY = c.destination_publishable_key; process.env.SUPABASE_SERVICE_ROLE_KEY = c.destination_service_role_key;
+  if (mode === "read") { const { default: app } = await import("../../app.js"); const token = await authenticate(caller, admin, c, m); const server = app.listen(0, "127.0.0.1"); await new Promise(resolve => server.once("listening", resolve)); try { const base = `http://127.0.0.1:${server.address().port}`; const saved = readJson(c.result_path); const feed = await requestJson(base, token, "/api/product/recommendations"); if (feed.status !== 200) throw new Error(`RECOVERY_READ_FEED_HTTP_${feed.status}`); const details = []; for (const id of saved.recommendation_ids || []) { const detail = await requestJson(base, token, `/api/product/recommendations/${encodeURIComponent(id)}`); if (detail.status !== 200) throw new Error(`RECOVERY_READ_DETAIL_HTTP_${detail.status}`); details.push(detail.body); } process.stdout.write(JSON.stringify({ status: "READ_ONLY", provider_calls: 0, feed: feed.body, details }, null, 2) + "\n"); } finally { await new Promise(resolve => server.close(resolve)); } return; }
+  if (process.env.V105_RECOVERY_APPROVED !== "1") throw new Error("V105_RECOVERY_APPROVED_REQUIRED"); process.env.OPENAI_API_KEY = c.openai_api_key; process.env.OPENAI_INTERPRETATION_MODEL = m.model; process.env.OPENAI_INTERPRETATION_REASONING_EFFORT = m.reasoning_effort; process.env.V105_RECOVERY_MODE = "1"; const pricing = configuredModelPricing(process.env, m.model); if (!pricing) throw new Error("RECOVERY_PRICING_REQUIRED"); const state = fs.existsSync(c.state_path) ? readJson(c.state_path) : { dispatched_requests: 0, actual_known_cost_usd: 0, cost_status: "calculated_from_explicit_configuration", remaining_request_bounds_usd: m.proposed_request_bounds_usd || [] }; const guard = createRecoveryDispatchGuard({ state, manifest: m, pricing, writeState: s => writePrivate(c.state_path, s) }); const realFetch = globalThis.fetch; globalThis.fetch = async (url, init = {}) => { if (String(url) !== "https://api.openai.com/v1/chat/completions") return realFetch(url, init); await guard(JSON.parse(init.body)); return realFetch(url, init); }; const { default: app } = await import("../../app.js"); const token = await authenticate(caller, admin, c, m); const server = app.listen(0, "127.0.0.1"); await new Promise(resolve => server.once("listening", resolve)); try { const evaluation = await requestJson(`http://127.0.0.1:${server.address().port}`, token, `/api/product/decision-runs/${m.recovery_run_id}/evaluate`, "POST"); if (evaluation.status !== 201 || evaluation.body?.evaluation?.state !== "interpretation_complete") throw new Error("RECOVERY_EVALUATION_NOT_COMPLETE"); const rec = await requestJson(`http://127.0.0.1:${server.address().port}`, token, `/api/product/decision-runs/${m.recovery_run_id}/recommendations`, "POST"); if (rec.status !== 201) throw new Error(`RECOVERY_RECOMMENDATION_HTTP_${rec.status}`); const ids = (rec.body?.recommendations || []).map(x => x.recommendation_id); const saved_fields = (rec.body?.recommendations || []).map(x => ({ finding: x.why_this_matters, target: x.target, reasoning: x.customer_job, evidence_refs: x.evidence_refs, priority: x.priority, limitations: x.limitations, proposed_action: x.recommended_action })); writePrivate(c.result_path, { status: "COMPLETE_DEVELOPMENT_ONLY", provider_calls: state.dispatched_requests, actual_known_cost_usd: state.actual_known_cost_usd, cost_status: state.cost_status, recommendation_ids: ids, saved_fields }); process.stdout.write(JSON.stringify({ status: "COMPLETE_DEVELOPMENT_ONLY", recommendation_ids: ids, provider_calls: state.dispatched_requests }, null, 2) + "\n"); } finally { await new Promise(resolve => server.close(resolve)); globalThis.fetch = realFetch; } }
+if (import.meta.url === pathToFileURL(process.argv[1]).href) main().catch(e => { process.stderr.write(`${e.message}\n`); process.exitCode = 1; });

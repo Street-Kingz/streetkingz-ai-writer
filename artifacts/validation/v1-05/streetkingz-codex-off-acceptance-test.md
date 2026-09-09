@@ -8,25 +8,21 @@ recommendations, or a second interpretation model.
 
 Ben must first have an isolated local Supabase destination containing a private
 copy of the actual retained Street Kingz evidence and the linked original run
-state. It must have the repository migrations applied, including the
-recommendation table and migration 38 diagnostics. The destination must be
-loopback HTTP, separate from the accepted local environment, and must contain
-five interpretation batches: batches 0–2 complete and batches 3–4 pending with
-zero attempts. The manifest must record matching evidence/input hashes, model,
-versions, original run linkage, and a cumulative upper cost bound no greater
-than US$5.
+state. The runner now refuses repository `.env` inheritance and requires a
+private config at `~/.config/streetkingz/v1-05-recovery.json` (or
+`V105_RECOVERY_CONFIG`). That config must identify a loopback destination whose
+origin differs from the accepted environment, and contain only local secrets.
+The destination must have the repository migrations applied, including the
+recommendation table and migration 38 diagnostics. It must contain five
+interpretation batches: batches 0–2 complete and batches 3–4 pending with zero
+attempts. The manifest must record matching evidence, candidate and batch
+hashes, model/settings, original run linkage, and a cumulative upper cost bound
+no greater than US$5.
 
 The destination must also contain a provisioned development Business bound to
-the private recovery user. Set these private shell variables without printing
-them:
-
-`V105_RECOVERY_DEST_SUPABASE_URL`, `V105_RECOVERY_DEST_PUBLISHABLE_KEY`,
-`V105_RECOVERY_DEST_SERVICE_ROLE_KEY`, `V105_RECOVERY_EMAIL`,
-`V105_RECOVERY_PASSWORD`, `V105_RECOVERY_MANIFEST`.
-
-The service key and password are used only locally and are never written to the
-result. Private evidence, the manifest, and the result directory must remain
-outside Git.
+the private recovery user. The service key, OpenAI key and password are read
+only from the private config and are never written to the result. Private
+evidence, manifest, state and result files remain outside Git.
 
 ## Exact Codex-off command
 
@@ -37,11 +33,14 @@ variables above exported:
 V105_RECOVERY_APPROVED=1 npm run v1-05:streetkingz:codex-off -- --run
 ```
 
-The command performs destination checks before opening the application server,
-signs in the provisioned development user, and invokes the actual Product HTTP
-workflow. It does not run discovery, does not use the original failed session,
-and does not make automatic retries. It accepts only the incomplete fourth and
-unstarted fifth batches. A refusal or unknown result fails closed.
+The command performs destination/hash checks before opening the application
+server, binds Product environment variables to that destination, verifies the
+signed-in user with `auth.getUser(token)` and Business ownership, and invokes
+the actual Product HTTP workflow. It requires `201` plus
+`interpretation_complete`; `202` is not completion. It does not run discovery,
+does not use the original failed session, and does not make automatic retries.
+The pre-dispatch guard durably reserves each of the two allowed requests and
+fails closed on unknown cost/outcome or request/budget exhaustion.
 
 ## Read-only retrieval after restart
 
@@ -52,10 +51,11 @@ generation or provider access:
 npm run v1-05:streetkingz:codex-off -- --read
 ```
 
-Set `V105_RECOVERY_RESULT` if the private result was stored at a non-default
-location. The read output contains only saved status, recommendation IDs,
-bounded saved fields, request/cost metadata, and reserved unknown exposure. It
-does not expose raw responses or private evidence and performs no HTTP request.
+The command starts a fresh local Product instance, authenticates, and retrieves
+the saved recommendation IDs through the feed/detail routes. Generation and
+provider access are not invoked. The output contains only saved status,
+merchant fields, request/cost metadata, and reserved unknown exposure; it does
+not expose raw responses or private evidence.
 
 ## Safety and provenance
 
@@ -65,5 +65,6 @@ actual request attempts, known cost, and reserved unknown exposure. The Product
 route remains development-only: no publishing, site writes, autonomous paid
 execution, or production acceptance is enabled.
 
-This repository change proves runner plumbing only. The Codex-off acceptance
-test has not been run here and is not claimed as passed.
+The repository change proves runner plumbing only. The actual private
+destination/configuration was not available in this workspace, so the
+Codex-off acceptance test has not been run and is not claimed as passed.

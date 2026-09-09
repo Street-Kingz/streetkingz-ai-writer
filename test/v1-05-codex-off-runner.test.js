@@ -1,21 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import fs from "node:fs";
+import { loadPrivateConfig, validateManifest, createRecoveryDispatchGuard } from "../scripts/validation/v1-05-streetkingz-codex-off-recovery.mjs";
 
-test("Codex-off runner is a Product-route runner with bounded recovery markers", () => {
-  const source = fs.readFileSync("scripts/validation/v1-05-streetkingz-codex-off-recovery.mjs", "utf8");
-  assert.match(source, /\/api\/product\/decision-runs\/\$\{manifest\.recovery_run_id\}\/evaluate/);
-  assert.match(source, /\/api\/product\/decision-runs\/\$\{manifest\.recovery_run_id\}\/recommendations/);
-  assert.match(source, /allowed_batch_indexes\?\.join\(.*,.*\) !== "3,4"/);
-  assert.match(source, /max_additional_requests !== 2/);
-  assert.match(source, /deadline_ms !== 180000/);
-  assert.match(source, /RECOVERY_DESTINATION_MUST_BE_LOCAL_HTTP/);
-  assert.doesNotMatch(source, /candidate_type.*=>|if \(.*query|manual/i);
-});
+const manifest = extra => ({ schema_version: 1, actual_evidence_copy: true, original_run_state_copied: true, model: "gpt-5.6-sol", reasoning_effort: "medium", interpretation_version: "v1-05-interpretation-7", instruction_version: "v1-05-slice-b-instructions-6", allowed_batch_indexes: [3, 4], max_additional_requests: 2, max_completion_tokens: 4000, deadline_ms: 180000, known_cost_usd: 0, reserved_unknown_cost_usd: 0, cumulative_upper_bound_usd: 0, original_unknown_outcome: true, original_request_count: 5, ...extra });
+const pricing = { input_per_million_tokens_usd: 4, output_per_million_tokens_usd: 20 };
 
-test("Codex-off runner exposes read-only retrieval without generation", () => {
-  const source = fs.readFileSync("scripts/validation/v1-05-streetkingz-codex-off-recovery.mjs", "utf8");
-  const readBranch = source.slice(source.indexOf('if (mode === "read")'), source.indexOf('} else {', source.indexOf('if (mode === "read")')));
-  assert.doesNotMatch(readBranch, /fetch\(|app\.listen|\/evaluate|\/recommendations/);
-  assert.match(readBranch, /saved_fields/);
-});
+test("private config is required and never loaded from .env", () => { assert.throws(() => loadPrivateConfig("/definitely/not/a/private/config.json"), /RECOVERY_PRIVATE_CONFIG_REQUIRED/); });
+test("manifest binds the exact recovery model, settings and two-batch scope", () => { assert.equal(validateManifest(manifest()).max_additional_requests, 2); assert.throws(() => validateManifest(manifest({ model: "other" })), /INCOMPATIBLE/); assert.throws(() => validateManifest(manifest({ reserved_unknown_cost_usd: -1 })), /COST_RESERVATION/); });
+test("recovery guard reserves before dispatch and blocks budget exhaustion", async () => { const state = { dispatched_requests: 0, actual_known_cost_usd: 0, cost_status: "calculated_from_explicit_configuration", remaining_request_bounds_usd: [0, 0] }; const writes = []; const guard = createRecoveryDispatchGuard({ state, manifest: manifest({ known_cost_usd: 4.99, reserved_unknown_cost_usd: 0 }), pricing, writeState: s => writes.push({ ...s }) }); await assert.rejects(() => guard({ model: "gpt-5.6-sol", messages: [{ role: "user", content: "x" }], response_format: {} }), /GLOBAL_RECOVERY_COST_BOUND/); assert.equal(state.dispatched_requests, 0); assert.equal(writes.length, 0); });
+test("recovery guard durably consumes two requests and rejects request three", async () => { const state = { dispatched_requests: 0, actual_known_cost_usd: 0, cost_status: "calculated_from_explicit_configuration", remaining_request_bounds_usd: [0, 0] }; const writes = []; const guard = createRecoveryDispatchGuard({ state, manifest: manifest(), pricing, writeState: s => writes.push({ ...s }) }); await guard({ model: "gpt-5.6-sol", messages: [], response_format: {} }); await guard({ model: "gpt-5.6-sol", messages: [], response_format: {} }); await assert.rejects(() => guard({ model: "gpt-5.6-sol", messages: [], response_format: {} }), /GLOBAL_RECOVERY_REQUEST_BOUND/); assert.equal(state.dispatched_requests, 2); assert.equal(writes.length, 2); });
+test("unknown outcome fails closed", async () => { const state = { dispatched_requests: 0, actual_known_cost_usd: 0, cost_status: "unknown", remaining_request_bounds_usd: [] }; const guard = createRecoveryDispatchGuard({ state, manifest: manifest(), pricing, writeState: () => {} }); await assert.rejects(() => guard({ model: "gpt-5.6-sol", messages: [], response_format: {} }), /GLOBAL_RECOVERY_COST_UNKNOWN/); });
