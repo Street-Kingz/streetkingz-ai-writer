@@ -43,7 +43,8 @@
     "cms:validate-authoritative-endpoint": "node --env-file=.env scripts/validateWordPressAuthoritativeEndpoint.js"
     ,"security:secrets": "node scripts/security/scan-secrets.mjs",
     "harness:v1-05:slice-b": "node --env-file=.env scripts/v1-05-slice-b-live-evaluation.js",
-    "demo:v1-05:slice-c": "node scripts/demo-v1-05-slice-c.js"
+    "demo:v1-05:slice-c": "node scripts/demo-v1-05-slice-c.js",
+    "v1-05:streetkingz:codex-off": "node --env-file=.env scripts/validation/v1-05-streetkingz-codex-off-recovery.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
