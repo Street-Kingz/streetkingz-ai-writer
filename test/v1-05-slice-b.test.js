@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, normalizeHierarchicalIntent, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, INTENT_CLASS_DEFINITIONS, INTENT_HIERARCHY, buildInterpretationSystemPrompt, INSTRUCTION_VERSION } from "../product-kernel/candidateEvaluation.js";
+import { deterministicFilter, selectInterpretiveCandidates, buildInterpretationPacket, buildInterpretationRequest, normalizeInterpretationOutput, normalizeHierarchicalIntent, INTERPRETATION_RESPONSE_SCHEMA, validateInterpretation, evaluateCandidates, groupOverlap, prepareDeterministicCohort, resolveEvidenceRef, refinePostInterpretationOverlap, buildBatchIdentity, persistedEvaluationToProviderOutput, MAX_BATCH_SIZE, MAX_PLANNED_CALLS, MAX_TOTAL_ATTEMPTS, MAX_OUTPUT_TOKENS, INTENT_CLASS_DEFINITIONS, INTENT_HIERARCHY, buildInterpretationSystemPrompt, INSTRUCTION_VERSION } from "../product-kernel/candidateEvaluation.js";
 import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 import { buildOpenAIInterpretationRequest, createOpenAIInterpretationProvider, interpretationModelProfile } from "../interpretation/providers/openai.js";
 import { conservativeProviderRequestCostBound, configuredModelPricing, assertAcceptanceCostWithinCap } from "../interpretation/cost.js";
@@ -228,6 +228,20 @@ test("completed durable batch is reused without another provider call", async ()
   const output = { candidate_id: "cached", customer_job: "job", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution: { state: "established", resources: ["page:cached"] }, page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] };
   const result = await evaluateCandidates({ candidates: [item], packet: { business: { market: "GB", language: "en" } }, interpretationProvider: { async generate() { providerCalls++; throw new Error("must not call provider"); } }, resolveBatch: async () => ({ reused: true, response: { provider: "test", model: "test", output: [output], usage: {} } }), onBatchComplete: async () => { completionCalls++; } });
   assert.equal(providerCalls, 0); assert.equal(completionCalls, 0); assert.equal(result.rows[0].interpretive_disposition, "retain");
+});
+
+test("persisted flat evaluation rows are reconstructed and revalidated", () => {
+  const item = candidate("cached", { target_resources: ["page:cached"] });
+  const row = persistedEvaluationToProviderOutput({ candidate_id: "cached", customer_job: "choose", intent_class: "product_selection", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:cached"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", interpretive_reason_codes: ["target_supported"], limitations: [] });
+  assert.equal(validateInterpretation(normalizeInterpretationOutput(row), item).intent_class, "product_selection");
+  assert.throws(() => persistedEvaluationToProviderOutput({ candidate_id: "cached", intent_class: "not-a-real-intent" }), /CACHED_EVALUATION_INCOMPATIBLE/);
+});
+
+test("an already expired evaluation deadline prevents provider dispatch", async () => {
+  let providerCalls = 0;
+  const controller = new AbortController(); controller.abort();
+  await assert.rejects(() => evaluateCandidates({ candidates: [candidate("expired")], packet: { business: { market: "GB", language: "en" } }, signal: controller.signal, interpretationProvider: { async generate() { providerCalls++; } } }), /INTERPRETATION_DEADLINE_EXPIRED/);
+  assert.equal(providerCalls, 0);
 });
 
 test("Slice B retries one failed batch and never exceeds the attempt bound", async () => {

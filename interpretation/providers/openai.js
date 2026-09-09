@@ -45,7 +45,8 @@ export function createOpenAIInterpretationProvider({ env = process.env, fetchImp
     requestPayload({ systemPrompt, userPrompt, responseSchema, schemaName, temperature = 0.1, maxOutputTokens }) { return buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, temperature, reasoningEffort: profile.reasoning_effort, maxOutputTokens }); },
     async generate({ systemPrompt, userPrompt, responseSchema, schemaName, maxOutputTokens, signal }) {
       const requestBody = buildOpenAIInterpretationRequest({ model, systemPrompt, userPrompt, responseSchema, schemaName, reasoningEffort: profile.reasoning_effort, maxOutputTokens });
-      let response; try { response = await fetchImpl("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` }, body: JSON.stringify(requestBody), signal }); } catch (error) { const unknown = new Error("PROVIDER_OUTCOME_UNKNOWN"); unknown.code = "PROVIDER_OUTCOME_UNKNOWN"; unknown.provider = "openai"; throw unknown; }
+      if (signal?.aborted) { const error = new Error("PROVIDER_DEADLINE_EXPIRED"); error.code = error.message; error.provider = "openai"; throw error; }
+      let response; try { response = await fetchImpl("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` }, body: JSON.stringify(requestBody), signal }); } catch (error) { const code = signal?.aborted ? "PROVIDER_DEADLINE_EXPIRED" : "PROVIDER_OUTCOME_UNKNOWN"; const classified = new Error(code); classified.code = code; classified.provider = "openai"; throw classified; }
       const rawHttpBody = await response.text();
       let envelope;
       try { envelope = JSON.parse(rawHttpBody); } catch { envelope = null; }

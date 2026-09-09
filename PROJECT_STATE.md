@@ -293,16 +293,26 @@ disposable validation passed for the exercised scenario. No normal accepted
 Supabase reset was performed. Remaining limitations are recorded in the owner
 report and the V1-05 Street Kingz evidence brief.
 
-Next governed task: complete a read-only Street Kingz organic-growth
-opportunity review from retained real evidence; no further intent-classifier
-experiment is authorized.
+Next governed task: repair and, only after preparing an isolated private actual
+evidence destination, complete the bounded Street Kingz Product recovery. The
+original interrupted run remains preserved and is not accepted as a complete
+recommendation result; no further intent-classifier experiment is authorized.
+
+Street Kingz Product run repair: OFFLINE FIXES PASS — cached evaluation rows
+now follow the provider-shaped normalization/validation path, aborted deadlines
+fail closed before dispatch, and migration 38 records safe failure diagnostics.
+The isolated from-zero database proof is synthetic only; actual-evidence
+destination preparation and the linked two-request recovery remain
+NOT EXECUTED. See `artifacts/validation/v1-05/streetkingz-product-run-repair.md`.
 
 Fresh paid revalidation: historical evidence only; no new provider calls are
 authorized by this development slice.
 
 Production acceptance: NOT GRANTED
 
-Street Kingz live Product evaluation: NOT RUN
+Street Kingz live Product evaluation: INTERRUPTED DEVELOPMENT RUN PRESERVED;
+bounded recovery not executed because the actual isolated destination was not
+prepared safely.
 
 Next Product task: extend recommendation intelligence against real retained
 evidence only after the manual Street Kingz opportunity brief is reviewed;

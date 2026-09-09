@@ -174,6 +174,33 @@ export function normalizeHierarchicalIntent(intent) {
   return intentClass;
 }
 
+const legacyIntentToHierarchy = Object.freeze({
+  product_selection: { family: "selection", subtype: "product" },
+  category_selection: { family: "selection", subtype: "category" },
+  comparison_selection: { family: "selection", subtype: "comparison" },
+  uncertain_selection: { family: "selection", subtype: "uncertain" },
+  informational: { family: "information", scope: "bounded" },
+  broad_information: { family: "information", scope: "broad" },
+  brand_navigation: { family: "navigation", destination: "brand" },
+  navigation_discovery: { family: "navigation", destination: "discovery" },
+  mixed_intent: { family: "mixed" },
+  uncertain: { family: "uncertain" }
+});
+
+export function persistedEvaluationToProviderOutput(row) {
+  const intent = legacyIntentToHierarchy[row?.intent_class];
+  if (!intent || !row?.candidate_id) { const error = new Error("CACHED_EVALUATION_INCOMPATIBLE"); error.code = error.message; throw error; }
+  return {
+    candidate_id: String(row.candidate_id), customer_job: row.customer_job || "",
+    intent, intent_confidence: row.intent_confidence || "unknown",
+    relevance_state: row.relevance_state || "uncertain",
+    target_attribution: { state: row.target_attribution_state, resources: row.attributed_target_resources || [] },
+    page_type_fit: row.page_type_fit || "unknown", new_asset_fit: row.new_asset_fit || "not_applicable",
+    interpretive_disposition: row.interpretive_disposition,
+    reason_codes: row.interpretive_reason_codes || [], limitations: row.limitations || []
+  };
+}
+
 export function normalizeInterpretationOutput(output) {
   if (!output || typeof output !== "object" || !output.target_attribution || typeof output.target_attribution !== "object" || Array.isArray(output.target_attribution)) {
     const error = new Error("INVALID_INTERPRETATION_OUTPUT"); error.code = "INVALID_INTERPRETATION_OUTPUT"; throw error;
@@ -201,13 +228,14 @@ export async function evaluateCandidates({ candidates, packet, interpretationPro
   let attempts = 0, plannedCalls = 0, retryUsed = false, inputTokens = 0, outputTokens = 0, model = null, provider = null; const timeout = AbortSignal.timeout ? AbortSignal.timeout(MAX_DEADLINE_MS) : null; const combined = signal && timeout ? AbortSignal.any([signal, timeout]) : signal || timeout;
   for (let offset = 0; offset < bounded.selected.length; offset += MAX_BATCH_SIZE) { const batchIndex = Math.floor(offset / MAX_BATCH_SIZE); const batch = bounded.selected.slice(offset, offset + MAX_BATCH_SIZE); if (++plannedCalls > MAX_PLANNED_CALLS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); const request = { candidates: batch.map(candidate => buildInterpretationRequest({ candidate, packet }).input) }; let done = false;
     while (!done) { let responseMetadata = null; if (++attempts > MAX_TOTAL_ATTEMPTS) throw new Error("INTERPRETATION_CALL_BOUND_EXCEEDED"); try {
+      if (combined?.aborted) { const error = new Error("INTERPRETATION_DEADLINE_EXPIRED"); error.code = error.message; throw error; }
       const cached = resolveBatch ? await resolveBatch({ batch, batchIndex, packet, inputHash: buildBatchIdentity({ candidates: batch, packet }) }) : null;
       if (cached?.pending) { const error = new Error("BATCH_PENDING"); error.code = "BATCH_PENDING"; throw error; }
       const response = cached?.response || await interpretationProvider.generate({ systemPrompt: buildInterpretationSystemPrompt(), userPrompt: JSON.stringify(request), responseSchema: INTERPRETATION_RESPONSE_SCHEMA, schemaName: "organic_candidate_interpretation", maxOutputTokens: MAX_CALL_OUTPUT_TOKENS, signal: combined });
       responseMetadata = response; provider = response.provider || provider; model = response.model || model; if (!cached?.reused) { inputTokens += Number(response.usage?.prompt_tokens || response.usage?.input_tokens || 0); outputTokens += Number(response.usage?.completion_tokens || response.usage?.output_tokens || 0); } if (outputTokens > MAX_OUTPUT_TOKENS) throw new Error("INTERPRETATION_OUTPUT_TOKEN_BOUND_EXCEEDED"); const outputs = Array.isArray(response.output) ? response.output : JSON.parse(response.rawText || "{}").results; if (!Array.isArray(outputs) || outputs.length !== batch.length) throw new Error("INVALID_INTERPRETATION_BATCH"); const expected = new Set(batch.map(c => String(c.candidate_id))); const actual = outputs.map(o => String(o?.candidate_id)); if (new Set(actual).size !== actual.length || actual.some(id => !expected.has(id)) || actual.length !== expected.size) throw new Error("INVALID_INTERPRETATION_CANDIDATE_SET");
       const validated = outputs.map(output => { const normalized = normalizeInterpretationOutput(output); const candidate = batch.find(c => String(c.candidate_id) === String(normalized.candidate_id)); const valid = validateInterpretation(normalized, candidate, packet); const row = { ...valid, deterministic_disposition: "pass", deterministic_reason_codes: [], overlap_group_id: overlap.get(candidate.candidate_id) || null, interpretation_state: "complete", interpretive_reason_codes: valid.reason_codes }; results.set(candidate.candidate_id, row); return row; });
       if (onBatchComplete && !cached?.reused) await onBatchComplete({ batch, batchIndex, inputHash: buildBatchIdentity({ candidates: batch, packet }), response, rows: validated }); done = true;
-    } catch (error) { if (onBatchFailure) await onBatchFailure({ batch, batchIndex, error, provider: provider || responseMetadata?.provider || null, model: model || responseMetadata?.model || null, response: responseMetadata }); const retryable = !retryUsed && (!error.code ? /transport|transient|network|timeout/i.test(error.message || "") : ["ETIMEDOUT", "ECONNRESET", "PROVIDER_TRANSIENT"].includes(error.code)) || (!retryUsed && ["INVALID_INTERPRETATION_BATCH", "INVALID_INTERPRETATION_CANDIDATE_SET", "INVALID_INTERPRETATION_OUTPUT", "INVALID_TARGET_INVARIANT", "INVALID_PAGE_TYPE_INVARIANT", "INVALID_RELEVANCE_INVARIANT"].includes(error.message)); if (!retryable) throw error; if (onRetry && !(await onRetry({ batchIndex, error }))) throw error; retryUsed = true; } }
+    } catch (error) { if (onBatchFailure) await onBatchFailure({ batch, batchIndex, error, provider: provider || responseMetadata?.provider || null, model: model || responseMetadata?.model || null, response: responseMetadata }); const retryable = !combined?.aborted && !["INTERPRETATION_DEADLINE_EXPIRED", "PROVIDER_DEADLINE_EXPIRED", "PROVIDER_OUTCOME_UNKNOWN"].includes(error.code) && !retryUsed && (!error.code ? /transport|transient|network|timeout/i.test(error.message || "") : ["ETIMEDOUT", "ECONNRESET", "PROVIDER_TRANSIENT"].includes(error.code)) || (!combined?.aborted && !["INTERPRETATION_DEADLINE_EXPIRED", "PROVIDER_DEADLINE_EXPIRED", "PROVIDER_OUTCOME_UNKNOWN"].includes(error.code) && !retryUsed && ["INVALID_INTERPRETATION_BATCH", "INVALID_INTERPRETATION_CANDIDATE_SET", "INVALID_INTERPRETATION_OUTPUT", "INVALID_TARGET_INVARIANT", "INVALID_PAGE_TYPE_INVARIANT", "INVALID_RELEVANCE_INVARIANT"].includes(error.message)); if (!retryable) throw error; if (onRetry && !(await onRetry({ batchIndex, error }))) throw error; retryUsed = true; } }
   }
   const finalRows = refinePostInterpretationOverlap(candidates, candidates.map(c => results.get(c.candidate_id)));
   return { rows: finalRows, discoveredCount: candidates.length, deterministicRejectedCount: rejected.length + cohort.duplicateRejections.length, postFilterCount: eligible.length, boundedOutCount: bounded.boundedOut.length, interpretedCount: bounded.selected.length, interpretiveRejectedCount: finalRows.filter(row => ["reject_mismatch", "reject_wrong_page_type", "reject_overlap_redundant"].includes(row.interpretive_disposition)).length, overlapGroupCount: new Set([...overlap.values()].filter(Boolean)).size, modelProvider: provider, modelName: model, modelRequestAttempts: attempts, plannedCalls, retryUsed, inputTokens, outputTokens, completeness: bounded.partial ? "partial" : "complete", limitations: bounded.partial ? ["interpretation_candidate_cap_hit"] : [] };
