@@ -5,6 +5,7 @@ export const RECOMMENDATION_STATUS = Object.freeze(["current", "deferred", "need
 export const INTERVENTIONS = Object.freeze(["improve_existing_product", "improve_existing_category", "improve_existing_content", "create_new_page_or_content_asset", "improve_internal_linking", "no_action", "insufficient_evidence"]);
 const priorityOrder = { high: 0, medium: 1, low: 2, reassess: 3 };
 const rejectDispositions = new Set(["reject_mismatch", "reject_wrong_page_type", "reject_overlap_redundant"]);
+const deterministicRejectStates = new Set(["reject", "rejected"]);
 
 function text(value, fallback = "") { return typeof value === "string" ? value : fallback; }
 function unique(values) { return [...new Set((values || []).filter(Boolean).map(String))]; }
@@ -17,6 +18,22 @@ function commercialSignal(candidate) {
   if (commercial.stock_status === "outofstock" || commercial.stock_status === "out_of_stock") return { state: "adverse", reasons: ["stock_constraint_limits_immediate_action"], applied_dimensions: ["sequencing", "explanation"] };
   if (Number.isFinite(commercial.stock_quantity) && commercial.stock_quantity > 0 && Number(commercial.sales_90d || 0) > 0) return { state: "supportive", reasons: ["reliable_stock_and_sales_context_supports_priority"], applied_dimensions: ["priority", "explanation"] };
   return { state: "neutral", reasons: ["reliable_commercial_context_does_not_change_organic_target"], applied_dimensions: ["explanation"] };
+}
+
+export function qualificationEligibility(candidate) {
+  if (deterministicRejectStates.has(text(candidate.deterministic_disposition)) || candidate.candidate_status === "rejected" || rejectDispositions.has(text(candidate.interpretive_disposition))) {
+    return { state: "rejected", reasons: ["deterministic_rejection_not_actionable"] };
+  }
+  if (candidate.deterministic_disposition === "bounded_out") {
+    return { state: "unassessed", reasons: ["candidate_bounded_out_before_interpretation"] };
+  }
+  if (candidate.interpretation_state !== "complete") {
+    return { state: "unassessed", reasons: ["applicable_interpretation_not_complete"] };
+  }
+  if (candidate.interpretive_disposition !== "retain") {
+    return { state: "unassessed", reasons: ["interpretation_not_qualified_for_action"] };
+  }
+  return { state: "qualified", reasons: ["applicable_qualification_complete"] };
 }
 
 export function merchantSafetyProjection(candidate) {
@@ -57,8 +74,22 @@ export function buildRecommendationIdentity({ businessId, runId: _runId, candida
 
 export function buildRecommendationRecord(candidate, { businessId = null, runId = null } = {}) {
   if (!candidate || !candidate.candidate_identity) throw new Error("RECOMMENDATION_CANDIDATE_IDENTITY_REQUIRED");
+  const qualification = qualificationEligibility(candidate);
   const safety = merchantSafetyProjection(candidate); const commercial = commercialSignal(candidate); const priority = priorityFor(candidate, safety, commercial); const intervention = interventionFor(candidate);
   const rejected = rejectDispositions.has(candidate.interpretive_disposition);
+  if (qualification.state !== "qualified") {
+    const qualificationSafety = { state: "uncertain", reasons: qualification.reasons };
+    const qualificationRejected = qualification.state === "rejected";
+    return {
+      recommendation_id: buildRecommendationIdentity({ businessId, runId, candidate }), business_id: businessId, source_run_id: runId, source_candidate_identity: candidate.candidate_identity,
+      status: qualificationRejected ? "ignored" : "deferred", intervention: qualificationRejected ? "no_action" : "insufficient_evidence", priority_band: "reassess",
+      priority_reasons: unique([...qualification.reasons, "qualification_required_before_action"]), target_resources: unique(candidate.attributed_target_resources), customer_job: text(candidate.customer_job) || null,
+      merchant_safety_state: qualificationSafety.state, merchant_safety_reasons: qualificationSafety.reasons, commercial_signal: commercial, confidence: text(candidate.intent_confidence, "unknown"), limitations: unique(candidate.limitations), evidence_refs: candidate.evidence_refs || [],
+      why_this_matters: qualificationRejected ? "The candidate was deterministically rejected and no action is recommended." : "The opportunity is preserved for audit or reassessment, but applicable qualification is incomplete.",
+      what_to_do_next: [{ objective: qualificationRejected ? "No action" : "Complete qualification before action", actions: qualificationRejected ? ["Retain the rejection rationale for audit"] : ["Review the cited evidence and complete applicable qualification", "Reassess the opportunity after the evidence is updated"], prerequisites: ["Evidence review"], important_limitation: "No current action is authorised from this state." }],
+      recommendation_version: RECOMMENDATION_VERSION, provenance: { candidate_version: candidate.candidate_version || null, interpretation_version: candidate.interpretation_version || null, instruction_version: candidate.instruction_version || null, evidence_refs: candidate.evidence_refs || [] }
+    };
+  }
   const status = safety.state === "unsafe" ? "needs_reassessment" : safety.state === "uncertain" ? "deferred" : "current";
   const finalIntervention = rejected ? "no_action" : safety.state === "unsafe" ? "insufficient_evidence" : safety.state === "uncertain" ? "insufficient_evidence" : intervention;
   return {

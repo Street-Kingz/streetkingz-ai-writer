@@ -1,16 +1,67 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { buildRecommendationIdentity, buildRecommendationRecord, merchantSafetyProjection, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
-import { feedProjection, detailProjection, resolveTargetLabels, recommendationPersistenceRow } from "../product-kernel/recommendationRepository.js";
+import { buildRecommendationIdentity, buildRecommendationRecord, merchantSafetyProjection, qualificationEligibility, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
+import { feedProjection, detailProjection, persistRecommendationRecords, resolveTargetLabels, recommendationPersistenceRow } from "../product-kernel/recommendationRepository.js";
 
-const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", intent_confidence: "medium", evidence_maturity: "mixed", evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
+const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretation_state: "complete", deterministic_disposition: "pass", candidate_status: "interpreted", interpretive_disposition: "retain", intent_confidence: "medium", evidence_maturity: "mixed", evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
 const record = (overrides = {}) => ({ ...base, ...overrides });
 
 test("merchant safety fails closed for unsafe decisions and defers uncertainty", () => {
   for (const candidate of [record({ page_type_fit: "misaligned" }), record({ relevance_state: "irrelevant" }), record({ candidate_type: "new_page_or_content_asset", new_asset_fit: "redundant" }), record({ invented_target: true }), record({ target_attribution_state: "established", attributed_target_resources: [] })]) assert.equal(merchantSafetyProjection(candidate).state, "unsafe");
   assert.equal(merchantSafetyProjection(record({ target_attribution_state: "ambiguous" })).state, "uncertain");
   assert.equal(merchantSafetyProjection(record()).state, "safe");
+});
+
+test("qualification gate prevents bounded or incomplete candidates becoming current", () => {
+  const bounded = record({ candidate_identity: "bounded-out", deterministic_disposition: "bounded_out", candidate_status: "discovered", interpretation_state: "pending" });
+  const incomplete = record({ candidate_identity: "incomplete", interpretation_state: "pending" });
+  const rejected = record({ candidate_identity: "rejected", deterministic_disposition: "reject", candidate_status: "rejected" });
+  assert.equal(qualificationEligibility(bounded).state, "unassessed");
+  assert.equal(buildRecommendationRecord(bounded).status, "deferred");
+  assert.equal(buildRecommendationRecord(bounded).intervention, "insufficient_evidence");
+  assert.equal(buildRecommendationRecord(incomplete).status, "deferred");
+  assert.equal(buildRecommendationRecord(rejected).status, "ignored");
+  assert.equal(buildRecommendationRecord(rejected).intervention, "no_action");
+});
+
+test("qualified sparse data remains actionable without optional commercial data or an existing URL", () => {
+  const sparse = buildRecommendationRecord(record({ evidence_maturity: "sparse", commercial_context: undefined }), { businessId: "b", runId: "r" });
+  assert.equal(sparse.status, "current"); assert.equal(sparse.priority_band, "low"); assert.equal(sparse.commercial_signal.state, "unknown");
+  const newAssetCandidate = record({ candidate_identity: "new-asset", candidate_type: "new_page_or_content_asset", attributed_target_resources: [], target_attribution_state: "unresolved", new_asset_fit: "supported" });
+  const newAsset = buildRecommendationRecord(newAssetCandidate);
+  assert.equal(qualificationEligibility(newAssetCandidate).state, "qualified"); assert.equal(newAsset.merchant_safety_reasons.includes("invalid_or_missing_target_attribution"), false);
+});
+
+test("recommendation persistence applies qualification before promotion", async () => {
+  const saved = [];
+  const admin = { from(table) {
+    assert.equal(table, "organic_recommendations");
+    return {
+      select() { return this; },
+      eq() { return Promise.resolve({ data: [], error: null }); },
+      upsert(rows) { saved.push(...rows); return { select: async () => ({ data: rows, error: null }) }; }
+    };
+  } };
+  const candidates = [
+    record({ candidate_identity: "qualified-sparse", evidence_maturity: "sparse", commercial_context: undefined }),
+    record({ candidate_identity: "bounded", deterministic_disposition: "bounded_out", candidate_status: "discovered", interpretation_state: "pending" }),
+    record({ candidate_identity: "missing-evaluation", deterministic_disposition: "pass", candidate_status: "eligible", interpretation_state: "pending", interpretive_disposition: "not_applicable" }),
+    record({ candidate_identity: "deterministic-rejection", deterministic_disposition: "reject", candidate_status: "rejected" }),
+    record({ candidate_identity: "uncertain", interpretive_disposition: "retain_uncertain", intent_confidence: "low" }),
+    record({ candidate_identity: "valid-action", evidence_maturity: "rich" })
+  ];
+  await persistRecommendationRecords({ admin, businessId: "b", runId: "r", candidates });
+  const byIdentity = new Map(saved.map(row => [row.source_candidate_identity, row]));
+  assert.equal(byIdentity.get("qualified-sparse").status, "current");
+  assert.equal(byIdentity.get("qualified-sparse").intervention, "improve_existing_product");
+  assert.equal(byIdentity.get("bounded").status, "deferred");
+  assert.equal(byIdentity.get("bounded").intervention, "insufficient_evidence");
+  assert.equal(byIdentity.get("missing-evaluation").status, "deferred");
+  assert.equal(byIdentity.get("deterministic-rejection").status, "ignored");
+  assert.equal(byIdentity.get("deterministic-rejection").intervention, "no_action");
+  assert.equal(byIdentity.get("uncertain").status, "deferred");
+  assert.equal(byIdentity.get("valid-action").status, "current");
 });
 
 test("interventions, outcomes and ranking do not depend on intent_class", () => {
