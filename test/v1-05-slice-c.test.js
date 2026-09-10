@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { buildRecommendationIdentity, buildRecommendationRecord, merchantSafetyProjection, qualificationEligibility, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
 import { feedProjection, detailProjection, persistRecommendationRecords, resolveTargetLabels, recommendationPersistenceRow } from "../product-kernel/recommendationRepository.js";
+import { mergeSelectedRecommendationInputs } from "../routes/recommendations.js";
 
 const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretation_state: "complete", deterministic_disposition: "pass", candidate_status: "interpreted", interpretive_disposition: "retain", intent_confidence: "medium", evidence_maturity: "mixed", evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
 const record = (overrides = {}) => ({ ...base, ...overrides });
@@ -21,8 +22,12 @@ test("qualification gate prevents bounded or incomplete candidates becoming curr
   assert.equal(buildRecommendationRecord(bounded).status, "deferred");
   assert.equal(buildRecommendationRecord(bounded).intervention, "insufficient_evidence");
   assert.equal(buildRecommendationRecord(incomplete).status, "deferred");
-  assert.equal(buildRecommendationRecord(rejected).status, "ignored");
+  assert.equal(buildRecommendationRecord(rejected).status, "deferred");
   assert.equal(buildRecommendationRecord(rejected).intervention, "no_action");
+  const completedUncertainty = buildRecommendationRecord(record({ candidate_identity: "completed-uncertain", interpretive_disposition: "retain_uncertain", intent_confidence: "low" }));
+  assert.equal(completedUncertainty.status, "deferred");
+  assert.match(completedUncertainty.why_this_matters, /assessed/i);
+  assert.doesNotMatch(completedUncertainty.why_this_matters, /incomplete/i);
 });
 
 test("qualified sparse data remains actionable without optional commercial data or an existing URL", () => {
@@ -58,10 +63,31 @@ test("recommendation persistence applies qualification before promotion", async 
   assert.equal(byIdentity.get("bounded").status, "deferred");
   assert.equal(byIdentity.get("bounded").intervention, "insufficient_evidence");
   assert.equal(byIdentity.get("missing-evaluation").status, "deferred");
-  assert.equal(byIdentity.get("deterministic-rejection").status, "ignored");
+  assert.equal(byIdentity.get("deterministic-rejection").status, "deferred");
   assert.equal(byIdentity.get("deterministic-rejection").intervention, "no_action");
   assert.equal(byIdentity.get("uncertain").status, "deferred");
   assert.equal(byIdentity.get("valid-action").status, "current");
+});
+
+test("recommendation route binds assessments to the selected completed evaluation", () => {
+  const candidate = { candidate_id: "c1", candidate_identity: "candidate-1", evidence_refs: ["candidate-evidence"] };
+  const selected = { candidate_id: "c1", evaluation_run_id: "selected", interpretation_state: "complete", interpretive_disposition: "retain", evidence_refs: ["selected-evidence"] };
+  const stale = { candidate_id: "c1", evaluation_run_id: "stale", interpretation_state: "complete", interpretive_disposition: "retain", customer_job: "stale assessment" };
+  const merged = mergeSelectedRecommendationInputs([candidate], [stale, selected], "selected");
+  assert.equal(merged[0].customer_job, undefined);
+  assert.deepEqual(merged[0].evidence_refs, ["selected-evidence"]);
+  assert.throws(() => mergeSelectedRecommendationInputs([candidate], [selected, { ...selected, customer_job: "conflict" }], "selected"), error => error.code === "EVALUATION_ROWS_AMBIGUOUS");
+});
+
+test("system rejection can be reassessed while a merchant terminal choice remains preserved", () => {
+  const candidate = record({ candidate_identity: "reassessable", deterministic_disposition: "reject", candidate_status: "rejected" });
+  const rejected = buildRecommendationRecord(candidate, { businessId: "b", runId: "r" });
+  assert.equal(rejected.status, "deferred");
+  const qualified = record({ candidate_identity: "reassessable" });
+  const reassessed = upsertRecommendationRecords([rejected], [qualified], { businessId: "b", runId: "r" });
+  assert.equal(reassessed[0].status, "current");
+  const userIgnored = { ...reassessed[0], status: "ignored" };
+  assert.equal(upsertRecommendationRecords([userIgnored], [qualified], { businessId: "b", runId: "r" })[0].status, "ignored");
 });
 
 test("interventions, outcomes and ranking do not depend on intent_class", () => {

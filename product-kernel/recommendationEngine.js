@@ -21,7 +21,7 @@ function commercialSignal(candidate) {
 }
 
 export function qualificationEligibility(candidate) {
-  if (deterministicRejectStates.has(text(candidate.deterministic_disposition)) || candidate.candidate_status === "rejected" || rejectDispositions.has(text(candidate.interpretive_disposition))) {
+  if (deterministicRejectStates.has(text(candidate.deterministic_disposition)) || candidate.candidate_status === "rejected") {
     return { state: "rejected", reasons: ["deterministic_rejection_not_actionable"] };
   }
   if (candidate.deterministic_disposition === "bounded_out") {
@@ -29,6 +29,12 @@ export function qualificationEligibility(candidate) {
   }
   if (candidate.interpretation_state !== "complete") {
     return { state: "unassessed", reasons: ["applicable_interpretation_not_complete"] };
+  }
+  if (rejectDispositions.has(text(candidate.interpretive_disposition))) {
+    return { state: "rejected", reasons: ["interpretive_rejection_not_actionable"] };
+  }
+  if (candidate.interpretive_disposition === "retain_uncertain") {
+    return { state: "uncertain", reasons: ["completed_interpretation_uncertain"] };
   }
   if (candidate.interpretive_disposition !== "retain") {
     return { state: "unassessed", reasons: ["interpretation_not_qualified_for_action"] };
@@ -80,13 +86,18 @@ export function buildRecommendationRecord(candidate, { businessId = null, runId 
   if (qualification.state !== "qualified") {
     const qualificationSafety = { state: "uncertain", reasons: qualification.reasons };
     const qualificationRejected = qualification.state === "rejected";
+    const completedUncertainty = qualification.state === "uncertain";
+    const explanation = qualificationRejected
+      ? qualification.reasons[0] === "interpretive_rejection_not_actionable" ? "The completed interpretation rejected this candidate, so no action is recommended." : "The candidate was deterministically rejected, so no action is recommended."
+      : completedUncertainty ? "The candidate was assessed, but the completed interpretation remains uncertain and is deferred for reassessment."
+      : "The opportunity is preserved for audit or reassessment, but applicable qualification is incomplete.";
     return {
       recommendation_id: buildRecommendationIdentity({ businessId, runId, candidate }), business_id: businessId, source_run_id: runId, source_candidate_identity: candidate.candidate_identity,
-      status: qualificationRejected ? "ignored" : "deferred", intervention: qualificationRejected ? "no_action" : "insufficient_evidence", priority_band: "reassess",
+      status: "deferred", intervention: qualificationRejected ? "no_action" : "insufficient_evidence", priority_band: "reassess",
       priority_reasons: unique([...qualification.reasons, "qualification_required_before_action"]), target_resources: unique(candidate.attributed_target_resources), customer_job: text(candidate.customer_job) || null,
       merchant_safety_state: qualificationSafety.state, merchant_safety_reasons: qualificationSafety.reasons, commercial_signal: commercial, confidence: text(candidate.intent_confidence, "unknown"), limitations: unique(candidate.limitations), evidence_refs: candidate.evidence_refs || [],
-      why_this_matters: qualificationRejected ? "The candidate was deterministically rejected and no action is recommended." : "The opportunity is preserved for audit or reassessment, but applicable qualification is incomplete.",
-      what_to_do_next: [{ objective: qualificationRejected ? "No action" : "Complete qualification before action", actions: qualificationRejected ? ["Retain the rejection rationale for audit"] : ["Review the cited evidence and complete applicable qualification", "Reassess the opportunity after the evidence is updated"], prerequisites: ["Evidence review"], important_limitation: "No current action is authorised from this state." }],
+      why_this_matters: explanation,
+      what_to_do_next: [{ objective: qualificationRejected ? "No action" : completedUncertainty ? "Reassess the uncertain interpretation before action" : "Complete qualification before action", actions: qualificationRejected ? ["Retain the rejection rationale for audit"] : completedUncertainty ? ["Review the cited evidence and completed interpretation", "Reassess the opportunity after the evidence is updated"] : ["Review the cited evidence and complete applicable qualification", "Reassess the opportunity after the evidence is updated"], prerequisites: ["Evidence review"], important_limitation: "No current action is authorised from this state." }],
       recommendation_version: RECOMMENDATION_VERSION, provenance: { candidate_version: candidate.candidate_version || null, interpretation_version: candidate.interpretation_version || null, instruction_version: candidate.instruction_version || null, evidence_refs: candidate.evidence_refs || [] }
     };
   }

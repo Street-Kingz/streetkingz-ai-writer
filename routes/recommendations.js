@@ -20,11 +20,22 @@ async function targetOptions(admin, businessId) {
   if (products.error) throw products.error; if (categories.error) throw categories.error; return { products: products.data || [], categories: categories.data || [] };
 }
 
+export function mergeSelectedRecommendationInputs(candidates, evaluations, evaluationRunId) {
+  const selected = (evaluations || []).filter(row => String(row.evaluation_run_id) === String(evaluationRunId));
+  const byCandidate = new Map();
+  for (const row of selected) {
+    const key = String(row.candidate_id);
+    if (byCandidate.has(key)) throw new ProductError("EVALUATION_ROWS_AMBIGUOUS", "The selected evaluation contains conflicting candidate assessments.", 409);
+    byCandidate.set(key, row);
+  }
+  return (candidates || []).map(candidate => ({ ...candidate, ...(byCandidate.get(String(candidate.candidate_id)) || {}), candidate_identity: candidate.candidate_identity || String(candidate.candidate_id), evidence_refs: byCandidate.get(String(candidate.candidate_id))?.evidence_refs || candidate.evidence_refs || [] }));
+}
+
 router.post("/api/product/decision-runs/:id/recommendations", handle(async (req, res) => {
   const { business, admin } = await context(req); if (!UUID.test(req.params.id)) throw new ProductError("INVALID_RUN_ID", "The decision run identifier is invalid.", 400);
   const evaluation = await admin.from("organic_candidate_evaluation_runs").select("id,state").eq("business_id", business.id).eq("decision_run_id", req.params.id).eq("state", "interpretation_complete").maybeSingle(); if (evaluation.error) throw evaluation.error; if (!evaluation.data) throw new ProductError("EVALUATION_NOT_COMPLETE", "A complete evaluated run is required.", 409);
-  const candidates = await admin.from("organic_opportunity_candidates").select("*").eq("business_id", business.id).eq("decision_run_id", req.params.id).limit(200); const evaluations = await admin.from("organic_candidate_evaluations").select("*").eq("business_id", business.id).eq("decision_run_id", req.params.id).limit(200); if (candidates.error) throw candidates.error; if (evaluations.error) throw evaluations.error;
-  const byCandidate = new Map((evaluations.data || []).map(row => [String(row.candidate_id), row])); const merged = (candidates.data || []).map(candidate => ({ ...candidate, ...(byCandidate.get(String(candidate.candidate_id)) || {}), candidate_identity: candidate.candidate_identity || String(candidate.candidate_id), evidence_refs: byCandidate.get(String(candidate.candidate_id))?.evidence_refs || candidate.evidence_refs || [] }));
+  const candidates = await admin.from("organic_opportunity_candidates").select("*").eq("business_id", business.id).eq("decision_run_id", req.params.id).limit(200); const evaluations = await admin.from("organic_candidate_evaluations").select("*").eq("business_id", business.id).eq("decision_run_id", req.params.id).eq("evaluation_run_id", evaluation.data.id).limit(200); if (candidates.error) throw candidates.error; if (evaluations.error) throw evaluations.error;
+  const merged = mergeSelectedRecommendationInputs(candidates.data, evaluations.data, evaluation.data.id);
   const result = await persistRecommendationRecords({ admin, businessId: business.id, runId: req.params.id, candidates: merged }); res.status(201).json({ recommendations: feedProjection(result.records, await targetOptions(admin, business.id)), outcomes: result.outcomes, development_only: true });
 }));
 
