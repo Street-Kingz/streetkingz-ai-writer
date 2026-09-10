@@ -246,6 +246,12 @@ test("recovery route preflight imports every dependency before claim", async () 
   assert.match(route, /resolveBatch: async \(\{ batch, batchIndex, inputHash, request \}\)/);
 });
 
+test("evaluation persistence maps provider reason codes to the database column", () => {
+  const route = fs.readFileSync("routes/decisionRuns.js", "utf8");
+  assert.match(route, /const \{ reason_codes: _providerReasonCodes, \.\.\.persisted \} = row/);
+  assert.match(route, /interpretive_reason_codes/);
+});
+
 test("persisted flat evaluation rows are reconstructed and revalidated", () => {
   const item = candidate("cached", { target_resources: ["page:cached"] });
   const row = persistedEvaluationToProviderOutput({ candidate_id: "cached", customer_job: "choose", intent_class: "product_selection", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:cached"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", interpretive_reason_codes: ["target_supported"], limitations: [] });
