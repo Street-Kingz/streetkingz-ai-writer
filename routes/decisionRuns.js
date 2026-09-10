@@ -128,7 +128,7 @@ router.post("/api/product/decision-runs/:id/evaluate", handle(async (req, res) =
     for (const batch of batches) { const batchInsert = await admin.from("organic_candidate_interpretation_batches").insert(batch); if (batchInsert.error && batchInsert.error.code !== "23505") throw batchInsert.error; }
     const provider = createOpenAIInterpretationProvider();
     const result = await evaluateCandidates({ candidates: candidates.data, packet: evidence.packet, interpretationProvider: provider,
-      resolveBatch: async ({ batch, batchIndex, inputHash }) => {
+      resolveBatch: async ({ batch, batchIndex, inputHash, request }) => {
         let found = await admin.from("organic_candidate_interpretation_batches").select("*").eq("evaluation_run_id", evalRun.id).eq("batch_index", batchIndex).eq("input_hash", inputHash).maybeSingle();
         if (found.error) throw found.error;
         if (!found.data) { const insertedBatch = await admin.from("organic_candidate_interpretation_batches").insert({ business_id: business.id, evaluation_run_id: evalRun.id, batch_index: batchIndex, candidate_ids: batch.map(c => c.candidate_id), input_hash: inputHash, state: "pending" }).select("*").single(); if (insertedBatch.error && insertedBatch.error.code !== "23505") throw insertedBatch.error; found = insertedBatch.error ? await admin.from("organic_candidate_interpretation_batches").select("*").eq("evaluation_run_id", evalRun.id).eq("batch_index", batchIndex).eq("input_hash", inputHash).single() : insertedBatch; }

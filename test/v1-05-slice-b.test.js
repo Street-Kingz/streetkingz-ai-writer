@@ -230,6 +230,14 @@ test("completed durable batch is reused without another provider call", async ()
   assert.equal(providerCalls, 0); assert.equal(completionCalls, 0); assert.equal(result.rows[0].interpretive_disposition, "retain");
 });
 
+test("evaluateCandidates hands the exact bounded request to recovery preflight before claim and provider", async () => {
+  const item = candidate("handoff"); const events = []; let preflightRequest;
+  const output = { candidate_id: "handoff", customer_job: "job", intent_class: "informational", intent_confidence: "medium", relevance_state: "relevant", target_attribution: { state: "established", resources: ["page:handoff"] }, page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", reason_codes: [], limitations: [] };
+  const provider = { async generate({ userPrompt }) { events.push("provider"); assert.deepEqual(JSON.parse(userPrompt), preflightRequest); return { provider: "test", model: "test", rawText: JSON.stringify({ results: [output] }), usage: {} }; } };
+  const result = await evaluateCandidates({ candidates: [item], packet: { business: { market: "GB", language: "en" } }, interpretationProvider: provider, resolveBatch: async ({ request }) => { events.push("preflight"); preflightRequest = request; assert.deepEqual(request, { candidates: [buildInterpretationRequest({ candidate: item, packet: { business: { market: "GB", language: "en" } } }).input] }); events.push("claim"); return null; } });
+  assert.deepEqual(events, ["preflight", "claim", "provider"]); assert.equal(result.rows[0].interpretive_disposition, "retain");
+});
+
 test("persisted flat evaluation rows are reconstructed and revalidated", () => {
   const item = candidate("cached", { target_resources: ["page:cached"] });
   const row = persistedEvaluationToProviderOutput({ candidate_id: "cached", customer_job: "choose", intent_class: "product_selection", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:cached"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", interpretive_reason_codes: ["target_supported"], limitations: [] });
