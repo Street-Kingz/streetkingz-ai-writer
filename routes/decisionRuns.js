@@ -7,7 +7,7 @@ import { ProductError, safeError } from "../product-kernel/errors.js";
 import { correlationMiddleware } from "../product-kernel/correlation.js";
 import { loadDiscoveryEvidence } from "../product-kernel/decisionEvidenceAdapter.js";
 import { DISCOVERY_VERSION, discoverCandidates, selectBoundedCandidates } from "../product-kernel/decisionDiscovery.js";
-import { SLICE_B_EVALUATION_VERSION, FILTER_VERSION, INTERPRETATION_VERSION, INSTRUCTION_VERSION, MAX_CALL_OUTPUT_TOKENS, buildInterpretationPacket, buildBatchIdentity, deterministicFilter, prepareDeterministicCohort, selectInterpretiveCandidates, evaluationHash, interpretationInputHash, evaluateCandidates, persistedEvaluationToProviderOutput } from "../product-kernel/candidateEvaluation.js";
+import { SLICE_B_EVALUATION_VERSION, FILTER_VERSION, INTERPRETATION_VERSION, INSTRUCTION_VERSION, MAX_CALL_OUTPUT_TOKENS, buildInterpretationSystemPrompt, INTERPRETATION_RESPONSE_SCHEMA, buildInterpretationPacket, buildBatchIdentity, deterministicFilter, prepareDeterministicCohort, selectInterpretiveCandidates, evaluationHash, interpretationInputHash, evaluateCandidates, persistedEvaluationToProviderOutput } from "../product-kernel/candidateEvaluation.js";
 import { createOpenAIInterpretationProvider } from "../interpretation/providers/openai.js";
 import { calculateConfiguredCost, configuredModelPricing } from "../interpretation/cost.js";
 

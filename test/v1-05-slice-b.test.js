@@ -238,6 +238,14 @@ test("evaluateCandidates hands the exact bounded request to recovery preflight b
   assert.deepEqual(events, ["preflight", "claim", "provider"]); assert.equal(result.rows[0].interpretive_disposition, "retain");
 });
 
+test("recovery route preflight imports every dependency before claim", async () => {
+  const route = fs.readFileSync("routes/decisionRuns.js", "utf8");
+  assert.match(route, /import\s+\{[^}]*buildInterpretationSystemPrompt[^}]*INTERPRETATION_RESPONSE_SCHEMA[^}]*\}\s+from\s+"\.\.\/product-kernel\/candidateEvaluation\.js"/s);
+  assert.match(route, /__V105_RECOVERY_PREFLIGHT\(provider\.requestPayload\(\{\s*systemPrompt:\s*buildInterpretationSystemPrompt\(\),\s*userPrompt:\s*JSON\.stringify\(request\),\s*responseSchema:\s*INTERPRETATION_RESPONSE_SCHEMA/s);
+  assert.ok(route.indexOf("__V105_RECOVERY_PREFLIGHT") < route.indexOf("start_candidate_interpretation_attempt"));
+  assert.match(route, /resolveBatch: async \(\{ batch, batchIndex, inputHash, request \}\)/);
+});
+
 test("persisted flat evaluation rows are reconstructed and revalidated", () => {
   const item = candidate("cached", { target_resources: ["page:cached"] });
   const row = persistedEvaluationToProviderOutput({ candidate_id: "cached", customer_job: "choose", intent_class: "product_selection", intent_confidence: "medium", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["page:cached"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretive_disposition: "retain", interpretive_reason_codes: ["target_supported"], limitations: [] });
