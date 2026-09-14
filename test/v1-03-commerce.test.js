@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { collectInitialCommerce, normalizeRefund, paginateWooCollection, FIELDS } from "../product-kernel/woocommerceCommerce.js";
+import { collectInitialCommerce, collectInitialCatalogue, normalizeRefund, paginateWooCollection, FIELDS } from "../product-kernel/woocommerceCommerce.js";
 import { wooCollectionRequest } from "../product-kernel/woocommerceEgress.js";
 
 const headers = (total, pages) => ({ "x-wp-total": String(total), "x-wp-totalpages": String(pages) });
@@ -10,6 +10,35 @@ test("V1-03 paginator proves every page and rejects incomplete pagination", asyn
   assert.deepEqual(await paginateWooCollection(provider, "products", { perPage: 1 }), [{ id: 1 }, { id: 2 }]);
   assert.deepEqual(calls.map(call => call.page), [1, 2]);
   await assert.rejects(paginateWooCollection({ collection: async () => ({ data: [{ id: 1 }], headers: headers(3, 2) }) }, "products", { perPage: 1 }), error => error.code === "PROVIDER_MALFORMED_RESPONSE");
+});
+
+test("catalogue-only collector pages products, categories, and variations without requesting orders", async () => {
+  const calls = [];
+  const products = [
+    { id: 1, name: "Genuine simple", slug: "simple", permalink: "https://shop.example/simple", type: "simple", status: "publish", price: "12.00", regular_price: "14.00", sale_price: "12.00", manage_stock: true, stock_quantity: 4, stock_status: "instock", categories: [{ id: 10 }] },
+    { id: 2, name: "Genuine variable", slug: "variable", permalink: "https://shop.example/variable", type: "variable", status: "publish", price: "20.00", regular_price: "20.00", sale_price: "", manage_stock: false, stock_quantity: null, stock_status: "instock", categories: [{ id: 11 }] }
+  ];
+  const categories = [{ id: 10, name: "Care", slug: "care", parent: 0 }, { id: 11, name: "Cloths", slug: "cloths", parent: 10 }];
+  const variations = [1, 2].map(id => ({ id: 20 + id, parent_id: 2, sku: `V-${id}`, attributes: [{ name: "Size", option: String(id) }], price: "20.00", regular_price: "20.00", sale_price: "", manage_stock: true, stock_quantity: id, stock_status: "instock", status: "publish" }));
+  const collection = async (path, { query }) => {
+    calls.push({ path, page: query.page });
+    const rows = path === "products" ? products : path === "products/categories" ? categories : path === "products/2/variations" ? variations : null;
+    if (!rows) throw new Error(`unexpected endpoint ${path}`);
+    const row = rows[query.page - 1] ? [rows[query.page - 1]] : [];
+    return { data: row, headers: headers(rows.length, rows.length) };
+  };
+  const snapshot = await collectInitialCatalogue({ collection }, { perPage: 1 });
+  assert.deepEqual(calls, [
+    { path: "products", page: 1 }, { path: "products", page: 2 },
+    { path: "products/categories", page: 1 }, { path: "products/categories", page: 2 },
+    { path: "products/2/variations", page: 1 }, { path: "products/2/variations", page: 2 }
+  ]);
+  assert.deepEqual(snapshot.products.map(row => row.source_id), [1, 2]);
+  assert.equal(snapshot.products[0].current_price, "12.00");
+  assert.equal(snapshot.products[0].stock_quantity, "4");
+  assert.deepEqual(snapshot.variations.map(row => row.parent_source_id), [2, 2]);
+  assert.deepEqual(snapshot.links, [{ product_source_id: 1, category_source_id: 10 }, { product_source_id: 2, category_source_id: 11 }]);
+  assert.equal(snapshot.categories.length, 2);
 });
 
 test("V1-03 initial commerce normalisation bounds PII, preserves decimals and refunds", async () => {

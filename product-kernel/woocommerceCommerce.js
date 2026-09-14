@@ -58,6 +58,44 @@ function normalizeVariation(row) { return { source_id: positiveInt(row.id), pare
 function normalizeCategory(row) { return { source_id: positiveInt(row.id), name: text(row.name), slug: text(row.slug), parent_source_id: row.parent === 0 ? null : positiveInt(row.parent) }; }
 function recognition(status) { return status === "processing" || status === "completed" || status === "refunded" ? "recognised" : status === "cancelled" || status === "failed" ? "excluded" : status === "pending" || status === "on-hold" ? "unknown" : "unclassified"; }
 
+function assertUniqueSourceIds(rows, label) {
+  const ids = rows.map(row => positiveInt(row.id));
+  if (ids.some(id => !id) || new Set(ids).size !== ids.length) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", `WooCommerce ${label} identifiers were invalid.`, 502);
+  return new Set(ids);
+}
+
+// Catalogue-only acquisition for input preparation. It deliberately makes no
+// Orders or Refunds requests; all collection paging still uses the strict
+// response-count checks shared with the full commerce sync.
+export async function collectInitialCatalogue(provider, { perPage = 100 } = {}) {
+  const productsRaw = await paginateWooCollection(provider, "products", { fields: FIELDS.products, perPage });
+  const categoriesRaw = await paginateWooCollection(provider, "products/categories", { fields: FIELDS.categories, perPage });
+  const productIds = assertUniqueSourceIds(productsRaw, "product");
+  const categoryIds = assertUniqueSourceIds(categoriesRaw, "category");
+  if (categoriesRaw.some(row => row.parent !== 0 && !categoryIds.has(positiveInt(row.parent)))) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce category parent was invalid.", 502);
+  const variationsRaw = [];
+  for (const product of productsRaw.filter(row => row.type === "variable")) {
+    variationsRaw.push(...await paginateWooCollection(provider, `products/${positiveInt(product.id)}/variations`, { fields: FIELDS.variations, perPage }));
+  }
+  assertUniqueSourceIds(variationsRaw, "variation");
+  const variableProductIds = new Set(productsRaw.filter(row => row.type === "variable").map(row => positiveInt(row.id)));
+  for (const variation of variationsRaw) {
+    if (!variableProductIds.has(positiveInt(variation.parent_id))) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce variation parent was invalid.", 502);
+  }
+  const links = [];
+  for (const product of productsRaw) for (const category of Array.isArray(product.categories) ? product.categories : []) {
+    const productSourceId = positiveInt(product.id), categorySourceId = positiveInt(category?.id);
+    if (!productIds.has(productSourceId) || !categoryIds.has(categorySourceId)) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce product category relationship was invalid.", 502);
+    links.push({ product_source_id: productSourceId, category_source_id: categorySourceId });
+  }
+  return {
+    products: productsRaw.map(normalizeProduct),
+    variations: variationsRaw.map(normalizeVariation),
+    categories: categoriesRaw.map(normalizeCategory),
+    links
+  };
+}
+
 export function normalizeRefund(refund, orderId) {
   const id = positiveInt(refund.id);
   if (!id) throw new ProductError("PROVIDER_MALFORMED_RESPONSE", "WooCommerce refund was invalid.", 502);
