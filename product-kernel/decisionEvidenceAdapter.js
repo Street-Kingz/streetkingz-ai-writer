@@ -61,11 +61,55 @@ async function source(admin, businessId, kind) {
 }
 async function run(admin, businessId, sourceRow, runId) {
   if (!sourceRow || !runId) return null;
-  return one(admin.from("organic_evidence_runs").select("id,state,completeness_state,retrieved_at,evidence_period_start,evidence_period_end,completed_at,error_code,source_version,provider_version").eq("business_id", businessId).eq("source_id", sourceRow.id).eq("id", runId).maybeSingle(), "evidence run");
+  return one(admin.from("organic_evidence_runs").select("id,state,completeness_state,retrieved_at,evidence_as_of,evidence_period_start,evidence_period_end,completed_at,error_code,source_version,provider_version").eq("business_id", businessId).eq("source_id", sourceRow.id).eq("id", runId).maybeSingle(), "evidence run");
 }
 async function latest(admin, businessId, sourceRow) {
   if (!sourceRow) return null;
-  return one(admin.from("organic_evidence_runs").select("id,state,completeness_state,retrieved_at,evidence_period_start,evidence_period_end,completed_at,error_code,source_version,provider_version").eq("business_id", businessId).eq("source_id", sourceRow.id).order("id", { ascending: false }).limit(1).maybeSingle(), "latest evidence run");
+  return one(admin.from("organic_evidence_runs").select("id,state,completeness_state,retrieved_at,evidence_as_of,evidence_period_start,evidence_period_end,completed_at,error_code,source_version,provider_version").eq("business_id", businessId).eq("source_id", sourceRow.id).order("id", { ascending: false }).limit(1).maybeSingle(), "latest evidence run");
+}
+
+const SITE_PAGE_COLUMNS = "id,business_id,source_id,run_id,discovered_url_id,requested_url,final_url,http_status,canonical_state,robots_allowed,meta_noindex,page_type,title,meta_description,h1,internal_links,retrieved_at,limitation,status";
+
+async function sitePages(admin, businessId, sourceRow, runRow) {
+  if (!runRow || !sourceRow) return [];
+  return one(admin.from("organic_site_inspected_pages").select(SITE_PAGE_COLUMNS).eq("business_id", businessId).eq("source_id", sourceRow.id).eq("run_id", runRow.id).order("id", { ascending: true }), "site pages");
+}
+
+function hasUsablePartialProvenance(runRow, pages, businessId, sourceRow, completeRun) {
+  if (!runRow || runRow.state !== "partial" || runRow.completeness_state !== "partial") return false;
+  if (!runRow.evidence_as_of || !runRow.retrieved_at || !runRow.completed_at || !runRow.error_code) return false;
+  if (completeRun && !idAfter(completeRun.id, runRow.id)) return false;
+  if (!Array.isArray(pages) || pages.length === 0) return false;
+  const identities = new Set();
+  let hasInspectedPage = false;
+  for (const page of pages) {
+    if (String(page.business_id) !== String(businessId) || String(page.source_id) !== String(sourceRow?.id) || String(page.run_id) !== String(runRow.id)) return false;
+    if (page.id === null || page.id === undefined || !page.requested_url || !page.retrieved_at) return false;
+    const identity = String(page.id);
+    if (identities.has(identity)) return false;
+    identities.add(identity);
+    if (page.status === "inspected") hasInspectedPage = true;
+  }
+  return hasInspectedPage;
+}
+
+async function siteCoverage(admin, businessId, sourceRow, runRow, pages) {
+  const rows = await one(admin.from("organic_site_discovered_urls").select("id,business_id,source_id,run_id,inspection_status,reason_not_inspected").eq("business_id", businessId).eq("source_id", sourceRow.id).eq("run_id", runRow.id).order("id", { ascending: true }), "site discovered URLs");
+  const statuses = {};
+  const reasons = new Set();
+  for (const row of rows) {
+    if (String(row.business_id) !== String(businessId) || String(row.source_id) !== String(sourceRow.id) || String(row.run_id) !== String(runRow.id)) throw new Error("site discovered URL provenance mismatch");
+    statuses[row.inspection_status] = (statuses[row.inspection_status] || 0) + 1;
+    if (row.reason_not_inspected) reasons.add(row.reason_not_inspected);
+  }
+  if (statuses.discovered) reasons.add("unattempted_discovered_urls_present");
+  return {
+    discovered_url_count: rows.length,
+    inspection_status_counts: statuses,
+    unattempted_count: statuses.discovered || 0,
+    selected_page_count: pages.length,
+    collection_limitations: [...reasons].sort()
+  };
 }
 
 export async function loadDiscoveryEvidence({ admin, businessId }) {
@@ -75,15 +119,32 @@ export async function loadDiscoveryEvidence({ admin, businessId }) {
     source(admin, businessId, "site"), source(admin, businessId, "search_console"), source(admin, businessId, "external_search")
   ]);
   if (!business || business.status !== "active") throw new Error("business unavailable");
-  const [siteRun, siteLatest, gscRun, externalRun, externalLatest] = await Promise.all([
+  const [siteCompleteRun, siteLatest, gscRun, externalRun, externalLatest] = await Promise.all([
     run(admin, businessId, siteSource, siteSource?.current_complete_run), latest(admin, businessId, siteSource), run(admin, businessId, gscSource, gscSource?.current_complete_run), run(admin, businessId, externalSource, externalSource?.current_complete_run), latest(admin, businessId, externalSource)
   ]);
+  let siteRun = siteCompleteRun;
+  let selectedSitePages = null;
+  let siteSelectionReason = siteCompleteRun ? "current_complete_lkg" : "no_usable_site_run";
+  let siteRunCoverage = null;
+  if (siteLatest?.state === "partial" && siteLatest.completeness_state === "partial" && siteLatest.evidence_as_of && siteLatest.retrieved_at && siteLatest.completed_at && siteLatest.error_code) {
+    const partialPages = await sitePages(admin, businessId, siteSource, siteLatest);
+    if (hasUsablePartialProvenance(siteLatest, partialPages, businessId, siteSource, siteCompleteRun)) {
+      siteRun = siteLatest;
+      selectedSitePages = partialPages;
+      siteSelectionReason = "latest_usable_partial_with_persisted_inspected_pages";
+      siteRunCoverage = await siteCoverage(admin, businessId, siteSource, siteRun, selectedSitePages);
+    }
+  }
+  if (siteRun !== siteLatest && siteLatest?.state === "partial") siteSelectionReason = siteRun ? "current_complete_lkg_latest_partial_unusable" : "no_usable_site_run_latest_partial_unusable";
+  if (siteRun !== siteLatest && siteLatest?.state === "failed") siteSelectionReason = siteRun ? "current_complete_lkg_latest_attempt_failed" : "no_usable_site_run_latest_attempt_failed";
+  if (siteRun && selectedSitePages === null) selectedSitePages = await sitePages(admin, businessId, siteSource, siteRun);
+  if (siteRun && !siteRunCoverage) siteRunCoverage = { selected_page_count: selectedSitePages.length };
   const generation = store?.current_generation ? await one(admin.from("commerce_sync_generations").select("id,state,started_at,completed_at,snapshot_kind").eq("id", store.current_generation).eq("store_id", store.id).maybeSingle(), "commerce generation") : null;
   const [products, categories, links, pages, gscRead, externalRead] = await Promise.all([
     store?.current_generation ? one(admin.from("commerce_products").select("id,name,slug,canonical_url,regular_price,current_price,sale_price,stock_quantity,stock_status").eq("business_id", businessId).eq("store_id", store.id).eq("generation_id", store.current_generation), "products") : [],
     store?.current_generation ? one(admin.from("commerce_categories").select("id,name,slug,parent_source_id").eq("business_id", businessId).eq("store_id", store.id).eq("generation_id", store.current_generation), "categories") : [],
     store?.current_generation ? one(admin.from("commerce_product_categories").select("product_id,category_id").eq("store_id", store.id).eq("generation_id", store.current_generation), "commerce links") : [],
-    siteRun ? one(admin.from("organic_site_inspected_pages").select("id,requested_url,final_url,http_status,canonical_state,robots_allowed,meta_noindex,page_type,title,meta_description,h1,internal_links,retrieved_at,limitation,status").eq("business_id", businessId).eq("run_id", siteRun.id).order("id"), "site pages") : [],
+    Promise.resolve(selectedSitePages || []),
     gscRun ? readBoundedEvidenceRows({ admin, table: "organic_search_console_observations", columns: "id,grain,query,page_url,clicks,impressions,ctr,average_position,observed_date,observed_start_date,observed_end_date,retrieved_at,evidence_as_of,completeness,provider_limitations", businessId, runId: gscRun.id, label: "GSC observations" }) : { rows: [], coverage: null },
     externalLatest ? readBoundedEvidenceRows({ admin, table: "organic_external_observations", columns: "id,observation_type,query_text,search_volume,rank_group,rank_absolute,result_url,result_domain,result_title,result_description,location_code,language_code,device,observed_at,retrieved_at,completeness,limitations,seed_id", businessId, runId: externalLatest.id, label: "external observations" }) : { rows: [], coverage: null }
   ]);
@@ -96,11 +157,11 @@ export async function loadDiscoveryEvidence({ admin, businessId }) {
     snapshot_id: null,
     business: { id: business.id, name: business.name, ecommerce_platform: business.ecommerce_platform, market: business.primary_market || null, language: business.primary_language || null },
     commerce: { state: store?.sync_state === "complete" && generation?.state === "complete" ? "available" : "unavailable", store_id: store?.id || null, generation_id: generation?.id || null, products, categories, relations: links.map(link => ({ ...link, id: String(generation?.id || store?.current_generation) + ":" + link.product_id + ":" + link.category_id, source_run_or_generation_reference: generation?.id || store?.current_generation || null })) },
-    site: { state: siteRun?.state === "complete" ? "available" : siteLatest?.state === "partial" ? "partial" : "missing", selected_run_id: siteRun?.id || null, pages: sitePageRows, limitations: siteSource?.evidence_state === "partial" ? ["latest_attempt_partial_primary_complete_or_lkg_preserved"] : [] },
+    site: { state: siteRun?.state === "complete" ? "available" : siteRun?.state === "partial" ? "partial" : "missing", selected_run_id: siteRun?.id || null, selected_source_id: siteSource?.id || null, selected_run_state: siteRun?.state || null, selected_run_completeness: siteRun?.completeness_state || null, evidence_as_of: siteRun?.evidence_as_of || null, retrieved_at: siteRun?.retrieved_at || null, completed_at: siteRun?.completed_at || null, source_version: siteRun?.source_version || null, provider_version: siteRun?.provider_version || null, error_code: siteRun?.error_code || null, latest_attempt: siteLatest ? { id: siteLatest.id, state: siteLatest.state, completeness_state: siteLatest.completeness_state, retrieved_at: siteLatest.retrieved_at, completed_at: siteLatest.completed_at, error_code: siteLatest.error_code } : null, selection_reason: siteSelectionReason, coverage: siteRunCoverage, pages: sitePageRows, limitations: [...(siteRun?.state === "partial" ? ["selected_site_run_is_partial", siteRun.error_code, ...(siteRunCoverage?.collection_limitations || [])].filter(Boolean) : []), ...(siteRun !== siteLatest && siteLatest?.state === "partial" ? ["latest_partial_attempt_not_selected"] : []), ...(siteRun !== siteLatest && siteLatest?.state === "failed" ? ["latest_attempt_failed"] : [])] },
     search_console: { state: gscRun?.state === "complete" ? "available" : "missing", selected_run_id: gscRun?.id || null, observation_coverage: gscRead.coverage, limitations: gscRead.coverage?.truncated ? ["product_evidence_record_limit_reached"] : [], rows: gscRows.map(row => ({ ...row, source_record_id: String(row.id), source_run_or_generation_reference: String(gscRun?.id || ""), page_id: row.page_url ? pageIdsByUrl.get(row.page_url) || null : null })) },
     external: { state: !providerLocaleSupported ? "unsupported_locale" : externalRun?.state === "complete" ? "available" : externalLatest?.state === "partial" ? "partial" : "missing", selected_run_id: externalRun?.id || externalLatest?.id || null, supported_locale: { market: "GB", language: "en" }, observation_coverage: externalRead.coverage, limitations: [...(!providerLocaleSupported ? ["external_locale_unsupported"] : []), ...(externalRead.coverage?.truncated ? ["product_evidence_record_limit_reached"] : [])], rows: providerLocaleSupported ? Array.from(externalRows.reduce((groups, row) => { const key = String(row.seed_id) + ":" + String(row.query_text); let group = groups.get(key); if (!group) { group = { query: row.query_text, market: "GB", language: "en", search_volume: row.search_volume, observed_at: row.observed_at, source_record_ids: [], source_run_or_generation_reference: String(externalLatest?.id || ""), serp: [] }; groups.set(key, group); } group.source_record_ids.push(String(row.id)); if (row.observation_type === "serp_organic_result") group.serp.push({ rank: row.rank_absolute || row.rank_group, url: row.result_url, domain: row.result_domain, title: row.result_title, description: row.result_description, source_record_id: String(row.id) }); return groups; }, new Map()).values()).map(group => ({ ...group, source_record_id: group.source_record_ids[0] || null })) : [] }
   };
   const sourceReferences = [store?.current_generation && { source_kind: "commerce", reference: String(store.current_generation) }, siteRun && { source_kind: "site", reference: String(siteRun.id) }, gscRun && { source_kind: "search_console", reference: String(gscRun.id) }, externalLatest && { source_kind: "external_search", reference: String(externalLatest.id) }].filter(Boolean);
-  const fingerprintInput = { business_id: business.id, commerce: { store_id: store?.id, generation_id: generation?.id }, site: { selected_run_id: siteRun?.id, latest_attempt_id: siteLatest?.id, state: packet.site.state }, search_console: { selected_run_id: gscRun?.id, state: packet.search_console.state, observation_coverage: gscRead.coverage }, external: { selected_run_id: externalRun?.id, latest_attempt_id: externalLatest?.id, state: packet.external.state, supported_locale: packet.external.supported_locale, observation_coverage: externalRead.coverage }, limitations: [...packet.site.limitations, ...(packet.search_console.limitations || []), ...(packet.external.limitations || [])] };
+  const fingerprintInput = { business_id: business.id, commerce: { store_id: store?.id, generation_id: generation?.id }, site: { selected_run_id: siteRun?.id, selected_run_state: siteRun?.state, selected_run_completeness: siteRun?.completeness_state, evidence_as_of: siteRun?.evidence_as_of, latest_attempt_id: siteLatest?.id, latest_attempt_state: siteLatest?.state, latest_attempt_error_code: siteLatest?.error_code, state: packet.site.state, selection_reason: siteSelectionReason, coverage: siteRunCoverage }, search_console: { selected_run_id: gscRun?.id, state: packet.search_console.state, observation_coverage: gscRead.coverage }, external: { selected_run_id: externalRun?.id, latest_attempt_id: externalLatest?.id, state: packet.external.state, supported_locale: packet.external.supported_locale, observation_coverage: externalRead.coverage }, limitations: [...packet.site.limitations, ...(packet.search_console.limitations || []), ...(packet.external.limitations || [])] };
   return { packet: { ...packet, snapshot_id: buildSnapshotFingerprint(fingerprintInput) }, snapshotFingerprint: buildSnapshotFingerprint(fingerprintInput), inputHash: buildInputHash(packet), sourceReferences };
 }

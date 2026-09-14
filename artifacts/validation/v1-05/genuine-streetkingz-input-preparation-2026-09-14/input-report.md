@@ -1,13 +1,65 @@
 # Genuine Street Kingz Product Input Report
 
+## V1-05 usable partial site-evidence selection — final verification
+
+**Current input state: READY TO FREEZE FOR V1-05 QUALITY VALIDATION.** This marks a trustworthy input candidate only; no V1-05 quality assessment or Product acceptance has been run.
+
+The earlier report below records the collection-time loader behavior, before this correction. Its statements that run 3 had zero Product-selected pages and that freeze readiness was “No” are retained as history; the results in this section are the current post-correction verification.
+
+### Governed selection rule
+
+Before this correction, `loadDiscoveryEvidence()` selected only the run referenced by `organic_evidence_sources.current_complete_run`. It read the latest attempt only for state/fingerprint context, so partial run 3 was ignored and complete/LKG run 1 supplied zero site pages. `organic_finish_run` changes `current_complete_run` only for complete runs. For partial or failed runs it clears `active_run` and preserves the complete pointer. Run 3 therefore correctly remained the latest partial attempt while run 1 remained the complete/LKG pointer.
+
+The Product read layer now selects the latest partial run only when it is newer than the complete/LKG pointer, its run and completeness states are both `partial`, retrieval/completion/evidence-as-of provenance and the required error code exist, and its business/source/run-scoped persisted page rows have identities, requested URLs, retrieval times and at least one successfully inspected page. Empty, failed, malformed, foreign-scoped or otherwise incoherent partial attempts do not displace complete/LKG. Page rows are taken from one run only. The selected packet reports `state=partial`, selected and latest-attempt provenance, coverage, and retained limitations. The lifecycle pointer and run 3 state were not changed or promoted.
+
+### Current normal-loader result
+
+Read-only verification used destination `streetkingz-v105-input-20260914-ad9sko` after confirming the live mapping: API `127.0.0.1:64150`, database `127.0.0.1:64151`; project identity matched the destination manifest and Supabase configuration. No destination data was written.
+
+| Item | Verified result |
+|---|---|
+| Selected site run / state / completeness | Destination run 3 / `partial` / `partial` |
+| Selected site rows | 100; 87 successfully inspected HTML, 11 non-HTML, 2 observed absent |
+| Run dates | Retrieved 2026-09-14 13:13:20.607 UTC; evidence as of 13:14:32.267 UTC; completed 13:14:33.371 UTC |
+| Discovery coverage | 113 discovered URLs; 100 inspection attempts; 13 persisted URLs remain unattempted; no fetch failures, robots blocks or deadline failure; the existing inspected-page cap was reached |
+| Site limitations in packet | `SITE_LIMITATION`, `unattempted_discovered_urls_present`; run remains partial |
+| Genuine product URLs selected | 30/30; 29 are classified `product`; the Origin Shampoo URL is selected but currently classified `unknown` |
+| Homepage | Selected and classified `homepage` |
+| Other page types | 0 category, 0 content; 69 unknown. Unknown pages remain unclassified |
+| Commerce | 30 products, 11 categories and 103 relationships remain selected; 6 variations remain persisted and 0 exposed by the loader |
+| Search Console | Run 2 (accepted source run 750), 1,125/1,125 observations selected |
+| GSC page URL mapping | 501 observations contain page URLs; 467 map to selected page IDs. Of 61 unique URLs, 51 map and 10 remain unmatched. Prior to this correction, 0 mapped and all 61 were unmatched |
+| External search evidence | Unavailable; 0 persisted/selected observations |
+| Current complete/LKG pointer | Still destination run 1, representing accepted-environment run 663; it remains complete and unchanged |
+| Input hash | `9530d347dcce2fea92f94bc9e6d1a90d54775e638b7a02510eb57ad0f4aaa6c3` |
+| Snapshot fingerprint | `93ea961fa53289e63b801b8ecb591297b6df292680ac9f9574ca79ea90048057` |
+
+Run 663 in the accepted environment and historical recovery run 764 are distinct environment-scoped records. Run 764 was not selected or substituted. The selected Search Console source remains provider-limited, retrieved 2026-09-03, for the period 2025-09-04 through 2026-09-03.
+
+### Canonical-host diagnostic
+
+The 23 run-3 rows recorded with `canonical_state=external` all resolve to host `pink-eel-708036.hostingersite.com`; none are a `www`/non-`www` variant of `streetkingz.co.uk`. This read-only host check found no canonical-boundary implementation defect to fold into this correction. Canonical classification logic was not changed. The collected external canonical values remain evidence and are not reinterpreted here.
+
+### Remaining input limits
+
+WooCommerce category records have no canonical URLs, so no category URLs were seeded or guessed; zero pages are verified as category pages. Zero pages were classified as content; 69 selected rows are `unknown`. The shampoo product URL is selected but classified `unknown`. Variations are stored but not exposed through the current Product loader. Search Console remains provider-limited, external search evidence is unavailable, and no sales, order, margin or conversion data is included. The partial site run reached the existing inspection cap and left 13 discovered URLs unattempted. Recommendation quality has not been assessed.
+
+**Freeze decision:** READY TO FREEZE FOR V1-05 QUALITY VALIDATION. This is not recommendation-quality, Product-quality or production acceptance.
+
+**Verification:** Focused site-selection and evidence-pagination tests passed (20 tests); full `npm test` passed (1,267 total, 1,246 passed, 21 skipped, 0 failed). `npm run security:secrets` reported 0 findings; `git diff --check` is clean. These checks made no AI, paid-provider, collection, or database-write calls.
+
 Prepared: 2026-09-14T13:18:19Z
 
-Status: SITE EVIDENCE COLLECTED — SELECTION BLOCKER REMAINS; NOT READY TO FREEZE
+Status: READY TO FREEZE FOR V1-05 QUALITY VALIDATION; NOT PRODUCT-QUALITY ACCEPTANCE
 
 Isolated destination: `/private/tmp/streetkingz-v105-input-20260914-ad9sko` (API port 64150; DB port 64151)
 Report path: `/Users/ben/Documents/GitHub/streetkingz-ai-writer/artifacts/validation/v1-05/genuine-streetkingz-input-preparation-2026-09-14/input-report.md`
 
-## Source and acquisition
+## Historical collection-time report (before usable partial selection was authorized)
+
+The sections below retain the acquisition-time record and the original selection blocker. They are preserved for audit history; the post-correction Product selection and current readiness are recorded above.
+
+### Source and acquisition
 
 - Source: https://streetkingz.co.uk/; verified one-product read was confirmed by Ben as `WOO_READ_ACCESS_VERIFIED`.
 - Catalogue acquired at 2026-09-14T09:52:31.768Z UTC through `wooCollectionRequest`, GET only: 4 WooCommerce requests/responses, with every response page validated against WooCommerce total/page headers.
@@ -147,11 +199,11 @@ After run 3, site source state is `partial`, `active_run` is null, and `current_
 
 Selected site source reference is destination run 1 (accepted source run 663). Its selected page IDs, URLs and page types are empty because it has zero inspected-page rows. Run 3 page IDs/URLs remain persisted under run 3 but are not Product-selected.
 
-**Freeze readiness: No.** The exact blocker is the existing current/LKG selection rule: `organic_finish_run` updates `current_complete_run` only when `p_state = 'complete'` (migration `supabase/migrations/20260903000000_v1_04_slice_a_integrity.sql:111-114`); `loadDiscoveryEvidence()` reads the site run referenced by that pointer (`product-kernel/decisionEvidenceAdapter.js:62-79`) and only uses the latest partial run to label state/fingerprint (`:99-104`). The smallest next decision is whether governance authorizes Product to select partial site runs while retaining their partial status and limitations. No pointer was changed, no partial run was promoted, and no second collection was started.
+**Historical freeze readiness at collection time: No.** The blocker then was the current/LKG selection rule: `organic_finish_run` updates `current_complete_run` only when `p_state = 'complete'` (migration `supabase/migrations/20260903000000_v1_04_slice_a_integrity.sql:111-114`); `loadDiscoveryEvidence()` read only the site run referenced by that pointer. Governance has since authorized selection of usable partial evidence, and the current verified result is recorded at the top of this report. At the historical checkpoint, no pointer was changed, no partial run was promoted, and no second collection was started.
 
 ## Learning Layer
 
-The PostgREST response ceiling applies to each request, so complete evidence selection requires stable keyset pages plus exact stored-count reconciliation. The reusable reader is `readBoundedEvidenceRows()` in `product-kernel/decisionEvidenceAdapter.js:13`. Site acquisition may persist a partial run without selecting it: the connector preserves the current complete/LKG pointer and the normal loader reads that pointer.
+`loadDiscoveryEvidence()` in `product-kernel/decisionEvidenceAdapter.js` now separates Product evidence selection from the lifecycle-owned complete/LKG pointer. A partial run is useful only when persisted inspected-page evidence and run provenance are coherent; its partial state and limitations remain explicit. Safe experiment: the empty-partial regression case verifies complete/LKG fallback without changing either run or its pointer.
 
 ## Safe read-only experiment
 
@@ -165,5 +217,5 @@ The safe post-collection experiment replayed `loadDiscoveryEvidence()` read-only
 - No orders, customer identities, sales history, margin, conversion, paid external-search evidence, or old AI interpretations are included.
 - Search Console is provider-limited and dated; missing or unmeasured data must not be treated as zero.
 - Recommendation quality has not been assessed.
-- One bounded collection used `POST /api/product/organic-evidence/site/acquire` in `routes/siteEvidence.js:27` and the existing `SITE_LIMITS` in `product-kernel/siteEvidence.js:7`; it hit the existing 100-page inspection cap and returned partial. No second collection is authorized here. Before later freezing these inputs, the owner must decide whether Product may select partial site runs with their incomplete state preserved; otherwise the complete/LKG selection rule remains in force. No selection-policy change or second crawl was made.
+- One bounded collection used `POST /api/product/organic-evidence/site/acquire` in `routes/siteEvidence.js:27` and the existing `SITE_LIMITS` in `product-kernel/siteEvidence.js:7`; it hit the existing 100-page inspection cap and returned partial. No second collection was performed. The owner’s decision to allow Product selection of usable partial runs while preserving their incomplete state is resolved by the correction documented above. No second crawl was made.
 - This is an input-preparation artifact only. No AI assessment, discovery, interpretation, recommendation, or decision-engine step was run.
