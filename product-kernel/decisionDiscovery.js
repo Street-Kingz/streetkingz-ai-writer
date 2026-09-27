@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-export const DISCOVERY_VERSION = "v1-05-slice-a-4-provenance";
+export const DISCOVERY_VERSION = "v1-05-slice-a-5-provenance";
 export const CANDIDATE_TYPES = Object.freeze([
   "existing_product_improvement",
   "existing_category_improvement",
@@ -20,21 +20,49 @@ const norm = value => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "
 const pageRef = id => `page:${id}`;
 const targetRef = (kind, id) => `${kind}:${id}`;
 
+function canonicalUrlIdentity(value) {
+  if (!value) return null;
+  try {
+    const url = new URL(String(value).trim());
+    url.protocol = url.protocol.toLowerCase();
+    url.hostname = url.hostname.toLowerCase();
+    if ((url.protocol === "https:" && url.port === "443") || (url.protocol === "http:" && url.port === "80")) url.port = "";
+    url.hash = "";
+    for (const key of [...url.searchParams.keys()]) if (/^(utm_|gclid$|fbclid$|msclkid$)/i.test(key)) url.searchParams.delete(key);
+    url.searchParams.sort();
+    url.pathname = url.pathname.replace(/\/+/g, "/");
+    if (url.pathname.length > 1) url.pathname = url.pathname.replace(/\/$/, "");
+    return url.toString();
+  } catch {
+    return String(value).trim().replace(/\/$/, "");
+  }
+}
+
+function urlSlug(value) {
+  try { return new URL(String(value)).pathname.split("/").filter(Boolean).pop()?.toLowerCase() || null; } catch { return null; }
+}
+
+function boundedPageFallback(items, page, nameKey = "name") {
+  const slug = urlSlug(page?.url);
+  const slugMatches = slug ? items.filter(item => item.slug && String(item.slug).toLowerCase() === slug) : [];
+  if (slugMatches.length === 1) return slugMatches[0];
+  const pageText = norm(page?.title || page?.h1);
+  const nameMatches = pageText ? items.filter(item => norm(item[nameKey]) === pageText) : [];
+  return nameMatches.length === 1 ? nameMatches[0] : null;
+}
+
 function pageTargets(packet, page) {
-  const text = norm(`${page?.title || ""} ${page?.h1 || ""} ${page?.url || ""}`);
   const targets = [];
   if (page?.type === "product") {
-    const product = (packet.commerce?.products || []).find(p => {
-      const productText = norm(`${p.name || ""} ${p.slug || ""} ${p.canonical_url || ""}`);
-      return productText && (text.includes(productText) || productText.includes(text));
-    });
+    const pageIdentity = canonicalUrlIdentity(page.url);
+    const products = packet.commerce?.products || [];
+    const product = (pageIdentity ? products.find(p => canonicalUrlIdentity(p.canonical_url) === pageIdentity) : null) || boundedPageFallback(products, page);
     if (product) targets.push(targetRef("product", product.id));
     targets.push(pageRef(page.id));
   } else if (page?.type === "category") {
-    const category = (packet.commerce?.categories || []).find(c => {
-      const categoryText = norm(`${c.name || ""} ${c.slug || ""}`);
-      return categoryText && (text.includes(categoryText) || categoryText.includes(text));
-    });
+    const pageIdentity = canonicalUrlIdentity(page.url);
+    const categories = packet.commerce?.categories || [];
+    const category = (pageIdentity ? categories.find(c => canonicalUrlIdentity(c.canonical_url) === pageIdentity) : null) || boundedPageFallback(categories, page);
     if (category) targets.push(targetRef("category", category.id));
     targets.push(pageRef(page.id));
   } else if (page?.type === "content" || page?.type === "home") targets.push(pageRef(page.id));
@@ -55,6 +83,26 @@ export function discoverCandidates(packet) {
   const pageById = new Map(pages.map(page => [page.id, page]));
   const byIdentity = new Map();
   const boundEvidence = evidence => [...new Map(evidence.map(ref => [`${ref.source_kind}:${ref.source_record_id}:${ref.source_run_or_generation_reference || ""}:${ref.relationship || ""}`, ref])).values()].sort((a, b) => `${a.source_kind}:${a.source_record_id}`.localeCompare(`${b.source_kind}:${b.source_record_id}`)).slice(0, 40);
+  const sourcePacketKey = source => source === "external_search" ? "external" : source;
+  const sourceState = (source, dimension) => {
+    const sourceData = p[sourcePacketKey(source)] || {};
+    if (dimension === "freshness") return sourceData.freshness_state || sourceData.state || "unknown";
+    return sourceData.completeness_state || sourceData.selected_run_completeness || sourceData.state || "unknown";
+  };
+  const aggregateSourceStates = states => {
+    const unique = [...new Set(states.filter(Boolean))];
+    if (!unique.length) return "unknown";
+    if (unique.length === 1) return unique[0];
+    if (unique.includes("partial") || unique.includes("provider_limited")) return "partial";
+    if (unique.every(state => state === "missing" || state === "unavailable")) return "missing";
+    if (unique.includes("available")) return "available";
+    return unique.sort()[0];
+  };
+  const candidateMaturity = sources => ({
+    freshness_state: aggregateSourceStates(sources.map(source => sourceState(source, "freshness"))),
+    completeness: aggregateSourceStates(sources.map(source => sourceState(source, "completeness"))),
+    limitations: [...new Set(sources.flatMap(source => p[sourcePacketKey(source)]?.limitations || []))]
+  });
   const add = ({ type, targets, targetType, sources, evidence, identityPart }) => {
     if (!CANDIDATE_TYPES.includes(type) || !sources.length || !evidence.length) return;
     const identity = sha256({ type, identity: identityPart || targets });
@@ -63,9 +111,14 @@ export function discoverCandidates(packet) {
       prior.discovery_sources = [...new Set([...prior.discovery_sources, ...sources])].sort();
       prior.evidence_refs = boundEvidence([...prior.evidence_refs, ...evidence]);
       prior.direct_derived_relationships = prior.evidence_refs.map(ref => ({ ...ref, direct_source: true, derived_candidate: true }));
+      const mergedMaturity = candidateMaturity(prior.discovery_sources);
+      prior.freshness_state = mergedMaturity.freshness_state;
+      prior.completeness = mergedMaturity.completeness;
+      prior.limitations = mergedMaturity.limitations;
       if (prior.evidence_refs.length >= 40) prior.limitations = [...new Set([...prior.limitations, "candidate_evidence_ref_cap_hit"])]
       return;
     }
+    const maturity = candidateMaturity(sources);
     byIdentity.set(identity, {
       candidate_identity: identity,
       candidate_type: type,
@@ -77,9 +130,9 @@ export function discoverCandidates(packet) {
       direct_derived_relationships: boundEvidence(evidence).map(ref => ({ ...ref, direct_source: true, derived_candidate: true })),
       market: p.business?.market || null,
       language: p.business?.language || null,
-      freshness_state: p.external?.state || p.search_console?.state || p.site?.state || "unknown",
-      completeness: p.external?.state || p.search_console?.state || p.site?.state || "unknown",
-      limitations: [...new Set([...(p.site?.limitations || []), ...(p.search_console?.limitations || []), ...(p.external?.limitations || [])])],
+      freshness_state: maturity.freshness_state,
+      completeness: maturity.completeness,
+      limitations: maturity.limitations,
       overlap_group_id: null,
       candidate_status: "discovered",
       rejection_reason_codes: [],
@@ -88,11 +141,15 @@ export function discoverCandidates(packet) {
       evaluated_at: null
     });
   };
-  const pageForUrl = url => pages.find(page => page.url && url && norm(page.url) === norm(url));
+  const pageForUrl = url => {
+    const identity = canonicalUrlIdentity(url);
+    return identity ? pages.find(page => canonicalUrlIdentity(page.url) === identity) : undefined;
+  };
   const commerceTargetForUrl = url => {
-    const product = (p.commerce?.products || []).find(item => item.canonical_url && norm(item.canonical_url) === norm(url));
+    const identity = canonicalUrlIdentity(url);
+    const product = identity ? (p.commerce?.products || []).find(item => canonicalUrlIdentity(item.canonical_url) === identity) : null;
     if (product) return { type: "existing_product_improvement", targets: [targetRef("product", product.id)], targetType: "product" };
-    const category = (p.commerce?.categories || []).find(item => item.canonical_url && norm(item.canonical_url) === norm(url));
+    const category = identity ? (p.commerce?.categories || []).find(item => canonicalUrlIdentity(item.canonical_url) === identity) : null;
     return category ? { type: "existing_category_improvement", targets: [targetRef("category", category.id)], targetType: "category" } : null;
   };
   const gscRows = p.search_console?.rows || [];

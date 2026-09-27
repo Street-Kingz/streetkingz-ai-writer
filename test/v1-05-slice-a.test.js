@@ -78,6 +78,58 @@ test("Slice A is generic under consistent renaming", () => {
   assert.deepEqual(shape(original), shape(renamed));
 });
 
+test("Slice A derives maturity only from sources supporting each candidate", () => {
+  const base = {
+    business: { market: "GB", language: "en" },
+    site: { state: "partial", completeness_state: "partial", limitations: ["site_cap"], pages: [{ id: "site-page", type: "content", title: "Site guide", url: "https://example.test/guide" }] },
+    search_console: { state: "available", completeness_state: "provider_limited", limitations: ["gsc_provider_limit"], rows: [{ id: "gsc-1", query: "guide", page_id: "site-page" }] },
+    external: { state: "missing", completeness_state: "missing", limitations: ["external_unavailable"], rows: [] }
+  };
+  const gscOnly = discoverCandidates({ ...base, site: { state: "missing", pages: base.site.pages } }).find(candidate => candidate.discovery_sources.length === 1 && candidate.discovery_sources.includes("search_console"));
+  assert.equal(gscOnly.freshness_state, "available");
+  assert.equal(gscOnly.completeness, "provider_limited");
+  assert.deepEqual(gscOnly.limitations, ["gsc_provider_limit"]);
+
+  const siteOnly = discoverCandidates({ ...base, search_console: { state: "missing", rows: [] } }).find(candidate => candidate.discovery_sources.includes("site"));
+  assert.equal(siteOnly.freshness_state, "partial");
+  assert.equal(siteOnly.completeness, "partial");
+  assert.deepEqual(siteOnly.limitations, ["site_cap"]);
+
+  const both = discoverCandidates(base).find(candidate => candidate.candidate_type === "existing_content_improvement" && candidate.discovery_sources.length === 2);
+  assert.equal(both.freshness_state, "partial");
+  assert.equal(both.completeness, "partial");
+  assert.deepEqual(both.limitations, ["gsc_provider_limit", "site_cap"]);
+
+  const genuinelyMissing = discoverCandidates({ ...base, site: { state: "missing", completeness_state: "missing", pages: base.site.pages }, search_console: { state: "missing", rows: [] }, external: { state: "missing", completeness_state: "missing", rows: [{ id: "external-1", query: "guide", serp: [{ url: "https://example.test/guide" }] }] } }).find(candidate => candidate.discovery_sources.includes("external_search"));
+  assert.equal(genuinelyMissing.freshness_state, "missing");
+  assert.equal(genuinelyMissing.completeness, "missing");
+});
+
+test("Slice A resolves product targets by canonical URL identity before any fallback", () => {
+  const packet = {
+    business: { market: "GB", language: "en" },
+    commerce: { products: [
+      { id: "product-a", name: "Same Name", slug: "same-name", canonical_url: "https://shop.test/products/same-name/" },
+      { id: "product-b", name: "Same Name", slug: "same-name-2", canonical_url: "https://shop.test/products/same-name-2/" }
+    ], categories: [] },
+    site: { state: "available", pages: [
+      { id: "page-a", type: "product", title: "Same Name", h1: "Same Name", url: "https://SHOP.test:443/products/same-name/?utm_source=test#details" },
+      { id: "page-unmatched", type: "product", title: "Same Name", h1: "Same Name", url: "https://shop.test/products/other-name/" }
+    ] },
+    search_console: { state: "missing", rows: [] },
+    external: { state: "missing", rows: [] }
+  };
+  const candidates = discoverCandidates(packet).filter(candidate => candidate.candidate_type === "existing_product_improvement");
+  const matched = candidates.find(candidate => candidate.target_resources.includes("page:page-a"));
+  assert.deepEqual(matched.target_resources.sort(), ["page:page-a", "product:product-a"].sort());
+  const unmatched = candidates.find(candidate => candidate.target_resources.includes("page:page-unmatched"));
+  assert.deepEqual(unmatched.target_resources, ["page:page-unmatched"]);
+  assert.equal(candidates.some(candidate => candidate.target_resources.includes("product:product-b") && candidate.target_resources.includes("page:page-a")), false);
+
+  const external = discoverCandidates({ ...packet, site: { state: "missing", pages: packet.site.pages }, external: { state: "available", rows: [{ id: "external-1", query: "same name", serp: [{ url: "https://shop.test/products/same-name/?fbclid=ignored" }] }] } });
+  assert.ok(external.some(candidate => candidate.target_resources.includes("product:product-a") && candidate.target_resources.includes("page:page-a")));
+});
+
 test("Product discovery runtime has no frozen-corpus label dependency", () => {
   const runtime = ["product-kernel/decisionDiscovery.js", "product-kernel/decisionEvidenceAdapter.js", "routes/decisionRuns.js"].map(file => fs.readFileSync(file, "utf8")).join("\n");
   assert.equal(runtime.includes("V105-EVAL-"), false);
