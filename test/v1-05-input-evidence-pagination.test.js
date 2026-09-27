@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { loadDiscoveryEvidence } from "../product-kernel/decisionEvidenceAdapter.js";
-import { buildInputHash } from "../product-kernel/decisionDiscovery.js";
+import { buildInputHash, discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 
 const BUSINESS_ID = "business-1";
 const GSC_RUN_ID = "gsc-run-7";
@@ -69,7 +69,7 @@ class Query {
 }
 
 function makeAdmin(options = {}) {
-  const { gscRows = [], externalRows = [], failPage, emptyPage, shortPage, duplicatePage, changedFinalCount } = options;
+  const { gscRows = [], externalRows = [], products = [], failPage, emptyPage, shortPage, duplicatePage, changedFinalCount } = options;
   const hasGsc = Object.hasOwn(options, "gscRows");
   const hasExternal = Object.hasOwn(options, "externalRows");
   const calls = [];
@@ -96,6 +96,7 @@ function makeAdmin(options = {}) {
         const value = runId === GSC_RUN_ID || runId === EXTERNAL_RUN_ID ? { id: runId, state: "complete", completeness_state: "provider_limited", retrieved_at: "2026-09-03T10:00:00Z", evidence_period_start: "2025-09-04", evidence_period_end: "2026-09-03", completed_at: "2026-09-03T10:00:01Z", error_code: null, source_version: "test", provider_version: "test" } : null;
         return single ? { data: value, error: null } : { data: value ? [value] : [], error: null };
       }
+      if (query.table === "commerce_products") return { data: products, error: null };
       if (query.table === "commerce_sync_generations") return { data: { id: "generation-1", state: "complete", started_at: null, completed_at: null, snapshot_kind: "complete" }, error: null };
       if (!isEvidence) return { data: [], error: null };
       const scoped = rows.filter(row => filters.business_id === BUSINESS_ID && (query.table === "organic_search_console_observations" ? filters.run_id === GSC_RUN_ID : filters.run_id === EXTERNAL_RUN_ID));
@@ -132,6 +133,8 @@ test("GSC pagination returns all 1,125 uniquely identified rows across a 1,000-r
     assert.equal(loaded.packet.search_console.rows[0].query, rows[0].query);
     assert.equal(loaded.packet.search_console.rows[1124].impressions, rows[1124].impressions);
     assert.equal(loaded.packet.search_console.rows[1124].provider_limitations[0], "provider_limited_detail");
+    assert.equal(loaded.packet.search_console.selected_run_state, "complete");
+    assert.equal(loaded.packet.search_console.selected_run_completeness, "provider_limited");
     assert.equal(loaded.packet.search_console.rows[1124].source_run_or_generation_reference, GSC_RUN_ID);
     assert.deepEqual(loaded.packet.search_console.observation_coverage, { stored_count: 1125, selected_count: 1125, record_limit: 2000, truncated: false, exhaustive: true });
     assert.deepEqual(admin.calls.filter(call => call.table === "organic_search_console_observations" && !call.count).map(call => [call.cursor, call.limit]), [[null, 1000], [1000, 125]]);
@@ -144,6 +147,20 @@ test("GSC pagination returns all 1,125 uniquely identified rows across a 1,000-r
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test("normal GSC adapter preserves selected-run completeness for discovery maturity", async () => {
+  const rows = [makeGscRow(1)];
+  const loaded = await load(makeAdmin({
+    gscRows: rows,
+    products: [{ id: "product-1", name: "Product 1", slug: "product-1", canonical_url: rows[0].page_url }]
+  }));
+  const candidate = discoverCandidates(loaded.packet).find(item => item.candidate_type === "existing_product_improvement");
+  assert.equal(loaded.packet.search_console.state, "available");
+  assert.equal(loaded.packet.search_console.selected_run_completeness, "provider_limited");
+  assert.ok(candidate);
+  assert.equal(candidate.discovery_sources.join(","), "search_console");
+  assert.equal(candidate.completeness, "provider_limited");
 });
 
 test("zero observations and exact 2,000-row boundaries are exhaustive without an extra empty page", async () => {
@@ -199,10 +216,15 @@ test("the same bounded reader paginates the already-selected external observatio
   const admin = makeAdmin({ externalRows: rows });
   const loaded = await load(admin);
   assert.equal(loaded.packet.external.selected_run_id, EXTERNAL_RUN_ID);
+  assert.equal(loaded.packet.external.selected_run_state, "complete");
+  assert.equal(loaded.packet.external.selected_run_completeness, "provider_limited");
   assert.equal(loaded.packet.external.observation_coverage.stored_count, 1125);
   assert.equal(loaded.packet.external.observation_coverage.selected_count, 1125);
   assert.equal(loaded.packet.external.rows.length, 1125);
   assert.deepEqual(admin.calls.filter(call => call.table === "organic_external_observations").map(call => [call.count, call.cursor, call.filters.business_id, call.filters.run_id]), [
     [true, null, BUSINESS_ID, EXTERNAL_RUN_ID], [false, null, BUSINESS_ID, EXTERNAL_RUN_ID], [false, 1000, BUSINESS_ID, EXTERNAL_RUN_ID], [true, null, BUSINESS_ID, EXTERNAL_RUN_ID]
   ]);
+  const candidate = discoverCandidates(loaded.packet).find(item => item.candidate_type === "new_page_or_content_asset");
+  assert.ok(candidate);
+  assert.equal(candidate.completeness, "provider_limited");
 });

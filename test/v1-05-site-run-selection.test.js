@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { loadDiscoveryEvidence } from "../product-kernel/decisionEvidenceAdapter.js";
+import { discoverCandidates } from "../product-kernel/decisionDiscovery.js";
 
 const BUSINESS = "business-1";
 const SOURCE = "site-source-1";
@@ -81,6 +82,10 @@ test("newer usable partial supersedes an empty complete/LKG run without changing
   assert.equal(loaded.packet.site.selected_run_id, "11");
   assert.equal(loaded.packet.site.state, "partial");
   assert.equal(loaded.packet.site.selected_run_completeness, "partial");
+  const candidate = discoverCandidates(loaded.packet).find(item => item.candidate_type === "existing_product_improvement");
+  assert.ok(candidate);
+  assert.equal(candidate.discovery_sources.join(","), "site");
+  assert.equal(candidate.completeness, "partial");
   assert.equal(loaded.packet.site.selection_reason, "latest_usable_partial_with_persisted_inspected_pages");
   assert.ok(loaded.packet.site.limitations.includes("selected_site_run_is_partial"));
   assert.equal(loaded.packet.site.coverage.discovered_url_count, 1);
