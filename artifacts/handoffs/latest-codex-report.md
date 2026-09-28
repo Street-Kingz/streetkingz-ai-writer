@@ -6,7 +6,8 @@
 - Date: 2026-09-28
 - Branch: `feature/v1-05-opportunity-recommendation`
 - Starting SHA: `0268e6013da8c00abbcead3888668c2ddf998666`
-- Final/current SHA: the repair commit created by this task; no source commit existed at report generation.
+- Final/current SHA at repair commit: `6d5f172`.
+- Repair commit: `6d5f172` (`fix(v1-05): derive recommendation priority from genuine evidence`).
 
 ## Status
 
