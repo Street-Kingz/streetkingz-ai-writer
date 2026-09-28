@@ -1,11 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { buildRecommendationIdentity, buildRecommendationRecord, merchantSafetyProjection, qualificationEligibility, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
+import { buildRecommendationIdentity, buildRecommendationRecord, deriveEvidenceCoverage, merchantSafetyProjection, qualificationEligibility, rankRecommendations, upsertRecommendationRecords, projectMerchantRecommendation } from "../product-kernel/recommendationEngine.js";
 import { feedProjection, detailProjection, persistRecommendationRecords, resolveTargetLabels, recommendationPersistenceRow } from "../product-kernel/recommendationRepository.js";
 import { mergeSelectedRecommendationInputs } from "../routes/recommendations.js";
 
-const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretation_state: "complete", deterministic_disposition: "pass", candidate_status: "interpreted", interpretive_disposition: "retain", intent_confidence: "medium", evidence_maturity: "mixed", evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
+const base = { candidate_identity: "test-candidate", candidate_type: "existing_product_improvement", customer_job: "Improve a bounded product opportunity", relevance_state: "relevant", target_attribution_state: "established", attributed_target_resources: ["product:1"], page_type_fit: "aligned", new_asset_fit: "not_applicable", interpretation_state: "complete", deterministic_disposition: "pass", candidate_status: "interpreted", interpretive_disposition: "retain", intent_confidence: "medium", freshness_state: "available", completeness: "provider_limited", discovery_sources: ["gsc"], evidence_refs: [{ source_kind: "fixture", source_record_type: "observation", source_record_id: "e1", source_run_or_generation_reference: "r1", relationship: "supports" }], limitations: [] };
 const record = (overrides = {}) => ({ ...base, ...overrides });
 
 test("merchant safety fails closed for unsafe decisions and defers uncertainty", () => {
@@ -31,11 +31,35 @@ test("qualification gate prevents bounded or incomplete candidates becoming curr
 });
 
 test("qualified sparse data remains actionable without optional commercial data or an existing URL", () => {
-  const sparse = buildRecommendationRecord(record({ evidence_maturity: "sparse", commercial_context: undefined }), { businessId: "b", runId: "r" });
+  const sparse = buildRecommendationRecord(record({ freshness_state: "partial", completeness: "partial", commercial_context: undefined }), { businessId: "b", runId: "r" });
   assert.equal(sparse.status, "current"); assert.equal(sparse.priority_band, "low"); assert.equal(sparse.commercial_signal.state, "unknown");
   const newAssetCandidate = record({ candidate_identity: "new-asset", candidate_type: "new_page_or_content_asset", attributed_target_resources: [], target_attribution_state: "unresolved", new_asset_fit: "supported" });
   const newAsset = buildRecommendationRecord(newAssetCandidate);
   assert.equal(qualificationEligibility(newAssetCandidate).state, "qualified"); assert.equal(newAsset.merchant_safety_reasons.includes("invalid_or_missing_target_attribution"), false);
+});
+
+test("genuine evidence states derive an inspectable coverage contract", () => {
+  const mixed = buildRecommendationRecord(record({ freshness_state: "available", completeness: "provider_limited", discovery_sources: ["gsc", "site"], limitations: ["query coverage is provider limited"] }));
+  const sparse = buildRecommendationRecord(record({ candidate_identity: "sparse", freshness_state: "partial", completeness: "partial", discovery_sources: ["gsc"] }));
+  const unavailable = buildRecommendationRecord(record({ candidate_identity: "unavailable", freshness_state: "missing", completeness: "unavailable", discovery_sources: [] }));
+  assert.equal(mixed.evidence_maturity, "mixed");
+  assert.equal(mixed.priority_band, "medium");
+  assert.equal(mixed.evidence_coverage.source_scope, "multi_source");
+  assert.equal(mixed.evidence_coverage.limitations_present, true);
+  assert.equal(mixed.priority_reasons.includes("evidence_completeness_provider_limited"), true);
+  assert.equal(mixed.priority_reasons.includes("evidence_limitations_present"), true);
+  assert.equal(sparse.evidence_maturity, "sparse");
+  assert.equal(sparse.priority_band, "low");
+  assert.equal(sparse.evidence_coverage.source_scope, "single_source");
+  assert.equal(unavailable.evidence_maturity, "unavailable");
+  assert.equal(unavailable.priority_band, "low");
+  assert.equal(unavailable.priority_reasons.includes("evidence_maturity_unavailable"), true);
+  assert.equal(unavailable.commercial_signal.state, "unknown");
+});
+
+test("coverage derivation is deterministic and does not use evidence quantity as value", () => {
+  const candidate = record({ freshness_state: "available", completeness: "provider_limited", discovery_sources: ["site", "gsc", "site"], evidence_refs: Array.from({ length: 10 }, (_, index) => ({ source_kind: "site", source_record_id: String(index) })) });
+  assert.deepEqual(deriveEvidenceCoverage(candidate), deriveEvidenceCoverage({ ...candidate, evidence_refs: [candidate.evidence_refs[0]] }));
 });
 
 test("recommendation persistence applies qualification before promotion", async () => {
@@ -49,12 +73,12 @@ test("recommendation persistence applies qualification before promotion", async 
     };
   } };
   const candidates = [
-    record({ candidate_identity: "qualified-sparse", evidence_maturity: "sparse", commercial_context: undefined }),
+    record({ candidate_identity: "qualified-sparse", freshness_state: "partial", completeness: "partial", commercial_context: undefined }),
     record({ candidate_identity: "bounded", deterministic_disposition: "bounded_out", candidate_status: "discovered", interpretation_state: "pending" }),
     record({ candidate_identity: "missing-evaluation", deterministic_disposition: "pass", candidate_status: "eligible", interpretation_state: "pending", interpretive_disposition: "not_applicable" }),
     record({ candidate_identity: "deterministic-rejection", deterministic_disposition: "reject", candidate_status: "rejected" }),
     record({ candidate_identity: "uncertain", interpretive_disposition: "retain_uncertain", intent_confidence: "low" }),
-    record({ candidate_identity: "valid-action", evidence_maturity: "rich" })
+    record({ candidate_identity: "valid-action", freshness_state: "available", completeness: "available" })
   ];
   await persistRecommendationRecords({ admin, businessId: "b", runId: "r", candidates });
   const byIdentity = new Map(saved.map(row => [row.source_candidate_identity, row]));
@@ -139,7 +163,7 @@ test("commercial calibration manifest contains the frozen eleven plus one new ge
 });
 
 test("target resolution and merchant feed/detail projections are bounded", () => {
-  const recommendations = upsertRecommendationRecords([], [record({ candidate_identity: "high", evidence_maturity: "rich" }), record({ candidate_identity: "deferred", target_attribution_state: "ambiguous" }), record({ candidate_identity: "blocked", page_type_fit: "misaligned" })], { businessId: "b", runId: "r" });
+  const recommendations = upsertRecommendationRecords([], [record({ candidate_identity: "high", freshness_state: "available", completeness: "available" }), record({ candidate_identity: "deferred", target_attribution_state: "ambiguous" }), record({ candidate_identity: "blocked", page_type_fit: "misaligned" })], { businessId: "b", runId: "r" });
   const options = { products: [{ id: "1", name: "XL Drying Towel" }] };
   assert.equal(resolveTargetLabels(["product:1"], options)[0].label, "XL Drying Towel");
   const feed = feedProjection(recommendations, options);
@@ -150,7 +174,7 @@ test("target resolution and merchant feed/detail projections are bounded", () =>
 });
 
 test("terminal lifecycle states survive regeneration and feed is capped at five current tasks", () => {
-  const candidates = Array.from({ length: 7 }, (_, index) => record({ candidate_identity: `candidate-${index}`, evidence_maturity: "rich" }));
+  const candidates = Array.from({ length: 7 }, (_, index) => record({ candidate_identity: `candidate-${index}`, freshness_state: "available", completeness: "available" }));
   const records = upsertRecommendationRecords([], candidates, { businessId: "b", runId: "r" });
   assert.equal(records.filter(item => item.status === "current").length, 5);
   const terminal = { ...records[0], status: "completed" };

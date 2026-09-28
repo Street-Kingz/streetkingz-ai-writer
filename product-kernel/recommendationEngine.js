@@ -9,6 +9,40 @@ const deterministicRejectStates = new Set(["reject", "rejected"]);
 
 function text(value, fallback = "") { return typeof value === "string" ? value : fallback; }
 function unique(values) { return [...new Set((values || []).filter(Boolean).map(String))]; }
+function evidenceDimensionQuality(value) {
+  const state = text(value).toLowerCase();
+  if (["available", "complete"].includes(state)) return "available";
+  if (["partial", "provider_limited", "limited"].includes(state)) return "limited";
+  if (["missing", "unavailable", "not_observed"].includes(state)) return "unavailable";
+  return "unknown";
+}
+
+// Coverage is derived from the two governed discovery dimensions. Source count and limitations explain the result; they do not independently score business value.
+export function deriveEvidenceCoverage(candidate = {}) {
+  const freshnessState = text(candidate.freshness_state, "unknown");
+  const completeness = text(candidate.completeness, "unknown");
+  const freshnessQuality = evidenceDimensionQuality(freshnessState);
+  const completenessQuality = evidenceDimensionQuality(completeness);
+  const sourceKinds = (candidate.discovery_sources || []).map(source => typeof source === "string" ? source : source?.source_kind || source?.kind).filter(Boolean);
+  const sourceCount = unique(sourceKinds).length;
+  const sourceScope = sourceCount > 1 ? "multi_source" : sourceCount === 1 ? "single_source" : "none";
+  let maturity = "unknown";
+  if (freshnessQuality === "available" && completenessQuality === "available") maturity = "rich";
+  else if (new Set([freshnessQuality, completenessQuality]).has("available") && new Set([freshnessQuality, completenessQuality]).has("limited")) maturity = "mixed";
+  else if (freshnessQuality === "limited" && completenessQuality === "limited") maturity = "sparse";
+  else if ([freshnessQuality, completenessQuality].includes("unavailable")) maturity = "unavailable";
+  return { maturity, freshness_state: freshnessState, completeness, freshness_quality: freshnessQuality, completeness_quality: completenessQuality, source_scope: sourceScope, source_count: sourceCount, limitations_present: unique(candidate.limitations).length > 0 };
+}
+
+function evidencePriorityReasons(coverage) {
+  const reasons = [`evidence_maturity_${coverage.maturity}`];
+  if (coverage.freshness_state !== "unknown") reasons.push(`evidence_freshness_${coverage.freshness_state}`);
+  if (coverage.completeness !== "unknown") reasons.push(`evidence_completeness_${coverage.completeness}`);
+  if (coverage.source_scope !== "none") reasons.push(`evidence_source_scope_${coverage.source_scope}`);
+  if (coverage.limitations_present) reasons.push("evidence_limitations_present");
+  return reasons;
+}
+
 function interventionFor(candidate) {
   return { existing_product_improvement: "improve_existing_product", existing_category_improvement: "improve_existing_category", existing_content_improvement: "improve_existing_content", new_page_or_content_asset: "create_new_page_or_content_asset", internal_linking: "improve_internal_linking" }[candidate.candidate_type] || null;
 }
@@ -63,11 +97,12 @@ export function merchantSafetyProjection(candidate) {
 
 function priorityFor(candidate, safety, commercial) {
   if (safety.state !== "safe" || rejectDispositions.has(candidate.interpretive_disposition)) return { band: "reassess", reasons: [safety.state === "unsafe" ? "merchant_safety_blocked" : "not_ready_for_confident_action"] };
+  const coverage = deriveEvidenceCoverage(candidate);
   const reasons = [];
-  let band = candidate.evidence_maturity === "rich" && candidate.target_attribution_state === "established" && candidate.page_type_fit === "aligned" ? "high" : candidate.evidence_maturity === "sparse" ? "low" : "medium";
+  let band = coverage.maturity === "rich" && candidate.target_attribution_state === "established" && candidate.page_type_fit === "aligned" ? "high" : ["sparse", "unavailable", "unknown"].includes(coverage.maturity) ? "low" : "medium";
   if (candidate.target_attribution_state === "established") reasons.push("target_is_established");
   if (candidate.page_type_fit === "aligned") reasons.push("page_type_fit_is_aligned");
-  if (candidate.evidence_maturity) reasons.push(`evidence_maturity_${candidate.evidence_maturity}`);
+  reasons.push(...evidencePriorityReasons(coverage));
   if (commercial.state === "supportive") { band = band === "low" ? "medium" : "high"; reasons.push("reliable_commercial_context_supports_priority"); }
   if (commercial.state === "adverse") { band = band === "high" ? "medium" : "low"; reasons.push("commercial_constraint_changes_sequencing"); }
   if (commercial.state === "unknown") reasons.push("commercial_context_remains_unknown");
@@ -81,7 +116,7 @@ export function buildRecommendationIdentity({ businessId, runId: _runId, candida
 export function buildRecommendationRecord(candidate, { businessId = null, runId = null } = {}) {
   if (!candidate || !candidate.candidate_identity) throw new Error("RECOMMENDATION_CANDIDATE_IDENTITY_REQUIRED");
   const qualification = qualificationEligibility(candidate);
-  const safety = merchantSafetyProjection(candidate); const commercial = commercialSignal(candidate); const priority = priorityFor(candidate, safety, commercial); const intervention = interventionFor(candidate);
+  const safety = merchantSafetyProjection(candidate); const commercial = commercialSignal(candidate); const priority = priorityFor(candidate, safety, commercial); const intervention = interventionFor(candidate); const evidenceCoverage = deriveEvidenceCoverage(candidate);
   const rejected = rejectDispositions.has(candidate.interpretive_disposition);
   if (qualification.state !== "qualified") {
     const qualificationSafety = { state: "uncertain", reasons: qualification.reasons };
@@ -95,7 +130,7 @@ export function buildRecommendationRecord(candidate, { businessId = null, runId 
       recommendation_id: buildRecommendationIdentity({ businessId, runId, candidate }), business_id: businessId, source_run_id: runId, source_candidate_identity: candidate.candidate_identity,
       status: "deferred", intervention: qualificationRejected ? "no_action" : "insufficient_evidence", priority_band: "reassess",
       priority_reasons: unique([...qualification.reasons, "qualification_required_before_action"]), target_resources: unique(candidate.attributed_target_resources), customer_job: text(candidate.customer_job) || null,
-      merchant_safety_state: qualificationSafety.state, merchant_safety_reasons: qualificationSafety.reasons, commercial_signal: commercial, confidence: text(candidate.intent_confidence, "unknown"), limitations: unique(candidate.limitations), evidence_refs: candidate.evidence_refs || [],
+      merchant_safety_state: qualificationSafety.state, merchant_safety_reasons: qualificationSafety.reasons, commercial_signal: commercial, confidence: text(candidate.intent_confidence, "unknown"), limitations: unique(candidate.limitations), evidence_refs: candidate.evidence_refs || [], evidence_maturity: evidenceCoverage.maturity, evidence_coverage: evidenceCoverage,
       why_this_matters: explanation,
       what_to_do_next: [{ objective: qualificationRejected ? "No action" : completedUncertainty ? "Reassess the uncertain interpretation before action" : "Complete qualification before action", actions: qualificationRejected ? ["Retain the rejection rationale for audit"] : completedUncertainty ? ["Review the cited evidence and completed interpretation", "Reassess the opportunity after the evidence is updated"] : ["Review the cited evidence and complete applicable qualification", "Reassess the opportunity after the evidence is updated"], prerequisites: ["Evidence review"], important_limitation: "No current action is authorised from this state." }],
       recommendation_version: RECOMMENDATION_VERSION, provenance: { candidate_version: candidate.candidate_version || null, interpretation_version: candidate.interpretation_version || null, instruction_version: candidate.instruction_version || null, evidence_refs: candidate.evidence_refs || [] }
@@ -104,7 +139,7 @@ export function buildRecommendationRecord(candidate, { businessId = null, runId 
   const status = safety.state === "unsafe" ? "needs_reassessment" : safety.state === "uncertain" ? "deferred" : "current";
   const finalIntervention = rejected ? "no_action" : safety.state === "unsafe" ? "insufficient_evidence" : safety.state === "uncertain" ? "insufficient_evidence" : intervention;
   return {
-    recommendation_id: buildRecommendationIdentity({ businessId, runId, candidate }), business_id: businessId, source_run_id: runId, source_candidate_identity: candidate.candidate_identity, status, intervention: finalIntervention, priority_band: priority.band, priority_reasons: unique([...priority.reasons, ...safety.reasons]), target_resources: unique(candidate.attributed_target_resources), customer_job: text(candidate.customer_job) || null, merchant_safety_state: safety.state, merchant_safety_reasons: safety.reasons, commercial_signal: commercial, confidence: text(candidate.intent_confidence, "unknown"), limitations: unique(candidate.limitations), evidence_refs: candidate.evidence_refs || [], why_this_matters: safety.state === "safe" && !rejected ? "Bounded organic evidence supports work on this opportunity and its identified target." : safety.state === "uncertain" ? "The opportunity may matter, but the available evidence is not strong enough for a confident current action." : safety.state === "unsafe" ? "This candidate is blocked because its merchant-facing decision safety could not be established." : "The candidate was not promoted because its interpretation disposition does not support action.", what_to_do_next: safety.state === "safe" && !rejected ? actionList(candidate, intervention) : [{ objective: "Resolve the evidence limitation before action", actions: ["Review the cited evidence and target state", "Confirm the missing or conflicting information", "Reassess the opportunity after the evidence is updated"], prerequisites: ["Evidence review"], important_limitation: "No current action is authorised from this state." }], recommendation_version: RECOMMENDATION_VERSION, provenance: { candidate_version: candidate.candidate_version || null, interpretation_version: candidate.interpretation_version || null, instruction_version: candidate.instruction_version || null, evidence_refs: candidate.evidence_refs || [] }
+    recommendation_id: buildRecommendationIdentity({ businessId, runId, candidate }), business_id: businessId, source_run_id: runId, source_candidate_identity: candidate.candidate_identity, status, intervention: finalIntervention, priority_band: priority.band, priority_reasons: unique([...priority.reasons, ...safety.reasons]), target_resources: unique(candidate.attributed_target_resources), customer_job: text(candidate.customer_job) || null, merchant_safety_state: safety.state, merchant_safety_reasons: safety.reasons, commercial_signal: commercial, confidence: text(candidate.intent_confidence, "unknown"), limitations: unique(candidate.limitations), evidence_refs: candidate.evidence_refs || [], evidence_maturity: evidenceCoverage.maturity, evidence_coverage: evidenceCoverage, why_this_matters: safety.state === "safe" && !rejected ? "Bounded organic evidence supports work on this opportunity and its identified target." : safety.state === "uncertain" ? "The opportunity may matter, but the available evidence is not strong enough for a confident current action." : safety.state === "unsafe" ? "This candidate is blocked because its merchant-facing decision safety could not be established." : "The candidate was not promoted because its interpretation disposition does not support action.", what_to_do_next: safety.state === "safe" && !rejected ? actionList(candidate, intervention) : [{ objective: "Resolve the evidence limitation before action", actions: ["Review the cited evidence and target state", "Confirm the missing or conflicting information", "Reassess the opportunity after the evidence is updated"], prerequisites: ["Evidence review"], important_limitation: "No current action is authorised from this state." }], recommendation_version: RECOMMENDATION_VERSION, provenance: { candidate_version: candidate.candidate_version || null, interpretation_version: candidate.interpretation_version || null, instruction_version: candidate.instruction_version || null, evidence_refs: candidate.evidence_refs || [] }
   };
 }
 
